@@ -1,16 +1,12 @@
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IItemEnumerator_Impl: Sized {
-    fn Current(&self) -> ::windows_core::Result<super::Variant::VARIANT>;
+    fn Current(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
     fn MoveNext(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn Reset(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IItemEnumerator {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IItemEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IItemEnumerator_Impl, const OFFSET: isize>() -> IItemEnumerator_Vtbl {
-        unsafe extern "system" fn Current<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IItemEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Current<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IItemEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Current() {
@@ -126,8 +122,8 @@ impl ISettingsContext_Vtbl {
         iid == &<ISettingsContext as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISettingsEngine_Impl: Sized {
     fn GetNamespaces(&self, flags: WcmNamespaceEnumerationFlags, reserved: *const ::core::ffi::c_void) -> ::windows_core::Result<IItemEnumerator>;
     fn GetNamespace(&self, settingsid: ::core::option::Option<&ISettingsIdentity>, access: WcmNamespaceAccess, reserved: *const ::core::ffi::c_void) -> ::windows_core::Result<ISettingsNamespace>;
@@ -136,7 +132,7 @@ pub trait ISettingsEngine_Impl: Sized {
     fn GetStoreStatus(&self, reserved: *const ::core::ffi::c_void) -> ::windows_core::Result<WcmUserStatus>;
     fn LoadStore(&self, flags: u32) -> ::windows_core::Result<()>;
     fn UnloadStore(&self, reserved: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
-    fn RegisterNamespace(&self, settingsid: ::core::option::Option<&ISettingsIdentity>, stream: ::core::option::Option<&super::Com::IStream>, pushsettings: super::super::Foundation::BOOL) -> ::windows_core::Result<super::Variant::VARIANT>;
+    fn RegisterNamespace(&self, settingsid: ::core::option::Option<&ISettingsIdentity>, stream: ::core::option::Option<&super::Com::IStream>, pushsettings: super::super::Foundation::BOOL) -> ::windows_core::Result<::windows_core::VARIANT>;
     fn UnregisterNamespace(&self, settingsid: ::core::option::Option<&ISettingsIdentity>, removesettings: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn CreateTargetInfo(&self) -> ::windows_core::Result<ITargetInfo>;
     fn GetTargetInfo(&self) -> ::windows_core::Result<ITargetInfo>;
@@ -146,9 +142,9 @@ pub trait ISettingsEngine_Impl: Sized {
     fn ApplySettingsContext(&self, settingscontext: ::core::option::Option<&ISettingsContext>, pppwzidentities: *mut *mut ::windows_core::PWSTR, pcidentities: *mut usize) -> ::windows_core::Result<()>;
     fn GetSettingsContext(&self) -> ::windows_core::Result<ISettingsContext>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for ISettingsEngine {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ISettingsEngine_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsEngine_Impl, const OFFSET: isize>() -> ISettingsEngine_Vtbl {
         unsafe extern "system" fn GetNamespaces<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: WcmNamespaceEnumerationFlags, reserved: *const ::core::ffi::c_void, namespaces: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -216,7 +212,7 @@ impl ISettingsEngine_Vtbl {
             let this = (*this).get_impl();
             this.UnloadStore(::core::mem::transmute_copy(&reserved)).into()
         }
-        unsafe extern "system" fn RegisterNamespace<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settingsid: *mut ::core::ffi::c_void, stream: *mut ::core::ffi::c_void, pushsettings: super::super::Foundation::BOOL, results: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn RegisterNamespace<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settingsid: *mut ::core::ffi::c_void, stream: *mut ::core::ffi::c_void, pushsettings: super::super::Foundation::BOOL, results: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RegisterNamespace(::windows_core::from_raw_borrowed(&settingsid), ::windows_core::from_raw_borrowed(&stream), ::core::mem::transmute_copy(&pushsettings)) {
@@ -368,12 +364,10 @@ impl ISettingsIdentity_Vtbl {
         iid == &<ISettingsIdentity as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISettingsItem_Impl: Sized {
     fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
-    fn GetValue(&self) -> ::windows_core::Result<super::Variant::VARIANT>;
-    fn SetValue(&self, value: *const super::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn GetValue(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
+    fn SetValue(&self, value: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn GetSettingType(&self) -> ::windows_core::Result<WcmSettingType>;
     fn GetDataType(&self) -> ::windows_core::Result<WcmDataType>;
     fn GetValueRaw(&self, data: *mut *mut u8, datasize: *mut u32) -> ::windows_core::Result<()>;
@@ -385,18 +379,16 @@ pub trait ISettingsItem_Impl: Sized {
     fn CreateSettingByPath(&self, path: &::windows_core::PCWSTR) -> ::windows_core::Result<ISettingsItem>;
     fn RemoveSettingByPath(&self, path: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn GetListKeyInformation(&self, keyname: *mut ::windows_core::BSTR, datatype: *mut WcmDataType) -> ::windows_core::Result<()>;
-    fn CreateListElement(&self, keydata: *const super::Variant::VARIANT) -> ::windows_core::Result<ISettingsItem>;
+    fn CreateListElement(&self, keydata: *const ::windows_core::VARIANT) -> ::windows_core::Result<ISettingsItem>;
     fn RemoveListElement(&self, elementname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn Attributes(&self) -> ::windows_core::Result<IItemEnumerator>;
-    fn GetAttribute(&self, name: &::windows_core::PCWSTR) -> ::windows_core::Result<super::Variant::VARIANT>;
+    fn GetAttribute(&self, name: &::windows_core::PCWSTR) -> ::windows_core::Result<::windows_core::VARIANT>;
     fn GetPath(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn GetRestrictionFacets(&self) -> ::windows_core::Result<WcmRestrictionFacets>;
-    fn GetRestriction(&self, restrictionfacet: WcmRestrictionFacets) -> ::windows_core::Result<super::Variant::VARIANT>;
-    fn GetKeyValue(&self) -> ::windows_core::Result<super::Variant::VARIANT>;
+    fn GetRestriction(&self, restrictionfacet: WcmRestrictionFacets) -> ::windows_core::Result<::windows_core::VARIANT>;
+    fn GetKeyValue(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISettingsItem {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISettingsItem_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>() -> ISettingsItem_Vtbl {
         unsafe extern "system" fn GetName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -410,7 +402,7 @@ impl ISettingsItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetValue() {
@@ -421,7 +413,7 @@ impl ISettingsItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *const super::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValue(::core::mem::transmute_copy(&value)).into()
@@ -523,7 +515,7 @@ impl ISettingsItem_Vtbl {
             let this = (*this).get_impl();
             this.GetListKeyInformation(::core::mem::transmute_copy(&keyname), ::core::mem::transmute_copy(&datatype)).into()
         }
-        unsafe extern "system" fn CreateListElement<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keydata: *const super::Variant::VARIANT, child: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn CreateListElement<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keydata: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, child: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateListElement(::core::mem::transmute_copy(&keydata)) {
@@ -550,7 +542,7 @@ impl ISettingsItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAttribute<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows_core::PCWSTR, value: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetAttribute<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows_core::PCWSTR, value: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetAttribute(::core::mem::transmute(&name)) {
@@ -583,7 +575,7 @@ impl ISettingsItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRestriction<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, restrictionfacet: WcmRestrictionFacets, facetdata: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetRestriction<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, restrictionfacet: WcmRestrictionFacets, facetdata: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetRestriction(::core::mem::transmute_copy(&restrictionfacet)) {
@@ -594,7 +586,7 @@ impl ISettingsItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetKeyValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetKeyValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetKeyValue() {
@@ -635,8 +627,6 @@ impl ISettingsItem_Vtbl {
         iid == &<ISettingsItem as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISettingsNamespace_Impl: Sized {
     fn GetIdentity(&self) -> ::windows_core::Result<ISettingsIdentity>;
     fn Settings(&self) -> ::windows_core::Result<IItemEnumerator>;
@@ -644,11 +634,9 @@ pub trait ISettingsNamespace_Impl: Sized {
     fn GetSettingByPath(&self, path: &::windows_core::PCWSTR) -> ::windows_core::Result<ISettingsItem>;
     fn CreateSettingByPath(&self, path: &::windows_core::PCWSTR) -> ::windows_core::Result<ISettingsItem>;
     fn RemoveSettingByPath(&self, path: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
-    fn GetAttribute(&self, name: &::windows_core::PCWSTR) -> ::windows_core::Result<super::Variant::VARIANT>;
+    fn GetAttribute(&self, name: &::windows_core::PCWSTR) -> ::windows_core::Result<::windows_core::VARIANT>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISettingsNamespace {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISettingsNamespace_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsNamespace_Impl, const OFFSET: isize>() -> ISettingsNamespace_Vtbl {
         unsafe extern "system" fn GetIdentity<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsNamespace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settingsid: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -711,7 +699,7 @@ impl ISettingsNamespace_Vtbl {
             let this = (*this).get_impl();
             this.RemoveSettingByPath(::core::mem::transmute(&path)).into()
         }
-        unsafe extern "system" fn GetAttribute<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsNamespace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows_core::PCWSTR, value: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetAttribute<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsNamespace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::windows_core::PCWSTR, value: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetAttribute(::core::mem::transmute(&name)) {

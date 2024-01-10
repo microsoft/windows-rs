@@ -1,12 +1,12 @@
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_Common\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 pub trait CIE4ConnectionPoint_Impl: Sized + super::super::System::Com::IConnectionPoint_Impl {
     fn DoInvokeIE4(&self, pf: *mut super::super::Foundation::BOOL, ppv: *mut *mut ::core::ffi::c_void, dispid: i32, pdispparams: *mut super::super::System::Com::DISPPARAMS) -> ::windows_core::Result<()>;
     fn DoInvokePIDLIE4(&self, dispid: i32, pidl: *mut Common::ITEMIDLIST, fcancancel: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 impl ::windows_core::RuntimeName for CIE4ConnectionPoint {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 impl CIE4ConnectionPoint_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: CIE4ConnectionPoint_Impl, const OFFSET: isize>() -> CIE4ConnectionPoint_Vtbl {
         unsafe extern "system" fn DoInvokeIE4<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: CIE4ConnectionPoint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pf: *mut super::super::Foundation::BOOL, ppv: *mut *mut ::core::ffi::c_void, dispid: i32, pdispparams: *mut super::super::System::Com::DISPPARAMS) -> ::windows_core::HRESULT {
@@ -29,15 +29,15 @@ impl CIE4ConnectionPoint_Vtbl {
         iid == &<CIE4ConnectionPoint as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IConnectionPoint as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait DFConstraint_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
-    fn Value(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn Value(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for DFConstraint {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl DFConstraint_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: DFConstraint_Impl, const OFFSET: isize>() -> DFConstraint_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: DFConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbs: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -51,7 +51,7 @@ impl DFConstraint_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: DFConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pv: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: DFConstraint_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pv: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Value() {
@@ -72,12 +72,12 @@ impl DFConstraint_Vtbl {
         iid == &<DFConstraint as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait DShellFolderViewEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for DShellFolderViewEvents {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl DShellFolderViewEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: DShellFolderViewEvents_Impl, const OFFSET: isize>() -> DShellFolderViewEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -86,12 +86,12 @@ impl DShellFolderViewEvents_Vtbl {
         iid == &<DShellFolderViewEvents as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait DShellNameSpaceEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for DShellNameSpaceEvents {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl DShellNameSpaceEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: DShellNameSpaceEvents_Impl, const OFFSET: isize>() -> DShellNameSpaceEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -100,12 +100,12 @@ impl DShellNameSpaceEvents_Vtbl {
         iid == &<DShellNameSpaceEvents as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait DShellWindowsEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for DShellWindowsEvents {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl DShellWindowsEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: DShellWindowsEvents_Impl, const OFFSET: isize>() -> DShellWindowsEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -114,12 +114,12 @@ impl DShellWindowsEvents_Vtbl {
         iid == &<DShellWindowsEvents as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait DWebBrowserEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for DWebBrowserEvents {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl DWebBrowserEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: DWebBrowserEvents_Impl, const OFFSET: isize>() -> DWebBrowserEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -128,12 +128,12 @@ impl DWebBrowserEvents_Vtbl {
         iid == &<DWebBrowserEvents as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait DWebBrowserEvents2_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for DWebBrowserEvents2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl DWebBrowserEvents2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: DWebBrowserEvents2_Impl, const OFFSET: isize>() -> DWebBrowserEvents2_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -142,8 +142,8 @@ impl DWebBrowserEvents2_Vtbl {
         iid == &<DWebBrowserEvents2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait Folder_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Title(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Application(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
@@ -151,14 +151,14 @@ pub trait Folder_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ParentFolder(&self) -> ::windows_core::Result<Folder>;
     fn Items(&self) -> ::windows_core::Result<FolderItems>;
     fn ParseName(&self, bname: &::windows_core::BSTR) -> ::windows_core::Result<FolderItem>;
-    fn NewFolder(&self, bname: &::windows_core::BSTR, voptions: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
-    fn MoveHere(&self, vitem: &super::super::System::Variant::VARIANT, voptions: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
-    fn CopyHere(&self, vitem: &super::super::System::Variant::VARIANT, voptions: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
-    fn GetDetailsOf(&self, vitem: &super::super::System::Variant::VARIANT, icolumn: i32) -> ::windows_core::Result<::windows_core::BSTR>;
+    fn NewFolder(&self, bname: &::windows_core::BSTR, voptions: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
+    fn MoveHere(&self, vitem: &::windows_core::VARIANT, voptions: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
+    fn CopyHere(&self, vitem: &::windows_core::VARIANT, voptions: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
+    fn GetDetailsOf(&self, vitem: &::windows_core::VARIANT, icolumn: i32) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for Folder {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl Folder_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>() -> Folder_Vtbl {
         unsafe extern "system" fn Title<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbs: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -227,22 +227,22 @@ impl Folder_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NewFolder<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bname: ::std::mem::MaybeUninit<::windows_core::BSTR>, voptions: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn NewFolder<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bname: ::std::mem::MaybeUninit<::windows_core::BSTR>, voptions: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.NewFolder(::core::mem::transmute(&bname), ::core::mem::transmute(&voptions)).into()
         }
-        unsafe extern "system" fn MoveHere<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vitem: super::super::System::Variant::VARIANT, voptions: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn MoveHere<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vitem: ::std::mem::MaybeUninit<::windows_core::VARIANT>, voptions: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.MoveHere(::core::mem::transmute(&vitem), ::core::mem::transmute(&voptions)).into()
         }
-        unsafe extern "system" fn CopyHere<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vitem: super::super::System::Variant::VARIANT, voptions: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn CopyHere<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vitem: ::std::mem::MaybeUninit<::windows_core::VARIANT>, voptions: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CopyHere(::core::mem::transmute(&vitem), ::core::mem::transmute(&voptions)).into()
         }
-        unsafe extern "system" fn GetDetailsOf<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vitem: super::super::System::Variant::VARIANT, icolumn: i32, pbs: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetDetailsOf<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vitem: ::std::mem::MaybeUninit<::windows_core::VARIANT>, icolumn: i32, pbs: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDetailsOf(::core::mem::transmute(&vitem), ::core::mem::transmute_copy(&icolumn)) {
@@ -271,8 +271,8 @@ impl Folder_Vtbl {
         iid == &<Folder as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait Folder2_Impl: Sized + Folder_Impl {
     fn Self_(&self) -> ::windows_core::Result<FolderItem>;
     fn OfflineStatus(&self) -> ::windows_core::Result<i32>;
@@ -280,9 +280,9 @@ pub trait Folder2_Impl: Sized + Folder_Impl {
     fn HaveToShowWebViewBarricade(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn DismissedWebViewBarricade(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for Folder2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl Folder2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder2_Impl, const OFFSET: isize>() -> Folder2_Vtbl {
         unsafe extern "system" fn Self_<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfi: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -341,15 +341,15 @@ impl Folder2_Vtbl {
         iid == &<Folder2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<Folder as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait Folder3_Impl: Sized + Folder2_Impl {
     fn ShowWebViewBarricade(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetShowWebViewBarricade(&self, bshowwebviewbarricade: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for Folder3 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl Folder3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder3_Impl, const OFFSET: isize>() -> Folder3_Vtbl {
         unsafe extern "system" fn ShowWebViewBarricade<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: Folder3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbshowwebviewbarricade: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -378,8 +378,8 @@ impl Folder3_Vtbl {
         iid == &<Folder3 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<Folder as ::windows_core::Interface>::IID || iid == &<Folder2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait FolderItem_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Application(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
     fn Parent(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
@@ -397,11 +397,11 @@ pub trait FolderItem_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Size(&self) -> ::windows_core::Result<i32>;
     fn Type(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Verbs(&self) -> ::windows_core::Result<FolderItemVerbs>;
-    fn InvokeVerb(&self, vverb: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn InvokeVerb(&self, vverb: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for FolderItem {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl FolderItem_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>() -> FolderItem_Vtbl {
         unsafe extern "system" fn Application<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppid: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -568,7 +568,7 @@ impl FolderItem_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn InvokeVerb<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vverb: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn InvokeVerb<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vverb: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InvokeVerb(::core::mem::transmute(&vverb)).into()
@@ -598,23 +598,23 @@ impl FolderItem_Vtbl {
         iid == &<FolderItem as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait FolderItem2_Impl: Sized + FolderItem_Impl {
-    fn InvokeVerbEx(&self, vverb: &super::super::System::Variant::VARIANT, vargs: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
-    fn ExtendedProperty(&self, bstrpropname: &::windows_core::BSTR) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn InvokeVerbEx(&self, vverb: &::windows_core::VARIANT, vargs: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
+    fn ExtendedProperty(&self, bstrpropname: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::VARIANT>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for FolderItem2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl FolderItem2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem2_Impl, const OFFSET: isize>() -> FolderItem2_Vtbl {
-        unsafe extern "system" fn InvokeVerbEx<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vverb: super::super::System::Variant::VARIANT, vargs: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn InvokeVerbEx<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vverb: ::std::mem::MaybeUninit<::windows_core::VARIANT>, vargs: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InvokeVerbEx(::core::mem::transmute(&vverb), ::core::mem::transmute(&vargs)).into()
         }
-        unsafe extern "system" fn ExtendedProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvret: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn ExtendedProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvret: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ExtendedProperty(::core::mem::transmute(&bstrpropname)) {
@@ -635,17 +635,17 @@ impl FolderItem2_Vtbl {
         iid == &<FolderItem2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<FolderItem as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait FolderItemVerb_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Application(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
     fn Parent(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn DoIt(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for FolderItemVerb {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl FolderItemVerb_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItemVerb_Impl, const OFFSET: isize>() -> FolderItemVerb_Vtbl {
         unsafe extern "system" fn Application<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItemVerb_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppid: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -698,18 +698,18 @@ impl FolderItemVerb_Vtbl {
         iid == &<FolderItemVerb as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait FolderItemVerbs_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn Application(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
     fn Parent(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
-    fn Item(&self, index: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<FolderItemVerb>;
+    fn Item(&self, index: &::windows_core::VARIANT) -> ::windows_core::Result<FolderItemVerb>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for FolderItemVerbs {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl FolderItemVerbs_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItemVerbs_Impl, const OFFSET: isize>() -> FolderItemVerbs_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItemVerbs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT {
@@ -745,7 +745,7 @@ impl FolderItemVerbs_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItemVerbs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::super::System::Variant::VARIANT, ppid: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItemVerbs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppid: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute(&index)) {
@@ -780,18 +780,18 @@ impl FolderItemVerbs_Vtbl {
         iid == &<FolderItemVerbs as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait FolderItems_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn Application(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
     fn Parent(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
-    fn Item(&self, index: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<FolderItem>;
+    fn Item(&self, index: &::windows_core::VARIANT) -> ::windows_core::Result<FolderItem>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for FolderItems {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl FolderItems_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItems_Impl, const OFFSET: isize>() -> FolderItems_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItems_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT {
@@ -827,7 +827,7 @@ impl FolderItems_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItems_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::super::System::Variant::VARIANT, ppid: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItems_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppid: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute(&index)) {
@@ -862,17 +862,17 @@ impl FolderItems_Vtbl {
         iid == &<FolderItems as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait FolderItems2_Impl: Sized + FolderItems_Impl {
-    fn InvokeVerbEx(&self, vverb: &super::super::System::Variant::VARIANT, vargs: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn InvokeVerbEx(&self, vverb: &::windows_core::VARIANT, vargs: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for FolderItems2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl FolderItems2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItems2_Impl, const OFFSET: isize>() -> FolderItems2_Vtbl {
-        unsafe extern "system" fn InvokeVerbEx<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItems2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vverb: super::super::System::Variant::VARIANT, vargs: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn InvokeVerbEx<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItems2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vverb: ::std::mem::MaybeUninit<::windows_core::VARIANT>, vargs: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InvokeVerbEx(::core::mem::transmute(&vverb), ::core::mem::transmute(&vargs)).into()
@@ -883,15 +883,15 @@ impl FolderItems2_Vtbl {
         iid == &<FolderItems2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<FolderItems as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait FolderItems3_Impl: Sized + FolderItems2_Impl {
     fn Filter(&self, grfflags: i32, bstrfilespec: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn Verbs(&self) -> ::windows_core::Result<FolderItemVerbs>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for FolderItems3 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl FolderItems3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItems3_Impl, const OFFSET: isize>() -> FolderItems3_Vtbl {
         unsafe extern "system" fn Filter<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: FolderItems3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfflags: i32, bstrfilespec: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -2223,8 +2223,8 @@ impl IBrowserFrameOptions_Vtbl {
         iid == &<IBrowserFrameOptions as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_Common\"`"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Shell_Common\"`"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 pub trait IBrowserService_Impl: Sized {
     fn GetParentSite(&self) -> ::windows_core::Result<super::super::System::Ole::IOleInPlaceSite>;
     fn SetTitle(&self, psv: ::core::option::Option<&IShellView>, pszname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -2252,14 +2252,14 @@ pub trait IBrowserService_Impl: Sized {
     fn GetHistoryObject(&self, ppole: *mut ::core::option::Option<super::super::System::Ole::IOleObject>, pstm: *mut ::core::option::Option<super::super::System::Com::IStream>, ppbc: *mut ::core::option::Option<super::super::System::Com::IBindCtx>) -> ::windows_core::Result<()>;
     fn SetHistoryObject(&self, pole: ::core::option::Option<&super::super::System::Ole::IOleObject>, fislocalanchor: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn CacheOLEServer(&self, pole: ::core::option::Option<&super::super::System::Ole::IOleObject>) -> ::windows_core::Result<()>;
-    fn GetSetCodePage(&self, pvarin: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn OnHttpEquiv(&self, psv: ::core::option::Option<&IShellView>, fdone: super::super::Foundation::BOOL, pvarargin: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn GetSetCodePage(&self, pvarin: *const ::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::VARIANT>;
+    fn OnHttpEquiv(&self, psv: ::core::option::Option<&IShellView>, fdone: super::super::Foundation::BOOL, pvarargin: *const ::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::VARIANT>;
     fn GetPalette(&self) -> ::windows_core::Result<super::super::Graphics::Gdi::HPALETTE>;
     fn RegisterWindow(&self, fforceregister: super::super::Foundation::BOOL, swc: ShellWindowTypeConstants) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 impl ::windows_core::RuntimeName for IBrowserService {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 impl IBrowserService_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService_Impl, const OFFSET: isize>() -> IBrowserService_Vtbl {
         unsafe extern "system" fn GetParentSite<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppipsite: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -2452,7 +2452,7 @@ impl IBrowserService_Vtbl {
             let this = (*this).get_impl();
             this.CacheOLEServer(::windows_core::from_raw_borrowed(&pole)).into()
         }
-        unsafe extern "system" fn GetSetCodePage<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarin: *const super::super::System::Variant::VARIANT, pvarout: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetSetCodePage<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarin: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarout: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSetCodePage(::core::mem::transmute_copy(&pvarin)) {
@@ -2463,7 +2463,7 @@ impl IBrowserService_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn OnHttpEquiv<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psv: *mut ::core::ffi::c_void, fdone: super::super::Foundation::BOOL, pvarargin: *const super::super::System::Variant::VARIANT, pvarargout: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn OnHttpEquiv<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psv: *mut ::core::ffi::c_void, fdone: super::super::Foundation::BOOL, pvarargin: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarargout: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.OnHttpEquiv(::windows_core::from_raw_borrowed(&psv), ::core::mem::transmute_copy(&fdone), ::core::mem::transmute_copy(&pvarargin)) {
@@ -2528,8 +2528,8 @@ impl IBrowserService_Vtbl {
         iid == &<IBrowserService as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IBrowserService2_Impl: Sized + IBrowserService_Impl {
     fn WndProcBS(&self, hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     fn SetAsDefFolderSettings(&self) -> ::windows_core::Result<()>;
@@ -2565,7 +2565,7 @@ pub trait IBrowserService2_Impl: Sized + IBrowserService_Impl {
     fn _NavigateToPidl2(&self, pidl: *const Common::ITEMIDLIST, grfhlnf: u32, dwflags: u32) -> ::windows_core::Result<()>;
     fn _TryShell2Rename(&self, psv: ::core::option::Option<&IShellView>, pidlnew: *const Common::ITEMIDLIST) -> ::windows_core::Result<()>;
     fn _SwitchActivationNow(&self) -> ::windows_core::Result<()>;
-    fn _ExecChildren(&self, punkbar: ::core::option::Option<&::windows_core::IUnknown>, fbroadcast: super::super::Foundation::BOOL, pguidcmdgroup: *const ::windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvarargin: *const super::super::System::Variant::VARIANT, pvarargout: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn _ExecChildren(&self, punkbar: ::core::option::Option<&::windows_core::IUnknown>, fbroadcast: super::super::Foundation::BOOL, pguidcmdgroup: *const ::windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvarargin: *const ::windows_core::VARIANT, pvarargout: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn _SendChildren(&self, hwndbar: super::super::Foundation::HWND, fbroadcast: super::super::Foundation::BOOL, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_core::Result<()>;
     fn GetFolderSetData(&self, pfsd: *mut FOLDERSETDATA) -> ::windows_core::Result<()>;
     fn _OnFocusChange(&self, itb: u32) -> ::windows_core::Result<()>;
@@ -2594,9 +2594,9 @@ pub trait IBrowserService2_Impl: Sized + IBrowserService_Impl {
     fn _GetBorderDWHelper(&self, punksrc: ::core::option::Option<&::windows_core::IUnknown>, lprectborder: *mut super::super::Foundation::RECT, busehmonitor: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn v_CheckZoneCrossing(&self, pidl: *const Common::ITEMIDLIST) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows_core::RuntimeName for IBrowserService2 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IBrowserService2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService2_Impl, const OFFSET: isize>() -> IBrowserService2_Vtbl {
         unsafe extern "system" fn WndProcBS<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT {
@@ -2793,7 +2793,7 @@ impl IBrowserService2_Vtbl {
             let this = (*this).get_impl();
             this._SwitchActivationNow().into()
         }
-        unsafe extern "system" fn _ExecChildren<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkbar: *mut ::core::ffi::c_void, fbroadcast: super::super::Foundation::BOOL, pguidcmdgroup: *const ::windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvarargin: *const super::super::System::Variant::VARIANT, pvarargout: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn _ExecChildren<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkbar: *mut ::core::ffi::c_void, fbroadcast: super::super::Foundation::BOOL, pguidcmdgroup: *const ::windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvarargin: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarargout: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this._ExecChildren(::windows_core::from_raw_borrowed(&punkbar), ::core::mem::transmute_copy(&fbroadcast), ::core::mem::transmute_copy(&pguidcmdgroup), ::core::mem::transmute_copy(&ncmdid), ::core::mem::transmute_copy(&ncmdexecopt), ::core::mem::transmute_copy(&pvarargin), ::core::mem::transmute_copy(&pvarargout)).into()
@@ -3003,15 +3003,15 @@ impl IBrowserService2_Vtbl {
         iid == &<IBrowserService2 as ::windows_core::Interface>::IID || iid == &<IBrowserService as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IBrowserService3_Impl: Sized + IBrowserService2_Impl {
     fn _PositionViewWindow(&self, hwnd: super::super::Foundation::HWND, prc: *const super::super::Foundation::RECT) -> ::windows_core::Result<()>;
     fn IEParseDisplayNameEx(&self, uicp: u32, pwszpath: &::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::Result<*mut Common::ITEMIDLIST>;
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows_core::RuntimeName for IBrowserService3 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IBrowserService3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService3_Impl, const OFFSET: isize>() -> IBrowserService3_Vtbl {
         unsafe extern "system" fn _PositionViewWindow<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, prc: *const super::super::Foundation::RECT) -> ::windows_core::HRESULT {
@@ -3040,16 +3040,16 @@ impl IBrowserService3_Vtbl {
         iid == &<IBrowserService3 as ::windows_core::Interface>::IID || iid == &<IBrowserService as ::windows_core::Interface>::IID || iid == &<IBrowserService2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IBrowserService4_Impl: Sized + IBrowserService3_Impl {
     fn ActivateView(&self, fpendingview: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn SaveViewState(&self) -> ::windows_core::Result<()>;
     fn _ResizeAllBorders(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows_core::RuntimeName for IBrowserService4 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IBrowserService4_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService4_Impl, const OFFSET: isize>() -> IBrowserService4_Vtbl {
         unsafe extern "system" fn ActivateView<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBrowserService4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fpendingview: super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -3315,16 +3315,16 @@ impl IColumnManager_Vtbl {
         iid == &<IColumnManager as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[doc = "Required features: `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
+#[cfg(all(feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IColumnProvider_Impl: Sized {
     fn Initialize(&self, psci: *const SHCOLUMNINIT) -> ::windows_core::Result<()>;
     fn GetColumnInfo(&self, dwindex: u32, psci: *mut SHCOLUMNINFO) -> ::windows_core::Result<()>;
-    fn GetItemData(&self, pscid: *const PropertiesSystem::PROPERTYKEY, pscd: *const SHCOLUMNDATA) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn GetItemData(&self, pscid: *const PropertiesSystem::PROPERTYKEY, pscd: *const SHCOLUMNDATA) -> ::windows_core::Result<::windows_core::VARIANT>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::windows_core::RuntimeName for IColumnProvider {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IColumnProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IColumnProvider_Impl, const OFFSET: isize>() -> IColumnProvider_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IColumnProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psci: *const SHCOLUMNINIT) -> ::windows_core::HRESULT {
@@ -3337,7 +3337,7 @@ impl IColumnProvider_Vtbl {
             let this = (*this).get_impl();
             this.GetColumnInfo(::core::mem::transmute_copy(&dwindex), ::core::mem::transmute_copy(&psci)).into()
         }
-        unsafe extern "system" fn GetItemData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IColumnProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pscid: *const PropertiesSystem::PROPERTYKEY, pscd: *const SHCOLUMNDATA, pvardata: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetItemData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IColumnProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pscid: *const PropertiesSystem::PROPERTYKEY, pscd: *const SHCOLUMNDATA, pvardata: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetItemData(::core::mem::transmute_copy(&pscid), ::core::mem::transmute_copy(&pscd)) {
@@ -4276,17 +4276,17 @@ impl ICredentialProviderSetUserArray_Vtbl {
         iid == &<ICredentialProviderSetUserArray as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait ICredentialProviderUser_Impl: Sized {
     fn GetSid(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetProviderID(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn GetStringValue(&self, key: *const PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<::windows_core::PWSTR>;
-    fn GetValue(&self, key: *const PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn GetValue(&self, key: *const PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<::windows_core::PROPVARIANT>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ::windows_core::RuntimeName for ICredentialProviderUser {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl ICredentialProviderUser_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICredentialProviderUser_Impl, const OFFSET: isize>() -> ICredentialProviderUser_Vtbl {
         unsafe extern "system" fn GetSid<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICredentialProviderUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
@@ -4322,7 +4322,7 @@ impl ICredentialProviderUser_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICredentialProviderUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const PropertiesSystem::PROPERTYKEY, value: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICredentialProviderUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const PropertiesSystem::PROPERTYKEY, value: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetValue(::core::mem::transmute_copy(&key)) {
@@ -5218,17 +5218,13 @@ impl IDisplayItem_Vtbl {
         iid == &<IDisplayItem as ::windows_core::Interface>::IID || iid == &<IRelatedItem as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDocViewSite_Impl: Sized {
-    fn OnSetTitle(&self, pvtitle: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn OnSetTitle(&self, pvtitle: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDocViewSite {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDocViewSite_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDocViewSite_Impl, const OFFSET: isize>() -> IDocViewSite_Vtbl {
-        unsafe extern "system" fn OnSetTitle<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDocViewSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvtitle: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn OnSetTitle<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDocViewSite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvtitle: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnSetTitle(::core::mem::transmute_copy(&pvtitle)).into()
@@ -6304,16 +6300,16 @@ impl IExecuteCommandHost_Vtbl {
         iid == &<IExecuteCommandHost as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IExpDispSupport_Impl: Sized {
     fn FindConnectionPoint(&self, riid: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::IConnectionPoint>;
     fn OnTranslateAccelerator(&self, pmsg: *const super::WindowsAndMessaging::MSG, grfmodifiers: u32) -> ::windows_core::Result<()>;
-    fn OnInvoke(&self, dispidmember: i32, iid: *const ::windows_core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Variant::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows_core::Result<()>;
+    fn OnInvoke(&self, dispidmember: i32, iid: *const ::windows_core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::windows_core::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows_core::RuntimeName for IExpDispSupport {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IExpDispSupport_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IExpDispSupport_Impl, const OFFSET: isize>() -> IExpDispSupport_Vtbl {
         unsafe extern "system" fn FindConnectionPoint<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IExpDispSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppccp: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -6332,7 +6328,7 @@ impl IExpDispSupport_Vtbl {
             let this = (*this).get_impl();
             this.OnTranslateAccelerator(::core::mem::transmute_copy(&pmsg), ::core::mem::transmute_copy(&grfmodifiers)).into()
         }
-        unsafe extern "system" fn OnInvoke<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IExpDispSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dispidmember: i32, iid: *const ::windows_core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Variant::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn OnInvoke<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IExpDispSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dispidmember: i32, iid: *const ::windows_core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnInvoke(::core::mem::transmute_copy(&dispidmember), ::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&lcid), ::core::mem::transmute_copy(&wflags), ::core::mem::transmute_copy(&pdispparams), ::core::mem::transmute_copy(&pvarresult), ::core::mem::transmute_copy(&pexcepinfo), ::core::mem::transmute_copy(&puargerr)).into()
@@ -6348,16 +6344,16 @@ impl IExpDispSupport_Vtbl {
         iid == &<IExpDispSupport as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IExpDispSupportXP_Impl: Sized {
     fn FindCIE4ConnectionPoint(&self, riid: *const ::windows_core::GUID) -> ::windows_core::Result<CIE4ConnectionPoint>;
     fn OnTranslateAccelerator(&self, pmsg: *const super::WindowsAndMessaging::MSG, grfmodifiers: u32) -> ::windows_core::Result<()>;
-    fn OnInvoke(&self, dispidmember: i32, iid: *const ::windows_core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Variant::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows_core::Result<()>;
+    fn OnInvoke(&self, dispidmember: i32, iid: *const ::windows_core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::windows_core::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows_core::RuntimeName for IExpDispSupportXP {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IExpDispSupportXP_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IExpDispSupportXP_Impl, const OFFSET: isize>() -> IExpDispSupportXP_Vtbl {
         unsafe extern "system" fn FindCIE4ConnectionPoint<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IExpDispSupportXP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppccp: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -6376,7 +6372,7 @@ impl IExpDispSupportXP_Vtbl {
             let this = (*this).get_impl();
             this.OnTranslateAccelerator(::core::mem::transmute_copy(&pmsg), ::core::mem::transmute_copy(&grfmodifiers)).into()
         }
-        unsafe extern "system" fn OnInvoke<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IExpDispSupportXP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dispidmember: i32, iid: *const ::windows_core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Variant::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn OnInvoke<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IExpDispSupportXP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dispidmember: i32, iid: *const ::windows_core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnInvoke(::core::mem::transmute_copy(&dispidmember), ::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&lcid), ::core::mem::transmute_copy(&wflags), ::core::mem::transmute_copy(&pdispparams), ::core::mem::transmute_copy(&pvarresult), ::core::mem::transmute_copy(&pexcepinfo), ::core::mem::transmute_copy(&puargerr)).into()
@@ -7998,18 +7994,18 @@ impl IFileSaveDialog_Vtbl {
         iid == &<IFileSaveDialog as ::windows_core::Interface>::IID || iid == &<IModalWindow as ::windows_core::Interface>::IID || iid == &<IFileDialog as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IFileSearchBand_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetFocus(&self) -> ::windows_core::Result<()>;
-    fn SetSearchParameters(&self, pbstrsearchid: *const ::windows_core::BSTR, bnavtoresults: super::super::Foundation::VARIANT_BOOL, pvarscope: *const super::super::System::Variant::VARIANT, pvarqueryfile: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn SetSearchParameters(&self, pbstrsearchid: *const ::windows_core::BSTR, bnavtoresults: super::super::Foundation::VARIANT_BOOL, pvarscope: *const ::windows_core::VARIANT, pvarqueryfile: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn SearchID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
-    fn Scope(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn QueryFile(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn Scope(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
+    fn QueryFile(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IFileSearchBand {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IFileSearchBand_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSearchBand_Impl, const OFFSET: isize>() -> IFileSearchBand_Vtbl {
         unsafe extern "system" fn SetFocus<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -8017,7 +8013,7 @@ impl IFileSearchBand_Vtbl {
             let this = (*this).get_impl();
             this.SetFocus().into()
         }
-        unsafe extern "system" fn SetSearchParameters<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsearchid: *const ::std::mem::MaybeUninit<::windows_core::BSTR>, bnavtoresults: super::super::Foundation::VARIANT_BOOL, pvarscope: *const super::super::System::Variant::VARIANT, pvarqueryfile: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetSearchParameters<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsearchid: *const ::std::mem::MaybeUninit<::windows_core::BSTR>, bnavtoresults: super::super::Foundation::VARIANT_BOOL, pvarscope: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarqueryfile: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSearchParameters(::core::mem::transmute_copy(&pbstrsearchid), ::core::mem::transmute_copy(&bnavtoresults), ::core::mem::transmute_copy(&pvarscope), ::core::mem::transmute_copy(&pvarqueryfile)).into()
@@ -8033,7 +8029,7 @@ impl IFileSearchBand_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Scope<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarscope: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Scope<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarscope: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Scope() {
@@ -8044,7 +8040,7 @@ impl IFileSearchBand_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn QueryFile<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarfile: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn QueryFile<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFileSearchBand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarfile: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.QueryFile() {
@@ -8439,13 +8435,13 @@ impl IFolderView_Vtbl {
         iid == &<IFolderView as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[doc = "Required features: `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
+#[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IFolderView2_Impl: Sized + IFolderView_Impl {
     fn SetGroupBy(&self, key: *const PropertiesSystem::PROPERTYKEY, fascending: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn GetGroupBy(&self, pkey: *mut PropertiesSystem::PROPERTYKEY, pfascending: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
-    fn SetViewProperty(&self, pidl: *const Common::ITEMIDLIST, propkey: *const PropertiesSystem::PROPERTYKEY, propvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>;
-    fn GetViewProperty(&self, pidl: *const Common::ITEMIDLIST, propkey: *const PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn SetViewProperty(&self, pidl: *const Common::ITEMIDLIST, propkey: *const PropertiesSystem::PROPERTYKEY, propvar: *const ::windows_core::PROPVARIANT) -> ::windows_core::Result<()>;
+    fn GetViewProperty(&self, pidl: *const Common::ITEMIDLIST, propkey: *const PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<::windows_core::PROPVARIANT>;
     fn SetTileViewProperties(&self, pidl: *const Common::ITEMIDLIST, pszproplist: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn SetExtendedTileViewProperties(&self, pidl: *const Common::ITEMIDLIST, pszproplist: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn SetText(&self, itype: FVTEXTTYPE, pwsztext: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -8468,9 +8464,9 @@ pub trait IFolderView2_Impl: Sized + IFolderView_Impl {
     fn IsMoveInSameFolder(&self) -> ::windows_core::Result<()>;
     fn DoRename(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::windows_core::RuntimeName for IFolderView2 {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IFolderView2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderView2_Impl, const OFFSET: isize>() -> IFolderView2_Vtbl {
         unsafe extern "system" fn SetGroupBy<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderView2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const PropertiesSystem::PROPERTYKEY, fascending: super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
@@ -8483,12 +8479,12 @@ impl IFolderView2_Vtbl {
             let this = (*this).get_impl();
             this.GetGroupBy(::core::mem::transmute_copy(&pkey), ::core::mem::transmute_copy(&pfascending)).into()
         }
-        unsafe extern "system" fn SetViewProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderView2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, propkey: *const PropertiesSystem::PROPERTYKEY, propvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetViewProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderView2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, propkey: *const PropertiesSystem::PROPERTYKEY, propvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetViewProperty(::core::mem::transmute_copy(&pidl), ::core::mem::transmute_copy(&propkey), ::core::mem::transmute_copy(&propvar)).into()
         }
-        unsafe extern "system" fn GetViewProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderView2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, propkey: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetViewProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderView2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, propkey: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetViewProperty(::core::mem::transmute_copy(&pidl), ::core::mem::transmute_copy(&propkey)) {
@@ -8700,14 +8696,14 @@ impl IFolderViewHost_Vtbl {
         iid == &<IFolderViewHost as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IFolderViewOC_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetFolderView(&self, pdisp: ::core::option::Option<&super::super::System::Com::IDispatch>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IFolderViewOC {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IFolderViewOC_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderViewOC_Impl, const OFFSET: isize>() -> IFolderViewOC_Vtbl {
         unsafe extern "system" fn SetFolderView<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFolderViewOC_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdisp: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -10488,16 +10484,12 @@ impl IModalWindow_Vtbl {
         iid == &<IModalWindow as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INameSpaceTreeAccessible_Impl: Sized {
     fn OnGetDefaultAccessibilityAction(&self, psi: ::core::option::Option<&IShellItem>) -> ::windows_core::Result<::windows_core::BSTR>;
     fn OnDoDefaultAccessibilityAction(&self, psi: ::core::option::Option<&IShellItem>) -> ::windows_core::Result<()>;
-    fn OnGetAccessibilityRole(&self, psi: ::core::option::Option<&IShellItem>) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn OnGetAccessibilityRole(&self, psi: ::core::option::Option<&IShellItem>) -> ::windows_core::Result<::windows_core::VARIANT>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for INameSpaceTreeAccessible {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INameSpaceTreeAccessible_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INameSpaceTreeAccessible_Impl, const OFFSET: isize>() -> INameSpaceTreeAccessible_Vtbl {
         unsafe extern "system" fn OnGetDefaultAccessibilityAction<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INameSpaceTreeAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psi: *mut ::core::ffi::c_void, pbstrdefaultaction: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -10516,7 +10508,7 @@ impl INameSpaceTreeAccessible_Vtbl {
             let this = (*this).get_impl();
             this.OnDoDefaultAccessibilityAction(::windows_core::from_raw_borrowed(&psi)).into()
         }
-        unsafe extern "system" fn OnGetAccessibilityRole<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INameSpaceTreeAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psi: *mut ::core::ffi::c_void, pvarrole: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn OnGetAccessibilityRole<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INameSpaceTreeAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psi: *mut ::core::ffi::c_void, pvarrole: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.OnGetAccessibilityRole(::windows_core::from_raw_borrowed(&psi)) {
@@ -11053,24 +11045,20 @@ impl INameSpaceTreeControlFolderCapabilities_Vtbl {
         iid == &<INameSpaceTreeControlFolderCapabilities as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait INamedPropertyBag_Impl: Sized {
-    fn ReadPropertyNPB(&self, pszbagname: &::windows_core::PCWSTR, pszpropname: &::windows_core::PCWSTR, pvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>;
-    fn WritePropertyNPB(&self, pszbagname: &::windows_core::PCWSTR, pszpropname: &::windows_core::PCWSTR, pvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>;
+    fn ReadPropertyNPB(&self, pszbagname: &::windows_core::PCWSTR, pszpropname: &::windows_core::PCWSTR, pvar: *mut ::windows_core::PROPVARIANT) -> ::windows_core::Result<()>;
+    fn WritePropertyNPB(&self, pszbagname: &::windows_core::PCWSTR, pszpropname: &::windows_core::PCWSTR, pvar: *const ::windows_core::PROPVARIANT) -> ::windows_core::Result<()>;
     fn RemovePropertyNPB(&self, pszbagname: &::windows_core::PCWSTR, pszpropname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for INamedPropertyBag {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl INamedPropertyBag_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INamedPropertyBag_Impl, const OFFSET: isize>() -> INamedPropertyBag_Vtbl {
-        unsafe extern "system" fn ReadPropertyNPB<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INamedPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszbagname: ::windows_core::PCWSTR, pszpropname: ::windows_core::PCWSTR, pvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn ReadPropertyNPB<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INamedPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszbagname: ::windows_core::PCWSTR, pszpropname: ::windows_core::PCWSTR, pvar: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ReadPropertyNPB(::core::mem::transmute(&pszbagname), ::core::mem::transmute(&pszpropname), ::core::mem::transmute_copy(&pvar)).into()
         }
-        unsafe extern "system" fn WritePropertyNPB<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INamedPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszbagname: ::windows_core::PCWSTR, pszpropname: ::windows_core::PCWSTR, pvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn WritePropertyNPB<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INamedPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszbagname: ::windows_core::PCWSTR, pszpropname: ::windows_core::PCWSTR, pvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.WritePropertyNPB(::core::mem::transmute(&pszbagname), ::core::mem::transmute(&pszpropname), ::core::mem::transmute_copy(&pvar)).into()
@@ -11385,14 +11373,14 @@ impl INewShortcutHookW_Vtbl {
         iid == &<INewShortcutHookW as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait INewWDEvents_Impl: Sized + IWebWizardHost_Impl {
     fn PassportAuthenticate(&self, bstrsigninurl: &::windows_core::BSTR) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for INewWDEvents {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl INewWDEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INewWDEvents_Impl, const OFFSET: isize>() -> INewWDEvents_Vtbl {
         unsafe extern "system" fn PassportAuthenticate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INewWDEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsigninurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvfauthenitcated: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -12997,8 +12985,8 @@ impl IRunnableTask_Vtbl {
         iid == &<IRunnableTask as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IScriptErrorList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn advanceError(&self) -> ::windows_core::Result<()>;
     fn retreatError(&self) -> ::windows_core::Result<()>;
@@ -13015,9 +13003,9 @@ pub trait IScriptErrorList_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn getPerErrorDisplay(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn setPerErrorDisplay(&self, fpererrordisplay: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IScriptErrorList {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IScriptErrorList_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IScriptErrorList_Impl, const OFFSET: isize>() -> IScriptErrorList_Vtbl {
         unsafe extern "system" fn advanceError<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IScriptErrorList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -13740,16 +13728,16 @@ impl IShellDetails_Vtbl {
         iid == &<IShellDetails as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellDispatch_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Application(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
     fn Parent(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
-    fn NameSpace(&self, vdir: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<Folder>;
-    fn BrowseForFolder(&self, hwnd: i32, title: &::windows_core::BSTR, options: i32, rootfolder: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<Folder>;
+    fn NameSpace(&self, vdir: &::windows_core::VARIANT) -> ::windows_core::Result<Folder>;
+    fn BrowseForFolder(&self, hwnd: i32, title: &::windows_core::BSTR, options: i32, rootfolder: &::windows_core::VARIANT) -> ::windows_core::Result<Folder>;
     fn Windows(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
-    fn Open(&self, vdir: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
-    fn Explore(&self, vdir: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn Open(&self, vdir: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
+    fn Explore(&self, vdir: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn MinimizeAll(&self) -> ::windows_core::Result<()>;
     fn UndoMinimizeALL(&self) -> ::windows_core::Result<()>;
     fn FileRun(&self) -> ::windows_core::Result<()>;
@@ -13767,9 +13755,9 @@ pub trait IShellDispatch_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn RefreshMenu(&self) -> ::windows_core::Result<()>;
     fn ControlPanelItem(&self, bstrdir: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellDispatch {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellDispatch_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>() -> IShellDispatch_Vtbl {
         unsafe extern "system" fn Application<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppid: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -13794,7 +13782,7 @@ impl IShellDispatch_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NameSpace<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vdir: super::super::System::Variant::VARIANT, ppsdf: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn NameSpace<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vdir: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppsdf: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.NameSpace(::core::mem::transmute(&vdir)) {
@@ -13805,7 +13793,7 @@ impl IShellDispatch_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BrowseForFolder<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: i32, title: ::std::mem::MaybeUninit<::windows_core::BSTR>, options: i32, rootfolder: super::super::System::Variant::VARIANT, ppsdf: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn BrowseForFolder<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: i32, title: ::std::mem::MaybeUninit<::windows_core::BSTR>, options: i32, rootfolder: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppsdf: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.BrowseForFolder(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute(&title), ::core::mem::transmute_copy(&options), ::core::mem::transmute(&rootfolder)) {
@@ -13827,12 +13815,12 @@ impl IShellDispatch_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Open<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vdir: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Open<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vdir: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Open(::core::mem::transmute(&vdir)).into()
         }
-        unsafe extern "system" fn Explore<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vdir: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Explore<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vdir: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Explore(::core::mem::transmute(&vdir)).into()
@@ -13948,22 +13936,22 @@ impl IShellDispatch_Vtbl {
         iid == &<IShellDispatch as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellDispatch2_Impl: Sized + IShellDispatch_Impl {
     fn IsRestricted(&self, group: &::windows_core::BSTR, restriction: &::windows_core::BSTR) -> ::windows_core::Result<i32>;
-    fn ShellExecute(&self, file: &::windows_core::BSTR, vargs: &super::super::System::Variant::VARIANT, vdir: &super::super::System::Variant::VARIANT, voperation: &super::super::System::Variant::VARIANT, vshow: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn ShellExecute(&self, file: &::windows_core::BSTR, vargs: &::windows_core::VARIANT, vdir: &::windows_core::VARIANT, voperation: &::windows_core::VARIANT, vshow: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn FindPrinter(&self, name: &::windows_core::BSTR, location: &::windows_core::BSTR, model: &::windows_core::BSTR) -> ::windows_core::Result<()>;
-    fn GetSystemInformation(&self, name: &::windows_core::BSTR) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn ServiceStart(&self, servicename: &::windows_core::BSTR, persistent: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn ServiceStop(&self, servicename: &::windows_core::BSTR, persistent: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn IsServiceRunning(&self, servicename: &::windows_core::BSTR) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn CanStartStopService(&self, servicename: &::windows_core::BSTR) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn ShowBrowserBar(&self, bstrclsid: &::windows_core::BSTR, bshow: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn GetSystemInformation(&self, name: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::VARIANT>;
+    fn ServiceStart(&self, servicename: &::windows_core::BSTR, persistent: &::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::VARIANT>;
+    fn ServiceStop(&self, servicename: &::windows_core::BSTR, persistent: &::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::VARIANT>;
+    fn IsServiceRunning(&self, servicename: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::VARIANT>;
+    fn CanStartStopService(&self, servicename: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::VARIANT>;
+    fn ShowBrowserBar(&self, bstrclsid: &::windows_core::BSTR, bshow: &::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::VARIANT>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellDispatch2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellDispatch2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>() -> IShellDispatch2_Vtbl {
         unsafe extern "system" fn IsRestricted<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, group: ::std::mem::MaybeUninit<::windows_core::BSTR>, restriction: ::std::mem::MaybeUninit<::windows_core::BSTR>, plrestrictvalue: *mut i32) -> ::windows_core::HRESULT {
@@ -13977,7 +13965,7 @@ impl IShellDispatch2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShellExecute<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::std::mem::MaybeUninit<::windows_core::BSTR>, vargs: super::super::System::Variant::VARIANT, vdir: super::super::System::Variant::VARIANT, voperation: super::super::System::Variant::VARIANT, vshow: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn ShellExecute<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, file: ::std::mem::MaybeUninit<::windows_core::BSTR>, vargs: ::std::mem::MaybeUninit<::windows_core::VARIANT>, vdir: ::std::mem::MaybeUninit<::windows_core::VARIANT>, voperation: ::std::mem::MaybeUninit<::windows_core::VARIANT>, vshow: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ShellExecute(::core::mem::transmute(&file), ::core::mem::transmute(&vargs), ::core::mem::transmute(&vdir), ::core::mem::transmute(&voperation), ::core::mem::transmute(&vshow)).into()
@@ -13987,7 +13975,7 @@ impl IShellDispatch2_Vtbl {
             let this = (*this).get_impl();
             this.FindPrinter(::core::mem::transmute(&name), ::core::mem::transmute(&location), ::core::mem::transmute(&model)).into()
         }
-        unsafe extern "system" fn GetSystemInformation<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, pv: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetSystemInformation<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, pv: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetSystemInformation(::core::mem::transmute(&name)) {
@@ -13998,7 +13986,7 @@ impl IShellDispatch2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceStart<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicename: ::std::mem::MaybeUninit<::windows_core::BSTR>, persistent: super::super::System::Variant::VARIANT, psuccess: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn ServiceStart<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicename: ::std::mem::MaybeUninit<::windows_core::BSTR>, persistent: ::std::mem::MaybeUninit<::windows_core::VARIANT>, psuccess: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ServiceStart(::core::mem::transmute(&servicename), ::core::mem::transmute(&persistent)) {
@@ -14009,7 +13997,7 @@ impl IShellDispatch2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ServiceStop<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicename: ::std::mem::MaybeUninit<::windows_core::BSTR>, persistent: super::super::System::Variant::VARIANT, psuccess: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn ServiceStop<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicename: ::std::mem::MaybeUninit<::windows_core::BSTR>, persistent: ::std::mem::MaybeUninit<::windows_core::VARIANT>, psuccess: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ServiceStop(::core::mem::transmute(&servicename), ::core::mem::transmute(&persistent)) {
@@ -14020,7 +14008,7 @@ impl IShellDispatch2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsServiceRunning<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicename: ::std::mem::MaybeUninit<::windows_core::BSTR>, prunning: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn IsServiceRunning<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicename: ::std::mem::MaybeUninit<::windows_core::BSTR>, prunning: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsServiceRunning(::core::mem::transmute(&servicename)) {
@@ -14031,7 +14019,7 @@ impl IShellDispatch2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CanStartStopService<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicename: ::std::mem::MaybeUninit<::windows_core::BSTR>, pcanstartstop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn CanStartStopService<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, servicename: ::std::mem::MaybeUninit<::windows_core::BSTR>, pcanstartstop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CanStartStopService(::core::mem::transmute(&servicename)) {
@@ -14042,7 +14030,7 @@ impl IShellDispatch2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ShowBrowserBar<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrclsid: ::std::mem::MaybeUninit<::windows_core::BSTR>, bshow: super::super::System::Variant::VARIANT, psuccess: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn ShowBrowserBar<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrclsid: ::std::mem::MaybeUninit<::windows_core::BSTR>, bshow: ::std::mem::MaybeUninit<::windows_core::VARIANT>, psuccess: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ShowBrowserBar(::core::mem::transmute(&bstrclsid), ::core::mem::transmute(&bshow)) {
@@ -14070,17 +14058,17 @@ impl IShellDispatch2_Vtbl {
         iid == &<IShellDispatch2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IShellDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellDispatch3_Impl: Sized + IShellDispatch2_Impl {
-    fn AddToRecent(&self, varfile: &super::super::System::Variant::VARIANT, bstrcategory: &::windows_core::BSTR) -> ::windows_core::Result<()>;
+    fn AddToRecent(&self, varfile: &::windows_core::VARIANT, bstrcategory: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellDispatch3 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellDispatch3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch3_Impl, const OFFSET: isize>() -> IShellDispatch3_Vtbl {
-        unsafe extern "system" fn AddToRecent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varfile: super::super::System::Variant::VARIANT, bstrcategory: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn AddToRecent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varfile: ::std::mem::MaybeUninit<::windows_core::VARIANT>, bstrcategory: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddToRecent(::core::mem::transmute(&varfile), ::core::mem::transmute(&bstrcategory)).into()
@@ -14091,17 +14079,17 @@ impl IShellDispatch3_Vtbl {
         iid == &<IShellDispatch3 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IShellDispatch as ::windows_core::Interface>::IID || iid == &<IShellDispatch2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellDispatch4_Impl: Sized + IShellDispatch3_Impl {
     fn WindowsSecurity(&self) -> ::windows_core::Result<()>;
     fn ToggleDesktop(&self) -> ::windows_core::Result<()>;
-    fn ExplorerPolicy(&self, bstrpolicyname: &::windows_core::BSTR) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn ExplorerPolicy(&self, bstrpolicyname: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::VARIANT>;
     fn GetSetting(&self, lsetting: i32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellDispatch4 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellDispatch4_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch4_Impl, const OFFSET: isize>() -> IShellDispatch4_Vtbl {
         unsafe extern "system" fn WindowsSecurity<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -14114,7 +14102,7 @@ impl IShellDispatch4_Vtbl {
             let this = (*this).get_impl();
             this.ToggleDesktop().into()
         }
-        unsafe extern "system" fn ExplorerPolicy<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpolicyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvalue: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn ExplorerPolicy<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpolicyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ExplorerPolicy(::core::mem::transmute(&bstrpolicyname)) {
@@ -14148,14 +14136,14 @@ impl IShellDispatch4_Vtbl {
         iid == &<IShellDispatch4 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IShellDispatch as ::windows_core::Interface>::IID || iid == &<IShellDispatch2 as ::windows_core::Interface>::IID || iid == &<IShellDispatch3 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellDispatch5_Impl: Sized + IShellDispatch4_Impl {
     fn WindowSwitcher(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellDispatch5 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellDispatch5_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch5_Impl, const OFFSET: isize>() -> IShellDispatch5_Vtbl {
         unsafe extern "system" fn WindowSwitcher<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -14169,14 +14157,14 @@ impl IShellDispatch5_Vtbl {
         iid == &<IShellDispatch5 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IShellDispatch as ::windows_core::Interface>::IID || iid == &<IShellDispatch2 as ::windows_core::Interface>::IID || iid == &<IShellDispatch3 as ::windows_core::Interface>::IID || iid == &<IShellDispatch4 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellDispatch6_Impl: Sized + IShellDispatch5_Impl {
     fn SearchCommand(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellDispatch6 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellDispatch6_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch6_Impl, const OFFSET: isize>() -> IShellDispatch6_Vtbl {
         unsafe extern "system" fn SearchCommand<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellDispatch6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -14211,8 +14199,8 @@ impl IShellExtInit_Vtbl {
         iid == &<IShellExtInit as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellFavoritesNameSpace_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn MoveSelectionUp(&self) -> ::windows_core::Result<()>;
     fn MoveSelectionDown(&self) -> ::windows_core::Result<()>;
@@ -14228,9 +14216,9 @@ pub trait IShellFavoritesNameSpace_Impl: Sized + super::super::System::Com::IDis
     fn DeleteSubscriptionForSelection(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetRoot(&self, bstrfullpath: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellFavoritesNameSpace {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellFavoritesNameSpace_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFavoritesNameSpace_Impl, const OFFSET: isize>() -> IShellFavoritesNameSpace_Vtbl {
         unsafe extern "system" fn MoveSelectionUp<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFavoritesNameSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -14424,20 +14412,20 @@ impl IShellFolder_Vtbl {
         iid == &<IShellFolder as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IShellFolder2_Impl: Sized + IShellFolder_Impl {
     fn GetDefaultSearchGUID(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn EnumSearches(&self) -> ::windows_core::Result<IEnumExtraSearch>;
     fn GetDefaultColumn(&self, dwres: u32, psort: *mut u32, pdisplay: *mut u32) -> ::windows_core::Result<()>;
     fn GetDefaultColumnState(&self, icolumn: u32) -> ::windows_core::Result<u32>;
-    fn GetDetailsEx(&self, pidl: *const Common::ITEMIDLIST, pscid: *const PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn GetDetailsEx(&self, pidl: *const Common::ITEMIDLIST, pscid: *const PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<::windows_core::VARIANT>;
     fn GetDetailsOf(&self, pidl: *const Common::ITEMIDLIST, icolumn: u32, psd: *mut Common::SHELLDETAILS) -> ::windows_core::Result<()>;
     fn MapColumnToSCID(&self, icolumn: u32, pscid: *mut PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::windows_core::RuntimeName for IShellFolder2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IShellFolder2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolder2_Impl, const OFFSET: isize>() -> IShellFolder2_Vtbl {
         unsafe extern "system" fn GetDefaultSearchGUID<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT {
@@ -14478,7 +14466,7 @@ impl IShellFolder2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetDetailsEx<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, pscid: *const PropertiesSystem::PROPERTYKEY, pv: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetDetailsEx<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolder2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, pscid: *const PropertiesSystem::PROPERTYKEY, pv: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDetailsEx(::core::mem::transmute_copy(&pidl), ::core::mem::transmute_copy(&pscid)) {
@@ -14848,22 +14836,22 @@ impl IShellFolderViewCB_Vtbl {
         iid == &<IShellFolderViewCB as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellFolderViewDual_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Application(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
     fn Parent(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
     fn Folder(&self) -> ::windows_core::Result<Folder>;
     fn SelectedItems(&self) -> ::windows_core::Result<FolderItems>;
     fn FocusedItem(&self) -> ::windows_core::Result<FolderItem>;
-    fn SelectItem(&self, pvfi: *const super::super::System::Variant::VARIANT, dwflags: i32) -> ::windows_core::Result<()>;
-    fn PopupItemMenu(&self, pfi: ::core::option::Option<&FolderItem>, vx: &super::super::System::Variant::VARIANT, vy: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::BSTR>;
+    fn SelectItem(&self, pvfi: *const ::windows_core::VARIANT, dwflags: i32) -> ::windows_core::Result<()>;
+    fn PopupItemMenu(&self, pfi: ::core::option::Option<&FolderItem>, vx: &::windows_core::VARIANT, vy: &::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Script(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
     fn ViewOptions(&self) -> ::windows_core::Result<i32>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellFolderViewDual {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellFolderViewDual_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual_Impl, const OFFSET: isize>() -> IShellFolderViewDual_Vtbl {
         unsafe extern "system" fn Application<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppid: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -14921,12 +14909,12 @@ impl IShellFolderViewDual_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelectItem<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvfi: *const super::super::System::Variant::VARIANT, dwflags: i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SelectItem<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvfi: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, dwflags: i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SelectItem(::core::mem::transmute_copy(&pvfi), ::core::mem::transmute_copy(&dwflags)).into()
         }
-        unsafe extern "system" fn PopupItemMenu<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfi: *mut ::core::ffi::c_void, vx: super::super::System::Variant::VARIANT, vy: super::super::System::Variant::VARIANT, pbs: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn PopupItemMenu<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfi: *mut ::core::ffi::c_void, vx: ::std::mem::MaybeUninit<::windows_core::VARIANT>, vy: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pbs: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PopupItemMenu(::windows_core::from_raw_borrowed(&pfi), ::core::mem::transmute(&vx), ::core::mem::transmute(&vy)) {
@@ -14976,16 +14964,16 @@ impl IShellFolderViewDual_Vtbl {
         iid == &<IShellFolderViewDual as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellFolderViewDual2_Impl: Sized + IShellFolderViewDual_Impl {
     fn CurrentViewMode(&self) -> ::windows_core::Result<u32>;
     fn SetCurrentViewMode(&self, viewmode: u32) -> ::windows_core::Result<()>;
     fn SelectItemRelative(&self, irelative: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellFolderViewDual2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellFolderViewDual2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual2_Impl, const OFFSET: isize>() -> IShellFolderViewDual2_Vtbl {
         unsafe extern "system" fn CurrentViewMode<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pviewmode: *mut u32) -> ::windows_core::HRESULT {
@@ -15020,8 +15008,8 @@ impl IShellFolderViewDual2_Vtbl {
         iid == &<IShellFolderViewDual2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IShellFolderViewDual as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellFolderViewDual3_Impl: Sized + IShellFolderViewDual2_Impl {
     fn GroupBy(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetGroupBy(&self, bstrgroupby: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -15033,9 +15021,9 @@ pub trait IShellFolderViewDual3_Impl: Sized + IShellFolderViewDual2_Impl {
     fn IconSize(&self) -> ::windows_core::Result<i32>;
     fn FilterView(&self, bstrfiltertext: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellFolderViewDual3 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellFolderViewDual3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual3_Impl, const OFFSET: isize>() -> IShellFolderViewDual3_Vtbl {
         unsafe extern "system" fn GroupBy<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderViewDual3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrgroupby: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -15671,15 +15659,15 @@ impl IShellItem_Vtbl {
         iid == &<IShellItem as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_SystemServices\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_SystemServices", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_SystemServices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IShellItem2_Impl: Sized + IShellItem_Impl {
     fn GetPropertyStore(&self, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn GetPropertyStoreWithCreateObject(&self, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, punkcreateobject: ::core::option::Option<&::windows_core::IUnknown>, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn GetPropertyStoreForKeys(&self, rgkeys: *const PropertiesSystem::PROPERTYKEY, ckeys: u32, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn GetPropertyDescriptionList(&self, keytype: *const PropertiesSystem::PROPERTYKEY, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn Update(&self, pbc: ::core::option::Option<&super::super::System::Com::IBindCtx>) -> ::windows_core::Result<()>;
-    fn GetProperty(&self, key: *const PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn GetProperty(&self, key: *const PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<::windows_core::PROPVARIANT>;
     fn GetCLSID(&self, key: *const PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<::windows_core::GUID>;
     fn GetFileTime(&self, key: *const PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<super::super::Foundation::FILETIME>;
     fn GetInt32(&self, key: *const PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<i32>;
@@ -15688,9 +15676,9 @@ pub trait IShellItem2_Impl: Sized + IShellItem_Impl {
     fn GetUInt64(&self, key: *const PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<u64>;
     fn GetBool(&self, key: *const PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_SystemServices", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::windows_core::RuntimeName for IShellItem2 {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_SystemServices", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_SystemServices", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IShellItem2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellItem2_Impl, const OFFSET: isize>() -> IShellItem2_Vtbl {
         unsafe extern "system" fn GetPropertyStore<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: PropertiesSystem::GETPROPERTYSTOREFLAGS, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -15718,7 +15706,7 @@ impl IShellItem2_Vtbl {
             let this = (*this).get_impl();
             this.Update(::windows_core::from_raw_borrowed(&pbc)).into()
         }
-        unsafe extern "system" fn GetProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&key)) {
@@ -16461,8 +16449,8 @@ impl IShellLinkDataList_Vtbl {
         iid == &<IShellLinkDataList as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellLinkDual_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Path(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetPath(&self, bs: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -16479,11 +16467,11 @@ pub trait IShellLinkDual_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn Resolve(&self, fflags: i32) -> ::windows_core::Result<()>;
     fn GetIconLocation(&self, pbs: *mut ::windows_core::BSTR, piicon: *mut i32) -> ::windows_core::Result<()>;
     fn SetIconLocation(&self, bs: &::windows_core::BSTR, iicon: i32) -> ::windows_core::Result<()>;
-    fn Save(&self, vwhere: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn Save(&self, vwhere: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellLinkDual {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellLinkDual_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>() -> IShellLinkDual_Vtbl {
         unsafe extern "system" fn Path<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbs: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -16597,7 +16585,7 @@ impl IShellLinkDual_Vtbl {
             let this = (*this).get_impl();
             this.SetIconLocation(::core::mem::transmute(&bs), ::core::mem::transmute_copy(&iicon)).into()
         }
-        unsafe extern "system" fn Save<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vwhere: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Save<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vwhere: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Save(::core::mem::transmute(&vwhere)).into()
@@ -16626,14 +16614,14 @@ impl IShellLinkDual_Vtbl {
         iid == &<IShellLinkDual as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellLinkDual2_Impl: Sized + IShellLinkDual_Impl {
     fn Target(&self) -> ::windows_core::Result<FolderItem>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellLinkDual2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellLinkDual2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual2_Impl, const OFFSET: isize>() -> IShellLinkDual2_Vtbl {
         unsafe extern "system" fn Target<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfi: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -16915,15 +16903,15 @@ impl IShellMenuCallback_Vtbl {
         iid == &<IShellMenuCallback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellNameSpace_Impl: Sized + IShellFavoritesNameSpace_Impl {
     fn EnumOptions(&self) -> ::windows_core::Result<i32>;
     fn SetEnumOptions(&self, lval: i32) -> ::windows_core::Result<()>;
     fn SelectedItem(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
     fn SetSelectedItem(&self, pitem: ::core::option::Option<&super::super::System::Com::IDispatch>) -> ::windows_core::Result<()>;
-    fn Root(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetRoot2(&self, var: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn Root(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
+    fn SetRoot2(&self, var: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn Depth(&self) -> ::windows_core::Result<i32>;
     fn SetDepth(&self, idepth: i32) -> ::windows_core::Result<()>;
     fn Mode(&self) -> ::windows_core::Result<u32>;
@@ -16937,12 +16925,12 @@ pub trait IShellNameSpace_Impl: Sized + IShellFavoritesNameSpace_Impl {
     fn CountViewTypes(&self) -> ::windows_core::Result<i32>;
     fn SetViewType(&self, itype: i32) -> ::windows_core::Result<()>;
     fn SelectedItems(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
-    fn Expand(&self, var: &super::super::System::Variant::VARIANT, idepth: i32) -> ::windows_core::Result<()>;
+    fn Expand(&self, var: &::windows_core::VARIANT, idepth: i32) -> ::windows_core::Result<()>;
     fn UnselectAll(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellNameSpace {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellNameSpace_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellNameSpace_Impl, const OFFSET: isize>() -> IShellNameSpace_Vtbl {
         unsafe extern "system" fn EnumOptions<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgrfenumflags: *mut i32) -> ::windows_core::HRESULT {
@@ -16977,7 +16965,7 @@ impl IShellNameSpace_Vtbl {
             let this = (*this).get_impl();
             this.SetSelectedItem(::windows_core::from_raw_borrowed(&pitem)).into()
         }
-        unsafe extern "system" fn Root<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Root<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvar: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Root() {
@@ -16988,7 +16976,7 @@ impl IShellNameSpace_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetRoot2<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, var: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetRoot2<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, var: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetRoot2(::core::mem::transmute(&var)).into()
@@ -17100,7 +17088,7 @@ impl IShellNameSpace_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Expand<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, var: super::super::System::Variant::VARIANT, idepth: i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Expand<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellNameSpace_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, var: ::std::mem::MaybeUninit<::windows_core::VARIANT>, idepth: i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Expand(::core::mem::transmute(&var), ::core::mem::transmute_copy(&idepth)).into()
@@ -17245,26 +17233,26 @@ impl IShellTaskScheduler_Vtbl {
         iid == &<IShellTaskScheduler as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellUIHelper_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ResetFirstBootMode(&self) -> ::windows_core::Result<()>;
     fn ResetSafeMode(&self) -> ::windows_core::Result<()>;
     fn RefreshOfflineDesktop(&self) -> ::windows_core::Result<()>;
-    fn AddFavorite(&self, url: &::windows_core::BSTR, title: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn AddFavorite(&self, url: &::windows_core::BSTR, title: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn AddChannel(&self, url: &::windows_core::BSTR) -> ::windows_core::Result<()>;
-    fn AddDesktopComponent(&self, url: &::windows_core::BSTR, r#type: &::windows_core::BSTR, left: *const super::super::System::Variant::VARIANT, top: *const super::super::System::Variant::VARIANT, width: *const super::super::System::Variant::VARIANT, height: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn AddDesktopComponent(&self, url: &::windows_core::BSTR, r#type: &::windows_core::BSTR, left: *const ::windows_core::VARIANT, top: *const ::windows_core::VARIANT, width: *const ::windows_core::VARIANT, height: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn IsSubscribed(&self, url: &::windows_core::BSTR) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn NavigateAndFind(&self, url: &::windows_core::BSTR, strquery: &::windows_core::BSTR, vartargetframe: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn NavigateAndFind(&self, url: &::windows_core::BSTR, strquery: &::windows_core::BSTR, vartargetframe: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn ImportExportFavorites(&self, fimport: super::super::Foundation::VARIANT_BOOL, strimpexppath: &::windows_core::BSTR) -> ::windows_core::Result<()>;
-    fn AutoCompleteSaveForm(&self, form: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
-    fn AutoScan(&self, strsearch: &::windows_core::BSTR, strfailureurl: &::windows_core::BSTR, pvartargetframe: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
-    fn AutoCompleteAttach(&self, reserved: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
-    fn ShowBrowserUI(&self, bstrname: &::windows_core::BSTR, pvarin: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn AutoCompleteSaveForm(&self, form: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
+    fn AutoScan(&self, strsearch: &::windows_core::BSTR, strfailureurl: &::windows_core::BSTR, pvartargetframe: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
+    fn AutoCompleteAttach(&self, reserved: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
+    fn ShowBrowserUI(&self, bstrname: &::windows_core::BSTR, pvarin: *const ::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::VARIANT>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellUIHelper {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>() -> IShellUIHelper_Vtbl {
         unsafe extern "system" fn ResetFirstBootMode<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -17282,7 +17270,7 @@ impl IShellUIHelper_Vtbl {
             let this = (*this).get_impl();
             this.RefreshOfflineDesktop().into()
         }
-        unsafe extern "system" fn AddFavorite<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, url: ::std::mem::MaybeUninit<::windows_core::BSTR>, title: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn AddFavorite<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, url: ::std::mem::MaybeUninit<::windows_core::BSTR>, title: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddFavorite(::core::mem::transmute(&url), ::core::mem::transmute_copy(&title)).into()
@@ -17292,7 +17280,7 @@ impl IShellUIHelper_Vtbl {
             let this = (*this).get_impl();
             this.AddChannel(::core::mem::transmute(&url)).into()
         }
-        unsafe extern "system" fn AddDesktopComponent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, url: ::std::mem::MaybeUninit<::windows_core::BSTR>, r#type: ::std::mem::MaybeUninit<::windows_core::BSTR>, left: *const super::super::System::Variant::VARIANT, top: *const super::super::System::Variant::VARIANT, width: *const super::super::System::Variant::VARIANT, height: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn AddDesktopComponent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, url: ::std::mem::MaybeUninit<::windows_core::BSTR>, r#type: ::std::mem::MaybeUninit<::windows_core::BSTR>, left: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, top: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, width: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, height: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddDesktopComponent(::core::mem::transmute(&url), ::core::mem::transmute(&r#type), ::core::mem::transmute_copy(&left), ::core::mem::transmute_copy(&top), ::core::mem::transmute_copy(&width), ::core::mem::transmute_copy(&height)).into()
@@ -17308,7 +17296,7 @@ impl IShellUIHelper_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn NavigateAndFind<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, url: ::std::mem::MaybeUninit<::windows_core::BSTR>, strquery: ::std::mem::MaybeUninit<::windows_core::BSTR>, vartargetframe: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn NavigateAndFind<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, url: ::std::mem::MaybeUninit<::windows_core::BSTR>, strquery: ::std::mem::MaybeUninit<::windows_core::BSTR>, vartargetframe: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.NavigateAndFind(::core::mem::transmute(&url), ::core::mem::transmute(&strquery), ::core::mem::transmute_copy(&vartargetframe)).into()
@@ -17318,22 +17306,22 @@ impl IShellUIHelper_Vtbl {
             let this = (*this).get_impl();
             this.ImportExportFavorites(::core::mem::transmute_copy(&fimport), ::core::mem::transmute(&strimpexppath)).into()
         }
-        unsafe extern "system" fn AutoCompleteSaveForm<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, form: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn AutoCompleteSaveForm<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, form: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AutoCompleteSaveForm(::core::mem::transmute_copy(&form)).into()
         }
-        unsafe extern "system" fn AutoScan<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strsearch: ::std::mem::MaybeUninit<::windows_core::BSTR>, strfailureurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvartargetframe: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn AutoScan<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strsearch: ::std::mem::MaybeUninit<::windows_core::BSTR>, strfailureurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvartargetframe: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AutoScan(::core::mem::transmute(&strsearch), ::core::mem::transmute(&strfailureurl), ::core::mem::transmute_copy(&pvartargetframe)).into()
         }
-        unsafe extern "system" fn AutoCompleteAttach<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reserved: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn AutoCompleteAttach<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reserved: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AutoCompleteAttach(::core::mem::transmute_copy(&reserved)).into()
         }
-        unsafe extern "system" fn ShowBrowserUI<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarin: *const super::super::System::Variant::VARIANT, pvarout: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn ShowBrowserUI<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarin: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarout: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ShowBrowserUI(::core::mem::transmute(&bstrname), ::core::mem::transmute_copy(&pvarin)) {
@@ -17365,8 +17353,8 @@ impl IShellUIHelper_Vtbl {
         iid == &<IShellUIHelper as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellUIHelper2_Impl: Sized + IShellUIHelper_Impl {
     fn AddSearchProvider(&self, url: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn RunOnceShown(&self) -> ::windows_core::Result<()>;
@@ -17385,9 +17373,9 @@ pub trait IShellUIHelper2_Impl: Sized + IShellUIHelper_Impl {
     fn RunOnceHasShown(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SearchGuideUrl(&self) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellUIHelper2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>() -> IShellUIHelper2_Vtbl {
         unsafe extern "system" fn AddSearchProvider<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, url: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -17542,13 +17530,13 @@ impl IShellUIHelper2_Vtbl {
         iid == &<IShellUIHelper2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IShellUIHelper as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellUIHelper3_Impl: Sized + IShellUIHelper2_Impl {
     fn AddService(&self, url: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn IsServiceInstalled(&self, url: &::windows_core::BSTR, verb: &::windows_core::BSTR) -> ::windows_core::Result<u32>;
     fn InPrivateFilteringEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn AddToFavoritesBar(&self, url: &::windows_core::BSTR, title: &::windows_core::BSTR, r#type: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn AddToFavoritesBar(&self, url: &::windows_core::BSTR, title: &::windows_core::BSTR, r#type: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn BuildNewTabPage(&self) -> ::windows_core::Result<()>;
     fn SetRecentlyClosedVisible(&self, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn SetActivitiesVisible(&self, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -17559,9 +17547,9 @@ pub trait IShellUIHelper3_Impl: Sized + IShellUIHelper2_Impl {
     fn ShowTabsHelp(&self) -> ::windows_core::Result<()>;
     fn ShowInPrivateHelp(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellUIHelper3 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>() -> IShellUIHelper3_Vtbl {
         unsafe extern "system" fn AddService<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, url: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -17591,7 +17579,7 @@ impl IShellUIHelper3_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddToFavoritesBar<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, url: ::std::mem::MaybeUninit<::windows_core::BSTR>, title: ::std::mem::MaybeUninit<::windows_core::BSTR>, r#type: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn AddToFavoritesBar<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, url: ::std::mem::MaybeUninit<::windows_core::BSTR>, title: ::std::mem::MaybeUninit<::windows_core::BSTR>, r#type: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddToFavoritesBar(::core::mem::transmute(&url), ::core::mem::transmute(&title), ::core::mem::transmute_copy(&r#type)).into()
@@ -17668,31 +17656,31 @@ impl IShellUIHelper3_Vtbl {
         iid == &<IShellUIHelper3 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IShellUIHelper as ::windows_core::Interface>::IID || iid == &<IShellUIHelper2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellUIHelper4_Impl: Sized + IShellUIHelper3_Impl {
     fn msIsSiteMode(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn msSiteModeShowThumbBar(&self) -> ::windows_core::Result<()>;
-    fn msSiteModeAddThumbBarButton(&self, bstriconurl: &::windows_core::BSTR, bstrtooltip: &::windows_core::BSTR) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn msSiteModeUpdateThumbBarButton(&self, buttonid: &super::super::System::Variant::VARIANT, fenabled: super::super::Foundation::VARIANT_BOOL, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
-    fn msSiteModeSetIconOverlay(&self, iconurl: &::windows_core::BSTR, pvardescription: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn msSiteModeAddThumbBarButton(&self, bstriconurl: &::windows_core::BSTR, bstrtooltip: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::VARIANT>;
+    fn msSiteModeUpdateThumbBarButton(&self, buttonid: &::windows_core::VARIANT, fenabled: super::super::Foundation::VARIANT_BOOL, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
+    fn msSiteModeSetIconOverlay(&self, iconurl: &::windows_core::BSTR, pvardescription: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn msSiteModeClearIconOverlay(&self) -> ::windows_core::Result<()>;
     fn msAddSiteMode(&self) -> ::windows_core::Result<()>;
     fn msSiteModeCreateJumpList(&self, bstrheader: &::windows_core::BSTR) -> ::windows_core::Result<()>;
-    fn msSiteModeAddJumpListItem(&self, bstrname: &::windows_core::BSTR, bstractionuri: &::windows_core::BSTR, bstriconuri: &::windows_core::BSTR, pvarwindowtype: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn msSiteModeAddJumpListItem(&self, bstrname: &::windows_core::BSTR, bstractionuri: &::windows_core::BSTR, bstriconuri: &::windows_core::BSTR, pvarwindowtype: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn msSiteModeClearJumpList(&self) -> ::windows_core::Result<()>;
     fn msSiteModeShowJumpList(&self) -> ::windows_core::Result<()>;
-    fn msSiteModeAddButtonStyle(&self, uibuttonid: &super::super::System::Variant::VARIANT, bstriconurl: &::windows_core::BSTR, bstrtooltip: &::windows_core::BSTR) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn msSiteModeShowButtonStyle(&self, uibuttonid: &super::super::System::Variant::VARIANT, uistyleid: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn msSiteModeAddButtonStyle(&self, uibuttonid: &::windows_core::VARIANT, bstriconurl: &::windows_core::BSTR, bstrtooltip: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::VARIANT>;
+    fn msSiteModeShowButtonStyle(&self, uibuttonid: &::windows_core::VARIANT, uistyleid: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn msSiteModeActivate(&self) -> ::windows_core::Result<()>;
-    fn msIsSiteModeFirstRun(&self, fpreservestate: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn msIsSiteModeFirstRun(&self, fpreservestate: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<::windows_core::VARIANT>;
     fn msAddTrackingProtectionList(&self, url: &::windows_core::BSTR, bstrfiltername: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn msTrackingProtectionEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn msActiveXFilteringEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellUIHelper4 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper4_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>() -> IShellUIHelper4_Vtbl {
         unsafe extern "system" fn msIsSiteMode<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfsitemode: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -17711,7 +17699,7 @@ impl IShellUIHelper4_Vtbl {
             let this = (*this).get_impl();
             this.msSiteModeShowThumbBar().into()
         }
-        unsafe extern "system" fn msSiteModeAddThumbBarButton<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstriconurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrtooltip: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarbuttonid: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn msSiteModeAddThumbBarButton<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstriconurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrtooltip: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarbuttonid: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.msSiteModeAddThumbBarButton(::core::mem::transmute(&bstriconurl), ::core::mem::transmute(&bstrtooltip)) {
@@ -17722,12 +17710,12 @@ impl IShellUIHelper4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn msSiteModeUpdateThumbBarButton<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buttonid: super::super::System::Variant::VARIANT, fenabled: super::super::Foundation::VARIANT_BOOL, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn msSiteModeUpdateThumbBarButton<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buttonid: ::std::mem::MaybeUninit<::windows_core::VARIANT>, fenabled: super::super::Foundation::VARIANT_BOOL, fvisible: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.msSiteModeUpdateThumbBarButton(::core::mem::transmute(&buttonid), ::core::mem::transmute_copy(&fenabled), ::core::mem::transmute_copy(&fvisible)).into()
         }
-        unsafe extern "system" fn msSiteModeSetIconOverlay<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iconurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvardescription: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn msSiteModeSetIconOverlay<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iconurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvardescription: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.msSiteModeSetIconOverlay(::core::mem::transmute(&iconurl), ::core::mem::transmute_copy(&pvardescription)).into()
@@ -17747,7 +17735,7 @@ impl IShellUIHelper4_Vtbl {
             let this = (*this).get_impl();
             this.msSiteModeCreateJumpList(::core::mem::transmute(&bstrheader)).into()
         }
-        unsafe extern "system" fn msSiteModeAddJumpListItem<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstractionuri: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstriconuri: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarwindowtype: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn msSiteModeAddJumpListItem<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstractionuri: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstriconuri: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarwindowtype: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.msSiteModeAddJumpListItem(::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstractionuri), ::core::mem::transmute(&bstriconuri), ::core::mem::transmute_copy(&pvarwindowtype)).into()
@@ -17762,7 +17750,7 @@ impl IShellUIHelper4_Vtbl {
             let this = (*this).get_impl();
             this.msSiteModeShowJumpList().into()
         }
-        unsafe extern "system" fn msSiteModeAddButtonStyle<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uibuttonid: super::super::System::Variant::VARIANT, bstriconurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrtooltip: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarstyleid: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn msSiteModeAddButtonStyle<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uibuttonid: ::std::mem::MaybeUninit<::windows_core::VARIANT>, bstriconurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrtooltip: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarstyleid: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.msSiteModeAddButtonStyle(::core::mem::transmute(&uibuttonid), ::core::mem::transmute(&bstriconurl), ::core::mem::transmute(&bstrtooltip)) {
@@ -17773,7 +17761,7 @@ impl IShellUIHelper4_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn msSiteModeShowButtonStyle<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uibuttonid: super::super::System::Variant::VARIANT, uistyleid: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn msSiteModeShowButtonStyle<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uibuttonid: ::std::mem::MaybeUninit<::windows_core::VARIANT>, uistyleid: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.msSiteModeShowButtonStyle(::core::mem::transmute(&uibuttonid), ::core::mem::transmute(&uistyleid)).into()
@@ -17783,7 +17771,7 @@ impl IShellUIHelper4_Vtbl {
             let this = (*this).get_impl();
             this.msSiteModeActivate().into()
         }
-        unsafe extern "system" fn msIsSiteModeFirstRun<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fpreservestate: super::super::Foundation::VARIANT_BOOL, puifirstrun: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn msIsSiteModeFirstRun<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fpreservestate: super::super::Foundation::VARIANT_BOOL, puifirstrun: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.msIsSiteModeFirstRun(::core::mem::transmute_copy(&fpreservestate)) {
@@ -17847,10 +17835,10 @@ impl IShellUIHelper4_Vtbl {
         iid == &<IShellUIHelper4 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IShellUIHelper as ::windows_core::Interface>::IID || iid == &<IShellUIHelper2 as ::windows_core::Interface>::IID || iid == &<IShellUIHelper3 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellUIHelper5_Impl: Sized + IShellUIHelper4_Impl {
-    fn msProvisionNetworks(&self, bstrprovisioningxml: &::windows_core::BSTR) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn msProvisionNetworks(&self, bstrprovisioningxml: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::VARIANT>;
     fn msReportSafeUrl(&self) -> ::windows_core::Result<()>;
     fn msSiteModeRefreshBadge(&self) -> ::windows_core::Result<()>;
     fn msSiteModeClearBadge(&self) -> ::windows_core::Result<()>;
@@ -17858,12 +17846,12 @@ pub trait IShellUIHelper5_Impl: Sized + IShellUIHelper4_Impl {
     fn msLaunchNetworkClientHelp(&self) -> ::windows_core::Result<()>;
     fn msChangeDefaultBrowser(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellUIHelper5 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper5_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper5_Impl, const OFFSET: isize>() -> IShellUIHelper5_Vtbl {
-        unsafe extern "system" fn msProvisionNetworks<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprovisioningxml: ::std::mem::MaybeUninit<::windows_core::BSTR>, puiresult: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn msProvisionNetworks<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper5_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprovisioningxml: ::std::mem::MaybeUninit<::windows_core::BSTR>, puiresult: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.msProvisionNetworks(::core::mem::transmute(&bstrprovisioningxml)) {
@@ -17919,27 +17907,27 @@ impl IShellUIHelper5_Vtbl {
         iid == &<IShellUIHelper5 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IShellUIHelper as ::windows_core::Interface>::IID || iid == &<IShellUIHelper2 as ::windows_core::Interface>::IID || iid == &<IShellUIHelper3 as ::windows_core::Interface>::IID || iid == &<IShellUIHelper4 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellUIHelper6_Impl: Sized + IShellUIHelper5_Impl {
     fn msStopPeriodicTileUpdate(&self) -> ::windows_core::Result<()>;
-    fn msStartPeriodicTileUpdate(&self, pollinguris: &super::super::System::Variant::VARIANT, starttime: &super::super::System::Variant::VARIANT, uiupdaterecurrence: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
-    fn msStartPeriodicTileUpdateBatch(&self, pollinguris: &super::super::System::Variant::VARIANT, starttime: &super::super::System::Variant::VARIANT, uiupdaterecurrence: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn msStartPeriodicTileUpdate(&self, pollinguris: &::windows_core::VARIANT, starttime: &::windows_core::VARIANT, uiupdaterecurrence: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
+    fn msStartPeriodicTileUpdateBatch(&self, pollinguris: &::windows_core::VARIANT, starttime: &::windows_core::VARIANT, uiupdaterecurrence: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn msClearTile(&self) -> ::windows_core::Result<()>;
     fn msEnableTileNotificationQueue(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
-    fn msPinnedSiteState(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn msPinnedSiteState(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
     fn msEnableTileNotificationQueueForSquare150x150(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn msEnableTileNotificationQueueForWide310x150(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn msEnableTileNotificationQueueForSquare310x310(&self, fchange: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
-    fn msScheduledTileNotification(&self, bstrnotificationxml: &::windows_core::BSTR, bstrnotificationid: &::windows_core::BSTR, bstrnotificationtag: &::windows_core::BSTR, starttime: &super::super::System::Variant::VARIANT, expirationtime: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn msScheduledTileNotification(&self, bstrnotificationxml: &::windows_core::BSTR, bstrnotificationid: &::windows_core::BSTR, bstrnotificationtag: &::windows_core::BSTR, starttime: &::windows_core::VARIANT, expirationtime: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn msRemoveScheduledTileNotification(&self, bstrnotificationid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
-    fn msStartPeriodicBadgeUpdate(&self, pollinguri: &::windows_core::BSTR, starttime: &super::super::System::Variant::VARIANT, uiupdaterecurrence: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn msStartPeriodicBadgeUpdate(&self, pollinguri: &::windows_core::BSTR, starttime: &::windows_core::VARIANT, uiupdaterecurrence: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn msStopPeriodicBadgeUpdate(&self) -> ::windows_core::Result<()>;
     fn msLaunchInternetOptions(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellUIHelper6 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper6_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>() -> IShellUIHelper6_Vtbl {
         unsafe extern "system" fn msStopPeriodicTileUpdate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -17947,12 +17935,12 @@ impl IShellUIHelper6_Vtbl {
             let this = (*this).get_impl();
             this.msStopPeriodicTileUpdate().into()
         }
-        unsafe extern "system" fn msStartPeriodicTileUpdate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pollinguris: super::super::System::Variant::VARIANT, starttime: super::super::System::Variant::VARIANT, uiupdaterecurrence: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn msStartPeriodicTileUpdate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pollinguris: ::std::mem::MaybeUninit<::windows_core::VARIANT>, starttime: ::std::mem::MaybeUninit<::windows_core::VARIANT>, uiupdaterecurrence: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.msStartPeriodicTileUpdate(::core::mem::transmute(&pollinguris), ::core::mem::transmute(&starttime), ::core::mem::transmute(&uiupdaterecurrence)).into()
         }
-        unsafe extern "system" fn msStartPeriodicTileUpdateBatch<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pollinguris: super::super::System::Variant::VARIANT, starttime: super::super::System::Variant::VARIANT, uiupdaterecurrence: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn msStartPeriodicTileUpdateBatch<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pollinguris: ::std::mem::MaybeUninit<::windows_core::VARIANT>, starttime: ::std::mem::MaybeUninit<::windows_core::VARIANT>, uiupdaterecurrence: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.msStartPeriodicTileUpdateBatch(::core::mem::transmute(&pollinguris), ::core::mem::transmute(&starttime), ::core::mem::transmute(&uiupdaterecurrence)).into()
@@ -17967,7 +17955,7 @@ impl IShellUIHelper6_Vtbl {
             let this = (*this).get_impl();
             this.msEnableTileNotificationQueue(::core::mem::transmute_copy(&fchange)).into()
         }
-        unsafe extern "system" fn msPinnedSiteState<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarsitestate: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn msPinnedSiteState<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarsitestate: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.msPinnedSiteState() {
@@ -17993,7 +17981,7 @@ impl IShellUIHelper6_Vtbl {
             let this = (*this).get_impl();
             this.msEnableTileNotificationQueueForSquare310x310(::core::mem::transmute_copy(&fchange)).into()
         }
-        unsafe extern "system" fn msScheduledTileNotification<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrnotificationxml: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrnotificationid: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrnotificationtag: ::std::mem::MaybeUninit<::windows_core::BSTR>, starttime: super::super::System::Variant::VARIANT, expirationtime: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn msScheduledTileNotification<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrnotificationxml: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrnotificationid: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrnotificationtag: ::std::mem::MaybeUninit<::windows_core::BSTR>, starttime: ::std::mem::MaybeUninit<::windows_core::VARIANT>, expirationtime: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.msScheduledTileNotification(::core::mem::transmute(&bstrnotificationxml), ::core::mem::transmute(&bstrnotificationid), ::core::mem::transmute(&bstrnotificationtag), ::core::mem::transmute(&starttime), ::core::mem::transmute(&expirationtime)).into()
@@ -18003,7 +17991,7 @@ impl IShellUIHelper6_Vtbl {
             let this = (*this).get_impl();
             this.msRemoveScheduledTileNotification(::core::mem::transmute(&bstrnotificationid)).into()
         }
-        unsafe extern "system" fn msStartPeriodicBadgeUpdate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pollinguri: ::std::mem::MaybeUninit<::windows_core::BSTR>, starttime: super::super::System::Variant::VARIANT, uiupdaterecurrence: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn msStartPeriodicBadgeUpdate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper6_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pollinguri: ::std::mem::MaybeUninit<::windows_core::BSTR>, starttime: ::std::mem::MaybeUninit<::windows_core::VARIANT>, uiupdaterecurrence: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.msStartPeriodicBadgeUpdate(::core::mem::transmute(&pollinguri), ::core::mem::transmute(&starttime), ::core::mem::transmute(&uiupdaterecurrence)).into()
@@ -18040,8 +18028,8 @@ impl IShellUIHelper6_Vtbl {
         iid == &<IShellUIHelper6 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IShellUIHelper as ::windows_core::Interface>::IID || iid == &<IShellUIHelper2 as ::windows_core::Interface>::IID || iid == &<IShellUIHelper3 as ::windows_core::Interface>::IID || iid == &<IShellUIHelper4 as ::windows_core::Interface>::IID || iid == &<IShellUIHelper5 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellUIHelper7_Impl: Sized + IShellUIHelper6_Impl {
     fn SetExperimentalFlag(&self, bstrflagstring: &::windows_core::BSTR, vfflag: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn GetExperimentalFlag(&self, bstrflagstring: &::windows_core::BSTR) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -18053,9 +18041,9 @@ pub trait IShellUIHelper7_Impl: Sized + IShellUIHelper6_Impl {
     fn HasNeedIEAutoLaunchFlag(&self, bstrurl: &::windows_core::BSTR) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn LaunchIE(&self, bstrurl: &::windows_core::BSTR, automated: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellUIHelper7 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper7_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>() -> IShellUIHelper7_Vtbl {
         unsafe extern "system" fn SetExperimentalFlag<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrflagstring: ::std::mem::MaybeUninit<::windows_core::BSTR>, vfflag: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -18144,8 +18132,8 @@ impl IShellUIHelper7_Vtbl {
         iid == &<IShellUIHelper7 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IShellUIHelper as ::windows_core::Interface>::IID || iid == &<IShellUIHelper2 as ::windows_core::Interface>::IID || iid == &<IShellUIHelper3 as ::windows_core::Interface>::IID || iid == &<IShellUIHelper4 as ::windows_core::Interface>::IID || iid == &<IShellUIHelper5 as ::windows_core::Interface>::IID || iid == &<IShellUIHelper6 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellUIHelper8_Impl: Sized + IShellUIHelper7_Impl {
     fn GetCVListData(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn GetCVListLocalData(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -18155,9 +18143,9 @@ pub trait IShellUIHelper8_Impl: Sized + IShellUIHelper7_Impl {
     fn OpenFavoritesSettings(&self) -> ::windows_core::Result<()>;
     fn LaunchInHVSI(&self, bstrurl: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellUIHelper8 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper8_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper8_Impl, const OFFSET: isize>() -> IShellUIHelper8_Vtbl {
         unsafe extern "system" fn GetCVListData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrresult: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -18234,14 +18222,14 @@ impl IShellUIHelper8_Vtbl {
         iid == &<IShellUIHelper8 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IShellUIHelper as ::windows_core::Interface>::IID || iid == &<IShellUIHelper2 as ::windows_core::Interface>::IID || iid == &<IShellUIHelper3 as ::windows_core::Interface>::IID || iid == &<IShellUIHelper4 as ::windows_core::Interface>::IID || iid == &<IShellUIHelper5 as ::windows_core::Interface>::IID || iid == &<IShellUIHelper6 as ::windows_core::Interface>::IID || iid == &<IShellUIHelper7 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellUIHelper9_Impl: Sized + IShellUIHelper8_Impl {
     fn GetOSSku(&self) -> ::windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellUIHelper9 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellUIHelper9_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper9_Impl, const OFFSET: isize>() -> IShellUIHelper9_Vtbl {
         unsafe extern "system" fn GetOSSku<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellUIHelper9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwresult: *mut u32) -> ::windows_core::HRESULT {
@@ -18439,24 +18427,24 @@ impl IShellView3_Vtbl {
         iid == &<IShellView3 as ::windows_core::Interface>::IID || iid == &<super::super::System::Ole::IOleWindow as ::windows_core::Interface>::IID || iid == &<IShellView as ::windows_core::Interface>::IID || iid == &<IShellView2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IShellWindows_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
-    fn Item(&self, index: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
+    fn Item(&self, index: &::windows_core::VARIANT) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Register(&self, pid: ::core::option::Option<&super::super::System::Com::IDispatch>, hwnd: i32, swclass: ShellWindowTypeConstants) -> ::windows_core::Result<i32>;
-    fn RegisterPending(&self, lthreadid: i32, pvarloc: *const super::super::System::Variant::VARIANT, pvarlocroot: *const super::super::System::Variant::VARIANT, swclass: ShellWindowTypeConstants) -> ::windows_core::Result<i32>;
+    fn RegisterPending(&self, lthreadid: i32, pvarloc: *const ::windows_core::VARIANT, pvarlocroot: *const ::windows_core::VARIANT, swclass: ShellWindowTypeConstants) -> ::windows_core::Result<i32>;
     fn Revoke(&self, lcookie: i32) -> ::windows_core::Result<()>;
-    fn OnNavigate(&self, lcookie: i32, pvarloc: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn OnNavigate(&self, lcookie: i32, pvarloc: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn OnActivated(&self, lcookie: i32, factive: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
-    fn FindWindowSW(&self, pvarloc: *const super::super::System::Variant::VARIANT, pvarlocroot: *const super::super::System::Variant::VARIANT, swclass: ShellWindowTypeConstants, phwnd: *mut i32, swfwoptions: ShellWindowFindWindowOptions, ppdispout: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows_core::Result<()>;
+    fn FindWindowSW(&self, pvarloc: *const ::windows_core::VARIANT, pvarlocroot: *const ::windows_core::VARIANT, swclass: ShellWindowTypeConstants, phwnd: *mut i32, swfwoptions: ShellWindowFindWindowOptions, ppdispout: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows_core::Result<()>;
     fn OnCreated(&self, lcookie: i32, punk: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn ProcessAttachDetach(&self, fattach: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IShellWindows {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IShellWindows_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>() -> IShellWindows_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT {
@@ -18470,7 +18458,7 @@ impl IShellWindows_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: super::super::System::Variant::VARIANT, folder: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::std::mem::MaybeUninit<::windows_core::VARIANT>, folder: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute(&index)) {
@@ -18503,7 +18491,7 @@ impl IShellWindows_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RegisterPending<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lthreadid: i32, pvarloc: *const super::super::System::Variant::VARIANT, pvarlocroot: *const super::super::System::Variant::VARIANT, swclass: ShellWindowTypeConstants, plcookie: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn RegisterPending<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lthreadid: i32, pvarloc: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarlocroot: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, swclass: ShellWindowTypeConstants, plcookie: *mut i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RegisterPending(::core::mem::transmute_copy(&lthreadid), ::core::mem::transmute_copy(&pvarloc), ::core::mem::transmute_copy(&pvarlocroot), ::core::mem::transmute_copy(&swclass)) {
@@ -18519,7 +18507,7 @@ impl IShellWindows_Vtbl {
             let this = (*this).get_impl();
             this.Revoke(::core::mem::transmute_copy(&lcookie)).into()
         }
-        unsafe extern "system" fn OnNavigate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcookie: i32, pvarloc: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn OnNavigate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcookie: i32, pvarloc: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnNavigate(::core::mem::transmute_copy(&lcookie), ::core::mem::transmute_copy(&pvarloc)).into()
@@ -18529,7 +18517,7 @@ impl IShellWindows_Vtbl {
             let this = (*this).get_impl();
             this.OnActivated(::core::mem::transmute_copy(&lcookie), ::core::mem::transmute_copy(&factive)).into()
         }
-        unsafe extern "system" fn FindWindowSW<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarloc: *const super::super::System::Variant::VARIANT, pvarlocroot: *const super::super::System::Variant::VARIANT, swclass: ShellWindowTypeConstants, phwnd: *mut i32, swfwoptions: ShellWindowFindWindowOptions, ppdispout: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn FindWindowSW<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarloc: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarlocroot: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, swclass: ShellWindowTypeConstants, phwnd: *mut i32, swfwoptions: ShellWindowFindWindowOptions, ppdispout: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.FindWindowSW(::core::mem::transmute_copy(&pvarloc), ::core::mem::transmute_copy(&pvarlocroot), ::core::mem::transmute_copy(&swclass), ::core::mem::transmute_copy(&phwnd), ::core::mem::transmute_copy(&swfwoptions), ::core::mem::transmute_copy(&ppdispout)).into()
@@ -18891,21 +18879,21 @@ impl ISuspensionDependencyManager_Vtbl {
         iid == &<ISuspensionDependencyManager as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISyncMgrConflict_Impl: Sized {
-    fn GetProperty(&self, propkey: *const PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn GetProperty(&self, propkey: *const PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<::windows_core::PROPVARIANT>;
     fn GetConflictIdInfo(&self) -> ::windows_core::Result<SYNCMGR_CONFLICT_ID_INFO>;
     fn GetItemsArray(&self) -> ::windows_core::Result<ISyncMgrConflictItems>;
     fn Resolve(&self, presolveinfo: ::core::option::Option<&ISyncMgrConflictResolveInfo>) -> ::windows_core::Result<()>;
     fn GetResolutionHandler(&self, riid: *const ::windows_core::GUID, ppvresolutionhandler: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::windows_core::RuntimeName for ISyncMgrConflict {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ISyncMgrConflict_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISyncMgrConflict_Impl, const OFFSET: isize>() -> ISyncMgrConflict_Vtbl {
-        unsafe extern "system" fn GetProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISyncMgrConflict_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propkey: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISyncMgrConflict_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propkey: *const PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&propkey)) {
@@ -22027,16 +22015,16 @@ impl IVisualProperties_Vtbl {
         iid == &<IVisualProperties as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IWebBrowser_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GoBack(&self) -> ::windows_core::Result<()>;
     fn GoForward(&self) -> ::windows_core::Result<()>;
     fn GoHome(&self) -> ::windows_core::Result<()>;
     fn GoSearch(&self) -> ::windows_core::Result<()>;
-    fn Navigate(&self, url: &::windows_core::BSTR, flags: *const super::super::System::Variant::VARIANT, targetframename: *const super::super::System::Variant::VARIANT, postdata: *const super::super::System::Variant::VARIANT, headers: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn Navigate(&self, url: &::windows_core::BSTR, flags: *const ::windows_core::VARIANT, targetframename: *const ::windows_core::VARIANT, postdata: *const ::windows_core::VARIANT, headers: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn Refresh(&self) -> ::windows_core::Result<()>;
-    fn Refresh2(&self, level: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn Refresh2(&self, level: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn Stop(&self) -> ::windows_core::Result<()>;
     fn Application(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
     fn Parent(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
@@ -22056,9 +22044,9 @@ pub trait IWebBrowser_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn LocationURL(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Busy(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IWebBrowser {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IWebBrowser_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>() -> IWebBrowser_Vtbl {
         unsafe extern "system" fn GoBack<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -22081,7 +22069,7 @@ impl IWebBrowser_Vtbl {
             let this = (*this).get_impl();
             this.GoSearch().into()
         }
-        unsafe extern "system" fn Navigate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, url: ::std::mem::MaybeUninit<::windows_core::BSTR>, flags: *const super::super::System::Variant::VARIANT, targetframename: *const super::super::System::Variant::VARIANT, postdata: *const super::super::System::Variant::VARIANT, headers: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Navigate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, url: ::std::mem::MaybeUninit<::windows_core::BSTR>, flags: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, targetframename: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, postdata: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, headers: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Navigate(::core::mem::transmute(&url), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&targetframename), ::core::mem::transmute_copy(&postdata), ::core::mem::transmute_copy(&headers)).into()
@@ -22091,7 +22079,7 @@ impl IWebBrowser_Vtbl {
             let this = (*this).get_impl();
             this.Refresh().into()
         }
-        unsafe extern "system" fn Refresh2<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Refresh2<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Refresh2(::core::mem::transmute_copy(&level)).into()
@@ -22297,13 +22285,13 @@ impl IWebBrowser_Vtbl {
         iid == &<IWebBrowser as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IWebBrowser2_Impl: Sized + IWebBrowserApp_Impl {
-    fn Navigate2(&self, url: *const super::super::System::Variant::VARIANT, flags: *const super::super::System::Variant::VARIANT, targetframename: *const super::super::System::Variant::VARIANT, postdata: *const super::super::System::Variant::VARIANT, headers: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn Navigate2(&self, url: *const ::windows_core::VARIANT, flags: *const ::windows_core::VARIANT, targetframename: *const ::windows_core::VARIANT, postdata: *const ::windows_core::VARIANT, headers: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn QueryStatusWB(&self, cmdid: super::super::System::Ole::OLECMDID) -> ::windows_core::Result<super::super::System::Ole::OLECMDF>;
-    fn ExecWB(&self, cmdid: super::super::System::Ole::OLECMDID, cmdexecopt: super::super::System::Ole::OLECMDEXECOPT, pvain: *const super::super::System::Variant::VARIANT, pvaout: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
-    fn ShowBrowserBar(&self, pvaclsid: *const super::super::System::Variant::VARIANT, pvarshow: *const super::super::System::Variant::VARIANT, pvarsize: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn ExecWB(&self, cmdid: super::super::System::Ole::OLECMDID, cmdexecopt: super::super::System::Ole::OLECMDEXECOPT, pvain: *const ::windows_core::VARIANT, pvaout: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()>;
+    fn ShowBrowserBar(&self, pvaclsid: *const ::windows_core::VARIANT, pvarshow: *const ::windows_core::VARIANT, pvarsize: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn ReadyState(&self) -> ::windows_core::Result<super::super::System::Ole::READYSTATE>;
     fn Offline(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetOffline(&self, boffline: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -22320,12 +22308,12 @@ pub trait IWebBrowser2_Impl: Sized + IWebBrowserApp_Impl {
     fn Resizable(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetResizable(&self, value: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows_core::RuntimeName for IWebBrowser2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl IWebBrowser2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>() -> IWebBrowser2_Vtbl {
-        unsafe extern "system" fn Navigate2<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, url: *const super::super::System::Variant::VARIANT, flags: *const super::super::System::Variant::VARIANT, targetframename: *const super::super::System::Variant::VARIANT, postdata: *const super::super::System::Variant::VARIANT, headers: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Navigate2<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, url: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, flags: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, targetframename: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, postdata: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, headers: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Navigate2(::core::mem::transmute_copy(&url), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&targetframename), ::core::mem::transmute_copy(&postdata), ::core::mem::transmute_copy(&headers)).into()
@@ -22341,12 +22329,12 @@ impl IWebBrowser2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ExecWB<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cmdid: super::super::System::Ole::OLECMDID, cmdexecopt: super::super::System::Ole::OLECMDEXECOPT, pvain: *const super::super::System::Variant::VARIANT, pvaout: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn ExecWB<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cmdid: super::super::System::Ole::OLECMDID, cmdexecopt: super::super::System::Ole::OLECMDEXECOPT, pvain: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvaout: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ExecWB(::core::mem::transmute_copy(&cmdid), ::core::mem::transmute_copy(&cmdexecopt), ::core::mem::transmute_copy(&pvain), ::core::mem::transmute_copy(&pvaout)).into()
         }
-        unsafe extern "system" fn ShowBrowserBar<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvaclsid: *const super::super::System::Variant::VARIANT, pvarshow: *const super::super::System::Variant::VARIANT, pvarsize: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn ShowBrowserBar<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowser2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvaclsid: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarshow: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarsize: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ShowBrowserBar(::core::mem::transmute_copy(&pvaclsid), ::core::mem::transmute_copy(&pvarshow), ::core::mem::transmute_copy(&pvarsize)).into()
@@ -22501,13 +22489,13 @@ impl IWebBrowser2_Vtbl {
         iid == &<IWebBrowser2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWebBrowser as ::windows_core::Interface>::IID || iid == &<IWebBrowserApp as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IWebBrowserApp_Impl: Sized + IWebBrowser_Impl {
     fn Quit(&self) -> ::windows_core::Result<()>;
     fn ClientToWindow(&self, pcx: *mut i32, pcy: *mut i32) -> ::windows_core::Result<()>;
-    fn PutProperty(&self, property: &::windows_core::BSTR, vtvalue: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
-    fn GetProperty(&self, property: &::windows_core::BSTR) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn PutProperty(&self, property: &::windows_core::BSTR, vtvalue: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
+    fn GetProperty(&self, property: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::VARIANT>;
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn HWND(&self) -> ::windows_core::Result<super::super::Foundation::SHANDLE_PTR>;
     fn FullName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -22525,9 +22513,9 @@ pub trait IWebBrowserApp_Impl: Sized + IWebBrowser_Impl {
     fn FullScreen(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetFullScreen(&self, bfullscreen: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IWebBrowserApp {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IWebBrowserApp_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>() -> IWebBrowserApp_Vtbl {
         unsafe extern "system" fn Quit<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -22540,12 +22528,12 @@ impl IWebBrowserApp_Vtbl {
             let this = (*this).get_impl();
             this.ClientToWindow(::core::mem::transmute_copy(&pcx), ::core::mem::transmute_copy(&pcy)).into()
         }
-        unsafe extern "system" fn PutProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: ::std::mem::MaybeUninit<::windows_core::BSTR>, vtvalue: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn PutProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: ::std::mem::MaybeUninit<::windows_core::BSTR>, vtvalue: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PutProperty(::core::mem::transmute(&property), ::core::mem::transmute(&vtvalue)).into()
         }
-        unsafe extern "system" fn GetProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvtvalue: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebBrowserApp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvtvalue: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute(&property)) {
@@ -22755,22 +22743,22 @@ impl IWebWizardExtension_Vtbl {
         iid == &<IWebWizardExtension as ::windows_core::Interface>::IID || iid == &<IWizardExtension as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IWebWizardHost_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn FinalBack(&self) -> ::windows_core::Result<()>;
     fn FinalNext(&self) -> ::windows_core::Result<()>;
     fn Cancel(&self) -> ::windows_core::Result<()>;
     fn SetCaption(&self, bstrcaption: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn Caption(&self) -> ::windows_core::Result<::windows_core::BSTR>;
-    fn put_Property(&self, bstrpropertyname: &::windows_core::BSTR, pvproperty: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
-    fn get_Property(&self, bstrpropertyname: &::windows_core::BSTR) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn put_Property(&self, bstrpropertyname: &::windows_core::BSTR, pvproperty: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
+    fn get_Property(&self, bstrpropertyname: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::VARIANT>;
     fn SetWizardButtons(&self, vfenableback: super::super::Foundation::VARIANT_BOOL, vfenablenext: super::super::Foundation::VARIANT_BOOL, vflastpage: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn SetHeaderText(&self, bstrheadertitle: &::windows_core::BSTR, bstrheadersubtitle: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IWebWizardHost {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IWebWizardHost_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost_Impl, const OFFSET: isize>() -> IWebWizardHost_Vtbl {
         unsafe extern "system" fn FinalBack<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -22804,12 +22792,12 @@ impl IWebWizardHost_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn put_Property<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvproperty: *const super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn put_Property<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvproperty: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.put_Property(::core::mem::transmute(&bstrpropertyname), ::core::mem::transmute_copy(&pvproperty)).into()
         }
-        unsafe extern "system" fn get_Property<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvproperty: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn get_Property<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvproperty: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Property(::core::mem::transmute(&bstrpropertyname)) {
@@ -22847,14 +22835,14 @@ impl IWebWizardHost_Vtbl {
         iid == &<IWebWizardHost as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IWebWizardHost2_Impl: Sized + IWebWizardHost_Impl {
     fn SignString(&self, value: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IWebWizardHost2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IWebWizardHost2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost2_Impl, const OFFSET: isize>() -> IWebWizardHost2_Vtbl {
         unsafe extern "system" fn SignString<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWebWizardHost2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::BSTR>, signedvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {

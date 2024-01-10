@@ -1,12 +1,12 @@
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IDebugExtendedProperty_Impl: Sized + IDebugProperty_Impl {
     fn GetExtendedPropertyInfo(&self, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> ::windows_core::Result<()>;
     fn EnumExtendedMembers(&self, dwfieldspec: u32, nradix: u32) -> ::windows_core::Result<IEnumDebugExtendedPropertyInfo>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::windows_core::RuntimeName for IDebugExtendedProperty {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IDebugExtendedProperty_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugExtendedProperty_Impl, const OFFSET: isize>() -> IDebugExtendedProperty_Vtbl {
         unsafe extern "system" fn GetExtendedPropertyInfo<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugExtendedProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> ::windows_core::HRESULT {
@@ -35,18 +35,14 @@ impl IDebugExtendedProperty_Vtbl {
         iid == &<IDebugExtendedProperty as ::windows_core::Interface>::IID || iid == &<IDebugProperty as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugProperty_Impl: Sized {
     fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> ::windows_core::Result<()>;
-    fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const ::windows_core::GUID, rgvar: *mut super::super::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const ::windows_core::GUID, rgvar: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn SetValueAsString(&self, pszvalue: &::windows_core::PCWSTR, nradix: u32) -> ::windows_core::Result<()>;
     fn EnumMembers(&self, dwfieldspec: u32, nradix: u32, refiid: *const ::windows_core::GUID) -> ::windows_core::Result<IEnumDebugPropertyInfo>;
     fn GetParent(&self) -> ::windows_core::Result<IDebugProperty>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDebugProperty {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDebugProperty_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugProperty_Impl, const OFFSET: isize>() -> IDebugProperty_Vtbl {
         unsafe extern "system" fn GetPropertyInfo<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> ::windows_core::HRESULT {
@@ -54,7 +50,7 @@ impl IDebugProperty_Vtbl {
             let this = (*this).get_impl();
             this.GetPropertyInfo(::core::mem::transmute_copy(&dwfieldspec), ::core::mem::transmute_copy(&nradix), ::core::mem::transmute_copy(&ppropertyinfo)).into()
         }
-        unsafe extern "system" fn GetExtendedInfo<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cinfos: u32, rgguidextendedinfo: *const ::windows_core::GUID, rgvar: *mut super::super::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetExtendedInfo<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDebugProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cinfos: u32, rgguidextendedinfo: *const ::windows_core::GUID, rgvar: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetExtendedInfo(::core::mem::transmute_copy(&cinfos), ::core::mem::transmute_copy(&rgguidextendedinfo), ::core::mem::transmute_copy(&rgvar)).into()
@@ -162,8 +158,8 @@ impl IDebugPropertyEnumType_Registers_Vtbl {
         iid == &<IDebugPropertyEnumType_Registers as ::windows_core::Interface>::IID || iid == &<IDebugPropertyEnumType_All as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IEnumDebugExtendedPropertyInfo_Impl: Sized {
     fn Next(&self, celt: u32, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows_core::Result<()>;
@@ -171,9 +167,9 @@ pub trait IEnumDebugExtendedPropertyInfo_Impl: Sized {
     fn Clone(&self) -> ::windows_core::Result<IEnumDebugExtendedPropertyInfo>;
     fn GetCount(&self) -> ::windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::windows_core::RuntimeName for IEnumDebugExtendedPropertyInfo {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl IEnumDebugExtendedPropertyInfo_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>() -> IEnumDebugExtendedPropertyInfo_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumDebugExtendedPropertyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut u32) -> ::windows_core::HRESULT {

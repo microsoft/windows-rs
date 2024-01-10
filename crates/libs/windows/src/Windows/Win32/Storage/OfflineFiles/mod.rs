@@ -1523,36 +1523,28 @@ impl IOfflineFilesSetting {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetValueType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetPreference(&self, pvarvalue: *mut super::super::System::Variant::VARIANT, dwscope: u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetPreference)(::windows_core::Interface::as_raw(self), pvarvalue, dwscope).ok()
+    pub unsafe fn GetPreference(&self, pvarvalue: *mut ::windows_core::VARIANT, dwscope: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetPreference)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pvarvalue), dwscope).ok()
     }
     pub unsafe fn GetPreferenceScope(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPreferenceScope)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetPreference(&self, pvarvalue: *const super::super::System::Variant::VARIANT, dwscope: u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetPreference)(::windows_core::Interface::as_raw(self), pvarvalue, dwscope).ok()
+    pub unsafe fn SetPreference(&self, pvarvalue: *const ::windows_core::VARIANT, dwscope: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetPreference)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pvarvalue), dwscope).ok()
     }
     pub unsafe fn DeletePreference(&self, dwscope: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeletePreference)(::windows_core::Interface::as_raw(self), dwscope).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetPolicy(&self, pvarvalue: *mut super::super::System::Variant::VARIANT, dwscope: u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetPolicy)(::windows_core::Interface::as_raw(self), pvarvalue, dwscope).ok()
+    pub unsafe fn GetPolicy(&self, pvarvalue: *mut ::windows_core::VARIANT, dwscope: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetPolicy)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pvarvalue), dwscope).ok()
     }
     pub unsafe fn GetPolicyScope(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPolicyScope)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetValue(&self, pvarvalue: *mut super::super::System::Variant::VARIANT, pbsetbypolicy: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), pvarvalue, pbsetbypolicy).ok()
+    pub unsafe fn GetValue(&self, pvarvalue: *mut ::windows_core::VARIANT, pbsetbypolicy: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pvarvalue), pbsetbypolicy).ok()
     }
 }
 #[repr(C)]
@@ -1561,25 +1553,13 @@ pub struct IOfflineFilesSetting_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     pub GetValueType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut OFFLINEFILES_SETTING_VALUE_TYPE) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetPreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarvalue: *mut super::super::System::Variant::VARIANT, dwscope: u32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetPreference: usize,
+    pub GetPreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarvalue: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, dwscope: u32) -> ::windows_core::HRESULT,
     pub GetPreferenceScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwscope: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetPreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarvalue: *const super::super::System::Variant::VARIANT, dwscope: u32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    SetPreference: usize,
+    pub SetPreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarvalue: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, dwscope: u32) -> ::windows_core::HRESULT,
     pub DeletePreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwscope: u32) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarvalue: *mut super::super::System::Variant::VARIANT, dwscope: u32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetPolicy: usize,
+    pub GetPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarvalue: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, dwscope: u32) -> ::windows_core::HRESULT,
     pub GetPolicyScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwscope: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarvalue: *mut super::super::System::Variant::VARIANT, pbsetbypolicy: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetValue: usize,
+    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarvalue: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pbsetbypolicy: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IOfflineFilesShareInfo, IOfflineFilesShareInfo_Vtbl, 0x7bcc43e7_31ce_4ca4_8ccd_1cff2dc494da);
 ::windows_core::imp::interface_hierarchy!(IOfflineFilesShareInfo, ::windows_core::IUnknown);

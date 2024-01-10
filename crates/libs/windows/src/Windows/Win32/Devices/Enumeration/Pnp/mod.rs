@@ -589,10 +589,11 @@ impl IUPnPEventSink {
     pub unsafe fn OnStateChanged(&self, rgdispidchanges: &[i32]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnStateChanged)(::windows_core::Interface::as_raw(self), rgdispidchanges.len().try_into().unwrap(), ::core::mem::transmute(rgdispidchanges.as_ptr())).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OnStateChangedSafe(&self, varsadispidchanges: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).OnStateChangedSafe)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varsadispidchanges)).ok()
+    pub unsafe fn OnStateChangedSafe<P0>(&self, varsadispidchanges: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).OnStateChangedSafe)(::windows_core::Interface::as_raw(self), varsadispidchanges.into_param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -600,10 +601,7 @@ impl IUPnPEventSink {
 pub struct IUPnPEventSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchanges: u32, rgdispidchanges: *const i32) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub OnStateChangedSafe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsadispidchanges: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    OnStateChangedSafe: usize,
+    pub OnStateChangedSafe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsadispidchanges: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUPnPEventSource, IUPnPEventSource_Vtbl, 0x204810b5_73b2_11d4_bf42_00b0d0118b56);
 ::windows_core::imp::interface_hierarchy!(IUPnPEventSource, ::windows_core::IUnknown);
@@ -786,22 +784,19 @@ pub struct IUPnPReregistrar_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IUPnPService, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUPnPService {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn QueryStateVariable<P0>(&self, bstrvariablename: P0) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
+    pub unsafe fn QueryStateVariable<P0>(&self, bstrvariablename: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryStateVariable)(::windows_core::Interface::as_raw(self), bstrvariablename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn InvokeAction<P0>(&self, bstractionname: P0, vinactionargs: super::super::super::System::Variant::VARIANT, pvoutactionargs: *mut super::super::super::System::Variant::VARIANT, pvretval: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn InvokeAction<P0, P1>(&self, bstractionname: P0, vinactionargs: P1, pvoutactionargs: *mut ::windows_core::VARIANT, pvretval: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).InvokeAction)(::windows_core::Interface::as_raw(self), bstractionname.into_param().abi(), ::core::mem::transmute(vinactionargs), pvoutactionargs, pvretval).ok()
+        (::windows_core::Interface::vtable(self).InvokeAction)(::windows_core::Interface::as_raw(self), bstractionname.into_param().abi(), vinactionargs.into_param().abi(), ::core::mem::transmute(pvoutactionargs), ::core::mem::transmute(pvretval)).ok()
     }
     pub unsafe fn ServiceTypeIdentifier(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -827,14 +822,8 @@ impl IUPnPService {
 #[doc(hidden)]
 pub struct IUPnPService_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub QueryStateVariable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrvariablename: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvalue: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    QueryStateVariable: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub InvokeAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstractionname: ::std::mem::MaybeUninit<::windows_core::BSTR>, vinactionargs: super::super::super::System::Variant::VARIANT, pvoutactionargs: *mut super::super::super::System::Variant::VARIANT, pvretval: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    InvokeAction: usize,
+    pub QueryStateVariable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrvariablename: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub InvokeAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstractionname: ::std::mem::MaybeUninit<::windows_core::BSTR>, vinactionargs: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvoutactionargs: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvretval: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub ServiceTypeIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub AddCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkcallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -843,20 +832,17 @@ pub struct IUPnPService_Vtbl {
 ::windows_core::imp::com_interface!(IUPnPServiceAsync, IUPnPServiceAsync_Vtbl, 0x098bdaf5_5ec1_49e7_a260_b3a11dd8680c);
 ::windows_core::imp::interface_hierarchy!(IUPnPServiceAsync, ::windows_core::IUnknown);
 impl IUPnPServiceAsync {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn BeginInvokeAction<P0, P1>(&self, bstractionname: P0, vinactionargs: super::super::super::System::Variant::VARIANT, pasyncresult: P1) -> ::windows_core::Result<u64>
+    pub unsafe fn BeginInvokeAction<P0, P1, P2>(&self, bstractionname: P0, vinactionargs: P1, pasyncresult: P2) -> ::windows_core::Result<u64>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
-        P1: ::windows_core::IntoParam<IUPnPAsyncResult>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P2: ::windows_core::IntoParam<IUPnPAsyncResult>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).BeginInvokeAction)(::windows_core::Interface::as_raw(self), bstractionname.into_param().abi(), ::core::mem::transmute(vinactionargs), pasyncresult.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).BeginInvokeAction)(::windows_core::Interface::as_raw(self), bstractionname.into_param().abi(), vinactionargs.into_param().abi(), pasyncresult.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn EndInvokeAction(&self, ullrequestid: u64, pvoutactionargs: *mut super::super::super::System::Variant::VARIANT, pvretval: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).EndInvokeAction)(::windows_core::Interface::as_raw(self), ullrequestid, pvoutactionargs, pvretval).ok()
+    pub unsafe fn EndInvokeAction(&self, ullrequestid: u64, pvoutactionargs: *mut ::windows_core::VARIANT, pvretval: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EndInvokeAction)(::windows_core::Interface::as_raw(self), ullrequestid, ::core::mem::transmute(pvoutactionargs), ::core::mem::transmute(pvretval)).ok()
     }
     pub unsafe fn BeginQueryStateVariable<P0, P1>(&self, bstrvariablename: P0, pasyncresult: P1) -> ::windows_core::Result<u64>
     where
@@ -866,10 +852,8 @@ impl IUPnPServiceAsync {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BeginQueryStateVariable)(::windows_core::Interface::as_raw(self), bstrvariablename.into_param().abi(), pasyncresult.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn EndQueryStateVariable(&self, ullrequestid: u64, pvalue: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).EndQueryStateVariable)(::windows_core::Interface::as_raw(self), ullrequestid, pvalue).ok()
+    pub unsafe fn EndQueryStateVariable(&self, ullrequestid: u64, pvalue: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).EndQueryStateVariable)(::windows_core::Interface::as_raw(self), ullrequestid, ::core::mem::transmute(pvalue)).ok()
     }
     pub unsafe fn BeginSubscribeToEvents<P0, P1>(&self, punkcallback: P0, pasyncresult: P1) -> ::windows_core::Result<u64>
     where
@@ -901,19 +885,10 @@ impl IUPnPServiceAsync {
 #[doc(hidden)]
 pub struct IUPnPServiceAsync_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub BeginInvokeAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstractionname: ::std::mem::MaybeUninit<::windows_core::BSTR>, vinactionargs: super::super::super::System::Variant::VARIANT, pasyncresult: *mut ::core::ffi::c_void, pullrequestid: *mut u64) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    BeginInvokeAction: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub EndInvokeAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ullrequestid: u64, pvoutactionargs: *mut super::super::super::System::Variant::VARIANT, pvretval: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    EndInvokeAction: usize,
+    pub BeginInvokeAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstractionname: ::std::mem::MaybeUninit<::windows_core::BSTR>, vinactionargs: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pasyncresult: *mut ::core::ffi::c_void, pullrequestid: *mut u64) -> ::windows_core::HRESULT,
+    pub EndInvokeAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ullrequestid: u64, pvoutactionargs: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvretval: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub BeginQueryStateVariable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrvariablename: ::std::mem::MaybeUninit<::windows_core::BSTR>, pasyncresult: *mut ::core::ffi::c_void, pullrequestid: *mut u64) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub EndQueryStateVariable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ullrequestid: u64, pvalue: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    EndQueryStateVariable: usize,
+    pub EndQueryStateVariable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ullrequestid: u64, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub BeginSubscribeToEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkcallback: *mut ::core::ffi::c_void, pasyncresult: *mut ::core::ffi::c_void, pullrequestid: *mut u64) -> ::windows_core::HRESULT,
     pub EndSubscribeToEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ullrequestid: u64) -> ::windows_core::HRESULT,
     pub BeginSCPDDownload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pasyncresult: *mut ::core::ffi::c_void, pullrequestid: *mut u64) -> ::windows_core::HRESULT,
@@ -923,14 +898,15 @@ pub struct IUPnPServiceAsync_Vtbl {
 ::windows_core::imp::com_interface!(IUPnPServiceCallback, IUPnPServiceCallback_Vtbl, 0x31fadca9_ab73_464b_b67d_5c1d0f83c8b8);
 ::windows_core::imp::interface_hierarchy!(IUPnPServiceCallback, ::windows_core::IUnknown);
 impl IUPnPServiceCallback {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn StateVariableChanged<P0, P1>(&self, pus: P0, pcwszstatevarname: P1, vavalue: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn StateVariableChanged<P0, P1, P2>(&self, pus: P0, pcwszstatevarname: P1, vavalue: P2) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IUPnPService>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P2: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).StateVariableChanged)(::windows_core::Interface::as_raw(self), pus.into_param().abi(), pcwszstatevarname.into_param().abi(), ::core::mem::transmute(vavalue)).ok()
+        (::windows_core::Interface::vtable(self).StateVariableChanged)(::windows_core::Interface::as_raw(self), pus.into_param().abi(), pcwszstatevarname.into_param().abi(), vavalue.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -945,9 +921,9 @@ impl IUPnPServiceCallback {
 #[doc(hidden)]
 pub struct IUPnPServiceCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub StateVariableChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pus: *mut ::core::ffi::c_void, pcwszstatevarname: ::windows_core::PCWSTR, vavalue: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub StateVariableChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pus: *mut ::core::ffi::c_void, pcwszstatevarname: ::windows_core::PCWSTR, vavalue: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     StateVariableChanged: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub ServiceInstanceDied: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pus: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

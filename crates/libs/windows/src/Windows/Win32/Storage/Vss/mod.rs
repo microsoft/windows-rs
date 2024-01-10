@@ -1139,10 +1139,11 @@ impl IVssFileShareSnapshotProvider {
     pub unsafe fn IsPathSnapshotted(&self, pwszsharepath: *const u16, pbsnapshotspresent: *mut super::super::Foundation::BOOL, plsnapshotcompatibility: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsPathSnapshotted)(::windows_core::Interface::as_raw(self), pwszsharepath, pbsnapshotspresent, plsnapshotcompatibility).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetSnapshotProperty(&self, snapshotid: ::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetSnapshotProperty)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(snapshotid), esnapshotpropertyid, ::core::mem::transmute(vproperty)).ok()
+    pub unsafe fn SetSnapshotProperty<P0>(&self, snapshotid: ::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).SetSnapshotProperty)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(snapshotid), esnapshotpropertyid, vproperty.into_param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -1156,10 +1157,7 @@ pub struct IVssFileShareSnapshotProvider_Vtbl {
     pub BeginPrepareSnapshot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows_core::GUID, snapshotid: ::windows_core::GUID, pwszsharepath: *const u16, lnewcontext: i32, providerid: ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub IsPathSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszsharepath: *const u16, pbsupportedbythisprovider: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     pub IsPathSnapshotted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszsharepath: *const u16, pbsnapshotspresent: *mut super::super::Foundation::BOOL, plsnapshotcompatibility: *mut i32) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetSnapshotProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotid: ::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    SetSnapshotProperty: usize,
+    pub SetSnapshotProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotid: ::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssHardwareSnapshotProvider, IVssHardwareSnapshotProvider_Vtbl, 0x9593a157_44e9_4344_bbeb_44fbf9b06b10);
 ::windows_core::imp::interface_hierarchy!(IVssHardwareSnapshotProvider, ::windows_core::IUnknown);
@@ -1423,10 +1421,11 @@ impl IVssSoftwareSnapshotProvider {
     pub unsafe fn IsVolumeSnapshotted(&self, pwszvolumename: *const u16, pbsnapshotspresent: *mut super::super::Foundation::BOOL, plsnapshotcompatibility: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsVolumeSnapshotted)(::windows_core::Interface::as_raw(self), pwszvolumename, pbsnapshotspresent, plsnapshotcompatibility).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetSnapshotProperty(&self, snapshotid: ::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetSnapshotProperty)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(snapshotid), esnapshotpropertyid, ::core::mem::transmute(vproperty)).ok()
+    pub unsafe fn SetSnapshotProperty<P0>(&self, snapshotid: ::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).SetSnapshotProperty)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(snapshotid), esnapshotpropertyid, vproperty.into_param().abi()).ok()
     }
     pub unsafe fn RevertToSnapshot(&self, snapshotid: ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RevertToSnapshot)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(snapshotid)).ok()
@@ -1447,10 +1446,7 @@ pub struct IVssSoftwareSnapshotProvider_Vtbl {
     pub BeginPrepareSnapshot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows_core::GUID, snapshotid: ::windows_core::GUID, pwszvolumename: *const u16, lnewcontext: i32) -> ::windows_core::HRESULT,
     pub IsVolumeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16, pbsupportedbythisprovider: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     pub IsVolumeSnapshotted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16, pbsnapshotspresent: *mut super::super::Foundation::BOOL, plsnapshotcompatibility: *mut i32) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetSnapshotProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotid: ::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    SetSnapshotProperty: usize,
+    pub SetSnapshotProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotid: ::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub RevertToSnapshot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotid: ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub QueryRevertStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszvolume: *const u16, ppasync: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }

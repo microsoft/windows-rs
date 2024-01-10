@@ -514,16 +514,16 @@ impl IActiveScriptParse32 {
     {
         (::windows_core::Interface::vtable(self).AddScriptlet)(::windows_core::Interface::as_raw(self), pstrdefaultname.into_param().abi(), pstrcode.into_param().abi(), pstritemname.into_param().abi(), pstrsubitemname.into_param().abi(), pstreventname.into_param().abi(), pstrdelimiter.into_param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, ::core::mem::transmute(pbstrname), pexcepinfo).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ParseScriptText<P0, P1, P2, P3>(&self, pstrcode: P0, pstritemname: P1, punkcontext: P2, pstrdelimiter: P3, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn ParseScriptText<P0, P1, P2, P3>(&self, pstrcode: P0, pstritemname: P1, punkcontext: P2, pstrdelimiter: P3, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut ::windows_core::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P2: ::windows_core::IntoParam<::windows_core::IUnknown>,
         P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).ParseScriptText)(::windows_core::Interface::as_raw(self), pstrcode.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, pvarresult, pexcepinfo).ok()
+        (::windows_core::Interface::vtable(self).ParseScriptText)(::windows_core::Interface::as_raw(self), pstrcode.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, ::core::mem::transmute(pvarresult), pexcepinfo).ok()
     }
 }
 #[repr(C)]
@@ -535,9 +535,9 @@ pub struct IActiveScriptParse32_Vtbl {
     pub AddScriptlet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdefaultname: ::windows_core::PCWSTR, pstrcode: ::windows_core::PCWSTR, pstritemname: ::windows_core::PCWSTR, pstrsubitemname: ::windows_core::PCWSTR, pstreventname: ::windows_core::PCWSTR, pstrdelimiter: ::windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AddScriptlet: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub ParseScriptText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows_core::PCWSTR, pstritemname: ::windows_core::PCWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: ::windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub ParseScriptText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows_core::PCWSTR, pstritemname: ::windows_core::PCWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: ::windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     ParseScriptText: usize,
 }
 ::windows_core::imp::com_interface!(IActiveScriptParse64, IActiveScriptParse64_Vtbl, 0xc7ef7658_e1ee_480e_97ea_d52cb4d76d17);
@@ -559,16 +559,16 @@ impl IActiveScriptParse64 {
     {
         (::windows_core::Interface::vtable(self).AddScriptlet)(::windows_core::Interface::as_raw(self), pstrdefaultname.into_param().abi(), pstrcode.into_param().abi(), pstritemname.into_param().abi(), pstrsubitemname.into_param().abi(), pstreventname.into_param().abi(), pstrdelimiter.into_param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, ::core::mem::transmute(pbstrname), pexcepinfo).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ParseScriptText<P0, P1, P2, P3>(&self, pstrcode: P0, pstritemname: P1, punkcontext: P2, pstrdelimiter: P3, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn ParseScriptText<P0, P1, P2, P3>(&self, pstrcode: P0, pstritemname: P1, punkcontext: P2, pstrdelimiter: P3, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut ::windows_core::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P2: ::windows_core::IntoParam<::windows_core::IUnknown>,
         P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).ParseScriptText)(::windows_core::Interface::as_raw(self), pstrcode.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, pvarresult, pexcepinfo).ok()
+        (::windows_core::Interface::vtable(self).ParseScriptText)(::windows_core::Interface::as_raw(self), pstrcode.into_param().abi(), pstritemname.into_param().abi(), punkcontext.into_param().abi(), pstrdelimiter.into_param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, ::core::mem::transmute(pvarresult), pexcepinfo).ok()
     }
 }
 #[repr(C)]
@@ -580,9 +580,9 @@ pub struct IActiveScriptParse64_Vtbl {
     pub AddScriptlet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdefaultname: ::windows_core::PCWSTR, pstrcode: ::windows_core::PCWSTR, pstritemname: ::windows_core::PCWSTR, pstrsubitemname: ::windows_core::PCWSTR, pstreventname: ::windows_core::PCWSTR, pstrdelimiter: ::windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AddScriptlet: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub ParseScriptText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows_core::PCWSTR, pstritemname: ::windows_core::PCWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: ::windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub ParseScriptText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: ::windows_core::PCWSTR, pstritemname: ::windows_core::PCWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: ::windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     ParseScriptText: usize,
 }
 ::windows_core::imp::com_interface!(IActiveScriptParseProcedure2_32, IActiveScriptParseProcedure2_32_Vtbl, 0x71ee5b20_fb04_11d1_b3a8_00a0c911e8b2);
@@ -1050,30 +1050,20 @@ pub struct IActiveScriptProfilerHeapEnum_Vtbl {
 ::windows_core::imp::com_interface!(IActiveScriptProperty, IActiveScriptProperty_Vtbl, 0x4954e0d0_fbc7_11d1_8410_006008c3fbfc);
 ::windows_core::imp::interface_hierarchy!(IActiveScriptProperty, ::windows_core::IUnknown);
 impl IActiveScriptProperty {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, dwproperty: u32, pvarindex: *const super::super::super::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Variant::VARIANT> {
+    pub unsafe fn GetProperty(&self, dwproperty: u32, pvarindex: *const ::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), dwproperty, pvarindex, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), dwproperty, ::core::mem::transmute(pvarindex), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, dwproperty: u32, pvarindex: *const super::super::super::Variant::VARIANT, pvarvalue: *const super::super::super::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), dwproperty, pvarindex, pvarvalue).ok()
+    pub unsafe fn SetProperty(&self, dwproperty: u32, pvarindex: *const ::windows_core::VARIANT, pvarvalue: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), dwproperty, ::core::mem::transmute(pvarindex), ::core::mem::transmute(pvarvalue)).ok()
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptProperty_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproperty: u32, pvarindex: *const super::super::super::Variant::VARIANT, pvarvalue: *mut super::super::super::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetProperty: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproperty: u32, pvarindex: *const super::super::super::Variant::VARIANT, pvarvalue: *const super::super::super::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    SetProperty: usize,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproperty: u32, pvarindex: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarvalue: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproperty: u32, pvarindex: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarvalue: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IActiveScriptSIPInfo, IActiveScriptSIPInfo_Vtbl, 0x764651d0_38de_11d4_a2a3_00104bd35090);
 ::windows_core::imp::interface_hierarchy!(IActiveScriptSIPInfo, ::windows_core::IUnknown);
@@ -1108,10 +1098,10 @@ impl IActiveScriptSite {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDocVersionString)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OnScriptTerminate(&self, pvarresult: *const super::super::super::Variant::VARIANT, pexcepinfo: *const super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).OnScriptTerminate)(::windows_core::Interface::as_raw(self), pvarresult, pexcepinfo).ok()
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OnScriptTerminate(&self, pvarresult: *const ::windows_core::VARIANT, pexcepinfo: *const super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).OnScriptTerminate)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pvarresult), pexcepinfo).ok()
     }
     pub unsafe fn OnStateChange(&self, ssscriptstate: SCRIPTSTATE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnStateChange)(::windows_core::Interface::as_raw(self), ssscriptstate).ok()
@@ -1139,9 +1129,9 @@ pub struct IActiveScriptSite_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetItemInfo: usize,
     pub GetDocVersionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrversion: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub OnScriptTerminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarresult: *const super::super::super::Variant::VARIANT, pexcepinfo: *const super::super::super::Com::EXCEPINFO) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub OnScriptTerminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarresult: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pexcepinfo: *const super::super::super::Com::EXCEPINFO) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     OnScriptTerminate: usize,
     pub OnStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ssscriptstate: SCRIPTSTATE) -> ::windows_core::HRESULT,
     pub OnScriptError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pscripterror: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2895,15 +2885,11 @@ pub struct IDebugExpressionContext_Vtbl {
 ::windows_core::imp::com_interface!(IDebugFormatter, IDebugFormatter_Vtbl, 0x51973c05_cb0c_11d0_b5c9_00a0244a0e7a);
 ::windows_core::imp::interface_hierarchy!(IDebugFormatter, ::windows_core::IUnknown);
 impl IDebugFormatter {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetStringForVariant(&self, pvar: *const super::super::super::Variant::VARIANT, nradix: u32) -> ::windows_core::Result<::windows_core::BSTR> {
+    pub unsafe fn GetStringForVariant(&self, pvar: *const ::windows_core::VARIANT, nradix: u32) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetStringForVariant)(::windows_core::Interface::as_raw(self), pvar, nradix, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetStringForVariant)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pvar), nradix, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetVariantForString<P0>(&self, pwstrvalue: P0) -> ::windows_core::Result<super::super::super::Variant::VARIANT>
+    pub unsafe fn GetVariantForString<P0>(&self, pwstrvalue: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
@@ -2921,14 +2907,8 @@ impl IDebugFormatter {
 #[doc(hidden)]
 pub struct IDebugFormatter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetStringForVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::Variant::VARIANT, nradix: u32, pbstrvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetStringForVariant: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetVariantForString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstrvalue: ::windows_core::PCWSTR, pvar: *mut super::super::super::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetVariantForString: usize,
+    pub GetStringForVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, nradix: u32, pbstrvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetVariantForString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstrvalue: ::windows_core::PCWSTR, pvar: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub GetStringForVarType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vt: super::super::super::Variant::VARENUM, ptdescarraytype: *const super::super::super::Com::TYPEDESC, pbstr: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
@@ -2937,26 +2917,22 @@ pub struct IDebugFormatter_Vtbl {
 ::windows_core::imp::com_interface!(IDebugHelper, IDebugHelper_Vtbl, 0x51973c3f_cb0c_11d0_b5c9_00a0244a0e7a);
 ::windows_core::imp::interface_hierarchy!(IDebugHelper, ::windows_core::IUnknown);
 impl IDebugHelper {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreatePropertyBrowser<P0, P1>(&self, pvar: *const super::super::super::Variant::VARIANT, bstrname: P0, pdat: P1) -> ::windows_core::Result<super::IDebugProperty>
+    pub unsafe fn CreatePropertyBrowser<P0, P1>(&self, pvar: *const ::windows_core::VARIANT, bstrname: P0, pdat: P1) -> ::windows_core::Result<super::IDebugProperty>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<IDebugApplicationThread>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreatePropertyBrowser)(::windows_core::Interface::as_raw(self), pvar, bstrname.into_param().abi(), pdat.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreatePropertyBrowser)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pvar), bstrname.into_param().abi(), pdat.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreatePropertyBrowserEx<P0, P1, P2>(&self, pvar: *const super::super::super::Variant::VARIANT, bstrname: P0, pdat: P1, pdf: P2) -> ::windows_core::Result<super::IDebugProperty>
+    pub unsafe fn CreatePropertyBrowserEx<P0, P1, P2>(&self, pvar: *const ::windows_core::VARIANT, bstrname: P0, pdat: P1, pdf: P2) -> ::windows_core::Result<super::IDebugProperty>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<IDebugApplicationThread>,
         P2: ::windows_core::IntoParam<IDebugFormatter>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreatePropertyBrowserEx)(::windows_core::Interface::as_raw(self), pvar, bstrname.into_param().abi(), pdat.into_param().abi(), pdf.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreatePropertyBrowserEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pvar), bstrname.into_param().abi(), pdat.into_param().abi(), pdf.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2972,14 +2948,8 @@ impl IDebugHelper {
 #[doc(hidden)]
 pub struct IDebugHelper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreatePropertyBrowser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::Variant::VARIANT, bstrname: ::windows_core::PCWSTR, pdat: *mut ::core::ffi::c_void, ppdob: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    CreatePropertyBrowser: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreatePropertyBrowserEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::super::Variant::VARIANT, bstrname: ::windows_core::PCWSTR, pdat: *mut ::core::ffi::c_void, pdf: *mut ::core::ffi::c_void, ppdob: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    CreatePropertyBrowserEx: usize,
+    pub CreatePropertyBrowser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, bstrname: ::windows_core::PCWSTR, pdat: *mut ::core::ffi::c_void, ppdob: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreatePropertyBrowserEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, bstrname: ::windows_core::PCWSTR, pdat: *mut ::core::ffi::c_void, pdf: *mut ::core::ffi::c_void, ppdob: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateSimpleConnectionPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdisp: *mut ::core::ffi::c_void, ppscp: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -4432,22 +4402,22 @@ pub struct ISimpleConnectionPoint_Vtbl {
 ::windows_core::imp::com_interface!(ITridentEventSink, ITridentEventSink_Vtbl, 0x1dc9ca50_06ef_11d2_8415_006008c3fbfc);
 ::windows_core::imp::interface_hierarchy!(ITridentEventSink, ::windows_core::IUnknown);
 impl ITridentEventSink {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn FireEvent<P0>(&self, pstrevent: P0, pdp: *const super::super::super::Com::DISPPARAMS, pvarres: *mut super::super::super::Variant::VARIANT, pei: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn FireEvent<P0>(&self, pstrevent: P0, pdp: *const super::super::super::Com::DISPPARAMS, pvarres: *mut ::windows_core::VARIANT, pei: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).FireEvent)(::windows_core::Interface::as_raw(self), pstrevent.into_param().abi(), pdp, pvarres, pei).ok()
+        (::windows_core::Interface::vtable(self).FireEvent)(::windows_core::Interface::as_raw(self), pstrevent.into_param().abi(), pdp, ::core::mem::transmute(pvarres), pei).ok()
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITridentEventSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub FireEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrevent: ::windows_core::PCWSTR, pdp: *const super::super::super::Com::DISPPARAMS, pvarres: *mut super::super::super::Variant::VARIANT, pei: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub FireEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrevent: ::windows_core::PCWSTR, pdp: *const super::super::super::Com::DISPPARAMS, pvarres: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pei: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     FireEvent: usize,
 }
 ::windows_core::imp::com_interface!(IWebAppDiagnosticsObjectInitialization, IWebAppDiagnosticsObjectInitialization_Vtbl, 0x16ff3a42_a5f5_432b_b625_8e8e16f57e15);

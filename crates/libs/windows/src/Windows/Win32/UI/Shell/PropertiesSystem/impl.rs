@@ -70,20 +70,16 @@ impl IInitializeWithStream_Vtbl {
         iid == &<IInitializeWithStream as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait INamedPropertyStore_Impl: Sized {
-    fn GetNamedValue(&self, pszname: &::windows_core::PCWSTR) -> ::windows_core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn SetNamedValue(&self, pszname: &::windows_core::PCWSTR, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>;
+    fn GetNamedValue(&self, pszname: &::windows_core::PCWSTR) -> ::windows_core::Result<::windows_core::PROPVARIANT>;
+    fn SetNamedValue(&self, pszname: &::windows_core::PCWSTR, propvar: *const ::windows_core::PROPVARIANT) -> ::windows_core::Result<()>;
     fn GetNameCount(&self) -> ::windows_core::Result<u32>;
     fn GetNameAt(&self, iprop: u32) -> ::windows_core::Result<::windows_core::BSTR>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for INamedPropertyStore {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl INamedPropertyStore_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INamedPropertyStore_Impl, const OFFSET: isize>() -> INamedPropertyStore_Vtbl {
-        unsafe extern "system" fn GetNamedValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INamedPropertyStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows_core::PCWSTR, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetNamedValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INamedPropertyStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows_core::PCWSTR, ppropvar: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetNamedValue(::core::mem::transmute(&pszname)) {
@@ -94,7 +90,7 @@ impl INamedPropertyStore_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNamedValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INamedPropertyStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows_core::PCWSTR, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetNamedValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INamedPropertyStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows_core::PCWSTR, propvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetNamedValue(::core::mem::transmute(&pszname), ::core::mem::transmute_copy(&propvar)).into()
@@ -227,17 +223,13 @@ impl IPersistSerializedPropStorage2_Vtbl {
         iid == &<IPersistSerializedPropStorage2 as ::windows_core::Interface>::IID || iid == &<IPersistSerializedPropStorage as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IPropertyChange_Impl: Sized + IObjectWithPropertyKey_Impl {
-    fn ApplyToPropVariant(&self, propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn ApplyToPropVariant(&self, propvarin: *const ::windows_core::PROPVARIANT) -> ::windows_core::Result<::windows_core::PROPVARIANT>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IPropertyChange {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IPropertyChange_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyChange_Impl, const OFFSET: isize>() -> IPropertyChange_Vtbl {
-        unsafe extern "system" fn ApplyToPropVariant<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyChange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propvarin: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvarout: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn ApplyToPropVariant<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyChange_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propvarin: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, ppropvarout: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ApplyToPropVariant(::core::mem::transmute_copy(&propvarin)) {
@@ -322,8 +314,8 @@ impl IPropertyChangeArray_Vtbl {
         iid == &<IPropertyChangeArray as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Search_Common\"`"]
+#[cfg(feature = "Win32_System_Search_Common")]
 pub trait IPropertyDescription_Impl: Sized {
     fn GetPropertyKey(&self, pkey: *mut PROPERTYKEY) -> ::windows_core::Result<()>;
     fn GetCanonicalName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -337,19 +329,19 @@ pub trait IPropertyDescription_Impl: Sized {
     fn GetColumnState(&self) -> ::windows_core::Result<u32>;
     fn GetGroupingRange(&self) -> ::windows_core::Result<PROPDESC_GROUPING_RANGE>;
     fn GetRelativeDescriptionType(&self) -> ::windows_core::Result<PROPDESC_RELATIVEDESCRIPTION_TYPE>;
-    fn GetRelativeDescription(&self, propvar1: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszdesc1: *mut ::windows_core::PWSTR, ppszdesc2: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>;
+    fn GetRelativeDescription(&self, propvar1: *const ::windows_core::PROPVARIANT, propvar2: *const ::windows_core::PROPVARIANT, ppszdesc1: *mut ::windows_core::PWSTR, ppszdesc2: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>;
     fn GetSortDescription(&self) -> ::windows_core::Result<PROPDESC_SORTDESCRIPTION>;
     fn GetSortDescriptionLabel(&self, fdescending: super::super::super::Foundation::BOOL) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetAggregationType(&self) -> ::windows_core::Result<PROPDESC_AGGREGATION_TYPE>;
     fn GetConditionType(&self, pcontype: *mut PROPDESC_CONDITION_TYPE, popdefault: *mut super::super::super::System::Search::Common::CONDITION_OPERATION) -> ::windows_core::Result<()>;
     fn GetEnumTypeList(&self, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
-    fn CoerceToCanonicalValue(&self, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>;
-    fn FormatForDisplay(&self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS) -> ::windows_core::Result<::windows_core::PWSTR>;
-    fn IsValueCanonical(&self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>;
+    fn CoerceToCanonicalValue(&self, ppropvar: *mut ::windows_core::PROPVARIANT) -> ::windows_core::Result<()>;
+    fn FormatForDisplay(&self, propvar: *const ::windows_core::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS) -> ::windows_core::Result<::windows_core::PWSTR>;
+    fn IsValueCanonical(&self, propvar: *const ::windows_core::PROPVARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Search_Common")]
 impl ::windows_core::RuntimeName for IPropertyDescription {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Search_Common")]
 impl IPropertyDescription_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>() -> IPropertyDescription_Vtbl {
         unsafe extern "system" fn GetPropertyKey<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pkey: *mut PROPERTYKEY) -> ::windows_core::HRESULT {
@@ -478,7 +470,7 @@ impl IPropertyDescription_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRelativeDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propvar1: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszdesc1: *mut ::windows_core::PWSTR, ppszdesc2: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetRelativeDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propvar1: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, propvar2: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, ppszdesc1: *mut ::windows_core::PWSTR, ppszdesc2: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetRelativeDescription(::core::mem::transmute_copy(&propvar1), ::core::mem::transmute_copy(&propvar2), ::core::mem::transmute_copy(&ppszdesc1), ::core::mem::transmute_copy(&ppszdesc2)).into()
@@ -526,12 +518,12 @@ impl IPropertyDescription_Vtbl {
             let this = (*this).get_impl();
             this.GetEnumTypeList(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn CoerceToCanonicalValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn CoerceToCanonicalValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropvar: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CoerceToCanonicalValue(::core::mem::transmute_copy(&ppropvar)).into()
         }
-        unsafe extern "system" fn FormatForDisplay<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn FormatForDisplay<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, pdfflags: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FormatForDisplay(::core::mem::transmute_copy(&propvar), ::core::mem::transmute_copy(&pdfflags)) {
@@ -542,7 +534,7 @@ impl IPropertyDescription_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsValueCanonical<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn IsValueCanonical<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.IsValueCanonical(::core::mem::transmute_copy(&propvar)).into()
@@ -576,17 +568,17 @@ impl IPropertyDescription_Vtbl {
         iid == &<IPropertyDescription as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Search_Common\"`"]
+#[cfg(feature = "Win32_System_Search_Common")]
 pub trait IPropertyDescription2_Impl: Sized + IPropertyDescription_Impl {
-    fn GetImageReferenceForValue(&self, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<::windows_core::PWSTR>;
+    fn GetImageReferenceForValue(&self, propvar: *const ::windows_core::PROPVARIANT) -> ::windows_core::Result<::windows_core::PWSTR>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Search_Common")]
 impl ::windows_core::RuntimeName for IPropertyDescription2 {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Search_Common")]
 impl IPropertyDescription2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription2_Impl, const OFFSET: isize>() -> IPropertyDescription2_Vtbl {
-        unsafe extern "system" fn GetImageReferenceForValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszimageres: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetImageReferenceForValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescription2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, ppszimageres: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetImageReferenceForValue(::core::mem::transmute_copy(&propvar)) {
@@ -606,15 +598,15 @@ impl IPropertyDescription2_Vtbl {
         iid == &<IPropertyDescription2 as ::windows_core::Interface>::IID || iid == &<IPropertyDescription as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Search_Common\"`"]
+#[cfg(feature = "Win32_System_Search_Common")]
 pub trait IPropertyDescriptionAliasInfo_Impl: Sized + IPropertyDescription_Impl {
     fn GetSortByAlias(&self, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn GetAdditionalSortByAliases(&self, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Search_Common")]
 impl ::windows_core::RuntimeName for IPropertyDescriptionAliasInfo {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Search_Common")]
 impl IPropertyDescriptionAliasInfo_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescriptionAliasInfo_Impl, const OFFSET: isize>() -> IPropertyDescriptionAliasInfo_Vtbl {
         unsafe extern "system" fn GetSortByAlias<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescriptionAliasInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -670,14 +662,14 @@ impl IPropertyDescriptionList_Vtbl {
         iid == &<IPropertyDescriptionList as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Search_Common\"`"]
+#[cfg(feature = "Win32_System_Search_Common")]
 pub trait IPropertyDescriptionRelatedPropertyInfo_Impl: Sized + IPropertyDescription_Impl {
     fn GetRelatedProperty(&self, pszrelationshipname: &::windows_core::PCWSTR, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Search_Common")]
 impl ::windows_core::RuntimeName for IPropertyDescriptionRelatedPropertyInfo {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Search_Common")]
 impl IPropertyDescriptionRelatedPropertyInfo_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescriptionRelatedPropertyInfo_Impl, const OFFSET: isize>() -> IPropertyDescriptionRelatedPropertyInfo_Vtbl {
         unsafe extern "system" fn GetRelatedProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescriptionRelatedPropertyInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszrelationshipname: ::windows_core::PCWSTR, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -691,17 +683,17 @@ impl IPropertyDescriptionRelatedPropertyInfo_Vtbl {
         iid == &<IPropertyDescriptionRelatedPropertyInfo as ::windows_core::Interface>::IID || iid == &<IPropertyDescription as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Search_Common\"`"]
+#[cfg(feature = "Win32_System_Search_Common")]
 pub trait IPropertyDescriptionSearchInfo_Impl: Sized + IPropertyDescription_Impl {
     fn GetSearchInfoFlags(&self) -> ::windows_core::Result<PROPDESC_SEARCHINFO_FLAGS>;
     fn GetColumnIndexType(&self) -> ::windows_core::Result<PROPDESC_COLUMNINDEX_TYPE>;
     fn GetProjectionString(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetMaxSize(&self) -> ::windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Search_Common")]
 impl ::windows_core::RuntimeName for IPropertyDescriptionSearchInfo {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Search_Common")]
 impl IPropertyDescriptionSearchInfo_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescriptionSearchInfo_Impl, const OFFSET: isize>() -> IPropertyDescriptionSearchInfo_Vtbl {
         unsafe extern "system" fn GetSearchInfoFlags<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyDescriptionSearchInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdsiflags: *mut PROPDESC_SEARCHINFO_FLAGS) -> ::windows_core::HRESULT {
@@ -760,18 +752,14 @@ impl IPropertyDescriptionSearchInfo_Vtbl {
         iid == &<IPropertyDescriptionSearchInfo as ::windows_core::Interface>::IID || iid == &<IPropertyDescription as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IPropertyEnumType_Impl: Sized {
     fn GetEnumType(&self) -> ::windows_core::Result<PROPENUMTYPE>;
-    fn GetValue(&self) -> ::windows_core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn GetRangeMinValue(&self) -> ::windows_core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn GetRangeSetValue(&self) -> ::windows_core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn GetValue(&self) -> ::windows_core::Result<::windows_core::PROPVARIANT>;
+    fn GetRangeMinValue(&self) -> ::windows_core::Result<::windows_core::PROPVARIANT>;
+    fn GetRangeSetValue(&self) -> ::windows_core::Result<::windows_core::PROPVARIANT>;
     fn GetDisplayText(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IPropertyEnumType {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IPropertyEnumType_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumType_Impl, const OFFSET: isize>() -> IPropertyEnumType_Vtbl {
         unsafe extern "system" fn GetEnumType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, penumtype: *mut PROPENUMTYPE) -> ::windows_core::HRESULT {
@@ -785,7 +773,7 @@ impl IPropertyEnumType_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropvar: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetValue() {
@@ -796,7 +784,7 @@ impl IPropertyEnumType_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRangeMinValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropvarmin: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetRangeMinValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropvarmin: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetRangeMinValue() {
@@ -807,7 +795,7 @@ impl IPropertyEnumType_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRangeSetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropvarset: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetRangeSetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropvarset: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetRangeSetValue() {
@@ -842,14 +830,10 @@ impl IPropertyEnumType_Vtbl {
         iid == &<IPropertyEnumType as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IPropertyEnumType2_Impl: Sized + IPropertyEnumType_Impl {
     fn GetImageReference(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IPropertyEnumType2 {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IPropertyEnumType2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumType2_Impl, const OFFSET: isize>() -> IPropertyEnumType2_Vtbl {
         unsafe extern "system" fn GetImageReference<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumType2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszimageres: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
@@ -869,17 +853,13 @@ impl IPropertyEnumType2_Vtbl {
         iid == &<IPropertyEnumType2 as ::windows_core::Interface>::IID || iid == &<IPropertyEnumType as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IPropertyEnumTypeList_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<u32>;
     fn GetAt(&self, itype: u32, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn GetConditionAt(&self, nindex: u32, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
-    fn FindMatchingIndex(&self, propvarcmp: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<u32>;
+    fn FindMatchingIndex(&self, propvarcmp: *const ::windows_core::PROPVARIANT) -> ::windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IPropertyEnumTypeList {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IPropertyEnumTypeList_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumTypeList_Impl, const OFFSET: isize>() -> IPropertyEnumTypeList_Vtbl {
         unsafe extern "system" fn GetCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumTypeList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pctypes: *mut u32) -> ::windows_core::HRESULT {
@@ -903,7 +883,7 @@ impl IPropertyEnumTypeList_Vtbl {
             let this = (*this).get_impl();
             this.GetConditionAt(::core::mem::transmute_copy(&nindex), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn FindMatchingIndex<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumTypeList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propvarcmp: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pnindex: *mut u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn FindMatchingIndex<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyEnumTypeList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propvarcmp: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, pnindex: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FindMatchingIndex(::core::mem::transmute_copy(&propvarcmp)) {
@@ -926,18 +906,14 @@ impl IPropertyEnumTypeList_Vtbl {
         iid == &<IPropertyEnumTypeList as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IPropertyStore_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<u32>;
     fn GetAt(&self, iprop: u32, pkey: *mut PROPERTYKEY) -> ::windows_core::Result<()>;
-    fn GetValue(&self, key: *const PROPERTYKEY) -> ::windows_core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn SetValue(&self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>;
+    fn GetValue(&self, key: *const PROPERTYKEY) -> ::windows_core::Result<::windows_core::PROPVARIANT>;
+    fn SetValue(&self, key: *const PROPERTYKEY, propvar: *const ::windows_core::PROPVARIANT) -> ::windows_core::Result<()>;
     fn Commit(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IPropertyStore {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IPropertyStore_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStore_Impl, const OFFSET: isize>() -> IPropertyStore_Vtbl {
         unsafe extern "system" fn GetCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cprops: *mut u32) -> ::windows_core::HRESULT {
@@ -956,7 +932,7 @@ impl IPropertyStore_Vtbl {
             let this = (*this).get_impl();
             this.GetAt(::core::mem::transmute_copy(&iprop), ::core::mem::transmute_copy(&pkey)).into()
         }
-        unsafe extern "system" fn GetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, pv: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, pv: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetValue(::core::mem::transmute_copy(&key)) {
@@ -967,7 +943,7 @@ impl IPropertyStore_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValue(::core::mem::transmute_copy(&key), ::core::mem::transmute_copy(&propvar)).into()
@@ -990,17 +966,13 @@ impl IPropertyStore_Vtbl {
         iid == &<IPropertyStore as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IPropertyStoreCache_Impl: Sized + IPropertyStore_Impl {
     fn GetState(&self, key: *const PROPERTYKEY) -> ::windows_core::Result<PSC_STATE>;
-    fn GetValueAndState(&self, key: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstate: *mut PSC_STATE) -> ::windows_core::Result<()>;
+    fn GetValueAndState(&self, key: *const PROPERTYKEY, ppropvar: *mut ::windows_core::PROPVARIANT, pstate: *mut PSC_STATE) -> ::windows_core::Result<()>;
     fn SetState(&self, key: *const PROPERTYKEY, state: PSC_STATE) -> ::windows_core::Result<()>;
-    fn SetValueAndState(&self, key: *const PROPERTYKEY, ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, state: PSC_STATE) -> ::windows_core::Result<()>;
+    fn SetValueAndState(&self, key: *const PROPERTYKEY, ppropvar: *const ::windows_core::PROPVARIANT, state: PSC_STATE) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IPropertyStoreCache {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IPropertyStoreCache_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStoreCache_Impl, const OFFSET: isize>() -> IPropertyStoreCache_Vtbl {
         unsafe extern "system" fn GetState<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, pstate: *mut PSC_STATE) -> ::windows_core::HRESULT {
@@ -1014,7 +986,7 @@ impl IPropertyStoreCache_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetValueAndState<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, ppropvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstate: *mut PSC_STATE) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetValueAndState<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, ppropvar: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, pstate: *mut PSC_STATE) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetValueAndState(::core::mem::transmute_copy(&key), ::core::mem::transmute_copy(&ppropvar), ::core::mem::transmute_copy(&pstate)).into()
@@ -1024,7 +996,7 @@ impl IPropertyStoreCache_Vtbl {
             let this = (*this).get_impl();
             this.SetState(::core::mem::transmute_copy(&key), ::core::mem::transmute_copy(&state)).into()
         }
-        unsafe extern "system" fn SetValueAndState<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, state: PSC_STATE) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetValueAndState<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStoreCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, ppropvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, state: PSC_STATE) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetValueAndState(::core::mem::transmute_copy(&key), ::core::mem::transmute_copy(&ppropvar), ::core::mem::transmute_copy(&state)).into()
@@ -1085,22 +1057,18 @@ impl IPropertyStoreFactory_Vtbl {
         iid == &<IPropertyStoreFactory as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IPropertySystem_Impl: Sized {
     fn GetPropertyDescription(&self, propkey: *const PROPERTYKEY, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn GetPropertyDescriptionByName(&self, pszcanonicalname: &::windows_core::PCWSTR, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn GetPropertyDescriptionListFromString(&self, pszproplist: &::windows_core::PCWSTR, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn EnumeratePropertyDescriptions(&self, filteron: PROPDESC_ENUMFILTER, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
-    fn FormatForDisplay(&self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, psztext: ::windows_core::PWSTR, cchtext: u32) -> ::windows_core::Result<()>;
-    fn FormatForDisplayAlloc(&self, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> ::windows_core::Result<::windows_core::PWSTR>;
+    fn FormatForDisplay(&self, key: *const PROPERTYKEY, propvar: *const ::windows_core::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, psztext: ::windows_core::PWSTR, cchtext: u32) -> ::windows_core::Result<()>;
+    fn FormatForDisplayAlloc(&self, key: *const PROPERTYKEY, propvar: *const ::windows_core::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn RegisterPropertySchema(&self, pszpath: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn UnregisterPropertySchema(&self, pszpath: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn RefreshPropertySchema(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IPropertySystem {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IPropertySystem_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertySystem_Impl, const OFFSET: isize>() -> IPropertySystem_Vtbl {
         unsafe extern "system" fn GetPropertyDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertySystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propkey: *const PROPERTYKEY, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1123,12 +1091,12 @@ impl IPropertySystem_Vtbl {
             let this = (*this).get_impl();
             this.EnumeratePropertyDescriptions(::core::mem::transmute_copy(&filteron), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn FormatForDisplay<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertySystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, psztext: ::windows_core::PWSTR, cchtext: u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn FormatForDisplay<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertySystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, pdff: PROPDESC_FORMAT_FLAGS, psztext: ::windows_core::PWSTR, cchtext: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.FormatForDisplay(::core::mem::transmute_copy(&key), ::core::mem::transmute_copy(&propvar), ::core::mem::transmute_copy(&pdff), ::core::mem::transmute_copy(&psztext), ::core::mem::transmute_copy(&cchtext)).into()
         }
-        unsafe extern "system" fn FormatForDisplayAlloc<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertySystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn FormatForDisplayAlloc<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertySystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FormatForDisplayAlloc(::core::mem::transmute_copy(&key), ::core::mem::transmute_copy(&propvar), ::core::mem::transmute_copy(&pdff)) {
@@ -1188,8 +1156,6 @@ impl IPropertySystemChangeNotify_Vtbl {
         iid == &<IPropertySystemChangeNotify as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IPropertyUI_Impl: Sized {
     fn ParsePropertyName(&self, pszname: &::windows_core::PCWSTR, pfmtid: *mut ::windows_core::GUID, ppid: *mut u32, pcheaten: *mut u32) -> ::windows_core::Result<()>;
     fn GetCannonicalName(&self, fmtid: *const ::windows_core::GUID, pid: u32, pwsztext: ::windows_core::PWSTR, cchtext: u32) -> ::windows_core::Result<()>;
@@ -1197,12 +1163,10 @@ pub trait IPropertyUI_Impl: Sized {
     fn GetPropertyDescription(&self, fmtid: *const ::windows_core::GUID, pid: u32, pwsztext: ::windows_core::PWSTR, cchtext: u32) -> ::windows_core::Result<()>;
     fn GetDefaultWidth(&self, fmtid: *const ::windows_core::GUID, pid: u32) -> ::windows_core::Result<u32>;
     fn GetFlags(&self, fmtid: *const ::windows_core::GUID, pid: u32) -> ::windows_core::Result<PROPERTYUI_FLAGS>;
-    fn FormatForDisplay(&self, fmtid: *const ::windows_core::GUID, pid: u32, ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, puiff: PROPERTYUI_FORMAT_FLAGS, pwsztext: ::windows_core::PWSTR, cchtext: u32) -> ::windows_core::Result<()>;
+    fn FormatForDisplay(&self, fmtid: *const ::windows_core::GUID, pid: u32, ppropvar: *const ::windows_core::PROPVARIANT, puiff: PROPERTYUI_FORMAT_FLAGS, pwsztext: ::windows_core::PWSTR, cchtext: u32) -> ::windows_core::Result<()>;
     fn GetHelpInfo(&self, fmtid: *const ::windows_core::GUID, pid: u32, pwszhelpfile: ::windows_core::PWSTR, cch: u32, puhelpid: *mut u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IPropertyUI {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IPropertyUI_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyUI_Impl, const OFFSET: isize>() -> IPropertyUI_Vtbl {
         unsafe extern "system" fn ParsePropertyName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: ::windows_core::PCWSTR, pfmtid: *mut ::windows_core::GUID, ppid: *mut u32, pcheaten: *mut u32) -> ::windows_core::HRESULT {
@@ -1247,7 +1211,7 @@ impl IPropertyUI_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FormatForDisplay<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fmtid: *const ::windows_core::GUID, pid: u32, ppropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, puiff: PROPERTYUI_FORMAT_FLAGS, pwsztext: ::windows_core::PWSTR, cchtext: u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn FormatForDisplay<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyUI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fmtid: *const ::windows_core::GUID, pid: u32, ppropvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, puiff: PROPERTYUI_FORMAT_FLAGS, pwsztext: ::windows_core::PWSTR, cchtext: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.FormatForDisplay(::core::mem::transmute_copy(&fmtid), ::core::mem::transmute_copy(&pid), ::core::mem::transmute_copy(&ppropvar), ::core::mem::transmute_copy(&puiff), ::core::mem::transmute_copy(&pwsztext), ::core::mem::transmute_copy(&cchtext)).into()

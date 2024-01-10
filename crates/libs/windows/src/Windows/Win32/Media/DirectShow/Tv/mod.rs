@@ -2506,33 +2506,38 @@ impl IComponentTypes {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IComponentType> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index), &mut result__).from_abi(result__)
-    }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn put_Item<P0>(&self, index: super::super::super::System::Variant::VARIANT, componenttype: P0) -> ::windows_core::Result<()>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item<P0>(&self, index: P0) -> ::windows_core::Result<IComponentType>
     where
-        P0: ::windows_core::IntoParam<IComponentType>,
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).put_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index), componenttype.into_param().abi()).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), index.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Add<P0>(&self, componenttype: P0) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn put_Item<P0, P1>(&self, index: P0, componenttype: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<IComponentType>,
+    {
+        (::windows_core::Interface::vtable(self).put_Item)(::windows_core::Interface::as_raw(self), index.into_param().abi(), componenttype.into_param().abi()).ok()
+    }
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Add<P0>(&self, componenttype: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<IComponentType>,
     {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), componenttype.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Remove(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+    pub unsafe fn Remove<P0>(&self, index: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), index.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2552,22 +2557,19 @@ pub struct IComponentTypes_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
     pub EnumComponentTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnewenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: super::super::super::System::Variant::VARIANT, componenttype: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::std::mem::MaybeUninit<::windows_core::VARIANT>, componenttype: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub put_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: super::super::super::System::Variant::VARIANT, componenttype: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub put_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::std::mem::MaybeUninit<::windows_core::VARIANT>, componenttype: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     put_Item: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, componenttype: *mut ::core::ffi::c_void, newindex: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, componenttype: *mut ::core::ffi::c_void, newindex: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Remove: usize,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newlist: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -2598,25 +2600,29 @@ impl IComponents {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumComponents)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IComponent> {
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item<P0>(&self, index: P0) -> ::windows_core::Result<IComponent>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), index.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Add<P0>(&self, component: P0) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Add<P0>(&self, component: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<IComponent>,
     {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), component.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Remove(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+    pub unsafe fn Remove<P0>(&self, index: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), index.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2624,13 +2630,14 @@ impl IComponents {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn put_Item<P0>(&self, index: super::super::super::System::Variant::VARIANT, ppcomponent: P0) -> ::windows_core::Result<()>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn put_Item<P0, P1>(&self, index: P0, ppcomponent: P1) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<IComponent>,
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<IComponent>,
     {
-        (::windows_core::Interface::vtable(self).put_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index), ppcomponent.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).put_Item)(::windows_core::Interface::as_raw(self), index.into_param().abi(), ppcomponent.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2644,25 +2651,22 @@ pub struct IComponents_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
     pub EnumComponents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnewenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: super::super::super::System::Variant::VARIANT, ppcomponent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppcomponent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, component: *mut ::core::ffi::c_void, newindex: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, component: *mut ::core::ffi::c_void, newindex: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Remove: usize,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newlist: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub put_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: super::super::super::System::Variant::VARIANT, ppcomponent: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub put_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppcomponent: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     put_Item: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2690,25 +2694,29 @@ impl IComponentsOld {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumComponents)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IComponent> {
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item<P0>(&self, index: P0) -> ::windows_core::Result<IComponent>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), index.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Add<P0>(&self, component: P0) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Add<P0>(&self, component: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<IComponent>,
     {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), component.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Remove(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+    pub unsafe fn Remove<P0>(&self, index: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), index.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2728,18 +2736,15 @@ pub struct IComponentsOld_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
     pub EnumComponents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnewenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: super::super::super::System::Variant::VARIANT, ppcomponent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppcomponent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, component: *mut ::core::ffi::c_void, newindex: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, component: *mut ::core::ffi::c_void, newindex: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Remove: usize,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newlist: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -7590,11 +7595,12 @@ impl IGuideData {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetGuideProgramIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProgramProperties(&self, varprogramdescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IEnumGuideDataProperties> {
+    pub unsafe fn GetProgramProperties<P0>(&self, varprogramdescriptionid: P0) -> ::windows_core::Result<IEnumGuideDataProperties>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProgramProperties)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varprogramdescriptionid), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetProgramProperties)(::windows_core::Interface::as_raw(self), varprogramdescriptionid.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
@@ -7602,11 +7608,12 @@ impl IGuideData {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetScheduleEntryIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetScheduleEntryProperties(&self, varscheduleentrydescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IEnumGuideDataProperties> {
+    pub unsafe fn GetScheduleEntryProperties<P0>(&self, varscheduleentrydescriptionid: P0) -> ::windows_core::Result<IEnumGuideDataProperties>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetScheduleEntryProperties)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varscheduleentrydescriptionid), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetScheduleEntryProperties)(::windows_core::Interface::as_raw(self), varscheduleentrydescriptionid.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[repr(C)]
@@ -7622,18 +7629,12 @@ pub struct IGuideData_Vtbl {
     pub GetGuideProgramIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penumprograms: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
     GetGuideProgramIDs: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetProgramProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varprogramdescriptionid: super::super::super::System::Variant::VARIANT, ppenumproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetProgramProperties: usize,
+    pub GetProgramProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varprogramdescriptionid: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppenumproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Ole")]
     pub GetScheduleEntryIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penumscheduleentries: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
     GetScheduleEntryIDs: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetScheduleEntryProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varscheduleentrydescriptionid: super::super::super::System::Variant::VARIANT, ppenumproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetScheduleEntryProperties: usize,
+    pub GetScheduleEntryProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varscheduleentrydescriptionid: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppenumproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGuideDataEvent, IGuideDataEvent_Vtbl, 0xefda0c80_f395_42c3_9b3c_56b37dec7bb7);
 ::windows_core::imp::interface_hierarchy!(IGuideDataEvent, ::windows_core::IUnknown);
@@ -7641,35 +7642,41 @@ impl IGuideDataEvent {
     pub unsafe fn GuideDataAcquired(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GuideDataAcquired)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ProgramChanged(&self, varprogramdescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ProgramChanged)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varprogramdescriptionid)).ok()
+    pub unsafe fn ProgramChanged<P0>(&self, varprogramdescriptionid: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).ProgramChanged)(::windows_core::Interface::as_raw(self), varprogramdescriptionid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ServiceChanged(&self, varservicedescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ServiceChanged)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varservicedescriptionid)).ok()
+    pub unsafe fn ServiceChanged<P0>(&self, varservicedescriptionid: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).ServiceChanged)(::windows_core::Interface::as_raw(self), varservicedescriptionid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ScheduleEntryChanged(&self, varscheduleentrydescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ScheduleEntryChanged)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varscheduleentrydescriptionid)).ok()
+    pub unsafe fn ScheduleEntryChanged<P0>(&self, varscheduleentrydescriptionid: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).ScheduleEntryChanged)(::windows_core::Interface::as_raw(self), varscheduleentrydescriptionid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ProgramDeleted(&self, varprogramdescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ProgramDeleted)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varprogramdescriptionid)).ok()
+    pub unsafe fn ProgramDeleted<P0>(&self, varprogramdescriptionid: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).ProgramDeleted)(::windows_core::Interface::as_raw(self), varprogramdescriptionid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ServiceDeleted(&self, varservicedescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ServiceDeleted)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varservicedescriptionid)).ok()
+    pub unsafe fn ServiceDeleted<P0>(&self, varservicedescriptionid: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).ServiceDeleted)(::windows_core::Interface::as_raw(self), varservicedescriptionid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ScheduleDeleted(&self, varscheduleentrydescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ScheduleDeleted)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varscheduleentrydescriptionid)).ok()
+    pub unsafe fn ScheduleDeleted<P0>(&self, varscheduleentrydescriptionid: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).ScheduleDeleted)(::windows_core::Interface::as_raw(self), varscheduleentrydescriptionid.into_param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -7677,30 +7684,12 @@ impl IGuideDataEvent {
 pub struct IGuideDataEvent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GuideDataAcquired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub ProgramChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varprogramdescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    ProgramChanged: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub ServiceChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varservicedescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    ServiceChanged: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub ScheduleEntryChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varscheduleentrydescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    ScheduleEntryChanged: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub ProgramDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varprogramdescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    ProgramDeleted: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub ServiceDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varservicedescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    ServiceDeleted: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub ScheduleDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varscheduleentrydescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    ScheduleDeleted: usize,
+    pub ProgramChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varprogramdescriptionid: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub ServiceChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varservicedescriptionid: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub ScheduleEntryChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varscheduleentrydescriptionid: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub ProgramDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varprogramdescriptionid: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub ServiceDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varservicedescriptionid: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub ScheduleDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varscheduleentrydescriptionid: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGuideDataLoader, IGuideDataLoader_Vtbl, 0x4764ff7c_fa95_4525_af4d_d32236db9e38);
 ::windows_core::imp::interface_hierarchy!(IGuideDataLoader, ::windows_core::IUnknown);
@@ -7733,9 +7722,7 @@ impl IGuideDataProperty {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Language)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Value(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
+    pub unsafe fn Value(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Value)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
@@ -7746,10 +7733,7 @@ pub struct IGuideDataProperty_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Language: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idlang: *mut i32) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Value: usize,
+    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -9960,16 +9944,12 @@ impl IMSVidAnalogTuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsViewable(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
+    pub unsafe fn View(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.View)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10104,16 +10084,12 @@ impl IMSVidAnalogTuner2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsViewable(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
+    pub unsafe fn View(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.View)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10326,11 +10302,14 @@ impl IMSVidAudioRendererDevices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IMSVidAudioRenderer> {
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item<P0>(&self, v: P0) -> ::windows_core::Result<IMSVidAudioRenderer>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), v.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10340,10 +10319,11 @@ impl IMSVidAudioRendererDevices {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pdb.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Remove(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
+    pub unsafe fn Remove<P0>(&self, v: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10356,18 +10336,15 @@ pub struct IMSVidAudioRendererDevices_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pd: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: super::super::super::System::Variant::VARIANT, pdb: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pdb: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdb: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Remove: usize,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -11003,10 +10980,8 @@ impl IMSVidCtl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).State)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).View)(::windows_core::Interface::as_raw(self), v).ok()
+    pub unsafe fn View(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).View)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
     }
     pub unsafe fn Build(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Build)(::windows_core::Interface::as_raw(self)).ok()
@@ -11029,10 +11004,8 @@ impl IMSVidCtl {
     pub unsafe fn DisableAudio(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DisableAudio)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ViewNext(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ViewNext)(::windows_core::Interface::as_raw(self), v).ok()
+    pub unsafe fn ViewNext(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).ViewNext)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11125,10 +11098,7 @@ pub struct IMSVidCtl_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetFeaturesActive: usize,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstate: *mut MSVidCtlStateList) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub View: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    View: usize,
+    pub View: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub Build: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Run: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -11136,10 +11106,7 @@ pub struct IMSVidCtl_Vtbl {
     pub Decompose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub DisableVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub DisableAudio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub ViewNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    ViewNext: usize,
+    pub ViewNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -11805,11 +11772,14 @@ impl IMSVidFeatures {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IMSVidFeature> {
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item<P0>(&self, v: P0) -> ::windows_core::Result<IMSVidFeature>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), v.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11819,10 +11789,11 @@ impl IMSVidFeatures {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pdb.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Remove(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
+    pub unsafe fn Remove<P0>(&self, v: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11835,18 +11806,15 @@ pub struct IMSVidFeatures_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pd: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: super::super::super::System::Variant::VARIANT, pdb: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pdb: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdb: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Remove: usize,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -11902,16 +11870,12 @@ impl IMSVidFilePlayback {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsViewable(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
+    pub unsafe fn View(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.View)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
     }
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -12040,16 +12004,12 @@ impl IMSVidFilePlayback2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsViewable(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
+    pub unsafe fn View(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.View)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
     }
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -12595,16 +12555,12 @@ impl IMSVidInputDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsViewable(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).IsViewable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).View)(::windows_core::Interface::as_raw(self), v).ok()
+    pub unsafe fn View(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).View)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12612,14 +12568,8 @@ impl IMSVidInputDevice {
 #[doc(hidden)]
 pub struct IMSVidInputDevice_Vtbl {
     pub base__: IMSVidDevice_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub IsViewable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: *const super::super::super::System::Variant::VARIANT, pfviewable: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    IsViewable: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub View: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    View: usize,
+    pub IsViewable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pfviewable: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub View: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -12659,11 +12609,14 @@ impl IMSVidInputDevices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IMSVidInputDevice> {
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item<P0>(&self, v: P0) -> ::windows_core::Result<IMSVidInputDevice>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), v.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12673,10 +12626,11 @@ impl IMSVidInputDevices {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pdb.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Remove(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
+    pub unsafe fn Remove<P0>(&self, v: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12689,18 +12643,15 @@ pub struct IMSVidInputDevices_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pd: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: super::super::super::System::Variant::VARIANT, pdb: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pdb: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdb: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Remove: usize,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -12810,11 +12761,14 @@ impl IMSVidOutputDevices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IMSVidOutputDevice> {
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item<P0>(&self, v: P0) -> ::windows_core::Result<IMSVidOutputDevice>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), v.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12824,10 +12778,11 @@ impl IMSVidOutputDevices {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pdb.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Remove(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
+    pub unsafe fn Remove<P0>(&self, v: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12840,18 +12795,15 @@ pub struct IMSVidOutputDevices_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pd: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: super::super::super::System::Variant::VARIANT, pdb: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pdb: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdb: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Remove: usize,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -12907,16 +12859,12 @@ impl IMSVidPlayback {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsViewable(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.IsViewable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.View)(::windows_core::Interface::as_raw(self), v).ok()
+    pub unsafe fn View(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.View)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
     }
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13785,16 +13733,12 @@ impl IMSVidStreamBufferSource {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsViewable(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
+    pub unsafe fn View(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.View)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
     }
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13955,16 +13899,12 @@ impl IMSVidStreamBufferSource2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsViewable(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
+    pub unsafe fn View(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.View)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
     }
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -14411,16 +14351,12 @@ impl IMSVidTuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsViewable(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
+    pub unsafe fn View(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.View)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -14995,16 +14931,12 @@ impl IMSVidVideoInputDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsViewable(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.IsViewable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.View)(::windows_core::Interface::as_raw(self), v).ok()
+    pub unsafe fn View(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.View)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15575,11 +15507,14 @@ impl IMSVidVideoRendererDevices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IMSVidVideoRenderer> {
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item<P0>(&self, v: P0) -> ::windows_core::Result<IMSVidVideoRenderer>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), v.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -15589,10 +15524,11 @@ impl IMSVidVideoRendererDevices {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pdb.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Remove(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
+    pub unsafe fn Remove<P0>(&self, v: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), v.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15605,18 +15541,15 @@ pub struct IMSVidVideoRendererDevices_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pd: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: super::super::super::System::Variant::VARIANT, pdb: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pdb: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdb: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Remove: usize,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -15732,16 +15665,12 @@ impl IMSVidWebDVD {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsViewable(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
+    pub unsafe fn View(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.View)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
     }
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -16347,16 +16276,12 @@ impl IMSVidWebDVD2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsViewable(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
+    pub unsafe fn View(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.View)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
     }
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -16929,10 +16854,12 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).base__.EndOfMedia)(::windows_core::Interface::as_raw(self), lpd.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DVDNotify(&self, leventcode: i32, lparam1: super::super::super::System::Variant::VARIANT, lparam2: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).DVDNotify)(::windows_core::Interface::as_raw(self), leventcode, ::core::mem::transmute(lparam1), ::core::mem::transmute(lparam2)).ok()
+    pub unsafe fn DVDNotify<P0, P1>(&self, leventcode: i32, lparam1: P0, lparam2: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).DVDNotify)(::windows_core::Interface::as_raw(self), leventcode, lparam1.into_param().abi(), lparam2.into_param().abi()).ok()
     }
     pub unsafe fn PlayForwards<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -17072,10 +16999,7 @@ impl IMSVidWebDVDEvent {
 #[doc(hidden)]
 pub struct IMSVidWebDVDEvent_Vtbl {
     pub base__: IMSVidPlaybackEvent_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DVDNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, leventcode: i32, lparam1: super::super::super::System::Variant::VARIANT, lparam2: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DVDNotify: usize,
+    pub DVDNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, leventcode: i32, lparam1: ::std::mem::MaybeUninit<::windows_core::VARIANT>, lparam2: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub PlayForwards: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benabled: super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     pub PlayBackwards: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benabled: super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     pub ShowMenu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, menuid: DVDMenuIDConstants, benabled: super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -17678,14 +17602,13 @@ impl IPersistTuneXml {
     pub unsafe fn InitNew(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InitNew)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Load(&self, varvalue: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Load)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varvalue)).ok()
+    pub unsafe fn Load<P0>(&self, varvalue: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).Load)(::windows_core::Interface::as_raw(self), varvalue.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Save(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
+    pub unsafe fn Save(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Save)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
@@ -17696,42 +17619,35 @@ impl IPersistTuneXml {
 pub struct IPersistTuneXml_Vtbl {
     pub base__: super::super::super::System::Com::IPersist_Vtbl,
     pub InitNew: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varvalue: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Load: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarfragment: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Save: usize,
+    pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varvalue: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarfragment: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPersistTuneXmlUtility, IPersistTuneXmlUtility_Vtbl, 0x990237ae_ac11_4614_be8f_dd217a4cb4cb);
 ::windows_core::imp::interface_hierarchy!(IPersistTuneXmlUtility, ::windows_core::IUnknown);
 impl IPersistTuneXmlUtility {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Deserialize(&self, varvalue: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::IUnknown> {
+    pub unsafe fn Deserialize<P0>(&self, varvalue: P0) -> ::windows_core::Result<::windows_core::IUnknown>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Deserialize)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varvalue), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Deserialize)(::windows_core::Interface::as_raw(self), varvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPersistTuneXmlUtility_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Deserialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varvalue: super::super::super::System::Variant::VARIANT, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Deserialize: usize,
+    pub Deserialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varvalue: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPersistTuneXmlUtility2, IPersistTuneXmlUtility2_Vtbl, 0x992e165f_ea24_4b2f_9a1d_009d92120451);
 ::windows_core::imp::interface_hierarchy!(IPersistTuneXmlUtility2, ::windows_core::IUnknown, IPersistTuneXmlUtility);
 impl IPersistTuneXmlUtility2 {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Deserialize(&self, varvalue: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::IUnknown> {
+    pub unsafe fn Deserialize<P0>(&self, varvalue: P0) -> ::windows_core::Result<::windows_core::IUnknown>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Deserialize)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varvalue), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Deserialize)(::windows_core::Interface::as_raw(self), varvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -19609,19 +19525,23 @@ impl ITuningSpaceContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<ITuningSpace> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
-    }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn put_Item<P0>(&self, varindex: super::super::super::System::Variant::VARIANT, tuningspace: P0) -> ::windows_core::Result<()>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ITuningSpace>
     where
-        P0: ::windows_core::IntoParam<ITuningSpace>,
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).put_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), tuningspace.into_param().abi()).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), varindex.into_param().abi(), &mut result__).from_abi(result__)
+    }
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn put_Item<P0, P1>(&self, varindex: P0, tuningspace: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<ITuningSpace>,
+    {
+        (::windows_core::Interface::vtable(self).put_Item)(::windows_core::Interface::as_raw(self), varindex.into_param().abi(), tuningspace.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -19656,9 +19576,9 @@ impl ITuningSpaceContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindID)(::windows_core::Interface::as_raw(self), tuningspace.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Add<P0>(&self, tuningspace: P0) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Add<P0>(&self, tuningspace: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<ITuningSpace>,
     {
@@ -19669,10 +19589,11 @@ impl ITuningSpaceContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumTuningSpaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Remove(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
+    pub unsafe fn Remove<P0>(&self, index: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), index.into_param().abi()).ok()
     }
     pub unsafe fn MaxCount(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
@@ -19692,13 +19613,13 @@ pub struct ITuningSpaceContainer_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varindex: super::super::super::System::Variant::VARIANT, tuningspace: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varindex: ::std::mem::MaybeUninit<::windows_core::VARIANT>, tuningspace: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub put_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varindex: super::super::super::System::Variant::VARIANT, tuningspace: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub put_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varindex: ::std::mem::MaybeUninit<::windows_core::VARIANT>, tuningspace: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     put_Item: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub TuningSpacesForCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, spaceclsid: ::std::mem::MaybeUninit<::windows_core::BSTR>, newcoll: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -19716,15 +19637,12 @@ pub struct ITuningSpaceContainer_Vtbl {
     pub FindID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tuningspace: *mut ::core::ffi::c_void, id: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     FindID: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tuningspace: *mut ::core::ffi::c_void, newindex: *mut super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tuningspace: *mut ::core::ffi::c_void, newindex: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
     pub EnumTuningSpaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Remove: usize,
+    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub MaxCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxcount: *mut i32) -> ::windows_core::HRESULT,
     pub SetMaxCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxcount: i32) -> ::windows_core::HRESULT,
 }
@@ -19749,11 +19667,14 @@ impl ITuningSpaces {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, varindex: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<ITuningSpace> {
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ITuningSpace>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), varindex.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumTuningSpaces(&self) -> ::windows_core::Result<IEnumTuningSpaces> {
         let mut result__ = ::std::mem::zeroed();
@@ -19770,9 +19691,9 @@ pub struct ITuningSpaces_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varindex: super::super::super::System::Variant::VARIANT, tuningspace: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varindex: ::std::mem::MaybeUninit<::windows_core::VARIANT>, tuningspace: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
     pub EnumTuningSpaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }

@@ -789,60 +789,55 @@ impl IAzApplication {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Writable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyAdministrators(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyAdministrators(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PolicyAdministrators)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyReaders(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyReaders(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PolicyReaders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministrator<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddPolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddPolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministrator<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeletePolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeletePolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReader<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddPolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddPolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReader<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeletePolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeletePolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -850,31 +845,32 @@ impl IAzApplication {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Scopes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenScope<P0>(&self, bstrscopename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzScope>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenScope<P0, P1>(&self, bstrscopename: P0, varreserved: P1) -> ::windows_core::Result<IAzScope>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OpenScope)(::windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OpenScope)(::windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateScope<P0>(&self, bstrscopename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzScope>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateScope<P0, P1>(&self, bstrscopename: P0, varreserved: P1) -> ::windows_core::Result<IAzScope>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateScope)(::windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateScope)(::windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteScope<P0>(&self, bstrscopename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteScope<P0, P1>(&self, bstrscopename: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteScope)(::windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteScope)(::windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -882,31 +878,32 @@ impl IAzApplication {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Operations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenOperation<P0>(&self, bstroperationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzOperation>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenOperation<P0, P1>(&self, bstroperationname: P0, varreserved: P1) -> ::windows_core::Result<IAzOperation>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OpenOperation)(::windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OpenOperation)(::windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateOperation<P0>(&self, bstroperationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzOperation>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateOperation<P0, P1>(&self, bstroperationname: P0, varreserved: P1) -> ::windows_core::Result<IAzOperation>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateOperation)(::windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateOperation)(::windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteOperation<P0>(&self, bstroperationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteOperation<P0, P1>(&self, bstroperationname: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteOperation)(::windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteOperation)(::windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -914,31 +911,32 @@ impl IAzApplication {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Tasks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenTask<P0>(&self, bstrtaskname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzTask>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> ::windows_core::Result<IAzTask>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OpenTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OpenTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateTask<P0>(&self, bstrtaskname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzTask>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> ::windows_core::Result<IAzTask>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteTask<P0>(&self, bstrtaskname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -946,31 +944,32 @@ impl IAzApplication {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ApplicationGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplicationGroup>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplicationGroup>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OpenApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OpenApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplicationGroup>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplicationGroup>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -978,159 +977,154 @@ impl IAzApplication {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Roles)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenRole<P0>(&self, bstrrolename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzRole>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> ::windows_core::Result<IAzRole>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OpenRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OpenRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateRole<P0>(&self, bstrrolename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzRole>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> ::windows_core::Result<IAzRole>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteRole<P0>(&self, bstrrolename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn InitializeClientContextFromToken(&self, ulltokenhandle: u64, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzClientContext> {
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn InitializeClientContextFromToken<P0>(&self, ulltokenhandle: u64, varreserved: P0) -> ::windows_core::Result<IAzClientContext>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).InitializeClientContextFromToken)(::windows_core::Interface::as_raw(self), ulltokenhandle, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).InitializeClientContextFromToken)(::windows_core::Interface::as_raw(self), ulltokenhandle, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Submit)(::windows_core::Interface::as_raw(self), lflags, ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).Submit)(::windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn InitializeClientContextFromName<P0, P1>(&self, clientname: P0, domainname: P1, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzClientContext>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn InitializeClientContextFromName<P0, P1, P2>(&self, clientname: P0, domainname: P1, varreserved: P2) -> ::windows_core::Result<IAzClientContext>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P2: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).InitializeClientContextFromName)(::windows_core::Interface::as_raw(self), clientname.into_param().abi(), domainname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).InitializeClientContextFromName)(::windows_core::Interface::as_raw(self), clientname.into_param().abi(), domainname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DelegatedPolicyUsers(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn DelegatedPolicyUsers(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DelegatedPolicyUsers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddDelegatedPolicyUser<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteDelegatedPolicyUser<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn InitializeClientContextFromStringSid<P0>(&self, sidstring: P0, loptions: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzClientContext>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn InitializeClientContextFromStringSid<P0, P1>(&self, sidstring: P0, loptions: i32, varreserved: P1) -> ::windows_core::Result<IAzClientContext>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).InitializeClientContextFromStringSid)(::windows_core::Interface::as_raw(self), sidstring.into_param().abi(), loptions, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).InitializeClientContextFromStringSid)(::windows_core::Interface::as_raw(self), sidstring.into_param().abi(), loptions, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyAdministratorsName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyAdministratorsName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PolicyAdministratorsName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyReadersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyReadersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PolicyReadersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministratorName<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddPolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddPolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministratorName<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeletePolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeletePolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReaderName<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddPolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddPolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReaderName<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeletePolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeletePolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DelegatedPolicyUsersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn DelegatedPolicyUsersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DelegatedPolicyUsersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddDelegatedPolicyUserName<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteDelegatedPolicyUserName<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1153,190 +1147,106 @@ pub struct IAzApplication_Vtbl {
     pub ApplyStoreSacl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbprop: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     pub SetApplyStoreSacl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bprop: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     pub Writable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: super::super::System::Variant::VARIANT, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetProperty: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    SetProperty: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub PolicyAdministrators: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvaradmins: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    PolicyAdministrators: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub PolicyReaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarreaders: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    PolicyReaders: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddPolicyAdministrator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddPolicyAdministrator: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeletePolicyAdministrator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeletePolicyAdministrator: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddPolicyReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddPolicyReader: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeletePolicyReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeletePolicyReader: usize,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub PolicyAdministrators: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvaradmins: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub PolicyReaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarreaders: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddPolicyAdministrator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeletePolicyAdministrator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddPolicyReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeletePolicyReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Scopes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppscopecollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Scopes: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub OpenScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrscopename: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, ppscope: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub OpenScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrscopename: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppscope: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     OpenScope: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrscopename: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, ppscope: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrscopename: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppscope: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     CreateScope: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrscopename: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteScope: usize,
+    pub DeleteScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrscopename: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Operations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppoperationcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Operations: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub OpenOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstroperationname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, ppoperation: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub OpenOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstroperationname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppoperation: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     OpenOperation: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstroperationname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, ppoperation: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstroperationname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppoperation: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     CreateOperation: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstroperationname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteOperation: usize,
+    pub DeleteOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstroperationname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Tasks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptaskcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Tasks: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub OpenTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtaskname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, pptask: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub OpenTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtaskname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pptask: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     OpenTask: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtaskname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, pptask: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtaskname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pptask: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     CreateTask: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtaskname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteTask: usize,
+    pub DeleteTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtaskname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub ApplicationGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppgroupcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ApplicationGroups: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub OpenApplicationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub OpenApplicationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     OpenApplicationGroup: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateApplicationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateApplicationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     CreateApplicationGroup: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteApplicationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteApplicationGroup: usize,
+    pub DeleteApplicationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Roles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprolecollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Roles: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub OpenRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrolename: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, pprole: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub OpenRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrolename: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pprole: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     OpenRole: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrolename: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, pprole: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrolename: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pprole: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     CreateRole: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrolename: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteRole: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub InitializeClientContextFromToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulltokenhandle: u64, varreserved: super::super::System::Variant::VARIANT, ppclientcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    pub DeleteRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrolename: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub InitializeClientContextFromToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulltokenhandle: u64, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppclientcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     InitializeClientContextFromToken: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddPropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddPropertyItem: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeletePropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeletePropertyItem: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Submit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Submit: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub InitializeClientContextFromName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clientname: ::std::mem::MaybeUninit<::windows_core::BSTR>, domainname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, ppclientcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    pub AddPropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeletePropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Submit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub InitializeClientContextFromName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clientname: ::std::mem::MaybeUninit<::windows_core::BSTR>, domainname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppclientcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     InitializeClientContextFromName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DelegatedPolicyUsers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardelegatedpolicyusers: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DelegatedPolicyUsers: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddDelegatedPolicyUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddDelegatedPolicyUser: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteDelegatedPolicyUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteDelegatedPolicyUser: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub InitializeClientContextFromStringSid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sidstring: ::std::mem::MaybeUninit<::windows_core::BSTR>, loptions: i32, varreserved: super::super::System::Variant::VARIANT, ppclientcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    pub DelegatedPolicyUsers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardelegatedpolicyusers: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddDelegatedPolicyUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeleteDelegatedPolicyUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    #[cfg(feature = "Win32_System_Com")]
+    pub InitializeClientContextFromStringSid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sidstring: ::std::mem::MaybeUninit<::windows_core::BSTR>, loptions: i32, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppclientcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     InitializeClientContextFromStringSid: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub PolicyAdministratorsName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvaradmins: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    PolicyAdministratorsName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub PolicyReadersName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarreaders: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    PolicyReadersName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddPolicyAdministratorName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddPolicyAdministratorName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeletePolicyAdministratorName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeletePolicyAdministratorName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddPolicyReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddPolicyReaderName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeletePolicyReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeletePolicyReaderName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DelegatedPolicyUsersName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardelegatedpolicyusers: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DelegatedPolicyUsersName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddDelegatedPolicyUserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddDelegatedPolicyUserName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteDelegatedPolicyUserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteDelegatedPolicyUserName: usize,
+    pub PolicyAdministratorsName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvaradmins: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub PolicyReadersName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarreaders: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddPolicyAdministratorName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeletePolicyAdministratorName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddPolicyReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeletePolicyReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DelegatedPolicyUsersName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardelegatedpolicyusers: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddDelegatedPolicyUserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeleteDelegatedPolicyUserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -1423,60 +1333,55 @@ impl IAzApplication2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Writable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyAdministrators(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyAdministrators(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PolicyAdministrators)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyReaders(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyReaders(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PolicyReaders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministrator<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddPolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddPolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministrator<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeletePolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeletePolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReader<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddPolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddPolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReader<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeletePolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeletePolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1484,31 +1389,32 @@ impl IAzApplication2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Scopes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenScope<P0>(&self, bstrscopename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzScope>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenScope<P0, P1>(&self, bstrscopename: P0, varreserved: P1) -> ::windows_core::Result<IAzScope>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.OpenScope)(::windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.OpenScope)(::windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateScope<P0>(&self, bstrscopename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzScope>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateScope<P0, P1>(&self, bstrscopename: P0, varreserved: P1) -> ::windows_core::Result<IAzScope>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateScope)(::windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateScope)(::windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteScope<P0>(&self, bstrscopename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteScope<P0, P1>(&self, bstrscopename: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteScope)(::windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteScope)(::windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1516,31 +1422,32 @@ impl IAzApplication2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Operations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenOperation<P0>(&self, bstroperationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzOperation>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenOperation<P0, P1>(&self, bstroperationname: P0, varreserved: P1) -> ::windows_core::Result<IAzOperation>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.OpenOperation)(::windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.OpenOperation)(::windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateOperation<P0>(&self, bstroperationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzOperation>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateOperation<P0, P1>(&self, bstroperationname: P0, varreserved: P1) -> ::windows_core::Result<IAzOperation>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateOperation)(::windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateOperation)(::windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteOperation<P0>(&self, bstroperationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteOperation<P0, P1>(&self, bstroperationname: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteOperation)(::windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteOperation)(::windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1548,31 +1455,32 @@ impl IAzApplication2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Tasks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenTask<P0>(&self, bstrtaskname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzTask>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> ::windows_core::Result<IAzTask>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.OpenTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.OpenTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateTask<P0>(&self, bstrtaskname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzTask>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> ::windows_core::Result<IAzTask>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteTask<P0>(&self, bstrtaskname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1580,31 +1488,32 @@ impl IAzApplication2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ApplicationGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplicationGroup>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplicationGroup>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.OpenApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.OpenApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplicationGroup>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplicationGroup>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1612,174 +1521,173 @@ impl IAzApplication2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Roles)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenRole<P0>(&self, bstrrolename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzRole>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> ::windows_core::Result<IAzRole>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.OpenRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.OpenRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateRole<P0>(&self, bstrrolename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzRole>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> ::windows_core::Result<IAzRole>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteRole<P0>(&self, bstrrolename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn InitializeClientContextFromToken(&self, ulltokenhandle: u64, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzClientContext> {
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn InitializeClientContextFromToken<P0>(&self, ulltokenhandle: u64, varreserved: P0) -> ::windows_core::Result<IAzClientContext>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.InitializeClientContextFromToken)(::windows_core::Interface::as_raw(self), ulltokenhandle, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.InitializeClientContextFromToken)(::windows_core::Interface::as_raw(self), ulltokenhandle, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.Submit)(::windows_core::Interface::as_raw(self), lflags, ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.Submit)(::windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn InitializeClientContextFromName<P0, P1>(&self, clientname: P0, domainname: P1, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzClientContext>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn InitializeClientContextFromName<P0, P1, P2>(&self, clientname: P0, domainname: P1, varreserved: P2) -> ::windows_core::Result<IAzClientContext>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P2: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.InitializeClientContextFromName)(::windows_core::Interface::as_raw(self), clientname.into_param().abi(), domainname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.InitializeClientContextFromName)(::windows_core::Interface::as_raw(self), clientname.into_param().abi(), domainname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DelegatedPolicyUsers(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn DelegatedPolicyUsers(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DelegatedPolicyUsers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddDelegatedPolicyUser<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteDelegatedPolicyUser<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn InitializeClientContextFromStringSid<P0>(&self, sidstring: P0, loptions: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzClientContext>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn InitializeClientContextFromStringSid<P0, P1>(&self, sidstring: P0, loptions: i32, varreserved: P1) -> ::windows_core::Result<IAzClientContext>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.InitializeClientContextFromStringSid)(::windows_core::Interface::as_raw(self), sidstring.into_param().abi(), loptions, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.InitializeClientContextFromStringSid)(::windows_core::Interface::as_raw(self), sidstring.into_param().abi(), loptions, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyAdministratorsName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyAdministratorsName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PolicyAdministratorsName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyReadersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyReadersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PolicyReadersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministratorName<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddPolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddPolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministratorName<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeletePolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeletePolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReaderName<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddPolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddPolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReaderName<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeletePolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeletePolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DelegatedPolicyUsersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn DelegatedPolicyUsersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DelegatedPolicyUsersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddDelegatedPolicyUserName<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteDelegatedPolicyUserName<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn InitializeClientContextFromToken2(&self, ultokenhandlelowpart: u32, ultokenhandlehighpart: u32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzClientContext2> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).InitializeClientContextFromToken2)(::windows_core::Interface::as_raw(self), ultokenhandlelowpart, ultokenhandlehighpart, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
-    }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn InitializeClientContext2<P0>(&self, identifyingstring: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzClientContext2>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn InitializeClientContextFromToken2<P0>(&self, ultokenhandlelowpart: u32, ultokenhandlehighpart: u32, varreserved: P0) -> ::windows_core::Result<IAzClientContext2>
     where
-        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).InitializeClientContext2)(::windows_core::Interface::as_raw(self), identifyingstring.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).InitializeClientContextFromToken2)(::windows_core::Interface::as_raw(self), ultokenhandlelowpart, ultokenhandlehighpart, varreserved.into_param().abi(), &mut result__).from_abi(result__)
+    }
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn InitializeClientContext2<P0, P1>(&self, identifyingstring: P0, varreserved: P1) -> ::windows_core::Result<IAzClientContext2>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).InitializeClientContext2)(::windows_core::Interface::as_raw(self), identifyingstring.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1787,13 +1695,13 @@ impl IAzApplication2 {
 #[doc(hidden)]
 pub struct IAzApplication2_Vtbl {
     pub base__: IAzApplication_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub InitializeClientContextFromToken2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ultokenhandlelowpart: u32, ultokenhandlehighpart: u32, varreserved: super::super::System::Variant::VARIANT, ppclientcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub InitializeClientContextFromToken2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ultokenhandlelowpart: u32, ultokenhandlehighpart: u32, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppclientcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     InitializeClientContextFromToken2: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub InitializeClientContext2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifyingstring: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, ppclientcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub InitializeClientContext2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifyingstring: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppclientcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     InitializeClientContext2: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1881,60 +1789,55 @@ impl IAzApplication3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Writable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyAdministrators(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyAdministrators(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.PolicyAdministrators)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyReaders(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyReaders(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.PolicyReaders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministrator<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.AddPolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.AddPolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministrator<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.DeletePolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.DeletePolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReader<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.AddPolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.AddPolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReader<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.DeletePolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.DeletePolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1942,31 +1845,32 @@ impl IAzApplication3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Scopes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenScope<P0>(&self, bstrscopename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzScope>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenScope<P0, P1>(&self, bstrscopename: P0, varreserved: P1) -> ::windows_core::Result<IAzScope>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.OpenScope)(::windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.OpenScope)(::windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateScope<P0>(&self, bstrscopename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzScope>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateScope<P0, P1>(&self, bstrscopename: P0, varreserved: P1) -> ::windows_core::Result<IAzScope>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.CreateScope)(::windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.CreateScope)(::windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteScope<P0>(&self, bstrscopename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteScope<P0, P1>(&self, bstrscopename: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.DeleteScope)(::windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.DeleteScope)(::windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1974,31 +1878,32 @@ impl IAzApplication3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Operations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenOperation<P0>(&self, bstroperationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzOperation>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenOperation<P0, P1>(&self, bstroperationname: P0, varreserved: P1) -> ::windows_core::Result<IAzOperation>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.OpenOperation)(::windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.OpenOperation)(::windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateOperation<P0>(&self, bstroperationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzOperation>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateOperation<P0, P1>(&self, bstroperationname: P0, varreserved: P1) -> ::windows_core::Result<IAzOperation>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.CreateOperation)(::windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.CreateOperation)(::windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteOperation<P0>(&self, bstroperationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteOperation<P0, P1>(&self, bstroperationname: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.DeleteOperation)(::windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.DeleteOperation)(::windows_core::Interface::as_raw(self), bstroperationname.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2006,31 +1911,32 @@ impl IAzApplication3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Tasks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenTask<P0>(&self, bstrtaskname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzTask>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> ::windows_core::Result<IAzTask>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.OpenTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.OpenTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateTask<P0>(&self, bstrtaskname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzTask>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> ::windows_core::Result<IAzTask>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.CreateTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.CreateTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteTask<P0>(&self, bstrtaskname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.DeleteTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.DeleteTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2038,31 +1944,32 @@ impl IAzApplication3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ApplicationGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplicationGroup>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplicationGroup>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.OpenApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.OpenApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplicationGroup>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplicationGroup>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.CreateApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.CreateApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.DeleteApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.DeleteApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2070,174 +1977,173 @@ impl IAzApplication3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Roles)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenRole<P0>(&self, bstrrolename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzRole>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> ::windows_core::Result<IAzRole>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.OpenRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.OpenRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateRole<P0>(&self, bstrrolename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzRole>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> ::windows_core::Result<IAzRole>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.CreateRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.CreateRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteRole<P0>(&self, bstrrolename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.DeleteRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.DeleteRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn InitializeClientContextFromToken(&self, ulltokenhandle: u64, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzClientContext> {
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn InitializeClientContextFromToken<P0>(&self, ulltokenhandle: u64, varreserved: P0) -> ::windows_core::Result<IAzClientContext>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.InitializeClientContextFromToken)(::windows_core::Interface::as_raw(self), ulltokenhandle, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.InitializeClientContextFromToken)(::windows_core::Interface::as_raw(self), ulltokenhandle, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.base__.AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.base__.DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.Submit)(::windows_core::Interface::as_raw(self), lflags, ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.base__.Submit)(::windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn InitializeClientContextFromName<P0, P1>(&self, clientname: P0, domainname: P1, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzClientContext>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn InitializeClientContextFromName<P0, P1, P2>(&self, clientname: P0, domainname: P1, varreserved: P2) -> ::windows_core::Result<IAzClientContext>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P2: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.InitializeClientContextFromName)(::windows_core::Interface::as_raw(self), clientname.into_param().abi(), domainname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.InitializeClientContextFromName)(::windows_core::Interface::as_raw(self), clientname.into_param().abi(), domainname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DelegatedPolicyUsers(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn DelegatedPolicyUsers(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DelegatedPolicyUsers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddDelegatedPolicyUser<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.AddDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.AddDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteDelegatedPolicyUser<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.DeleteDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.DeleteDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn InitializeClientContextFromStringSid<P0>(&self, sidstring: P0, loptions: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzClientContext>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn InitializeClientContextFromStringSid<P0, P1>(&self, sidstring: P0, loptions: i32, varreserved: P1) -> ::windows_core::Result<IAzClientContext>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.InitializeClientContextFromStringSid)(::windows_core::Interface::as_raw(self), sidstring.into_param().abi(), loptions, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.InitializeClientContextFromStringSid)(::windows_core::Interface::as_raw(self), sidstring.into_param().abi(), loptions, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyAdministratorsName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyAdministratorsName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.PolicyAdministratorsName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyReadersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyReadersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.PolicyReadersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministratorName<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.AddPolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.AddPolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministratorName<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.DeletePolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.DeletePolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReaderName<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.AddPolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.AddPolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReaderName<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.DeletePolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.DeletePolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DelegatedPolicyUsersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn DelegatedPolicyUsersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DelegatedPolicyUsersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddDelegatedPolicyUserName<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.AddDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.AddDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteDelegatedPolicyUserName<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.DeleteDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.DeleteDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn InitializeClientContextFromToken2(&self, ultokenhandlelowpart: u32, ultokenhandlehighpart: u32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzClientContext2> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.InitializeClientContextFromToken2)(::windows_core::Interface::as_raw(self), ultokenhandlelowpart, ultokenhandlehighpart, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
-    }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn InitializeClientContext2<P0>(&self, identifyingstring: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzClientContext2>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn InitializeClientContextFromToken2<P0>(&self, ultokenhandlelowpart: u32, ultokenhandlehighpart: u32, varreserved: P0) -> ::windows_core::Result<IAzClientContext2>
     where
-        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.InitializeClientContext2)(::windows_core::Interface::as_raw(self), identifyingstring.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.InitializeClientContextFromToken2)(::windows_core::Interface::as_raw(self), ultokenhandlelowpart, ultokenhandlehighpart, varreserved.into_param().abi(), &mut result__).from_abi(result__)
+    }
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn InitializeClientContext2<P0, P1>(&self, identifyingstring: P0, varreserved: P1) -> ::windows_core::Result<IAzClientContext2>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.InitializeClientContext2)(::windows_core::Interface::as_raw(self), identifyingstring.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn ScopeExists<P0>(&self, bstrscopename: P0) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
@@ -2423,27 +2329,19 @@ impl IAzApplicationGroup {
     {
         (::windows_core::Interface::vtable(self).SetLdapQuery)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AppMembers(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn AppMembers(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AppMembers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AppNonMembers(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn AppNonMembers(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AppNonMembers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Members(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Members(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Members)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn NonMembers(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn NonMembers(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NonMembers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
@@ -2457,141 +2355,133 @@ impl IAzApplicationGroup {
     {
         (::windows_core::Interface::vtable(self).SetDescription)(::windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddAppMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddAppMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddAppMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddAppMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteAppMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteAppMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteAppMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteAppMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddAppNonMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddAppNonMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddAppNonMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddAppNonMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteAppNonMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteAppNonMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteAppNonMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteAppNonMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddNonMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddNonMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddNonMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddNonMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteNonMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteNonMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteNonMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteNonMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Writable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Submit)(::windows_core::Interface::as_raw(self), lflags, ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).Submit)(::windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddMemberName<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteMemberName<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddNonMemberName<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddNonMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddNonMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddNonMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteNonMemberName<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteNonMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteNonMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteNonMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn MembersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn MembersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MembersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn NonMembersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn NonMembersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NonMembersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
@@ -2607,101 +2497,32 @@ pub struct IAzApplicationGroup_Vtbl {
     pub SetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprop: i32) -> ::windows_core::HRESULT,
     pub LdapQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrprop: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetLdapQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AppMembers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AppMembers: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AppNonMembers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AppNonMembers: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Members: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Members: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub NonMembers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    NonMembers: usize,
+    pub AppMembers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AppNonMembers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Members: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub NonMembers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdescription: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddAppMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddAppMember: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteAppMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteAppMember: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddAppNonMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddAppNonMember: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteAppNonMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteAppNonMember: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddMember: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteMember: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddNonMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddNonMember: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteNonMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteNonMember: usize,
+    pub AddAppMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeleteAppMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddAppNonMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeleteAppNonMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeleteMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddNonMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeleteNonMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub Writable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: super::super::System::Variant::VARIANT, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetProperty: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    SetProperty: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddPropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddPropertyItem: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeletePropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeletePropertyItem: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Submit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Submit: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddMemberName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddMemberName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteMemberName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteMemberName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddNonMemberName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddNonMemberName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteNonMemberName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteNonMemberName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub MembersName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    MembersName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub NonMembersName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    NonMembersName: usize,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddPropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeletePropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Submit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddMemberName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeleteMemberName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddNonMemberName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeleteNonMemberName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub MembersName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub NonMembersName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2741,27 +2562,19 @@ impl IAzApplicationGroup2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetLdapQuery)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AppMembers(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn AppMembers(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AppMembers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AppNonMembers(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn AppNonMembers(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AppNonMembers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Members(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Members(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Members)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn NonMembers(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn NonMembers(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.NonMembers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
@@ -2775,141 +2588,133 @@ impl IAzApplicationGroup2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetDescription)(::windows_core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddAppMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddAppMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddAppMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddAppMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteAppMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteAppMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteAppMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteAppMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddAppNonMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddAppNonMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddAppNonMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddAppNonMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteAppNonMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteAppNonMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteAppNonMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteAppNonMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddNonMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddNonMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddNonMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddNonMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteNonMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteNonMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteNonMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteNonMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Writable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.Submit)(::windows_core::Interface::as_raw(self), lflags, ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.Submit)(::windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddMemberName<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteMemberName<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddNonMemberName<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddNonMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddNonMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddNonMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteNonMemberName<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteNonMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteNonMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteNonMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn MembersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn MembersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MembersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn NonMembersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn NonMembersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.NonMembersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
@@ -2981,9 +2786,7 @@ pub struct IAzApplicationGroup2_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IAzApplicationGroups, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAzApplicationGroups {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
@@ -3001,10 +2804,7 @@ impl IAzApplicationGroups {
 #[doc(hidden)]
 pub struct IAzApplicationGroups_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    get_Item: usize,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumptr: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -3019,9 +2819,7 @@ pub struct IAzApplicationGroups_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IAzApplications, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAzApplications {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
@@ -3039,10 +2837,7 @@ impl IAzApplications {
 #[doc(hidden)]
 pub struct IAzApplications_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    get_Item: usize,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumptr: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -3112,88 +2907,88 @@ impl IAzAuthorizationStore {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Writable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: AZ_PROP_CONSTANTS, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: AZ_PROP_CONSTANTS, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyAdministrators(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyAdministrators(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PolicyAdministrators)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyReaders(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyReaders(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PolicyReaders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministrator<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddPolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddPolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministrator<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeletePolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeletePolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReader<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddPolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddPolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReader<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeletePolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeletePolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Initialize<P0>(&self, lflags: AZ_PROP_CONSTANTS, bstrpolicyurl: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn Initialize<P0, P1>(&self, lflags: AZ_PROP_CONSTANTS, bstrpolicyurl: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), lflags, bstrpolicyurl.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), lflags, bstrpolicyurl.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn UpdateCache(&self, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).UpdateCache)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn UpdateCache<P0>(&self, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).UpdateCache)(::windows_core::Interface::as_raw(self), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Delete(&self, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Delete<P0>(&self, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3201,31 +2996,32 @@ impl IAzAuthorizationStore {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Applications)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenApplication<P0>(&self, bstrapplicationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplication>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenApplication<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplication>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OpenApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OpenApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateApplication<P0>(&self, bstrapplicationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplication>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateApplication<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplication>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteApplication<P0>(&self, bstrapplicationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteApplication<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3233,58 +3029,56 @@ impl IAzAuthorizationStore {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ApplicationGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplicationGroup>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplicationGroup>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplicationGroup>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplicationGroup>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OpenApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OpenApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Submit)(::windows_core::Interface::as_raw(self), lflags, ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).Submit)(::windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DelegatedPolicyUsers(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn DelegatedPolicyUsers(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DelegatedPolicyUsers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddDelegatedPolicyUser<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteDelegatedPolicyUser<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     pub unsafe fn TargetMachine(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -3300,71 +3094,59 @@ impl IAzAuthorizationStore {
     {
         (::windows_core::Interface::vtable(self).SetApplyStoreSacl)(::windows_core::Interface::as_raw(self), bapplystoresacl.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyAdministratorsName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyAdministratorsName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PolicyAdministratorsName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyReadersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyReadersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PolicyReadersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministratorName<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddPolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddPolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministratorName<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeletePolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeletePolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReaderName<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddPolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddPolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReaderName<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeletePolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeletePolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DelegatedPolicyUsersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn DelegatedPolicyUsersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DelegatedPolicyUsersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddDelegatedPolicyUserName<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteDelegatedPolicyUserName<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     pub unsafe fn CloseApplication<P0>(&self, bstrapplicationname: P0, lflag: i32) -> ::windows_core::Result<()>
     where
@@ -3391,145 +3173,61 @@ pub struct IAzAuthorizationStore_Vtbl {
     pub GenerateAudits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbprop: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     pub SetGenerateAudits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bprop: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     pub Writable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: super::super::System::Variant::VARIANT, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetProperty: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    SetProperty: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddPropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: AZ_PROP_CONSTANTS, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddPropertyItem: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeletePropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeletePropertyItem: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub PolicyAdministrators: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvaradmins: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    PolicyAdministrators: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub PolicyReaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarreaders: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    PolicyReaders: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddPolicyAdministrator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddPolicyAdministrator: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeletePolicyAdministrator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeletePolicyAdministrator: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddPolicyReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddPolicyReader: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeletePolicyReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeletePolicyReader: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: AZ_PROP_CONSTANTS, bstrpolicyurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Initialize: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub UpdateCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    UpdateCache: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Delete: usize,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddPropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: AZ_PROP_CONSTANTS, varprop: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeletePropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub PolicyAdministrators: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvaradmins: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub PolicyReaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarreaders: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddPolicyAdministrator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeletePolicyAdministrator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddPolicyReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeletePolicyReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: AZ_PROP_CONSTANTS, bstrpolicyurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub UpdateCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Applications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppappcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Applications: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub OpenApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, ppapplication: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub OpenApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppapplication: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     OpenApplication: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, ppapplication: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppapplication: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     CreateApplication: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteApplication: usize,
+    pub DeleteApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub ApplicationGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppgroupcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ApplicationGroups: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateApplicationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateApplicationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     CreateApplicationGroup: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub OpenApplicationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub OpenApplicationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     OpenApplicationGroup: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteApplicationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteApplicationGroup: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Submit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Submit: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DelegatedPolicyUsers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardelegatedpolicyusers: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DelegatedPolicyUsers: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddDelegatedPolicyUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddDelegatedPolicyUser: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteDelegatedPolicyUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteDelegatedPolicyUser: usize,
+    pub DeleteApplicationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Submit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DelegatedPolicyUsers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardelegatedpolicyusers: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddDelegatedPolicyUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeleteDelegatedPolicyUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub TargetMachine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtargetmachine: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub ApplyStoreSacl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbapplystoresacl: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     pub SetApplyStoreSacl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bapplystoresacl: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub PolicyAdministratorsName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvaradmins: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    PolicyAdministratorsName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub PolicyReadersName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarreaders: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    PolicyReadersName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddPolicyAdministratorName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddPolicyAdministratorName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeletePolicyAdministratorName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeletePolicyAdministratorName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddPolicyReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddPolicyReaderName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeletePolicyReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeletePolicyReaderName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DelegatedPolicyUsersName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardelegatedpolicyusers: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DelegatedPolicyUsersName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddDelegatedPolicyUserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddDelegatedPolicyUserName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteDelegatedPolicyUserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteDelegatedPolicyUserName: usize,
+    pub PolicyAdministratorsName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvaradmins: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub PolicyReadersName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarreaders: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddPolicyAdministratorName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeletePolicyAdministratorName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddPolicyReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeletePolicyReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DelegatedPolicyUsersName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvardelegatedpolicyusers: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddDelegatedPolicyUserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeleteDelegatedPolicyUserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub CloseApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationname: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflag: i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3598,88 +3296,88 @@ impl IAzAuthorizationStore2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Writable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: AZ_PROP_CONSTANTS, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: AZ_PROP_CONSTANTS, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyAdministrators(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyAdministrators(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PolicyAdministrators)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyReaders(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyReaders(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PolicyReaders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministrator<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddPolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddPolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministrator<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeletePolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeletePolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReader<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddPolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddPolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReader<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeletePolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeletePolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Initialize<P0>(&self, lflags: AZ_PROP_CONSTANTS, bstrpolicyurl: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn Initialize<P0, P1>(&self, lflags: AZ_PROP_CONSTANTS, bstrpolicyurl: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), lflags, bstrpolicyurl.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.Initialize)(::windows_core::Interface::as_raw(self), lflags, bstrpolicyurl.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn UpdateCache(&self, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.UpdateCache)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn UpdateCache<P0>(&self, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.UpdateCache)(::windows_core::Interface::as_raw(self), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Delete(&self, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.Delete)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Delete<P0>(&self, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.Delete)(::windows_core::Interface::as_raw(self), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3687,31 +3385,32 @@ impl IAzAuthorizationStore2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Applications)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenApplication<P0>(&self, bstrapplicationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplication>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenApplication<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplication>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.OpenApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.OpenApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateApplication<P0>(&self, bstrapplicationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplication>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateApplication<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplication>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteApplication<P0>(&self, bstrapplicationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteApplication<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3719,58 +3418,56 @@ impl IAzAuthorizationStore2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ApplicationGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplicationGroup>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplicationGroup>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplicationGroup>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplicationGroup>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.OpenApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.OpenApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.Submit)(::windows_core::Interface::as_raw(self), lflags, ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.Submit)(::windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DelegatedPolicyUsers(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn DelegatedPolicyUsers(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DelegatedPolicyUsers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddDelegatedPolicyUser<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteDelegatedPolicyUser<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     pub unsafe fn TargetMachine(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -3786,71 +3483,59 @@ impl IAzAuthorizationStore2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetApplyStoreSacl)(::windows_core::Interface::as_raw(self), bapplystoresacl.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyAdministratorsName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyAdministratorsName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PolicyAdministratorsName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyReadersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyReadersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PolicyReadersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministratorName<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddPolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddPolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministratorName<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeletePolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeletePolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReaderName<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddPolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddPolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReaderName<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeletePolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeletePolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DelegatedPolicyUsersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn DelegatedPolicyUsersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DelegatedPolicyUsersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddDelegatedPolicyUserName<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteDelegatedPolicyUserName<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     pub unsafe fn CloseApplication<P0>(&self, bstrapplicationname: P0, lflag: i32) -> ::windows_core::Result<()>
     where
@@ -3858,23 +3543,25 @@ impl IAzAuthorizationStore2 {
     {
         (::windows_core::Interface::vtable(self).base__.CloseApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), lflag).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenApplication2<P0>(&self, bstrapplicationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplication2>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenApplication2<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplication2>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OpenApplication2)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OpenApplication2)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateApplication2<P0>(&self, bstrapplicationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplication2>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateApplication2<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplication2>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateApplication2)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateApplication2)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3882,13 +3569,13 @@ impl IAzAuthorizationStore2 {
 #[doc(hidden)]
 pub struct IAzAuthorizationStore2_Vtbl {
     pub base__: IAzAuthorizationStore_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub OpenApplication2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, ppapplication: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub OpenApplication2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppapplication: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     OpenApplication2: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateApplication2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, ppapplication: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateApplication2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppapplication: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     CreateApplication2: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3957,88 +3644,88 @@ impl IAzAuthorizationStore3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Writable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: AZ_PROP_CONSTANTS, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: AZ_PROP_CONSTANTS, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.base__.AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.base__.DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyAdministrators(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyAdministrators(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.PolicyAdministrators)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyReaders(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyReaders(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.PolicyReaders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministrator<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.AddPolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.AddPolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministrator<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.DeletePolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.DeletePolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReader<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.AddPolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.AddPolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReader<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.DeletePolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.DeletePolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Initialize<P0>(&self, lflags: AZ_PROP_CONSTANTS, bstrpolicyurl: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn Initialize<P0, P1>(&self, lflags: AZ_PROP_CONSTANTS, bstrpolicyurl: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.Initialize)(::windows_core::Interface::as_raw(self), lflags, bstrpolicyurl.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.Initialize)(::windows_core::Interface::as_raw(self), lflags, bstrpolicyurl.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn UpdateCache(&self, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.UpdateCache)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn UpdateCache<P0>(&self, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.base__.UpdateCache)(::windows_core::Interface::as_raw(self), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Delete(&self, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.Delete)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Delete<P0>(&self, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.base__.Delete)(::windows_core::Interface::as_raw(self), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4046,31 +3733,32 @@ impl IAzAuthorizationStore3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Applications)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenApplication<P0>(&self, bstrapplicationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplication>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenApplication<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplication>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.OpenApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.OpenApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateApplication<P0>(&self, bstrapplicationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplication>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateApplication<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplication>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.CreateApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.CreateApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteApplication<P0>(&self, bstrapplicationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteApplication<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.DeleteApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.DeleteApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4078,58 +3766,56 @@ impl IAzAuthorizationStore3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ApplicationGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplicationGroup>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplicationGroup>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.CreateApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.CreateApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplicationGroup>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplicationGroup>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.OpenApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.OpenApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.DeleteApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.DeleteApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.Submit)(::windows_core::Interface::as_raw(self), lflags, ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.base__.Submit)(::windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DelegatedPolicyUsers(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn DelegatedPolicyUsers(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DelegatedPolicyUsers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddDelegatedPolicyUser<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.AddDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.AddDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteDelegatedPolicyUser<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteDelegatedPolicyUser<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.DeleteDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.DeleteDelegatedPolicyUser)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     pub unsafe fn TargetMachine(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -4145,71 +3831,59 @@ impl IAzAuthorizationStore3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetApplyStoreSacl)(::windows_core::Interface::as_raw(self), bapplystoresacl.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyAdministratorsName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyAdministratorsName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.PolicyAdministratorsName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyReadersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyReadersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.PolicyReadersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministratorName<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.AddPolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.AddPolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministratorName<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.DeletePolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.DeletePolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReaderName<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.AddPolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.AddPolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReaderName<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.DeletePolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.DeletePolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DelegatedPolicyUsersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn DelegatedPolicyUsersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DelegatedPolicyUsersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddDelegatedPolicyUserName<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.AddDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.AddDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteDelegatedPolicyUserName<P0>(&self, bstrdelegatedpolicyuser: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteDelegatedPolicyUserName<P0, P1>(&self, bstrdelegatedpolicyuser: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.DeleteDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.base__.DeleteDelegatedPolicyUserName)(::windows_core::Interface::as_raw(self), bstrdelegatedpolicyuser.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     pub unsafe fn CloseApplication<P0>(&self, bstrapplicationname: P0, lflag: i32) -> ::windows_core::Result<()>
     where
@@ -4217,23 +3891,25 @@ impl IAzAuthorizationStore3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.CloseApplication)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), lflag).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenApplication2<P0>(&self, bstrapplicationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplication2>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenApplication2<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplication2>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.OpenApplication2)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.OpenApplication2)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateApplication2<P0>(&self, bstrapplicationname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplication2>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateApplication2<P0, P1>(&self, bstrapplicationname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplication2>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateApplication2)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateApplication2)(::windows_core::Interface::as_raw(self), bstrapplicationname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn IsUpdateNeeded(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4292,9 +3968,7 @@ impl IAzBizRuleContext {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BusinessRuleString)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetParameter<P0>(&self, bstrparametername: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
+    pub unsafe fn GetParameter<P0>(&self, bstrparametername: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
@@ -4310,10 +3984,7 @@ pub struct IAzBizRuleContext_Vtbl {
     pub SetBusinessRuleResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bresult: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     pub SetBusinessRuleString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrbusinessrulestring: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub BusinessRuleString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbusinessrulestring: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrparametername: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarparametervalue: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetParameter: usize,
+    pub GetParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrparametername: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarparametervalue: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -4326,26 +3997,26 @@ pub struct IAzBizRuleContext_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IAzBizRuleInterfaces, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAzBizRuleInterfaces {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddInterface<P0>(&self, bstrinterfacename: P0, linterfaceflag: i32, varinterface: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddInterface<P0, P1>(&self, bstrinterfacename: P0, linterfaceflag: i32, varinterface: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).AddInterface)(::windows_core::Interface::as_raw(self), bstrinterfacename.into_param().abi(), linterfaceflag, varinterface.into_param().abi()).ok()
+    }
+    pub unsafe fn AddInterfaces<P0, P1, P2>(&self, varinterfacenames: P0, varinterfaceflags: P1, varinterfaces: P2) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P2: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).AddInterfaces)(::windows_core::Interface::as_raw(self), varinterfacenames.into_param().abi(), varinterfaceflags.into_param().abi(), varinterfaces.into_param().abi()).ok()
+    }
+    pub unsafe fn GetInterfaceValue<P0>(&self, bstrinterfacename: P0, linterfaceflag: *mut i32, varinterface: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).AddInterface)(::windows_core::Interface::as_raw(self), bstrinterfacename.into_param().abi(), linterfaceflag, ::core::mem::transmute(varinterface)).ok()
-    }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddInterfaces(&self, varinterfacenames: super::super::System::Variant::VARIANT, varinterfaceflags: super::super::System::Variant::VARIANT, varinterfaces: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddInterfaces)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varinterfacenames), ::core::mem::transmute(varinterfaceflags), ::core::mem::transmute(varinterfaces)).ok()
-    }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetInterfaceValue<P0>(&self, bstrinterfacename: P0, linterfaceflag: *mut i32, varinterface: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
-    where
-        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
-    {
-        (::windows_core::Interface::vtable(self).GetInterfaceValue)(::windows_core::Interface::as_raw(self), bstrinterfacename.into_param().abi(), linterfaceflag, varinterface).ok()
+        (::windows_core::Interface::vtable(self).GetInterfaceValue)(::windows_core::Interface::as_raw(self), bstrinterfacename.into_param().abi(), linterfaceflag, ::core::mem::transmute(varinterface)).ok()
     }
     pub unsafe fn Remove<P0>(&self, bstrinterfacename: P0) -> ::windows_core::Result<()>
     where
@@ -4366,18 +4037,9 @@ impl IAzBizRuleInterfaces {
 #[doc(hidden)]
 pub struct IAzBizRuleInterfaces_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinterfacename: ::std::mem::MaybeUninit<::windows_core::BSTR>, linterfaceflag: i32, varinterface: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddInterface: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varinterfacenames: super::super::System::Variant::VARIANT, varinterfaceflags: super::super::System::Variant::VARIANT, varinterfaces: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddInterfaces: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetInterfaceValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinterfacename: ::std::mem::MaybeUninit<::windows_core::BSTR>, linterfaceflag: *mut i32, varinterface: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetInterfaceValue: usize,
+    pub AddInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinterfacename: ::std::mem::MaybeUninit<::windows_core::BSTR>, linterfaceflag: i32, varinterface: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varinterfacenames: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varinterfaceflags: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varinterfaces: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub GetInterfaceValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinterfacename: ::std::mem::MaybeUninit<::windows_core::BSTR>, linterfaceflag: *mut i32, varinterface: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinterfacename: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub RemoveAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut u32) -> ::windows_core::HRESULT,
@@ -4393,22 +4055,21 @@ pub struct IAzBizRuleInterfaces_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IAzBizRuleParameters, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAzBizRuleParameters {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddParameter<P0>(&self, bstrparametername: P0, varparametervalue: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddParameter<P0, P1>(&self, bstrparametername: P0, varparametervalue: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddParameter)(::windows_core::Interface::as_raw(self), bstrparametername.into_param().abi(), ::core::mem::transmute(varparametervalue)).ok()
+        (::windows_core::Interface::vtable(self).AddParameter)(::windows_core::Interface::as_raw(self), bstrparametername.into_param().abi(), varparametervalue.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddParameters(&self, varparameternames: super::super::System::Variant::VARIANT, varparametervalues: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddParameters)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varparameternames), ::core::mem::transmute(varparametervalues)).ok()
+    pub unsafe fn AddParameters<P0, P1>(&self, varparameternames: P0, varparametervalues: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).AddParameters)(::windows_core::Interface::as_raw(self), varparameternames.into_param().abi(), varparametervalues.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetParameterValue<P0>(&self, bstrparametername: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
+    pub unsafe fn GetParameterValue<P0>(&self, bstrparametername: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
@@ -4434,18 +4095,9 @@ impl IAzBizRuleParameters {
 #[doc(hidden)]
 pub struct IAzBizRuleParameters_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrparametername: ::std::mem::MaybeUninit<::windows_core::BSTR>, varparametervalue: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddParameter: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varparameternames: super::super::System::Variant::VARIANT, varparametervalues: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddParameters: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetParameterValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrparametername: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarparametervalue: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetParameterValue: usize,
+    pub AddParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrparametername: ::std::mem::MaybeUninit<::windows_core::BSTR>, varparametervalue: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varparameternames: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varparametervalues: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub GetParameterValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrparametername: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarparametervalue: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varparametername: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub RemoveAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut u32) -> ::windows_core::HRESULT,
@@ -4461,14 +4113,19 @@ pub struct IAzBizRuleParameters_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IAzClientContext, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAzClientContext {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AccessCheck<P0>(&self, bstrobjectname: P0, varscopenames: super::super::System::Variant::VARIANT, varoperations: super::super::System::Variant::VARIANT, varparameternames: super::super::System::Variant::VARIANT, varparametervalues: super::super::System::Variant::VARIANT, varinterfacenames: super::super::System::Variant::VARIANT, varinterfaceflags: super::super::System::Variant::VARIANT, varinterfaces: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
+    pub unsafe fn AccessCheck<P0, P1, P2, P3, P4, P5, P6, P7>(&self, bstrobjectname: P0, varscopenames: P1, varoperations: P2, varparameternames: P3, varparametervalues: P4, varinterfacenames: P5, varinterfaceflags: P6, varinterfaces: P7) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P2: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P3: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P4: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P5: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P6: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P7: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).AccessCheck)(::windows_core::Interface::as_raw(self), bstrobjectname.into_param().abi(), ::core::mem::transmute(varscopenames), ::core::mem::transmute(varoperations), ::core::mem::transmute(varparameternames), ::core::mem::transmute(varparametervalues), ::core::mem::transmute(varinterfacenames), ::core::mem::transmute(varinterfaceflags), ::core::mem::transmute(varinterfaces), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).AccessCheck)(::windows_core::Interface::as_raw(self), bstrobjectname.into_param().abi(), varscopenames.into_param().abi(), varoperations.into_param().abi(), varparameternames.into_param().abi(), varparametervalues.into_param().abi(), varinterfacenames.into_param().abi(), varinterfaceflags.into_param().abi(), varinterfaces.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBusinessRuleString(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -4502,15 +4159,14 @@ impl IAzClientContext {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).UserDnsSamCompat)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetRoles<P0>(&self, bstrscopename: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
+    pub unsafe fn GetRoles<P0>(&self, bstrscopename: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
@@ -4533,10 +4189,7 @@ impl IAzClientContext {
 #[doc(hidden)]
 pub struct IAzClientContext_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AccessCheck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrobjectname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varscopenames: super::super::System::Variant::VARIANT, varoperations: super::super::System::Variant::VARIANT, varparameternames: super::super::System::Variant::VARIANT, varparametervalues: super::super::System::Variant::VARIANT, varinterfacenames: super::super::System::Variant::VARIANT, varinterfaceflags: super::super::System::Variant::VARIANT, varinterfaces: super::super::System::Variant::VARIANT, pvarresults: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AccessCheck: usize,
+    pub AccessCheck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrobjectname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varscopenames: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varoperations: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varparameternames: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varparametervalues: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varinterfacenames: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varinterfaceflags: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varinterfaces: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarresults: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub GetBusinessRuleString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbusinessrulestring: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub UserDn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrprop: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub UserSamCompat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrprop: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -4545,14 +4198,8 @@ pub struct IAzClientContext_Vtbl {
     pub UserCanonical: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrprop: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub UserUpn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrprop: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub UserDnsSamCompat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrprop: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: super::super::System::Variant::VARIANT, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetProperty: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetRoles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrscopename: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarrolenames: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetRoles: usize,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub GetRoles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrscopename: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarrolenames: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub RoleForAccessCheck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrprop: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetRoleForAccessCheck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
@@ -4567,14 +4214,19 @@ pub struct IAzClientContext_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IAzClientContext2, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IAzClientContext);
 #[cfg(feature = "Win32_System_Com")]
 impl IAzClientContext2 {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AccessCheck<P0>(&self, bstrobjectname: P0, varscopenames: super::super::System::Variant::VARIANT, varoperations: super::super::System::Variant::VARIANT, varparameternames: super::super::System::Variant::VARIANT, varparametervalues: super::super::System::Variant::VARIANT, varinterfacenames: super::super::System::Variant::VARIANT, varinterfaceflags: super::super::System::Variant::VARIANT, varinterfaces: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
+    pub unsafe fn AccessCheck<P0, P1, P2, P3, P4, P5, P6, P7>(&self, bstrobjectname: P0, varscopenames: P1, varoperations: P2, varparameternames: P3, varparametervalues: P4, varinterfacenames: P5, varinterfaceflags: P6, varinterfaces: P7) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P2: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P3: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P4: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P5: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P6: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P7: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.AccessCheck)(::windows_core::Interface::as_raw(self), bstrobjectname.into_param().abi(), ::core::mem::transmute(varscopenames), ::core::mem::transmute(varoperations), ::core::mem::transmute(varparameternames), ::core::mem::transmute(varparametervalues), ::core::mem::transmute(varinterfacenames), ::core::mem::transmute(varinterfaceflags), ::core::mem::transmute(varinterfaces), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.AccessCheck)(::windows_core::Interface::as_raw(self), bstrobjectname.into_param().abi(), varscopenames.into_param().abi(), varoperations.into_param().abi(), varparameternames.into_param().abi(), varparametervalues.into_param().abi(), varinterfacenames.into_param().abi(), varinterfaceflags.into_param().abi(), varinterfaces.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBusinessRuleString(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -4608,15 +4260,14 @@ impl IAzClientContext2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.UserDnsSamCompat)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetRoles<P0>(&self, bstrscopename: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
+    pub unsafe fn GetRoles<P0>(&self, bstrscopename: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
@@ -4633,28 +4284,27 @@ impl IAzClientContext2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetRoleForAccessCheck)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetAssignedScopesPage(&self, loptions: i32, pagesize: i32, pvarcursor: *mut super::super::System::Variant::VARIANT, pvarscopenames: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetAssignedScopesPage)(::windows_core::Interface::as_raw(self), loptions, pagesize, pvarcursor, pvarscopenames).ok()
+    pub unsafe fn GetAssignedScopesPage(&self, loptions: i32, pagesize: i32, pvarcursor: *mut ::windows_core::VARIANT, pvarscopenames: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetAssignedScopesPage)(::windows_core::Interface::as_raw(self), loptions, pagesize, ::core::mem::transmute(pvarcursor), ::core::mem::transmute(pvarscopenames)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddRoles<P0>(&self, varroles: super::super::System::Variant::VARIANT, bstrscopename: P0) -> ::windows_core::Result<()>
+    pub unsafe fn AddRoles<P0, P1>(&self, varroles: P0, bstrscopename: P1) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).AddRoles)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varroles), bstrscopename.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).AddRoles)(::windows_core::Interface::as_raw(self), varroles.into_param().abi(), bstrscopename.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddApplicationGroups(&self, varapplicationgroups: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddApplicationGroups)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varapplicationgroups)).ok()
+    pub unsafe fn AddApplicationGroups<P0>(&self, varapplicationgroups: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).AddApplicationGroups)(::windows_core::Interface::as_raw(self), varapplicationgroups.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddStringSids(&self, varstringsids: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddStringSids)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varstringsids)).ok()
+    pub unsafe fn AddStringSids<P0>(&self, varstringsids: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).AddStringSids)(::windows_core::Interface::as_raw(self), varstringsids.into_param().abi()).ok()
     }
     pub unsafe fn SetLDAPQueryDN<P0>(&self, bstrldapquerydn: P0) -> ::windows_core::Result<()>
     where
@@ -4672,22 +4322,10 @@ impl IAzClientContext2 {
 #[doc(hidden)]
 pub struct IAzClientContext2_Vtbl {
     pub base__: IAzClientContext_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetAssignedScopesPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loptions: i32, pagesize: i32, pvarcursor: *mut super::super::System::Variant::VARIANT, pvarscopenames: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetAssignedScopesPage: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddRoles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varroles: super::super::System::Variant::VARIANT, bstrscopename: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddRoles: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddApplicationGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varapplicationgroups: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddApplicationGroups: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddStringSids: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varstringsids: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddStringSids: usize,
+    pub GetAssignedScopesPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loptions: i32, pagesize: i32, pvarcursor: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarscopenames: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddRoles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varroles: ::std::mem::MaybeUninit<::windows_core::VARIANT>, bstrscopename: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub AddApplicationGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varapplicationgroups: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddStringSids: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varstringsids: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub SetLDAPQueryDN: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrldapquerydn: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub LDAPQueryDN: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrldapquerydn: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
@@ -4702,14 +4340,19 @@ pub struct IAzClientContext2_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IAzClientContext3, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IAzClientContext, IAzClientContext2);
 #[cfg(feature = "Win32_System_Com")]
 impl IAzClientContext3 {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AccessCheck<P0>(&self, bstrobjectname: P0, varscopenames: super::super::System::Variant::VARIANT, varoperations: super::super::System::Variant::VARIANT, varparameternames: super::super::System::Variant::VARIANT, varparametervalues: super::super::System::Variant::VARIANT, varinterfacenames: super::super::System::Variant::VARIANT, varinterfaceflags: super::super::System::Variant::VARIANT, varinterfaces: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
+    pub unsafe fn AccessCheck<P0, P1, P2, P3, P4, P5, P6, P7>(&self, bstrobjectname: P0, varscopenames: P1, varoperations: P2, varparameternames: P3, varparametervalues: P4, varinterfacenames: P5, varinterfaceflags: P6, varinterfaces: P7) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P2: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P3: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P4: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P5: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P6: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P7: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.AccessCheck)(::windows_core::Interface::as_raw(self), bstrobjectname.into_param().abi(), ::core::mem::transmute(varscopenames), ::core::mem::transmute(varoperations), ::core::mem::transmute(varparameternames), ::core::mem::transmute(varparametervalues), ::core::mem::transmute(varinterfacenames), ::core::mem::transmute(varinterfaceflags), ::core::mem::transmute(varinterfaces), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.AccessCheck)(::windows_core::Interface::as_raw(self), bstrobjectname.into_param().abi(), varscopenames.into_param().abi(), varoperations.into_param().abi(), varparameternames.into_param().abi(), varparametervalues.into_param().abi(), varinterfacenames.into_param().abi(), varinterfaceflags.into_param().abi(), varinterfaces.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBusinessRuleString(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -4743,15 +4386,14 @@ impl IAzClientContext3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.UserDnsSamCompat)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetRoles<P0>(&self, bstrscopename: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
+    pub unsafe fn GetRoles<P0>(&self, bstrscopename: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
@@ -4768,28 +4410,27 @@ impl IAzClientContext3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetRoleForAccessCheck)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetAssignedScopesPage(&self, loptions: i32, pagesize: i32, pvarcursor: *mut super::super::System::Variant::VARIANT, pvarscopenames: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetAssignedScopesPage)(::windows_core::Interface::as_raw(self), loptions, pagesize, pvarcursor, pvarscopenames).ok()
+    pub unsafe fn GetAssignedScopesPage(&self, loptions: i32, pagesize: i32, pvarcursor: *mut ::windows_core::VARIANT, pvarscopenames: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.GetAssignedScopesPage)(::windows_core::Interface::as_raw(self), loptions, pagesize, ::core::mem::transmute(pvarcursor), ::core::mem::transmute(pvarscopenames)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddRoles<P0>(&self, varroles: super::super::System::Variant::VARIANT, bstrscopename: P0) -> ::windows_core::Result<()>
+    pub unsafe fn AddRoles<P0, P1>(&self, varroles: P0, bstrscopename: P1) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddRoles)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varroles), bstrscopename.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.AddRoles)(::windows_core::Interface::as_raw(self), varroles.into_param().abi(), bstrscopename.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddApplicationGroups(&self, varapplicationgroups: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.AddApplicationGroups)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varapplicationgroups)).ok()
+    pub unsafe fn AddApplicationGroups<P0>(&self, varapplicationgroups: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.AddApplicationGroups)(::windows_core::Interface::as_raw(self), varapplicationgroups.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddStringSids(&self, varstringsids: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.AddStringSids)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varstringsids)).ok()
+    pub unsafe fn AddStringSids<P0>(&self, varstringsids: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.AddStringSids)(::windows_core::Interface::as_raw(self), varstringsids.into_param().abi()).ok()
     }
     pub unsafe fn SetLDAPQueryDN<P0>(&self, bstrldapquerydn: P0) -> ::windows_core::Result<()>
     where
@@ -4847,18 +4488,14 @@ impl IAzClientContext3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BizRuleInterfaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetGroups<P0>(&self, bstrscopename: P0, uloptions: AZ_PROP_CONSTANTS) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
+    pub unsafe fn GetGroups<P0>(&self, bstrscopename: P0, uloptions: AZ_PROP_CONSTANTS) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetGroups)(::windows_core::Interface::as_raw(self), bstrscopename.into_param().abi(), uloptions.0 as _, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Sids(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Sids(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Sids)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
@@ -4886,14 +4523,8 @@ pub struct IAzClientContext3_Vtbl {
     pub BizRuleInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbizruleinterfaces: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     BizRuleInterfaces: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrscopename: ::std::mem::MaybeUninit<::windows_core::BSTR>, uloptions: u32, pgrouparray: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetGroups: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Sids: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstringsidarray: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Sids: usize,
+    pub GetGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrscopename: ::std::mem::MaybeUninit<::windows_core::BSTR>, uloptions: u32, pgrouparray: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Sids: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstringsidarray: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -4912,10 +4543,11 @@ impl IAzNameResolver {
     {
         (::windows_core::Interface::vtable(self).NameFromSid)(::windows_core::Interface::as_raw(self), bstrsid.into_param().abi(), psidtype, ::core::mem::transmute(pbstrname)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn NamesFromSids(&self, vsids: super::super::System::Variant::VARIANT, pvsidtypes: *mut super::super::System::Variant::VARIANT, pvnames: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).NamesFromSids)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vsids), pvsidtypes, pvnames).ok()
+    pub unsafe fn NamesFromSids<P0>(&self, vsids: P0, pvsidtypes: *mut ::windows_core::VARIANT, pvnames: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).NamesFromSids)(::windows_core::Interface::as_raw(self), vsids.into_param().abi(), ::core::mem::transmute(pvsidtypes), ::core::mem::transmute(pvnames)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4924,10 +4556,7 @@ impl IAzNameResolver {
 pub struct IAzNameResolver_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub NameFromSid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsid: ::std::mem::MaybeUninit<::windows_core::BSTR>, psidtype: *mut i32, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub NamesFromSids: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vsids: super::super::System::Variant::VARIANT, pvsidtypes: *mut super::super::System::Variant::VARIANT, pvnames: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    NamesFromSids: usize,
+    pub NamesFromSids: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vsids: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvsidtypes: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvnames: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -4940,14 +4569,12 @@ pub struct IAzNameResolver_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IAzObjectPicker, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAzObjectPicker {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetPrincipals<P0, P1>(&self, hparentwnd: P0, bstrtitle: P1, pvsidtypes: *mut super::super::System::Variant::VARIANT, pvnames: *mut super::super::System::Variant::VARIANT, pvsids: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn GetPrincipals<P0, P1>(&self, hparentwnd: P0, bstrtitle: P1, pvsidtypes: *mut ::windows_core::VARIANT, pvnames: *mut ::windows_core::VARIANT, pvsids: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).GetPrincipals)(::windows_core::Interface::as_raw(self), hparentwnd.into_param().abi(), bstrtitle.into_param().abi(), pvsidtypes, pvnames, pvsids).ok()
+        (::windows_core::Interface::vtable(self).GetPrincipals)(::windows_core::Interface::as_raw(self), hparentwnd.into_param().abi(), bstrtitle.into_param().abi(), ::core::mem::transmute(pvsidtypes), ::core::mem::transmute(pvnames), ::core::mem::transmute(pvsids)).ok()
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -4959,10 +4586,7 @@ impl IAzObjectPicker {
 #[doc(hidden)]
 pub struct IAzObjectPicker_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetPrincipals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hparentwnd: super::super::Foundation::HWND, bstrtitle: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvsidtypes: *mut super::super::System::Variant::VARIANT, pvnames: *mut super::super::System::Variant::VARIANT, pvsids: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetPrincipals: usize,
+    pub GetPrincipals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hparentwnd: super::super::Foundation::HWND, bstrtitle: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvsidtypes: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvnames: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvsids: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5017,21 +4641,25 @@ impl IAzOperation {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Writable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Submit)(::windows_core::Interface::as_raw(self), lflags, ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).Submit)(::windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5048,18 +4676,9 @@ pub struct IAzOperation_Vtbl {
     pub OperationID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plprop: *mut i32) -> ::windows_core::HRESULT,
     pub SetOperationID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprop: i32) -> ::windows_core::HRESULT,
     pub Writable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: super::super::System::Variant::VARIANT, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetProperty: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    SetProperty: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Submit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Submit: usize,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Submit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -5113,21 +4732,25 @@ impl IAzOperation2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Writable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.Submit)(::windows_core::Interface::as_raw(self), lflags, ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.Submit)(::windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5161,9 +4784,7 @@ pub struct IAzOperation2_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IAzOperations, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAzOperations {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
@@ -5181,10 +4802,7 @@ impl IAzOperations {
 #[doc(hidden)]
 pub struct IAzOperations_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    get_Item: usize,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumptr: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -5267,143 +4885,131 @@ impl IAzRole {
     {
         (::windows_core::Interface::vtable(self).SetApplicationData)(::windows_core::Interface::as_raw(self), bstrapplicationdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddAppMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddAppMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddAppMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddAppMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteAppMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteAppMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteAppMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteAppMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddTask<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddTask<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddTask)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddTask)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteTask<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteTask<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteTask)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteTask)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddOperation<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddOperation<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddOperation)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddOperation)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteOperation<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteOperation<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteOperation)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteOperation)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Writable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AppMembers(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn AppMembers(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AppMembers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Members(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Members(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Members)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Operations(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Operations(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Operations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Tasks(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Tasks(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Tasks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Submit)(::windows_core::Interface::as_raw(self), lflags, ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).Submit)(::windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddMemberName<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteMemberName<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn MembersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn MembersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MembersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
@@ -5419,87 +5025,27 @@ pub struct IAzRole_Vtbl {
     pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdescription: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub ApplicationData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrapplicationdata: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetApplicationData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationdata: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddAppMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddAppMember: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteAppMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteAppMember: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddTask: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteTask: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddOperation: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteOperation: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddMember: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteMember: usize,
+    pub AddAppMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeleteAppMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeleteTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeleteOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeleteMember: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub Writable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: super::super::System::Variant::VARIANT, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetProperty: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    SetProperty: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AppMembers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AppMembers: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Members: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Members: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Operations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Operations: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Tasks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Tasks: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddPropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddPropertyItem: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeletePropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeletePropertyItem: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Submit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Submit: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddMemberName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddMemberName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteMemberName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteMemberName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub MembersName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    MembersName: usize,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AppMembers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Members: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Operations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Tasks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddPropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeletePropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Submit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddMemberName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeleteMemberName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub MembersName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -5542,143 +5088,131 @@ impl IAzRoleAssignment {
     {
         (::windows_core::Interface::vtable(self).base__.SetApplicationData)(::windows_core::Interface::as_raw(self), bstrapplicationdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddAppMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddAppMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddAppMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddAppMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteAppMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteAppMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteAppMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteAppMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddTask<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddTask<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddTask)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddTask)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteTask<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteTask<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteTask)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteTask)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddOperation<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddOperation<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddOperation)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddOperation)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteOperation<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteOperation<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteOperation)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteOperation)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteMember<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteMember<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteMember)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Writable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AppMembers(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn AppMembers(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AppMembers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Members(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Members(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Members)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Operations(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Operations(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Operations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Tasks(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Tasks(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Tasks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.Submit)(::windows_core::Interface::as_raw(self), lflags, ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.Submit)(::windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddMemberName<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteMemberName<P0>(&self, bstrprop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteMemberName<P0, P1>(&self, bstrprop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteMemberName)(::windows_core::Interface::as_raw(self), bstrprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn MembersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn MembersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MembersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
@@ -5734,9 +5268,7 @@ pub struct IAzRoleAssignment_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IAzRoleAssignments, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAzRoleAssignments {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
@@ -5754,10 +5286,7 @@ impl IAzRoleAssignments {
 #[doc(hidden)]
 pub struct IAzRoleAssignments_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    get_Item: usize,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumptr: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -5842,79 +5371,79 @@ impl IAzRoleDefinition {
     {
         (::windows_core::Interface::vtable(self).base__.SetIsRoleDefinition)(::windows_core::Interface::as_raw(self), fprop.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Operations(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Operations(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Operations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Tasks(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Tasks(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Tasks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddOperation<P0>(&self, bstrop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddOperation<P0, P1>(&self, bstrop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddOperation)(::windows_core::Interface::as_raw(self), bstrop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddOperation)(::windows_core::Interface::as_raw(self), bstrop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteOperation<P0>(&self, bstrop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteOperation<P0, P1>(&self, bstrop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteOperation)(::windows_core::Interface::as_raw(self), bstrop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteOperation)(::windows_core::Interface::as_raw(self), bstrop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddTask<P0>(&self, bstrtask: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddTask<P0, P1>(&self, bstrtask: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddTask)(::windows_core::Interface::as_raw(self), bstrtask.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddTask)(::windows_core::Interface::as_raw(self), bstrtask.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteTask<P0>(&self, bstrtask: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteTask<P0, P1>(&self, bstrtask: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteTask)(::windows_core::Interface::as_raw(self), bstrtask.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteTask)(::windows_core::Interface::as_raw(self), bstrtask.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Writable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.Submit)(::windows_core::Interface::as_raw(self), lflags, ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.Submit)(::windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5972,9 +5501,7 @@ pub struct IAzRoleDefinition_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IAzRoleDefinitions, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAzRoleDefinitions {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
@@ -5992,10 +5519,7 @@ impl IAzRoleDefinitions {
 #[doc(hidden)]
 pub struct IAzRoleDefinitions_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    get_Item: usize,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumptr: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -6010,9 +5534,7 @@ pub struct IAzRoleDefinitions_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IAzRoles, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAzRoles {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
@@ -6030,10 +5552,7 @@ impl IAzRoles {
 #[doc(hidden)]
 pub struct IAzRoles_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    get_Item: usize,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumptr: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -6082,70 +5601,69 @@ impl IAzScope {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Writable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyAdministrators(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyAdministrators(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PolicyAdministrators)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyReaders(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyReaders(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PolicyReaders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministrator<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddPolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddPolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministrator<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeletePolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeletePolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReader<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddPolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddPolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReader<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeletePolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeletePolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6153,31 +5671,32 @@ impl IAzScope {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ApplicationGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplicationGroup>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplicationGroup>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OpenApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OpenApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplicationGroup>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplicationGroup>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6185,31 +5704,32 @@ impl IAzScope {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Roles)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenRole<P0>(&self, bstrrolename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzRole>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> ::windows_core::Result<IAzRole>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OpenRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OpenRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateRole<P0>(&self, bstrrolename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzRole>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> ::windows_core::Result<IAzRole>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteRole<P0>(&self, bstrrolename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6217,36 +5737,38 @@ impl IAzScope {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Tasks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenTask<P0>(&self, bstrtaskname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzTask>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> ::windows_core::Result<IAzTask>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OpenTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OpenTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateTask<P0>(&self, bstrtaskname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzTask>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> ::windows_core::Result<IAzTask>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteTask<P0>(&self, bstrtaskname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Submit)(::windows_core::Interface::as_raw(self), lflags, ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).Submit)(::windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
     }
     pub unsafe fn CanBeDelegated(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6256,49 +5778,41 @@ impl IAzScope {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BizrulesWritable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyAdministratorsName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyAdministratorsName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PolicyAdministratorsName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyReadersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyReadersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PolicyReadersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministratorName<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddPolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddPolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministratorName<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeletePolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeletePolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReaderName<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddPolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddPolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReaderName<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeletePolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeletePolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6313,124 +5827,64 @@ pub struct IAzScope_Vtbl {
     pub ApplicationData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrapplicationdata: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetApplicationData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationdata: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Writable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: super::super::System::Variant::VARIANT, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetProperty: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    SetProperty: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddPropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddPropertyItem: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeletePropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeletePropertyItem: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub PolicyAdministrators: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvaradmins: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    PolicyAdministrators: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub PolicyReaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarreaders: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    PolicyReaders: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddPolicyAdministrator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddPolicyAdministrator: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeletePolicyAdministrator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeletePolicyAdministrator: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddPolicyReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddPolicyReader: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeletePolicyReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeletePolicyReader: usize,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddPropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeletePropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub PolicyAdministrators: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvaradmins: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub PolicyReaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarreaders: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddPolicyAdministrator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeletePolicyAdministrator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddPolicyReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeletePolicyReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub ApplicationGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppgroupcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ApplicationGroups: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub OpenApplicationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub OpenApplicationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     OpenApplicationGroup: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateApplicationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateApplicationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     CreateApplicationGroup: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteApplicationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteApplicationGroup: usize,
+    pub DeleteApplicationGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgroupname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Roles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprolecollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Roles: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub OpenRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrolename: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, pprole: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub OpenRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrolename: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pprole: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     OpenRole: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrolename: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, pprole: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrolename: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pprole: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     CreateRole: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrolename: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteRole: usize,
+    pub DeleteRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrolename: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub Tasks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptaskcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Tasks: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub OpenTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtaskname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, pptask: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub OpenTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtaskname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pptask: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     OpenTask: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtaskname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT, pptask: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    #[cfg(feature = "Win32_System_Com")]
+    pub CreateTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtaskname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pptask: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
     CreateTask: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtaskname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteTask: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Submit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Submit: usize,
+    pub DeleteTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtaskname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Submit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub CanBeDelegated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     pub BizrulesWritable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub PolicyAdministratorsName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvaradmins: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    PolicyAdministratorsName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub PolicyReadersName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarreaders: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    PolicyReadersName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddPolicyAdministratorName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddPolicyAdministratorName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeletePolicyAdministratorName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeletePolicyAdministratorName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddPolicyReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddPolicyReaderName: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeletePolicyReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeletePolicyReaderName: usize,
+    pub PolicyAdministratorsName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvaradmins: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub PolicyReadersName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarreaders: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddPolicyAdministratorName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeletePolicyAdministratorName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmin: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddPolicyReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeletePolicyReaderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrreader: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -6477,70 +5931,69 @@ impl IAzScope2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Writable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyAdministrators(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyAdministrators(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PolicyAdministrators)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyReaders(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyReaders(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PolicyReaders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministrator<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddPolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddPolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministrator<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyAdministrator<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeletePolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeletePolicyAdministrator)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReader<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddPolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddPolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReader<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyReader<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeletePolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeletePolicyReader)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6548,31 +6001,32 @@ impl IAzScope2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ApplicationGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplicationGroup>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplicationGroup>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.OpenApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.OpenApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzApplicationGroup>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<IAzApplicationGroup>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteApplicationGroup<P0>(&self, bstrgroupname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteApplicationGroup<P0, P1>(&self, bstrgroupname: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteApplicationGroup)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6580,31 +6034,32 @@ impl IAzScope2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Roles)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenRole<P0>(&self, bstrrolename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzRole>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> ::windows_core::Result<IAzRole>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.OpenRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.OpenRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateRole<P0>(&self, bstrrolename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzRole>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> ::windows_core::Result<IAzRole>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteRole<P0>(&self, bstrrolename: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteRole<P0, P1>(&self, bstrrolename: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteRole)(::windows_core::Interface::as_raw(self), bstrrolename.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6612,36 +6067,38 @@ impl IAzScope2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Tasks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn OpenTask<P0>(&self, bstrtaskname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzTask>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OpenTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> ::windows_core::Result<IAzTask>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.OpenTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.OpenTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateTask<P0>(&self, bstrtaskname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IAzTask>
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> ::windows_core::Result<IAzTask>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteTask<P0>(&self, bstrtaskname: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteTask<P0, P1>(&self, bstrtaskname: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteTask)(::windows_core::Interface::as_raw(self), bstrtaskname.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.Submit)(::windows_core::Interface::as_raw(self), lflags, ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.Submit)(::windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
     }
     pub unsafe fn CanBeDelegated(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6651,49 +6108,41 @@ impl IAzScope2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.BizrulesWritable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyAdministratorsName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyAdministratorsName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PolicyAdministratorsName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolicyReadersName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolicyReadersName(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PolicyReadersName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyAdministratorName<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddPolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddPolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyAdministratorName<P0>(&self, bstradmin: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyAdministratorName<P0, P1>(&self, bstradmin: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeletePolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeletePolicyAdministratorName)(::windows_core::Interface::as_raw(self), bstradmin.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPolicyReaderName<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddPolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddPolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddPolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePolicyReaderName<P0>(&self, bstrreader: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeletePolicyReaderName<P0, P1>(&self, bstrreader: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeletePolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeletePolicyReaderName)(::windows_core::Interface::as_raw(self), bstrreader.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6799,9 +6248,7 @@ pub struct IAzScope2_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IAzScopes, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAzScopes {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
@@ -6819,10 +6266,7 @@ impl IAzScopes {
 #[doc(hidden)]
 pub struct IAzScopes_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    get_Item: usize,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumptr: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -6907,79 +6351,79 @@ impl IAzTask {
     {
         (::windows_core::Interface::vtable(self).SetIsRoleDefinition)(::windows_core::Interface::as_raw(self), fprop.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Operations(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Operations(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Operations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Tasks(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Tasks(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Tasks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddOperation<P0>(&self, bstrop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddOperation<P0, P1>(&self, bstrop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddOperation)(::windows_core::Interface::as_raw(self), bstrop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddOperation)(::windows_core::Interface::as_raw(self), bstrop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteOperation<P0>(&self, bstrop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteOperation<P0, P1>(&self, bstrop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteOperation)(::windows_core::Interface::as_raw(self), bstrop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteOperation)(::windows_core::Interface::as_raw(self), bstrop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddTask<P0>(&self, bstrtask: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddTask<P0, P1>(&self, bstrtask: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).AddTask)(::windows_core::Interface::as_raw(self), bstrtask.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).AddTask)(::windows_core::Interface::as_raw(self), bstrtask.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteTask<P0>(&self, bstrtask: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteTask<P0, P1>(&self, bstrtask: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).DeleteTask)(::windows_core::Interface::as_raw(self), bstrtask.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).DeleteTask)(::windows_core::Interface::as_raw(self), bstrtask.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Writable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Submit)(::windows_core::Interface::as_raw(self), lflags, ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).Submit)(::windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7001,51 +6445,18 @@ pub struct IAzTask_Vtbl {
     pub SetBizRuleImportedPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprop: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub IsRoleDefinition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     pub SetIsRoleDefinition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fprop: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Operations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Operations: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Tasks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Tasks: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddOperation: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteOperation: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtask: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddTask: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtask: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeleteTask: usize,
+    pub Operations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Tasks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeleteOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrop: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtask: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeleteTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtask: ::std::mem::MaybeUninit<::windows_core::BSTR>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub Writable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: super::super::System::Variant::VARIANT, pvarprop: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetProperty: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    SetProperty: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AddPropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AddPropertyItem: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeletePropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    DeletePropertyItem: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Submit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Submit: usize,
+    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarprop: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddPropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DeletePropertyItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::std::mem::MaybeUninit<::windows_core::VARIANT>, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Submit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -7128,79 +6539,79 @@ impl IAzTask2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetIsRoleDefinition)(::windows_core::Interface::as_raw(self), fprop.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Operations(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Operations(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Operations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Tasks(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Tasks(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Tasks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddOperation<P0>(&self, bstrop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddOperation<P0, P1>(&self, bstrop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddOperation)(::windows_core::Interface::as_raw(self), bstrop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddOperation)(::windows_core::Interface::as_raw(self), bstrop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteOperation<P0>(&self, bstrop: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteOperation<P0, P1>(&self, bstrop: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteOperation)(::windows_core::Interface::as_raw(self), bstrop.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteOperation)(::windows_core::Interface::as_raw(self), bstrop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddTask<P0>(&self, bstrtask: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn AddTask<P0, P1>(&self, bstrtask: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.AddTask)(::windows_core::Interface::as_raw(self), bstrtask.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.AddTask)(::windows_core::Interface::as_raw(self), bstrtask.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeleteTask<P0>(&self, bstrtask: P0, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteTask<P0, P1>(&self, bstrtask: P0, varreserved: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.DeleteTask)(::windows_core::Interface::as_raw(self), bstrtask.into_param().abi(), ::core::mem::transmute(varreserved)).ok()
+        (::windows_core::Interface::vtable(self).base__.DeleteTask)(::windows_core::Interface::as_raw(self), bstrtask.into_param().abi(), varreserved.into_param().abi()).ok()
     }
     pub unsafe fn Writable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Writable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty(&self, lpropid: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetProperty<P0>(&self, lpropid: i32, varreserved: P0) -> ::windows_core::Result<::windows_core::VARIANT>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varreserved), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetProperty)(::windows_core::Interface::as_raw(self), lpropid, varreserved.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn SetProperty<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.SetProperty)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddPropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn AddPropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.AddPropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DeletePropertyItem(&self, lpropid: i32, varprop: super::super::System::Variant::VARIANT, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, ::core::mem::transmute(varprop), ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn DeletePropertyItem<P0, P1>(&self, lpropid: i32, varprop: P0, varreserved: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+        P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.DeletePropertyItem)(::windows_core::Interface::as_raw(self), lpropid, varprop.into_param().abi(), varreserved.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Submit(&self, lflags: i32, varreserved: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.Submit)(::windows_core::Interface::as_raw(self), lflags, ::core::mem::transmute(varreserved)).ok()
+    pub unsafe fn Submit<P0>(&self, lflags: i32, varreserved: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).base__.Submit)(::windows_core::Interface::as_raw(self), lflags, varreserved.into_param().abi()).ok()
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7234,9 +6645,7 @@ pub struct IAzTask2_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IAzTasks, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAzTasks {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
@@ -7254,10 +6663,7 @@ impl IAzTasks {
 #[doc(hidden)]
 pub struct IAzTasks_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    get_Item: usize,
+    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumptr: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }

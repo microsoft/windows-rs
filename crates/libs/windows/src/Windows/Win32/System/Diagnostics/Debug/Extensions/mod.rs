@@ -278,20 +278,16 @@ impl IDataModelManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateDataModelObject)(::windows_core::Interface::as_raw(self), datamodel.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *const super::super::super::Variant::VARIANT) -> ::windows_core::Result<IModelObject> {
+    pub unsafe fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *const ::windows_core::VARIANT) -> ::windows_core::Result<IModelObject> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateIntrinsicObject)(::windows_core::Interface::as_raw(self), objectkind, intrinsicdata, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateIntrinsicObject)(::windows_core::Interface::as_raw(self), objectkind, ::core::mem::transmute(intrinsicdata), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateTypedIntrinsicObject<P0>(&self, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: P0) -> ::windows_core::Result<IModelObject>
+    pub unsafe fn CreateTypedIntrinsicObject<P0>(&self, intrinsicdata: *const ::windows_core::VARIANT, r#type: P0) -> ::windows_core::Result<IModelObject>
     where
         P0: ::windows_core::IntoParam<IDebugHostType>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateTypedIntrinsicObject)(::windows_core::Interface::as_raw(self), intrinsicdata, r#type.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateTypedIntrinsicObject)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(intrinsicdata), r#type.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetModelForTypeSignature<P0>(&self, typesignature: P0) -> ::windows_core::Result<IModelObject>
     where
@@ -377,14 +373,8 @@ pub struct IDataModelManager_Vtbl {
     pub CreateTypedObjectReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, objectlocation: Location, objecttype: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateSyntheticObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateDataModelObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datamodel: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateIntrinsicObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectkind: ModelObjectKind, intrinsicdata: *const super::super::super::Variant::VARIANT, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    CreateIntrinsicObject: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateTypedIntrinsicObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    CreateTypedIntrinsicObject: usize,
+    pub CreateIntrinsicObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectkind: ModelObjectKind, intrinsicdata: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTypedIntrinsicObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intrinsicdata: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, r#type: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetModelForTypeSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typesignature: *mut ::core::ffi::c_void, datamodel: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetModelForType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut ::core::ffi::c_void, datamodel: *mut *mut ::core::ffi::c_void, typesignature: *mut *mut ::core::ffi::c_void, wildcardmatches: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RegisterModelForTypeSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typesignature: *mut ::core::ffi::c_void, datamodel: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -444,20 +434,16 @@ impl IDataModelManager2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateDataModelObject)(::windows_core::Interface::as_raw(self), datamodel.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *const super::super::super::Variant::VARIANT) -> ::windows_core::Result<IModelObject> {
+    pub unsafe fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *const ::windows_core::VARIANT) -> ::windows_core::Result<IModelObject> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateIntrinsicObject)(::windows_core::Interface::as_raw(self), objectkind, intrinsicdata, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateIntrinsicObject)(::windows_core::Interface::as_raw(self), objectkind, ::core::mem::transmute(intrinsicdata), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateTypedIntrinsicObject<P0>(&self, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: P0) -> ::windows_core::Result<IModelObject>
+    pub unsafe fn CreateTypedIntrinsicObject<P0>(&self, intrinsicdata: *const ::windows_core::VARIANT, r#type: P0) -> ::windows_core::Result<IModelObject>
     where
         P0: ::windows_core::IntoParam<IDebugHostType>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateTypedIntrinsicObject)(::windows_core::Interface::as_raw(self), intrinsicdata, r#type.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateTypedIntrinsicObject)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(intrinsicdata), r#type.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetModelForTypeSignature<P0>(&self, typesignature: P0) -> ::windows_core::Result<IModelObject>
     where
@@ -541,15 +527,13 @@ impl IDataModelManager2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AcquireSubNamespace)(::windows_core::Interface::as_raw(self), modelname.into_param().abi(), subnamespacemodelname.into_param().abi(), accessname.into_param().abi(), metadata.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateTypedIntrinsicObjectEx<P0, P1>(&self, context: P0, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: P1) -> ::windows_core::Result<IModelObject>
+    pub unsafe fn CreateTypedIntrinsicObjectEx<P0, P1>(&self, context: P0, intrinsicdata: *const ::windows_core::VARIANT, r#type: P1) -> ::windows_core::Result<IModelObject>
     where
         P0: ::windows_core::IntoParam<IDebugHostContext>,
         P1: ::windows_core::IntoParam<IDebugHostType>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateTypedIntrinsicObjectEx)(::windows_core::Interface::as_raw(self), context.into_param().abi(), intrinsicdata, r#type.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateTypedIntrinsicObjectEx)(::windows_core::Interface::as_raw(self), context.into_param().abi(), ::core::mem::transmute(intrinsicdata), r#type.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
 #[repr(C)]
@@ -557,10 +541,7 @@ impl IDataModelManager2 {
 pub struct IDataModelManager2_Vtbl {
     pub base__: IDataModelManager_Vtbl,
     pub AcquireSubNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelname: ::windows_core::PCWSTR, subnamespacemodelname: ::windows_core::PCWSTR, accessname: ::windows_core::PCWSTR, metadata: *mut ::core::ffi::c_void, namespacemodelobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateTypedIntrinsicObjectEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    CreateTypedIntrinsicObjectEx: usize,
+    pub CreateTypedIntrinsicObjectEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, intrinsicdata: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, r#type: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDataModelNameBinder, IDataModelNameBinder_Vtbl, 0xaf352b7b_8292_4c01_b360_2dc3696c65e7);
 ::windows_core::imp::interface_hierarchy!(IDataModelNameBinder, ::windows_core::IUnknown);
@@ -12124,9 +12105,7 @@ impl IDebugFailureAnalysis3 {
     {
         (::windows_core::Interface::vtable(self).AddThreads)(::windows_core::Interface::as_raw(self), pdebugfailurethreadenum.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AttributeGet(&self, nindex: u32) -> ::windows_core::Result<super::super::super::Variant::VARIANT> {
+    pub unsafe fn AttributeGet(&self, nindex: u32) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AttributeGet)(::windows_core::Interface::as_raw(self), nindex, &mut result__).from_abi(result__)
     }
@@ -12134,10 +12113,11 @@ impl IDebugFailureAnalysis3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AttributeGetName)(::windows_core::Interface::as_raw(self), nindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AttributeSet(&self, nindex: u32, value: super::super::super::Variant::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AttributeSet)(::windows_core::Interface::as_raw(self), nindex, ::core::mem::transmute(value)).ok()
+    pub unsafe fn AttributeSet<P0>(&self, nindex: u32, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
+    {
+        (::windows_core::Interface::vtable(self).AttributeSet)(::windows_core::Interface::as_raw(self), nindex, value.into_param().abi()).ok()
     }
     pub unsafe fn BlameApplication<P0>(&self, postfix: P0) -> ::windows_core::Result<()>
     where
@@ -12238,15 +12218,9 @@ pub struct IDebugFailureAnalysis3_Vtbl {
     GetAnalysisXml: usize,
     pub AddStructuredAnalysisData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: DEBUG_FLR_PARAM_TYPE, analysis: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub AddThreads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdebugfailurethreadenum: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AttributeGet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32, pvalue: *mut super::super::super::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AttributeGet: usize,
+    pub AttributeGet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub AttributeGetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32, pname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub AttributeSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32, value: super::super::super::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    AttributeSet: usize,
+    pub AttributeSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32, value: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     pub BlameApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, postfix: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub BlameProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, postfix: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub BlameThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pthread: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -12370,9 +12344,7 @@ impl IDebugHostConstant {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareAgainst)(::windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetValue(&self) -> ::windows_core::Result<super::super::super::Variant::VARIANT> {
+    pub unsafe fn GetValue(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
@@ -12381,10 +12353,7 @@ impl IDebugHostConstant {
 #[doc(hidden)]
 pub struct IDebugHostConstant_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::super::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetValue: usize,
+    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDebugHostContext, IDebugHostContext_Vtbl, 0xa68c70d8_5ec0_46e5_b775_3134a48ea2e3);
 ::windows_core::imp::interface_hierarchy!(IDebugHostContext, ::windows_core::IUnknown);
@@ -12448,9 +12417,7 @@ impl IDebugHostData {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLocation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetValue(&self) -> ::windows_core::Result<super::super::super::Variant::VARIANT> {
+    pub unsafe fn GetValue(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
@@ -12461,10 +12428,7 @@ pub struct IDebugHostData_Vtbl {
     pub base__: IDebugHostSymbol_Vtbl,
     pub GetLocationKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, locationkind: *mut LocationKind) -> ::windows_core::HRESULT,
     pub GetLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: *mut Location) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::super::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetValue: usize,
+    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDebugHostErrorSink, IDebugHostErrorSink_Vtbl, 0xc8ff0f0b_fce9_467e_8bb3_5d69ef109c00);
 ::windows_core::imp::interface_hierarchy!(IDebugHostErrorSink, ::windows_core::IUnknown);
@@ -12615,9 +12579,7 @@ impl IDebugHostField {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLocation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetValue(&self) -> ::windows_core::Result<super::super::super::Variant::VARIANT> {
+    pub unsafe fn GetValue(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
@@ -12629,10 +12591,7 @@ pub struct IDebugHostField_Vtbl {
     pub GetLocationKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, locationkind: *mut LocationKind) -> ::windows_core::HRESULT,
     pub GetOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: *mut u64) -> ::windows_core::HRESULT,
     pub GetLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: *mut Location) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::super::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetValue: usize,
+    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDebugHostMemory, IDebugHostMemory_Vtbl, 0x212149c9_9183_4a3e_b00e_4fd1dc95339b);
 ::windows_core::imp::interface_hierarchy!(IDebugHostMemory, ::windows_core::IUnknown);
@@ -17955,15 +17914,13 @@ impl IModelObject {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetIntrinsicValue(&self) -> ::windows_core::Result<super::super::super::Variant::VARIANT> {
+    pub unsafe fn GetIntrinsicValue(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIntrinsicValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetIntrinsicValueAs(&self, vt: super::super::super::Variant::VARENUM) -> ::windows_core::Result<super::super::super::Variant::VARIANT> {
+    #[doc = "Required features: `\"Win32_System_Variant\"`"]
+    #[cfg(feature = "Win32_System_Variant")]
+    pub unsafe fn GetIntrinsicValueAs(&self, vt: super::super::super::Variant::VARENUM) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIntrinsicValueAs)(::windows_core::Interface::as_raw(self), vt, &mut result__).from_abi(result__)
     }
@@ -18123,13 +18080,10 @@ pub struct IModelObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: *mut ModelObjectKind) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetIntrinsicValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intrinsicdata: *mut super::super::super::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    GetIntrinsicValue: usize,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetIntrinsicValueAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vt: super::super::super::Variant::VARENUM, intrinsicdata: *mut super::super::super::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    pub GetIntrinsicValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intrinsicdata: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    #[cfg(feature = "Win32_System_Variant")]
+    pub GetIntrinsicValueAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vt: super::super::super::Variant::VARENUM, intrinsicdata: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Variant"))]
     GetIntrinsicValueAs: usize,
     pub GetKeyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows_core::PCWSTR, object: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetKeyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows_core::PCWSTR, object: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
