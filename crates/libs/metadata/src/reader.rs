@@ -25,7 +25,9 @@ pub struct Reader {
 
 impl Reader {
     pub fn new(files: Vec<File>) -> &'static Self {
-        Self::filter(files, &[], &[], &Default::default())
+        let mut config = BTreeMap::new();
+        config.insert("sys", "");
+        Self::filter(files, &[], &[], &config)
     }
 
     pub fn filter(files: Vec<File>, include: &[&str], exclude: &[&str], config: &BTreeMap<&str, &str>) -> &'static Self {
