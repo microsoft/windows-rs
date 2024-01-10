@@ -142,6 +142,12 @@ fn main() {
         "src/b_include_me.rs",
         &["Windows.Win32.System.SystemInformation.GetVersion"],
     );
+
+    // Ensure that contained types behind pointers are resolved as dependencies.
+    write_sys(
+        "src/b_variant.rs",
+        &["Windows.Win32.System.Variant.VARIANT"],
+    );
 }
 
 fn write_sys(output: &str, filter: &[&str]) {

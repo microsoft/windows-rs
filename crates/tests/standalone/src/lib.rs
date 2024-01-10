@@ -25,7 +25,9 @@ mod b_stringable;
 mod b_test;
 mod b_unknown;
 mod b_uri;
+mod b_variant;
 mod b_win_enumerator;
+
 #[allow(non_snake_case)]
 mod included {
     include!("b_include_me.rs");
