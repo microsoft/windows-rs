@@ -27,6 +27,7 @@ mod scoped_interface;
 mod strings;
 mod r#type;
 mod unknown;
+mod variant;
 mod weak;
 
 pub use agile_reference::*;
@@ -45,6 +46,7 @@ pub use runtime_type::*;
 pub use scoped_interface::*;
 pub use strings::*;
 pub use unknown::*;
+pub use variant::*;
 pub use weak::*;
 
 /// A specialized [`Result`] type that provides Windows error information.
