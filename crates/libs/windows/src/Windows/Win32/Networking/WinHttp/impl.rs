@@ -1,32 +1,32 @@
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IWinHttpRequest_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn SetProxy(&self, proxysetting: i32, proxyserver: &super::super::System::Variant::VARIANT, bypasslist: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn SetProxy(&self, proxysetting: i32, proxyserver: &::windows_core::VARIANT, bypasslist: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn SetCredentials(&self, username: &::windows_core::BSTR, password: &::windows_core::BSTR, flags: i32) -> ::windows_core::Result<()>;
-    fn Open(&self, method: &::windows_core::BSTR, url: &::windows_core::BSTR, r#async: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn Open(&self, method: &::windows_core::BSTR, url: &::windows_core::BSTR, r#async: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn SetRequestHeader(&self, header: &::windows_core::BSTR, value: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn GetResponseHeader(&self, header: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::BSTR>;
     fn GetAllResponseHeaders(&self) -> ::windows_core::Result<::windows_core::BSTR>;
-    fn Send(&self, body: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn Send(&self, body: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn Status(&self) -> ::windows_core::Result<i32>;
     fn StatusText(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn ResponseText(&self) -> ::windows_core::Result<::windows_core::BSTR>;
-    fn ResponseBody(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn ResponseStream(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn get_Option(&self, option: WinHttpRequestOption) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn put_Option(&self, option: WinHttpRequestOption, value: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
-    fn WaitForResponse(&self, timeout: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn ResponseBody(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
+    fn ResponseStream(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
+    fn get_Option(&self, option: WinHttpRequestOption) -> ::windows_core::Result<::windows_core::VARIANT>;
+    fn put_Option(&self, option: WinHttpRequestOption, value: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
+    fn WaitForResponse(&self, timeout: &::windows_core::VARIANT) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Abort(&self) -> ::windows_core::Result<()>;
     fn SetTimeouts(&self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> ::windows_core::Result<()>;
     fn SetClientCertificate(&self, clientcertificate: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn SetAutoLogonPolicy(&self, autologonpolicy: WinHttpRequestAutoLogonPolicy) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IWinHttpRequest {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IWinHttpRequest_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinHttpRequest_Impl, const OFFSET: isize>() -> IWinHttpRequest_Vtbl {
-        unsafe extern "system" fn SetProxy<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, proxysetting: i32, proxyserver: super::super::System::Variant::VARIANT, bypasslist: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetProxy<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, proxysetting: i32, proxyserver: ::std::mem::MaybeUninit<::windows_core::VARIANT>, bypasslist: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetProxy(::core::mem::transmute_copy(&proxysetting), ::core::mem::transmute(&proxyserver), ::core::mem::transmute(&bypasslist)).into()
@@ -36,7 +36,7 @@ impl IWinHttpRequest_Vtbl {
             let this = (*this).get_impl();
             this.SetCredentials(::core::mem::transmute(&username), ::core::mem::transmute(&password), ::core::mem::transmute_copy(&flags)).into()
         }
-        unsafe extern "system" fn Open<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, method: ::std::mem::MaybeUninit<::windows_core::BSTR>, url: ::std::mem::MaybeUninit<::windows_core::BSTR>, r#async: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Open<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, method: ::std::mem::MaybeUninit<::windows_core::BSTR>, url: ::std::mem::MaybeUninit<::windows_core::BSTR>, r#async: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Open(::core::mem::transmute(&method), ::core::mem::transmute(&url), ::core::mem::transmute(&r#async)).into()
@@ -68,7 +68,7 @@ impl IWinHttpRequest_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Send<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, body: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Send<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, body: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Send(::core::mem::transmute(&body)).into()
@@ -106,7 +106,7 @@ impl IWinHttpRequest_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResponseBody<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, body: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn ResponseBody<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, body: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ResponseBody() {
@@ -117,7 +117,7 @@ impl IWinHttpRequest_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ResponseStream<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, body: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn ResponseStream<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, body: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ResponseStream() {
@@ -128,7 +128,7 @@ impl IWinHttpRequest_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Option<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, option: WinHttpRequestOption, value: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn get_Option<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, option: WinHttpRequestOption, value: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.get_Option(::core::mem::transmute_copy(&option)) {
@@ -139,12 +139,12 @@ impl IWinHttpRequest_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn put_Option<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, option: WinHttpRequestOption, value: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn put_Option<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, option: WinHttpRequestOption, value: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.put_Option(::core::mem::transmute_copy(&option), ::core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn WaitForResponse<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeout: super::super::System::Variant::VARIANT, succeeded: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn WaitForResponse<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWinHttpRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeout: ::std::mem::MaybeUninit<::windows_core::VARIANT>, succeeded: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.WaitForResponse(::core::mem::transmute(&timeout)) {

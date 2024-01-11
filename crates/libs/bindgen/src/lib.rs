@@ -104,7 +104,7 @@ where
     let output = canonicalize(output)?;
 
     let input = read_input(&input)?;
-    let reader = metadata::Reader::filter(input, &include, &exclude);
+    let reader = metadata::Reader::filter(input, &include, &exclude, &config);
 
     winmd::verify(reader)?;
 

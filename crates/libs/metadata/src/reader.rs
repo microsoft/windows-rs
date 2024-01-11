@@ -19,15 +19,19 @@ pub struct Reader {
     // The reader needs to store the filter since standalone code generation needs more than just the filtered items
     // in order to chase dependencies automatically. This is why `Reader::filter` can't just filter everything up front.
     filter: Filter,
+
+    sys: bool,
 }
 
 impl Reader {
     pub fn new(files: Vec<File>) -> &'static Self {
-        Self::filter(files, &[], &[])
+        let mut config = BTreeMap::new();
+        config.insert("sys", "");
+        Self::filter(files, &[], &[], &config)
     }
 
-    pub fn filter(files: Vec<File>, include: &[&str], exclude: &[&str]) -> &'static Self {
-        let reader: &'static mut Reader = Box::leak(Box::new(Self { items: Default::default(), nested: Default::default(), filter: Filter::new(include, exclude) }));
+    pub fn filter(files: Vec<File>, include: &[&str], exclude: &[&str], config: &BTreeMap<&str, &str>) -> &'static Self {
+        let reader: &'static mut Reader = Box::leak(Box::new(Self { items: Default::default(), nested: Default::default(), filter: Filter::new(include, exclude), sys: config.contains_key("sys") }));
 
         for mut file in files {
             file.reader = reader as *mut Reader;
@@ -136,6 +140,22 @@ impl Reader {
         self.nested.get(&type_def).map(|map| map.values().copied()).into_iter().flatten()
     }
 
+    pub fn remap_types(&self) -> impl Iterator<Item = &(TypeName, TypeName)> + '_ {
+        if self.sys {
+            [].iter()
+        } else {
+            REMAP_TYPES.iter()
+        }
+    }
+
+    pub fn core_types(&self) -> impl Iterator<Item = &(TypeName, Type)> + '_ {
+        if self.sys {
+            SYS_CORE_TYPES.iter()
+        } else {
+            CORE_TYPES.iter()
+        }
+    }
+
     pub fn type_from_ref(&self, code: TypeDefOrRef, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
         if let TypeDefOrRef::TypeSpec(def) = code {
             let mut blob = def.blob(0);
@@ -144,17 +164,15 @@ impl Reader {
 
         let mut full_name = code.type_name();
 
-        // TODO: remove this
-        for (known_name, kind) in CORE_TYPES {
-            if full_name == known_name {
-                return kind;
+        for (known_name, kind) in self.core_types() {
+            if full_name == *known_name {
+                return kind.clone();
             }
         }
 
-        // TODO: remove this
-        for (from, to) in REMAP_TYPES {
-            if full_name == from {
-                full_name = to;
+        for (from, to) in self.remap_types() {
+            if full_name == *from {
+                full_name = *to;
                 break;
             }
         }
@@ -249,7 +267,8 @@ impl Reader {
 }
 
 // TODO: this should be in riddle's Rust generator if at all - perhaps as convertible types rather than remapped types since there's already some precedent for that.
-pub const REMAP_TYPES: [(TypeName, TypeName); 2] = [(TypeName::D2D_MATRIX_3X2_F, TypeName::Matrix3x2), (TypeName::D3DMATRIX, TypeName::Matrix4x4)];
+const REMAP_TYPES: [(TypeName, TypeName); 2] = [(TypeName::D2D_MATRIX_3X2_F, TypeName::Matrix3x2), (TypeName::D3DMATRIX, TypeName::Matrix4x4)];
 
 // TODO: get rid of at least the second tuple if not the whole thing.
-pub const CORE_TYPES: [(TypeName, Type); 11] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::BSTR, Type::BSTR), (TypeName::IInspectable, Type::IInspectable), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::Type), (TypeName::CHAR, Type::I8)];
+const CORE_TYPES: [(TypeName, Type); 13] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::BSTR, Type::BSTR), (TypeName::IInspectable, Type::IInspectable), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::Type), (TypeName::CHAR, Type::I8), (TypeName::VARIANT, Type::VARIANT), (TypeName::PROPVARIANT, Type::PROPVARIANT)];
+const SYS_CORE_TYPES: [(TypeName, Type); 11] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::BSTR, Type::BSTR), (TypeName::IInspectable, Type::IInspectable), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::Type), (TypeName::CHAR, Type::I8)];

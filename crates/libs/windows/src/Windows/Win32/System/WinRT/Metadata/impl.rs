@@ -402,27 +402,27 @@ impl IMetaDataDispenser_Vtbl {
         iid == &<IMetaDataDispenser as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub trait IMetaDataDispenserEx_Impl: Sized + IMetaDataDispenser_Impl {
-    fn SetOption(&self, optionid: *const ::windows_core::GUID, value: *const super::super::Variant::VARIANT) -> ::windows_core::Result<()>;
-    fn GetOption(&self, optionid: *const ::windows_core::GUID, pvalue: *mut super::super::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn SetOption(&self, optionid: *const ::windows_core::GUID, value: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
+    fn GetOption(&self, optionid: *const ::windows_core::GUID, pvalue: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn OpenScopeOnITypeInfo(&self, piti: ::core::option::Option<&super::super::Com::ITypeInfo>, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn GetCORSystemDirectory(&self, szbuffer: ::windows_core::PWSTR, cchbuffer: u32, pchbuffer: *mut u32) -> ::windows_core::Result<()>;
     fn FindAssembly(&self, szappbase: &::windows_core::PCWSTR, szprivatebin: &::windows_core::PCWSTR, szglobalbin: &::windows_core::PCWSTR, szassemblyname: &::windows_core::PCWSTR, szname: &::windows_core::PCWSTR, cchname: u32, pcname: *mut u32) -> ::windows_core::Result<()>;
     fn FindAssemblyModule(&self, szappbase: &::windows_core::PCWSTR, szprivatebin: &::windows_core::PCWSTR, szglobalbin: &::windows_core::PCWSTR, szassemblyname: &::windows_core::PCWSTR, szmodulename: &::windows_core::PCWSTR, szname: ::windows_core::PWSTR, cchname: u32, pcname: *mut u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IMetaDataDispenserEx {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Com")]
 impl IMetaDataDispenserEx_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMetaDataDispenserEx_Impl, const OFFSET: isize>() -> IMetaDataDispenserEx_Vtbl {
-        unsafe extern "system" fn SetOption<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMetaDataDispenserEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optionid: *const ::windows_core::GUID, value: *const super::super::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetOption<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMetaDataDispenserEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optionid: *const ::windows_core::GUID, value: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetOption(::core::mem::transmute_copy(&optionid), ::core::mem::transmute_copy(&value)).into()
         }
-        unsafe extern "system" fn GetOption<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMetaDataDispenserEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optionid: *const ::windows_core::GUID, pvalue: *mut super::super::Variant::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetOption<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMetaDataDispenserEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optionid: *const ::windows_core::GUID, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetOption(::core::mem::transmute_copy(&optionid), ::core::mem::transmute_copy(&pvalue)).into()

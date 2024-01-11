@@ -2416,9 +2416,7 @@ pub struct IManagedObject_Vtbl {
 ::windows_core::imp::com_interface!(IObjectHandle, IObjectHandle_Vtbl, 0xc460e2b4_e199_412a_8456_84dc3e4838c3);
 ::windows_core::imp::interface_hierarchy!(IObjectHandle, ::windows_core::IUnknown);
 impl IObjectHandle {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Unwrap(&self) -> ::windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn Unwrap(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Unwrap)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
@@ -2427,10 +2425,7 @@ impl IObjectHandle {
 #[doc(hidden)]
 pub struct IObjectHandle_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Unwrap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppv: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
-    Unwrap: usize,
+    pub Unwrap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppv: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITypeName, ITypeName_Vtbl, 0xb81ff171_20f3_11d2_8dcc_00a0c9b00522);
 ::windows_core::imp::interface_hierarchy!(ITypeName, ::windows_core::IUnknown);
