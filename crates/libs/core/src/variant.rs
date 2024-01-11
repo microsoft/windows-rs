@@ -93,11 +93,11 @@ impl PartialEq for VARIANT {
             let this = PROPVARIANT::try_from(self);
             let other = PROPVARIANT::try_from(other);
 
-            let (Ok(this), Ok(other)) = (this, other) else {
-                return false;
-            };
-
-            this.eq(&other)
+            if let (Ok(this), Ok(other)) = (this, other) {
+                this.eq(&other)
+            } else {
+                false
+            }
         }
     }
 }
