@@ -1,3 +1,5 @@
+use windows::Foundation::Uri;
+use windows::Win32::Foundation::TYPE_E_TYPEMISMATCH;
 use windows_core::*;
 
 #[test]
@@ -68,6 +70,18 @@ fn test_variant() -> Result<()> {
     assert_eq!(f64::try_from(&v)?, 3.5f64);
     assert_eq!(VARIANT::from(3.5f64), VARIANT::from(3.5f64));
     assert_ne!(VARIANT::from(3.5f64), VARIANT::from(0.0f64));
+
+    let unknown: IUnknown = Uri::CreateUri(h!("https://github.com/"))?.into();
+    let v = VARIANT::from(unknown);
+    let unknown = IUnknown::try_from(&v)?;
+    assert_eq!(unknown.cast::<Uri>()?.Domain()?, "github.com");
+    assert_eq!(i32::try_from(&v).unwrap_err().code(), TYPE_E_TYPEMISMATCH);
+    assert_eq!(
+        IUnknown::try_from(&VARIANT::from(3.5f64))
+            .unwrap_err()
+            .code(),
+        TYPE_E_TYPEMISMATCH
+    );
 
     let v = VARIANT::from(BSTR::from("hello"));
     assert_eq!(BSTR::try_from(&v)?, "hello");
@@ -167,6 +181,18 @@ fn test_propvariant() -> Result<()> {
     assert_eq!(f64::try_from(&v)?, 3.5f64);
     assert_eq!(PROPVARIANT::from(3.5f64), PROPVARIANT::from(3.5f64));
     assert_ne!(PROPVARIANT::from(3.5f64), PROPVARIANT::from(0.0f64));
+
+    let unknown: IUnknown = Uri::CreateUri(h!("https://github.com/"))?.into();
+    let v = PROPVARIANT::from(unknown);
+    let unknown = IUnknown::try_from(&v)?;
+    assert_eq!(unknown.cast::<Uri>()?.Domain()?, "github.com");
+    assert_eq!(i32::try_from(&v).unwrap_err().code(), TYPE_E_TYPEMISMATCH);
+    assert_eq!(
+        IUnknown::try_from(&PROPVARIANT::from(3.5f64))
+            .unwrap_err()
+            .code(),
+        TYPE_E_TYPEMISMATCH
+    );
 
     let v = PROPVARIANT::from(BSTR::from("hello"));
     assert_eq!(BSTR::try_from(&v)?, "hello");

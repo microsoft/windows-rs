@@ -77,6 +77,7 @@ impl ::core::default::Default for DateTime {
     }
 }
 pub const E_BOUNDS: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147483637i32);
+pub const E_INVALIDARG: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147024809i32);
 pub const E_NOINTERFACE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147467262i32);
 pub const E_OUTOFMEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147024882i32);
 ::windows_core::imp::com_interface!(IAgileObject, IAgileObject_Vtbl, 0x94ea2b94_e9cc_49e0_c0ff_ee64ca8f5b90);
@@ -1225,6 +1226,7 @@ impl ::core::default::Default for Size {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const TYPE_E_TYPEMISMATCH: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147316576i32);
 #[repr(C)]
 pub struct TimeSpan {
     pub Duration: i64,
