@@ -482,7 +482,6 @@ impl ::core::clone::Clone for EXCEPINFO {
         *self
     }
 }
-pub const E_INVALIDARG: HRESULT = -2147024809i32;
 pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 #[repr(C)]
 pub struct FILETIME {
@@ -999,5 +998,6 @@ pub const VT_UI1: VARENUM = 17u16;
 pub const VT_UI2: VARENUM = 18u16;
 pub const VT_UI4: VARENUM = 19u16;
 pub const VT_UI8: VARENUM = 21u16;
+pub const VT_UNKNOWN: VARENUM = 13u16;
 pub type WAIT_EVENT = u32;
 pub type WIN32_ERROR = u32;

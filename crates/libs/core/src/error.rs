@@ -93,7 +93,7 @@ impl From<std::string::FromUtf8Error> for Error {
 
 impl From<std::num::TryFromIntError> for Error {
     fn from(_: std::num::TryFromIntError) -> Self {
-        Self { code: HRESULT(crate::imp::E_INVALIDARG), info: None }
+        Self { code: crate::imp::E_INVALIDARG, info: None }
     }
 }
 

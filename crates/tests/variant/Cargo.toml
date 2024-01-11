@@ -6,3 +6,10 @@ publish = false
 
 [dependencies.windows-core]
 path = "../../libs/core"
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "Foundation",
+    "Win32_Foundation",
+]

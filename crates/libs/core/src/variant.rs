@@ -157,6 +157,56 @@ impl TryFrom<&PROPVARIANT> for VARIANT {
     }
 }
 
+// VT_UNKNOWN
+
+impl From<IUnknown> for VARIANT {
+    fn from(value: IUnknown) -> Self {
+        Self(imp::VARIANT {
+            Anonymous: imp::VARIANT_0 {
+                Anonymous: imp::VARIANT_0_0 { vt: imp::VT_UNKNOWN, wReserved1: 0, wReserved2: 0, wReserved3: 0, Anonymous: imp::VARIANT_0_0_0 { punkVal: value.into_raw() } },
+            },
+        })
+    }
+}
+
+impl From<IUnknown> for PROPVARIANT {
+    fn from(value: IUnknown) -> Self {
+        Self(imp::PROPVARIANT {
+            Anonymous: imp::PROPVARIANT_0 {
+                Anonymous: imp::PROPVARIANT_0_0 { vt: imp::VT_UNKNOWN, wReserved1: 0, wReserved2: 0, wReserved3: 0, Anonymous: imp::PROPVARIANT_0_0_0 { punkVal: value.into_raw() } },
+            },
+        })
+    }
+}
+
+impl TryFrom<&VARIANT> for IUnknown {
+    type Error = Error;
+    fn try_from(from: &VARIANT) -> Result<Self> {
+        unsafe {
+            if from.0.Anonymous.Anonymous.vt == imp::VT_UNKNOWN && !from.0.Anonymous.Anonymous.Anonymous.punkVal.is_null() {
+                let unknown: &IUnknown = std::mem::transmute(&from.0.Anonymous.Anonymous.Anonymous.punkVal);
+                Ok(unknown.clone())
+            } else {
+                Err(Error { code: imp::TYPE_E_TYPEMISMATCH, info: None })
+            }
+        }
+    }
+}
+
+impl TryFrom<&PROPVARIANT> for IUnknown {
+    type Error = Error;
+    fn try_from(from: &PROPVARIANT) -> Result<Self> {
+        unsafe {
+            if from.0.Anonymous.Anonymous.vt == imp::VT_UNKNOWN && !from.0.Anonymous.Anonymous.Anonymous.punkVal.is_null() {
+                let unknown: &IUnknown = std::mem::transmute(&from.0.Anonymous.Anonymous.Anonymous.punkVal);
+                Ok(unknown.clone())
+            } else {
+                Err(Error { code: imp::TYPE_E_TYPEMISMATCH, info: None })
+            }
+        }
+    }
+}
+
 // VT_BSTR
 
 impl From<BSTR> for VARIANT {
