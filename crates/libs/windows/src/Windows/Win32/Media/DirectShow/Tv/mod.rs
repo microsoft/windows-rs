@@ -7056,8 +7056,9 @@ impl IESOpenMmiEvent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetStringData)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetDialogNumber(&self, pdialogrequest: *mut u32, pdialognumber: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetDialogNumber)(::windows_core::Interface::as_raw(self), pdialogrequest, pdialognumber).ok()
+    pub unsafe fn GetDialogNumber(&self, pdialogrequest: *mut u32) -> ::windows_core::Result<u32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetDialogNumber)(::windows_core::Interface::as_raw(self), pdialogrequest, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDialogType(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
@@ -7069,8 +7070,9 @@ impl IESOpenMmiEvent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDialogData)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetDialogStringData(&self, pbstrbaseurl: *mut ::windows_core::BSTR, pbstrdata: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetDialogStringData)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbstrbaseurl), ::core::mem::transmute(pbstrdata)).ok()
+    pub unsafe fn GetDialogStringData(&self, pbstrbaseurl: *mut ::windows_core::BSTR) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetDialogStringData)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbstrbaseurl), &mut result__).from_abi(result__)
     }
 }
 #[repr(C)]
@@ -10011,8 +10013,9 @@ impl IMSVidAnalogTuner {
     {
         (::windows_core::Interface::vtable(self).SetSAP)(::windows_core::Interface::as_raw(self), fsapon.into_param().abi()).ok()
     }
-    pub unsafe fn ChannelAvailable(&self, nchannel: i32, signalstrength: *mut i32, fsignalpresent: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ChannelAvailable)(::windows_core::Interface::as_raw(self), nchannel, signalstrength, fsignalpresent).ok()
+    pub unsafe fn ChannelAvailable(&self, nchannel: i32, signalstrength: *mut i32) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).ChannelAvailable)(::windows_core::Interface::as_raw(self), nchannel, signalstrength, &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10151,8 +10154,9 @@ impl IMSVidAnalogTuner2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetSAP)(::windows_core::Interface::as_raw(self), fsapon.into_param().abi()).ok()
     }
-    pub unsafe fn ChannelAvailable(&self, nchannel: i32, signalstrength: *mut i32, fsignalpresent: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.ChannelAvailable)(::windows_core::Interface::as_raw(self), nchannel, signalstrength, fsignalpresent).ok()
+    pub unsafe fn ChannelAvailable(&self, nchannel: i32, signalstrength: *mut i32) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.ChannelAvailable)(::windows_core::Interface::as_raw(self), nchannel, signalstrength, &mut result__).from_abi(result__)
     }
     pub unsafe fn TVFormats(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();

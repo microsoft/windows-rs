@@ -840,7 +840,7 @@ impl IXpsOMDashCollection_Vtbl {
 pub trait IXpsOMDictionary_Impl: Sized {
     fn GetOwner(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn GetCount(&self) -> ::windows_core::Result<u32>;
-    fn GetAt(&self, index: u32, key: *mut ::windows_core::PWSTR, entry: *mut ::core::option::Option<IXpsOMShareable>) -> ::windows_core::Result<()>;
+    fn GetAt(&self, index: u32, key: *mut ::windows_core::PWSTR) -> ::windows_core::Result<IXpsOMShareable>;
     fn GetByKey(&self, key: &::windows_core::PCWSTR, beforeentry: ::core::option::Option<&IXpsOMShareable>) -> ::windows_core::Result<IXpsOMShareable>;
     fn GetIndex(&self, entry: ::core::option::Option<&IXpsOMShareable>) -> ::windows_core::Result<u32>;
     fn Append(&self, key: &::windows_core::PCWSTR, entry: ::core::option::Option<&IXpsOMShareable>) -> ::windows_core::Result<()>;
@@ -877,7 +877,13 @@ impl IXpsOMDictionary_Vtbl {
         unsafe extern "system" fn GetAt<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, key: *mut ::windows_core::PWSTR, entry: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetAt(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&key), ::core::mem::transmute_copy(&entry)).into()
+            match this.GetAt(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&key)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(entry, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetByKey<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::windows_core::PCWSTR, beforeentry: *mut ::core::ffi::c_void, entry: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2330,7 +2336,7 @@ pub trait IXpsOMGradientStop_Impl: Sized {
     fn GetOwner(&self) -> ::windows_core::Result<IXpsOMGradientBrush>;
     fn GetOffset(&self) -> ::windows_core::Result<f32>;
     fn SetOffset(&self, offset: f32) -> ::windows_core::Result<()>;
-    fn GetColor(&self, color: *mut XPS_COLOR, colorprofile: *mut ::core::option::Option<IXpsOMColorProfileResource>) -> ::windows_core::Result<()>;
+    fn GetColor(&self, color: *mut XPS_COLOR) -> ::windows_core::Result<IXpsOMColorProfileResource>;
     fn SetColor(&self, color: *const XPS_COLOR, colorprofile: ::core::option::Option<&IXpsOMColorProfileResource>) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IXpsOMGradientStop>;
 }
@@ -2367,7 +2373,13 @@ impl IXpsOMGradientStop_Vtbl {
         unsafe extern "system" fn GetColor<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientStop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: *mut XPS_COLOR, colorprofile: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetColor(::core::mem::transmute_copy(&color), ::core::mem::transmute_copy(&colorprofile)).into()
+            match this.GetColor(::core::mem::transmute_copy(&color)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(colorprofile, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetColor<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMGradientStop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: *const XPS_COLOR, colorprofile: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -5365,7 +5377,7 @@ impl IXpsOMSignatureBlockResourceCollection_Vtbl {
     }
 }
 pub trait IXpsOMSolidColorBrush_Impl: Sized + IXpsOMBrush_Impl {
-    fn GetColor(&self, color: *mut XPS_COLOR, colorprofile: *mut ::core::option::Option<IXpsOMColorProfileResource>) -> ::windows_core::Result<()>;
+    fn GetColor(&self, color: *mut XPS_COLOR) -> ::windows_core::Result<IXpsOMColorProfileResource>;
     fn SetColor(&self, color: *const XPS_COLOR, colorprofile: ::core::option::Option<&IXpsOMColorProfileResource>) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IXpsOMSolidColorBrush>;
 }
@@ -5375,7 +5387,13 @@ impl IXpsOMSolidColorBrush_Vtbl {
         unsafe extern "system" fn GetColor<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMSolidColorBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: *mut XPS_COLOR, colorprofile: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetColor(::core::mem::transmute_copy(&color), ::core::mem::transmute_copy(&colorprofile)).into()
+            match this.GetColor(::core::mem::transmute_copy(&color)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(colorprofile, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetColor<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IXpsOMSolidColorBrush_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: *const XPS_COLOR, colorprofile: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

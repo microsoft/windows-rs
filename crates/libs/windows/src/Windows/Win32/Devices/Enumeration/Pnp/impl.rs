@@ -963,7 +963,7 @@ impl IUPnPReregistrar_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUPnPService_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn QueryStateVariable(&self, bstrvariablename: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::VARIANT>;
-    fn InvokeAction(&self, bstractionname: &::windows_core::BSTR, vinactionargs: &::windows_core::VARIANT, pvoutactionargs: *mut ::windows_core::VARIANT, pvretval: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()>;
+    fn InvokeAction(&self, bstractionname: &::windows_core::BSTR, vinactionargs: &::windows_core::VARIANT, pvoutactionargs: *mut ::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::VARIANT>;
     fn ServiceTypeIdentifier(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn AddCallback(&self, punkcallback: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn Id(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -988,7 +988,13 @@ impl IUPnPService_Vtbl {
         unsafe extern "system" fn InvokeAction<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUPnPService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstractionname: ::std::mem::MaybeUninit<::windows_core::BSTR>, vinactionargs: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvoutactionargs: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvretval: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.InvokeAction(::core::mem::transmute(&bstractionname), ::core::mem::transmute(&vinactionargs), ::core::mem::transmute_copy(&pvoutactionargs), ::core::mem::transmute_copy(&pvretval)).into()
+            match this.InvokeAction(::core::mem::transmute(&bstractionname), ::core::mem::transmute(&vinactionargs), ::core::mem::transmute_copy(&pvoutactionargs)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pvretval, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ServiceTypeIdentifier<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUPnPService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

@@ -1245,11 +1245,12 @@ impl IAccessible {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_accHelp)(::windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn get_accHelpTopic<P0>(&self, pszhelpfile: *mut ::windows_core::BSTR, varchild: P0, pidtopic: *mut i32) -> ::windows_core::Result<()>
+    pub unsafe fn get_accHelpTopic<P0>(&self, pszhelpfile: *mut ::windows_core::BSTR, varchild: P0) -> ::windows_core::Result<i32>
     where
         P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).get_accHelpTopic)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pszhelpfile), varchild.into_param().abi(), pidtopic).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).get_accHelpTopic)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pszhelpfile), varchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn get_accKeyboardShortcut<P0>(&self, varchild: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -2735,8 +2736,9 @@ impl ITextProvider2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RangeFromAnnotation)(::windows_core::Interface::as_raw(self), annotationelement.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL, pretval: *mut ::core::option::Option<ITextRangeProvider>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetCaretRange)(::windows_core::Interface::as_raw(self), isactive, ::core::mem::transmute(pretval)).ok()
+    pub unsafe fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<ITextRangeProvider> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetCaretRange)(::windows_core::Interface::as_raw(self), isactive, &mut result__).from_abi(result__)
     }
 }
 #[repr(C)]
@@ -3330,8 +3332,9 @@ impl IUIAutomation {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, arraycount).ok()
+    pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32) -> ::windows_core::Result<i32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, &mut result__).from_abi(result__)
     }
     pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -3346,8 +3349,9 @@ impl IUIAutomation {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SafeArrayToRectNativeArray)(::windows_core::Interface::as_raw(self), rects, rectarray, rectarraycount).ok()
+    pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> ::windows_core::Result<i32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).SafeArrayToRectNativeArray)(::windows_core::Interface::as_raw(self), rects, rectarray, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateProxyFactoryEntry<P0>(&self, factory: P0) -> ::windows_core::Result<IUIAutomationProxyFactoryEntry>
     where
@@ -3756,8 +3760,9 @@ impl IUIAutomation2 {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, arraycount).ok()
+    pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32) -> ::windows_core::Result<i32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, &mut result__).from_abi(result__)
     }
     pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -3772,8 +3777,9 @@ impl IUIAutomation2 {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.SafeArrayToRectNativeArray)(::windows_core::Interface::as_raw(self), rects, rectarray, rectarraycount).ok()
+    pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> ::windows_core::Result<i32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.SafeArrayToRectNativeArray)(::windows_core::Interface::as_raw(self), rects, rectarray, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateProxyFactoryEntry<P0>(&self, factory: P0) -> ::windows_core::Result<IUIAutomationProxyFactoryEntry>
     where
@@ -4124,8 +4130,9 @@ impl IUIAutomation3 {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, arraycount).ok()
+    pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32) -> ::windows_core::Result<i32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, &mut result__).from_abi(result__)
     }
     pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -4140,8 +4147,9 @@ impl IUIAutomation3 {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.SafeArrayToRectNativeArray)(::windows_core::Interface::as_raw(self), rects, rectarray, rectarraycount).ok()
+    pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> ::windows_core::Result<i32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.SafeArrayToRectNativeArray)(::windows_core::Interface::as_raw(self), rects, rectarray, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateProxyFactoryEntry<P0>(&self, factory: P0) -> ::windows_core::Result<IUIAutomationProxyFactoryEntry>
     where
@@ -4503,8 +4511,9 @@ impl IUIAutomation4 {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, arraycount).ok()
+    pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32) -> ::windows_core::Result<i32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, &mut result__).from_abi(result__)
     }
     pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -4519,8 +4528,9 @@ impl IUIAutomation4 {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.SafeArrayToRectNativeArray)(::windows_core::Interface::as_raw(self), rects, rectarray, rectarraycount).ok()
+    pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> ::windows_core::Result<i32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.base__.SafeArrayToRectNativeArray)(::windows_core::Interface::as_raw(self), rects, rectarray, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateProxyFactoryEntry<P0>(&self, factory: P0) -> ::windows_core::Result<IUIAutomationProxyFactoryEntry>
     where
@@ -4897,8 +4907,9 @@ impl IUIAutomation5 {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, arraycount).ok()
+    pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32) -> ::windows_core::Result<i32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, &mut result__).from_abi(result__)
     }
     pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -4913,8 +4924,9 @@ impl IUIAutomation5 {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SafeArrayToRectNativeArray)(::windows_core::Interface::as_raw(self), rects, rectarray, rectarraycount).ok()
+    pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> ::windows_core::Result<i32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SafeArrayToRectNativeArray)(::windows_core::Interface::as_raw(self), rects, rectarray, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateProxyFactoryEntry<P0>(&self, factory: P0) -> ::windows_core::Result<IUIAutomationProxyFactoryEntry>
     where
@@ -5306,8 +5318,9 @@ impl IUIAutomation6 {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, arraycount).ok()
+    pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32) -> ::windows_core::Result<i32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, &mut result__).from_abi(result__)
     }
     pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -5322,8 +5335,9 @@ impl IUIAutomation6 {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SafeArrayToRectNativeArray)(::windows_core::Interface::as_raw(self), rects, rectarray, rectarraycount).ok()
+    pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> ::windows_core::Result<i32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SafeArrayToRectNativeArray)(::windows_core::Interface::as_raw(self), rects, rectarray, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateProxyFactoryEntry<P0>(&self, factory: P0) -> ::windows_core::Result<IUIAutomationProxyFactoryEntry>
     where
@@ -6211,8 +6225,9 @@ impl IUIAutomationElement {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedProviderDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, gotclickable).ok()
+    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, &mut result__).from_abi(result__)
     }
 }
 #[repr(C)]
@@ -6662,8 +6677,9 @@ impl IUIAutomationElement2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CachedProviderDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, gotclickable).ok()
+    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, &mut result__).from_abi(result__)
     }
     pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7058,8 +7074,9 @@ impl IUIAutomationElement3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CachedProviderDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, gotclickable).ok()
+    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, &mut result__).from_abi(result__)
     }
     pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7462,8 +7479,9 @@ impl IUIAutomationElement4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CachedProviderDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, gotclickable).ok()
+    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, &mut result__).from_abi(result__)
     }
     pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7923,8 +7941,9 @@ impl IUIAutomationElement5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CachedProviderDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, gotclickable).ok()
+    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, &mut result__).from_abi(result__)
     }
     pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8388,8 +8407,9 @@ impl IUIAutomationElement6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CachedProviderDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, gotclickable).ok()
+    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, &mut result__).from_abi(result__)
     }
     pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8859,8 +8879,9 @@ impl IUIAutomationElement7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CachedProviderDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, gotclickable).ok()
+    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, &mut result__).from_abi(result__)
     }
     pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9371,8 +9392,9 @@ impl IUIAutomationElement8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CachedProviderDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, gotclickable).ok()
+    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, &mut result__).from_abi(result__)
     }
     pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9888,8 +9910,9 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CachedProviderDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, gotclickable).ok()
+    pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, &mut result__).from_abi(result__)
     }
     pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11608,8 +11631,9 @@ impl IUIAutomationTextPattern2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RangeFromAnnotation)(::windows_core::Interface::as_raw(self), annotation.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL, range: *mut ::core::option::Option<IUIAutomationTextRange>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetCaretRange)(::windows_core::Interface::as_raw(self), isactive, ::core::mem::transmute(range)).ok()
+    pub unsafe fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<IUIAutomationTextRange> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetCaretRange)(::windows_core::Interface::as_raw(self), isactive, &mut result__).from_abi(result__)
     }
 }
 #[repr(C)]

@@ -1067,7 +1067,7 @@ impl IEventSubscription_Vtbl {
     }
 }
 pub trait IEventSystem_Impl: Sized + super::IDispatch_Impl {
-    fn Query(&self, progid: &::windows_core::BSTR, querycriteria: &::windows_core::BSTR, errorindex: *mut i32, ppinterface: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
+    fn Query(&self, progid: &::windows_core::BSTR, querycriteria: &::windows_core::BSTR, errorindex: *mut i32) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Store(&self, progid: &::windows_core::BSTR, pinterface: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn Remove(&self, progid: &::windows_core::BSTR, querycriteria: &::windows_core::BSTR) -> ::windows_core::Result<i32>;
     fn EventObjectChangeEventClassID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1080,7 +1080,13 @@ impl IEventSystem_Vtbl {
         unsafe extern "system" fn Query<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEventSystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, progid: ::std::mem::MaybeUninit<::windows_core::BSTR>, querycriteria: ::std::mem::MaybeUninit<::windows_core::BSTR>, errorindex: *mut i32, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Query(::core::mem::transmute(&progid), ::core::mem::transmute(&querycriteria), ::core::mem::transmute_copy(&errorindex), ::core::mem::transmute_copy(&ppinterface)).into()
+            match this.Query(::core::mem::transmute(&progid), ::core::mem::transmute(&querycriteria), ::core::mem::transmute_copy(&errorindex)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppinterface, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Store<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEventSystem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, progid: ::std::mem::MaybeUninit<::windows_core::BSTR>, pinterface: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

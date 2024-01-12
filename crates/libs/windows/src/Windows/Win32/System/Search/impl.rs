@@ -1012,7 +1012,7 @@ impl IConditionFactory2_Vtbl {
 pub trait IConditionGenerator_Impl: Sized {
     fn Initialize(&self, pschemaprovider: ::core::option::Option<&ISchemaProvider>) -> ::windows_core::Result<()>;
     fn RecognizeNamedEntities(&self, pszinputstring: &::windows_core::PCWSTR, lciduserlocale: u32, ptokencollection: ::core::option::Option<&ITokenCollection>, pnamedentities: ::core::option::Option<&INamedEntityCollector>) -> ::windows_core::Result<()>;
-    fn GenerateForLeaf(&self, pconditionfactory: ::core::option::Option<&IConditionFactory>, pszpropertyname: &::windows_core::PCWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: &::windows_core::PCWSTR, pszvalue: &::windows_core::PCWSTR, pszvalue2: &::windows_core::PCWSTR, ppropertynameterm: ::core::option::Option<&IRichChunk>, poperationterm: ::core::option::Option<&IRichChunk>, pvalueterm: ::core::option::Option<&IRichChunk>, automaticwildcard: super::super::Foundation::BOOL, pnostringquery: *mut super::super::Foundation::BOOL, ppqueryexpression: *mut ::core::option::Option<ICondition>) -> ::windows_core::Result<()>;
+    fn GenerateForLeaf(&self, pconditionfactory: ::core::option::Option<&IConditionFactory>, pszpropertyname: &::windows_core::PCWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: &::windows_core::PCWSTR, pszvalue: &::windows_core::PCWSTR, pszvalue2: &::windows_core::PCWSTR, ppropertynameterm: ::core::option::Option<&IRichChunk>, poperationterm: ::core::option::Option<&IRichChunk>, pvalueterm: ::core::option::Option<&IRichChunk>, automaticwildcard: super::super::Foundation::BOOL, pnostringquery: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<ICondition>;
     fn DefaultPhrase(&self, pszvaluetype: &::windows_core::PCWSTR, ppropvar: *const ::windows_core::PROPVARIANT, fuseenglish: super::super::Foundation::BOOL, ppszphrase: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Search_Common"))]
@@ -1033,7 +1033,7 @@ impl IConditionGenerator_Vtbl {
         unsafe extern "system" fn GenerateForLeaf<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IConditionGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconditionfactory: *mut ::core::ffi::c_void, pszpropertyname: ::windows_core::PCWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: ::windows_core::PCWSTR, pszvalue: ::windows_core::PCWSTR, pszvalue2: ::windows_core::PCWSTR, ppropertynameterm: *mut ::core::ffi::c_void, poperationterm: *mut ::core::ffi::c_void, pvalueterm: *mut ::core::ffi::c_void, automaticwildcard: super::super::Foundation::BOOL, pnostringquery: *mut super::super::Foundation::BOOL, ppqueryexpression: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GenerateForLeaf(
+            match this.GenerateForLeaf(
                 ::windows_core::from_raw_borrowed(&pconditionfactory),
                 ::core::mem::transmute(&pszpropertyname),
                 ::core::mem::transmute_copy(&cop),
@@ -1045,9 +1045,13 @@ impl IConditionGenerator_Vtbl {
                 ::windows_core::from_raw_borrowed(&pvalueterm),
                 ::core::mem::transmute_copy(&automaticwildcard),
                 ::core::mem::transmute_copy(&pnostringquery),
-                ::core::mem::transmute_copy(&ppqueryexpression),
-            )
-            .into()
+            ) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppqueryexpression, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn DefaultPhrase<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IConditionGenerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvaluetype: ::windows_core::PCWSTR, ppropvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, fuseenglish: super::super::Foundation::BOOL, ppszphrase: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

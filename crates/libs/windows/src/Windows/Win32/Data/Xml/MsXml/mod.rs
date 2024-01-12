@@ -2989,8 +2989,9 @@ pub struct IVBSAXDeclHandler_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IVBSAXEntityResolver, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXEntityResolver {
-    pub unsafe fn resolveEntity(&self, strpublicid: *mut ::windows_core::BSTR, strsystemid: *mut ::windows_core::BSTR, varinput: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).resolveEntity)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(strpublicid), ::core::mem::transmute(strsystemid), ::core::mem::transmute(varinput)).ok()
+    pub unsafe fn resolveEntity(&self, strpublicid: *mut ::windows_core::BSTR, strsystemid: *mut ::windows_core::BSTR) -> ::windows_core::Result<::windows_core::VARIANT> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).resolveEntity)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(strpublicid), ::core::mem::transmute(strsystemid), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]

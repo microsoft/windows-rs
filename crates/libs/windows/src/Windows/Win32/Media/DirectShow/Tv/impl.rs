@@ -8398,10 +8398,10 @@ impl IESLicenseRenewalResultEvent_Vtbl {
 #[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IESOpenMmiEvent_Impl: Sized + super::IESEvent_Impl {
-    fn GetDialogNumber(&self, pdialogrequest: *mut u32, pdialognumber: *mut u32) -> ::windows_core::Result<()>;
+    fn GetDialogNumber(&self, pdialogrequest: *mut u32) -> ::windows_core::Result<u32>;
     fn GetDialogType(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn GetDialogData(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY>;
-    fn GetDialogStringData(&self, pbstrbaseurl: *mut ::windows_core::BSTR, pbstrdata: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
+    fn GetDialogStringData(&self, pbstrbaseurl: *mut ::windows_core::BSTR) -> ::windows_core::Result<::windows_core::BSTR>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IESOpenMmiEvent {}
@@ -8411,7 +8411,13 @@ impl IESOpenMmiEvent_Vtbl {
         unsafe extern "system" fn GetDialogNumber<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IESOpenMmiEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdialogrequest: *mut u32, pdialognumber: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDialogNumber(::core::mem::transmute_copy(&pdialogrequest), ::core::mem::transmute_copy(&pdialognumber)).into()
+            match this.GetDialogNumber(::core::mem::transmute_copy(&pdialogrequest)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pdialognumber, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetDialogType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IESOpenMmiEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guiddialogtype: *mut ::windows_core::GUID) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -8438,7 +8444,13 @@ impl IESOpenMmiEvent_Vtbl {
         unsafe extern "system" fn GetDialogStringData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IESOpenMmiEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbaseurl: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrdata: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDialogStringData(::core::mem::transmute_copy(&pbstrbaseurl), ::core::mem::transmute_copy(&pbstrdata)).into()
+            match this.GetDialogStringData(::core::mem::transmute_copy(&pbstrbaseurl)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pbstrdata, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base__: super::IESEvent_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -13001,7 +13013,7 @@ pub trait IMSVidAnalogTuner_Impl: Sized + IMSVidTuner_Impl {
     fn SetCountryCode(&self, lcc: i32) -> ::windows_core::Result<()>;
     fn SAP(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn SetSAP(&self, fsapon: super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
-    fn ChannelAvailable(&self, nchannel: i32, signalstrength: *mut i32, fsignalpresent: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
+    fn ChannelAvailable(&self, nchannel: i32, signalstrength: *mut i32) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IMSVidAnalogTuner {}
@@ -13081,7 +13093,13 @@ impl IMSVidAnalogTuner_Vtbl {
         unsafe extern "system" fn ChannelAvailable<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMSVidAnalogTuner_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nchannel: i32, signalstrength: *mut i32, fsignalpresent: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ChannelAvailable(::core::mem::transmute_copy(&nchannel), ::core::mem::transmute_copy(&signalstrength), ::core::mem::transmute_copy(&fsignalpresent)).into()
+            match this.ChannelAvailable(::core::mem::transmute_copy(&nchannel), ::core::mem::transmute_copy(&signalstrength)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(fsignalpresent, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base__: IMSVidTuner_Vtbl::new::<Identity, Impl, OFFSET>(),

@@ -486,8 +486,9 @@ pub struct IAppxAppInstallerReader_Vtbl {
 ::windows_core::imp::com_interface!(IAppxBlockMapBlock, IAppxBlockMapBlock_Vtbl, 0x75cf3930_3244_4fe0_a8c8_e0bcb270b889);
 ::windows_core::imp::interface_hierarchy!(IAppxBlockMapBlock, ::windows_core::IUnknown);
 impl IAppxBlockMapBlock {
-    pub unsafe fn GetHash(&self, buffersize: *mut u32, buffer: *mut *mut u8) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetHash)(::windows_core::Interface::as_raw(self), buffersize, buffer).ok()
+    pub unsafe fn GetHash(&self, buffersize: *mut u32) -> ::windows_core::Result<*mut u8> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetHash)(::windows_core::Interface::as_raw(self), buffersize, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCompressedSize(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();

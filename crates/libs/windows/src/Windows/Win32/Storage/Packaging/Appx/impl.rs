@@ -26,7 +26,7 @@ impl IAppxAppInstallerReader_Vtbl {
     }
 }
 pub trait IAppxBlockMapBlock_Impl: Sized {
-    fn GetHash(&self, buffersize: *mut u32, buffer: *mut *mut u8) -> ::windows_core::Result<()>;
+    fn GetHash(&self, buffersize: *mut u32) -> ::windows_core::Result<*mut u8>;
     fn GetCompressedSize(&self) -> ::windows_core::Result<u32>;
 }
 impl ::windows_core::RuntimeName for IAppxBlockMapBlock {}
@@ -35,7 +35,13 @@ impl IAppxBlockMapBlock_Vtbl {
         unsafe extern "system" fn GetHash<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxBlockMapBlock_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffersize: *mut u32, buffer: *mut *mut u8) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetHash(::core::mem::transmute_copy(&buffersize), ::core::mem::transmute_copy(&buffer)).into()
+            match this.GetHash(::core::mem::transmute_copy(&buffersize)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(buffer, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetCompressedSize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAppxBlockMapBlock_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

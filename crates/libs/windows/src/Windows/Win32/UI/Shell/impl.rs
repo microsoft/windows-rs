@@ -16465,7 +16465,7 @@ pub trait IShellLinkDual_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn ShowCommand(&self) -> ::windows_core::Result<i32>;
     fn SetShowCommand(&self, ishowcommand: i32) -> ::windows_core::Result<()>;
     fn Resolve(&self, fflags: i32) -> ::windows_core::Result<()>;
-    fn GetIconLocation(&self, pbs: *mut ::windows_core::BSTR, piicon: *mut i32) -> ::windows_core::Result<()>;
+    fn GetIconLocation(&self, pbs: *mut ::windows_core::BSTR) -> ::windows_core::Result<i32>;
     fn SetIconLocation(&self, bs: &::windows_core::BSTR, iicon: i32) -> ::windows_core::Result<()>;
     fn Save(&self, vwhere: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
 }
@@ -16578,7 +16578,13 @@ impl IShellLinkDual_Vtbl {
         unsafe extern "system" fn GetIconLocation<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbs: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, piicon: *mut i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetIconLocation(::core::mem::transmute_copy(&pbs), ::core::mem::transmute_copy(&piicon)).into()
+            match this.GetIconLocation(::core::mem::transmute_copy(&pbs)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(piicon, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetIconLocation<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellLinkDual_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bs: ::std::mem::MaybeUninit<::windows_core::BSTR>, iicon: i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -18438,7 +18444,7 @@ pub trait IShellWindows_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn Revoke(&self, lcookie: i32) -> ::windows_core::Result<()>;
     fn OnNavigate(&self, lcookie: i32, pvarloc: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn OnActivated(&self, lcookie: i32, factive: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
-    fn FindWindowSW(&self, pvarloc: *const ::windows_core::VARIANT, pvarlocroot: *const ::windows_core::VARIANT, swclass: ShellWindowTypeConstants, phwnd: *mut i32, swfwoptions: ShellWindowFindWindowOptions, ppdispout: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows_core::Result<()>;
+    fn FindWindowSW(&self, pvarloc: *const ::windows_core::VARIANT, pvarlocroot: *const ::windows_core::VARIANT, swclass: ShellWindowTypeConstants, phwnd: *mut i32, swfwoptions: ShellWindowFindWindowOptions) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
     fn OnCreated(&self, lcookie: i32, punk: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn ProcessAttachDetach(&self, fattach: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
@@ -18520,7 +18526,13 @@ impl IShellWindows_Vtbl {
         unsafe extern "system" fn FindWindowSW<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarloc: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarlocroot: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, swclass: ShellWindowTypeConstants, phwnd: *mut i32, swfwoptions: ShellWindowFindWindowOptions, ppdispout: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.FindWindowSW(::core::mem::transmute_copy(&pvarloc), ::core::mem::transmute_copy(&pvarlocroot), ::core::mem::transmute_copy(&swclass), ::core::mem::transmute_copy(&phwnd), ::core::mem::transmute_copy(&swfwoptions), ::core::mem::transmute_copy(&ppdispout)).into()
+            match this.FindWindowSW(::core::mem::transmute_copy(&pvarloc), ::core::mem::transmute_copy(&pvarlocroot), ::core::mem::transmute_copy(&swclass), ::core::mem::transmute_copy(&phwnd), ::core::mem::transmute_copy(&swfwoptions)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppdispout, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn OnCreated<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IShellWindows_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcookie: i32, punk: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

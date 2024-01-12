@@ -793,8 +793,9 @@ impl IXpsOMDictionary {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetAt(&self, index: u32, key: *mut ::windows_core::PWSTR, entry: *mut ::core::option::Option<IXpsOMShareable>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetAt)(::windows_core::Interface::as_raw(self), index, key, ::core::mem::transmute(entry)).ok()
+    pub unsafe fn GetAt(&self, index: u32, key: *mut ::windows_core::PWSTR) -> ::windows_core::Result<IXpsOMShareable> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetAt)(::windows_core::Interface::as_raw(self), index, key, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetByKey<P0, P1>(&self, key: P0, beforeentry: P1) -> ::windows_core::Result<IXpsOMShareable>
     where
@@ -1823,8 +1824,9 @@ impl IXpsOMGradientStop {
     pub unsafe fn SetOffset(&self, offset: f32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOffset)(::windows_core::Interface::as_raw(self), offset).ok()
     }
-    pub unsafe fn GetColor(&self, color: *mut XPS_COLOR, colorprofile: *mut ::core::option::Option<IXpsOMColorProfileResource>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetColor)(::windows_core::Interface::as_raw(self), color, ::core::mem::transmute(colorprofile)).ok()
+    pub unsafe fn GetColor(&self, color: *mut XPS_COLOR) -> ::windows_core::Result<IXpsOMColorProfileResource> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetColor)(::windows_core::Interface::as_raw(self), color, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetColor<P0>(&self, color: *const XPS_COLOR, colorprofile: P0) -> ::windows_core::Result<()>
     where
@@ -4773,8 +4775,9 @@ impl IXpsOMSolidColorBrush {
     pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetOpacity)(::windows_core::Interface::as_raw(self), opacity).ok()
     }
-    pub unsafe fn GetColor(&self, color: *mut XPS_COLOR, colorprofile: *mut ::core::option::Option<IXpsOMColorProfileResource>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetColor)(::windows_core::Interface::as_raw(self), color, ::core::mem::transmute(colorprofile)).ok()
+    pub unsafe fn GetColor(&self, color: *mut XPS_COLOR) -> ::windows_core::Result<IXpsOMColorProfileResource> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetColor)(::windows_core::Interface::as_raw(self), color, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetColor<P0>(&self, color: *const XPS_COLOR, colorprofile: P0) -> ::windows_core::Result<()>
     where

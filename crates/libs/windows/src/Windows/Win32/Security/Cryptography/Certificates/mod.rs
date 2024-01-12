@@ -7626,12 +7626,13 @@ impl INDESPolicy {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GenerateChallenge)(::windows_core::Interface::as_raw(self), pwsztemplate.into_param().abi(), pwszparams.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn VerifyRequest<P0, P1>(&self, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: P0, pwsztransactionid: P1, pfverified: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>
+    pub unsafe fn VerifyRequest<P0, P1>(&self, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: P0, pwsztransactionid: P1) -> ::windows_core::Result<super::super::super::Foundation::BOOL>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).VerifyRequest)(::windows_core::Interface::as_raw(self), pctbrequest, pctbsigningcertencoded, pwsztemplate.into_param().abi(), pwsztransactionid.into_param().abi(), pfverified).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).VerifyRequest)(::windows_core::Interface::as_raw(self), pctbrequest, pctbsigningcertencoded, pwsztemplate.into_param().abi(), pwsztransactionid.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Notify<P0, P1>(&self, pwszchallenge: P0, pwsztransactionid: P1, disposition: X509SCEPDisposition, lasthresult: i32, pctbissuedcertencoded: *mut CERTTRANSBLOB) -> ::windows_core::Result<()>
     where

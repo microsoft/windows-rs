@@ -434,8 +434,8 @@ pub trait IMILBitmapEffectImpl_Impl: Sized {
     fn SetParentEffect(&self, pparenteffect: ::core::option::Option<&IMILBitmapEffectGroup>) -> ::windows_core::Result<()>;
     fn GetInputSource(&self, uiindex: u32) -> ::windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
     fn GetInputSourceBounds(&self, uiindex: u32, prect: *mut MilRectD) -> ::windows_core::Result<()>;
-    fn GetInputBitmapSource(&self, uiindex: u32, prendercontext: ::core::option::Option<&IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows_core::Result<()>;
-    fn GetOutputBitmapSource(&self, uiindex: u32, prendercontext: ::core::option::Option<&IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows_core::Result<()>;
+    fn GetInputBitmapSource(&self, uiindex: u32, prendercontext: ::core::option::Option<&IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
+    fn GetOutputBitmapSource(&self, uiindex: u32, prendercontext: ::core::option::Option<&IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
     fn Initialize(&self, pinner: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Imaging")]
@@ -478,12 +478,24 @@ impl IMILBitmapEffectImpl_Vtbl {
         unsafe extern "system" fn GetInputBitmapSource<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, prendercontext: *mut ::core::ffi::c_void, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetInputBitmapSource(::core::mem::transmute_copy(&uiindex), ::windows_core::from_raw_borrowed(&prendercontext), ::core::mem::transmute_copy(&pfmodifyinplace), ::core::mem::transmute_copy(&ppbitmapsource)).into()
+            match this.GetInputBitmapSource(::core::mem::transmute_copy(&uiindex), ::windows_core::from_raw_borrowed(&prendercontext), ::core::mem::transmute_copy(&pfmodifyinplace)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppbitmapsource, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetOutputBitmapSource<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, prendercontext: *mut ::core::ffi::c_void, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetOutputBitmapSource(::core::mem::transmute_copy(&uiindex), ::windows_core::from_raw_borrowed(&prendercontext), ::core::mem::transmute_copy(&pfmodifyinplace), ::core::mem::transmute_copy(&ppbitmapsource)).into()
+            match this.GetOutputBitmapSource(::core::mem::transmute_copy(&uiindex), ::windows_core::from_raw_borrowed(&prendercontext), ::core::mem::transmute_copy(&pfmodifyinplace)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppbitmapsource, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinner: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -653,7 +665,7 @@ impl IMILBitmapEffectOutputConnectorImpl_Vtbl {
 #[doc = "Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Graphics_Imaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Dwm", feature = "Win32_Graphics_Imaging"))]
 pub trait IMILBitmapEffectPrimitive_Impl: Sized {
-    fn GetOutput(&self, uiindex: u32, pcontext: ::core::option::Option<&IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows_core::Result<()>;
+    fn GetOutput(&self, uiindex: u32, pcontext: ::core::option::Option<&IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
     fn TransformPoint(&self, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: ::core::option::Option<&IMILBitmapEffectRenderContext>, pfpointtransformed: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn TransformRect(&self, uiindex: u32, p: *mut MilRectD, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: ::core::option::Option<&IMILBitmapEffectRenderContext>) -> ::windows_core::Result<()>;
     fn HasAffineTransform(&self, uiindex: u32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -668,7 +680,13 @@ impl IMILBitmapEffectPrimitive_Vtbl {
         unsafe extern "system" fn GetOutput<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, pcontext: *mut ::core::ffi::c_void, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetOutput(::core::mem::transmute_copy(&uiindex), ::windows_core::from_raw_borrowed(&pcontext), ::core::mem::transmute_copy(&pfmodifyinplace), ::core::mem::transmute_copy(&ppbitmapsource)).into()
+            match this.GetOutput(::core::mem::transmute_copy(&uiindex), ::windows_core::from_raw_borrowed(&pcontext), ::core::mem::transmute_copy(&pfmodifyinplace)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppbitmapsource, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn TransformPoint<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMILBitmapEffectPrimitive_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: super::super::Foundation::VARIANT_BOOL, pcontext: *mut ::core::ffi::c_void, pfpointtransformed: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

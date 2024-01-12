@@ -22586,8 +22586,9 @@ impl IShellLinkDual {
     pub unsafe fn Resolve(&self, fflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Resolve)(::windows_core::Interface::as_raw(self), fflags).ok()
     }
-    pub unsafe fn GetIconLocation(&self, pbs: *mut ::windows_core::BSTR, piicon: *mut i32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetIconLocation)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbs), piicon).ok()
+    pub unsafe fn GetIconLocation(&self, pbs: *mut ::windows_core::BSTR) -> ::windows_core::Result<i32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetIconLocation)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbs), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetIconLocation<P0>(&self, bs: P0, iicon: i32) -> ::windows_core::Result<()>
     where
@@ -22692,8 +22693,9 @@ impl IShellLinkDual2 {
     pub unsafe fn Resolve(&self, fflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Resolve)(::windows_core::Interface::as_raw(self), fflags).ok()
     }
-    pub unsafe fn GetIconLocation(&self, pbs: *mut ::windows_core::BSTR, piicon: *mut i32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GetIconLocation)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbs), piicon).ok()
+    pub unsafe fn GetIconLocation(&self, pbs: *mut ::windows_core::BSTR) -> ::windows_core::Result<i32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.GetIconLocation)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbs), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetIconLocation<P0>(&self, bs: P0, iicon: i32) -> ::windows_core::Result<()>
     where
@@ -26846,8 +26848,9 @@ impl IShellWindows {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn FindWindowSW(&self, pvarloc: *const ::windows_core::VARIANT, pvarlocroot: *const ::windows_core::VARIANT, swclass: ShellWindowTypeConstants, phwnd: *mut i32, swfwoptions: ShellWindowFindWindowOptions, ppdispout: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).FindWindowSW)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pvarloc), ::core::mem::transmute(pvarlocroot), swclass, phwnd, swfwoptions, ::core::mem::transmute(ppdispout)).ok()
+    pub unsafe fn FindWindowSW(&self, pvarloc: *const ::windows_core::VARIANT, pvarlocroot: *const ::windows_core::VARIANT, swclass: ShellWindowTypeConstants, phwnd: *mut i32, swfwoptions: ShellWindowFindWindowOptions) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).FindWindowSW)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pvarloc), ::core::mem::transmute(pvarlocroot), swclass, phwnd, swfwoptions, &mut result__).from_abi(result__)
     }
     pub unsafe fn OnCreated<P0>(&self, lcookie: i32, punk: P0) -> ::windows_core::Result<()>
     where
