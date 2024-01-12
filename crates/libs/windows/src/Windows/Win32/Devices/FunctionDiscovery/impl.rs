@@ -3,8 +3,8 @@
 pub trait IFunctionDiscovery_Impl: Sized {
     fn GetInstanceCollection(&self, pszcategory: &::windows_core::PCWSTR, pszsubcategory: &::windows_core::PCWSTR, fincludeallsubcategories: super::super::Foundation::BOOL) -> ::windows_core::Result<IFunctionInstanceCollection>;
     fn GetInstance(&self, pszfunctioninstanceidentity: &::windows_core::PCWSTR) -> ::windows_core::Result<IFunctionInstance>;
-    fn CreateInstanceCollectionQuery(&self, pszcategory: &::windows_core::PCWSTR, pszsubcategory: &::windows_core::PCWSTR, fincludeallsubcategories: super::super::Foundation::BOOL, pifunctiondiscoverynotification: ::core::option::Option<&IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut u64, ppifunctioninstancecollectionquery: *mut ::core::option::Option<IFunctionInstanceCollectionQuery>) -> ::windows_core::Result<()>;
-    fn CreateInstanceQuery(&self, pszfunctioninstanceidentity: &::windows_core::PCWSTR, pifunctiondiscoverynotification: ::core::option::Option<&IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut u64, ppifunctioninstancequery: *mut ::core::option::Option<IFunctionInstanceQuery>) -> ::windows_core::Result<()>;
+    fn CreateInstanceCollectionQuery(&self, pszcategory: &::windows_core::PCWSTR, pszsubcategory: &::windows_core::PCWSTR, fincludeallsubcategories: super::super::Foundation::BOOL, pifunctiondiscoverynotification: ::core::option::Option<&IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut u64) -> ::windows_core::Result<IFunctionInstanceCollectionQuery>;
+    fn CreateInstanceQuery(&self, pszfunctioninstanceidentity: &::windows_core::PCWSTR, pifunctiondiscoverynotification: ::core::option::Option<&IFunctionDiscoveryNotification>, pfdqcquerycontext: *mut u64) -> ::windows_core::Result<IFunctionInstanceQuery>;
     fn AddInstance(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: &::windows_core::PCWSTR, pszsubcategory: &::windows_core::PCWSTR, pszcategoryidentity: &::windows_core::PCWSTR) -> ::windows_core::Result<IFunctionInstance>;
     fn RemoveInstance(&self, enumsystemvisibility: SystemVisibilityFlags, pszcategory: &::windows_core::PCWSTR, pszsubcategory: &::windows_core::PCWSTR, pszcategoryidentity: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
 }
@@ -38,12 +38,24 @@ impl IFunctionDiscovery_Vtbl {
         unsafe extern "system" fn CreateInstanceCollectionQuery<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFunctionDiscovery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcategory: ::windows_core::PCWSTR, pszsubcategory: ::windows_core::PCWSTR, fincludeallsubcategories: super::super::Foundation::BOOL, pifunctiondiscoverynotification: *mut ::core::ffi::c_void, pfdqcquerycontext: *mut u64, ppifunctioninstancecollectionquery: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateInstanceCollectionQuery(::core::mem::transmute(&pszcategory), ::core::mem::transmute(&pszsubcategory), ::core::mem::transmute_copy(&fincludeallsubcategories), ::windows_core::from_raw_borrowed(&pifunctiondiscoverynotification), ::core::mem::transmute_copy(&pfdqcquerycontext), ::core::mem::transmute_copy(&ppifunctioninstancecollectionquery)).into()
+            match this.CreateInstanceCollectionQuery(::core::mem::transmute(&pszcategory), ::core::mem::transmute(&pszsubcategory), ::core::mem::transmute_copy(&fincludeallsubcategories), ::windows_core::from_raw_borrowed(&pifunctiondiscoverynotification), ::core::mem::transmute_copy(&pfdqcquerycontext)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppifunctioninstancecollectionquery, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateInstanceQuery<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFunctionDiscovery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfunctioninstanceidentity: ::windows_core::PCWSTR, pifunctiondiscoverynotification: *mut ::core::ffi::c_void, pfdqcquerycontext: *mut u64, ppifunctioninstancequery: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateInstanceQuery(::core::mem::transmute(&pszfunctioninstanceidentity), ::windows_core::from_raw_borrowed(&pifunctiondiscoverynotification), ::core::mem::transmute_copy(&pfdqcquerycontext), ::core::mem::transmute_copy(&ppifunctioninstancequery)).into()
+            match this.CreateInstanceQuery(::core::mem::transmute(&pszfunctioninstanceidentity), ::windows_core::from_raw_borrowed(&pifunctiondiscoverynotification), ::core::mem::transmute_copy(&pfdqcquerycontext)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppifunctioninstancequery, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn AddInstance<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFunctionDiscovery_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumsystemvisibility: SystemVisibilityFlags, pszcategory: ::windows_core::PCWSTR, pszsubcategory: ::windows_core::PCWSTR, pszcategoryidentity: ::windows_core::PCWSTR, ppifunctioninstance: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -407,7 +419,7 @@ impl IFunctionInstance_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFunctionInstanceCollection_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<u32>;
-    fn Get(&self, pszinstanceidentity: &::windows_core::PCWSTR, pdwindex: *mut u32, ppifunctioninstance: *mut ::core::option::Option<IFunctionInstance>) -> ::windows_core::Result<()>;
+    fn Get(&self, pszinstanceidentity: &::windows_core::PCWSTR, pdwindex: *mut u32) -> ::windows_core::Result<IFunctionInstance>;
     fn Item(&self, dwindex: u32) -> ::windows_core::Result<IFunctionInstance>;
     fn Add(&self, pifunctioninstance: ::core::option::Option<&IFunctionInstance>) -> ::windows_core::Result<()>;
     fn Remove(&self, dwindex: u32) -> ::windows_core::Result<IFunctionInstance>;
@@ -433,7 +445,13 @@ impl IFunctionInstanceCollection_Vtbl {
         unsafe extern "system" fn Get<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFunctionInstanceCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszinstanceidentity: ::windows_core::PCWSTR, pdwindex: *mut u32, ppifunctioninstance: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Get(::core::mem::transmute(&pszinstanceidentity), ::core::mem::transmute_copy(&pdwindex), ::core::mem::transmute_copy(&ppifunctioninstance)).into()
+            match this.Get(::core::mem::transmute(&pszinstanceidentity), ::core::mem::transmute_copy(&pdwindex)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppifunctioninstance, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFunctionInstanceCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, ppifunctioninstance: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -630,7 +648,7 @@ impl IPNPXDeviceAssociation_Vtbl {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IPropertyStoreCollection_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<u32>;
-    fn Get(&self, pszinstanceidentity: &::windows_core::PCWSTR, pdwindex: *mut u32, ppipropertystore: *mut ::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows_core::Result<()>;
+    fn Get(&self, pszinstanceidentity: &::windows_core::PCWSTR, pdwindex: *mut u32) -> ::windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
     fn Item(&self, dwindex: u32) -> ::windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
     fn Add(&self, pipropertystore: ::core::option::Option<&super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows_core::Result<()>;
     fn Remove(&self, dwindex: u32) -> ::windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
@@ -656,7 +674,13 @@ impl IPropertyStoreCollection_Vtbl {
         unsafe extern "system" fn Get<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStoreCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszinstanceidentity: ::windows_core::PCWSTR, pdwindex: *mut u32, ppipropertystore: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Get(::core::mem::transmute(&pszinstanceidentity), ::core::mem::transmute_copy(&pdwindex), ::core::mem::transmute_copy(&ppipropertystore)).into()
+            match this.Get(::core::mem::transmute(&pszinstanceidentity), ::core::mem::transmute_copy(&pdwindex)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppipropertystore, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStoreCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, ppipropertystore: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

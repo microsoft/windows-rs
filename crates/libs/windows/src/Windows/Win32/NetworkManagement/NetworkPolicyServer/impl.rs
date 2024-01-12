@@ -182,9 +182,9 @@ impl ISdoCollection_Vtbl {
 #[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISdoDictionaryOld_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn EnumAttributes(&self, id: *mut ::windows_core::VARIANT, pvalues: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()>;
+    fn EnumAttributes(&self, id: *mut ::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::VARIANT>;
     fn GetAttributeInfo(&self, id: ATTRIBUTEID, pinfoids: *const ::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::VARIANT>;
-    fn EnumAttributeValues(&self, id: ATTRIBUTEID, pvalueids: *mut ::windows_core::VARIANT, pvaluesdesc: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()>;
+    fn EnumAttributeValues(&self, id: ATTRIBUTEID, pvalueids: *mut ::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::VARIANT>;
     fn CreateAttribute(&self, id: ATTRIBUTEID) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
     fn GetAttributeID(&self, bstrattributename: &::windows_core::BSTR) -> ::windows_core::Result<ATTRIBUTEID>;
 }
@@ -196,7 +196,13 @@ impl ISdoDictionaryOld_Vtbl {
         unsafe extern "system" fn EnumAttributes<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvalues: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EnumAttributes(::core::mem::transmute_copy(&id), ::core::mem::transmute_copy(&pvalues)).into()
+            match this.EnumAttributes(::core::mem::transmute_copy(&id)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pvalues, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetAttributeInfo<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ATTRIBUTEID, pinfoids: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pinfovalues: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -212,7 +218,13 @@ impl ISdoDictionaryOld_Vtbl {
         unsafe extern "system" fn EnumAttributeValues<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ATTRIBUTEID, pvalueids: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvaluesdesc: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.EnumAttributeValues(::core::mem::transmute_copy(&id), ::core::mem::transmute_copy(&pvalueids), ::core::mem::transmute_copy(&pvaluesdesc)).into()
+            match this.EnumAttributeValues(::core::mem::transmute_copy(&id), ::core::mem::transmute_copy(&pvalueids)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pvaluesdesc, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateAttribute<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ATTRIBUTEID, ppattributeobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

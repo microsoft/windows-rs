@@ -478,11 +478,12 @@ impl IContactAggregationManager {
     pub unsafe fn GetVersionInfo(&self, plmajorversion: *mut i32, plminorversion: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVersionInfo)(::windows_core::Interface::as_raw(self), plmajorversion, plminorversion).ok()
     }
-    pub unsafe fn CreateOrOpenGroup<P0>(&self, pgroupname: P0, options: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS, pcreatedgroup: *mut super::super::Foundation::BOOL, ppgroup: *mut ::core::option::Option<IContactAggregationGroup>) -> ::windows_core::Result<()>
+    pub unsafe fn CreateOrOpenGroup<P0>(&self, pgroupname: P0, options: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS, pcreatedgroup: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<IContactAggregationGroup>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).CreateOrOpenGroup)(::windows_core::Interface::as_raw(self), pgroupname.into_param().abi(), options, pcreatedgroup, ::core::mem::transmute(ppgroup)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).CreateOrOpenGroup)(::windows_core::Interface::as_raw(self), pgroupname.into_param().abi(), options, pcreatedgroup, &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateExternalContact(&self) -> ::windows_core::Result<IContactAggregationContact> {
         let mut result__ = ::std::mem::zeroed();

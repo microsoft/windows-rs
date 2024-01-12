@@ -791,12 +791,13 @@ impl IUPnPService {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryStateVariable)(::windows_core::Interface::as_raw(self), bstrvariablename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn InvokeAction<P0, P1>(&self, bstractionname: P0, vinactionargs: P1, pvoutactionargs: *mut ::windows_core::VARIANT, pvretval: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()>
+    pub unsafe fn InvokeAction<P0, P1>(&self, bstractionname: P0, vinactionargs: P1, pvoutactionargs: *mut ::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).InvokeAction)(::windows_core::Interface::as_raw(self), bstractionname.into_param().abi(), vinactionargs.into_param().abi(), ::core::mem::transmute(pvoutactionargs), ::core::mem::transmute(pvretval)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).InvokeAction)(::windows_core::Interface::as_raw(self), bstractionname.into_param().abi(), vinactionargs.into_param().abi(), ::core::mem::transmute(pvoutactionargs), &mut result__).from_abi(result__)
     }
     pub unsafe fn ServiceTypeIdentifier(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();

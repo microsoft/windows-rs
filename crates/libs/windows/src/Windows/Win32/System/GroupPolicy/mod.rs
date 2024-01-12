@@ -715,8 +715,9 @@ impl IGPMBackup {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1676,11 +1677,12 @@ impl IGPMDomain {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RestoreGPO<P0>(&self, pigpmbackup: P0, ldcflags: i32, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
+    pub unsafe fn RestoreGPO<P0>(&self, pigpmbackup: P0, ldcflags: i32, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult>
     where
         P0: ::windows_core::IntoParam<IGPMBackup>,
     {
-        (::windows_core::Interface::vtable(self).RestoreGPO)(::windows_core::Interface::as_raw(self), pigpmbackup.into_param().abi(), ldcflags, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).RestoreGPO)(::windows_core::Interface::as_raw(self), pigpmbackup.into_param().abi(), ldcflags, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1804,11 +1806,12 @@ impl IGPMDomain2 {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RestoreGPO<P0>(&self, pigpmbackup: P0, ldcflags: i32, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
+    pub unsafe fn RestoreGPO<P0>(&self, pigpmbackup: P0, ldcflags: i32, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult>
     where
         P0: ::windows_core::IntoParam<IGPMBackup>,
     {
-        (::windows_core::Interface::vtable(self).base__.RestoreGPO)(::windows_core::Interface::as_raw(self), pigpmbackup.into_param().abi(), ldcflags, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.RestoreGPO)(::windows_core::Interface::as_raw(self), pigpmbackup.into_param().abi(), ldcflags, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1881,20 +1884,22 @@ impl IGPMDomain2 {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LoadStarterGPO<P0, P1>(&self, bstrloadfile: P0, boverwrite: P1, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
+    pub unsafe fn LoadStarterGPO<P0, P1>(&self, bstrloadfile: P0, boverwrite: P1, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows_core::Interface::vtable(self).LoadStarterGPO)(::windows_core::Interface::as_raw(self), bstrloadfile.into_param().abi(), boverwrite.into_param().abi(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).LoadStarterGPO)(::windows_core::Interface::as_raw(self), bstrloadfile.into_param().abi(), boverwrite.into_param().abi(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RestoreStarterGPO<P0>(&self, pigpmtmplbackup: P0, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
+    pub unsafe fn RestoreStarterGPO<P0>(&self, pigpmtmplbackup: P0, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult>
     where
         P0: ::windows_core::IntoParam<IGPMStarterGPOBackup>,
     {
-        (::windows_core::Interface::vtable(self).RestoreStarterGPO)(::windows_core::Interface::as_raw(self), pigpmtmplbackup.into_param().abi(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).RestoreStarterGPO)(::windows_core::Interface::as_raw(self), pigpmtmplbackup.into_param().abi(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1972,11 +1977,12 @@ impl IGPMDomain3 {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RestoreGPO<P0>(&self, pigpmbackup: P0, ldcflags: i32, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
+    pub unsafe fn RestoreGPO<P0>(&self, pigpmbackup: P0, ldcflags: i32, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult>
     where
         P0: ::windows_core::IntoParam<IGPMBackup>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.RestoreGPO)(::windows_core::Interface::as_raw(self), pigpmbackup.into_param().abi(), ldcflags, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.RestoreGPO)(::windows_core::Interface::as_raw(self), pigpmbackup.into_param().abi(), ldcflags, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2049,25 +2055,28 @@ impl IGPMDomain3 {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LoadStarterGPO<P0, P1>(&self, bstrloadfile: P0, boverwrite: P1, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
+    pub unsafe fn LoadStarterGPO<P0, P1>(&self, bstrloadfile: P0, boverwrite: P1, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows_core::Interface::vtable(self).base__.LoadStarterGPO)(::windows_core::Interface::as_raw(self), bstrloadfile.into_param().abi(), boverwrite.into_param().abi(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.LoadStarterGPO)(::windows_core::Interface::as_raw(self), bstrloadfile.into_param().abi(), boverwrite.into_param().abi(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RestoreStarterGPO<P0>(&self, pigpmtmplbackup: P0, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
+    pub unsafe fn RestoreStarterGPO<P0>(&self, pigpmtmplbackup: P0, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult>
     where
         P0: ::windows_core::IntoParam<IGPMStarterGPOBackup>,
     {
-        (::windows_core::Interface::vtable(self).base__.RestoreStarterGPO)(::windows_core::Interface::as_raw(self), pigpmtmplbackup.into_param().abi(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.RestoreStarterGPO)(::windows_core::Interface::as_raw(self), pigpmtmplbackup.into_param().abi(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     pub unsafe fn InfrastructureDC(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -2206,25 +2215,28 @@ impl IGPMGPO {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Backup<P0, P1>(&self, bstrbackupdir: P0, bstrcomment: P1, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
+    pub unsafe fn Backup<P0, P1>(&self, bstrbackupdir: P0, bstrcomment: P1, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).Backup)(::windows_core::Interface::as_raw(self), bstrbackupdir.into_param().abi(), bstrcomment.into_param().abi(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).Backup)(::windows_core::Interface::as_raw(self), bstrbackupdir.into_param().abi(), bstrcomment.into_param().abi(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Import<P0>(&self, lflags: i32, pigpmbackup: P0, pvarmigrationtable: *const ::windows_core::VARIANT, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
+    pub unsafe fn Import<P0>(&self, lflags: i32, pigpmbackup: P0, pvarmigrationtable: *const ::windows_core::VARIANT, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult>
     where
         P0: ::windows_core::IntoParam<IGPMBackup>,
     {
-        (::windows_core::Interface::vtable(self).Import)(::windows_core::Interface::as_raw(self), lflags, pigpmbackup.into_param().abi(), ::core::mem::transmute(pvarmigrationtable), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).Import)(::windows_core::Interface::as_raw(self), lflags, pigpmbackup.into_param().abi(), ::core::mem::transmute(pvarmigrationtable), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2237,11 +2249,12 @@ impl IGPMGPO {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyTo<P0>(&self, lflags: i32, pigpmdomain: P0, pvarnewdisplayname: *const ::windows_core::VARIANT, pvarmigrationtable: *const ::windows_core::VARIANT, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
+    pub unsafe fn CopyTo<P0>(&self, lflags: i32, pigpmdomain: P0, pvarnewdisplayname: *const ::windows_core::VARIANT, pvarmigrationtable: *const ::windows_core::VARIANT, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult>
     where
         P0: ::windows_core::IntoParam<IGPMDomain>,
     {
-        (::windows_core::Interface::vtable(self).CopyTo)(::windows_core::Interface::as_raw(self), lflags, pigpmdomain.into_param().abi(), ::core::mem::transmute(pvarnewdisplayname), ::core::mem::transmute(pvarmigrationtable), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).CopyTo)(::windows_core::Interface::as_raw(self), lflags, pigpmdomain.into_param().abi(), ::core::mem::transmute(pvarnewdisplayname), ::core::mem::transmute(pvarmigrationtable), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2443,25 +2456,28 @@ impl IGPMGPO2 {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Backup<P0, P1>(&self, bstrbackupdir: P0, bstrcomment: P1, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
+    pub unsafe fn Backup<P0, P1>(&self, bstrbackupdir: P0, bstrcomment: P1, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.Backup)(::windows_core::Interface::as_raw(self), bstrbackupdir.into_param().abi(), bstrcomment.into_param().abi(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.Backup)(::windows_core::Interface::as_raw(self), bstrbackupdir.into_param().abi(), bstrcomment.into_param().abi(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Import<P0>(&self, lflags: i32, pigpmbackup: P0, pvarmigrationtable: *const ::windows_core::VARIANT, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
+    pub unsafe fn Import<P0>(&self, lflags: i32, pigpmbackup: P0, pvarmigrationtable: *const ::windows_core::VARIANT, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult>
     where
         P0: ::windows_core::IntoParam<IGPMBackup>,
     {
-        (::windows_core::Interface::vtable(self).base__.Import)(::windows_core::Interface::as_raw(self), lflags, pigpmbackup.into_param().abi(), ::core::mem::transmute(pvarmigrationtable), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.Import)(::windows_core::Interface::as_raw(self), lflags, pigpmbackup.into_param().abi(), ::core::mem::transmute(pvarmigrationtable), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2474,11 +2490,12 @@ impl IGPMGPO2 {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyTo<P0>(&self, lflags: i32, pigpmdomain: P0, pvarnewdisplayname: *const ::windows_core::VARIANT, pvarmigrationtable: *const ::windows_core::VARIANT, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
+    pub unsafe fn CopyTo<P0>(&self, lflags: i32, pigpmdomain: P0, pvarnewdisplayname: *const ::windows_core::VARIANT, pvarmigrationtable: *const ::windows_core::VARIANT, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult>
     where
         P0: ::windows_core::IntoParam<IGPMDomain>,
     {
-        (::windows_core::Interface::vtable(self).base__.CopyTo)(::windows_core::Interface::as_raw(self), lflags, pigpmdomain.into_param().abi(), ::core::mem::transmute(pvarnewdisplayname), ::core::mem::transmute(pvarmigrationtable), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.CopyTo)(::windows_core::Interface::as_raw(self), lflags, pigpmdomain.into_param().abi(), ::core::mem::transmute(pvarnewdisplayname), ::core::mem::transmute(pvarmigrationtable), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2630,25 +2647,28 @@ impl IGPMGPO3 {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Backup<P0, P1>(&self, bstrbackupdir: P0, bstrcomment: P1, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
+    pub unsafe fn Backup<P0, P1>(&self, bstrbackupdir: P0, bstrcomment: P1, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.Backup)(::windows_core::Interface::as_raw(self), bstrbackupdir.into_param().abi(), bstrcomment.into_param().abi(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.Backup)(::windows_core::Interface::as_raw(self), bstrbackupdir.into_param().abi(), bstrcomment.into_param().abi(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Import<P0>(&self, lflags: i32, pigpmbackup: P0, pvarmigrationtable: *const ::windows_core::VARIANT, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
+    pub unsafe fn Import<P0>(&self, lflags: i32, pigpmbackup: P0, pvarmigrationtable: *const ::windows_core::VARIANT, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult>
     where
         P0: ::windows_core::IntoParam<IGPMBackup>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.Import)(::windows_core::Interface::as_raw(self), lflags, pigpmbackup.into_param().abi(), ::core::mem::transmute(pvarmigrationtable), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.Import)(::windows_core::Interface::as_raw(self), lflags, pigpmbackup.into_param().abi(), ::core::mem::transmute(pvarmigrationtable), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.base__.GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2661,11 +2681,12 @@ impl IGPMGPO3 {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyTo<P0>(&self, lflags: i32, pigpmdomain: P0, pvarnewdisplayname: *const ::windows_core::VARIANT, pvarmigrationtable: *const ::windows_core::VARIANT, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
+    pub unsafe fn CopyTo<P0>(&self, lflags: i32, pigpmdomain: P0, pvarnewdisplayname: *const ::windows_core::VARIANT, pvarmigrationtable: *const ::windows_core::VARIANT, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult>
     where
         P0: ::windows_core::IntoParam<IGPMDomain>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.CopyTo)(::windows_core::Interface::as_raw(self), lflags, pigpmdomain.into_param().abi(), ::core::mem::transmute(pvarnewdisplayname), ::core::mem::transmute(pvarmigrationtable), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.base__.CopyTo)(::windows_core::Interface::as_raw(self), lflags, pigpmdomain.into_param().abi(), ::core::mem::transmute(pvarnewdisplayname), ::core::mem::transmute(pvarmigrationtable), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3255,8 +3276,9 @@ impl IGPMRSOP {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3715,22 +3737,24 @@ impl IGPMStarterGPO {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Save<P0, P1, P2>(&self, bstrsavefile: P0, boverwrite: P1, bsaveassystem: P2, bstrlanguage: *const ::windows_core::VARIANT, bstrauthor: *const ::windows_core::VARIANT, bstrproduct: *const ::windows_core::VARIANT, bstruniqueid: *const ::windows_core::VARIANT, bstrversion: *const ::windows_core::VARIANT, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
+    pub unsafe fn Save<P0, P1, P2>(&self, bstrsavefile: P0, boverwrite: P1, bsaveassystem: P2, bstrlanguage: *const ::windows_core::VARIANT, bstrauthor: *const ::windows_core::VARIANT, bstrproduct: *const ::windows_core::VARIANT, bstruniqueid: *const ::windows_core::VARIANT, bstrversion: *const ::windows_core::VARIANT, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
         P2: ::windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        (::windows_core::Interface::vtable(self).Save)(::windows_core::Interface::as_raw(self), bstrsavefile.into_param().abi(), boverwrite.into_param().abi(), bsaveassystem.into_param().abi(), ::core::mem::transmute(bstrlanguage), ::core::mem::transmute(bstrauthor), ::core::mem::transmute(bstrproduct), ::core::mem::transmute(bstruniqueid), ::core::mem::transmute(bstrversion), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).Save)(::windows_core::Interface::as_raw(self), bstrsavefile.into_param().abi(), boverwrite.into_param().abi(), bsaveassystem.into_param().abi(), ::core::mem::transmute(bstrlanguage), ::core::mem::transmute(bstrauthor), ::core::mem::transmute(bstrproduct), ::core::mem::transmute(bstruniqueid), ::core::mem::transmute(bstrversion), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Backup<P0, P1>(&self, bstrbackupdir: P0, bstrcomment: P1, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
+    pub unsafe fn Backup<P0, P1>(&self, bstrbackupdir: P0, bstrcomment: P1, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).Backup)(::windows_core::Interface::as_raw(self), bstrbackupdir.into_param().abi(), bstrcomment.into_param().abi(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).Backup)(::windows_core::Interface::as_raw(self), bstrbackupdir.into_param().abi(), bstrcomment.into_param().abi(), ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3877,8 +3901,9 @@ impl IGPMStarterGPOBackup {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), ::core::mem::transmute(ppigpmresult)).ok()
+    pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const ::windows_core::VARIANT, pvargpmcancel: *mut ::windows_core::VARIANT) -> ::windows_core::Result<IGPMResult> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, ::core::mem::transmute(pvargpmprogress), ::core::mem::transmute(pvargpmcancel), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]

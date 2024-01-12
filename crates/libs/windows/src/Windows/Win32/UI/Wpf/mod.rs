@@ -276,19 +276,21 @@ impl IMILBitmapEffectImpl {
     }
     #[doc = "Required features: `\"Win32_Graphics_Imaging\"`"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
-    pub unsafe fn GetInputBitmapSource<P0>(&self, uiindex: u32, prendercontext: P0, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows_core::Result<()>
+    pub unsafe fn GetInputBitmapSource<P0>(&self, uiindex: u32, prendercontext: P0, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>
     where
         P0: ::windows_core::IntoParam<IMILBitmapEffectRenderContext>,
     {
-        (::windows_core::Interface::vtable(self).GetInputBitmapSource)(::windows_core::Interface::as_raw(self), uiindex, prendercontext.into_param().abi(), pfmodifyinplace, ::core::mem::transmute(ppbitmapsource)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetInputBitmapSource)(::windows_core::Interface::as_raw(self), uiindex, prendercontext.into_param().abi(), pfmodifyinplace, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_Graphics_Imaging\"`"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
-    pub unsafe fn GetOutputBitmapSource<P0>(&self, uiindex: u32, prendercontext: P0, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows_core::Result<()>
+    pub unsafe fn GetOutputBitmapSource<P0>(&self, uiindex: u32, prendercontext: P0, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>
     where
         P0: ::windows_core::IntoParam<IMILBitmapEffectRenderContext>,
     {
-        (::windows_core::Interface::vtable(self).GetOutputBitmapSource)(::windows_core::Interface::as_raw(self), uiindex, prendercontext.into_param().abi(), pfmodifyinplace, ::core::mem::transmute(ppbitmapsource)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetOutputBitmapSource)(::windows_core::Interface::as_raw(self), uiindex, prendercontext.into_param().abi(), pfmodifyinplace, &mut result__).from_abi(result__)
     }
     pub unsafe fn Initialize<P0>(&self, pinner: P0) -> ::windows_core::Result<()>
     where
@@ -462,11 +464,12 @@ pub struct IMILBitmapEffectOutputConnectorImpl_Vtbl {
 impl IMILBitmapEffectPrimitive {
     #[doc = "Required features: `\"Win32_Graphics_Imaging\"`"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
-    pub unsafe fn GetOutput<P0>(&self, uiindex: u32, pcontext: P0, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows_core::Result<()>
+    pub unsafe fn GetOutput<P0>(&self, uiindex: u32, pcontext: P0, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>
     where
         P0: ::windows_core::IntoParam<IMILBitmapEffectRenderContext>,
     {
-        (::windows_core::Interface::vtable(self).GetOutput)(::windows_core::Interface::as_raw(self), uiindex, pcontext.into_param().abi(), pfmodifyinplace, ::core::mem::transmute(ppbitmapsource)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetOutput)(::windows_core::Interface::as_raw(self), uiindex, pcontext.into_param().abi(), pfmodifyinplace, &mut result__).from_abi(result__)
     }
     pub unsafe fn TransformPoint<P0, P1>(&self, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: P0, pcontext: P1, pfpointtransformed: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>
     where

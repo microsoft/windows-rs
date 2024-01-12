@@ -2434,22 +2434,25 @@ impl ITypeName {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNameCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetNames(&self, count: u32, rgbsznames: *mut ::windows_core::BSTR, pcount: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetNames)(::windows_core::Interface::as_raw(self), count, ::core::mem::transmute(rgbsznames), pcount).ok()
+    pub unsafe fn GetNames(&self, count: u32, rgbsznames: *mut ::windows_core::BSTR) -> ::windows_core::Result<u32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetNames)(::windows_core::Interface::as_raw(self), count, ::core::mem::transmute(rgbsznames), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypeArgumentCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeArgumentCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetTypeArguments(&self, count: u32, rgparguments: *mut ::core::option::Option<ITypeName>, pcount: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetTypeArguments)(::windows_core::Interface::as_raw(self), count, ::core::mem::transmute(rgparguments), pcount).ok()
+    pub unsafe fn GetTypeArguments(&self, count: u32, rgparguments: *mut ::core::option::Option<ITypeName>) -> ::windows_core::Result<u32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetTypeArguments)(::windows_core::Interface::as_raw(self), count, ::core::mem::transmute(rgparguments), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetModifierLength(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetModifierLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetModifiers(&self, count: u32, rgmodifiers: *mut u32, pcount: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetModifiers)(::windows_core::Interface::as_raw(self), count, rgmodifiers, pcount).ok()
+    pub unsafe fn GetModifiers(&self, count: u32, rgmodifiers: *mut u32) -> ::windows_core::Result<u32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetModifiers)(::windows_core::Interface::as_raw(self), count, rgmodifiers, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAssemblyName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -2535,11 +2538,12 @@ pub struct ITypeNameBuilder_Vtbl {
 ::windows_core::imp::com_interface!(ITypeNameFactory, ITypeNameFactory_Vtbl, 0xb81ff171_20f3_11d2_8dcc_00a0c9b00521);
 ::windows_core::imp::interface_hierarchy!(ITypeNameFactory, ::windows_core::IUnknown);
 impl ITypeNameFactory {
-    pub unsafe fn ParseTypeName<P0>(&self, szname: P0, perror: *mut u32, pptypename: *mut ::core::option::Option<ITypeName>) -> ::windows_core::Result<()>
+    pub unsafe fn ParseTypeName<P0>(&self, szname: P0, perror: *mut u32) -> ::windows_core::Result<ITypeName>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).ParseTypeName)(::windows_core::Interface::as_raw(self), szname.into_param().abi(), perror, ::core::mem::transmute(pptypename)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).ParseTypeName)(::windows_core::Interface::as_raw(self), szname.into_param().abi(), perror, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypeNameBuilder(&self) -> ::windows_core::Result<ITypeNameBuilder> {
         let mut result__ = ::std::mem::zeroed();

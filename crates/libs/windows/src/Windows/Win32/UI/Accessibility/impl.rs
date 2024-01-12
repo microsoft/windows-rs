@@ -166,7 +166,7 @@ pub trait IAccessible_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn get_accRole(&self, varchild: &::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::VARIANT>;
     fn get_accState(&self, varchild: &::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::VARIANT>;
     fn get_accHelp(&self, varchild: &::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::BSTR>;
-    fn get_accHelpTopic(&self, pszhelpfile: *mut ::windows_core::BSTR, varchild: &::windows_core::VARIANT, pidtopic: *mut i32) -> ::windows_core::Result<()>;
+    fn get_accHelpTopic(&self, pszhelpfile: *mut ::windows_core::BSTR, varchild: &::windows_core::VARIANT) -> ::windows_core::Result<i32>;
     fn get_accKeyboardShortcut(&self, varchild: &::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::BSTR>;
     fn accFocus(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
     fn accSelection(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -286,7 +286,13 @@ impl IAccessible_Vtbl {
         unsafe extern "system" fn get_accHelpTopic<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszhelpfile: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, varchild: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pidtopic: *mut i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.get_accHelpTopic(::core::mem::transmute_copy(&pszhelpfile), ::core::mem::transmute(&varchild), ::core::mem::transmute_copy(&pidtopic)).into()
+            match this.get_accHelpTopic(::core::mem::transmute_copy(&pszhelpfile), ::core::mem::transmute(&varchild)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pidtopic, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn get_accKeyboardShortcut<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAccessible_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varchild: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pszkeyboardshortcut: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2687,7 +2693,7 @@ impl ITextProvider_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITextProvider2_Impl: Sized + ITextProvider_Impl {
     fn RangeFromAnnotation(&self, annotationelement: ::core::option::Option<&IRawElementProviderSimple>) -> ::windows_core::Result<ITextRangeProvider>;
-    fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL, pretval: *mut ::core::option::Option<ITextRangeProvider>) -> ::windows_core::Result<()>;
+    fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<ITextRangeProvider>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for ITextProvider2 {}
@@ -2708,7 +2714,13 @@ impl ITextProvider2_Vtbl {
         unsafe extern "system" fn GetCaretRange<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITextProvider2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isactive: *mut super::super::Foundation::BOOL, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCaretRange(::core::mem::transmute_copy(&isactive), ::core::mem::transmute_copy(&pretval)).into()
+            match this.GetCaretRange(::core::mem::transmute_copy(&isactive)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base__: ITextProvider_Vtbl::new::<Identity, Impl, OFFSET>(),
@@ -3184,10 +3196,10 @@ pub trait IUIAutomation_Impl: Sized {
     fn RemoveFocusChangedEventHandler(&self, handler: ::core::option::Option<&IUIAutomationFocusChangedEventHandler>) -> ::windows_core::Result<()>;
     fn RemoveAllEventHandlers(&self) -> ::windows_core::Result<()>;
     fn IntNativeArrayToSafeArray(&self, array: *const i32, arraycount: i32) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::Result<()>;
+    fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32) -> ::windows_core::Result<i32>;
     fn RectToVariant(&self, rc: &super::super::Foundation::RECT) -> ::windows_core::Result<::windows_core::VARIANT>;
     fn VariantToRect(&self, var: &::windows_core::VARIANT) -> ::windows_core::Result<super::super::Foundation::RECT>;
-    fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows_core::Result<()>;
+    fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> ::windows_core::Result<i32>;
     fn CreateProxyFactoryEntry(&self, factory: ::core::option::Option<&IUIAutomationProxyFactory>) -> ::windows_core::Result<IUIAutomationProxyFactoryEntry>;
     fn ProxyFactoryMapping(&self) -> ::windows_core::Result<IUIAutomationProxyFactoryMapping>;
     fn GetPropertyProgrammaticName(&self, property: UIA_PROPERTY_ID) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -3588,7 +3600,13 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn IntSafeArrayToNativeArray<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IntSafeArrayToNativeArray(::core::mem::transmute_copy(&intarray), ::core::mem::transmute_copy(&array), ::core::mem::transmute_copy(&arraycount)).into()
+            match this.IntSafeArrayToNativeArray(::core::mem::transmute_copy(&intarray), ::core::mem::transmute_copy(&array)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(arraycount, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn RectToVariant<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rc: super::super::Foundation::RECT, var: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3615,7 +3633,13 @@ impl IUIAutomation_Vtbl {
         unsafe extern "system" fn SafeArrayToRectNativeArray<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SafeArrayToRectNativeArray(::core::mem::transmute_copy(&rects), ::core::mem::transmute_copy(&rectarray), ::core::mem::transmute_copy(&rectarraycount)).into()
+            match this.SafeArrayToRectNativeArray(::core::mem::transmute_copy(&rects), ::core::mem::transmute_copy(&rectarray)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(rectarraycount, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateProxyFactoryEntry<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factory: *mut ::core::ffi::c_void, factoryentry: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4763,7 +4787,7 @@ pub trait IUIAutomationElement_Impl: Sized {
     fn CachedDescribedBy(&self) -> ::windows_core::Result<IUIAutomationElementArray>;
     fn CachedFlowsTo(&self) -> ::windows_core::Result<IUIAutomationElementArray>;
     fn CachedProviderDescription(&self) -> ::windows_core::Result<::windows_core::BSTR>;
-    fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
+    fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT) -> ::windows_core::Result<super::super::Foundation::BOOL>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IUIAutomationElement {}
@@ -5646,7 +5670,13 @@ impl IUIAutomationElement_Vtbl {
         unsafe extern "system" fn GetClickablePoint<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationElement_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetClickablePoint(::core::mem::transmute_copy(&clickable), ::core::mem::transmute_copy(&gotclickable)).into()
+            match this.GetClickablePoint(::core::mem::transmute_copy(&clickable)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(gotclickable, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -9136,7 +9166,7 @@ impl IUIAutomationTextPattern_Vtbl {
 }
 pub trait IUIAutomationTextPattern2_Impl: Sized + IUIAutomationTextPattern_Impl {
     fn RangeFromAnnotation(&self, annotation: ::core::option::Option<&IUIAutomationElement>) -> ::windows_core::Result<IUIAutomationTextRange>;
-    fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL, range: *mut ::core::option::Option<IUIAutomationTextRange>) -> ::windows_core::Result<()>;
+    fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<IUIAutomationTextRange>;
 }
 impl ::windows_core::RuntimeName for IUIAutomationTextPattern2 {}
 impl IUIAutomationTextPattern2_Vtbl {
@@ -9155,7 +9185,13 @@ impl IUIAutomationTextPattern2_Vtbl {
         unsafe extern "system" fn GetCaretRange<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationTextPattern2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isactive: *mut super::super::Foundation::BOOL, range: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCaretRange(::core::mem::transmute_copy(&isactive), ::core::mem::transmute_copy(&range)).into()
+            match this.GetCaretRange(::core::mem::transmute_copy(&isactive)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(range, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base__: IUIAutomationTextPattern_Vtbl::new::<Identity, Impl, OFFSET>(),

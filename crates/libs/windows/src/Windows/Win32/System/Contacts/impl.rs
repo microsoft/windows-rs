@@ -893,7 +893,7 @@ impl IContactAggregationLinkCollection_Vtbl {
 }
 pub trait IContactAggregationManager_Impl: Sized {
     fn GetVersionInfo(&self, plmajorversion: *mut i32, plminorversion: *mut i32) -> ::windows_core::Result<()>;
-    fn CreateOrOpenGroup(&self, pgroupname: &::windows_core::PCWSTR, options: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS, pcreatedgroup: *mut super::super::Foundation::BOOL, ppgroup: *mut ::core::option::Option<IContactAggregationGroup>) -> ::windows_core::Result<()>;
+    fn CreateOrOpenGroup(&self, pgroupname: &::windows_core::PCWSTR, options: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS, pcreatedgroup: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<IContactAggregationGroup>;
     fn CreateExternalContact(&self) -> ::windows_core::Result<IContactAggregationContact>;
     fn CreateServerPerson(&self) -> ::windows_core::Result<IContactAggregationServerPerson>;
     fn CreateServerContactLink(&self) -> ::windows_core::Result<IContactAggregationLink>;
@@ -919,7 +919,13 @@ impl IContactAggregationManager_Vtbl {
         unsafe extern "system" fn CreateOrOpenGroup<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgroupname: ::windows_core::PCWSTR, options: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS, pcreatedgroup: *mut super::super::Foundation::BOOL, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CreateOrOpenGroup(::core::mem::transmute(&pgroupname), ::core::mem::transmute_copy(&options), ::core::mem::transmute_copy(&pcreatedgroup), ::core::mem::transmute_copy(&ppgroup)).into()
+            match this.CreateOrOpenGroup(::core::mem::transmute(&pgroupname), ::core::mem::transmute_copy(&options), ::core::mem::transmute_copy(&pcreatedgroup)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppgroup, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateExternalContact<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContactAggregationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

@@ -136,15 +136,17 @@ pub struct ISdoCollection_Vtbl {
 ::windows_core::imp::interface_hierarchy!(ISdoDictionaryOld, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISdoDictionaryOld {
-    pub unsafe fn EnumAttributes(&self, id: *mut ::windows_core::VARIANT, pvalues: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).EnumAttributes)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(id), ::core::mem::transmute(pvalues)).ok()
+    pub unsafe fn EnumAttributes(&self, id: *mut ::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::VARIANT> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).EnumAttributes)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(id), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAttributeInfo(&self, id: ATTRIBUTEID, pinfoids: *const ::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAttributeInfo)(::windows_core::Interface::as_raw(self), id, ::core::mem::transmute(pinfoids), &mut result__).from_abi(result__)
     }
-    pub unsafe fn EnumAttributeValues(&self, id: ATTRIBUTEID, pvalueids: *mut ::windows_core::VARIANT, pvaluesdesc: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).EnumAttributeValues)(::windows_core::Interface::as_raw(self), id, ::core::mem::transmute(pvalueids), ::core::mem::transmute(pvaluesdesc)).ok()
+    pub unsafe fn EnumAttributeValues(&self, id: ATTRIBUTEID, pvalueids: *mut ::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::VARIANT> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).EnumAttributeValues)(::windows_core::Interface::as_raw(self), id, ::core::mem::transmute(pvalueids), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]

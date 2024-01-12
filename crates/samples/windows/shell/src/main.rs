@@ -42,20 +42,17 @@ fn shell_execute_from_explorer(
 fn find_desktop_folder_view<T: Interface>() -> Result<T> {
     unsafe {
         let windows: IShellWindows = CoCreateInstance(&ShellWindows, None, CLSCTX_ALL)?;
-        let mut dispatch = None;
         let mut handle = 0;
 
-        // TODO: find out why this retval isn't kicking in
-        windows.FindWindowSW(
+        let desktop = windows.FindWindowSW(
             &VARIANT::from(CSIDL_DESKTOP),
             &VARIANT::default(),
             SWC_DESKTOP,
             &mut handle,
             SWFO_NEEDDISPATCH,
-            &mut dispatch,
         )?;
 
-        let provider: IServiceProvider = dispatch.unwrap().cast()?;
+        let provider: IServiceProvider = desktop.cast()?;
         let browser: IShellBrowser = provider.QueryService(&SID_STopLevelBrowser)?;
         let view = browser.QueryActiveShellView()?;
         view.cast()

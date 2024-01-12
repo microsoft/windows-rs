@@ -35,12 +35,13 @@ impl ISettingsContext {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Deserialize<P0, P1>(&self, pstream: P0, ptarget: P1, pppresults: *mut *mut ::core::option::Option<ISettingsResult>, pcresultcount: *mut usize) -> ::windows_core::Result<()>
+    pub unsafe fn Deserialize<P0, P1>(&self, pstream: P0, ptarget: P1, pppresults: *mut *mut ::core::option::Option<ISettingsResult>) -> ::windows_core::Result<usize>
     where
         P0: ::windows_core::IntoParam<super::Com::IStream>,
         P1: ::windows_core::IntoParam<ITargetInfo>,
     {
-        (::windows_core::Interface::vtable(self).Deserialize)(::windows_core::Interface::as_raw(self), pstream.into_param().abi(), ptarget.into_param().abi(), pppresults, pcresultcount).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).Deserialize)(::windows_core::Interface::as_raw(self), pstream.into_param().abi(), ptarget.into_param().abi(), pppresults, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetUserData(&self, puserdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetUserData)(::windows_core::Interface::as_raw(self), puserdata).ok()
@@ -159,11 +160,12 @@ impl ISettingsEngine {
     {
         (::windows_core::Interface::vtable(self).SetSettingsContext)(::windows_core::Interface::as_raw(self), settingscontext.into_param().abi()).ok()
     }
-    pub unsafe fn ApplySettingsContext<P0>(&self, settingscontext: P0, pppwzidentities: *mut *mut ::windows_core::PWSTR, pcidentities: *mut usize) -> ::windows_core::Result<()>
+    pub unsafe fn ApplySettingsContext<P0>(&self, settingscontext: P0, pppwzidentities: *mut *mut ::windows_core::PWSTR) -> ::windows_core::Result<usize>
     where
         P0: ::windows_core::IntoParam<ISettingsContext>,
     {
-        (::windows_core::Interface::vtable(self).ApplySettingsContext)(::windows_core::Interface::as_raw(self), settingscontext.into_param().abi(), pppwzidentities, pcidentities).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).ApplySettingsContext)(::windows_core::Interface::as_raw(self), settingscontext.into_param().abi(), pppwzidentities, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSettingsContext(&self) -> ::windows_core::Result<ISettingsContext> {
         let mut result__ = ::std::mem::zeroed();
@@ -250,8 +252,9 @@ impl ISettingsItem {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDataType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetValueRaw(&self, data: *mut *mut u8, datasize: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetValueRaw)(::windows_core::Interface::as_raw(self), data, datasize).ok()
+    pub unsafe fn GetValueRaw(&self, data: *mut *mut u8) -> ::windows_core::Result<u32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetValueRaw)(::windows_core::Interface::as_raw(self), data, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetValueRaw(&self, datatype: i32, data: &[u8]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValueRaw)(::windows_core::Interface::as_raw(self), datatype, ::core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
@@ -291,8 +294,9 @@ impl ISettingsItem {
     {
         (::windows_core::Interface::vtable(self).RemoveSettingByPath)(::windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
-    pub unsafe fn GetListKeyInformation(&self, keyname: *mut ::windows_core::BSTR, datatype: *mut WcmDataType) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetListKeyInformation)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(keyname), datatype).ok()
+    pub unsafe fn GetListKeyInformation(&self, keyname: *mut ::windows_core::BSTR) -> ::windows_core::Result<WcmDataType> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetListKeyInformation)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(keyname), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateListElement(&self, keydata: *const ::windows_core::VARIANT) -> ::windows_core::Result<ISettingsItem> {
         let mut result__ = ::std::mem::zeroed();

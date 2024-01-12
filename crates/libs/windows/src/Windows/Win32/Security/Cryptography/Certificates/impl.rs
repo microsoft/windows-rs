@@ -6819,7 +6819,7 @@ pub trait INDESPolicy_Impl: Sized {
     fn Initialize(&self) -> ::windows_core::Result<()>;
     fn Uninitialize(&self) -> ::windows_core::Result<()>;
     fn GenerateChallenge(&self, pwsztemplate: &::windows_core::PCWSTR, pwszparams: &::windows_core::PCWSTR) -> ::windows_core::Result<::windows_core::PWSTR>;
-    fn VerifyRequest(&self, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: &::windows_core::PCWSTR, pwsztransactionid: &::windows_core::PCWSTR, pfverified: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
+    fn VerifyRequest(&self, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: &::windows_core::PCWSTR, pwsztransactionid: &::windows_core::PCWSTR) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
     fn Notify(&self, pwszchallenge: &::windows_core::PCWSTR, pwsztransactionid: &::windows_core::PCWSTR, disposition: X509SCEPDisposition, lasthresult: i32, pctbissuedcertencoded: *mut CERTTRANSBLOB) -> ::windows_core::Result<()>;
 }
 impl ::windows_core::RuntimeName for INDESPolicy {}
@@ -6849,7 +6849,13 @@ impl INDESPolicy_Vtbl {
         unsafe extern "system" fn VerifyRequest<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INDESPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pctbrequest: *mut CERTTRANSBLOB, pctbsigningcertencoded: *mut CERTTRANSBLOB, pwsztemplate: ::windows_core::PCWSTR, pwsztransactionid: ::windows_core::PCWSTR, pfverified: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.VerifyRequest(::core::mem::transmute_copy(&pctbrequest), ::core::mem::transmute_copy(&pctbsigningcertencoded), ::core::mem::transmute(&pwsztemplate), ::core::mem::transmute(&pwsztransactionid), ::core::mem::transmute_copy(&pfverified)).into()
+            match this.VerifyRequest(::core::mem::transmute_copy(&pctbrequest), ::core::mem::transmute_copy(&pctbsigningcertencoded), ::core::mem::transmute(&pwsztemplate), ::core::mem::transmute(&pwsztransactionid)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pfverified, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Notify<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: INDESPolicy_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszchallenge: ::windows_core::PCWSTR, pwsztransactionid: ::windows_core::PCWSTR, disposition: X509SCEPDisposition, lasthresult: i32, pctbissuedcertencoded: *mut CERTTRANSBLOB) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

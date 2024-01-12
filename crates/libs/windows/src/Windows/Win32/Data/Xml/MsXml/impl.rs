@@ -3089,7 +3089,7 @@ impl IVBSAXDeclHandler_Vtbl {
 #[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IVBSAXEntityResolver_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
-    fn resolveEntity(&self, strpublicid: *mut ::windows_core::BSTR, strsystemid: *mut ::windows_core::BSTR, varinput: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()>;
+    fn resolveEntity(&self, strpublicid: *mut ::windows_core::BSTR, strsystemid: *mut ::windows_core::BSTR) -> ::windows_core::Result<::windows_core::VARIANT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::windows_core::RuntimeName for IVBSAXEntityResolver {}
@@ -3099,7 +3099,13 @@ impl IVBSAXEntityResolver_Vtbl {
         unsafe extern "system" fn resolveEntity<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVBSAXEntityResolver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strpublicid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, strsystemid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, varinput: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.resolveEntity(::core::mem::transmute_copy(&strpublicid), ::core::mem::transmute_copy(&strsystemid), ::core::mem::transmute_copy(&varinput)).into()
+            match this.resolveEntity(::core::mem::transmute_copy(&strpublicid), ::core::mem::transmute_copy(&strsystemid)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(varinput, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         Self {
             base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>(),

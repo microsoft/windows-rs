@@ -740,12 +740,13 @@ pub struct IEventSubscription_Vtbl {
 ::windows_core::imp::com_interface!(IEventSystem, IEventSystem_Vtbl, 0x4e14fb9f_2e22_11d1_9964_00c04fbbb345);
 ::windows_core::imp::interface_hierarchy!(IEventSystem, ::windows_core::IUnknown, super::IDispatch);
 impl IEventSystem {
-    pub unsafe fn Query<P0, P1>(&self, progid: P0, querycriteria: P1, errorindex: *mut i32, ppinterface: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>
+    pub unsafe fn Query<P0, P1>(&self, progid: P0, querycriteria: P1, errorindex: *mut i32) -> ::windows_core::Result<::windows_core::IUnknown>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).Query)(::windows_core::Interface::as_raw(self), progid.into_param().abi(), querycriteria.into_param().abi(), errorindex, ::core::mem::transmute(ppinterface)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).Query)(::windows_core::Interface::as_raw(self), progid.into_param().abi(), querycriteria.into_param().abi(), errorindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn Store<P0, P1>(&self, progid: P0, pinterface: P1) -> ::windows_core::Result<()>
     where

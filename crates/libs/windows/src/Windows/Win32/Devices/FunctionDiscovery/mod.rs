@@ -19,21 +19,23 @@ impl IFunctionDiscovery {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInstance)(::windows_core::Interface::as_raw(self), pszfunctioninstanceidentity.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn CreateInstanceCollectionQuery<P0, P1, P2, P3>(&self, pszcategory: P0, pszsubcategory: P1, fincludeallsubcategories: P2, pifunctiondiscoverynotification: P3, pfdqcquerycontext: *mut u64, ppifunctioninstancecollectionquery: *mut ::core::option::Option<IFunctionInstanceCollectionQuery>) -> ::windows_core::Result<()>
+    pub unsafe fn CreateInstanceCollectionQuery<P0, P1, P2, P3>(&self, pszcategory: P0, pszsubcategory: P1, fincludeallsubcategories: P2, pifunctiondiscoverynotification: P3, pfdqcquerycontext: *mut u64) -> ::windows_core::Result<IFunctionInstanceCollectionQuery>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
         P3: ::windows_core::IntoParam<IFunctionDiscoveryNotification>,
     {
-        (::windows_core::Interface::vtable(self).CreateInstanceCollectionQuery)(::windows_core::Interface::as_raw(self), pszcategory.into_param().abi(), pszsubcategory.into_param().abi(), fincludeallsubcategories.into_param().abi(), pifunctiondiscoverynotification.into_param().abi(), pfdqcquerycontext, ::core::mem::transmute(ppifunctioninstancecollectionquery)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).CreateInstanceCollectionQuery)(::windows_core::Interface::as_raw(self), pszcategory.into_param().abi(), pszsubcategory.into_param().abi(), fincludeallsubcategories.into_param().abi(), pifunctiondiscoverynotification.into_param().abi(), pfdqcquerycontext, &mut result__).from_abi(result__)
     }
-    pub unsafe fn CreateInstanceQuery<P0, P1>(&self, pszfunctioninstanceidentity: P0, pifunctiondiscoverynotification: P1, pfdqcquerycontext: *mut u64, ppifunctioninstancequery: *mut ::core::option::Option<IFunctionInstanceQuery>) -> ::windows_core::Result<()>
+    pub unsafe fn CreateInstanceQuery<P0, P1>(&self, pszfunctioninstanceidentity: P0, pifunctiondiscoverynotification: P1, pfdqcquerycontext: *mut u64) -> ::windows_core::Result<IFunctionInstanceQuery>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<IFunctionDiscoveryNotification>,
     {
-        (::windows_core::Interface::vtable(self).CreateInstanceQuery)(::windows_core::Interface::as_raw(self), pszfunctioninstanceidentity.into_param().abi(), pifunctiondiscoverynotification.into_param().abi(), pfdqcquerycontext, ::core::mem::transmute(ppifunctioninstancequery)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).CreateInstanceQuery)(::windows_core::Interface::as_raw(self), pszfunctioninstanceidentity.into_param().abi(), pifunctiondiscoverynotification.into_param().abi(), pfdqcquerycontext, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -349,11 +351,12 @@ impl IFunctionInstanceCollection {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Get<P0>(&self, pszinstanceidentity: P0, pdwindex: *mut u32, ppifunctioninstance: *mut ::core::option::Option<IFunctionInstance>) -> ::windows_core::Result<()>
+    pub unsafe fn Get<P0>(&self, pszinstanceidentity: P0, pdwindex: *mut u32) -> ::windows_core::Result<IFunctionInstance>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).Get)(::windows_core::Interface::as_raw(self), pszinstanceidentity.into_param().abi(), pdwindex, ::core::mem::transmute(ppifunctioninstance)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).Get)(::windows_core::Interface::as_raw(self), pszinstanceidentity.into_param().abi(), pdwindex, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
@@ -528,11 +531,12 @@ impl IPropertyStoreCollection {
     }
     #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn Get<P0>(&self, pszinstanceidentity: P0, pdwindex: *mut u32, ppipropertystore: *mut ::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows_core::Result<()>
+    pub unsafe fn Get<P0>(&self, pszinstanceidentity: P0, pdwindex: *mut u32) -> ::windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).Get)(::windows_core::Interface::as_raw(self), pszinstanceidentity.into_param().abi(), pdwindex, ::core::mem::transmute(ppipropertystore)).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).Get)(::windows_core::Interface::as_raw(self), pszinstanceidentity.into_param().abi(), pdwindex, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]

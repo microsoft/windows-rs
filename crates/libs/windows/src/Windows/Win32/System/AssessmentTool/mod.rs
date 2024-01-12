@@ -86,11 +86,12 @@ impl IAccessibleWinSAT {
     }
     #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
-    pub unsafe fn get_accHelpTopic<P0>(&self, pszhelpfile: *mut ::windows_core::BSTR, varchild: P0, pidtopic: *mut i32) -> ::windows_core::Result<()>
+    pub unsafe fn get_accHelpTopic<P0>(&self, pszhelpfile: *mut ::windows_core::BSTR, varchild: P0) -> ::windows_core::Result<i32>
     where
         P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
-        (::windows_core::Interface::vtable(self).base__.get_accHelpTopic)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pszhelpfile), varchild.into_param().abi(), pidtopic).ok()
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.get_accHelpTopic)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pszhelpfile), varchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]

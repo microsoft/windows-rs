@@ -3276,11 +3276,11 @@ impl IObjectHandle_Vtbl {
 }
 pub trait ITypeName_Impl: Sized {
     fn GetNameCount(&self) -> ::windows_core::Result<u32>;
-    fn GetNames(&self, count: u32, rgbsznames: *mut ::windows_core::BSTR, pcount: *mut u32) -> ::windows_core::Result<()>;
+    fn GetNames(&self, count: u32, rgbsznames: *mut ::windows_core::BSTR) -> ::windows_core::Result<u32>;
     fn GetTypeArgumentCount(&self) -> ::windows_core::Result<u32>;
-    fn GetTypeArguments(&self, count: u32, rgparguments: *mut ::core::option::Option<ITypeName>, pcount: *mut u32) -> ::windows_core::Result<()>;
+    fn GetTypeArguments(&self, count: u32, rgparguments: *mut ::core::option::Option<ITypeName>) -> ::windows_core::Result<u32>;
     fn GetModifierLength(&self) -> ::windows_core::Result<u32>;
-    fn GetModifiers(&self, count: u32, rgmodifiers: *mut u32, pcount: *mut u32) -> ::windows_core::Result<()>;
+    fn GetModifiers(&self, count: u32, rgmodifiers: *mut u32) -> ::windows_core::Result<u32>;
     fn GetAssemblyName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
 }
 impl ::windows_core::RuntimeName for ITypeName {}
@@ -3300,7 +3300,13 @@ impl ITypeName_Vtbl {
         unsafe extern "system" fn GetNames<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: u32, rgbsznames: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pcount: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetNames(::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&rgbsznames), ::core::mem::transmute_copy(&pcount)).into()
+            match this.GetNames(::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&rgbsznames)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetTypeArgumentCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3316,7 +3322,13 @@ impl ITypeName_Vtbl {
         unsafe extern "system" fn GetTypeArguments<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: u32, rgparguments: *mut *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetTypeArguments(::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&rgparguments), ::core::mem::transmute_copy(&pcount)).into()
+            match this.GetTypeArguments(::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&rgparguments)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetModifierLength<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3332,7 +3344,13 @@ impl ITypeName_Vtbl {
         unsafe extern "system" fn GetModifiers<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: u32, rgmodifiers: *mut u32, pcount: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetModifiers(::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&rgmodifiers), ::core::mem::transmute_copy(&pcount)).into()
+            match this.GetModifiers(::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&rgmodifiers)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetAssemblyName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeName_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rgbszassemblynames: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3464,7 +3482,7 @@ impl ITypeNameBuilder_Vtbl {
     }
 }
 pub trait ITypeNameFactory_Impl: Sized {
-    fn ParseTypeName(&self, szname: &::windows_core::PCWSTR, perror: *mut u32, pptypename: *mut ::core::option::Option<ITypeName>) -> ::windows_core::Result<()>;
+    fn ParseTypeName(&self, szname: &::windows_core::PCWSTR, perror: *mut u32) -> ::windows_core::Result<ITypeName>;
     fn GetTypeNameBuilder(&self) -> ::windows_core::Result<ITypeNameBuilder>;
 }
 impl ::windows_core::RuntimeName for ITypeNameFactory {}
@@ -3473,7 +3491,13 @@ impl ITypeNameFactory_Vtbl {
         unsafe extern "system" fn ParseTypeName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeNameFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szname: ::windows_core::PCWSTR, perror: *mut u32, pptypename: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ParseTypeName(::core::mem::transmute(&szname), ::core::mem::transmute_copy(&perror), ::core::mem::transmute_copy(&pptypename)).into()
+            match this.ParseTypeName(::core::mem::transmute(&szname), ::core::mem::transmute_copy(&perror)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pptypename, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetTypeNameBuilder<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeNameFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptypebuilder: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

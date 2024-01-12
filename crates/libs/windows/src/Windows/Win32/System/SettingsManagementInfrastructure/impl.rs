@@ -48,7 +48,7 @@ impl IItemEnumerator_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISettingsContext_Impl: Sized {
     fn Serialize(&self, pstream: ::core::option::Option<&super::Com::IStream>, ptarget: ::core::option::Option<&ITargetInfo>) -> ::windows_core::Result<()>;
-    fn Deserialize(&self, pstream: ::core::option::Option<&super::Com::IStream>, ptarget: ::core::option::Option<&ITargetInfo>, pppresults: *mut *mut ::core::option::Option<ISettingsResult>, pcresultcount: *mut usize) -> ::windows_core::Result<()>;
+    fn Deserialize(&self, pstream: ::core::option::Option<&super::Com::IStream>, ptarget: ::core::option::Option<&ITargetInfo>, pppresults: *mut *mut ::core::option::Option<ISettingsResult>) -> ::windows_core::Result<usize>;
     fn SetUserData(&self, puserdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn GetUserData(&self) -> ::windows_core::Result<*mut ::core::ffi::c_void>;
     fn GetNamespaces(&self) -> ::windows_core::Result<IItemEnumerator>;
@@ -68,7 +68,13 @@ impl ISettingsContext_Vtbl {
         unsafe extern "system" fn Deserialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstream: *mut ::core::ffi::c_void, ptarget: *mut ::core::ffi::c_void, pppresults: *mut *mut ::core::option::Option<ISettingsResult>, pcresultcount: *mut usize) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Deserialize(::windows_core::from_raw_borrowed(&pstream), ::windows_core::from_raw_borrowed(&ptarget), ::core::mem::transmute_copy(&pppresults), ::core::mem::transmute_copy(&pcresultcount)).into()
+            match this.Deserialize(::windows_core::from_raw_borrowed(&pstream), ::windows_core::from_raw_borrowed(&ptarget), ::core::mem::transmute_copy(&pppresults)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pcresultcount, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetUserData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puserdata: *const ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -139,7 +145,7 @@ pub trait ISettingsEngine_Impl: Sized {
     fn SetTargetInfo(&self, target: ::core::option::Option<&ITargetInfo>) -> ::windows_core::Result<()>;
     fn CreateSettingsContext(&self, flags: u32, reserved: *const ::core::ffi::c_void) -> ::windows_core::Result<ISettingsContext>;
     fn SetSettingsContext(&self, settingscontext: ::core::option::Option<&ISettingsContext>) -> ::windows_core::Result<()>;
-    fn ApplySettingsContext(&self, settingscontext: ::core::option::Option<&ISettingsContext>, pppwzidentities: *mut *mut ::windows_core::PWSTR, pcidentities: *mut usize) -> ::windows_core::Result<()>;
+    fn ApplySettingsContext(&self, settingscontext: ::core::option::Option<&ISettingsContext>, pppwzidentities: *mut *mut ::windows_core::PWSTR) -> ::windows_core::Result<usize>;
     fn GetSettingsContext(&self) -> ::windows_core::Result<ISettingsContext>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -274,7 +280,13 @@ impl ISettingsEngine_Vtbl {
         unsafe extern "system" fn ApplySettingsContext<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settingscontext: *mut ::core::ffi::c_void, pppwzidentities: *mut *mut ::windows_core::PWSTR, pcidentities: *mut usize) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ApplySettingsContext(::windows_core::from_raw_borrowed(&settingscontext), ::core::mem::transmute_copy(&pppwzidentities), ::core::mem::transmute_copy(&pcidentities)).into()
+            match this.ApplySettingsContext(::windows_core::from_raw_borrowed(&settingscontext), ::core::mem::transmute_copy(&pppwzidentities)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pcidentities, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetSettingsContext<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, settingscontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -370,7 +382,7 @@ pub trait ISettingsItem_Impl: Sized {
     fn SetValue(&self, value: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn GetSettingType(&self) -> ::windows_core::Result<WcmSettingType>;
     fn GetDataType(&self) -> ::windows_core::Result<WcmDataType>;
-    fn GetValueRaw(&self, data: *mut *mut u8, datasize: *mut u32) -> ::windows_core::Result<()>;
+    fn GetValueRaw(&self, data: *mut *mut u8) -> ::windows_core::Result<u32>;
     fn SetValueRaw(&self, datatype: i32, data: *const u8, datasize: u32) -> ::windows_core::Result<()>;
     fn HasChild(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn Children(&self) -> ::windows_core::Result<IItemEnumerator>;
@@ -378,7 +390,7 @@ pub trait ISettingsItem_Impl: Sized {
     fn GetSettingByPath(&self, path: &::windows_core::PCWSTR) -> ::windows_core::Result<ISettingsItem>;
     fn CreateSettingByPath(&self, path: &::windows_core::PCWSTR) -> ::windows_core::Result<ISettingsItem>;
     fn RemoveSettingByPath(&self, path: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
-    fn GetListKeyInformation(&self, keyname: *mut ::windows_core::BSTR, datatype: *mut WcmDataType) -> ::windows_core::Result<()>;
+    fn GetListKeyInformation(&self, keyname: *mut ::windows_core::BSTR) -> ::windows_core::Result<WcmDataType>;
     fn CreateListElement(&self, keydata: *const ::windows_core::VARIANT) -> ::windows_core::Result<ISettingsItem>;
     fn RemoveListElement(&self, elementname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn Attributes(&self) -> ::windows_core::Result<IItemEnumerator>;
@@ -443,7 +455,13 @@ impl ISettingsItem_Vtbl {
         unsafe extern "system" fn GetValueRaw<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: *mut *mut u8, datasize: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetValueRaw(::core::mem::transmute_copy(&data), ::core::mem::transmute_copy(&datasize)).into()
+            match this.GetValueRaw(::core::mem::transmute_copy(&data)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(datasize, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn SetValueRaw<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datatype: i32, data: *const u8, datasize: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -513,7 +531,13 @@ impl ISettingsItem_Vtbl {
         unsafe extern "system" fn GetListKeyInformation<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keyname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, datatype: *mut WcmDataType) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetListKeyInformation(::core::mem::transmute_copy(&keyname), ::core::mem::transmute_copy(&datatype)).into()
+            match this.GetListKeyInformation(::core::mem::transmute_copy(&keyname)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(datatype, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn CreateListElement<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISettingsItem_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keydata: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, child: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

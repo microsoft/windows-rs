@@ -605,8 +605,9 @@ impl IMbnInterface {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetVisibleProviders(&self, age: *mut u32, visibleproviders: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetVisibleProviders)(::windows_core::Interface::as_raw(self), age, visibleproviders).ok()
+    pub unsafe fn GetVisibleProviders(&self, age: *mut u32) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetVisibleProviders)(::windows_core::Interface::as_raw(self), age, &mut result__).from_abi(result__)
     }
     pub unsafe fn ScanNetwork(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -772,8 +773,9 @@ impl IMbnMultiCarrier {
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetVisibleProviders(&self, age: *mut u32, visibleproviders: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetVisibleProviders)(::windows_core::Interface::as_raw(self), age, visibleproviders).ok()
+    pub unsafe fn GetVisibleProviders(&self, age: *mut u32) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetVisibleProviders)(::windows_core::Interface::as_raw(self), age, &mut result__).from_abi(result__)
     }
     #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]

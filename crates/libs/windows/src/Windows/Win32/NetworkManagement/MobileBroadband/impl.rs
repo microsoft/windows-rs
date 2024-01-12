@@ -812,7 +812,7 @@ pub trait IMbnInterface_Impl: Sized {
     fn GetHomeProvider(&self) -> ::windows_core::Result<MBN_PROVIDER>;
     fn GetPreferredProviders(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn SetPreferredProviders(&self, preferredproviders: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<u32>;
-    fn GetVisibleProviders(&self, age: *mut u32, visibleproviders: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>;
+    fn GetVisibleProviders(&self, age: *mut u32) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn ScanNetwork(&self) -> ::windows_core::Result<u32>;
     fn GetConnection(&self) -> ::windows_core::Result<IMbnConnection>;
 }
@@ -906,7 +906,13 @@ impl IMbnInterface_Vtbl {
         unsafe extern "system" fn GetVisibleProviders<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, age: *mut u32, visibleproviders: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetVisibleProviders(::core::mem::transmute_copy(&age), ::core::mem::transmute_copy(&visibleproviders)).into()
+            match this.GetVisibleProviders(::core::mem::transmute_copy(&age)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(visibleproviders, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn ScanNetwork<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnInterface_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestid: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1093,7 +1099,7 @@ impl IMbnInterfaceManagerEvents_Vtbl {
 pub trait IMbnMultiCarrier_Impl: Sized {
     fn SetHomeProvider(&self, homeprovider: *const MBN_PROVIDER2) -> ::windows_core::Result<u32>;
     fn GetPreferredProviders(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn GetVisibleProviders(&self, age: *mut u32, visibleproviders: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>;
+    fn GetVisibleProviders(&self, age: *mut u32) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetSupportedCellularClasses(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetCurrentCellularClass(&self) -> ::windows_core::Result<MBN_CELLULAR_CLASS>;
     fn ScanNetwork(&self) -> ::windows_core::Result<u32>;
@@ -1128,7 +1134,13 @@ impl IMbnMultiCarrier_Vtbl {
         unsafe extern "system" fn GetVisibleProviders<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnMultiCarrier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, age: *mut u32, visibleproviders: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetVisibleProviders(::core::mem::transmute_copy(&age), ::core::mem::transmute_copy(&visibleproviders)).into()
+            match this.GetVisibleProviders(::core::mem::transmute_copy(&age)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(visibleproviders, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetSupportedCellularClasses<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMbnMultiCarrier_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cellularclasses: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
