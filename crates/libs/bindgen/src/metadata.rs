@@ -181,6 +181,14 @@ impl Signature {
     }
 
     fn is_retval(&self) -> bool {
+        // First we check whether there's an actual retval parameter.
+        if let Some(param) = self.params.last() {
+            if param.def.has_attribute("RetValAttribute") {
+                return true;
+            }
+        }
+
+        // Then we see if we can infer retval-like behavior more conservatively.
         self.params.last().map_or(false, |param| param.is_retval())
             && self.params[..self.params.len() - 1].iter().all(|param| {
                 let flags = param.def.flags();
