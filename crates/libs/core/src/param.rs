@@ -28,16 +28,16 @@ pub trait IntoParam<T: TypeKind, C = <T as TypeKind>::TypeKind>: Sized
 where
     T: Type<T>,
 {
-    fn into_param(self) -> Param<T>;
+    unsafe fn into_param(self) -> Param<T>;
 }
 
 impl<T> IntoParam<T> for Option<&T>
 where
     T: Type<T>,
 {
-    fn into_param(self) -> Param<T> {
+    unsafe fn into_param(self) -> Param<T> {
         Param::Borrowed(match self {
-            Some(item) => item.abi(),
+            Some(item) => std::mem::transmute_copy(item),
             None => unsafe { std::mem::zeroed() },
         })
     }
@@ -50,7 +50,7 @@ where
     U: Interface,
     U: CanInto<T>,
 {
-    fn into_param(self) -> Param<T> {
+    unsafe fn into_param(self) -> Param<T> {
         unsafe {
             if U::QUERY {
                 self.cast().map_or(Param::Borrowed(std::mem::zeroed()), |ok| Param::Owned(ok))
@@ -65,8 +65,8 @@ impl<T> IntoParam<T, ValueType> for &T
 where
     T: TypeKind<TypeKind = ValueType> + Clone,
 {
-    fn into_param(self) -> Param<T> {
-        Param::Borrowed(self.abi())
+    unsafe fn into_param(self) -> Param<T> {
+        Param::Borrowed(std::mem::transmute_copy(self))
     }
 }
 
@@ -76,7 +76,7 @@ where
     U: TypeKind<TypeKind = CopyType> + Clone,
     U: CanInto<T>,
 {
-    fn into_param(self) -> Param<T> {
+    unsafe fn into_param(self) -> Param<T> {
         Param::Owned(unsafe { std::mem::transmute_copy(&self) })
     }
 }

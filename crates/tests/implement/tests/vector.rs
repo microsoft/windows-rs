@@ -284,9 +284,24 @@ fn test_2759() -> Result<()> {
     v.Append(&uri)?;
     let uri = Uri::CreateUri(h!("https://microsoft.com/"))?;
     v.Append(&uri)?;
+    v.Append(&uri.cast::<IStringable>()?)?;
 
     assert_eq!(&v.GetAt(0)?.ToString()?, h!("https://github.com/"));
     assert_eq!(&v.GetAt(1)?.ToString()?, h!("https://microsoft.com/"));
+
+    Ok(())
+}
+
+#[test]
+fn test_into_param() -> Result<()> {
+    let v: IVector<i32> = Vector::new(vec![]).into();
+    v.Append(1)?;
+    v.Append(Some(&2))?;
+    v.Append(None)?;
+
+    assert_eq!(v.GetAt(0)?, 1);
+    assert_eq!(v.GetAt(1)?, 2);
+    assert_eq!(v.GetAt(2)?, 0);
 
     Ok(())
 }

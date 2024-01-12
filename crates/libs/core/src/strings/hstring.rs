@@ -398,7 +398,7 @@ impl From<HSTRING> for std::ffi::OsString {
 }
 
 impl IntoParam<PCWSTR> for &HSTRING {
-    fn into_param(self) -> Param<PCWSTR> {
+    unsafe fn into_param(self) -> Param<PCWSTR> {
         Param::Owned(PCWSTR(self.as_ptr()))
     }
 }
