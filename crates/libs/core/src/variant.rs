@@ -229,6 +229,18 @@ impl From<BSTR> for PROPVARIANT {
     }
 }
 
+impl From<&str> for VARIANT {
+    fn from(value: &str) -> Self {
+        BSTR::from(value).into()
+    }
+}
+
+impl From<&str> for PROPVARIANT {
+    fn from(value: &str) -> Self {
+        BSTR::from(value).into()
+    }
+}
+
 impl TryFrom<&VARIANT> for BSTR {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
