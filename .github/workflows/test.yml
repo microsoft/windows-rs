@@ -67,6 +67,7 @@ jobs:
           cargo test -p sample_privileges &&
           cargo test -p sample_privileges_sys &&
           cargo test -p sample_rss &&
+          cargo test -p sample_shell &&
           cargo test -p sample_simple &&
           cargo test -p sample_spellchecker &&
           cargo test -p sample_thread_pool_work &&
@@ -100,8 +101,8 @@ jobs:
           cargo test -p test_enums &&
           cargo test -p test_error &&
           cargo test -p test_event &&
-          cargo test -p test_extensions &&
           cargo clean &&
+          cargo test -p test_extensions &&
           cargo test -p test_handles &&
           cargo test -p test_helpers &&
           cargo test -p test_implement &&
