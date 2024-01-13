@@ -38,7 +38,7 @@ where
     unsafe fn into_param(self) -> Param<T> {
         Param::Borrowed(match self {
             Some(item) => std::mem::transmute_copy(item),
-            None => unsafe { std::mem::zeroed() },
+            None => std::mem::zeroed(),
         })
     }
 }
@@ -51,12 +51,10 @@ where
     U: CanInto<T>,
 {
     unsafe fn into_param(self) -> Param<T> {
-        unsafe {
-            if U::QUERY {
-                self.cast().map_or(Param::Borrowed(std::mem::zeroed()), |ok| Param::Owned(ok))
-            } else {
-                Param::Borrowed(std::mem::transmute_copy(self))
-            }
+        if U::QUERY {
+            self.cast().map_or(Param::Borrowed(std::mem::zeroed()), |ok| Param::Owned(ok))
+        } else {
+            Param::Borrowed(std::mem::transmute_copy(self))
         }
     }
 }
@@ -77,6 +75,6 @@ where
     U: CanInto<T>,
 {
     unsafe fn into_param(self) -> Param<T> {
-        Param::Owned(unsafe { std::mem::transmute_copy(&self) })
+        Param::Owned(std::mem::transmute_copy(&self))
     }
 }
