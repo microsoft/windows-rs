@@ -1,7 +1,4 @@
-use windows::{
-    core::*, Win32::System::Com::*, Win32::System::Ole::*, Win32::System::Variant::*,
-    Win32::System::Wmi::*,
-};
+use windows::{core::*, Win32::System::Com::*, Win32::System::Wmi::*};
 
 fn main() -> Result<()> {
     unsafe {
@@ -24,6 +21,10 @@ fn main() -> Result<()> {
         let server =
             locator.ConnectServer(&BSTR::from("root\\cimv2"), None, None, None, 0, None, None)?;
 
+        //
+        // ExecQuery example
+        //
+
         let query = server.ExecQuery(
             &BSTR::from("WQL"),
             &BSTR::from("select Caption from Win32_LogicalDisk"),
@@ -37,25 +38,53 @@ fn main() -> Result<()> {
             query.Next(WBEM_INFINITE, &mut row, &mut returned).ok()?;
 
             if let Some(row) = &row[0] {
-                let mut value = Default::default();
+                let mut value = VARIANT::default();
                 row.Get(w!("Caption"), 0, &mut value, None, None)?;
-                println!(
-                    "{}",
-                    VarFormat(
-                        &value,
-                        None,
-                        VARFORMAT_FIRST_DAY_SYSTEMDEFAULT,
-                        VARFORMAT_FIRST_WEEK_SYSTEMDEFAULT,
-                        0
-                    )?
-                );
-
-                // TODO: workaround for https://github.com/microsoft/windows-rs/issues/539
-                VariantClear(&mut value)?;
+                println!("{value}",);
             } else {
                 break;
             }
         }
+
+        //
+        // ExecMethod example
+        //
+
+        let class_name = BSTR::from("Win32_Process");
+        let method_name = BSTR::from("Create");
+
+        let mut class = None;
+        server.GetObject(
+            &class_name,
+            Default::default(),
+            None,
+            Some(&mut class),
+            None,
+        )?;
+        let class = class.unwrap();
+
+        let mut input = None;
+        class.GetMethod(&method_name, 0, &mut input, std::ptr::null_mut())?;
+        let input = input.unwrap();
+
+        let object = input.SpawnInstance(0)?;
+        object.Put(w!("CommandLine"), 0, &VARIANT::from("notepad.exe"), 0)?;
+
+        let mut output = None;
+        server.ExecMethod(
+            &class_name,
+            &method_name,
+            Default::default(),
+            None,
+            &object,
+            Some(&mut output),
+            None,
+        )?;
+        let output = output.unwrap();
+
+        let mut value = VARIANT::default();
+        output.Get(w!("ReturnValue"), 0, &mut value, None, None)?;
+        println!("`Create` method return value: {value}");
 
         Ok(())
     }
