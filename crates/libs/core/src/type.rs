@@ -19,10 +19,6 @@ pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized + C
     type Abi;
     type Default;
 
-    fn abi(&self) -> Self::Abi {
-        unsafe { std::mem::transmute_copy(self) }
-    }
-
     /// # Safety
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self>;
     fn from_default(default: &Self::Default) -> Result<Self>;
@@ -55,7 +51,7 @@ where
     type Abi = std::mem::MaybeUninit<Self>;
     type Default = Self;
 
-    unsafe fn from_abi(abi: std::mem::MaybeUninit<Self>) -> Result<Self> {
+    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
         Ok(abi.assume_init())
     }
 
@@ -71,7 +67,7 @@ where
     type Abi = Self;
     type Default = Self;
 
-    unsafe fn from_abi(abi: Self) -> Result<Self> {
+    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
         Ok(abi)
     }
 
