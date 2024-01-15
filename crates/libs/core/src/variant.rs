@@ -84,6 +84,18 @@ impl std::fmt::Debug for PROPVARIANT {
     }
 }
 
+impl std::fmt::Display for VARIANT {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        std::write!(f, "{}", BSTR::try_from(self).unwrap_or_default())
+    }
+}
+
+impl std::fmt::Display for PROPVARIANT {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        std::write!(f, "{}", BSTR::try_from(self).unwrap_or_default())
+    }
+}
+
 impl PartialEq for VARIANT {
     fn eq(&self, other: &Self) -> bool {
         unsafe {

@@ -29,11 +29,17 @@ impl BSTR {
 
     /// Get the string as 16-bit wide characters (wchars).
     pub fn as_wide(&self) -> &[u16] {
-        if self.0.is_null() {
-            return &[];
-        }
+        unsafe { std::slice::from_raw_parts(self.as_ptr(), self.len()) }
+    }
 
-        unsafe { std::slice::from_raw_parts(self.0, self.len()) }
+    /// Returns a raw pointer to the `BSTR` buffer.
+    pub fn as_ptr(&self) -> *const u16 {
+        if !self.is_empty() {
+            self.0
+        } else {
+            const EMPTY: [u16; 1] = [0];
+            EMPTY.as_ptr()
+        }
     }
 
     /// Create a `BSTR` from a slice of 16 bit characters (wchars).
@@ -102,6 +108,12 @@ impl TryFrom<BSTR> for String {
 
     fn try_from(value: BSTR) -> std::result::Result<Self, Self::Error> {
         String::try_from(&value)
+    }
+}
+
+impl IntoParam<PCWSTR> for &BSTR {
+    unsafe fn into_param(self) -> Param<PCWSTR> {
+        Param::Owned(PCWSTR(self.as_ptr()))
     }
 }
 

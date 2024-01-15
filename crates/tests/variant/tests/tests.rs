@@ -103,6 +103,7 @@ fn test_variant() -> Result<()> {
     assert_eq!(BSTR::try_from(&v)?, "3.5");
 
     assert_eq!(format!("{v:?}"), "VARIANT { type: 5, value: 3.5 }");
+    assert_eq!(format!("{v}"), "3.5");
 
     let clone = v.clone();
     assert_eq!(v, clone);
@@ -219,6 +220,7 @@ fn test_propvariant() -> Result<()> {
     assert_eq!(BSTR::try_from(&v)?, "3.5");
 
     assert_eq!(format!("{v:?}"), "PROPVARIANT { type: 5, value: 3.5 }");
+    assert_eq!(format!("{v}"), "3.5");
 
     let clone = v.clone();
     assert_eq!(v, clone);
