@@ -1198,7 +1198,7 @@ impl IClassFactory_Vtbl {
     }
 }
 pub trait IClientSecurity_Impl: Sized {
-    fn QueryBlanket(&self, pproxy: ::core::option::Option<&::windows_core::IUnknown>, pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut *mut u16, pauthnlevel: *mut RPC_C_AUTHN_LEVEL, pimplevel: *mut RPC_C_IMP_LEVEL, pauthinfo: *mut *mut ::core::ffi::c_void, pcapabilites: EOLE_AUTHENTICATION_CAPABILITIES) -> ::windows_core::Result<()>;
+    fn QueryBlanket(&self, pproxy: ::core::option::Option<&::windows_core::IUnknown>, pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut *mut u16, pauthnlevel: *mut RPC_C_AUTHN_LEVEL, pimplevel: *mut RPC_C_IMP_LEVEL, pauthinfo: *mut *mut ::core::ffi::c_void, pcapabilites: *mut u32) -> ::windows_core::Result<()>;
     fn SetBlanket(&self, pproxy: ::core::option::Option<&::windows_core::IUnknown>, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: &::windows_core::PCWSTR, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthinfo: *const ::core::ffi::c_void, dwcapabilities: &EOLE_AUTHENTICATION_CAPABILITIES) -> ::windows_core::Result<()>;
     fn CopyProxy(&self, pproxy: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<::windows_core::IUnknown>;
 }

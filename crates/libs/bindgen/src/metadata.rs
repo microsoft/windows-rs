@@ -343,6 +343,10 @@ fn param_kind(row: Param) -> SignatureParamKind {
 
 // TODO: this is a terribly broken Win32 metadata attribute - need to get rid of it.
 fn param_or_enum(row: Param) -> Option<String> {
+    if row.flags().contains(ParamAttributes::Out) {
+        return None;
+    }
+
     row.find_attribute("AssociatedEnumAttribute").and_then(|attribute| {
         for (_, arg) in attribute.args() {
             if let Value::String(name) = arg {
