@@ -1,8 +1,10 @@
 use super::*;
 
+/// A VARIANT ([VARIANT](https://learn.microsoft.com/en-us/windows/win32/api/oaidl/ns-oaidl-variant)) is a container that can store different types of values.
 #[repr(transparent)]
 pub struct VARIANT(imp::VARIANT);
 
+/// A PROPVARIANT ([PROPVARIANT](https://learn.microsoft.com/en-us/windows/win32/api/propidlbase/ns-propidlbase-propvariant)) is a container that can store different types of values.
 #[repr(transparent)]
 pub struct PROPVARIANT(imp::PROPVARIANT);
 
@@ -130,20 +132,28 @@ impl Eq for VARIANT {}
 impl Eq for PROPVARIANT {}
 
 impl VARIANT {
+    /// Create an empty `VARIANT`.
+    ///
+    /// This function does not allocate memory.
     pub fn new() -> Self {
         unsafe { std::mem::zeroed() }
     }
 
+    /// Returns true if the `VARIANT` is empty.
     pub const fn is_empty(&self) -> bool {
         unsafe { self.0.Anonymous.Anonymous.vt == imp::VT_EMPTY }
     }
 }
 
 impl PROPVARIANT {
+    /// Create an empty `PROPVARIANT`.
+    ///
+    /// This function does not allocate memory.    
     pub fn new() -> Self {
         unsafe { std::mem::zeroed() }
     }
 
+    /// Returns true if the `PROPVARIANT` is empty.
     pub const fn is_empty(&self) -> bool {
         unsafe { self.0.Anonymous.Anonymous.vt == imp::VT_EMPTY }
     }
