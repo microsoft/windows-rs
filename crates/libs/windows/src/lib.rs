@@ -5,7 +5,7 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 */
 
 #![doc(html_no_source)]
-#![allow(non_snake_case, clashing_extern_declarations, non_upper_case_globals, non_camel_case_types, clippy::all)]
+#![allow(non_snake_case, clashing_extern_declarations, non_upper_case_globals, non_camel_case_types, missing_docs, clippy::all)]
 #![cfg_attr(not(feature = "docs"), doc(hidden))]
 
 #[allow(unused_extern_crates)]
