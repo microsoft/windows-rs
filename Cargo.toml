@@ -15,3 +15,4 @@ exclude = [
 [workspace.lints.rust]
 rust_2018_idioms = "warn"
 unused_qualifications = "warn"
+missing_docs = "warn"

@@ -17,6 +17,7 @@ impl<T: Type<T>> Param<T> {
     }
 }
 
+#[doc(hidden)]
 pub trait CanInto<T>: Sized {
     const QUERY: bool = false;
 }

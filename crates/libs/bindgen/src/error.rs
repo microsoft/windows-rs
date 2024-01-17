@@ -1,5 +1,7 @@
+/// A specialized [`Result`] type that provides compiler error information.
 pub type Result<T> = std::result::Result<T, Error>;
 
+/// An error object consists of both an error message and file and line information.
 #[derive(Default, Debug)]
 pub struct Error {
     message: String,

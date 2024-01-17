@@ -1,3 +1,7 @@
+/*!
+Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>
+*/
+
 use quote::quote;
 use syn::spanned::Spanned;
 

@@ -1,3 +1,9 @@
+/*!
+Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>
+*/
+
+#![doc(hidden)]
+
 use std::cmp::Ordering;
 use std::collections::*;
 
