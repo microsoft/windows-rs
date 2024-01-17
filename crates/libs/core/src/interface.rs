@@ -7,8 +7,13 @@ use super::*;
 ///
 /// # Safety
 pub unsafe trait Interface: Sized + Clone {
+    #[doc(hidden)]
     type Vtable;
+
+    #[doc(hidden)]
     const IID: GUID;
+
+    #[doc(hidden)]
     const UNKNOWN: bool = true;
 
     /// A reference to the interface's vtable

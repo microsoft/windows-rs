@@ -1,3 +1,7 @@
+/*!
+Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs>
+*/
+
 #![cfg_attr(not(test), no_std)]
 
 mod bindings;

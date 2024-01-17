@@ -4,6 +4,7 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 
 #![no_std]
 
+/// Defines an external function to import.
 #[cfg(all(windows_raw_dylib, target_arch = "x86"))]
 #[macro_export]
 macro_rules! link {
@@ -17,6 +18,7 @@ macro_rules! link {
     )
 }
 
+/// Defines an external function to import.
 #[cfg(all(windows_raw_dylib, not(target_arch = "x86")))]
 #[macro_export]
 macro_rules! link {
@@ -30,6 +32,7 @@ macro_rules! link {
     )
 }
 
+/// Defines an external function to import.
 #[cfg(all(windows, not(windows_raw_dylib)))]
 #[macro_export]
 macro_rules! link {
@@ -43,6 +46,7 @@ macro_rules! link {
     )
 }
 
+/// Defines an external function to import.
 #[cfg(all(not(windows), not(windows_raw_dylib)))]
 #[macro_export]
 macro_rules! link {
