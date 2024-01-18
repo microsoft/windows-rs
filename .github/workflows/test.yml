@@ -70,6 +70,8 @@ jobs:
           cargo test -p sample_shell &&
           cargo test -p sample_simple &&
           cargo test -p sample_spellchecker &&
+          cargo test -p sample_task_dialog &&
+          cargo test -p sample_task_dialog_sys &&
           cargo test -p sample_thread_pool_work &&
           cargo test -p sample_thread_pool_work_sys &&
           cargo test -p sample_uiautomation &&
@@ -100,8 +102,8 @@ jobs:
           cargo test -p test_does_not_return &&
           cargo test -p test_enums &&
           cargo test -p test_error &&
-          cargo test -p test_event &&
           cargo clean &&
+          cargo test -p test_event &&
           cargo test -p test_extensions &&
           cargo test -p test_handles &&
           cargo test -p test_helpers &&
