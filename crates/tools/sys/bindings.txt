@@ -108,7 +108,6 @@
     !Windows.Win32.UI.LegacyWindowsEnvironmentFeatures
     !Windows.Win32.UI.Notifications
     !Windows.Win32.UI.Ribbon
-    !Windows.Win32.UI.Shell.Common
     !Windows.Win32.UI.Wpf
     !Windows.Win32.UI.Xaml
     !Windows.Win32.Web.MsHtml
