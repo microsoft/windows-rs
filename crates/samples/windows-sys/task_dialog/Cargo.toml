@@ -1,0 +1,12 @@
+[package]
+name = "sample_task_dialog_sys"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies.windows-sys]
+path = "../../../libs/sys"
+features = [
+    "Win32_UI_Controls",
+    "Win32_UI_WindowsAndMessaging",
+]
