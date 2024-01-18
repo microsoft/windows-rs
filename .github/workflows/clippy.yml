@@ -63,6 +63,8 @@ jobs:
           cargo clippy -p sample_shell &&
           cargo clippy -p sample_simple &&
           cargo clippy -p sample_spellchecker &&
+          cargo clippy -p sample_task_dialog &&
+          cargo clippy -p sample_task_dialog_sys &&
           cargo clippy -p sample_thread_pool_work &&
           cargo clippy -p sample_thread_pool_work_sys &&
           cargo clippy -p sample_uiautomation &&
