@@ -1,3 +1,6 @@
+#[cfg(feature = "Win32_UI_Shell_Common")]
+#[doc = "Required features: `\"Win32_UI_Shell_Common\"`"]
+pub mod Common;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 pub mod PropertiesSystem;
