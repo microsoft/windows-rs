@@ -3,10 +3,10 @@
 #[doc(hidden)]
 pub struct IAudioCaptureEffectsManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub AudioCaptureEffectsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveAudioCaptureEffectsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub AudioCaptureEffectsChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveAudioCaptureEffectsChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetAudioCaptureEffects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAudioCaptureEffects: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetAudioCaptureEffects: usize,
 }
@@ -15,7 +15,7 @@ pub struct IAudioCaptureEffectsManager_Vtbl {
 #[doc(hidden)]
 pub struct IAudioEffect_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub AudioEffectType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioEffectType) -> ::windows_core::HRESULT,
+    pub AudioEffectType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AudioEffectType) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAudioEffectDefinition, IAudioEffectDefinition_Vtbl, 0xe4d7f974_7d80_4f73_9089_e31c9db9c294);
 ::windows_core::imp::interface_hierarchy!(IAudioEffectDefinition, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -44,9 +44,9 @@ impl ::windows_core::RuntimeType for IAudioEffectDefinition {
 #[doc(hidden)]
 pub struct IAudioEffectDefinition_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub ActivatableClassId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub ActivatableClassId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Properties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Properties: usize,
 }
@@ -55,9 +55,9 @@ pub struct IAudioEffectDefinition_Vtbl {
 #[doc(hidden)]
 pub struct IAudioEffectDefinitionFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateWithProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, props: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateWithProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateWithProperties: usize,
 }
@@ -67,19 +67,19 @@ pub struct IAudioEffectDefinitionFactory_Vtbl {
 pub struct IAudioEffectsManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media_Render")]
-    pub CreateAudioRenderEffectsManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, category: super::Render::AudioRenderCategory, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAudioRenderEffectsManager: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, super::Render::AudioRenderCategory, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_Render"))]
     CreateAudioRenderEffectsManager: usize,
     #[cfg(feature = "Media_Render")]
-    pub CreateAudioRenderEffectsManagerWithMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, category: super::Render::AudioRenderCategory, mode: super::AudioProcessing, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAudioRenderEffectsManagerWithMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, super::Render::AudioRenderCategory, super::AudioProcessing, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_Render"))]
     CreateAudioRenderEffectsManagerWithMode: usize,
     #[cfg(feature = "Media_Capture")]
-    pub CreateAudioCaptureEffectsManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, category: super::Capture::MediaCategory, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAudioCaptureEffectsManager: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, super::Capture::MediaCategory, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_Capture"))]
     CreateAudioCaptureEffectsManager: usize,
     #[cfg(feature = "Media_Capture")]
-    pub CreateAudioCaptureEffectsManagerWithMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, category: super::Capture::MediaCategory, mode: super::AudioProcessing, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAudioCaptureEffectsManagerWithMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, super::Capture::MediaCategory, super::AudioProcessing, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_Capture"))]
     CreateAudioCaptureEffectsManagerWithMode: usize,
 }
@@ -88,10 +88,10 @@ pub struct IAudioEffectsManagerStatics_Vtbl {
 #[doc(hidden)]
 pub struct IAudioRenderEffectsManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub AudioRenderEffectsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveAudioRenderEffectsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub AudioRenderEffectsChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveAudioRenderEffectsChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetAudioRenderEffects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAudioRenderEffects: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetAudioRenderEffects: usize,
 }
@@ -108,15 +108,15 @@ pub struct IAudioRenderEffectsManager_Vtbl {
 pub struct IAudioRenderEffectsManager2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub EffectsProviderThumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EffectsProviderThumbnail: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     EffectsProviderThumbnail: usize,
     #[cfg(feature = "deprecated")]
-    pub EffectsProviderSettingsLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub EffectsProviderSettingsLabel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     EffectsProviderSettingsLabel: usize,
     #[cfg(feature = "deprecated")]
-    pub ShowSettingsUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShowSettingsUI: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     ShowSettingsUI: usize,
 }
@@ -181,18 +181,18 @@ impl ::windows_core::RuntimeType for IBasicAudioEffect {
 #[doc(hidden)]
 pub struct IBasicAudioEffect_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub UseInputFrameForOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub UseInputFrameForOutput: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-    pub SupportedEncodingProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SupportedEncodingProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_MediaProperties")))]
     SupportedEncodingProperties: usize,
     #[cfg(feature = "Media_MediaProperties")]
-    pub SetEncodingProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingproperties: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetEncodingProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
     SetEncodingProperties: usize,
-    pub ProcessFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: MediaEffectClosedReason) -> ::windows_core::HRESULT,
-    pub DiscardQueuedFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ProcessFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void, MediaEffectClosedReason) -> ::windows_core::HRESULT,
+    pub DiscardQueuedFrames: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBasicVideoEffect, IBasicVideoEffect_Vtbl, 0x8262c7ef_b360_40be_949b_2ff42ff35693);
 ::windows_core::imp::interface_hierarchy!(IBasicVideoEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -270,20 +270,20 @@ impl ::windows_core::RuntimeType for IBasicVideoEffect {
 #[doc(hidden)]
 pub struct IBasicVideoEffect_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub IsReadOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SupportedMemoryTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaMemoryTypes) -> ::windows_core::HRESULT,
-    pub TimeIndependent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsReadOnly: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SupportedMemoryTypes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MediaMemoryTypes) -> ::windows_core::HRESULT,
+    pub TimeIndependent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
-    pub SupportedEncodingProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SupportedEncodingProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_MediaProperties")))]
     SupportedEncodingProperties: usize,
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-    pub SetEncodingProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingproperties: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetEncodingProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties")))]
     SetEncodingProperties: usize,
-    pub ProcessFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: MediaEffectClosedReason) -> ::windows_core::HRESULT,
-    pub DiscardQueuedFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ProcessFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void, MediaEffectClosedReason) -> ::windows_core::HRESULT,
+    pub DiscardQueuedFrames: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICompositeVideoFrameContext, ICompositeVideoFrameContext_Vtbl, 0x6c30024b_f514_4278_a5f7_b9188049d110);
 #[repr(C)]
@@ -291,13 +291,13 @@ pub struct IBasicVideoEffect_Vtbl {
 pub struct ICompositeVideoFrameContext_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11"))]
-    pub SurfacesToOverlay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SurfacesToOverlay: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11")))]
     SurfacesToOverlay: usize,
-    pub BackgroundFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OutputFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BackgroundFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OutputFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_Editing"))]
-    pub GetOverlayForSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, surfacetooverlay: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetOverlayForSurface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_Editing")))]
     GetOverlayForSurface: usize,
 }
@@ -306,24 +306,24 @@ pub struct ICompositeVideoFrameContext_Vtbl {
 #[doc(hidden)]
 pub struct IProcessAudioFrameContext_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub InputFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OutputFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InputFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OutputFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IProcessVideoFrameContext, IProcessVideoFrameContext_Vtbl, 0x276f0e2b_6461_401e_ba78_0fdad6114eec);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProcessVideoFrameContext_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub InputFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OutputFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InputFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OutputFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISlowMotionEffectDefinition, ISlowMotionEffectDefinition_Vtbl, 0x35053cd0_176c_4763_82c4_1b02dbe31737);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISlowMotionEffectDefinition_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub TimeStretchRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub SetTimeStretchRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
+    pub TimeStretchRate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub SetTimeStretchRate: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVideoCompositor, IVideoCompositor_Vtbl, 0x8510b43e_420c_420f_96c7_7c98bba1fc55);
 ::windows_core::imp::interface_hierarchy!(IVideoCompositor, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -378,14 +378,14 @@ impl ::windows_core::RuntimeType for IVideoCompositor {
 #[doc(hidden)]
 pub struct IVideoCompositor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub TimeIndependent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub TimeIndependent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-    pub SetEncodingProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, backgroundproperties: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetEncodingProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties")))]
     SetEncodingProperties: usize,
-    pub CompositeFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: MediaEffectClosedReason) -> ::windows_core::HRESULT,
-    pub DiscardQueuedFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CompositeFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void, MediaEffectClosedReason) -> ::windows_core::HRESULT,
+    pub DiscardQueuedFrames: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVideoCompositorDefinition, IVideoCompositorDefinition_Vtbl, 0x7946b8d0_2010_4ae3_9ab2_2cef42edd4d2);
 ::windows_core::imp::interface_hierarchy!(IVideoCompositorDefinition, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -414,9 +414,9 @@ impl ::windows_core::RuntimeType for IVideoCompositorDefinition {
 #[doc(hidden)]
 pub struct IVideoCompositorDefinition_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub ActivatableClassId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub ActivatableClassId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Properties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Properties: usize,
 }
@@ -425,9 +425,9 @@ pub struct IVideoCompositorDefinition_Vtbl {
 #[doc(hidden)]
 pub struct IVideoCompositorDefinitionFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateWithProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, props: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateWithProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateWithProperties: usize,
 }
@@ -458,9 +458,9 @@ impl ::windows_core::RuntimeType for IVideoEffectDefinition {
 #[doc(hidden)]
 pub struct IVideoEffectDefinition_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub ActivatableClassId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub ActivatableClassId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Properties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Properties: usize,
 }
@@ -469,9 +469,9 @@ pub struct IVideoEffectDefinition_Vtbl {
 #[doc(hidden)]
 pub struct IVideoEffectDefinitionFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateWithProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, props: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateWithProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateWithProperties: usize,
 }
@@ -481,39 +481,39 @@ pub struct IVideoEffectDefinitionFactory_Vtbl {
 pub struct IVideoTransformEffectDefinition_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI")]
-    pub PaddingColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows_core::HRESULT,
+    pub PaddingColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::UI::Color) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "UI"))]
     PaddingColor: usize,
     #[cfg(feature = "UI")]
-    pub SetPaddingColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows_core::HRESULT,
+    pub SetPaddingColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::UI::Color) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "UI"))]
     SetPaddingColor: usize,
-    pub OutputSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
-    pub SetOutputSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Size) -> ::windows_core::HRESULT,
-    pub CropRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows_core::HRESULT,
-    pub SetCropRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows_core::HRESULT,
+    pub OutputSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
+    pub SetOutputSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::Size) -> ::windows_core::HRESULT,
+    pub CropRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Rect) -> ::windows_core::HRESULT,
+    pub SetCropRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::Rect) -> ::windows_core::HRESULT,
     #[cfg(feature = "Media_MediaProperties")]
-    pub Rotation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::MediaProperties::MediaRotation) -> ::windows_core::HRESULT,
+    pub Rotation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::MediaProperties::MediaRotation) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
     Rotation: usize,
     #[cfg(feature = "Media_MediaProperties")]
-    pub SetRotation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::MediaProperties::MediaRotation) -> ::windows_core::HRESULT,
+    pub SetRotation: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::MediaProperties::MediaRotation) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
     SetRotation: usize,
     #[cfg(feature = "Media_MediaProperties")]
-    pub Mirror: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::MediaProperties::MediaMirroringOptions) -> ::windows_core::HRESULT,
+    pub Mirror: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::MediaProperties::MediaMirroringOptions) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
     Mirror: usize,
     #[cfg(feature = "Media_MediaProperties")]
-    pub SetMirror: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::MediaProperties::MediaMirroringOptions) -> ::windows_core::HRESULT,
+    pub SetMirror: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::MediaProperties::MediaMirroringOptions) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
     SetMirror: usize,
     #[cfg(feature = "Media_Transcoding")]
-    pub SetProcessingAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Transcoding::MediaVideoProcessingAlgorithm) -> ::windows_core::HRESULT,
+    pub SetProcessingAlgorithm: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Transcoding::MediaVideoProcessingAlgorithm) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_Transcoding"))]
     SetProcessingAlgorithm: usize,
     #[cfg(feature = "Media_Transcoding")]
-    pub ProcessingAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Transcoding::MediaVideoProcessingAlgorithm) -> ::windows_core::HRESULT,
+    pub ProcessingAlgorithm: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::Transcoding::MediaVideoProcessingAlgorithm) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_Transcoding"))]
     ProcessingAlgorithm: usize,
 }
@@ -522,39 +522,39 @@ pub struct IVideoTransformEffectDefinition_Vtbl {
 #[doc(hidden)]
 pub struct IVideoTransformEffectDefinition2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub SphericalProjection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SphericalProjection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVideoTransformSphericalProjection, IVideoTransformSphericalProjection_Vtbl, 0xcf4401f0_9bf2_4c39_9f41_e022514a8468);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoTransformSphericalProjection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetIsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+    pub IsEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetIsEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
     #[cfg(feature = "Media_MediaProperties")]
-    pub FrameFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::MediaProperties::SphericalVideoFrameFormat) -> ::windows_core::HRESULT,
+    pub FrameFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::MediaProperties::SphericalVideoFrameFormat) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
     FrameFormat: usize,
     #[cfg(feature = "Media_MediaProperties")]
-    pub SetFrameFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::MediaProperties::SphericalVideoFrameFormat) -> ::windows_core::HRESULT,
+    pub SetFrameFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::MediaProperties::SphericalVideoFrameFormat) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))]
     SetFrameFormat: usize,
     #[cfg(feature = "Media_Playback")]
-    pub ProjectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Playback::SphericalVideoProjectionMode) -> ::windows_core::HRESULT,
+    pub ProjectionMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::Playback::SphericalVideoProjectionMode) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_Playback"))]
     ProjectionMode: usize,
     #[cfg(feature = "Media_Playback")]
-    pub SetProjectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Playback::SphericalVideoProjectionMode) -> ::windows_core::HRESULT,
+    pub SetProjectionMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Playback::SphericalVideoProjectionMode) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media_Playback"))]
     SetProjectionMode: usize,
-    pub HorizontalFieldOfViewInDegrees: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub SetHorizontalFieldOfViewInDegrees: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
+    pub HorizontalFieldOfViewInDegrees: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub SetHorizontalFieldOfViewInDegrees: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
-    pub ViewOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Quaternion) -> ::windows_core::HRESULT,
+    pub ViewOrientation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Numerics::Quaternion) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     ViewOrientation: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub SetViewOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Quaternion) -> ::windows_core::HRESULT,
+    pub SetViewOrientation: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::Numerics::Quaternion) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetViewOrientation: usize,
 }

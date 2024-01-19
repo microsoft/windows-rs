@@ -38,8 +38,8 @@ impl AsyncIFtpAuthenticationProvider {
 #[doc(hidden)]
 pub struct AsyncIFtpAuthenticationProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Begin_AuthenticateUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsessionid: ::windows_core::PCWSTR, pszsitename: ::windows_core::PCWSTR, pszusername: ::windows_core::PCWSTR, pszpassword: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Finish_AuthenticateUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszcanonicalusername: *mut ::windows_core::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub Begin_AuthenticateUser: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Finish_AuthenticateUser: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(AsyncIFtpAuthorizationProvider, AsyncIFtpAuthorizationProvider_Vtbl, 0x860dc339_07e5_4a5c_9c61_8820cea012bc);
 ::windows_core::imp::interface_hierarchy!(AsyncIFtpAuthorizationProvider, ::windows_core::IUnknown);
@@ -62,8 +62,8 @@ impl AsyncIFtpAuthorizationProvider {
 #[doc(hidden)]
 pub struct AsyncIFtpAuthorizationProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Begin_GetUserAccessPermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsessionid: ::windows_core::PCWSTR, pszsitename: ::windows_core::PCWSTR, pszvirtualpath: ::windows_core::PCWSTR, pszusername: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Finish_GetUserAccessPermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pftpaccess: *mut FTP_ACCESS) -> ::windows_core::HRESULT,
+    pub Begin_GetUserAccessPermission: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Finish_GetUserAccessPermission: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut FTP_ACCESS) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(AsyncIFtpHomeDirectoryProvider, AsyncIFtpHomeDirectoryProvider_Vtbl, 0x73f81638_6295_42bd_a2be_4a657f7c479c);
 ::windows_core::imp::interface_hierarchy!(AsyncIFtpHomeDirectoryProvider, ::windows_core::IUnknown);
@@ -85,8 +85,8 @@ impl AsyncIFtpHomeDirectoryProvider {
 #[doc(hidden)]
 pub struct AsyncIFtpHomeDirectoryProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Begin_GetUserHomeDirectoryData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsessionid: ::windows_core::PCWSTR, pszsitename: ::windows_core::PCWSTR, pszusername: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Finish_GetUserHomeDirectoryData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszhomedirectorydata: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub Begin_GetUserHomeDirectoryData: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Finish_GetUserHomeDirectoryData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(AsyncIFtpLogProvider, AsyncIFtpLogProvider_Vtbl, 0x00a0ae46_2498_48b2_95e6_df678ed7d49f);
 ::windows_core::imp::interface_hierarchy!(AsyncIFtpLogProvider, ::windows_core::IUnknown);
@@ -102,8 +102,8 @@ impl AsyncIFtpLogProvider {
 #[doc(hidden)]
 pub struct AsyncIFtpLogProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Begin_Log: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows_core::HRESULT,
-    pub Finish_Log: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_Log: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const LOGGING_PARAMETERS) -> ::windows_core::HRESULT,
+    pub Finish_Log: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(AsyncIFtpPostprocessProvider, AsyncIFtpPostprocessProvider_Vtbl, 0xa16b2542_9694_4eb1_a564_6c2e91fdc133);
 ::windows_core::imp::interface_hierarchy!(AsyncIFtpPostprocessProvider, ::windows_core::IUnknown);
@@ -120,8 +120,8 @@ impl AsyncIFtpPostprocessProvider {
 #[doc(hidden)]
 pub struct AsyncIFtpPostprocessProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Begin_HandlePostprocess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> ::windows_core::HRESULT,
-    pub Finish_HandlePostprocess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pftpprocessstatus: *mut FTP_PROCESS_STATUS) -> ::windows_core::HRESULT,
+    pub Begin_HandlePostprocess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const POST_PROCESS_PARAMETERS) -> ::windows_core::HRESULT,
+    pub Finish_HandlePostprocess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut FTP_PROCESS_STATUS) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(AsyncIFtpPreprocessProvider, AsyncIFtpPreprocessProvider_Vtbl, 0x6ff5fd8f_fd8e_48b1_a3e0_bf7073db4db5);
 ::windows_core::imp::interface_hierarchy!(AsyncIFtpPreprocessProvider, ::windows_core::IUnknown);
@@ -138,8 +138,8 @@ impl AsyncIFtpPreprocessProvider {
 #[doc(hidden)]
 pub struct AsyncIFtpPreprocessProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Begin_HandlePreprocess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> ::windows_core::HRESULT,
-    pub Finish_HandlePreprocess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pftpprocessstatus: *mut FTP_PROCESS_STATUS) -> ::windows_core::HRESULT,
+    pub Begin_HandlePreprocess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PRE_PROCESS_PARAMETERS) -> ::windows_core::HRESULT,
+    pub Finish_HandlePreprocess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut FTP_PROCESS_STATUS) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(AsyncIFtpRoleProvider, AsyncIFtpRoleProvider_Vtbl, 0x3e83bf99_70ec_41ca_84b6_aca7c7a62caf);
 ::windows_core::imp::interface_hierarchy!(AsyncIFtpRoleProvider, ::windows_core::IUnknown);
@@ -162,8 +162,8 @@ impl AsyncIFtpRoleProvider {
 #[doc(hidden)]
 pub struct AsyncIFtpRoleProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Begin_IsUserInRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsessionid: ::windows_core::PCWSTR, pszsitename: ::windows_core::PCWSTR, pszusername: ::windows_core::PCWSTR, pszrole: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Finish_IsUserInRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisinrole: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub Begin_IsUserInRole: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Finish_IsUserInRole: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(AsyncIMSAdminBaseSinkW, AsyncIMSAdminBaseSinkW_Vtbl, 0xa9e69613_b80d_11d0_b9b9_00a0c922e750);
 ::windows_core::imp::interface_hierarchy!(AsyncIMSAdminBaseSinkW, ::windows_core::IUnknown);
@@ -185,10 +185,10 @@ impl AsyncIMSAdminBaseSinkW {
 #[doc(hidden)]
 pub struct AsyncIMSAdminBaseSinkW_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Begin_SinkNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> ::windows_core::HRESULT,
-    pub Finish_SinkNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Begin_ShutdownNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Finish_ShutdownNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_SinkNotify: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const MD_CHANGE_OBJECT_W) -> ::windows_core::HRESULT,
+    pub Finish_SinkNotify: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_ShutdownNotify: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Finish_ShutdownNotify: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IADMEXT, IADMEXT_Vtbl, 0x51dfe970_f6f2_11d0_b9bd_00a0c922e750);
 ::windows_core::imp::interface_hierarchy!(IADMEXT, ::windows_core::IUnknown);
@@ -207,9 +207,9 @@ impl IADMEXT {
 #[doc(hidden)]
 pub struct IADMEXT_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumDcomCLSIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsiddcom: *mut ::windows_core::GUID, dwenumindex: u32) -> ::windows_core::HRESULT,
-    pub Terminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumDcomCLSIDs: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID, u32) -> ::windows_core::HRESULT,
+    pub Terminate: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFtpAuthenticationProvider, IFtpAuthenticationProvider_Vtbl, 0x4659f95c_d5a8_4707_b2fc_6fd5794246cf);
 ::windows_core::imp::interface_hierarchy!(IFtpAuthenticationProvider, ::windows_core::IUnknown);
@@ -228,7 +228,7 @@ impl IFtpAuthenticationProvider {
 #[doc(hidden)]
 pub struct IFtpAuthenticationProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AuthenticateUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsessionid: ::windows_core::PCWSTR, pszsitename: ::windows_core::PCWSTR, pszusername: ::windows_core::PCWSTR, pszpassword: ::windows_core::PCWSTR, ppszcanonicalusername: *mut ::windows_core::PWSTR, pfauthenticated: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub AuthenticateUser: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *mut ::windows_core::PWSTR, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFtpAuthorizationProvider, IFtpAuthorizationProvider_Vtbl, 0xa50ae7a1_a35a_42b4_a4f3_f4f7057a05d1);
 ::windows_core::imp::interface_hierarchy!(IFtpAuthorizationProvider, ::windows_core::IUnknown);
@@ -248,7 +248,7 @@ impl IFtpAuthorizationProvider {
 #[doc(hidden)]
 pub struct IFtpAuthorizationProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetUserAccessPermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsessionid: ::windows_core::PCWSTR, pszsitename: ::windows_core::PCWSTR, pszvirtualpath: ::windows_core::PCWSTR, pszusername: ::windows_core::PCWSTR, pftpaccess: *mut FTP_ACCESS) -> ::windows_core::HRESULT,
+    pub GetUserAccessPermission: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *mut FTP_ACCESS) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFtpHomeDirectoryProvider, IFtpHomeDirectoryProvider_Vtbl, 0x0933b392_18dd_4097_8b9c_83325c35d9a6);
 ::windows_core::imp::interface_hierarchy!(IFtpHomeDirectoryProvider, ::windows_core::IUnknown);
@@ -267,7 +267,7 @@ impl IFtpHomeDirectoryProvider {
 #[doc(hidden)]
 pub struct IFtpHomeDirectoryProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetUserHomeDirectoryData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsessionid: ::windows_core::PCWSTR, pszsitename: ::windows_core::PCWSTR, pszusername: ::windows_core::PCWSTR, ppszhomedirectorydata: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetUserHomeDirectoryData: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFtpLogProvider, IFtpLogProvider_Vtbl, 0xa18a94cc_8299_4408_816c_7c3baca1a40e);
 ::windows_core::imp::interface_hierarchy!(IFtpLogProvider, ::windows_core::IUnknown);
@@ -280,7 +280,7 @@ impl IFtpLogProvider {
 #[doc(hidden)]
 pub struct IFtpLogProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Log: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows_core::HRESULT,
+    pub Log: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const LOGGING_PARAMETERS) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFtpPostprocessProvider, IFtpPostprocessProvider_Vtbl, 0x4522cbc6_16cd_49ad_8653_9a2c579e4280);
 ::windows_core::imp::interface_hierarchy!(IFtpPostprocessProvider, ::windows_core::IUnknown);
@@ -294,7 +294,7 @@ impl IFtpPostprocessProvider {
 #[doc(hidden)]
 pub struct IFtpPostprocessProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub HandlePostprocess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppostprocessparameters: *const POST_PROCESS_PARAMETERS, pftpprocessstatus: *mut FTP_PROCESS_STATUS) -> ::windows_core::HRESULT,
+    pub HandlePostprocess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const POST_PROCESS_PARAMETERS, *mut FTP_PROCESS_STATUS) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFtpPreprocessProvider, IFtpPreprocessProvider_Vtbl, 0xa3c19b60_5a28_471a_8f93_ab30411cee82);
 ::windows_core::imp::interface_hierarchy!(IFtpPreprocessProvider, ::windows_core::IUnknown);
@@ -308,7 +308,7 @@ impl IFtpPreprocessProvider {
 #[doc(hidden)]
 pub struct IFtpPreprocessProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub HandlePreprocess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS, pftpprocessstatus: *mut FTP_PROCESS_STATUS) -> ::windows_core::HRESULT,
+    pub HandlePreprocess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PRE_PROCESS_PARAMETERS, *mut FTP_PROCESS_STATUS) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFtpProviderConstruct, IFtpProviderConstruct_Vtbl, 0x4d1a3f7b_412d_447c_b199_64f967e9a2da);
 ::windows_core::imp::interface_hierarchy!(IFtpProviderConstruct, ::windows_core::IUnknown);
@@ -324,7 +324,7 @@ impl IFtpProviderConstruct {
 pub struct IFtpProviderConstruct_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub Construct: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, configurationentries: *const super::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub Construct: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::Com::SAFEARRAY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Construct: usize,
 }
@@ -346,7 +346,7 @@ impl IFtpRoleProvider {
 #[doc(hidden)]
 pub struct IFtpRoleProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub IsUserInRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsessionid: ::windows_core::PCWSTR, pszsitename: ::windows_core::PCWSTR, pszusername: ::windows_core::PCWSTR, pszrole: ::windows_core::PCWSTR, pfisinrole: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub IsUserInRole: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMSAdminBase2W, IMSAdminBase2W_Vtbl, 0x8298d101_f992_43b7_8eca_5052d885b995);
 ::windows_core::imp::interface_hierarchy!(IMSAdminBase2W, ::windows_core::IUnknown, IMSAdminBaseW);
@@ -565,12 +565,12 @@ impl IMSAdminBase2W {
 #[doc(hidden)]
 pub struct IMSAdminBase2W_Vtbl {
     pub base__: IMSAdminBaseW_Vtbl,
-    pub BackupWithPasswd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmdbackuplocation: ::windows_core::PCWSTR, dwmdversion: u32, dwmdflags: u32, pszpasswd: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub RestoreWithPasswd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmdbackuplocation: ::windows_core::PCWSTR, dwmdversion: u32, dwmdflags: u32, pszpasswd: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Export: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpasswd: ::windows_core::PCWSTR, pszfilename: ::windows_core::PCWSTR, pszsourcepath: ::windows_core::PCWSTR, dwmdflags: u32) -> ::windows_core::HRESULT,
-    pub Import: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpasswd: ::windows_core::PCWSTR, pszfilename: ::windows_core::PCWSTR, pszsourcepath: ::windows_core::PCWSTR, pszdestpath: ::windows_core::PCWSTR, dwmdflags: u32) -> ::windows_core::HRESULT,
-    pub RestoreHistory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmdhistorylocation: ::windows_core::PCWSTR, dwmdmajorversion: u32, dwmdminorversion: u32, dwmdflags: u32) -> ::windows_core::HRESULT,
-    pub EnumHistory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmdhistorylocation: ::windows_core::PWSTR, pdwmdmajorversion: *mut u32, pdwmdminorversion: *mut u32, pftmdhistorytime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows_core::HRESULT,
+    pub BackupWithPasswd: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, u32, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub RestoreWithPasswd: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, u32, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Export: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub Import: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub RestoreHistory: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, u32, u32) -> ::windows_core::HRESULT,
+    pub EnumHistory: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u32, *mut u32, *mut super::super::Foundation::FILETIME, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMSAdminBase3W, IMSAdminBase3W_Vtbl, 0xf612954d_3b0b_4c56_9563_227b7be624b4);
 ::windows_core::imp::interface_hierarchy!(IMSAdminBase3W, ::windows_core::IUnknown, IMSAdminBaseW, IMSAdminBase2W);
@@ -795,7 +795,7 @@ impl IMSAdminBase3W {
 #[doc(hidden)]
 pub struct IMSAdminBase3W_Vtbl {
     pub base__: IMSAdminBase2W_Vtbl,
-    pub GetChildPaths: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: ::windows_core::PCWSTR, cchmdbuffersize: u32, pszbuffer: ::windows_core::PWSTR, pcchmdrequiredbuffersize: *mut u32) -> ::windows_core::HRESULT,
+    pub GetChildPaths: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, u32, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMSAdminBaseSinkW, IMSAdminBaseSinkW_Vtbl, 0xa9e69612_b80d_11d0_b9b9_00a0c922e750);
 ::windows_core::imp::interface_hierarchy!(IMSAdminBaseSinkW, ::windows_core::IUnknown);
@@ -811,8 +811,8 @@ impl IMSAdminBaseSinkW {
 #[doc(hidden)]
 pub struct IMSAdminBaseSinkW_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SinkNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmdnumelements: u32, pcochangelist: *const MD_CHANGE_OBJECT_W) -> ::windows_core::HRESULT,
-    pub ShutdownNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SinkNotify: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const MD_CHANGE_OBJECT_W) -> ::windows_core::HRESULT,
+    pub ShutdownNotify: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMSAdminBaseW, IMSAdminBaseW_Vtbl, 0x70b51430_b6ca_11d0_b9b9_00a0c922e750);
 ::windows_core::imp::interface_hierarchy!(IMSAdminBaseW, ::windows_core::IUnknown);
@@ -991,37 +991,37 @@ impl IMSAdminBaseW {
 #[doc(hidden)]
 pub struct IMSAdminBaseW_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AddKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub DeleteKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub DeleteChildKeys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub EnumKeys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: ::windows_core::PCWSTR, pszmdname: ::windows_core::PWSTR, dwmdenumobjectindex: u32) -> ::windows_core::HRESULT,
-    pub CopyKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdsourcehandle: u32, pszmdsourcepath: ::windows_core::PCWSTR, hmddesthandle: u32, pszmddestpath: ::windows_core::PCWSTR, bmdoverwriteflag: super::super::Foundation::BOOL, bmdcopyflag: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub RenameKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: ::windows_core::PCWSTR, pszmdnewname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: ::windows_core::PCWSTR, pmdrmddata: *mut METADATA_RECORD) -> ::windows_core::HRESULT,
-    pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: ::windows_core::PCWSTR, pmdrmddata: *mut METADATA_RECORD, pdwmdrequireddatalen: *mut u32) -> ::windows_core::HRESULT,
-    pub DeleteData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: ::windows_core::PCWSTR, dwmdidentifier: u32, dwmddatatype: u32) -> ::windows_core::HRESULT,
-    pub EnumData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: ::windows_core::PCWSTR, pmdrmddata: *mut METADATA_RECORD, dwmdenumdataindex: u32, pdwmdrequireddatalen: *mut u32) -> ::windows_core::HRESULT,
-    pub GetAllData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: ::windows_core::PCWSTR, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, pdwmdnumdataentries: *mut u32, pdwmddatasetnumber: *mut u32, dwmdbuffersize: u32, pbmdbuffer: *mut u8, pdwmdrequiredbuffersize: *mut u32) -> ::windows_core::HRESULT,
-    pub DeleteAllData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: ::windows_core::PCWSTR, dwmdusertype: u32, dwmddatatype: u32) -> ::windows_core::HRESULT,
-    pub CopyData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdsourcehandle: u32, pszmdsourcepath: ::windows_core::PCWSTR, hmddesthandle: u32, pszmddestpath: ::windows_core::PCWSTR, dwmdattributes: u32, dwmdusertype: u32, dwmddatatype: u32, bmdcopyflag: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetDataPaths: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: ::windows_core::PCWSTR, dwmdidentifier: u32, dwmddatatype: u32, dwmdbuffersize: u32, pszbuffer: ::windows_core::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows_core::HRESULT,
-    pub OpenKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: ::windows_core::PCWSTR, dwmdaccessrequested: u32, dwmdtimeout: u32, phmdnewhandle: *mut u32) -> ::windows_core::HRESULT,
-    pub CloseKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32) -> ::windows_core::HRESULT,
-    pub ChangePermissions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, dwmdtimeout: u32, dwmdaccessrequested: u32) -> ::windows_core::HRESULT,
-    pub SaveData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetHandleInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pmdhiinfo: *mut METADATA_HANDLE_INFO) -> ::windows_core::HRESULT,
-    pub GetSystemChangeNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsystemchangenumber: *mut u32) -> ::windows_core::HRESULT,
-    pub GetDataSetNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: ::windows_core::PCWSTR, pdwmddatasetnumber: *mut u32) -> ::windows_core::HRESULT,
-    pub SetLastChangeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: ::windows_core::PCWSTR, pftmdlastchangetime: *const super::super::Foundation::FILETIME, blocaltime: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetLastChangeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hmdhandle: u32, pszmdpath: ::windows_core::PCWSTR, pftmdlastchangetime: *mut super::super::Foundation::FILETIME, blocaltime: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub KeyExchangePhase1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub KeyExchangePhase2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Backup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmdbackuplocation: ::windows_core::PCWSTR, dwmdversion: u32, dwmdflags: u32) -> ::windows_core::HRESULT,
-    pub Restore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmdbackuplocation: ::windows_core::PCWSTR, dwmdversion: u32, dwmdflags: u32) -> ::windows_core::HRESULT,
-    pub EnumBackups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmdbackuplocation: ::windows_core::PWSTR, pdwmdversion: *mut u32, pftmdbackuptime: *mut super::super::Foundation::FILETIME, dwmdenumindex: u32) -> ::windows_core::HRESULT,
-    pub DeleteBackup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmdbackuplocation: ::windows_core::PCWSTR, dwmdversion: u32) -> ::windows_core::HRESULT,
-    pub UnmarshalInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piadmbwinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetServerGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub DeleteKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub DeleteChildKeys: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub EnumKeys: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, ::windows_core::PWSTR, u32) -> ::windows_core::HRESULT,
+    pub CopyKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, u32, ::windows_core::PCWSTR, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub RenameKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub SetData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, *mut METADATA_RECORD) -> ::windows_core::HRESULT,
+    pub GetData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, *mut METADATA_RECORD, *mut u32) -> ::windows_core::HRESULT,
+    pub DeleteData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, u32, u32) -> ::windows_core::HRESULT,
+    pub EnumData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, *mut METADATA_RECORD, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetAllData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, u32, u32, u32, *mut u32, *mut u32, u32, *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub DeleteAllData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, u32, u32) -> ::windows_core::HRESULT,
+    pub CopyData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, u32, ::windows_core::PCWSTR, u32, u32, u32, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetDataPaths: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, u32, u32, u32, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub OpenKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, u32, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub CloseKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub ChangePermissions: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32) -> ::windows_core::HRESULT,
+    pub SaveData: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetHandleInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut METADATA_HANDLE_INFO) -> ::windows_core::HRESULT,
+    pub GetSystemChangeNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetDataSetNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub SetLastChangeTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, *const super::super::Foundation::FILETIME, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetLastChangeTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, *mut super::super::Foundation::FILETIME, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub KeyExchangePhase1: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub KeyExchangePhase2: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Backup: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, u32) -> ::windows_core::HRESULT,
+    pub Restore: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, u32) -> ::windows_core::HRESULT,
+    pub EnumBackups: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u32, *mut super::super::Foundation::FILETIME, u32) -> ::windows_core::HRESULT,
+    pub DeleteBackup: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub UnmarshalInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetServerGuid: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMSImpExpHelpW, IMSImpExpHelpW_Vtbl, 0x29ff67ff_8050_480f_9f30_cc41635f2f9d);
 ::windows_core::imp::interface_hierarchy!(IMSImpExpHelpW, ::windows_core::IUnknown);
@@ -1038,7 +1038,7 @@ impl IMSImpExpHelpW {
 #[doc(hidden)]
 pub struct IMSImpExpHelpW_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub EnumeratePathsInFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfilename: ::windows_core::PCWSTR, pszkeytype: ::windows_core::PCWSTR, dwmdbuffersize: u32, pszbuffer: ::windows_core::PWSTR, pdwmdrequiredbuffersize: *mut u32) -> ::windows_core::HRESULT,
+    pub EnumeratePathsInFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, u32, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
 }
 pub const ADMINDATA_MAX_NAME_LEN: u32 = 256u32;
 pub const ALL_METADATA: METADATATYPES = METADATATYPES(0i32);

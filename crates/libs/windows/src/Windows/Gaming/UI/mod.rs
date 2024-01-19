@@ -3,48 +3,48 @@
 #[doc(hidden)]
 pub struct IGameBarStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub VisibilityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveVisibilityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub IsInputRedirectedChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveIsInputRedirectedChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub Visible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub IsInputRedirected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub VisibilityChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveVisibilityChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub IsInputRedirectedChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveIsInputRedirectedChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub Visible: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub IsInputRedirected: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGameChatMessageReceivedEventArgs, IGameChatMessageReceivedEventArgs_Vtbl, 0xa28201f1_3fb9_4e42_a403_7afce2023b1e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameChatMessageReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub AppId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub AppDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub SenderName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Origin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GameChatMessageOrigin) -> ::windows_core::HRESULT,
+    pub AppId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub AppDisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SenderName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Message: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Origin: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut GameChatMessageOrigin) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGameChatOverlay, IGameChatOverlay_Vtbl, 0xfbc64865_f6fc_4a48_ae07_03ac6ed43704);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameChatOverlay_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub DesiredPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GameChatOverlayPosition) -> ::windows_core::HRESULT,
-    pub SetDesiredPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: GameChatOverlayPosition) -> ::windows_core::HRESULT,
-    pub AddMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::std::mem::MaybeUninit<::windows_core::HSTRING>, message: ::std::mem::MaybeUninit<::windows_core::HSTRING>, origin: GameChatMessageOrigin) -> ::windows_core::HRESULT,
+    pub DesiredPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut GameChatOverlayPosition) -> ::windows_core::HRESULT,
+    pub SetDesiredPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, GameChatOverlayPosition) -> ::windows_core::HRESULT,
+    pub AddMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, GameChatMessageOrigin) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGameChatOverlayMessageSource, IGameChatOverlayMessageSource_Vtbl, 0x1e177397_59fb_4f4f_8e9a_80acf817743c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameChatOverlayMessageSource_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub MessageReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveMessageReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub SetDelayBeforeClosingAfterMessageReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub MessageReceived: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveMessageReceived: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub SetDelayBeforeClosingAfterMessageReceived: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGameChatOverlayStatics, IGameChatOverlayStatics_Vtbl, 0x89acf614_7867_49f7_9687_25d9dbf444d1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameChatOverlayStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGameUIProviderActivatedEventArgs, IGameUIProviderActivatedEventArgs_Vtbl, 0xa7b3203e_caf7_4ded_bbd2_47de43bb6dd5);
 #[repr(C)]
@@ -52,11 +52,11 @@ pub struct IGameChatOverlayStatics_Vtbl {
 pub struct IGameUIProviderActivatedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GameUIArgs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GameUIArgs: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GameUIArgs: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub ReportCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, results: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ReportCompleted: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     ReportCompleted: usize,
 }

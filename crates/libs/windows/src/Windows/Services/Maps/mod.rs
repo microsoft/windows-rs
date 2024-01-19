@@ -13,10 +13,10 @@ pub mod OfflineMaps;
 pub struct IEnhancedWaypoint_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
-    pub Point: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Point: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     Point: usize,
-    pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WaypointKind) -> ::windows_core::HRESULT,
+    pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WaypointKind) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnhancedWaypointFactory, IEnhancedWaypointFactory_Vtbl, 0xaf868477_a2aa_46dd_b645_23b31b8aa6c7);
 #[repr(C)]
@@ -24,7 +24,7 @@ pub struct IEnhancedWaypoint_Vtbl {
 pub struct IEnhancedWaypointFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, point: *mut ::core::ffi::c_void, kind: WaypointKind, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, WaypointKind, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     Create: usize,
 }
@@ -33,36 +33,36 @@ pub struct IEnhancedWaypointFactory_Vtbl {
 #[doc(hidden)]
 pub struct IManeuverWarning_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ManeuverWarningKind) -> ::windows_core::HRESULT,
-    pub Severity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ManeuverWarningSeverity) -> ::windows_core::HRESULT,
+    pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ManeuverWarningKind) -> ::windows_core::HRESULT,
+    pub Severity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ManeuverWarningSeverity) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMapAddress, IMapAddress_Vtbl, 0xcfa7a973_a3b4_4494_b3ff_cba94db69699);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapAddress_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub BuildingName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub BuildingFloor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub BuildingRoom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub BuildingWing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub StreetNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Street: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Neighborhood: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub District: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Town: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Region: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub RegionCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Country: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub CountryCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub PostCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Continent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub BuildingName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub BuildingFloor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub BuildingRoom: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub BuildingWing: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub StreetNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Street: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Neighborhood: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub District: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Town: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Region: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub RegionCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Country: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub CountryCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub PostCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Continent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMapAddress2, IMapAddress2_Vtbl, 0x75cd6df1_e5ad_45a9_bf40_6cf256c1dd13);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapAddress2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub FormattedAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub FormattedAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMapLocation, IMapLocation_Vtbl, 0x3c073f57_0da4_42e8_9ee2_a96fcf2371dc);
 #[repr(C)]
@@ -70,12 +70,12 @@ pub struct IMapAddress2_Vtbl {
 pub struct IMapLocation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
-    pub Point: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Point: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     Point: usize,
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Address: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Address: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMapLocationFinderResult, IMapLocationFinderResult_Vtbl, 0x43f1f179_e8cc_45f6_bed2_54ccbf965d9a);
 #[repr(C)]
@@ -83,10 +83,10 @@ pub struct IMapLocation_Vtbl {
 pub struct IMapLocationFinderResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub Locations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Locations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Locations: usize,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MapLocationFinderStatus) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MapLocationFinderStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMapLocationFinderStatics, IMapLocationFinderStatics_Vtbl, 0x318adb5d_1c5d_4f35_a2df_aaca94959517);
 #[repr(C)]
@@ -94,15 +94,15 @@ pub struct IMapLocationFinderResult_Vtbl {
 pub struct IMapLocationFinderStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
-    pub FindLocationsAtAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, querypoint: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindLocationsAtAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     FindLocationsAtAsync: usize,
     #[cfg(feature = "Devices_Geolocation")]
-    pub FindLocationsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, searchtext: ::std::mem::MaybeUninit<::windows_core::HSTRING>, referencepoint: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindLocationsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     FindLocationsAsync: usize,
     #[cfg(feature = "Devices_Geolocation")]
-    pub FindLocationsWithMaxCountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, searchtext: ::std::mem::MaybeUninit<::windows_core::HSTRING>, referencepoint: *mut ::core::ffi::c_void, maxcount: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindLocationsWithMaxCountAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     FindLocationsWithMaxCountAsync: usize,
 }
@@ -112,7 +112,7 @@ pub struct IMapLocationFinderStatics_Vtbl {
 pub struct IMapLocationFinderStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
-    pub FindLocationsAtWithAccuracyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, querypoint: *mut ::core::ffi::c_void, accuracy: MapLocationDesiredAccuracy, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindLocationsAtWithAccuracyAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, MapLocationDesiredAccuracy, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     FindLocationsAtWithAccuracyAsync: usize,
 }
@@ -121,8 +121,8 @@ pub struct IMapLocationFinderStatics2_Vtbl {
 #[doc(hidden)]
 pub struct IMapManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub ShowDownloadedMapsUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ShowMapsUpdateUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShowDownloadedMapsUI: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShowMapsUpdateUI: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMapRoute, IMapRoute_Vtbl, 0xfb07b732_584d_4583_9c60_641fea274349);
 #[repr(C)]
@@ -130,73 +130,73 @@ pub struct IMapManagerStatics_Vtbl {
 pub struct IMapRoute_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
-    pub BoundingBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BoundingBox: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     BoundingBox: usize,
-    pub LengthInMeters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub EstimatedDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub LengthInMeters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub EstimatedDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
     #[cfg(feature = "Devices_Geolocation")]
-    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Path: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     Path: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub Legs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Legs: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Legs: usize,
-    pub IsTrafficBased: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsTrafficBased: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMapRoute2, IMapRoute2_Vtbl, 0xd1c5d40c_2213_4ab0_a260_46b38169beac);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRoute2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub ViolatedRestrictions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MapRouteRestrictions) -> ::windows_core::HRESULT,
-    pub HasBlockedRoads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub ViolatedRestrictions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MapRouteRestrictions) -> ::windows_core::HRESULT,
+    pub HasBlockedRoads: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMapRoute3, IMapRoute3_Vtbl, 0x858d1eae_f2ad_429f_bb37_cd21094ffc92);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRoute3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub DurationWithoutTraffic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub TrafficCongestion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TrafficCongestion) -> ::windows_core::HRESULT,
+    pub DurationWithoutTraffic: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub TrafficCongestion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut TrafficCongestion) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMapRoute4, IMapRoute4_Vtbl, 0x366c8ca5_3053_4fa1_80ff_d475f3ed1e6e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRoute4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub IsScenic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsScenic: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMapRouteDrivingOptions, IMapRouteDrivingOptions_Vtbl, 0x6815364d_c6dc_4697_a452_b18f8f0b67a1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRouteDrivingOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub MaxAlternateRouteCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub SetMaxAlternateRouteCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
-    pub InitialHeading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetInitialHeading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RouteOptimization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MapRouteOptimization) -> ::windows_core::HRESULT,
-    pub SetRouteOptimization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MapRouteOptimization) -> ::windows_core::HRESULT,
-    pub RouteRestrictions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MapRouteRestrictions) -> ::windows_core::HRESULT,
-    pub SetRouteRestrictions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MapRouteRestrictions) -> ::windows_core::HRESULT,
+    pub MaxAlternateRouteCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetMaxAlternateRouteCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub InitialHeading: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetInitialHeading: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RouteOptimization: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MapRouteOptimization) -> ::windows_core::HRESULT,
+    pub SetRouteOptimization: unsafe extern "system" fn(*mut ::core::ffi::c_void, MapRouteOptimization) -> ::windows_core::HRESULT,
+    pub RouteRestrictions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MapRouteRestrictions) -> ::windows_core::HRESULT,
+    pub SetRouteRestrictions: unsafe extern "system" fn(*mut ::core::ffi::c_void, MapRouteRestrictions) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMapRouteDrivingOptions2, IMapRouteDrivingOptions2_Vtbl, 0x35dc8670_c298_48d0_b5ad_825460645603);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRouteDrivingOptions2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub DepartureTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetDepartureTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DepartureTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetDepartureTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMapRouteFinderResult, IMapRouteFinderResult_Vtbl, 0xa868a31a_9422_46ac_8ca1_b1614d4bfbe2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRouteFinderResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Route: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MapRouteFinderStatus) -> ::windows_core::HRESULT,
+    pub Route: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MapRouteFinderStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMapRouteFinderResult2, IMapRouteFinderResult2_Vtbl, 0x20709c6d_d90c_46c8_91c6_7d4be4efb215);
 #[repr(C)]
@@ -204,7 +204,7 @@ pub struct IMapRouteFinderResult_Vtbl {
 pub struct IMapRouteFinderResult2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub AlternateRoutes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AlternateRoutes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     AlternateRoutes: usize,
 }
@@ -214,43 +214,43 @@ pub struct IMapRouteFinderResult2_Vtbl {
 pub struct IMapRouteFinderStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
-    pub GetDrivingRouteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startpoint: *mut ::core::ffi::c_void, endpoint: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDrivingRouteAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     GetDrivingRouteAsync: usize,
     #[cfg(feature = "Devices_Geolocation")]
-    pub GetDrivingRouteWithOptimizationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startpoint: *mut ::core::ffi::c_void, endpoint: *mut ::core::ffi::c_void, optimization: MapRouteOptimization, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDrivingRouteWithOptimizationAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, MapRouteOptimization, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     GetDrivingRouteWithOptimizationAsync: usize,
     #[cfg(feature = "Devices_Geolocation")]
-    pub GetDrivingRouteWithOptimizationAndRestrictionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startpoint: *mut ::core::ffi::c_void, endpoint: *mut ::core::ffi::c_void, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDrivingRouteWithOptimizationAndRestrictionsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, MapRouteOptimization, MapRouteRestrictions, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     GetDrivingRouteWithOptimizationAndRestrictionsAsync: usize,
     #[cfg(feature = "Devices_Geolocation")]
-    pub GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startpoint: *mut ::core::ffi::c_void, endpoint: *mut ::core::ffi::c_void, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, MapRouteOptimization, MapRouteRestrictions, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync: usize,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
-    pub GetDrivingRouteFromWaypointsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waypoints: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDrivingRouteFromWaypointsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation_Collections")))]
     GetDrivingRouteFromWaypointsAsync: usize,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
-    pub GetDrivingRouteFromWaypointsAndOptimizationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waypoints: *mut ::core::ffi::c_void, optimization: MapRouteOptimization, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDrivingRouteFromWaypointsAndOptimizationAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, MapRouteOptimization, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation_Collections")))]
     GetDrivingRouteFromWaypointsAndOptimizationAsync: usize,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
-    pub GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waypoints: *mut ::core::ffi::c_void, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, MapRouteOptimization, MapRouteRestrictions, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation_Collections")))]
     GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync: usize,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
-    pub GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waypoints: *mut ::core::ffi::c_void, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, MapRouteOptimization, MapRouteRestrictions, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation_Collections")))]
     GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync: usize,
     #[cfg(feature = "Devices_Geolocation")]
-    pub GetWalkingRouteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startpoint: *mut ::core::ffi::c_void, endpoint: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetWalkingRouteAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     GetWalkingRouteAsync: usize,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
-    pub GetWalkingRouteFromWaypointsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waypoints: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetWalkingRouteFromWaypointsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation_Collections")))]
     GetWalkingRouteFromWaypointsAsync: usize,
 }
@@ -260,7 +260,7 @@ pub struct IMapRouteFinderStatics_Vtbl {
 pub struct IMapRouteFinderStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
-    pub GetDrivingRouteWithOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startpoint: *mut ::core::ffi::c_void, endpoint: *mut ::core::ffi::c_void, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDrivingRouteWithOptionsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     GetDrivingRouteWithOptionsAsync: usize,
 }
@@ -270,11 +270,11 @@ pub struct IMapRouteFinderStatics2_Vtbl {
 pub struct IMapRouteFinderStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetDrivingRouteFromEnhancedWaypointsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waypoints: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDrivingRouteFromEnhancedWaypointsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetDrivingRouteFromEnhancedWaypointsAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waypoints: *mut ::core::ffi::c_void, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync: usize,
 }
@@ -284,17 +284,17 @@ pub struct IMapRouteFinderStatics3_Vtbl {
 pub struct IMapRouteLeg_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
-    pub BoundingBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BoundingBox: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     BoundingBox: usize,
     #[cfg(feature = "Devices_Geolocation")]
-    pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Path: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     Path: usize,
-    pub LengthInMeters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub EstimatedDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub LengthInMeters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub EstimatedDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Maneuvers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Maneuvers: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Maneuvers: usize,
 }
@@ -303,8 +303,8 @@ pub struct IMapRouteLeg_Vtbl {
 #[doc(hidden)]
 pub struct IMapRouteLeg2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub DurationWithoutTraffic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub TrafficCongestion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TrafficCongestion) -> ::windows_core::HRESULT,
+    pub DurationWithoutTraffic: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub TrafficCongestion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut TrafficCongestion) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMapRouteManeuver, IMapRouteManeuver_Vtbl, 0xed5c17f0_a6ab_4d65_a086_fa8a7e340df2);
 #[repr(C)]
@@ -312,23 +312,23 @@ pub struct IMapRouteLeg2_Vtbl {
 pub struct IMapRouteManeuver_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
-    pub StartingPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub StartingPoint: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     StartingPoint: usize,
-    pub LengthInMeters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub InstructionText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MapRouteManeuverKind) -> ::windows_core::HRESULT,
-    pub ExitNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub ManeuverNotices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MapManeuverNotices) -> ::windows_core::HRESULT,
+    pub LengthInMeters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub InstructionText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MapRouteManeuverKind) -> ::windows_core::HRESULT,
+    pub ExitNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub ManeuverNotices: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MapManeuverNotices) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMapRouteManeuver2, IMapRouteManeuver2_Vtbl, 0x5d7bcd9c_7c9b_41df_838b_eae21e4b05a9);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapRouteManeuver2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub StartHeading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub EndHeading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub StreetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub StartHeading: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub EndHeading: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub StreetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMapRouteManeuver3, IMapRouteManeuver3_Vtbl, 0xa6a138df_0483_4166_85be_b99336c11875);
 #[repr(C)]
@@ -336,7 +336,7 @@ pub struct IMapRouteManeuver2_Vtbl {
 pub struct IMapRouteManeuver3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub Warnings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Warnings: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Warnings: usize,
 }
@@ -345,46 +345,46 @@ pub struct IMapRouteManeuver3_Vtbl {
 #[doc(hidden)]
 pub struct IMapServiceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub SetServiceToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub ServiceToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetServiceToken: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub ServiceToken: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMapServiceStatics2, IMapServiceStatics2_Vtbl, 0xf8193eed_9c85_40a9_8896_0fc3fd2b7c2a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapServiceStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub WorldViewRegionCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub WorldViewRegionCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMapServiceStatics3, IMapServiceStatics3_Vtbl, 0x0a11ce20_63a7_4854_b355_d6dcda223d1b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapServiceStatics3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub DataAttributions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub DataAttributions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMapServiceStatics4, IMapServiceStatics4_Vtbl, 0x088a2862_6abc_420e_945f_4cfd89c67356);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMapServiceStatics4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub SetDataUsagePreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MapServiceDataUsagePreference) -> ::windows_core::HRESULT,
-    pub DataUsagePreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MapServiceDataUsagePreference) -> ::windows_core::HRESULT,
+    pub SetDataUsagePreference: unsafe extern "system" fn(*mut ::core::ffi::c_void, MapServiceDataUsagePreference) -> ::windows_core::HRESULT,
+    pub DataUsagePreference: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MapServiceDataUsagePreference) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPlaceInfo, IPlaceInfo_Vtbl, 0x9a0810b6_31c8_4f6a_9f18_950b4c38951a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaceInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect) -> ::windows_core::HRESULT,
+    pub Show: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::Rect) -> ::windows_core::HRESULT,
     #[cfg(feature = "UI_Popups")]
-    pub ShowWithPreferredPlacement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows_core::HRESULT,
+    pub ShowWithPreferredPlacement: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::Rect, super::super::UI::Popups::Placement) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "UI_Popups"))]
     ShowWithPreferredPlacement: usize,
-    pub Identifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub DisplayAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Identifier: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub DisplayAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Devices_Geolocation")]
-    pub Geoshape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Geoshape: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     Geoshape: usize,
 }
@@ -393,10 +393,10 @@ pub struct IPlaceInfo_Vtbl {
 #[doc(hidden)]
 pub struct IPlaceInfoCreateOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub SetDisplayAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub DisplayAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetDisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetDisplayAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub DisplayAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPlaceInfoStatics, IPlaceInfoStatics_Vtbl, 0x82b9ff71_6cd0_48a4_afd9_5ed82097936b);
 #[repr(C)]
@@ -404,28 +404,28 @@ pub struct IPlaceInfoCreateOptions_Vtbl {
 pub struct IPlaceInfoStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Geolocation")]
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, referencepoint: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     Create: usize,
     #[cfg(feature = "Devices_Geolocation")]
-    pub CreateWithGeopointAndOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, referencepoint: *mut ::core::ffi::c_void, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateWithGeopointAndOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     CreateWithGeopointAndOptions: usize,
-    pub CreateFromIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromIdentifier: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Devices_Geolocation")]
-    pub CreateFromIdentifierWithOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: ::std::mem::MaybeUninit<::windows_core::HSTRING>, defaultpoint: *mut ::core::ffi::c_void, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromIdentifierWithOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Geolocation"))]
     CreateFromIdentifierWithOptions: usize,
-    pub CreateFromMapLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub IsShowSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub CreateFromMapLocation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsShowSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPlaceInfoStatics2, IPlaceInfoStatics2_Vtbl, 0x730f0249_4047_44a3_8f81_2550a5216370);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaceInfoStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateFromAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayaddress: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateFromAddressWithName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayaddress: ::std::mem::MaybeUninit<::windows_core::HSTRING>, displayname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromAddressWithName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

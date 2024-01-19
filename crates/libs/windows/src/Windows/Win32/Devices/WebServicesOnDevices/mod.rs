@@ -258,8 +258,8 @@ impl IWSDAddress {
 #[doc(hidden)]
 pub struct IWSDAddress_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Serialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszbuffer: ::windows_core::PWSTR, cchlength: u32, fsafe: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub Deserialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszbuffer: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Serialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, u32, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub Deserialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDAsyncCallback, IWSDAsyncCallback_Vtbl, 0xa63e109d_ce72_49e2_ba98_e845f5ee1666);
 ::windows_core::imp::interface_hierarchy!(IWSDAsyncCallback, ::windows_core::IUnknown);
@@ -276,7 +276,7 @@ impl IWSDAsyncCallback {
 #[doc(hidden)]
 pub struct IWSDAsyncCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AsyncOperationComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pasyncresult: *mut ::core::ffi::c_void, pasyncstate: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AsyncOperationComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDAsyncResult, IWSDAsyncResult_Vtbl, 0x11a9852a_8dd8_423e_b537_9356db4fbfb8);
 ::windows_core::imp::interface_hierarchy!(IWSDAsyncResult, ::windows_core::IUnknown);
@@ -316,13 +316,13 @@ impl IWSDAsyncResult {
 #[doc(hidden)]
 pub struct IWSDAsyncResult_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, pasyncstate: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetWaitHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwaithandle: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
-    pub HasCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetAsyncState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppasyncstate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: *mut WSD_EVENT) -> ::windows_core::HRESULT,
-    pub GetEndpointProxy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppendpoint: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetWaitHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
+    pub HasCompleted: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAsyncState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Abort: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WSD_EVENT) -> ::windows_core::HRESULT,
+    pub GetEndpointProxy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDAttachment, IWSDAttachment_Vtbl, 0x5d55a616_9df8_4b09_b156_9ba351a48b76);
 ::windows_core::imp::interface_hierarchy!(IWSDAttachment, ::windows_core::IUnknown);
@@ -405,18 +405,18 @@ impl IWSDDeviceHost {
 #[doc(hidden)]
 pub struct IWSDDeviceHost_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszlocalid: ::windows_core::PCWSTR, pcontext: *mut ::core::ffi::c_void, pphostaddresses: *const *mut ::core::ffi::c_void, dwhostaddresscount: u32) -> ::windows_core::HRESULT,
-    pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ullinstanceid: u64, pscopelist: *const WSD_URI_LIST, pnotificationsink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Terminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RegisterPortType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pporttype: *const WSD_PORT_TYPE) -> ::windows_core::HRESULT,
-    pub SetMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pthismodelmetadata: *const WSD_THIS_MODEL_METADATA, pthisdevicemetadata: *const WSD_THIS_DEVICE_METADATA, phostmetadata: *const WSD_HOST_METADATA, pcustommetadata: *const WSD_METADATA_SECTION_LIST) -> ::windows_core::HRESULT,
-    pub RegisterService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszserviceid: ::windows_core::PCWSTR, pservice: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RetireService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszserviceid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub AddDynamicService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszserviceid: ::windows_core::PCWSTR, pszendpointaddress: ::windows_core::PCWSTR, pporttype: *const WSD_PORT_TYPE, pportname: *const WSDXML_NAME, pany: *const WSDXML_ELEMENT, pservice: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveDynamicService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszserviceid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub SetServiceDiscoverable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszserviceid: ::windows_core::PCWSTR, fdiscoverable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SignalEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszserviceid: ::windows_core::PCWSTR, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows_core::HRESULT,
+    pub Init: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void, *const *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Start: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, *const WSD_URI_LIST, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Stop: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Terminate: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RegisterPortType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_PORT_TYPE) -> ::windows_core::HRESULT,
+    pub SetMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_THIS_MODEL_METADATA, *const WSD_THIS_DEVICE_METADATA, *const WSD_HOST_METADATA, *const WSD_METADATA_SECTION_LIST) -> ::windows_core::HRESULT,
+    pub RegisterService: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RetireService: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub AddDynamicService: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *const WSD_PORT_TYPE, *const WSDXML_NAME, *const WSDXML_ELEMENT, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveDynamicService: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub SetServiceDiscoverable: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SignalEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const ::core::ffi::c_void, *const WSD_OPERATION) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDDeviceHostNotify, IWSDDeviceHostNotify_Vtbl, 0xb5bee9f9_eeda_41fe_96f7_f45e14990fb0);
 ::windows_core::imp::interface_hierarchy!(IWSDDeviceHostNotify, ::windows_core::IUnknown);
@@ -433,7 +433,7 @@ impl IWSDDeviceHostNotify {
 #[doc(hidden)]
 pub struct IWSDDeviceHostNotify_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszserviceid: ::windows_core::PCWSTR, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetService: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDDeviceProxy, IWSDDeviceProxy_Vtbl, 0xeee0c031_c578_4c0e_9a3b_973c35f409db);
 ::windows_core::imp::interface_hierarchy!(IWSDDeviceProxy, ::windows_core::IUnknown);
@@ -494,16 +494,16 @@ impl IWSDDeviceProxy {
 #[doc(hidden)]
 pub struct IWSDDeviceProxy_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdeviceid: ::windows_core::PCWSTR, pdeviceaddress: *mut ::core::ffi::c_void, pszlocalid: ::windows_core::PCWSTR, pcontext: *mut ::core::ffi::c_void, psponsor: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub BeginGetMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EndGetMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetHostMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pphostmetadata: *mut *mut WSD_HOST_METADATA) -> ::windows_core::HRESULT,
-    pub GetThisModelMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmanufacturermetadata: *mut *mut WSD_THIS_MODEL_METADATA) -> ::windows_core::HRESULT,
-    pub GetThisDeviceMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppthisdevicemetadata: *mut *mut WSD_THIS_DEVICE_METADATA) -> ::windows_core::HRESULT,
-    pub GetAllMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmetadata: *mut *mut WSD_METADATA_SECTION_LIST) -> ::windows_core::HRESULT,
-    pub GetServiceProxyById: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszserviceid: ::windows_core::PCWSTR, ppserviceproxy: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetServiceProxyByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *const WSDXML_NAME, ppserviceproxy: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetEndpointProxy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppproxy: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Init: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BeginGetMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EndGetMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetHostMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut WSD_HOST_METADATA) -> ::windows_core::HRESULT,
+    pub GetThisModelMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut WSD_THIS_MODEL_METADATA) -> ::windows_core::HRESULT,
+    pub GetThisDeviceMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut WSD_THIS_DEVICE_METADATA) -> ::windows_core::HRESULT,
+    pub GetAllMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut WSD_METADATA_SECTION_LIST) -> ::windows_core::HRESULT,
+    pub GetServiceProxyById: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetServiceProxyByType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSDXML_NAME, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetEndpointProxy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDEndpointProxy, IWSDEndpointProxy_Vtbl, 0x1860d430_b24c_4975_9f90_dbb39baa24ec);
 ::windows_core::imp::interface_hierarchy!(IWSDEndpointProxy, ::windows_core::IUnknown);
@@ -544,13 +544,13 @@ impl IWSDEndpointProxy {
 #[doc(hidden)]
 pub struct IWSDEndpointProxy_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SendOneWayRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows_core::HRESULT,
-    pub SendTwoWayRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, presponsecontext: *const WSD_SYNCHRONOUS_RESPONSE_CONTEXT) -> ::windows_core::HRESULT,
-    pub SendTwoWayRequestAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, pasyncstate: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, presult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AbortAsyncOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pasyncresult: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ProcessFault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfault: *const WSD_SOAP_FAULT) -> ::windows_core::HRESULT,
-    pub GetErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszerrorinfo: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetFaultInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppfault: *mut *mut WSD_SOAP_FAULT) -> ::windows_core::HRESULT,
+    pub SendOneWayRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, *const WSD_OPERATION) -> ::windows_core::HRESULT,
+    pub SendTwoWayRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, *const WSD_OPERATION, *const WSD_SYNCHRONOUS_RESPONSE_CONTEXT) -> ::windows_core::HRESULT,
+    pub SendTwoWayRequestAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, *const WSD_OPERATION, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AbortAsyncOperation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ProcessFault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_SOAP_FAULT) -> ::windows_core::HRESULT,
+    pub GetErrorInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetFaultInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut WSD_SOAP_FAULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDEventingStatus, IWSDEventingStatus_Vtbl, 0x49b17f52_637a_407a_ae99_fbe82a4d38c0);
 ::windows_core::imp::interface_hierarchy!(IWSDEventingStatus, ::windows_core::IUnknown);
@@ -578,9 +578,9 @@ impl IWSDEventingStatus {
 #[doc(hidden)]
 pub struct IWSDEventingStatus_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SubscriptionRenewed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsubscriptionaction: ::windows_core::PCWSTR),
-    pub SubscriptionRenewalFailed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsubscriptionaction: ::windows_core::PCWSTR, hr: ::windows_core::HRESULT),
-    pub SubscriptionEnded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsubscriptionaction: ::windows_core::PCWSTR),
+    pub SubscriptionRenewed: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR),
+    pub SubscriptionRenewalFailed: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::HRESULT),
+    pub SubscriptionEnded: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR),
 }
 ::windows_core::imp::com_interface!(IWSDHttpAddress, IWSDHttpAddress_Vtbl, 0xd09ac7bd_2a3e_4b85_8605_2737ff3e4ea0);
 ::windows_core::imp::interface_hierarchy!(IWSDHttpAddress, ::windows_core::IUnknown, IWSDAddress, IWSDTransportAddress);
@@ -645,10 +645,10 @@ impl IWSDHttpAddress {
 #[doc(hidden)]
 pub struct IWSDHttpAddress_Vtbl {
     pub base__: IWSDTransportAddress_Vtbl,
-    pub GetSecure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetSecure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fsecure: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszpath: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub SetPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetSecure: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetSecure: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub SetPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDHttpAuthParameters, IWSDHttpAuthParameters_Vtbl, 0x0b476df0_8dac_480d_b05c_99781a5884aa);
 ::windows_core::imp::interface_hierarchy!(IWSDHttpAuthParameters, ::windows_core::IUnknown);
@@ -666,8 +666,8 @@ impl IWSDHttpAuthParameters {
 #[doc(hidden)]
 pub struct IWSDHttpAuthParameters_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetClientAccessToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phtoken: *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
-    pub GetAuthType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pauthtype: *mut u32) -> ::windows_core::HRESULT,
+    pub GetClientAccessToken: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
+    pub GetAuthType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDHttpMessageParameters, IWSDHttpMessageParameters_Vtbl, 0x540bd122_5c83_4dec_b396_ea62a2697fdf);
 ::windows_core::imp::interface_hierarchy!(IWSDHttpMessageParameters, ::windows_core::IUnknown, IWSDMessageParameters);
@@ -744,15 +744,15 @@ impl IWSDHttpMessageParameters {
 #[doc(hidden)]
 pub struct IWSDHttpMessageParameters_Vtbl {
     pub base__: IWSDMessageParameters_Vtbl,
-    pub SetInboundHttpHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszheaders: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetInboundHttpHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszheaders: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub SetOutboundHttpHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszheaders: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetOutboundHttpHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszheaders: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub SetID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszid: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub SetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetInboundHttpHeaders: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetInboundHttpHeaders: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub SetOutboundHttpHeaders: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetOutboundHttpHeaders: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub SetID: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub SetContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clear: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDInboundAttachment, IWSDInboundAttachment_Vtbl, 0x5bd6ca65_233c_4fb8_9f7a_2641619655c9);
 ::windows_core::imp::interface_hierarchy!(IWSDInboundAttachment, ::windows_core::IUnknown, IWSDAttachment);
@@ -768,8 +768,8 @@ impl IWSDInboundAttachment {
 #[doc(hidden)]
 pub struct IWSDInboundAttachment_Vtbl {
     pub base__: IWSDAttachment_Vtbl,
-    pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *mut u8, dwbytestoread: u32, pdwnumberofbytesread: *mut u32) -> ::windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Read: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDMessageParameters, IWSDMessageParameters_Vtbl, 0x1fafe8a2_e6fc_4b80_b6cf_b7d45c416d7c);
 ::windows_core::imp::interface_hierarchy!(IWSDMessageParameters, ::windows_core::IUnknown);
@@ -803,11 +803,11 @@ impl IWSDMessageParameters {
 #[doc(hidden)]
 pub struct IWSDMessageParameters_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetLocalAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetLocalAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddress: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetRemoteAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetRemoteAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddress: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetLowerParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptxparams: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetLocalAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetLocalAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetRemoteAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetRemoteAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetLowerParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDMetadataExchange, IWSDMetadataExchange_Vtbl, 0x06996d57_1d67_4928_9307_3d7833fdb846);
 ::windows_core::imp::interface_hierarchy!(IWSDMetadataExchange, ::windows_core::IUnknown);
@@ -821,7 +821,7 @@ impl IWSDMetadataExchange {
 #[doc(hidden)]
 pub struct IWSDMetadataExchange_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, metadataout: *mut *mut WSD_METADATA_SECTION_LIST) -> ::windows_core::HRESULT,
+    pub GetMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut WSD_METADATA_SECTION_LIST) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDOutboundAttachment, IWSDOutboundAttachment_Vtbl, 0xaa302f8d_5a22_4ba5_b392_aa8486f4c15d);
 ::windows_core::imp::interface_hierarchy!(IWSDOutboundAttachment, ::windows_core::IUnknown, IWSDAttachment);
@@ -841,9 +841,9 @@ impl IWSDOutboundAttachment {
 #[doc(hidden)]
 pub struct IWSDOutboundAttachment_Vtbl {
     pub base__: IWSDAttachment_Vtbl,
-    pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *const u8, dwbytestowrite: u32, pdwnumberofbyteswritten: *mut u32) -> ::windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Write: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Abort: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDSSLClientCertificate, IWSDSSLClientCertificate_Vtbl, 0xde105e87_a0da_418e_98ad_27b9eed87bdc);
 ::windows_core::imp::interface_hierarchy!(IWSDSSLClientCertificate, ::windows_core::IUnknown);
@@ -864,10 +864,10 @@ impl IWSDSSLClientCertificate {
 pub struct IWSDSSLClientCertificate_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Security_Cryptography")]
-    pub GetClientCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows_core::HRESULT,
+    pub GetClientCertificate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Security_Cryptography"))]
     GetClientCertificate: usize,
-    pub GetMappedAccessToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phtoken: *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
+    pub GetMappedAccessToken: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDScopeMatchingRule, IWSDScopeMatchingRule_Vtbl, 0xfcafe424_fef5_481a_bd9f_33ce0574256f);
 ::windows_core::imp::interface_hierarchy!(IWSDScopeMatchingRule, ::windows_core::IUnknown);
@@ -889,8 +889,8 @@ impl IWSDScopeMatchingRule {
 #[doc(hidden)]
 pub struct IWSDScopeMatchingRule_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetScopeRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszscopematchingrule: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub MatchScopes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszscope1: ::windows_core::PCWSTR, pszscope2: ::windows_core::PCWSTR, pfmatch: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetScopeRule: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub MatchScopes: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDServiceMessaging, IWSDServiceMessaging_Vtbl, 0x94974cf4_0cab_460d_a3f6_7a0ad623c0e6);
 ::windows_core::imp::interface_hierarchy!(IWSDServiceMessaging, ::windows_core::IUnknown);
@@ -912,8 +912,8 @@ impl IWSDServiceMessaging {
 #[doc(hidden)]
 pub struct IWSDServiceMessaging_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SendResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION, pmessageparameters: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FaultRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prequestheader: *const WSD_SOAP_HEADER, pmessageparameters: *mut ::core::ffi::c_void, pfault: *const WSD_SOAP_FAULT) -> ::windows_core::HRESULT,
+    pub SendResponse: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, *const WSD_OPERATION, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FaultRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_SOAP_HEADER, *mut ::core::ffi::c_void, *const WSD_SOAP_FAULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDServiceProxy, IWSDServiceProxy_Vtbl, 0xd4c7fb9c_03ab_4175_9d67_094fafebf487);
 ::windows_core::imp::interface_hierarchy!(IWSDServiceProxy, ::windows_core::IUnknown, IWSDMetadataExchange);
@@ -961,13 +961,13 @@ impl IWSDServiceProxy {
 #[doc(hidden)]
 pub struct IWSDServiceProxy_Vtbl {
     pub base__: IWSDMetadataExchange_Vtbl,
-    pub BeginGetMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EndGetMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: *mut ::core::ffi::c_void, ppmetadata: *mut *mut WSD_METADATA_SECTION_LIST) -> ::windows_core::HRESULT,
-    pub GetServiceMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppservicemetadata: *mut *mut WSD_SERVICE_METADATA) -> ::windows_core::HRESULT,
-    pub SubscribeToOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperation: *const WSD_OPERATION, punknown: *mut ::core::ffi::c_void, pany: *const WSDXML_ELEMENT, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
-    pub UnsubscribeToOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows_core::HRESULT,
-    pub SetEventingStatusCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetEndpointProxy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppproxy: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BeginGetMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EndGetMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut WSD_METADATA_SECTION_LIST) -> ::windows_core::HRESULT,
+    pub GetServiceMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut WSD_SERVICE_METADATA) -> ::windows_core::HRESULT,
+    pub SubscribeToOperation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_OPERATION, *mut ::core::ffi::c_void, *const WSDXML_ELEMENT, *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
+    pub UnsubscribeToOperation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_OPERATION) -> ::windows_core::HRESULT,
+    pub SetEventingStatusCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetEndpointProxy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDServiceProxyEventing, IWSDServiceProxyEventing_Vtbl, 0xf9279d6d_1012_4a94_b8cc_fd35d2202bfe);
 ::windows_core::imp::interface_hierarchy!(IWSDServiceProxyEventing, ::windows_core::IUnknown, IWSDMetadataExchange, IWSDServiceProxy);
@@ -1087,18 +1087,18 @@ impl IWSDServiceProxyEventing {
 #[doc(hidden)]
 pub struct IWSDServiceProxyEventing_Vtbl {
     pub base__: IWSDServiceProxy_Vtbl,
-    pub SubscribeToMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, punknown: *mut ::core::ffi::c_void, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
-    pub BeginSubscribeToMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, punknown: *mut ::core::ffi::c_void, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, pasyncstate: *mut ::core::ffi::c_void, pasynccallback: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EndSubscribeToMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: *mut ::core::ffi::c_void, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
-    pub UnsubscribeToMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT) -> ::windows_core::HRESULT,
-    pub BeginUnsubscribeToMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, pasyncstate: *mut ::core::ffi::c_void, pasynccallback: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EndUnsubscribeToMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RenewMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
-    pub BeginRenewMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, pexpires: *const WSD_EVENTING_EXPIRES, pany: *const WSDXML_ELEMENT, pasyncstate: *mut ::core::ffi::c_void, pasynccallback: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EndRenewMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: *mut ::core::ffi::c_void, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
-    pub GetStatusForMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
-    pub BeginGetStatusForMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, pany: *const WSDXML_ELEMENT, pasyncstate: *mut ::core::ffi::c_void, pasynccallback: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EndGetStatusForMultipleOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poperations: *const WSD_OPERATION, dwoperationcount: u32, presult: *mut ::core::ffi::c_void, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
+    pub SubscribeToMultipleOperations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_OPERATION, u32, *mut ::core::ffi::c_void, *const WSD_EVENTING_EXPIRES, *const WSDXML_ELEMENT, *mut *mut WSD_EVENTING_EXPIRES, *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
+    pub BeginSubscribeToMultipleOperations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_OPERATION, u32, *mut ::core::ffi::c_void, *const WSD_EVENTING_EXPIRES, *const WSDXML_ELEMENT, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EndSubscribeToMultipleOperations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_OPERATION, u32, *mut ::core::ffi::c_void, *mut *mut WSD_EVENTING_EXPIRES, *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
+    pub UnsubscribeToMultipleOperations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_OPERATION, u32, *const WSDXML_ELEMENT) -> ::windows_core::HRESULT,
+    pub BeginUnsubscribeToMultipleOperations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_OPERATION, u32, *const WSDXML_ELEMENT, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EndUnsubscribeToMultipleOperations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_OPERATION, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RenewMultipleOperations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_OPERATION, u32, *const WSD_EVENTING_EXPIRES, *const WSDXML_ELEMENT, *mut *mut WSD_EVENTING_EXPIRES, *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
+    pub BeginRenewMultipleOperations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_OPERATION, u32, *const WSD_EVENTING_EXPIRES, *const WSDXML_ELEMENT, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EndRenewMultipleOperations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_OPERATION, u32, *mut ::core::ffi::c_void, *mut *mut WSD_EVENTING_EXPIRES, *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
+    pub GetStatusForMultipleOperations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_OPERATION, u32, *const WSDXML_ELEMENT, *mut *mut WSD_EVENTING_EXPIRES, *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
+    pub BeginGetStatusForMultipleOperations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_OPERATION, u32, *const WSDXML_ELEMENT, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EndGetStatusForMultipleOperations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_OPERATION, u32, *mut ::core::ffi::c_void, *mut *mut WSD_EVENTING_EXPIRES, *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDSignatureProperty, IWSDSignatureProperty_Vtbl, 0x03ce20aa_71c4_45e2_b32e_3766c61c790f);
 ::windows_core::imp::interface_hierarchy!(IWSDSignatureProperty, ::windows_core::IUnknown);
@@ -1125,11 +1125,11 @@ impl IWSDSignatureProperty {
 #[doc(hidden)]
 pub struct IWSDSignatureProperty_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub IsMessageSigned: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsigned: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub IsMessageSignatureTrusted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsignaturetrusted: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetKeyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbkeyinfo: *mut u8, pdwkeyinfosize: *mut u32) -> ::windows_core::HRESULT,
-    pub GetSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsignature: *mut u8, pdwsignaturesize: *mut u32) -> ::windows_core::HRESULT,
-    pub GetSignedInfoHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsignedinfohash: *mut u8, pdwhashsize: *mut u32) -> ::windows_core::HRESULT,
+    pub IsMessageSigned: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub IsMessageSignatureTrusted: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetKeyInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub GetSignature: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub GetSignedInfoHash: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDTransportAddress, IWSDTransportAddress_Vtbl, 0x70d23498_4ee6_4340_a3df_d845d2235467);
 ::windows_core::imp::interface_hierarchy!(IWSDTransportAddress, ::windows_core::IUnknown, IWSDAddress);
@@ -1175,11 +1175,11 @@ impl IWSDTransportAddress {
 #[doc(hidden)]
 pub struct IWSDTransportAddress_Vtbl {
     pub base__: IWSDAddress_Vtbl,
-    pub GetPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwport: *mut u16) -> ::windows_core::HRESULT,
-    pub SetPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wport: u16) -> ::windows_core::HRESULT,
-    pub GetTransportAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszaddress: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetTransportAddressEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fsafe: super::super::Foundation::BOOL, ppszaddress: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub SetTransportAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszaddress: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
+    pub SetPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16) -> ::windows_core::HRESULT,
+    pub GetTransportAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetTransportAddressEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL, *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub SetTransportAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDUdpAddress, IWSDUdpAddress_Vtbl, 0x74d6124a_a441_4f78_a1eb_97a8d1996893);
 ::windows_core::imp::interface_hierarchy!(IWSDUdpAddress, ::windows_core::IUnknown, IWSDAddress, IWSDTransportAddress);
@@ -1266,21 +1266,21 @@ impl IWSDUdpAddress {
 pub struct IWSDUdpAddress_Vtbl {
     pub base__: IWSDTransportAddress_Vtbl,
     #[cfg(feature = "Win32_Networking_WinSock")]
-    pub SetSockaddr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psockaddr: *const super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows_core::HRESULT,
+    pub SetSockaddr: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Networking_WinSock"))]
     SetSockaddr: usize,
     #[cfg(feature = "Win32_Networking_WinSock")]
-    pub GetSockaddr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psockaddr: *mut super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows_core::HRESULT,
+    pub GetSockaddr: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Networking_WinSock"))]
     GetSockaddr: usize,
-    pub SetExclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fexclusive: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetExclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetMessageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, messagetype: WSDUdpMessageType) -> ::windows_core::HRESULT,
-    pub GetMessageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmessagetype: *mut WSDUdpMessageType) -> ::windows_core::HRESULT,
-    pub SetTTL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwttl: u32) -> ::windows_core::HRESULT,
-    pub GetTTL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwttl: *mut u32) -> ::windows_core::HRESULT,
-    pub SetAlias: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, palias: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetAlias: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, palias: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub SetExclusive: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetExclusive: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetMessageType: unsafe extern "system" fn(*mut ::core::ffi::c_void, WSDUdpMessageType) -> ::windows_core::HRESULT,
+    pub GetMessageType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WSDUdpMessageType) -> ::windows_core::HRESULT,
+    pub SetTTL: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetTTL: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetAlias: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetAlias: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDUdpMessageParameters, IWSDUdpMessageParameters_Vtbl, 0x9934149f_8f0c_447b_aa0b_73124b0ca7f0);
 ::windows_core::imp::interface_hierarchy!(IWSDUdpMessageParameters, ::windows_core::IUnknown, IWSDMessageParameters);
@@ -1320,8 +1320,8 @@ impl IWSDUdpMessageParameters {
 #[doc(hidden)]
 pub struct IWSDUdpMessageParameters_Vtbl {
     pub base__: IWSDMessageParameters_Vtbl,
-    pub SetRetransmitParams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparams: *const WSDUdpRetransmitParams) -> ::windows_core::HRESULT,
-    pub GetRetransmitParams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparams: *mut WSDUdpRetransmitParams) -> ::windows_core::HRESULT,
+    pub SetRetransmitParams: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSDUdpRetransmitParams) -> ::windows_core::HRESULT,
+    pub GetRetransmitParams: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WSDUdpRetransmitParams) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDXMLContext, IWSDXMLContext_Vtbl, 0x75d8f3ee_3e5a_43b4_a15a_bcf6887460c0);
 ::windows_core::imp::interface_hierarchy!(IWSDXMLContext, ::windows_core::IUnknown);
@@ -1351,10 +1351,10 @@ impl IWSDXMLContext {
 #[doc(hidden)]
 pub struct IWSDXMLContext_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AddNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszuri: ::windows_core::PCWSTR, pszsuggestedprefix: ::windows_core::PCWSTR, ppnamespace: *mut *mut WSDXML_NAMESPACE) -> ::windows_core::HRESULT,
-    pub AddNameToNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszuri: ::windows_core::PCWSTR, pszname: ::windows_core::PCWSTR, ppname: *mut *mut WSDXML_NAME) -> ::windows_core::HRESULT,
-    pub SetNamespaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnamespaces: *const *const WSDXML_NAMESPACE, wnamespacescount: u16, blayernumber: u8) -> ::windows_core::HRESULT,
-    pub SetTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptypes: *const *const WSDXML_TYPE, dwtypescount: u32, blayernumber: u8) -> ::windows_core::HRESULT,
+    pub AddNamespace: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *mut *mut WSDXML_NAMESPACE) -> ::windows_core::HRESULT,
+    pub AddNameToNamespace: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *mut *mut WSDXML_NAME) -> ::windows_core::HRESULT,
+    pub SetNamespaces: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const *const WSDXML_NAMESPACE, u16, u8) -> ::windows_core::HRESULT,
+    pub SetTypes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const *const WSDXML_TYPE, u32, u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDiscoveredService, IWSDiscoveredService_Vtbl, 0x4bad8a3b_b374_4420_9632_aac945b374aa);
 ::windows_core::imp::interface_hierarchy!(IWSDiscoveredService, ::windows_core::IUnknown);
@@ -1407,17 +1407,17 @@ impl IWSDiscoveredService {
 #[doc(hidden)]
 pub struct IWSDiscoveredService_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetEndpointReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppendpointreference: *mut *mut WSD_ENDPOINT_REFERENCE) -> ::windows_core::HRESULT,
-    pub GetTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptypeslist: *mut *mut WSD_NAME_LIST) -> ::windows_core::HRESULT,
-    pub GetScopes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppscopeslist: *mut *mut WSD_URI_LIST) -> ::windows_core::HRESULT,
-    pub GetXAddrs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppxaddrslist: *mut *mut WSD_URI_LIST) -> ::windows_core::HRESULT,
-    pub GetMetadataVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pullmetadataversion: *mut u64) -> ::windows_core::HRESULT,
-    pub GetExtendedDiscoXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppheaderany: *mut *mut WSDXML_ELEMENT, ppbodyany: *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
-    pub GetProbeResolveTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsztag: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetRemoteTransportAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszremotetransportaddress: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetLocalTransportAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszlocaltransportaddress: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetLocalInterfaceGUID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetInstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pullinstanceid: *mut u64) -> ::windows_core::HRESULT,
+    pub GetEndpointReference: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut WSD_ENDPOINT_REFERENCE) -> ::windows_core::HRESULT,
+    pub GetTypes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut WSD_NAME_LIST) -> ::windows_core::HRESULT,
+    pub GetScopes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut WSD_URI_LIST) -> ::windows_core::HRESULT,
+    pub GetXAddrs: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut WSD_URI_LIST) -> ::windows_core::HRESULT,
+    pub GetMetadataVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
+    pub GetExtendedDiscoXML: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut WSDXML_ELEMENT, *mut *mut WSDXML_ELEMENT) -> ::windows_core::HRESULT,
+    pub GetProbeResolveTag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetRemoteTransportAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetLocalTransportAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetLocalInterfaceGUID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetInstanceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDiscoveryProvider, IWSDiscoveryProvider_Vtbl, 0x8ffc8e55_f0eb_480f_88b7_b435dd281d45);
 ::windows_core::imp::interface_hierarchy!(IWSDiscoveryProvider, ::windows_core::IUnknown);
@@ -1464,13 +1464,13 @@ impl IWSDiscoveryProvider {
 #[doc(hidden)]
 pub struct IWSDiscoveryProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetAddressFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaddressfamily: u32) -> ::windows_core::HRESULT,
-    pub Attach: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Detach: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SearchById: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszid: ::windows_core::PCWSTR, psztag: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub SearchByAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszaddress: ::windows_core::PCWSTR, psztag: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub SearchByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pszmatchby: ::windows_core::PCWSTR, psztag: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetXMLContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAddressFamily: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Attach: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Detach: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SearchById: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub SearchByAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub SearchByType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_NAME_LIST, *const WSD_URI_LIST, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetXMLContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDiscoveryProviderNotify, IWSDiscoveryProviderNotify_Vtbl, 0x73ee3ced_b6e6_4329_a546_3e8ad46563d2);
 ::windows_core::imp::interface_hierarchy!(IWSDiscoveryProviderNotify, ::windows_core::IUnknown);
@@ -1504,10 +1504,10 @@ impl IWSDiscoveryProviderNotify {
 #[doc(hidden)]
 pub struct IWSDiscoveryProviderNotify_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pservice: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pservice: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SearchFailed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows_core::HRESULT, psztag: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub SearchComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztag: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SearchFailed: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub SearchComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDiscoveryPublisher, IWSDiscoveryPublisher_Vtbl, 0xae01e1a8_3ff9_4148_8116_057cc616fe13);
 ::windows_core::imp::interface_hierarchy!(IWSDiscoveryPublisher, ::windows_core::IUnknown);
@@ -1653,19 +1653,19 @@ impl IWSDiscoveryPublisher {
 #[doc(hidden)]
 pub struct IWSDiscoveryPublisher_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetAddressFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaddressfamily: u32) -> ::windows_core::HRESULT,
-    pub RegisterNotificationSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub UnRegisterNotificationSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Publish: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszid: ::windows_core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: ::windows_core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST) -> ::windows_core::HRESULT,
-    pub UnPublish: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszid: ::windows_core::PCWSTR, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: ::windows_core::PCWSTR, pany: *const WSDXML_ELEMENT) -> ::windows_core::HRESULT,
-    pub MatchProbe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprobemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: *mut ::core::ffi::c_void, pszid: ::windows_core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: ::windows_core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST) -> ::windows_core::HRESULT,
-    pub MatchResolve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presolvemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: *mut ::core::ffi::c_void, pszid: ::windows_core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: ::windows_core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST) -> ::windows_core::HRESULT,
-    pub PublishEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszid: ::windows_core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: ::windows_core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST, pheaderany: *const WSDXML_ELEMENT, preferenceparameterany: *const WSDXML_ELEMENT, ppolicyany: *const WSDXML_ELEMENT, pendpointreferenceany: *const WSDXML_ELEMENT, pany: *const WSDXML_ELEMENT) -> ::windows_core::HRESULT,
-    pub MatchProbeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprobemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: *mut ::core::ffi::c_void, pszid: ::windows_core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: ::windows_core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST, pheaderany: *const WSDXML_ELEMENT, preferenceparameterany: *const WSDXML_ELEMENT, ppolicyany: *const WSDXML_ELEMENT, pendpointreferenceany: *const WSDXML_ELEMENT, pany: *const WSDXML_ELEMENT) -> ::windows_core::HRESULT,
-    pub MatchResolveEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presolvemessage: *const WSD_SOAP_MESSAGE, pmessageparameters: *mut ::core::ffi::c_void, pszid: ::windows_core::PCWSTR, ullmetadataversion: u64, ullinstanceid: u64, ullmessagenumber: u64, pszsessionid: ::windows_core::PCWSTR, ptypeslist: *const WSD_NAME_LIST, pscopeslist: *const WSD_URI_LIST, pxaddrslist: *const WSD_URI_LIST, pheaderany: *const WSDXML_ELEMENT, preferenceparameterany: *const WSDXML_ELEMENT, ppolicyany: *const WSDXML_ELEMENT, pendpointreferenceany: *const WSDXML_ELEMENT, pany: *const WSDXML_ELEMENT) -> ::windows_core::HRESULT,
-    pub RegisterScopeMatchingRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pscopematchingrule: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub UnRegisterScopeMatchingRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pscopematchingrule: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetXMLContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAddressFamily: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub RegisterNotificationSink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UnRegisterNotificationSink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Publish: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u64, u64, u64, ::windows_core::PCWSTR, *const WSD_NAME_LIST, *const WSD_URI_LIST, *const WSD_URI_LIST) -> ::windows_core::HRESULT,
+    pub UnPublish: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u64, u64, ::windows_core::PCWSTR, *const WSDXML_ELEMENT) -> ::windows_core::HRESULT,
+    pub MatchProbe: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_SOAP_MESSAGE, *mut ::core::ffi::c_void, ::windows_core::PCWSTR, u64, u64, u64, ::windows_core::PCWSTR, *const WSD_NAME_LIST, *const WSD_URI_LIST, *const WSD_URI_LIST) -> ::windows_core::HRESULT,
+    pub MatchResolve: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_SOAP_MESSAGE, *mut ::core::ffi::c_void, ::windows_core::PCWSTR, u64, u64, u64, ::windows_core::PCWSTR, *const WSD_NAME_LIST, *const WSD_URI_LIST, *const WSD_URI_LIST) -> ::windows_core::HRESULT,
+    pub PublishEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u64, u64, u64, ::windows_core::PCWSTR, *const WSD_NAME_LIST, *const WSD_URI_LIST, *const WSD_URI_LIST, *const WSDXML_ELEMENT, *const WSDXML_ELEMENT, *const WSDXML_ELEMENT, *const WSDXML_ELEMENT, *const WSDXML_ELEMENT) -> ::windows_core::HRESULT,
+    pub MatchProbeEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_SOAP_MESSAGE, *mut ::core::ffi::c_void, ::windows_core::PCWSTR, u64, u64, u64, ::windows_core::PCWSTR, *const WSD_NAME_LIST, *const WSD_URI_LIST, *const WSD_URI_LIST, *const WSDXML_ELEMENT, *const WSDXML_ELEMENT, *const WSDXML_ELEMENT, *const WSDXML_ELEMENT, *const WSDXML_ELEMENT) -> ::windows_core::HRESULT,
+    pub MatchResolveEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_SOAP_MESSAGE, *mut ::core::ffi::c_void, ::windows_core::PCWSTR, u64, u64, u64, ::windows_core::PCWSTR, *const WSD_NAME_LIST, *const WSD_URI_LIST, *const WSD_URI_LIST, *const WSDXML_ELEMENT, *const WSDXML_ELEMENT, *const WSDXML_ELEMENT, *const WSDXML_ELEMENT, *const WSDXML_ELEMENT) -> ::windows_core::HRESULT,
+    pub RegisterScopeMatchingRule: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UnRegisterScopeMatchingRule: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetXMLContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWSDiscoveryPublisherNotify, IWSDiscoveryPublisherNotify_Vtbl, 0xe67651b0_337a_4b3c_9758_733388568251);
 ::windows_core::imp::interface_hierarchy!(IWSDiscoveryPublisherNotify, ::windows_core::IUnknown);
@@ -1687,8 +1687,8 @@ impl IWSDiscoveryPublisherNotify {
 #[doc(hidden)]
 pub struct IWSDiscoveryPublisherNotify_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ProbeHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ResolveHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ProbeHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_SOAP_MESSAGE, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ResolveHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WSD_SOAP_MESSAGE, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const DirectedDiscovery: DeviceDiscoveryMechanism = DeviceDiscoveryMechanism(1i32);
 pub const MulticastDiscovery: DeviceDiscoveryMechanism = DeviceDiscoveryMechanism(0i32);

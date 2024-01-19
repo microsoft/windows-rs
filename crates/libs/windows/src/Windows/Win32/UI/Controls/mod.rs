@@ -2017,55 +2017,55 @@ impl IImageList {
 pub struct IImageList_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP, pi: *mut i32) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Graphics::Gdi::HBITMAP, super::super::Graphics::Gdi::HBITMAP, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     Add: usize,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub ReplaceIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, hicon: super::WindowsAndMessaging::HICON, pi: *mut i32) -> ::windows_core::HRESULT,
+    pub ReplaceIcon: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, super::WindowsAndMessaging::HICON, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     ReplaceIcon: usize,
-    pub SetOverlayImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iimage: i32, ioverlay: i32) -> ::windows_core::HRESULT,
+    pub SetOverlayImage: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub Replace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP) -> ::windows_core::HRESULT,
+    pub Replace: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, super::super::Graphics::Gdi::HBITMAP, super::super::Graphics::Gdi::HBITMAP) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     Replace: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub AddMasked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hbmimage: super::super::Graphics::Gdi::HBITMAP, crmask: super::super::Foundation::COLORREF, pi: *mut i32) -> ::windows_core::HRESULT,
+    pub AddMasked: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Graphics::Gdi::HBITMAP, super::super::Foundation::COLORREF, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     AddMasked: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub Draw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows_core::HRESULT,
+    pub Draw: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const IMAGELISTDRAWPARAMS) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     Draw: usize,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32) -> ::windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub GetIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, flags: u32, picon: *mut super::WindowsAndMessaging::HICON) -> ::windows_core::HRESULT,
+    pub GetIcon: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, u32, *mut super::WindowsAndMessaging::HICON) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     GetIcon: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub GetImageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, pimageinfo: *mut IMAGEINFO) -> ::windows_core::HRESULT,
+    pub GetImageInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut IMAGEINFO) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetImageInfo: usize,
-    pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idst: i32, punksrc: *mut ::core::ffi::c_void, isrc: i32, uflags: u32) -> ::windows_core::HRESULT,
-    pub Merge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i1: i32, punk2: *mut ::core::ffi::c_void, i2: i32, dx: i32, dy: i32, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetImageRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, prc: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
-    pub GetIconSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cx: *mut i32, cy: *mut i32) -> ::windows_core::HRESULT,
-    pub SetIconSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cx: i32, cy: i32) -> ::windows_core::HRESULT,
-    pub GetImageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pi: *mut i32) -> ::windows_core::HRESULT,
-    pub SetImageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unewcount: u32) -> ::windows_core::HRESULT,
-    pub SetBkColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clrbk: super::super::Foundation::COLORREF, pclr: *mut super::super::Foundation::COLORREF) -> ::windows_core::HRESULT,
-    pub GetBkColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclr: *mut super::super::Foundation::COLORREF) -> ::windows_core::HRESULT,
-    pub BeginDrag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows_core::HRESULT,
-    pub EndDrag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DragEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndlock: super::super::Foundation::HWND, x: i32, y: i32) -> ::windows_core::HRESULT,
-    pub DragLeave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndlock: super::super::Foundation::HWND) -> ::windows_core::HRESULT,
-    pub DragMove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: i32, y: i32) -> ::windows_core::HRESULT,
-    pub SetDragCursorImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows_core::HRESULT,
-    pub DragShowNolock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fshow: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetDragImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppt: *mut super::super::Foundation::POINT, ppthotspot: *mut super::super::Foundation::POINT, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetItemFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, dwflags: *mut IMAGE_LIST_ITEM_FLAGS) -> ::windows_core::HRESULT,
-    pub GetOverlayImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ioverlay: i32, piindex: *mut i32) -> ::windows_core::HRESULT,
+    pub Copy: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::core::ffi::c_void, i32, u32) -> ::windows_core::HRESULT,
+    pub Merge: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::core::ffi::c_void, i32, i32, i32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetImageRect: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
+    pub GetIconSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32, *mut i32) -> ::windows_core::HRESULT,
+    pub SetIconSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32) -> ::windows_core::HRESULT,
+    pub GetImageCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetImageCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub SetBkColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::COLORREF, *mut super::super::Foundation::COLORREF) -> ::windows_core::HRESULT,
+    pub GetBkColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::COLORREF) -> ::windows_core::HRESULT,
+    pub BeginDrag: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, i32) -> ::windows_core::HRESULT,
+    pub EndDrag: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DragEnter: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, i32, i32) -> ::windows_core::HRESULT,
+    pub DragLeave: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND) -> ::windows_core::HRESULT,
+    pub DragMove: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32) -> ::windows_core::HRESULT,
+    pub SetDragCursorImage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, i32, i32, i32) -> ::windows_core::HRESULT,
+    pub DragShowNolock: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetDragImage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::POINT, *mut super::super::Foundation::POINT, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetItemFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut IMAGE_LIST_ITEM_FLAGS) -> ::windows_core::HRESULT,
+    pub GetOverlayImage: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IImageList2, IImageList2_Vtbl, 0x192b9d83_50fc_457b_90a0_2b82a8b5dae1);
 ::windows_core::imp::interface_hierarchy!(IImageList2, ::windows_core::IUnknown, IImageList);
@@ -2274,24 +2274,24 @@ impl IImageList2 {
 #[doc(hidden)]
 pub struct IImageList2_Vtbl {
     pub base__: IImageList_Vtbl,
-    pub Resize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cxnewiconsize: i32, cynewiconsize: i32) -> ::windows_core::HRESULT,
-    pub GetOriginalSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iimage: i32, dwflags: u32, pcx: *mut i32, pcy: *mut i32) -> ::windows_core::HRESULT,
-    pub SetOriginalSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iimage: i32, cx: i32, cy: i32) -> ::windows_core::HRESULT,
-    pub SetCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ForceImagePresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iimage: i32, dwflags: u32) -> ::windows_core::HRESULT,
-    pub DiscardImages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ifirstimage: i32, ilastimage: i32, dwflags: u32) -> ::windows_core::HRESULT,
+    pub Resize: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32) -> ::windows_core::HRESULT,
+    pub GetOriginalSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, u32, *mut i32, *mut i32) -> ::windows_core::HRESULT,
+    pub SetOriginalSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, i32) -> ::windows_core::HRESULT,
+    pub SetCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ForceImagePresent: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, u32) -> ::windows_core::HRESULT,
+    pub DiscardImages: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub PreloadImages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows_core::HRESULT,
+    pub PreloadImages: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const IMAGELISTDRAWPARAMS) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     PreloadImages: usize,
-    pub GetStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pils: *mut IMAGELISTSTATS) -> ::windows_core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> ::windows_core::HRESULT,
+    pub GetStatistics: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut IMAGELISTSTATS) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, IMAGELIST_CREATION_FLAGS, i32, i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub Replace2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP, punk: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
+    pub Replace2: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, super::super::Graphics::Gdi::HBITMAP, super::super::Graphics::Gdi::HBITMAP, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     Replace2: usize,
-    pub ReplaceFromImageList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, pil: *mut ::core::ffi::c_void, isrc: i32, punk: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
+    pub ReplaceFromImageList: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::core::ffi::c_void, i32, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 pub const ABS_DOWNDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(8i32);
 pub const ABS_DOWNHOT: ARROWBTNSTATES = ARROWBTNSTATES(6i32);

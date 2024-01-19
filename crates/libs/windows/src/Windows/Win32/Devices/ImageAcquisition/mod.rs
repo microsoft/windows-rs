@@ -23,11 +23,11 @@ impl IEnumWIA_DEV_CAPS {
 #[doc(hidden)]
 pub struct IEnumWIA_DEV_CAPS_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut WIA_DEV_CAP, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut WIA_DEV_CAP, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumWIA_DEV_INFO, IEnumWIA_DEV_INFO_Vtbl, 0x5e38b83c_8cf1_11d1_bf92_0060081ed811);
 ::windows_core::imp::interface_hierarchy!(IEnumWIA_DEV_INFO, ::windows_core::IUnknown);
@@ -54,11 +54,11 @@ impl IEnumWIA_DEV_INFO {
 #[doc(hidden)]
 pub struct IEnumWIA_DEV_INFO_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumWIA_FORMAT_INFO, IEnumWIA_FORMAT_INFO_Vtbl, 0x81befc5b_656d_44f1_b24c_d41d51b4dc81);
 ::windows_core::imp::interface_hierarchy!(IEnumWIA_FORMAT_INFO, ::windows_core::IUnknown);
@@ -85,11 +85,11 @@ impl IEnumWIA_FORMAT_INFO {
 #[doc(hidden)]
 pub struct IEnumWIA_FORMAT_INFO_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut WIA_FORMAT_INFO, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut WIA_FORMAT_INFO, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumWiaItem, IEnumWiaItem_Vtbl, 0x5e8383fc_3391_11d2_9a33_00c04fa36145);
 ::windows_core::imp::interface_hierarchy!(IEnumWiaItem, ::windows_core::IUnknown);
@@ -116,11 +116,11 @@ impl IEnumWiaItem {
 #[doc(hidden)]
 pub struct IEnumWiaItem_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppiwiaitem: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumWiaItem2, IEnumWiaItem2_Vtbl, 0x59970af4_cd0d_44d9_ab24_52295630e582);
 ::windows_core::imp::interface_hierarchy!(IEnumWiaItem2, ::windows_core::IUnknown);
@@ -147,11 +147,11 @@ impl IEnumWiaItem2 {
 #[doc(hidden)]
 pub struct IEnumWiaItem2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ppiwiaitem2: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaAppErrorHandler, IWiaAppErrorHandler_Vtbl, 0x6c16186c_d0a6_400c_80f4_d26986a0e734);
 ::windows_core::imp::interface_hierarchy!(IWiaAppErrorHandler, ::windows_core::IUnknown);
@@ -171,8 +171,8 @@ impl IWiaAppErrorHandler {
 #[doc(hidden)]
 pub struct IWiaAppErrorHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows_core::HRESULT,
-    pub ReportStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pwiaitem2: *mut ::core::ffi::c_void, hrstatus: ::windows_core::HRESULT, lpercentcomplete: i32) -> ::windows_core::HRESULT,
+    pub GetWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HWND) -> ::windows_core::HRESULT,
+    pub ReportStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::core::ffi::c_void, ::windows_core::HRESULT, i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaDataCallback, IWiaDataCallback_Vtbl, 0xa558a866_a5b0_11d2_a08f_00c04f72dc3c);
 ::windows_core::imp::interface_hierarchy!(IWiaDataCallback, ::windows_core::IUnknown);
@@ -185,7 +185,7 @@ impl IWiaDataCallback {
 #[doc(hidden)]
 pub struct IWiaDataCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub BandedDataCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmessage: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, lreserved: i32, lreslength: i32, pbbuffer: *mut u8) -> ::windows_core::HRESULT,
+    pub BandedDataCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, i32, i32, i32, i32, i32, *mut u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaDataTransfer, IWiaDataTransfer_Vtbl, 0xa6cef998_a5b0_11d2_a08f_00c04f72dc3c);
 ::windows_core::imp::interface_hierarchy!(IWiaDataTransfer, ::windows_core::IUnknown);
@@ -220,13 +220,13 @@ impl IWiaDataTransfer {
 pub struct IWiaDataTransfer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-    pub idtGetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmedium: *mut super::super::System::Com::STGMEDIUM, piwiadatacallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub idtGetData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::System::Com::STGMEDIUM, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage")))]
     idtGetData: usize,
-    pub idtGetBandedData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwiadatatransinfo: *mut WIA_DATA_TRANSFER_INFO, piwiadatacallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub idtQueryGetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfe: *const WIA_FORMAT_INFO) -> ::windows_core::HRESULT,
-    pub idtEnumWIA_FORMAT_INFO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub idtGetExtendedTransferInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextendedtransferinfo: *mut WIA_EXTENDED_TRANSFER_INFO) -> ::windows_core::HRESULT,
+    pub idtGetBandedData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WIA_DATA_TRANSFER_INFO, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub idtQueryGetData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WIA_FORMAT_INFO) -> ::windows_core::HRESULT,
+    pub idtEnumWIA_FORMAT_INFO: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub idtGetExtendedTransferInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WIA_EXTENDED_TRANSFER_INFO) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaDevMgr, IWiaDevMgr_Vtbl, 0x5eb2502a_8cf1_11d1_bf92_0060081ed811);
 ::windows_core::imp::interface_hierarchy!(IWiaDevMgr, ::windows_core::IUnknown);
@@ -300,15 +300,15 @@ impl IWiaDevMgr {
 #[doc(hidden)]
 pub struct IWiaDevMgr_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub EnumDeviceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflag: i32, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppwiaitemroot: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SelectDeviceDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, ppitemroot: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SelectDeviceDlgID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetImageDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, lintent: i32, pitemroot: *mut ::core::ffi::c_void, bstrfilename: ::std::mem::MaybeUninit<::windows_core::BSTR>, pguidformat: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub RegisterEventCallbackProgram: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, peventguid: *const ::windows_core::GUID, bstrcommandline: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrdescription: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstricon: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub RegisterEventCallbackInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, peventguid: *const ::windows_core::GUID, piwiaeventcallback: *mut ::core::ffi::c_void, peventobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RegisterEventCallbackCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, peventguid: *const ::windows_core::GUID, pclsid: *const ::windows_core::GUID, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrdescription: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstricon: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub AddDeviceDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, lflags: i32) -> ::windows_core::HRESULT,
+    pub EnumDeviceInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SelectDeviceDlg: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, i32, i32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SelectDeviceDlgID: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, i32, i32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetImageDlg: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, i32, i32, i32, *mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub RegisterEventCallbackProgram: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::windows_core::GUID, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub RegisterEventCallbackInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::windows_core::GUID, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RegisterEventCallbackCLSID: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::windows_core::GUID, *const ::windows_core::GUID, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub AddDeviceDlg: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaDevMgr2, IWiaDevMgr2_Vtbl, 0x79c07cf1_cbdd_41ee_8ec3_f00080cada7a);
 ::windows_core::imp::interface_hierarchy!(IWiaDevMgr2, ::windows_core::IUnknown);
@@ -378,14 +378,14 @@ impl IWiaDevMgr2 {
 #[doc(hidden)]
 pub struct IWiaDevMgr2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub EnumDeviceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppwiaitem2root: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SelectDeviceDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, ppitemroot: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SelectDeviceDlgID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, ldevicetype: i32, lflags: i32, pbstrdeviceid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub RegisterEventCallbackInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, peventguid: *const ::windows_core::GUID, piwiaeventcallback: *mut ::core::ffi::c_void, peventobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RegisterEventCallbackProgram: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, peventguid: *const ::windows_core::GUID, bstrfullappname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrcommandlinearg: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrdescription: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstricon: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub RegisterEventCallbackCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, peventguid: *const ::windows_core::GUID, pclsid: *const ::windows_core::GUID, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrdescription: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstricon: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetImageDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrdeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, hwndparent: super::super::Foundation::HWND, bstrfoldername: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrfilename: ::std::mem::MaybeUninit<::windows_core::BSTR>, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut ::windows_core::BSTR, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumDeviceInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SelectDeviceDlg: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, i32, i32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SelectDeviceDlgID: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, i32, i32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub RegisterEventCallbackInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::windows_core::GUID, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RegisterEventCallbackProgram: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::windows_core::GUID, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub RegisterEventCallbackCLSID: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::windows_core::GUID, *const ::windows_core::GUID, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetImageDlg: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, super::super::Foundation::HWND, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut i32, *mut *mut ::windows_core::BSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaDrvItem, IWiaDrvItem_Vtbl, 0x1f02b5c5_b00c_11d2_a094_00c04f72dc3c);
 ::windows_core::imp::interface_hierarchy!(IWiaDrvItem, ::windows_core::IUnknown);
@@ -453,19 +453,19 @@ impl IWiaDrvItem {
 #[doc(hidden)]
 pub struct IWiaDrvItem_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetItemFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0000: *mut i32) -> ::windows_core::HRESULT,
-    pub GetDeviceSpecContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0001: *mut *mut u8) -> ::windows_core::HRESULT,
-    pub GetFullItemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0002: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetItemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0003: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub AddItemToFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0004: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub UnlinkItemTree: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0005: i32) -> ::windows_core::HRESULT,
-    pub RemoveItemFromFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0006: i32) -> ::windows_core::HRESULT,
-    pub FindItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0007: i32, __midl__iwiadrvitem0008: ::std::mem::MaybeUninit<::windows_core::BSTR>, __midl__iwiadrvitem0009: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FindChildItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0010: ::std::mem::MaybeUninit<::windows_core::BSTR>, __midl__iwiadrvitem0011: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetParentItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0012: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetFirstChildItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0013: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetNextSiblingItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0014: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DumpItemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiadrvitem0015: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetItemFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub GetDeviceSpecContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut u8) -> ::windows_core::HRESULT,
+    pub GetFullItemName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetItemName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub AddItemToFolder: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UnlinkItemTree: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub RemoveItemFromFolder: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub FindItemByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindChildItemByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetParentItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetFirstChildItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNextSiblingItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DumpItemData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaErrorHandler, IWiaErrorHandler_Vtbl, 0x0e4a51b1_bc1f_443d_a835_72e890759ef3);
 ::windows_core::imp::interface_hierarchy!(IWiaErrorHandler, ::windows_core::IUnknown);
@@ -489,8 +489,8 @@ impl IWiaErrorHandler {
 #[doc(hidden)]
 pub struct IWiaErrorHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ReportStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, hwndparent: super::super::Foundation::HWND, pwiaitem2: *mut ::core::ffi::c_void, hrstatus: ::windows_core::HRESULT, lpercentcomplete: i32) -> ::windows_core::HRESULT,
-    pub GetStatusDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pwiaitem2: *mut ::core::ffi::c_void, hrstatus: ::windows_core::HRESULT, pbstrdescription: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ReportStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, super::super::Foundation::HWND, *mut ::core::ffi::c_void, ::windows_core::HRESULT, i32) -> ::windows_core::HRESULT,
+    pub GetStatusDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::core::ffi::c_void, ::windows_core::HRESULT, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaEventCallback, IWiaEventCallback_Vtbl, 0xae6287b0_0084_11d2_973b_00a0c9068f2e);
 ::windows_core::imp::interface_hierarchy!(IWiaEventCallback, ::windows_core::IUnknown);
@@ -509,7 +509,7 @@ impl IWiaEventCallback {
 #[doc(hidden)]
 pub struct IWiaEventCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ImageEventCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventguid: *const ::windows_core::GUID, bstreventdescription: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrdeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrdevicedescription: ::std::mem::MaybeUninit<::windows_core::BSTR>, dwdevicetype: u32, bstrfullitemname: ::std::mem::MaybeUninit<::windows_core::BSTR>, puleventtype: *mut u32, ulreserved: u32) -> ::windows_core::HRESULT,
+    pub ImageEventCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, u32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut u32, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaImageFilter, IWiaImageFilter_Vtbl, 0xa8a79ffa_450b_41f1_8f87_849ccd94ebf6);
 ::windows_core::imp::interface_hierarchy!(IWiaImageFilter, ::windows_core::IUnknown);
@@ -547,13 +547,13 @@ impl IWiaImageFilter {
 #[doc(hidden)]
 pub struct IWiaImageFilter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub InitializeFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwiaitem2: *mut ::core::ffi::c_void, pwiatransfercallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetNewCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwiatransfercallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InitializeFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetNewCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub FilterPreviewImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pwiachilditem2: *mut ::core::ffi::c_void, inputimageextents: super::super::Foundation::RECT, pinputstream: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FilterPreviewImage: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::core::ffi::c_void, super::super::Foundation::RECT, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     FilterPreviewImage: usize,
-    pub ApplyProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwiapropertystorage: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ApplyProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaItem, IWiaItem_Vtbl, 0x4db1ad10_3391_11d2_9a33_00c04fa36145);
 ::windows_core::imp::interface_hierarchy!(IWiaItem, ::windows_core::IUnknown);
@@ -628,21 +628,21 @@ impl IWiaItem {
 #[doc(hidden)]
 pub struct IWiaItem_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetItemType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitemtype: *mut i32) -> ::windows_core::HRESULT,
-    pub AnalyzeItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32) -> ::windows_core::HRESULT,
-    pub EnumChildItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienumwiaitem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DeleteItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32) -> ::windows_core::HRESULT,
-    pub CreateChildItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstritemname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrfullitemname: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppiwiaitem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumRegisterEventInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, peventguid: *const ::windows_core::GUID, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FindItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrfullitemname: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppiwiaitem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DeviceDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, lflags: i32, lintent: i32, plitemcount: *mut i32, ppiwiaitem: *mut *mut ::core::option::Option<IWiaItem>) -> ::windows_core::HRESULT,
-    pub DeviceCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pcmdguid: *const ::windows_core::GUID, piwiaitem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetRootItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiwiaitem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumDeviceCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, ppienumwia_dev_caps: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DumpItemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdata: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub DumpDrvItemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdata: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub DumpTreeItemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdata: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Diagnostic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulsize: u32, pbuffer: *const u8) -> ::windows_core::HRESULT,
+    pub GetItemType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub AnalyzeItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub EnumChildItems: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeleteItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub CreateChildItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumRegisterEventInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindItemByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeviceDlg: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, i32, i32, *mut i32, *mut *mut ::core::option::Option<IWiaItem>) -> ::windows_core::HRESULT,
+    pub DeviceCommand: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetRootItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumDeviceCapabilities: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DumpItemData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub DumpDrvItemData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub DumpTreeItemData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Diagnostic: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaItem2, IWiaItem2_Vtbl, 0x6cba0075_1287_407d_9b77_cf0e030435cc);
 ::windows_core::imp::interface_hierarchy!(IWiaItem2, ::windows_core::IUnknown);
@@ -727,22 +727,22 @@ impl IWiaItem2 {
 #[doc(hidden)]
 pub struct IWiaItem2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateChildItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, litemflags: i32, lcreationflags: i32, bstritemname: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppiwiaitem2: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DeleteItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32) -> ::windows_core::HRESULT,
-    pub EnumChildItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcategoryguid: *const ::windows_core::GUID, ppienumwiaitem2: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FindItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrfullitemname: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppiwiaitem2: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetItemCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitemcategoryguid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetItemType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitemtype: *mut i32) -> ::windows_core::HRESULT,
-    pub DeviceDlg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, hwndparent: super::super::Foundation::HWND, bstrfoldername: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrfilename: ::std::mem::MaybeUninit<::windows_core::BSTR>, plnumfiles: *mut i32, ppbstrfilepaths: *mut *mut ::windows_core::BSTR, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DeviceCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pcmdguid: *const ::windows_core::GUID, ppiwiaitem2: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumDeviceCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, ppienumwia_dev_caps: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CheckExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, riidextensioninterface: *const ::windows_core::GUID, pbextensionexists: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, riidextensioninterface: *const ::windows_core::GUID, ppout: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetParentItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiwiaitem2: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetRootItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiwiaitem2: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetPreviewComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, ppwiapreview: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumRegisterEventInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, peventguid: *const ::windows_core::GUID, ppienum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Diagnostic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulsize: u32, pbuffer: *const u8) -> ::windows_core::HRESULT,
+    pub CreateChildItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeleteItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub EnumChildItems: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindItemByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetItemCategory: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetItemType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub DeviceDlg: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, super::super::Foundation::HWND, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut i32, *mut *mut ::windows_core::BSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeviceCommand: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumDeviceCapabilities: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CheckExtension: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::windows_core::GUID, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetExtension: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetParentItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetRootItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPreviewComponent: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumRegisterEventInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Diagnostic: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaItemExtras, IWiaItemExtras_Vtbl, 0x6291ef2c_36ef_4532_876a_8e132593778d);
 ::windows_core::imp::interface_hierarchy!(IWiaItemExtras, ::windows_core::IUnknown);
@@ -762,9 +762,9 @@ impl IWiaItemExtras {
 #[doc(hidden)]
 pub struct IWiaItemExtras_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetExtendedErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrerrortext: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Escape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwescapecode: u32, lpindata: *const u8, cbindatasize: u32, poutdata: *mut u8, dwoutdatasize: u32, pdwactualdatasize: *mut u32) -> ::windows_core::HRESULT,
-    pub CancelPendingIO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetExtendedErrorInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Escape: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, u32, *mut u8, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub CancelPendingIO: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaLog, IWiaLog_Vtbl, 0xa00c10b6_82a1_452f_8b6c_86062aad6890);
 ::windows_core::imp::interface_hierarchy!(IWiaLog, ::windows_core::IUnknown);
@@ -786,9 +786,9 @@ impl IWiaLog {
 #[doc(hidden)]
 pub struct IWiaLog_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub InitializeLog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hinstance: i32) -> ::windows_core::HRESULT,
-    pub hResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub Log: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, lresid: i32, ldetail: i32, bstrtext: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub InitializeLog: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub hResult: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub Log: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaLogEx, IWiaLogEx_Vtbl, 0xaf1f22ac_7a40_4787_b421_aeb47a1fbd0b);
 ::windows_core::imp::interface_hierarchy!(IWiaLogEx, ::windows_core::IUnknown);
@@ -819,11 +819,11 @@ impl IWiaLogEx {
 #[doc(hidden)]
 pub struct IWiaLogEx_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub InitializeLogEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hinstance: *const u8) -> ::windows_core::HRESULT,
-    pub hResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub Log: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, lresid: i32, ldetail: i32, bstrtext: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub hResultEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmethodid: i32, hresult: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub LogEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmethodid: i32, lflags: i32, lresid: i32, ldetail: i32, bstrtext: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub InitializeLogEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8) -> ::windows_core::HRESULT,
+    pub hResult: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub Log: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub hResultEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub LogEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, i32, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaMiniDrv, IWiaMiniDrv_Vtbl, 0xd8cdee14_3c6c_11d2_9a35_00c04fa36145);
 ::windows_core::imp::interface_hierarchy!(IWiaMiniDrv, ::windows_core::IUnknown);
@@ -905,29 +905,29 @@ impl IWiaMiniDrv {
 #[doc(hidden)]
 pub struct IWiaMiniDrv_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub drvInitializeWia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0000: *const u8, __midl__iwiaminidrv0001: i32, __midl__iwiaminidrv0002: ::std::mem::MaybeUninit<::windows_core::BSTR>, __midl__iwiaminidrv0003: ::std::mem::MaybeUninit<::windows_core::BSTR>, __midl__iwiaminidrv0004: *mut ::core::ffi::c_void, __midl__iwiaminidrv0005: *mut ::core::ffi::c_void, __midl__iwiaminidrv0006: *mut *mut ::core::ffi::c_void, __midl__iwiaminidrv0007: *mut *mut ::core::ffi::c_void, __midl__iwiaminidrv0008: *mut i32) -> ::windows_core::HRESULT,
-    pub drvAcquireItemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0009: *const u8, __midl__iwiaminidrv0010: i32, __midl__iwiaminidrv0011: *mut MINIDRV_TRANSFER_CONTEXT, __midl__iwiaminidrv0012: *mut i32) -> ::windows_core::HRESULT,
-    pub drvInitItemProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0013: *const u8, __midl__iwiaminidrv0014: i32, __midl__iwiaminidrv0015: *mut i32) -> ::windows_core::HRESULT,
+    pub drvInitializeWia: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub drvAcquireItemData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, i32, *mut MINIDRV_TRANSFER_CONTEXT, *mut i32) -> ::windows_core::HRESULT,
+    pub drvInitItemProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, i32, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub drvValidateItemProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0016: *const u8, __midl__iwiaminidrv0017: i32, __midl__iwiaminidrv0018: u32, __midl__iwiaminidrv0019: *const super::super::System::Com::StructuredStorage::PROPSPEC, __midl__iwiaminidrv0020: *mut i32) -> ::windows_core::HRESULT,
+    pub drvValidateItemProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, i32, u32, *const super::super::System::Com::StructuredStorage::PROPSPEC, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     drvValidateItemProperties: usize,
-    pub drvWriteItemProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0021: *const u8, __midl__iwiaminidrv0022: i32, __midl__iwiaminidrv0023: *const MINIDRV_TRANSFER_CONTEXT, __midl__iwiaminidrv0024: *mut i32) -> ::windows_core::HRESULT,
+    pub drvWriteItemProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, i32, *const MINIDRV_TRANSFER_CONTEXT, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub drvReadItemProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0025: *const u8, __midl__iwiaminidrv0026: i32, __midl__iwiaminidrv0027: u32, __midl__iwiaminidrv0028: *const super::super::System::Com::StructuredStorage::PROPSPEC, __midl__iwiaminidrv0029: *mut i32) -> ::windows_core::HRESULT,
+    pub drvReadItemProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, i32, u32, *const super::super::System::Com::StructuredStorage::PROPSPEC, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     drvReadItemProperties: usize,
-    pub drvLockWiaDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0030: *const u8, __midl__iwiaminidrv0031: i32, __midl__iwiaminidrv0032: *mut i32) -> ::windows_core::HRESULT,
-    pub drvUnLockWiaDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0033: *const u8, __midl__iwiaminidrv0034: i32, __midl__iwiaminidrv0035: *mut i32) -> ::windows_core::HRESULT,
-    pub drvAnalyzeItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0036: *const u8, __midl__iwiaminidrv0037: i32, __midl__iwiaminidrv0038: *const i32) -> ::windows_core::HRESULT,
-    pub drvGetDeviceErrorStr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0039: i32, __midl__iwiaminidrv0040: i32, __midl__iwiaminidrv0041: *mut ::windows_core::PWSTR, __midl__iwiaminidrv0042: *mut i32) -> ::windows_core::HRESULT,
-    pub drvDeviceCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0043: *const u8, __midl__iwiaminidrv0044: i32, __midl__iwiaminidrv0045: *const ::windows_core::GUID, __midl__iwiaminidrv0046: *mut *mut ::core::ffi::c_void, __midl__iwiaminidrv0047: *mut i32) -> ::windows_core::HRESULT,
-    pub drvGetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0048: *const u8, __midl__iwiaminidrv0049: i32, __midl__iwiaminidrv0050: *mut i32, __midl__iwiaminidrv0051: *mut *mut WIA_DEV_CAP_DRV, __midl__iwiaminidrv0052: *mut i32) -> ::windows_core::HRESULT,
-    pub drvDeleteItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0053: *const u8, __midl__iwiaminidrv0054: i32, __midl__iwiaminidrv0055: *mut i32) -> ::windows_core::HRESULT,
-    pub drvFreeDrvItemContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0056: i32, __midl__iwiaminidrv0057: *const u8, __midl__iwiaminidrv0058: *mut i32) -> ::windows_core::HRESULT,
-    pub drvGetWiaFormatInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0059: *const u8, __midl__iwiaminidrv0060: i32, __midl__iwiaminidrv0061: *mut i32, __midl__iwiaminidrv0062: *mut *mut WIA_FORMAT_INFO, __midl__iwiaminidrv0063: *mut i32) -> ::windows_core::HRESULT,
-    pub drvNotifyPnpEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventguid: *const ::windows_core::GUID, bstrdeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, ulreserved: u32) -> ::windows_core::HRESULT,
-    pub drvUnInitializeWia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iwiaminidrv0064: *const u8) -> ::windows_core::HRESULT,
+    pub drvLockWiaDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, i32, *mut i32) -> ::windows_core::HRESULT,
+    pub drvUnLockWiaDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, i32, *mut i32) -> ::windows_core::HRESULT,
+    pub drvAnalyzeItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, i32, *const i32) -> ::windows_core::HRESULT,
+    pub drvGetDeviceErrorStr: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, *mut ::windows_core::PWSTR, *mut i32) -> ::windows_core::HRESULT,
+    pub drvDeviceCommand: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, i32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub drvGetCapabilities: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, i32, *mut i32, *mut *mut WIA_DEV_CAP_DRV, *mut i32) -> ::windows_core::HRESULT,
+    pub drvDeleteItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, i32, *mut i32) -> ::windows_core::HRESULT,
+    pub drvFreeDrvItemContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *const u8, *mut i32) -> ::windows_core::HRESULT,
+    pub drvGetWiaFormatInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, i32, *mut i32, *mut *mut WIA_FORMAT_INFO, *mut i32) -> ::windows_core::HRESULT,
+    pub drvNotifyPnpEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, ::std::mem::MaybeUninit<::windows_core::BSTR>, u32) -> ::windows_core::HRESULT,
+    pub drvUnInitializeWia: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaMiniDrvCallBack, IWiaMiniDrvCallBack_Vtbl, 0x33a57d5a_3de8_11d2_9a36_00c04fa36145);
 ::windows_core::imp::interface_hierarchy!(IWiaMiniDrvCallBack, ::windows_core::IUnknown);
@@ -940,7 +940,7 @@ impl IWiaMiniDrvCallBack {
 #[doc(hidden)]
 pub struct IWiaMiniDrvCallBack_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub MiniDrvCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lreason: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, ptranctx: *const MINIDRV_TRANSFER_CONTEXT, lreserved: i32) -> ::windows_core::HRESULT,
+    pub MiniDrvCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, i32, i32, i32, *const MINIDRV_TRANSFER_CONTEXT, i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaMiniDrvTransferCallback, IWiaMiniDrvTransferCallback_Vtbl, 0xa9d2ee89_2ce5_4ff0_8adb_c961d1d774ca);
 ::windows_core::imp::interface_hierarchy!(IWiaMiniDrvTransferCallback, ::windows_core::IUnknown);
@@ -964,10 +964,10 @@ impl IWiaMiniDrvTransferCallback {
 pub struct IWiaMiniDrvTransferCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetNextStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstritemname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrfullitemname: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppistream: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNextStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetNextStream: usize,
-    pub SendMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows_core::HRESULT,
+    pub SendMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *const WiaTransferParams) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaNotifyDevMgr, IWiaNotifyDevMgr_Vtbl, 0x70681ea0_e7bf_4291_9fb1_4e8813a3f78e);
 ::windows_core::imp::interface_hierarchy!(IWiaNotifyDevMgr, ::windows_core::IUnknown);
@@ -980,7 +980,7 @@ impl IWiaNotifyDevMgr {
 #[doc(hidden)]
 pub struct IWiaNotifyDevMgr_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub NewDeviceArrival: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub NewDeviceArrival: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaPreview, IWiaPreview_Vtbl, 0x95c2b4fd_33f2_4d86_ad40_9431f0df08f7);
 ::windows_core::imp::interface_hierarchy!(IWiaPreview, ::windows_core::IUnknown);
@@ -1010,10 +1010,10 @@ impl IWiaPreview {
 #[doc(hidden)]
 pub struct IWiaPreview_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetNewPreview: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pwiaitem2: *mut ::core::ffi::c_void, pwiatransfercallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub UpdatePreview: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pchildwiaitem2: *mut ::core::ffi::c_void, pwiatransfercallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DetectRegions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32) -> ::windows_core::HRESULT,
-    pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNewPreview: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UpdatePreview: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DetectRegions: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub Clear: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaPropertyStorage, IWiaPropertyStorage_Vtbl, 0x98b5e8a0_29cc_491a_aac0_e6db4fdcceb6);
 ::windows_core::imp::interface_hierarchy!(IWiaPropertyStorage, ::windows_core::IUnknown);
@@ -1093,43 +1093,43 @@ impl IWiaPropertyStorage {
 pub struct IWiaPropertyStorage_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub ReadMultiple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub ReadMultiple: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const super::super::System::Com::StructuredStorage::PROPSPEC, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     ReadMultiple: usize,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub WriteMultiple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, propidnamefirst: u32) -> ::windows_core::HRESULT,
+    pub WriteMultiple: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const super::super::System::Com::StructuredStorage::PROPSPEC, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     WriteMultiple: usize,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub DeleteMultiple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> ::windows_core::HRESULT,
+    pub DeleteMultiple: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const super::super::System::Com::StructuredStorage::PROPSPEC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     DeleteMultiple: usize,
-    pub ReadPropertyNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropid: u32, rgpropid: *const u32, rglpwstrname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub WritePropertyNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropid: u32, rgpropid: *const u32, rglpwstrname: *const ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub DeletePropertyNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropid: u32, rgpropid: *const u32) -> ::windows_core::HRESULT,
-    pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfcommitflags: u32) -> ::windows_core::HRESULT,
-    pub Revert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ReadPropertyNames: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u32, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub WritePropertyNames: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u32, *const ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub DeletePropertyNames: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u32) -> ::windows_core::HRESULT,
+    pub Commit: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Revert: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub Enum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Enum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     Enum: usize,
-    pub SetTimes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pctime: *const super::super::Foundation::FILETIME, patime: *const super::super::Foundation::FILETIME, pmtime: *const super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
-    pub SetClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub SetTimes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::Foundation::FILETIME, *const super::super::Foundation::FILETIME, *const super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
+    pub SetClass: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub Stat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatpsstg: *mut super::super::System::Com::StructuredStorage::STATPROPSETSTG) -> ::windows_core::HRESULT,
+    pub Stat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::System::Com::StructuredStorage::STATPROPSETSTG) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     Stat: usize,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub GetPropertyAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgflags: *mut u32, rgpropvar: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub GetPropertyAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const super::super::System::Com::StructuredStorage::PROPSPEC, *mut u32, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     GetPropertyAttributes: usize,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulnumprops: *mut u32) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetPropertyStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcompatibilityid: *mut ::windows_core::GUID, ppistream: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPropertyStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetPropertyStream: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetPropertyStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcompatibilityid: *mut ::windows_core::GUID, pistream: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetPropertyStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetPropertyStream: usize,
 }
@@ -1151,7 +1151,7 @@ impl IWiaSegmentationFilter {
 pub struct IWiaSegmentationFilter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub DetectRegions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pinputstream: *mut ::core::ffi::c_void, pwiaitem2: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DetectRegions: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DetectRegions: usize,
 }
@@ -1185,13 +1185,13 @@ impl IWiaTransfer {
 #[doc(hidden)]
 pub struct IWiaTransfer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Download: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, piwiatransfercallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Download: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Upload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, psource: *mut ::core::ffi::c_void, piwiatransfercallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Upload: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Upload: usize,
-    pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumWIA_FORMAT_INFO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Cancel: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumWIA_FORMAT_INFO: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWiaTransferCallback, IWiaTransferCallback_Vtbl, 0x27d4eaaf_28a6_4ca5_9aab_e678168b9527);
 ::windows_core::imp::interface_hierarchy!(IWiaTransferCallback, ::windows_core::IUnknown);
@@ -1214,9 +1214,9 @@ impl IWiaTransferCallback {
 #[doc(hidden)]
 pub struct IWiaTransferCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub TransferCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows_core::HRESULT,
+    pub TransferCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *const WiaTransferParams) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetNextStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, bstritemname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrfullitemname: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppdestination: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNextStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetNextStream: usize,
 }
@@ -1247,13 +1247,13 @@ impl IWiaUIExtension {
 #[doc(hidden)]
 pub struct IWiaUIExtension_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub DeviceDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevicedialogdata: *const DEVICEDIALOGDATA) -> ::windows_core::HRESULT,
+    pub DeviceDialog: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DEVICEDIALOGDATA) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub GetDeviceIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows_core::HRESULT,
+    pub GetDeviceIcon: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::UI::WindowsAndMessaging::HICON, u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     GetDeviceIcon: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub GetDeviceBitmapLogo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP, nmaxwidth: u32, nmaxheight: u32) -> ::windows_core::HRESULT,
+    pub GetDeviceBitmapLogo: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Graphics::Gdi::HBITMAP, u32, u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetDeviceBitmapLogo: usize,
 }
@@ -1276,9 +1276,9 @@ impl IWiaUIExtension2 {
 #[doc(hidden)]
 pub struct IWiaUIExtension2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub DeviceDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevicedialogdata: *const DEVICEDIALOGDATA2) -> ::windows_core::HRESULT,
+    pub DeviceDialog: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DEVICEDIALOGDATA2) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub GetDeviceIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, phicon: *mut super::super::UI::WindowsAndMessaging::HICON, nsize: u32) -> ::windows_core::HRESULT,
+    pub GetDeviceIcon: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::UI::WindowsAndMessaging::HICON, u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     GetDeviceIcon: usize,
 }
@@ -1359,19 +1359,19 @@ impl IWiaVideo {
 #[doc(hidden)]
 pub struct IWiaVideo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub PreviewVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbpreviewvisible: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetPreviewVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bpreviewvisible: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub ImagesDirectory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrimagedirectory: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetImagesDirectory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrimagedirectory: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub CreateVideoByWiaDevID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrwiadeviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub CreateVideoByDevNum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uidevicenumber: u32, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub CreateVideoByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrfriendlyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, hwndparent: super::super::Foundation::HWND, bstretchtofitparent: super::super::Foundation::BOOL, bautobeginplayback: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub DestroyVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Play: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub TakePicture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrnewimagefilename: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ResizeVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstretchtofitparent: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetCurrentState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut WIAVIDEO_STATE) -> ::windows_core::HRESULT,
+    pub PreviewVisible: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetPreviewVisible: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub ImagesDirectory: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetImagesDirectory: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub CreateVideoByWiaDevID: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, super::super::Foundation::HWND, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub CreateVideoByDevNum: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, super::super::Foundation::HWND, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub CreateVideoByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, super::super::Foundation::HWND, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub DestroyVideo: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Play: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Pause: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TakePicture: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ResizeVideo: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetCurrentState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WIAVIDEO_STATE) -> ::windows_core::HRESULT,
 }
 pub const ADVANCED_DUP: u32 = 8192u32;
 pub const ADVANCED_DUPLEX: u32 = 1024u32;

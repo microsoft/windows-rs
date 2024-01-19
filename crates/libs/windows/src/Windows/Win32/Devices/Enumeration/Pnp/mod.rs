@@ -99,8 +99,8 @@ impl IUPnPAddressFamilyControl {
 #[doc(hidden)]
 pub struct IUPnPAddressFamilyControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetAddressFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: i32) -> ::windows_core::HRESULT,
-    pub GetAddressFamily: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut i32) -> ::windows_core::HRESULT,
+    pub SetAddressFamily: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub GetAddressFamily: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUPnPAsyncResult, IUPnPAsyncResult_Vtbl, 0x4d65fd08_d13e_4274_9c8b_dd8d028c8644);
 ::windows_core::imp::interface_hierarchy!(IUPnPAsyncResult, ::windows_core::IUnknown);
@@ -113,7 +113,7 @@ impl IUPnPAsyncResult {
 #[doc(hidden)]
 pub struct IUPnPAsyncResult_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AsyncOperationComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ullrequestid: u64) -> ::windows_core::HRESULT,
+    pub AsyncOperationComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -171,17 +171,17 @@ impl IUPnPDescriptionDocument {
 #[doc(hidden)]
 pub struct IUPnPDescriptionDocument_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub ReadyState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plreadystate: *mut i32) -> ::windows_core::HRESULT,
-    pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrurl: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub LoadAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, punkcallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub LoadResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrerror: *mut i32) -> ::windows_core::HRESULT,
-    pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ReadyState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Load: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub LoadAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LoadResult: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Abort: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub RootDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppudrootdevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RootDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     RootDevice: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub DeviceByUDN: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrudn: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppuddevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeviceByUDN: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DeviceByUDN: usize,
 }
@@ -196,7 +196,7 @@ impl IUPnPDescriptionDocumentCallback {
 #[doc(hidden)]
 pub struct IUPnPDescriptionDocumentCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub LoadComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrloadresult: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub LoadComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -302,35 +302,35 @@ impl IUPnPDevice {
 #[doc(hidden)]
 pub struct IUPnPDevice_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub IsRootDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarb: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub IsRootDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub RootDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppudrootdevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RootDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     RootDevice: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ParentDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppuddeviceparent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ParentDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ParentDevice: usize,
-    pub HasChildren: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarb: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub HasChildren: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Children: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppudchildren: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Children: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Children: usize,
-    pub UniqueDeviceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub FriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub PresentationURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ManufacturerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ManufacturerURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ModelName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ModelNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ModelURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub UPC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SerialNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub IconURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrencodingformat: ::std::mem::MaybeUninit<::windows_core::BSTR>, lsizex: i32, lsizey: i32, lbitdepth: i32, pbstriconurl: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub UniqueDeviceName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub FriendlyName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Type: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub PresentationURL: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ManufacturerName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ManufacturerURL: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ModelName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ModelNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ModelURL: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub UPC: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SerialNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub IconURL: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32, i32, i32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Services: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppusservices: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Services: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Services: usize,
 }
@@ -360,9 +360,9 @@ impl IUPnPDeviceControl {
 #[doc(hidden)]
 pub struct IUPnPDeviceControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxmldesc: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrdeviceidentifier: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrinitstring: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetServiceObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrudn: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrserviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppdispservice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetServiceObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetServiceObject: usize,
 }
@@ -378,7 +378,7 @@ impl IUPnPDeviceControlHttpHeaders {
 #[doc(hidden)]
 pub struct IUPnPDeviceControlHttpHeaders_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetAdditionalResponseHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrhttpresponseheaders: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetAdditionalResponseHeaders: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUPnPDeviceDocumentAccess, IUPnPDeviceDocumentAccess_Vtbl, 0xe7772804_3287_418e_9072_cf2b47238981);
 ::windows_core::imp::interface_hierarchy!(IUPnPDeviceDocumentAccess, ::windows_core::IUnknown);
@@ -392,7 +392,7 @@ impl IUPnPDeviceDocumentAccess {
 #[doc(hidden)]
 pub struct IUPnPDeviceDocumentAccess_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetDocumentURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdocument: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetDocumentURL: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUPnPDeviceDocumentAccessEx, IUPnPDeviceDocumentAccessEx_Vtbl, 0xc4bc4050_6178_4bd1_a4b8_6398321f3247);
 ::windows_core::imp::interface_hierarchy!(IUPnPDeviceDocumentAccessEx, ::windows_core::IUnknown);
@@ -406,7 +406,7 @@ impl IUPnPDeviceDocumentAccessEx {
 #[doc(hidden)]
 pub struct IUPnPDeviceDocumentAccessEx_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdocument: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetDocument: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -458,14 +458,14 @@ impl IUPnPDeviceFinder {
 pub struct IUPnPDeviceFinder_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub FindByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtypeuri: ::std::mem::MaybeUninit<::windows_core::BSTR>, dwflags: u32, pdevices: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindByType: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     FindByType: usize,
-    pub CreateAsyncFind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtypeuri: ::std::mem::MaybeUninit<::windows_core::BSTR>, dwflags: u32, punkdevicefindercallback: *mut ::core::ffi::c_void, plfinddata: *mut i32) -> ::windows_core::HRESULT,
-    pub StartAsyncFind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lfinddata: i32) -> ::windows_core::HRESULT,
-    pub CancelAsyncFind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lfinddata: i32) -> ::windows_core::HRESULT,
+    pub CreateAsyncFind: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, u32, *mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub StartAsyncFind: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub CancelAsyncFind: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub FindByUDN: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrudn: ::std::mem::MaybeUninit<::windows_core::BSTR>, pdevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindByUDN: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     FindByUDN: usize,
 }
@@ -486,7 +486,7 @@ impl IUPnPDeviceFinderAddCallbackWithInterface {
 pub struct IUPnPDeviceFinderAddCallbackWithInterface_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub DeviceAddedWithInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lfinddata: i32, pdevice: *mut ::core::ffi::c_void, pguidinterface: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub DeviceAddedWithInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DeviceAddedWithInterface: usize,
 }
@@ -516,11 +516,11 @@ impl IUPnPDeviceFinderCallback {
 pub struct IUPnPDeviceFinderCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub DeviceAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lfinddata: i32, pdevice: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeviceAdded: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DeviceAdded: usize,
-    pub DeviceRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lfinddata: i32, bstrudn: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SearchComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lfinddata: i32) -> ::windows_core::HRESULT,
+    pub DeviceRemoved: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SearchComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUPnPDeviceProvider, IUPnPDeviceProvider_Vtbl, 0x204810b8_73b2_11d4_bf42_00b0d0118b56);
 ::windows_core::imp::interface_hierarchy!(IUPnPDeviceProvider, ::windows_core::IUnknown);
@@ -539,8 +539,8 @@ impl IUPnPDeviceProvider {
 #[doc(hidden)]
 pub struct IUPnPDeviceProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinitstring: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Start: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Stop: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -576,10 +576,10 @@ impl IUPnPDevices {
 #[doc(hidden)]
 pub struct IUPnPDevices_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrudn: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
 }
@@ -600,8 +600,8 @@ impl IUPnPEventSink {
 #[doc(hidden)]
 pub struct IUPnPEventSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchanges: u32, rgdispidchanges: *const i32) -> ::windows_core::HRESULT,
-    pub OnStateChangedSafe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varsadispidchanges: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub OnStateChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i32) -> ::windows_core::HRESULT,
+    pub OnStateChangedSafe: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUPnPEventSource, IUPnPEventSource_Vtbl, 0x204810b5_73b2_11d4_bf42_00b0d0118b56);
 ::windows_core::imp::interface_hierarchy!(IUPnPEventSource, ::windows_core::IUnknown);
@@ -623,8 +623,8 @@ impl IUPnPEventSource {
 #[doc(hidden)]
 pub struct IUPnPEventSource_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pessubscriber: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pessubscriber: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Advise: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Unadvise: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUPnPHttpHeaderControl, IUPnPHttpHeaderControl_Vtbl, 0x0405af4f_8b5c_447c_80f2_b75984a31f3c);
 ::windows_core::imp::interface_hierarchy!(IUPnPHttpHeaderControl, ::windows_core::IUnknown);
@@ -640,7 +640,7 @@ impl IUPnPHttpHeaderControl {
 #[doc(hidden)]
 pub struct IUPnPHttpHeaderControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AddRequestHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrhttpheaders: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub AddRequestHeaders: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUPnPRegistrar, IUPnPRegistrar_Vtbl, 0x204810b6_73b2_11d4_bf42_00b0d0118b56);
 ::windows_core::imp::interface_hierarchy!(IUPnPRegistrar, ::windows_core::IUnknown);
@@ -701,12 +701,12 @@ impl IUPnPRegistrar {
 #[doc(hidden)]
 pub struct IUPnPRegistrar_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub RegisterDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxmldesc: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrprogiddevicecontrolclass: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrinitstring: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrcontainerid: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrresourcepath: ::std::mem::MaybeUninit<::windows_core::BSTR>, nlifetime: i32, pbstrdeviceidentifier: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub RegisterRunningDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxmldesc: ::std::mem::MaybeUninit<::windows_core::BSTR>, punkdevicecontrol: *mut ::core::ffi::c_void, bstrinitstring: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrresourcepath: ::std::mem::MaybeUninit<::windows_core::BSTR>, nlifetime: i32, pbstrdeviceidentifier: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub RegisterDeviceProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprovidername: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrprogidproviderclass: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrinitstring: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrcontainerid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetUniqueDeviceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceidentifier: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrtemplateudn: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrudn: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub UnregisterDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceidentifier: ::std::mem::MaybeUninit<::windows_core::BSTR>, fpermanent: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub UnregisterDeviceProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprovidername: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub RegisterDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub RegisterRunningDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub RegisterDeviceProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetUniqueDeviceName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub UnregisterDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub UnregisterDeviceProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUPnPRemoteEndpointInfo, IUPnPRemoteEndpointInfo_Vtbl, 0xc92eb863_0269_4aff_9c72_75321bba2952);
 ::windows_core::imp::interface_hierarchy!(IUPnPRemoteEndpointInfo, ::windows_core::IUnknown);
@@ -737,9 +737,9 @@ impl IUPnPRemoteEndpointInfo {
 #[doc(hidden)]
 pub struct IUPnPRemoteEndpointInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetDwordValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrvaluename: ::std::mem::MaybeUninit<::windows_core::BSTR>, pdwvalue: *mut u32) -> ::windows_core::HRESULT,
-    pub GetStringValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrvaluename: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetGuidValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrvaluename: ::std::mem::MaybeUninit<::windows_core::BSTR>, pguidvalue: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetDwordValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut u32) -> ::windows_core::HRESULT,
+    pub GetStringValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetGuidValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUPnPReregistrar, IUPnPReregistrar_Vtbl, 0x204810b7_73b2_11d4_bf42_00b0d0118b56);
 ::windows_core::imp::interface_hierarchy!(IUPnPReregistrar, ::windows_core::IUnknown);
@@ -770,8 +770,8 @@ impl IUPnPReregistrar {
 #[doc(hidden)]
 pub struct IUPnPReregistrar_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ReregisterDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceidentifier: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrxmldesc: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrprogiddevicecontrolclass: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrinitstring: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrcontainerid: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrresourcepath: ::std::mem::MaybeUninit<::windows_core::BSTR>, nlifetime: i32) -> ::windows_core::HRESULT,
-    pub ReregisterRunningDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceidentifier: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrxmldesc: ::std::mem::MaybeUninit<::windows_core::BSTR>, punkdevicecontrol: *mut ::core::ffi::c_void, bstrinitstring: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrresourcepath: ::std::mem::MaybeUninit<::windows_core::BSTR>, nlifetime: i32) -> ::windows_core::HRESULT,
+    pub ReregisterDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32) -> ::windows_core::HRESULT,
+    pub ReregisterRunningDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -823,12 +823,12 @@ impl IUPnPService {
 #[doc(hidden)]
 pub struct IUPnPService_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub QueryStateVariable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrvariablename: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub InvokeAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstractionname: ::std::mem::MaybeUninit<::windows_core::BSTR>, vinactionargs: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvoutactionargs: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvretval: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub ServiceTypeIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub AddCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkcallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub LastTransportStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plvalue: *mut i32) -> ::windows_core::HRESULT,
+    pub QueryStateVariable: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub InvokeAction: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub ServiceTypeIdentifier: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub AddCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub LastTransportStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUPnPServiceAsync, IUPnPServiceAsync_Vtbl, 0x098bdaf5_5ec1_49e7_a260_b3a11dd8680c);
 ::windows_core::imp::interface_hierarchy!(IUPnPServiceAsync, ::windows_core::IUnknown);
@@ -886,15 +886,15 @@ impl IUPnPServiceAsync {
 #[doc(hidden)]
 pub struct IUPnPServiceAsync_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub BeginInvokeAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstractionname: ::std::mem::MaybeUninit<::windows_core::BSTR>, vinactionargs: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pasyncresult: *mut ::core::ffi::c_void, pullrequestid: *mut u64) -> ::windows_core::HRESULT,
-    pub EndInvokeAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ullrequestid: u64, pvoutactionargs: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvretval: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub BeginQueryStateVariable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrvariablename: ::std::mem::MaybeUninit<::windows_core::BSTR>, pasyncresult: *mut ::core::ffi::c_void, pullrequestid: *mut u64) -> ::windows_core::HRESULT,
-    pub EndQueryStateVariable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ullrequestid: u64, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub BeginSubscribeToEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkcallback: *mut ::core::ffi::c_void, pasyncresult: *mut ::core::ffi::c_void, pullrequestid: *mut u64) -> ::windows_core::HRESULT,
-    pub EndSubscribeToEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ullrequestid: u64) -> ::windows_core::HRESULT,
-    pub BeginSCPDDownload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pasyncresult: *mut ::core::ffi::c_void, pullrequestid: *mut u64) -> ::windows_core::HRESULT,
-    pub EndSCPDDownload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ullrequestid: u64, pbstrscpddoc: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub CancelAsyncOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ullrequestid: u64) -> ::windows_core::HRESULT,
+    pub BeginInvokeAction: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
+    pub EndInvokeAction: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub BeginQueryStateVariable: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
+    pub EndQueryStateVariable: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub BeginSubscribeToEvents: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
+    pub EndSubscribeToEvents: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
+    pub BeginSCPDDownload: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
+    pub EndSCPDDownload: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub CancelAsyncOperation: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUPnPServiceCallback, IUPnPServiceCallback_Vtbl, 0x31fadca9_ab73_464b_b67d_5c1d0f83c8b8);
 ::windows_core::imp::interface_hierarchy!(IUPnPServiceCallback, ::windows_core::IUnknown);
@@ -923,11 +923,11 @@ impl IUPnPServiceCallback {
 pub struct IUPnPServiceCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub StateVariableChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pus: *mut ::core::ffi::c_void, pcwszstatevarname: ::windows_core::PCWSTR, vavalue: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub StateVariableChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     StateVariableChanged: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ServiceInstanceDied: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pus: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ServiceInstanceDied: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ServiceInstanceDied: usize,
 }
@@ -947,8 +947,8 @@ impl IUPnPServiceDocumentAccess {
 #[doc(hidden)]
 pub struct IUPnPServiceDocumentAccess_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetDocumentURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdocurl: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdoc: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetDocumentURL: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetDocument: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUPnPServiceEnumProperty, IUPnPServiceEnumProperty_Vtbl, 0x38873b37_91bb_49f4_b249_2e8efbb8a816);
 ::windows_core::imp::interface_hierarchy!(IUPnPServiceEnumProperty, ::windows_core::IUnknown);
@@ -961,7 +961,7 @@ impl IUPnPServiceEnumProperty {
 #[doc(hidden)]
 pub struct IUPnPServiceEnumProperty_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetServiceEnumProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmask: u32) -> ::windows_core::HRESULT,
+    pub SetServiceEnumProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -997,10 +997,10 @@ impl IUPnPServices {
 #[doc(hidden)]
 pub struct IUPnPServices_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrserviceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
 }

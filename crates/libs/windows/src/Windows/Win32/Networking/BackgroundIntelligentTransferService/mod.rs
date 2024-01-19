@@ -34,12 +34,12 @@ impl AsyncIBackgroundCopyCallback {
 #[doc(hidden)]
 pub struct AsyncIBackgroundCopyCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Begin_JobTransferred: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Finish_JobTransferred: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Begin_JobError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void, perror: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Finish_JobError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Begin_JobModification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows_core::HRESULT,
-    pub Finish_JobModification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_JobTransferred: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Finish_JobTransferred: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_JobError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Finish_JobError: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_JobModification: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Finish_JobModification: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -72,10 +72,10 @@ impl IBITSExtensionSetup {
 #[doc(hidden)]
 pub struct IBITSExtensionSetup_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub EnableBITSUploads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DisableBITSUploads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCleanupTaskName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptaskname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetCleanupTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnableBITSUploads: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DisableBITSUploads: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCleanupTaskName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetCleanupTask: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -104,7 +104,7 @@ impl IBITSExtensionSetupFactory {
 pub struct IBITSExtensionSetupFactory_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppextensionsetup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetObject: usize,
 }
@@ -135,9 +135,9 @@ impl IBackgroundCopyCallback {
 #[doc(hidden)]
 pub struct IBackgroundCopyCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub JobTransferred: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub JobError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void, perror: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub JobModification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows_core::HRESULT,
+    pub JobTransferred: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub JobError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub JobModification: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyCallback1, IBackgroundCopyCallback1_Vtbl, 0x084f6593_3800_4e08_9b59_99fa59addf82);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyCallback1, ::windows_core::IUnknown);
@@ -168,9 +168,9 @@ impl IBackgroundCopyCallback1 {
 #[doc(hidden)]
 pub struct IBackgroundCopyCallback1_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgroup: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void, dwfileindex: u32, dwstatus: u32, dwnumofretries: u32, dwwin32result: u32, dwtransportresult: u32) -> ::windows_core::HRESULT,
-    pub OnProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, progresstype: u32, pgroup: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void, dwfileindex: u32, dwprogressvalue: u32) -> ::windows_core::HRESULT,
-    pub OnProgressEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, progresstype: u32, pgroup: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void, dwfileindex: u32, dwprogressvalue: u32, dwbytearraysize: u32, pbyte: *const u8) -> ::windows_core::HRESULT,
+    pub OnStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32, u32, u32, u32) -> ::windows_core::HRESULT,
+    pub OnProgress: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub OnProgressEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32, u32, *const u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyCallback2, IBackgroundCopyCallback2_Vtbl, 0x659cdeac_489e_11d9_a9cd_000d56965251);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyCallback2, ::windows_core::IUnknown, IBackgroundCopyCallback);
@@ -206,7 +206,7 @@ impl IBackgroundCopyCallback2 {
 #[doc(hidden)]
 pub struct IBackgroundCopyCallback2_Vtbl {
     pub base__: IBackgroundCopyCallback_Vtbl,
-    pub FileTransferred: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void, pfile: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FileTransferred: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyCallback3, IBackgroundCopyCallback3_Vtbl, 0x98c97bd2_e32b_4ad8_a528_95fd8b16bd42);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyCallback3, ::windows_core::IUnknown, IBackgroundCopyCallback, IBackgroundCopyCallback2);
@@ -249,7 +249,7 @@ impl IBackgroundCopyCallback3 {
 #[doc(hidden)]
 pub struct IBackgroundCopyCallback3_Vtbl {
     pub base__: IBackgroundCopyCallback2_Vtbl,
-    pub FileRangesTransferred: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, job: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows_core::HRESULT,
+    pub FileRangesTransferred: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const BG_FILE_RANGE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyError, IBackgroundCopyError_Vtbl, 0x19c613a0_fcb8_4f28_81ae_897c3d078f81);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyError, ::windows_core::IUnknown);
@@ -278,11 +278,11 @@ impl IBackgroundCopyError {
 #[doc(hidden)]
 pub struct IBackgroundCopyError_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *mut BG_ERROR_CONTEXT, pcode: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub GetFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetErrorDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageid: u32, perrordescription: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetErrorContextDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageid: u32, pcontextdescription: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetProtocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprotocol: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BG_ERROR_CONTEXT, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub GetFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetErrorDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetErrorContextDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetProtocol: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyFile, IBackgroundCopyFile_Vtbl, 0x01b7bd23_fb88_4a77_8490_5891d3e4653a);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyFile, ::windows_core::IUnknown);
@@ -303,9 +303,9 @@ impl IBackgroundCopyFile {
 #[doc(hidden)]
 pub struct IBackgroundCopyFile_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetRemoteName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetLocalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut BG_FILE_PROGRESS) -> ::windows_core::HRESULT,
+    pub GetRemoteName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetLocalName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetProgress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BG_FILE_PROGRESS) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyFile2, IBackgroundCopyFile2_Vtbl, 0x83e81b93_0873_474d_8a8c_f2018b1a939c);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyFile2, ::windows_core::IUnknown, IBackgroundCopyFile);
@@ -335,8 +335,8 @@ impl IBackgroundCopyFile2 {
 #[doc(hidden)]
 pub struct IBackgroundCopyFile2_Vtbl {
     pub base__: IBackgroundCopyFile_Vtbl,
-    pub GetFileRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows_core::HRESULT,
-    pub SetRemoteName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, val: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetFileRanges: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut BG_FILE_RANGE) -> ::windows_core::HRESULT,
+    pub SetRemoteName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyFile3, IBackgroundCopyFile3_Vtbl, 0x659cdeaa_489e_11d9_a9cd_000d56965251);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyFile3, ::windows_core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2);
@@ -384,10 +384,10 @@ impl IBackgroundCopyFile3 {
 #[doc(hidden)]
 pub struct IBackgroundCopyFile3_Vtbl {
     pub base__: IBackgroundCopyFile2_Vtbl,
-    pub GetTemporaryName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilename: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetValidationState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetValidationState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub IsDownloadedFromPeer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetTemporaryName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetValidationState: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetValidationState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub IsDownloadedFromPeer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyFile4, IBackgroundCopyFile4_Vtbl, 0xef7e0655_7888_4960_b0e5_730846e03492);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyFile4, ::windows_core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3);
@@ -438,7 +438,7 @@ impl IBackgroundCopyFile4 {
 #[doc(hidden)]
 pub struct IBackgroundCopyFile4_Vtbl {
     pub base__: IBackgroundCopyFile3_Vtbl,
-    pub GetPeerDownloadStats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfromorigin: *mut u64, pfrompeers: *mut u64) -> ::windows_core::HRESULT,
+    pub GetPeerDownloadStats: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64, *mut u64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyFile5, IBackgroundCopyFile5_Vtbl, 0x85c1657f_dafc_40e8_8834_df18ea25717e);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyFile5, ::windows_core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3, IBackgroundCopyFile4);
@@ -496,8 +496,8 @@ impl IBackgroundCopyFile5 {
 #[doc(hidden)]
 pub struct IBackgroundCopyFile5_Vtbl {
     pub base__: IBackgroundCopyFile4_Vtbl,
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: BITS_FILE_PROPERTY_VALUE) -> ::windows_core::HRESULT,
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: *mut BITS_FILE_PROPERTY_VALUE) -> ::windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, BITS_FILE_PROPERTY_ID, BITS_FILE_PROPERTY_VALUE) -> ::windows_core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, BITS_FILE_PROPERTY_ID, *mut BITS_FILE_PROPERTY_VALUE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyFile6, IBackgroundCopyFile6_Vtbl, 0xcf6784f7_d677_49fd_9368_cb47aee9d1ad);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyFile6, ::windows_core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3, IBackgroundCopyFile4, IBackgroundCopyFile5);
@@ -564,9 +564,9 @@ impl IBackgroundCopyFile6 {
 #[doc(hidden)]
 pub struct IBackgroundCopyFile6_Vtbl {
     pub base__: IBackgroundCopyFile5_Vtbl,
-    pub UpdateDownloadPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64) -> ::windows_core::HRESULT,
-    pub RequestFileRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows_core::HRESULT,
-    pub GetFilledFileRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows_core::HRESULT,
+    pub UpdateDownloadPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
+    pub RequestFileRanges: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const BG_FILE_RANGE) -> ::windows_core::HRESULT,
+    pub GetFilledFileRanges: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut BG_FILE_RANGE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyGroup, IBackgroundCopyGroup_Vtbl, 0x1ded80a7_53ea_424f_8a04_17fea9adc4f5);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyGroup, ::windows_core::IUnknown);
@@ -632,21 +632,21 @@ impl IBackgroundCopyGroup {
 #[doc(hidden)]
 pub struct IBackgroundCopyGroup_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: GROUPPROP, pvarval: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propid: GROUPPROP, pvarval: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub GetProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pdwprogress: *mut u32) -> ::windows_core::HRESULT,
-    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32, pdwjobindex: *mut u32) -> ::windows_core::HRESULT,
-    pub GetJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, jobid: ::windows_core::GUID, ppjob: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SuspendGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ResumeGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CancelGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsize: *mut u32) -> ::windows_core::HRESULT,
-    pub GroupID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidgroupid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub CreateJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidjobid: ::windows_core::GUID, ppjob: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumJobs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, ppenumjobs: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SwitchToForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub QueryNewJobInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, punk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetNotificationPointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, punk: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetProp: unsafe extern "system" fn(*mut ::core::ffi::c_void, GROUPPROP, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetProp: unsafe extern "system" fn(*mut ::core::ffi::c_void, GROUPPROP, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub GetProgress: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetJob: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SuspendGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ResumeGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CancelGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Size: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GroupID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub CreateJob: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumJobs: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SwitchToForeground: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub QueryNewJobInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetNotificationPointer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyJob, IBackgroundCopyJob_Vtbl, 0x37668d37_507e_4160_9316_26306d150b12);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyJob, ::windows_core::IUnknown);
@@ -783,38 +783,38 @@ impl IBackgroundCopyJob {
 #[doc(hidden)]
 pub struct IBackgroundCopyJob_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AddFileSet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cfilecount: u32, pfileset: *const BG_FILE_INFO) -> ::windows_core::HRESULT,
-    pub AddFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remoteurl: ::windows_core::PCWSTR, localname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub EnumFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Suspend: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut BG_JOB_TYPE) -> ::windows_core::HRESULT,
-    pub GetProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut BG_JOB_PROGRESS) -> ::windows_core::HRESULT,
-    pub GetTimes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut BG_JOB_TIMES) -> ::windows_core::HRESULT,
-    pub GetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut BG_JOB_STATE) -> ::windows_core::HRESULT,
-    pub GetError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pperror: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, val: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, val: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, val: BG_JOB_PRIORITY) -> ::windows_core::HRESULT,
-    pub GetPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut BG_JOB_PRIORITY) -> ::windows_core::HRESULT,
-    pub SetNotifyFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, val: u32) -> ::windows_core::HRESULT,
-    pub GetNotifyFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut u32) -> ::windows_core::HRESULT,
-    pub SetNotifyInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, val: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetNotifyInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetMinimumRetryDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, seconds: u32) -> ::windows_core::HRESULT,
-    pub GetMinimumRetryDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, seconds: *mut u32) -> ::windows_core::HRESULT,
-    pub SetNoProgressTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, seconds: u32) -> ::windows_core::HRESULT,
-    pub GetNoProgressTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, seconds: *mut u32) -> ::windows_core::HRESULT,
-    pub GetErrorCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errors: *mut u32) -> ::windows_core::HRESULT,
-    pub SetProxySettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, proxyusage: BG_JOB_PROXY_USAGE, proxylist: ::windows_core::PCWSTR, proxybypasslist: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetProxySettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut ::windows_core::PWSTR, pproxybypasslist: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub TakeOwnership: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddFileSet: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const BG_FILE_INFO) -> ::windows_core::HRESULT,
+    pub AddFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub EnumFiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Suspend: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Resume: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Cancel: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Complete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BG_JOB_TYPE) -> ::windows_core::HRESULT,
+    pub GetProgress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BG_JOB_PROGRESS) -> ::windows_core::HRESULT,
+    pub GetTimes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BG_JOB_TIMES) -> ::windows_core::HRESULT,
+    pub GetState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BG_JOB_STATE) -> ::windows_core::HRESULT,
+    pub GetError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetOwner: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetDisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetDisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetPriority: unsafe extern "system" fn(*mut ::core::ffi::c_void, BG_JOB_PRIORITY) -> ::windows_core::HRESULT,
+    pub GetPriority: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BG_JOB_PRIORITY) -> ::windows_core::HRESULT,
+    pub SetNotifyFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetNotifyFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetNotifyInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNotifyInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetMinimumRetryDelay: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetMinimumRetryDelay: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetNoProgressTimeout: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetNoProgressTimeout: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetErrorCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetProxySettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, BG_JOB_PROXY_USAGE, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetProxySettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BG_JOB_PROXY_USAGE, *mut ::windows_core::PWSTR, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub TakeOwnership: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyJob1, IBackgroundCopyJob1_Vtbl, 0x59f5553c_2031_4629_bb18_2645a6970947);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyJob1, ::windows_core::IUnknown);
@@ -852,14 +852,14 @@ impl IBackgroundCopyJob1 {
 #[doc(hidden)]
 pub struct IBackgroundCopyJob1_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CancelJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pdwprogress: *mut u32) -> ::windows_core::HRESULT,
-    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32, pdwwin32result: *mut u32, pdwtransportresult: *mut u32, pdwnumofretries: *mut u32) -> ::windows_core::HRESULT,
-    pub AddFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cfilecount: u32, ppfileset: *const *const FILESETINFO) -> ::windows_core::HRESULT,
-    pub GetFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cfileindex: u32, pfileinfo: *mut FILESETINFO) -> ::windows_core::HRESULT,
-    pub GetFileCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwfilecount: *mut u32) -> ::windows_core::HRESULT,
-    pub SwitchToForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub JobID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidjobid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub CancelJob: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetProgress: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub AddFiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const *const FILESETINFO) -> ::windows_core::HRESULT,
+    pub GetFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut FILESETINFO) -> ::windows_core::HRESULT,
+    pub GetFileCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SwitchToForeground: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub JobID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyJob2, IBackgroundCopyJob2_Vtbl, 0x54b50739_686f_45eb_9dff_d6a9a0faa9af);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyJob2, ::windows_core::IUnknown, IBackgroundCopyJob);
@@ -1028,14 +1028,14 @@ impl IBackgroundCopyJob2 {
 #[doc(hidden)]
 pub struct IBackgroundCopyJob2_Vtbl {
     pub base__: IBackgroundCopyJob_Vtbl,
-    pub SetNotifyCmdLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, program: ::windows_core::PCWSTR, parameters: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetNotifyCmdLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprogram: *mut ::windows_core::PWSTR, pparameters: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetReplyProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprogress: *mut BG_JOB_REPLY_PROGRESS) -> ::windows_core::HRESULT,
-    pub GetReplyData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbuffer: *mut *mut u8, plength: *mut u64) -> ::windows_core::HRESULT,
-    pub SetReplyFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, replyfilename: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetReplyFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preplyfilename: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credentials: *const BG_AUTH_CREDENTIALS) -> ::windows_core::HRESULT,
-    pub RemoveCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> ::windows_core::HRESULT,
+    pub SetNotifyCmdLine: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetNotifyCmdLine: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetReplyProgress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BG_JOB_REPLY_PROGRESS) -> ::windows_core::HRESULT,
+    pub GetReplyData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut u8, *mut u64) -> ::windows_core::HRESULT,
+    pub SetReplyFileName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetReplyFileName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetCredentials: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const BG_AUTH_CREDENTIALS) -> ::windows_core::HRESULT,
+    pub RemoveCredentials: unsafe extern "system" fn(*mut ::core::ffi::c_void, BG_AUTH_TARGET, BG_AUTH_SCHEME) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyJob3, IBackgroundCopyJob3_Vtbl, 0x443c8934_90ff_48ed_bcde_26f5c7450042);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyJob3, ::windows_core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2);
@@ -1225,10 +1225,10 @@ impl IBackgroundCopyJob3 {
 #[doc(hidden)]
 pub struct IBackgroundCopyJob3_Vtbl {
     pub base__: IBackgroundCopyJob2_Vtbl,
-    pub ReplaceRemotePrefix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldprefix: ::windows_core::PCWSTR, newprefix: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub AddFileWithRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remoteurl: ::windows_core::PCWSTR, localname: ::windows_core::PCWSTR, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows_core::HRESULT,
-    pub SetFileACLFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows_core::HRESULT,
-    pub GetFileACLFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *mut u32) -> ::windows_core::HRESULT,
+    pub ReplaceRemotePrefix: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub AddFileWithRanges: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, u32, *const BG_FILE_RANGE) -> ::windows_core::HRESULT,
+    pub SetFileACLFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetFileACLFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyJob4, IBackgroundCopyJob4_Vtbl, 0x659cdeae_489e_11d9_a9cd_000d56965251);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyJob4, ::windows_core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2, IBackgroundCopyJob3);
@@ -1440,12 +1440,12 @@ impl IBackgroundCopyJob4 {
 #[doc(hidden)]
 pub struct IBackgroundCopyJob4_Vtbl {
     pub base__: IBackgroundCopyJob3_Vtbl,
-    pub SetPeerCachingFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows_core::HRESULT,
-    pub GetPeerCachingFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflags: *mut u32) -> ::windows_core::HRESULT,
-    pub GetOwnerIntegrityLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plevel: *mut u32) -> ::windows_core::HRESULT,
-    pub GetOwnerElevationState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pelevated: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetMaximumDownloadTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timeout: u32) -> ::windows_core::HRESULT,
-    pub GetMaximumDownloadTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimeout: *mut u32) -> ::windows_core::HRESULT,
+    pub SetPeerCachingFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetPeerCachingFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetOwnerIntegrityLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetOwnerElevationState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetMaximumDownloadTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetMaximumDownloadTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyJob5, IBackgroundCopyJob5_Vtbl, 0xe847030c_bbba_4657_af6d_484aa42bf1fe);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyJob5, ::windows_core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2, IBackgroundCopyJob3, IBackgroundCopyJob4);
@@ -1664,8 +1664,8 @@ impl IBackgroundCopyJob5 {
 #[doc(hidden)]
 pub struct IBackgroundCopyJob5_Vtbl {
     pub base__: IBackgroundCopyJob4_Vtbl,
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: BITS_JOB_PROPERTY_VALUE) -> ::windows_core::HRESULT,
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: *mut BITS_JOB_PROPERTY_VALUE) -> ::windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, BITS_JOB_PROPERTY_ID, BITS_JOB_PROPERTY_VALUE) -> ::windows_core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, BITS_JOB_PROPERTY_ID, *mut BITS_JOB_PROPERTY_VALUE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyJobHttpOptions, IBackgroundCopyJobHttpOptions_Vtbl, 0xf1bd1079_9f01_4bdc_8036_f09b70095066);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyJobHttpOptions, ::windows_core::IUnknown);
@@ -1711,14 +1711,14 @@ impl IBackgroundCopyJobHttpOptions {
 #[doc(hidden)]
 pub struct IBackgroundCopyJobHttpOptions_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetClientCertificateByID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storelocation: BG_CERT_STORE_LOCATION, storename: ::windows_core::PCWSTR, pcerthashblob: *const u8) -> ::windows_core::HRESULT,
-    pub SetClientCertificateByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storelocation: BG_CERT_STORE_LOCATION, storename: ::windows_core::PCWSTR, subjectname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub RemoveClientCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetClientCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstorelocation: *mut BG_CERT_STORE_LOCATION, pstorename: *mut ::windows_core::PWSTR, ppcerthashblob: *mut *mut u8, psubjectname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetCustomHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestheaders: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetCustomHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prequestheaders: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetSecurityFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows_core::HRESULT,
-    pub GetSecurityFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflags: *mut u32) -> ::windows_core::HRESULT,
+    pub SetClientCertificateByID: unsafe extern "system" fn(*mut ::core::ffi::c_void, BG_CERT_STORE_LOCATION, ::windows_core::PCWSTR, *const u8) -> ::windows_core::HRESULT,
+    pub SetClientCertificateByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, BG_CERT_STORE_LOCATION, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub RemoveClientCertificate: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetClientCertificate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BG_CERT_STORE_LOCATION, *mut ::windows_core::PWSTR, *mut *mut u8, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetCustomHeaders: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetCustomHeaders: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetSecurityFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetSecurityFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyJobHttpOptions2, IBackgroundCopyJobHttpOptions2_Vtbl, 0xb591a192_a405_4fc3_8323_4c5c542578fc);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyJobHttpOptions2, ::windows_core::IUnknown, IBackgroundCopyJobHttpOptions);
@@ -1774,8 +1774,8 @@ impl IBackgroundCopyJobHttpOptions2 {
 #[doc(hidden)]
 pub struct IBackgroundCopyJobHttpOptions2_Vtbl {
     pub base__: IBackgroundCopyJobHttpOptions_Vtbl,
-    pub SetHttpMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetHttpMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetHttpMethod: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetHttpMethod: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyJobHttpOptions3, IBackgroundCopyJobHttpOptions3_Vtbl, 0x8a9263d3_fd4c_4eda_9b28_30132a4d4e3c);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyJobHttpOptions3, ::windows_core::IUnknown, IBackgroundCopyJobHttpOptions, IBackgroundCopyJobHttpOptions2);
@@ -1840,8 +1840,8 @@ impl IBackgroundCopyJobHttpOptions3 {
 #[doc(hidden)]
 pub struct IBackgroundCopyJobHttpOptions3_Vtbl {
     pub base__: IBackgroundCopyJobHttpOptions2_Vtbl,
-    pub SetServerCertificateValidationInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certvalidationcallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub MakeCustomHeadersWriteOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetServerCertificateValidationInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub MakeCustomHeadersWriteOnly: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyManager, IBackgroundCopyManager_Vtbl, 0x5ce34c0d_0dc9_4c1f_897c_daa1b78cee7c);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyManager, ::windows_core::IUnknown);
@@ -1869,10 +1869,10 @@ impl IBackgroundCopyManager {
 #[doc(hidden)]
 pub struct IBackgroundCopyManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayname: ::windows_core::PCWSTR, r#type: BG_JOB_TYPE, pjobid: *mut ::windows_core::GUID, ppjob: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, jobid: *const ::windows_core::GUID, ppjob: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumJobs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetErrorDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows_core::HRESULT, languageid: u32, perrordescription: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub CreateJob: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, BG_JOB_TYPE, *mut ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetJob: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumJobs: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetErrorDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, u32, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyQMgr, IBackgroundCopyQMgr_Vtbl, 0x16f41c69_09f5_41d2_8cd8_3c08c47bc8a8);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyQMgr, ::windows_core::IUnknown);
@@ -1894,9 +1894,9 @@ impl IBackgroundCopyQMgr {
 #[doc(hidden)]
 pub struct IBackgroundCopyQMgr_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidgroupid: ::windows_core::GUID, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, groupid: ::windows_core::GUID, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, ppenumgroups: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumGroups: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBackgroundCopyServerCertificateValidationCallback, IBackgroundCopyServerCertificateValidationCallback_Vtbl, 0x4cec0d02_def7_4158_813a_c32a46945ff7);
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyServerCertificateValidationCallback, ::windows_core::IUnknown);
@@ -1913,7 +1913,7 @@ impl IBackgroundCopyServerCertificateValidationCallback {
 #[doc(hidden)]
 pub struct IBackgroundCopyServerCertificateValidationCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ValidateServerCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, job: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, certlength: u32, certdata: *const u8, certencodingtype: u32, certstorelength: u32, certstoredata: *const u8) -> ::windows_core::HRESULT,
+    pub ValidateServerCertificate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const u8, u32, u32, *const u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBitsPeer, IBitsPeer_Vtbl, 0x659cdea2_489e_11d9_a9cd_000d56965251);
 ::windows_core::imp::interface_hierarchy!(IBitsPeer, ::windows_core::IUnknown);
@@ -1935,9 +1935,9 @@ impl IBitsPeer {
 #[doc(hidden)]
 pub struct IBitsPeer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetPeerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub IsAuthenticated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pauth: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub IsAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ponline: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetPeerName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub IsAuthenticated: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub IsAvailable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBitsPeerCacheAdministration, IBitsPeerCacheAdministration_Vtbl, 0x659cdead_489e_11d9_a9cd_000d56965251);
 ::windows_core::imp::interface_hierarchy!(IBitsPeerCacheAdministration, ::windows_core::IUnknown);
@@ -1998,20 +1998,20 @@ impl IBitsPeerCacheAdministration {
 #[doc(hidden)]
 pub struct IBitsPeerCacheAdministration_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetMaximumCacheSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows_core::HRESULT,
-    pub SetMaximumCacheSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bytes: u32) -> ::windows_core::HRESULT,
-    pub GetMaximumContentAge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pseconds: *mut u32) -> ::windows_core::HRESULT,
-    pub SetMaximumContentAge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, seconds: u32) -> ::windows_core::HRESULT,
-    pub GetConfigurationFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflags: *mut u32) -> ::windows_core::HRESULT,
-    pub SetConfigurationFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows_core::HRESULT,
-    pub EnumRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *const ::windows_core::GUID, pprecord: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ClearRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DeleteRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub DeleteUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, url: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub EnumPeers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ClearPeers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DiscoverPeers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetMaximumCacheSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetMaximumCacheSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetMaximumContentAge: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetMaximumContentAge: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetConfigurationFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetConfigurationFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub EnumRecords: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetRecord: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ClearRecords: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeleteRecord: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub DeleteUrl: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub EnumPeers: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ClearPeers: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DiscoverPeers: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBitsPeerCacheRecord, IBitsPeerCacheRecord_Vtbl, 0x659cdeaf_489e_11d9_a9cd_000d56965251);
 ::windows_core::imp::interface_hierarchy!(IBitsPeerCacheRecord, ::windows_core::IUnknown);
@@ -2047,13 +2047,13 @@ impl IBitsPeerCacheRecord {
 #[doc(hidden)]
 pub struct IBitsPeerCacheRecord_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetOriginUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetFileSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut u64) -> ::windows_core::HRESULT,
-    pub GetFileModificationTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
-    pub GetLastAccessTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
-    pub IsFileValidated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetFileRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prangecount: *mut u32, ppranges: *mut *mut BG_FILE_RANGE) -> ::windows_core::HRESULT,
+    pub GetId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetOriginUrl: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetFileSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
+    pub GetFileModificationTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
+    pub GetLastAccessTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
+    pub IsFileValidated: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetFileRanges: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut BG_FILE_RANGE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBitsTokenOptions, IBitsTokenOptions_Vtbl, 0x9a2584c3_f7d2_457a_9a5e_22b67bffc7d2);
 ::windows_core::imp::interface_hierarchy!(IBitsTokenOptions, ::windows_core::IUnknown);
@@ -2080,11 +2080,11 @@ impl IBitsTokenOptions {
 #[doc(hidden)]
 pub struct IBitsTokenOptions_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetHelperTokenFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usageflags: BG_TOKEN) -> ::windows_core::HRESULT,
-    pub GetHelperTokenFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflags: *mut BG_TOKEN) -> ::windows_core::HRESULT,
-    pub SetHelperToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ClearHelperToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetHelperTokenSid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetHelperTokenFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, BG_TOKEN) -> ::windows_core::HRESULT,
+    pub GetHelperTokenFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BG_TOKEN) -> ::windows_core::HRESULT,
+    pub SetHelperToken: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ClearHelperToken: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetHelperTokenSid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumBackgroundCopyFiles, IEnumBackgroundCopyFiles_Vtbl, 0xca51e165_c365_424c_8d41_24aaa4ff3c40);
 ::windows_core::imp::interface_hierarchy!(IEnumBackgroundCopyFiles, ::windows_core::IUnknown);
@@ -2111,11 +2111,11 @@ impl IEnumBackgroundCopyFiles {
 #[doc(hidden)]
 pub struct IEnumBackgroundCopyFiles_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pucount: *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumBackgroundCopyGroups, IEnumBackgroundCopyGroups_Vtbl, 0xd993e603_4aa4_47c5_8665_c20d39c2ba4f);
 ::windows_core::imp::interface_hierarchy!(IEnumBackgroundCopyGroups, ::windows_core::IUnknown);
@@ -2142,11 +2142,11 @@ impl IEnumBackgroundCopyGroups {
 #[doc(hidden)]
 pub struct IEnumBackgroundCopyGroups_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows_core::GUID, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pucount: *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::GUID, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumBackgroundCopyJobs, IEnumBackgroundCopyJobs_Vtbl, 0x1af4f612_3b71_466f_8f58_7b6f73ac57ad);
 ::windows_core::imp::interface_hierarchy!(IEnumBackgroundCopyJobs, ::windows_core::IUnknown);
@@ -2173,11 +2173,11 @@ impl IEnumBackgroundCopyJobs {
 #[doc(hidden)]
 pub struct IEnumBackgroundCopyJobs_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pucount: *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumBackgroundCopyJobs1, IEnumBackgroundCopyJobs1_Vtbl, 0x8baeba9d_8f1c_42c4_b82c_09ae79980d25);
 ::windows_core::imp::interface_hierarchy!(IEnumBackgroundCopyJobs1, ::windows_core::IUnknown);
@@ -2204,11 +2204,11 @@ impl IEnumBackgroundCopyJobs1 {
 #[doc(hidden)]
 pub struct IEnumBackgroundCopyJobs1_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows_core::GUID, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pucount: *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::GUID, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumBitsPeerCacheRecords, IEnumBitsPeerCacheRecords_Vtbl, 0x659cdea4_489e_11d9_a9cd_000d56965251);
 ::windows_core::imp::interface_hierarchy!(IEnumBitsPeerCacheRecords, ::windows_core::IUnknown);
@@ -2235,11 +2235,11 @@ impl IEnumBitsPeerCacheRecords {
 #[doc(hidden)]
 pub struct IEnumBitsPeerCacheRecords_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pucount: *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumBitsPeers, IEnumBitsPeers_Vtbl, 0x659cdea5_489e_11d9_a9cd_000d56965251);
 ::windows_core::imp::interface_hierarchy!(IEnumBitsPeers, ::windows_core::IUnknown);
@@ -2266,11 +2266,11 @@ impl IEnumBitsPeers {
 #[doc(hidden)]
 pub struct IEnumBitsPeers_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pucount: *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 pub const BG_AUTH_SCHEME_BASIC: BG_AUTH_SCHEME = BG_AUTH_SCHEME(1i32);
 pub const BG_AUTH_SCHEME_DIGEST: BG_AUTH_SCHEME = BG_AUTH_SCHEME(2i32);

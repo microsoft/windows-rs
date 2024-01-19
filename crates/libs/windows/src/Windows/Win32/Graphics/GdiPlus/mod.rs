@@ -3473,7 +3473,7 @@ impl GdiplusAbort {
 #[repr(C)]
 #[doc(hidden)]
 pub struct GdiplusAbort_Vtbl {
-    pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Abort: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IImageBytes, IImageBytes_Vtbl, 0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc);
 ::windows_core::imp::interface_hierarchy!(IImageBytes, ::windows_core::IUnknown);
@@ -3492,9 +3492,9 @@ impl IImageBytes {
 #[doc(hidden)]
 pub struct IImageBytes_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CountBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcb: *mut u32) -> ::windows_core::HRESULT,
-    pub LockBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cb: u32, uloffset: u32, ppvbytes: *const *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub UnlockBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbytes: *const ::core::ffi::c_void, cb: u32, uloffset: u32) -> ::windows_core::HRESULT,
+    pub CountBytes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub LockBytes: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UnlockBytes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
 }
 pub const ALPHA_SHIFT: u32 = 24u32;
 pub const Aborted: Status = Status(9i32);

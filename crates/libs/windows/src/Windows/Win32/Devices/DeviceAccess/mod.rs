@@ -31,10 +31,10 @@ impl ICreateDeviceAccessAsync {
 #[doc(hidden)]
 pub struct ICreateDeviceAccessAsync_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Wait: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timeout: u32) -> ::windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, deviceaccess: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Cancel: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Wait: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetResult: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDeviceIoControl, IDeviceIoControl_Vtbl, 0x9eefe161_23ab_4f18_9b49_991b586ae970);
 ::windows_core::imp::interface_hierarchy!(IDeviceIoControl, ::windows_core::IUnknown);
@@ -66,9 +66,9 @@ impl IDeviceIoControl {
 #[doc(hidden)]
 pub struct IDeviceIoControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub DeviceIoControlSync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, bytesreturned: *mut u32) -> ::windows_core::HRESULT,
-    pub DeviceIoControlAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, requestcompletioncallback: *mut ::core::ffi::c_void, cancelcontext: *mut usize) -> ::windows_core::HRESULT,
-    pub CancelOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cancelcontext: usize) -> ::windows_core::HRESULT,
+    pub DeviceIoControlSync: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, u32, *mut u8, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub DeviceIoControlAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, u32, *mut u8, u32, *mut ::core::ffi::c_void, *mut usize) -> ::windows_core::HRESULT,
+    pub CancelOperation: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDeviceRequestCompletionCallback, IDeviceRequestCompletionCallback_Vtbl, 0x999bad24_9acd_45bb_8669_2a2fc0288b04);
 ::windows_core::imp::interface_hierarchy!(IDeviceRequestCompletionCallback, ::windows_core::IUnknown);
@@ -81,7 +81,7 @@ impl IDeviceRequestCompletionCallback {
 #[doc(hidden)]
 pub struct IDeviceRequestCompletionCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestresult: ::windows_core::HRESULT, bytesreturned: u32) -> ::windows_core::HRESULT,
+    pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, u32) -> ::windows_core::HRESULT,
 }
 pub const CLSID_DeviceIoControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x12d3e372_874b_457d_9fdf_73977778686c);
 pub const DEV_PORT_1394: u32 = 8u32;

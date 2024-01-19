@@ -2513,8 +2513,8 @@ impl IRtwqAsyncCallback {
 #[doc(hidden)]
 pub struct IRtwqAsyncCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32, pdwqueue: *mut u32) -> ::windows_core::HRESULT,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pasyncresult: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRtwqAsyncResult, IRtwqAsyncResult_Vtbl, 0xac6b7889_0740_4d51_8619_905994a55cc6);
 ::windows_core::imp::interface_hierarchy!(IRtwqAsyncResult, ::windows_core::IUnknown);
@@ -2541,11 +2541,11 @@ impl IRtwqAsyncResult {
 #[doc(hidden)]
 pub struct IRtwqAsyncResult_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkstate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrstatus: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub GetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetStateNoAddRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::core::option::Option<::windows_core::IUnknown>,
+    pub GetState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub GetObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStateNoAddRef: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::core::option::Option<::windows_core::IUnknown>,
 }
 ::windows_core::imp::com_interface!(IRtwqPlatformEvents, IRtwqPlatformEvents_Vtbl, 0x63d9255a_7ff1_4b61_8faf_ed6460dacf2b);
 ::windows_core::imp::interface_hierarchy!(IRtwqPlatformEvents, ::windows_core::IUnknown);
@@ -2564,9 +2564,9 @@ impl IRtwqPlatformEvents {
 #[doc(hidden)]
 pub struct IRtwqPlatformEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub InitializationComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ShutdownStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ShutdownComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InitializationComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShutdownStart: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShutdownComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(RTWQASYNCRESULT, RTWQASYNCRESULT_Vtbl, 0);
 ::windows_core::imp::interface_hierarchy!(RTWQASYNCRESULT, ::windows_core::IUnknown, IRtwqAsyncResult);

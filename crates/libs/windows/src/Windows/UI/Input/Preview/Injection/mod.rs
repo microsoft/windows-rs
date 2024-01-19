@@ -4,25 +4,25 @@
 pub struct IInjectedInputGamepadInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Gaming_Input")]
-    pub Buttons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Gaming::Input::GamepadButtons) -> ::windows_core::HRESULT,
+    pub Buttons: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::super::Gaming::Input::GamepadButtons) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Gaming_Input"))]
     Buttons: usize,
     #[cfg(feature = "Gaming_Input")]
-    pub SetButtons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::super::Gaming::Input::GamepadButtons) -> ::windows_core::HRESULT,
+    pub SetButtons: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::super::Gaming::Input::GamepadButtons) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Gaming_Input"))]
     SetButtons: usize,
-    pub LeftThumbstickX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub SetLeftThumbstickX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
-    pub LeftThumbstickY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub SetLeftThumbstickY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
-    pub LeftTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub SetLeftTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
-    pub RightThumbstickX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub SetRightThumbstickX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
-    pub RightThumbstickY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub SetRightThumbstickY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
-    pub RightTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub SetRightTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
+    pub LeftThumbstickX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub SetLeftThumbstickX: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub LeftThumbstickY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub SetLeftThumbstickY: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub LeftTrigger: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub SetLeftTrigger: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub RightThumbstickX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub SetRightThumbstickX: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub RightThumbstickY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub SetRightThumbstickY: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub RightTrigger: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub SetRightTrigger: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInjectedInputGamepadInfoFactory, IInjectedInputGamepadInfoFactory_Vtbl, 0x59596876_6c39_4ec4_8b2a_29ef7de18aca);
 #[repr(C)]
@@ -30,7 +30,7 @@ pub struct IInjectedInputGamepadInfo_Vtbl {
 pub struct IInjectedInputGamepadInfoFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Gaming_Input")]
-    pub CreateInstanceFromGamepadReading: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reading: super::super::super::super::Gaming::Input::GamepadReading, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstanceFromGamepadReading: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::super::Gaming::Input::GamepadReading, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Gaming_Input"))]
     CreateInstanceFromGamepadReading: usize,
 }
@@ -39,64 +39,64 @@ pub struct IInjectedInputGamepadInfoFactory_Vtbl {
 #[doc(hidden)]
 pub struct IInjectedInputKeyboardInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub KeyOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputKeyOptions) -> ::windows_core::HRESULT,
-    pub SetKeyOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InjectedInputKeyOptions) -> ::windows_core::HRESULT,
-    pub ScanCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT,
-    pub SetScanCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u16) -> ::windows_core::HRESULT,
-    pub VirtualKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT,
-    pub SetVirtualKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u16) -> ::windows_core::HRESULT,
+    pub KeyOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InjectedInputKeyOptions) -> ::windows_core::HRESULT,
+    pub SetKeyOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, InjectedInputKeyOptions) -> ::windows_core::HRESULT,
+    pub ScanCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
+    pub SetScanCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16) -> ::windows_core::HRESULT,
+    pub VirtualKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
+    pub SetVirtualKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInjectedInputMouseInfo, IInjectedInputMouseInfo_Vtbl, 0x96f56e6b_e47a_5cf4_418d_8a5fb9670c7d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputMouseInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub MouseOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputMouseOptions) -> ::windows_core::HRESULT,
-    pub SetMouseOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InjectedInputMouseOptions) -> ::windows_core::HRESULT,
-    pub MouseData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub SetMouseData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
-    pub DeltaY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub SetDeltaY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
-    pub DeltaX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub SetDeltaX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
-    pub TimeOffsetInMilliseconds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub SetTimeOffsetInMilliseconds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
+    pub MouseOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InjectedInputMouseOptions) -> ::windows_core::HRESULT,
+    pub SetMouseOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, InjectedInputMouseOptions) -> ::windows_core::HRESULT,
+    pub MouseData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetMouseData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub DeltaY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetDeltaY: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub DeltaX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetDeltaX: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub TimeOffsetInMilliseconds: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetTimeOffsetInMilliseconds: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInjectedInputPenInfo, IInjectedInputPenInfo_Vtbl, 0x6b40ad03_ca1e_5527_7e02_2828540bb1d4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputPenInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub PointerInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputPointerInfo) -> ::windows_core::HRESULT,
-    pub SetPointerInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InjectedInputPointerInfo) -> ::windows_core::HRESULT,
-    pub PenButtons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputPenButtons) -> ::windows_core::HRESULT,
-    pub SetPenButtons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InjectedInputPenButtons) -> ::windows_core::HRESULT,
-    pub PenParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputPenParameters) -> ::windows_core::HRESULT,
-    pub SetPenParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InjectedInputPenParameters) -> ::windows_core::HRESULT,
-    pub Pressure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub SetPressure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
-    pub Rotation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub SetRotation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
-    pub TiltX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub SetTiltX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
-    pub TiltY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub SetTiltY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
+    pub PointerInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InjectedInputPointerInfo) -> ::windows_core::HRESULT,
+    pub SetPointerInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, InjectedInputPointerInfo) -> ::windows_core::HRESULT,
+    pub PenButtons: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InjectedInputPenButtons) -> ::windows_core::HRESULT,
+    pub SetPenButtons: unsafe extern "system" fn(*mut ::core::ffi::c_void, InjectedInputPenButtons) -> ::windows_core::HRESULT,
+    pub PenParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InjectedInputPenParameters) -> ::windows_core::HRESULT,
+    pub SetPenParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, InjectedInputPenParameters) -> ::windows_core::HRESULT,
+    pub Pressure: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub SetPressure: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub Rotation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub SetRotation: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub TiltX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetTiltX: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub TiltY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetTiltY: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInjectedInputTouchInfo, IInjectedInputTouchInfo_Vtbl, 0x224fd1df_43e8_5ef5_510a_69ca8c9b4c28);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInjectedInputTouchInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Contact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputRectangle) -> ::windows_core::HRESULT,
-    pub SetContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InjectedInputRectangle) -> ::windows_core::HRESULT,
-    pub Orientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub SetOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
-    pub PointerInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputPointerInfo) -> ::windows_core::HRESULT,
-    pub SetPointerInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InjectedInputPointerInfo) -> ::windows_core::HRESULT,
-    pub Pressure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub SetPressure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
-    pub TouchParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InjectedInputTouchParameters) -> ::windows_core::HRESULT,
-    pub SetTouchParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: InjectedInputTouchParameters) -> ::windows_core::HRESULT,
+    pub Contact: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InjectedInputRectangle) -> ::windows_core::HRESULT,
+    pub SetContact: unsafe extern "system" fn(*mut ::core::ffi::c_void, InjectedInputRectangle) -> ::windows_core::HRESULT,
+    pub Orientation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetOrientation: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub PointerInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InjectedInputPointerInfo) -> ::windows_core::HRESULT,
+    pub SetPointerInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, InjectedInputPointerInfo) -> ::windows_core::HRESULT,
+    pub Pressure: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub SetPressure: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub TouchParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InjectedInputTouchParameters) -> ::windows_core::HRESULT,
+    pub SetTouchParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, InjectedInputTouchParameters) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInputInjector, IInputInjector_Vtbl, 0x8ec26f84_0b02_4bd2_ad7a_3d4658be3e18);
 #[repr(C)]
@@ -104,46 +104,46 @@ pub struct IInjectedInputTouchInfo_Vtbl {
 pub struct IInputInjector_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub InjectKeyboardInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InjectKeyboardInput: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     InjectKeyboardInput: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub InjectMouseInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InjectMouseInput: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     InjectMouseInput: usize,
-    pub InitializeTouchInjection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visualmode: InjectedInputVisualizationMode) -> ::windows_core::HRESULT,
+    pub InitializeTouchInjection: unsafe extern "system" fn(*mut ::core::ffi::c_void, InjectedInputVisualizationMode) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub InjectTouchInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InjectTouchInput: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     InjectTouchInput: usize,
-    pub UninitializeTouchInjection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub InitializePenInjection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visualmode: InjectedInputVisualizationMode) -> ::windows_core::HRESULT,
-    pub InjectPenInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub UninitializePenInjection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub InjectShortcut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shortcut: InjectedInputShortcut) -> ::windows_core::HRESULT,
+    pub UninitializeTouchInjection: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InitializePenInjection: unsafe extern "system" fn(*mut ::core::ffi::c_void, InjectedInputVisualizationMode) -> ::windows_core::HRESULT,
+    pub InjectPenInput: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UninitializePenInjection: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InjectShortcut: unsafe extern "system" fn(*mut ::core::ffi::c_void, InjectedInputShortcut) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInputInjector2, IInputInjector2_Vtbl, 0x8e7a905d_1453_43a7_9bcb_06d6d7b305f7);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputInjector2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub InitializeGamepadInjection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub InjectGamepadInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub UninitializeGamepadInjection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InitializeGamepadInjection: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InjectGamepadInput: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UninitializeGamepadInjection: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInputInjectorStatics, IInputInjectorStatics_Vtbl, 0xdeae6943_7402_4141_a5c6_0c01aa57b16a);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputInjectorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub TryCreate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TryCreate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInputInjectorStatics2, IInputInjectorStatics2_Vtbl, 0xa4db38fb_dd8c_414f_95ea_f87ef4c0ae6c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInputInjectorStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub TryCreateForAppBroadcastOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TryCreateForAppBroadcastOnly: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

@@ -64,7 +64,7 @@ fn gen_win_delegate(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 
-    let vtbl_signature = writer.vtbl_signature(def, generics, &signature);
+    let vtbl_signature = writer.vtbl_signature(def, true, &signature);
     let invoke = winrt_methods::writer(writer, def, generics, metadata::InterfaceKind::Default, method, &mut MethodNames::new(), &mut MethodNames::new());
     let invoke_upcall = winrt_methods::gen_upcall(writer, &signature, quote! { ((*this).invoke) });
 

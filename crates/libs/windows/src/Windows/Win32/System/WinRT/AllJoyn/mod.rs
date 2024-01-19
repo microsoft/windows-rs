@@ -13,7 +13,7 @@ impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
 #[doc(hidden)]
 pub struct IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateFromWin32Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, win32handle: u64, enableaboutdata: u8, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromWin32Handle: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, u8, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWindowsDevicesAllJoynBusAttachmentInterop, IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl, 0xfd89c65b_b50e_4a19_9d0c_b42b783281cd);
 ::windows_core::imp::interface_hierarchy!(IWindowsDevicesAllJoynBusAttachmentInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -27,7 +27,7 @@ impl IWindowsDevicesAllJoynBusAttachmentInterop {
 #[doc(hidden)]
 pub struct IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Win32Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut u64) -> ::windows_core::HRESULT,
+    pub Win32Handle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWindowsDevicesAllJoynBusObjectFactoryInterop, IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl, 0x6174e506_8b95_4e36_95c0_b88fed34938c);
 ::windows_core::imp::interface_hierarchy!(IWindowsDevicesAllJoynBusObjectFactoryInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -44,7 +44,7 @@ impl IWindowsDevicesAllJoynBusObjectFactoryInterop {
 #[doc(hidden)]
 pub struct IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateFromWin32Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, win32handle: u64, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromWin32Handle: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWindowsDevicesAllJoynBusObjectInterop, IWindowsDevicesAllJoynBusObjectInterop_Vtbl, 0xd78aa3d5_5054_428f_99f2_ec3a5de3c3bc);
 ::windows_core::imp::interface_hierarchy!(IWindowsDevicesAllJoynBusObjectInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -64,9 +64,9 @@ impl IWindowsDevicesAllJoynBusObjectInterop {
 #[doc(hidden)]
 pub struct IWindowsDevicesAllJoynBusObjectInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub AddPropertyGetHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: ::std::mem::MaybeUninit<::windows_core::HSTRING>, callback: isize) -> ::windows_core::HRESULT,
-    pub AddPropertySetHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, interfacename: ::std::mem::MaybeUninit<::windows_core::HSTRING>, callback: isize) -> ::windows_core::HRESULT,
-    pub Win32Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut u64) -> ::windows_core::HRESULT,
+    pub AddPropertyGetHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, isize) -> ::windows_core::HRESULT,
+    pub AddPropertySetHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, isize) -> ::windows_core::HRESULT,
+    pub Win32Handle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

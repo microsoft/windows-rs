@@ -57,7 +57,7 @@ impl IWSCDefaultProduct {
 #[doc(hidden)]
 pub struct IWSCDefaultProduct_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub SetDefaultProduct: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, etype: SECURITY_PRODUCT_TYPE, pguid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetDefaultProduct: unsafe extern "system" fn(*mut ::core::ffi::c_void, SECURITY_PRODUCT_TYPE, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -89,10 +89,10 @@ impl IWSCProductList {
 #[doc(hidden)]
 pub struct IWSCProductList_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: u32) -> ::windows_core::HRESULT,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
 }
@@ -141,13 +141,13 @@ impl IWscProduct {
 #[doc(hidden)]
 pub struct IWscProduct_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub ProductName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ProductState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut WSC_SECURITY_PRODUCT_STATE) -> ::windows_core::HRESULT,
-    pub SignatureStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut WSC_SECURITY_SIGNATURE_STATUS) -> ::windows_core::HRESULT,
-    pub RemediationPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ProductStateTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ProductGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ProductIsDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub ProductName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ProductState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WSC_SECURITY_PRODUCT_STATE) -> ::windows_core::HRESULT,
+    pub SignatureStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WSC_SECURITY_SIGNATURE_STATUS) -> ::windows_core::HRESULT,
+    pub RemediationPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ProductStateTimestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ProductGuid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ProductIsDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -218,12 +218,12 @@ impl IWscProduct2 {
 #[doc(hidden)]
 pub struct IWscProduct2_Vtbl {
     pub base__: IWscProduct_Vtbl,
-    pub AntivirusScanSubstatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows_core::HRESULT,
-    pub AntivirusSettingsSubstatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows_core::HRESULT,
-    pub AntivirusProtectionUpdateSubstatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows_core::HRESULT,
-    pub FirewallDomainProfileSubstatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows_core::HRESULT,
-    pub FirewallPrivateProfileSubstatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows_core::HRESULT,
-    pub FirewallPublicProfileSubstatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows_core::HRESULT,
+    pub AntivirusScanSubstatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows_core::HRESULT,
+    pub AntivirusSettingsSubstatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows_core::HRESULT,
+    pub AntivirusProtectionUpdateSubstatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows_core::HRESULT,
+    pub FirewallDomainProfileSubstatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows_core::HRESULT,
+    pub FirewallPrivateProfileSubstatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows_core::HRESULT,
+    pub FirewallPublicProfileSubstatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -298,7 +298,7 @@ impl IWscProduct3 {
 #[doc(hidden)]
 pub struct IWscProduct3_Vtbl {
     pub base__: IWscProduct2_Vtbl,
-    pub AntivirusDaysUntilExpired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwdays: *mut u32) -> ::windows_core::HRESULT,
+    pub AntivirusDaysUntilExpired: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 pub const SECURITY_PRODUCT_TYPE_ANTISPYWARE: SECURITY_PRODUCT_TYPE = SECURITY_PRODUCT_TYPE(2i32);
 pub const SECURITY_PRODUCT_TYPE_ANTIVIRUS: SECURITY_PRODUCT_TYPE = SECURITY_PRODUCT_TYPE(0i32);

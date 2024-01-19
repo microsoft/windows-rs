@@ -1287,11 +1287,11 @@ impl IAVIEditStream {
 #[doc(hidden)]
 pub struct IAVIEditStream_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Cut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Paste: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plpos: *mut i32, pllength: *mut i32, pstream: *mut ::core::ffi::c_void, lstart: i32, lend: i32) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows_core::HRESULT,
+    pub Cut: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32, *mut i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Copy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32, *mut i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Paste: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32, *mut i32, *mut ::core::ffi::c_void, i32, i32) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const AVISTREAMINFOW, i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAVIFile, IAVIFile_Vtbl, 0x00020020_0000_0000_c000_000000000046);
 ::windows_core::imp::interface_hierarchy!(IAVIFile, ::windows_core::IUnknown);
@@ -1322,13 +1322,13 @@ impl IAVIFile {
 #[doc(hidden)]
 pub struct IAVIFile_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Info: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows_core::HRESULT,
-    pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut *mut ::core::ffi::c_void, fcctype: u32, lparam: i32) -> ::windows_core::HRESULT,
-    pub CreateStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut *mut ::core::ffi::c_void, psi: *const AVISTREAMINFOW) -> ::windows_core::HRESULT,
-    pub WriteData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ckid: u32, lpdata: *const ::core::ffi::c_void, cbdata: i32) -> ::windows_core::HRESULT,
-    pub ReadData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ckid: u32, lpdata: *mut ::core::ffi::c_void, lpcbdata: *mut i32) -> ::windows_core::HRESULT,
-    pub EndRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DeleteStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fcctype: u32, lparam: i32) -> ::windows_core::HRESULT,
+    pub Info: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AVIFILEINFOW, i32) -> ::windows_core::HRESULT,
+    pub GetStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, u32, i32) -> ::windows_core::HRESULT,
+    pub CreateStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *const AVISTREAMINFOW) -> ::windows_core::HRESULT,
+    pub WriteData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub ReadData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub EndRecord: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeleteStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -1392,7 +1392,7 @@ impl IAVIPersistFile {
 #[doc(hidden)]
 pub struct IAVIPersistFile_Vtbl {
     pub base__: super::super::System::Com::IPersistFile_Vtbl,
-    pub Reserved1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Reserved1: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAVIStream, IAVIStream_Vtbl, 0x00020021_0000_0000_c000_000000000046);
 ::windows_core::imp::interface_hierarchy!(IAVIStream, ::windows_core::IUnknown);
@@ -1439,17 +1439,17 @@ impl IAVIStream {
 #[doc(hidden)]
 pub struct IAVIStream_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> ::windows_core::HRESULT,
-    pub Info: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psi: *mut AVISTREAMINFOW, lsize: i32) -> ::windows_core::HRESULT,
-    pub FindSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpos: i32, lflags: i32) -> i32,
-    pub ReadFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpos: i32, lpformat: *mut ::core::ffi::c_void, lpcbformat: *mut i32) -> ::windows_core::HRESULT,
-    pub SetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpos: i32, lpformat: *const ::core::ffi::c_void, cbformat: i32) -> ::windows_core::HRESULT,
-    pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lsamples: i32, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: i32, plbytes: *mut i32, plsamples: *mut i32) -> ::windows_core::HRESULT,
-    pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lsamples: i32, lpbuffer: *const ::core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: *mut i32, plbyteswritten: *mut i32) -> ::windows_core::HRESULT,
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lsamples: i32) -> ::windows_core::HRESULT,
-    pub ReadData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fcc: u32, lp: *mut ::core::ffi::c_void, lpcb: *mut i32) -> ::windows_core::HRESULT,
-    pub WriteData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fcc: u32, lp: *const ::core::ffi::c_void, cb: i32) -> ::windows_core::HRESULT,
-    pub SetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::LPARAM, super::super::Foundation::LPARAM) -> ::windows_core::HRESULT,
+    pub Info: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AVISTREAMINFOW, i32) -> ::windows_core::HRESULT,
+    pub FindSample: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32) -> i32,
+    pub ReadFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *const ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub Read: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, *mut ::core::ffi::c_void, i32, *mut i32, *mut i32) -> ::windows_core::HRESULT,
+    pub Write: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, *const ::core::ffi::c_void, i32, u32, *mut i32, *mut i32) -> ::windows_core::HRESULT,
+    pub Delete: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32) -> ::windows_core::HRESULT,
+    pub ReadData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub WriteData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub SetInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const AVISTREAMINFOW, i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAVIStreaming, IAVIStreaming_Vtbl, 0x00020022_0000_0000_c000_000000000046);
 ::windows_core::imp::interface_hierarchy!(IAVIStreaming, ::windows_core::IUnknown);
@@ -1465,8 +1465,8 @@ impl IAVIStreaming {
 #[doc(hidden)]
 pub struct IAVIStreaming_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Begin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> ::windows_core::HRESULT,
-    pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, i32) -> ::windows_core::HRESULT,
+    pub End: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGetFrame, IGetFrame_Vtbl, 0x00020023_0000_0000_c000_000000000046);
 ::windows_core::imp::interface_hierarchy!(IGetFrame, ::windows_core::IUnknown);
@@ -1490,11 +1490,11 @@ impl IGetFrame {
 #[doc(hidden)]
 pub struct IGetFrame_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpos: i32) -> *mut ::core::ffi::c_void,
-    pub Begin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> ::windows_core::HRESULT,
-    pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> *mut ::core::ffi::c_void,
+    pub Begin: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, i32) -> ::windows_core::HRESULT,
+    pub End: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub SetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const ::core::ffi::c_void, x: i32, y: i32, dx: i32, dy: i32) -> ::windows_core::HRESULT,
+    pub SetFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::Graphics::Gdi::BITMAPINFOHEADER, *const ::core::ffi::c_void, i32, i32, i32, i32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     SetFormat: usize,
 }

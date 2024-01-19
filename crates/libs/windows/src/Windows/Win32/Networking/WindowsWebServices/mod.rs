@@ -1108,8 +1108,8 @@ impl IContentPrefetcherTaskTrigger {
 #[doc(hidden)]
 pub struct IContentPrefetcherTaskTrigger_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub TriggerContentPrefetcherTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub IsRegisteredForContentPrefetch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::windows_core::PCWSTR, isregistered: *mut u8) -> ::windows_core::HRESULT,
+    pub TriggerContentPrefetcherTask: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub IsRegisteredForContentPrefetch: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut u8) -> ::windows_core::HRESULT,
 }
 pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 4u32;
 pub const WEBAUTHN_API_VERSION_1: u32 = 1u32;

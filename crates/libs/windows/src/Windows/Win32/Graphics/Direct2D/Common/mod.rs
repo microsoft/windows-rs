@@ -29,13 +29,13 @@ unsafe impl ::core::marker::Sync for ID2D1SimplifiedGeometrySink {}
 #[doc(hidden)]
 pub struct ID2D1SimplifiedGeometrySink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetFillMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fillmode: D2D1_FILL_MODE),
-    pub SetSegmentFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vertexflags: D2D1_PATH_SEGMENT),
-    pub BeginFigure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN),
-    pub AddLines: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, points: *const D2D_POINT_2F, pointscount: u32),
-    pub AddBeziers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32),
-    pub EndFigure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, figureend: D2D1_FIGURE_END),
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetFillMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, D2D1_FILL_MODE),
+    pub SetSegmentFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, D2D1_PATH_SEGMENT),
+    pub BeginFigure: unsafe extern "system" fn(*mut ::core::ffi::c_void, D2D_POINT_2F, D2D1_FIGURE_BEGIN),
+    pub AddLines: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D2D_POINT_2F, u32),
+    pub AddBeziers: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D2D1_BEZIER_SEGMENT, u32),
+    pub EndFigure: unsafe extern "system" fn(*mut ::core::ffi::c_void, D2D1_FIGURE_END),
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_ANISOTROPIC: D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE = D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE(4i32);
 pub const D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_CUBIC: D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE = D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE(2i32);

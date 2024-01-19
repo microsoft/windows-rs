@@ -3,7 +3,7 @@
 #[doc(hidden)]
 pub struct IHtmlUtilities_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub ConvertToText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, html: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub ConvertToText: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 pub struct HtmlUtilities;
 impl HtmlUtilities {

@@ -3,7 +3,7 @@
 #[doc(hidden)]
 pub struct IToastOcclusionManagerPreviewStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub SetToastWindowMargin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindowid: super::super::WindowId, margin: f64) -> ::windows_core::HRESULT,
+    pub SetToastWindowMargin: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::WindowId, f64) -> ::windows_core::HRESULT,
 }
 pub struct ToastOcclusionManagerPreview;
 impl ToastOcclusionManagerPreview {

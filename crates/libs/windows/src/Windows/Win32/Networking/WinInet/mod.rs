@@ -2164,9 +2164,9 @@ impl IDialBranding {
 #[doc(hidden)]
 pub struct IDialBranding_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzconnectoid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub GetBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows_core::HRESULT,
+    pub GetBitmap: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetBitmap: usize,
 }
@@ -2213,13 +2213,13 @@ impl IDialEngine {
 #[doc(hidden)]
 pub struct IDialEngine_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzconnectoid: ::windows_core::PCWSTR, pides: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzproperty: ::windows_core::PCWSTR, pwzvalue: ::windows_core::PCWSTR, dwbufsize: u32) -> ::windows_core::HRESULT,
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwzproperty: ::windows_core::PCWSTR, pwzvalue: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Dial: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub HangUp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetConnectedState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows_core::HRESULT,
-    pub GetConnectHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwhandle: *mut usize) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Dial: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub HangUp: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetConnectedState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetConnectHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut usize) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDialEventSink, IDialEventSink_Vtbl, 0x2d86f4ff_6e2d_4488_b2e9_6934afd41bea);
 ::windows_core::imp::interface_hierarchy!(IDialEventSink, ::windows_core::IUnknown);
@@ -2232,7 +2232,7 @@ impl IDialEventSink {
 #[doc(hidden)]
 pub struct IDialEventSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwevent: u32, dwstatus: u32) -> ::windows_core::HRESULT,
+    pub OnEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IProofOfPossessionCookieInfoManager, IProofOfPossessionCookieInfoManager_Vtbl, 0xcdaece56_4edf_43df_b113_88e4556fa1bb);
 ::windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager, ::windows_core::IUnknown);
@@ -2248,7 +2248,7 @@ impl IProofOfPossessionCookieInfoManager {
 #[doc(hidden)]
 pub struct IProofOfPossessionCookieInfoManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCookieInfoForUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows_core::HRESULT,
+    pub GetCookieInfoForUri: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut u32, *mut *mut ProofOfPossessionCookieInfo) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IProofOfPossessionCookieInfoManager2, IProofOfPossessionCookieInfoManager2_Vtbl, 0x15e41407_b42f_4ae7_9966_34a087b2d713);
 ::windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager2, ::windows_core::IUnknown);
@@ -2265,7 +2265,7 @@ impl IProofOfPossessionCookieInfoManager2 {
 #[doc(hidden)]
 pub struct IProofOfPossessionCookieInfoManager2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCookieInfoWithUriForAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, uri: ::windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows_core::HRESULT,
+    pub GetCookieInfoWithUriForAccount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut u32, *mut *mut ProofOfPossessionCookieInfo) -> ::windows_core::HRESULT,
 }
 pub const ANY_CACHE_ENTRY: u32 = 4294967295u32;
 pub const APP_CACHE_ENTRY_TYPE_EXPLICIT: u32 = 2u32;

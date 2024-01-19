@@ -13,8 +13,8 @@ impl IWsbApplicationAsync {
 #[doc(hidden)]
 pub struct IWsbApplicationAsync_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub QueryStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub QueryStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub Abort: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWsbApplicationBackupSupport, IWsbApplicationBackupSupport_Vtbl, 0x1eff3510_4a27_46ad_b9e0_08332f0f4f6d);
 ::windows_core::imp::interface_hierarchy!(IWsbApplicationBackupSupport, ::windows_core::IUnknown);
@@ -33,7 +33,7 @@ impl IWsbApplicationBackupSupport {
 #[doc(hidden)]
 pub struct IWsbApplicationBackupSupport_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CheckConsistency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszwritermetadata: ::windows_core::PCWSTR, wszcomponentname: ::windows_core::PCWSTR, wszcomponentlogicalpath: ::windows_core::PCWSTR, cvolumes: u32, rgwszsourcevolumepath: *const ::windows_core::PCWSTR, rgwszsnapshotvolumepath: *const ::windows_core::PCWSTR, ppasync: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CheckConsistency: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, u32, *const ::windows_core::PCWSTR, *const ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWsbApplicationRestoreSupport, IWsbApplicationRestoreSupport_Vtbl, 0x8d3bdb38_4ee8_4718_85f9_c7dbc4ab77aa);
 ::windows_core::imp::interface_hierarchy!(IWsbApplicationRestoreSupport, ::windows_core::IUnknown);
@@ -68,10 +68,10 @@ impl IWsbApplicationRestoreSupport {
 #[doc(hidden)]
 pub struct IWsbApplicationRestoreSupport_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub PreRestore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszwritermetadata: ::windows_core::PCWSTR, wszcomponentname: ::windows_core::PCWSTR, wszcomponentlogicalpath: ::windows_core::PCWSTR, bnorollforward: super::super::Foundation::BOOLEAN) -> ::windows_core::HRESULT,
-    pub PostRestore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszwritermetadata: ::windows_core::PCWSTR, wszcomponentname: ::windows_core::PCWSTR, wszcomponentlogicalpath: ::windows_core::PCWSTR, bnorollforward: super::super::Foundation::BOOLEAN) -> ::windows_core::HRESULT,
-    pub OrderComponents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccomponents: u32, rgcomponentname: *const ::windows_core::PCWSTR, rgcomponentlogicalpaths: *const ::windows_core::PCWSTR, prgcomponentname: *mut *mut ::windows_core::PWSTR, prgcomponentlogicalpath: *mut *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub IsRollForwardSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbrollforwardsupported: *mut u8) -> ::windows_core::HRESULT,
+    pub PreRestore: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, super::super::Foundation::BOOLEAN) -> ::windows_core::HRESULT,
+    pub PostRestore: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, super::super::Foundation::BOOLEAN) -> ::windows_core::HRESULT,
+    pub OrderComponents: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::PCWSTR, *const ::windows_core::PCWSTR, *mut *mut ::windows_core::PWSTR, *mut *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub IsRollForwardSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8) -> ::windows_core::HRESULT,
 }
 pub const WSBAPP_ASYNC_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(7995396i32);
 pub const WSB_MAX_OB_STATUS_ENTRY: u32 = 5u32;

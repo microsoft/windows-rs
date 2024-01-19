@@ -13,7 +13,7 @@ impl ISoftwareBitmapNative {
 #[doc(hidden)]
 pub struct ISoftwareBitmapNative_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISoftwareBitmapNativeFactory, ISoftwareBitmapNativeFactory_Vtbl, 0xc3c181ec_2914_4791_af02_02d224a10b43);
 ::windows_core::imp::interface_hierarchy!(ISoftwareBitmapNativeFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -46,11 +46,11 @@ impl ISoftwareBitmapNativeFactory {
 pub struct ISoftwareBitmapNativeFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Win32_Graphics_Imaging")]
-    pub CreateFromWICBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, forcereadonly: super::super::super::super::Foundation::BOOL, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromWICBitmap: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::super::super::Foundation::BOOL, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Imaging"))]
     CreateFromWICBitmap: usize,
     #[cfg(feature = "Win32_Media_MediaFoundation")]
-    pub CreateFromMF2DBuffer2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, subtype: *const ::windows_core::GUID, width: u32, height: u32, forcereadonly: super::super::super::super::Foundation::BOOL, mindisplayaperture: *const super::super::super::super::Media::MediaFoundation::MFVideoArea, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromMF2DBuffer2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, u32, super::super::super::super::Foundation::BOOL, *const super::super::super::super::Media::MediaFoundation::MFVideoArea, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Media_MediaFoundation"))]
     CreateFromMF2DBuffer2: usize,
 }

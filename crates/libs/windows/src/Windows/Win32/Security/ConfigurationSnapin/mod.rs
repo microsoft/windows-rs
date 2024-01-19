@@ -21,10 +21,10 @@ impl ISceSvcAttachmentData {
 #[doc(hidden)]
 pub struct ISceSvcAttachmentData_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scesvchandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> ::windows_core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: *mut ::core::ffi::c_void, pscesvchandle: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FreeBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CloseHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scesvchandle: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, SCESVC_INFO_TYPE, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i8, *mut i8, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FreeBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CloseHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISceSvcAttachmentPersistInfo, ISceSvcAttachmentPersistInfo_Vtbl, 0x6d90e0d0_200d_11d1_affb_00c04fb984f9);
 ::windows_core::imp::interface_hierarchy!(ISceSvcAttachmentPersistInfo, ::windows_core::IUnknown);
@@ -43,9 +43,9 @@ impl ISceSvcAttachmentPersistInfo {
 #[doc(hidden)]
 pub struct ISceSvcAttachmentPersistInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lptemplatename: *mut i8, scesvchandle: *mut *mut ::core::ffi::c_void, ppvdata: *mut *mut ::core::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub IsDirty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lptemplatename: *mut i8) -> ::windows_core::HRESULT,
-    pub FreeBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Save: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i8, *mut *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub IsDirty: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i8) -> ::windows_core::HRESULT,
+    pub FreeBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const CCF_SCESVC_ATTACHMENT: ::windows_core::PCWSTR = ::windows_core::w!("CCF_SCESVC_ATTACHMENT");
 pub const CCF_SCESVC_ATTACHMENT_DATA: ::windows_core::PCWSTR = ::windows_core::w!("CCF_SCESVC_ATTACHMENT_DATA");

@@ -126,8 +126,8 @@ impl IKsAggregateControl {
 #[doc(hidden)]
 pub struct IKsAggregateControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub KsAddAggregate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub KsRemoveAggregate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub KsAddAggregate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub KsRemoveAggregate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKsAllocator, IKsAllocator_Vtbl, 0x8da64899_c0d9_11d0_8413_0000f822fe8a);
 ::windows_core::imp::interface_hierarchy!(IKsAllocator, ::windows_core::IUnknown);
@@ -149,10 +149,10 @@ impl IKsAllocator {
 #[doc(hidden)]
 pub struct IKsAllocator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub KsGetAllocatorHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE,
-    pub KsGetAllocatorMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> KSALLOCATORMODE,
-    pub KsGetAllocatorStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allocatorstatus: *mut KSSTREAMALLOCATOR_STATUS) -> ::windows_core::HRESULT,
-    pub KsSetAllocatorMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: KSALLOCATORMODE),
+    pub KsGetAllocatorHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE,
+    pub KsGetAllocatorMode: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> KSALLOCATORMODE,
+    pub KsGetAllocatorStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut KSSTREAMALLOCATOR_STATUS) -> ::windows_core::HRESULT,
+    pub KsSetAllocatorMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, KSALLOCATORMODE),
 }
 ::windows_core::imp::com_interface!(IKsAllocatorEx, IKsAllocatorEx_Vtbl, 0x091bb63a_603f_11d1_b067_00a0c9062802);
 ::windows_core::imp::interface_hierarchy!(IKsAllocatorEx, ::windows_core::IUnknown, IKsAllocator);
@@ -192,10 +192,10 @@ impl IKsAllocatorEx {
 #[doc(hidden)]
 pub struct IKsAllocatorEx_Vtbl {
     pub base__: IKsAllocator_Vtbl,
-    pub KsGetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ALLOCATOR_PROPERTIES_EX,
-    pub KsSetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ALLOCATOR_PROPERTIES_EX),
-    pub KsSetAllocatorHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allocatorhandle: super::super::Foundation::HANDLE),
-    pub KsCreateAllocatorAndGetHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kspin: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE,
+    pub KsGetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> *mut ALLOCATOR_PROPERTIES_EX,
+    pub KsSetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ALLOCATOR_PROPERTIES_EX),
+    pub KsSetAllocatorHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE),
+    pub KsCreateAllocatorAndGetHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE,
 }
 ::windows_core::imp::com_interface!(IKsClockPropertySet, IKsClockPropertySet_Vtbl, 0x5c5cbd84_e755_11d0_ac18_00a0c9223196);
 ::windows_core::imp::interface_hierarchy!(IKsClockPropertySet, ::windows_core::IUnknown);
@@ -241,16 +241,16 @@ impl IKsClockPropertySet {
 #[doc(hidden)]
 pub struct IKsClockPropertySet_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub KsGetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, time: *mut i64) -> ::windows_core::HRESULT,
-    pub KsSetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, time: i64) -> ::windows_core::HRESULT,
-    pub KsGetPhysicalTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, time: *mut i64) -> ::windows_core::HRESULT,
-    pub KsSetPhysicalTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, time: i64) -> ::windows_core::HRESULT,
-    pub KsGetCorrelatedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, correlatedtime: *mut KSCORRELATED_TIME) -> ::windows_core::HRESULT,
-    pub KsSetCorrelatedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, correlatedtime: *const KSCORRELATED_TIME) -> ::windows_core::HRESULT,
-    pub KsGetCorrelatedPhysicalTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, correlatedtime: *mut KSCORRELATED_TIME) -> ::windows_core::HRESULT,
-    pub KsSetCorrelatedPhysicalTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, correlatedtime: *const KSCORRELATED_TIME) -> ::windows_core::HRESULT,
-    pub KsGetResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resolution: *mut KSRESOLUTION) -> ::windows_core::HRESULT,
-    pub KsGetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: *mut KSSTATE) -> ::windows_core::HRESULT,
+    pub KsGetTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
+    pub KsSetTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64) -> ::windows_core::HRESULT,
+    pub KsGetPhysicalTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
+    pub KsSetPhysicalTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64) -> ::windows_core::HRESULT,
+    pub KsGetCorrelatedTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut KSCORRELATED_TIME) -> ::windows_core::HRESULT,
+    pub KsSetCorrelatedTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const KSCORRELATED_TIME) -> ::windows_core::HRESULT,
+    pub KsGetCorrelatedPhysicalTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut KSCORRELATED_TIME) -> ::windows_core::HRESULT,
+    pub KsSetCorrelatedPhysicalTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const KSCORRELATED_TIME) -> ::windows_core::HRESULT,
+    pub KsGetResolution: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut KSRESOLUTION) -> ::windows_core::HRESULT,
+    pub KsGetState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut KSSTATE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKsControl, IKsControl_Vtbl, 0x28f54685_06fd_11d2_b27a_00a0c9223196);
 ::windows_core::imp::interface_hierarchy!(IKsControl, ::windows_core::IUnknown);
@@ -269,9 +269,9 @@ impl IKsControl {
 #[doc(hidden)]
 pub struct IKsControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub KsProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: *const KSIDENTIFIER, propertylength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows_core::HRESULT,
-    pub KsMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: *const KSIDENTIFIER, methodlength: u32, methoddata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows_core::HRESULT,
-    pub KsEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *const KSIDENTIFIER, eventlength: u32, eventdata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows_core::HRESULT,
+    pub KsProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const KSIDENTIFIER, u32, *mut ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub KsMethod: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const KSIDENTIFIER, u32, *mut ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub KsEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const KSIDENTIFIER, u32, *mut ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKsDataTypeCompletion, IKsDataTypeCompletion_Vtbl, 0x827d1a0e_0f73_11d2_b27a_00a0c9223196);
 ::windows_core::imp::interface_hierarchy!(IKsDataTypeCompletion, ::windows_core::IUnknown);
@@ -290,7 +290,7 @@ impl IKsDataTypeCompletion {
 pub struct IKsDataTypeCompletion_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_MediaFoundation")]
-    pub KsCompleteMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filterhandle: super::super::Foundation::HANDLE, pinfactoryid: u32, ammediatype: *mut super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::HRESULT,
+    pub KsCompleteMediaType: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE, u32, *mut super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Media_MediaFoundation"))]
     KsCompleteMediaType: usize,
 }
@@ -332,17 +332,17 @@ impl IKsDataTypeHandler {
 pub struct IKsDataTypeHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Media_DirectShow")]
-    pub KsCompleteIoOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sample: *mut ::core::ffi::c_void, streamheader: *mut ::core::ffi::c_void, iooperation: KSIOOPERATION, cancelled: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub KsCompleteIoOperation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, KSIOOPERATION, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Media_DirectShow"))]
     KsCompleteIoOperation: usize,
-    pub KsIsMediaTypeInRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dataranges: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub KsIsMediaTypeInRanges: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Media_DirectShow")]
-    pub KsPrepareIoOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sample: *mut ::core::ffi::c_void, streamheader: *mut ::core::ffi::c_void, iooperation: KSIOOPERATION) -> ::windows_core::HRESULT,
+    pub KsPrepareIoOperation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, KSIOOPERATION) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Media_DirectShow"))]
     KsPrepareIoOperation: usize,
-    pub KsQueryExtendedSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extendedsize: *mut u32) -> ::windows_core::HRESULT,
+    pub KsQueryExtendedSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Media_MediaFoundation")]
-    pub KsSetMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ammediatype: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::HRESULT,
+    pub KsSetMediaType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Media_MediaFoundation"))]
     KsSetMediaType: usize,
 }
@@ -361,8 +361,8 @@ impl IKsFormatSupport {
 #[doc(hidden)]
 pub struct IKsFormatSupport_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub IsFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetDevicePreferredFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppksformat: *mut *mut KSDATAFORMAT) -> ::windows_core::HRESULT,
+    pub IsFormatSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut KSDATAFORMAT, u32, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetDevicePreferredFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut KSDATAFORMAT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKsInterfaceHandler, IKsInterfaceHandler_Vtbl, 0xd3abc7e0_9a61_11d0_a40d_00a0c9223196);
 ::windows_core::imp::interface_hierarchy!(IKsInterfaceHandler, ::windows_core::IUnknown);
@@ -389,12 +389,12 @@ impl IKsInterfaceHandler {
 #[doc(hidden)]
 pub struct IKsInterfaceHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub KsSetPin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kspin: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub KsSetPin: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Media_DirectShow")]
-    pub KsProcessMediaSamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ksdatatypehandler: *mut ::core::ffi::c_void, samplelist: *const *mut ::core::ffi::c_void, samplecount: *mut i32, iooperation: KSIOOPERATION, streamsegment: *mut *mut KSSTREAM_SEGMENT) -> ::windows_core::HRESULT,
+    pub KsProcessMediaSamples: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const *mut ::core::ffi::c_void, *mut i32, KSIOOPERATION, *mut *mut KSSTREAM_SEGMENT) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Media_DirectShow"))]
     KsProcessMediaSamples: usize,
-    pub KsCompleteIo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamsegment: *mut KSSTREAM_SEGMENT) -> ::windows_core::HRESULT,
+    pub KsCompleteIo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut KSSTREAM_SEGMENT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKsJackContainerId, IKsJackContainerId_Vtbl, 0xc99af463_d629_4ec4_8c00_e54d68154248);
 ::windows_core::imp::interface_hierarchy!(IKsJackContainerId, ::windows_core::IUnknown);
@@ -408,7 +408,7 @@ impl IKsJackContainerId {
 #[doc(hidden)]
 pub struct IKsJackContainerId_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetJackContainerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjackcontainerid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetJackContainerId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKsJackDescription, IKsJackDescription_Vtbl, 0x4509f757_2d46_4637_8e62_ce7db944f57b);
 ::windows_core::imp::interface_hierarchy!(IKsJackDescription, ::windows_core::IUnknown);
@@ -425,8 +425,8 @@ impl IKsJackDescription {
 #[doc(hidden)]
 pub struct IKsJackDescription_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetJackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows_core::HRESULT,
-    pub GetJackDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, njack: u32, pdescription: *mut KSJACK_DESCRIPTION) -> ::windows_core::HRESULT,
+    pub GetJackCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetJackDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut KSJACK_DESCRIPTION) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKsJackDescription2, IKsJackDescription2_Vtbl, 0x478f3a9b_e0c9_4827_9228_6f5505ffe76a);
 ::windows_core::imp::interface_hierarchy!(IKsJackDescription2, ::windows_core::IUnknown);
@@ -444,8 +444,8 @@ impl IKsJackDescription2 {
 #[doc(hidden)]
 pub struct IKsJackDescription2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetJackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows_core::HRESULT,
-    pub GetJackDescription2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, njack: u32, pdescription2: *mut KSJACK_DESCRIPTION2) -> ::windows_core::HRESULT,
+    pub GetJackCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetJackDescription2: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut KSJACK_DESCRIPTION2) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKsJackDescription3, IKsJackDescription3_Vtbl, 0xe3f6778b_6660_4cc8_a291_ecc4192d9967);
 ::windows_core::imp::interface_hierarchy!(IKsJackDescription3, ::windows_core::IUnknown);
@@ -463,8 +463,8 @@ impl IKsJackDescription3 {
 #[doc(hidden)]
 pub struct IKsJackDescription3_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetJackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows_core::HRESULT,
-    pub GetJackDescription3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, njack: u32, pdescription3: *mut KSJACK_DESCRIPTION3) -> ::windows_core::HRESULT,
+    pub GetJackCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetJackDescription3: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut KSJACK_DESCRIPTION3) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKsJackSinkInformation, IKsJackSinkInformation_Vtbl, 0xd9bd72ed_290f_4581_9ff3_61027a8fe532);
 ::windows_core::imp::interface_hierarchy!(IKsJackSinkInformation, ::windows_core::IUnknown);
@@ -477,7 +477,7 @@ impl IKsJackSinkInformation {
 #[doc(hidden)]
 pub struct IKsJackSinkInformation_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetJackSinkInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> ::windows_core::HRESULT,
+    pub GetJackSinkInformation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut KSJACK_SINK_INFORMATION) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKsNodeControl, IKsNodeControl_Vtbl, 0x11737c14_24a7_4bb5_81a0_0d003813b0c4);
 ::windows_core::imp::interface_hierarchy!(IKsNodeControl, ::windows_core::IUnknown);
@@ -493,8 +493,8 @@ impl IKsNodeControl {
 #[doc(hidden)]
 pub struct IKsNodeControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetNodeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwnodeid: u32) -> ::windows_core::HRESULT,
-    pub SetKsControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkscontrol: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetNodeId: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub SetKsControl: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKsNotifyEvent, IKsNotifyEvent_Vtbl, 0x412bd695_f84b_46c1_ac73_54196dbc8fa7);
 ::windows_core::imp::interface_hierarchy!(IKsNotifyEvent, ::windows_core::IUnknown);
@@ -507,7 +507,7 @@ impl IKsNotifyEvent {
 #[doc(hidden)]
 pub struct IKsNotifyEvent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub KsNotifyEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: u32, lparam1: usize, lparam2: usize) -> ::windows_core::HRESULT,
+    pub KsNotifyEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, usize, usize) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKsObject, IKsObject_Vtbl, 0x423c13a2_2070_11d0_9ef7_00aa00a216a1);
 ::windows_core::imp::interface_hierarchy!(IKsObject, ::windows_core::IUnknown);
@@ -520,7 +520,7 @@ impl IKsObject {
 #[doc(hidden)]
 pub struct IKsObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub KsGetObjectHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE,
+    pub KsGetObjectHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE,
 }
 ::windows_core::imp::com_interface!(IKsPin, IKsPin_Vtbl, 0xb61178d1_a2d9_11cf_9e53_00aa00a216a1);
 ::windows_core::imp::interface_hierarchy!(IKsPin, ::windows_core::IUnknown);
@@ -583,28 +583,28 @@ impl IKsPin {
 #[doc(hidden)]
 pub struct IKsPin_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub KsQueryMediums: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediumlist: *mut *mut KSMULTIPLE_ITEM) -> ::windows_core::HRESULT,
-    pub KsQueryInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfacelist: *mut *mut KSMULTIPLE_ITEM) -> ::windows_core::HRESULT,
-    pub KsCreateSinkPinHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interface: *const KSIDENTIFIER, medium: *const KSIDENTIFIER) -> ::windows_core::HRESULT,
-    pub KsGetCurrentCommunication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, communication: *mut KSPIN_COMMUNICATION, interface: *mut KSIDENTIFIER, medium: *mut KSIDENTIFIER) -> ::windows_core::HRESULT,
-    pub KsPropagateAcquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub KsQueryMediums: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut KSMULTIPLE_ITEM) -> ::windows_core::HRESULT,
+    pub KsQueryInterfaces: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut KSMULTIPLE_ITEM) -> ::windows_core::HRESULT,
+    pub KsCreateSinkPinHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const KSIDENTIFIER, *const KSIDENTIFIER) -> ::windows_core::HRESULT,
+    pub KsGetCurrentCommunication: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut KSPIN_COMMUNICATION, *mut KSIDENTIFIER, *mut KSIDENTIFIER) -> ::windows_core::HRESULT,
+    pub KsPropagateAcquire: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Media_DirectShow")]
-    pub KsDeliver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sample: *mut ::core::ffi::c_void, flags: u32) -> ::windows_core::HRESULT,
+    pub KsDeliver: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Media_DirectShow"))]
     KsDeliver: usize,
-    pub KsMediaSamplesCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamsegment: *const KSSTREAM_SEGMENT) -> ::windows_core::HRESULT,
+    pub KsMediaSamplesCompleted: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const KSSTREAM_SEGMENT) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Media_DirectShow")]
-    pub KsPeekAllocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operation: KSPEEKOPERATION) -> ::core::option::Option<super::DirectShow::IMemAllocator>,
+    pub KsPeekAllocator: unsafe extern "system" fn(*mut ::core::ffi::c_void, KSPEEKOPERATION) -> ::core::option::Option<super::DirectShow::IMemAllocator>,
     #[cfg(not(feature = "Win32_Media_DirectShow"))]
     KsPeekAllocator: usize,
     #[cfg(feature = "Win32_Media_DirectShow")]
-    pub KsReceiveAllocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, memallocator: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub KsReceiveAllocator: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Media_DirectShow"))]
     KsReceiveAllocator: usize,
-    pub KsRenegotiateAllocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub KsIncrementPendingIoCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> i32,
-    pub KsDecrementPendingIoCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> i32,
-    pub KsQualityNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, proportion: u32, timedelta: i64) -> ::windows_core::HRESULT,
+    pub KsRenegotiateAllocator: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub KsIncrementPendingIoCount: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> i32,
+    pub KsDecrementPendingIoCount: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> i32,
+    pub KsQualityNotify: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, i64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKsPinEx, IKsPinEx_Vtbl, 0x7bb38260_d19c_11d2_b38a_00a0c95ec22e);
 ::windows_core::imp::interface_hierarchy!(IKsPinEx, ::windows_core::IUnknown, IKsPin);
@@ -676,7 +676,7 @@ impl IKsPinEx {
 pub struct IKsPinEx_Vtbl {
     pub base__: IKsPin_Vtbl,
     #[cfg(feature = "Win32_Media_DirectShow")]
-    pub KsNotifyError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sample: *mut ::core::ffi::c_void, hr: ::windows_core::HRESULT),
+    pub KsNotifyError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::windows_core::HRESULT),
     #[cfg(not(feature = "Win32_Media_DirectShow"))]
     KsNotifyError: usize,
 }
@@ -692,7 +692,7 @@ impl IKsPinFactory {
 #[doc(hidden)]
 pub struct IKsPinFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub KsPinFactory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfactory: *mut u32) -> ::windows_core::HRESULT,
+    pub KsPinFactory: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKsPinPipe, IKsPinPipe_Vtbl, 0xe539cd90_a8b4_11d1_8189_00a0c9062802);
 ::windows_core::imp::interface_hierarchy!(IKsPinPipe, ::windows_core::IUnknown);
@@ -742,20 +742,20 @@ impl IKsPinPipe {
 #[doc(hidden)]
 pub struct IKsPinPipe_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub KsGetPinFramingCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framingex: *mut *mut KSALLOCATOR_FRAMING_EX, framingprop: *mut FRAMING_PROP, option: FRAMING_CACHE_OPS) -> ::windows_core::HRESULT,
-    pub KsSetPinFramingCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framingex: *const KSALLOCATOR_FRAMING_EX, framingprop: *const FRAMING_PROP, option: FRAMING_CACHE_OPS) -> ::windows_core::HRESULT,
+    pub KsGetPinFramingCache: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut KSALLOCATOR_FRAMING_EX, *mut FRAMING_PROP, FRAMING_CACHE_OPS) -> ::windows_core::HRESULT,
+    pub KsSetPinFramingCache: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const KSALLOCATOR_FRAMING_EX, *const FRAMING_PROP, FRAMING_CACHE_OPS) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Media_DirectShow")]
-    pub KsGetConnectedPin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::core::option::Option<super::DirectShow::IPin>,
+    pub KsGetConnectedPin: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::core::option::Option<super::DirectShow::IPin>,
     #[cfg(not(feature = "Win32_Media_DirectShow"))]
     KsGetConnectedPin: usize,
-    pub KsGetPipe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operation: KSPEEKOPERATION) -> ::core::option::Option<IKsAllocatorEx>,
-    pub KsSetPipe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ksallocator: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub KsGetPipeAllocatorFlag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub KsSetPipeAllocatorFlag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flag: u32) -> ::windows_core::HRESULT,
-    pub KsGetPinBusCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID),
-    pub KsSetPinBusCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bus: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub KsGetPinName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::PWSTR,
-    pub KsGetFilterName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::PWSTR,
+    pub KsGetPipe: unsafe extern "system" fn(*mut ::core::ffi::c_void, KSPEEKOPERATION) -> ::core::option::Option<IKsAllocatorEx>,
+    pub KsSetPipe: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub KsGetPipeAllocatorFlag: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
+    pub KsSetPipeAllocatorFlag: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub KsGetPinBusCache: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID),
+    pub KsSetPinBusCache: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub KsGetPinName: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::PWSTR,
+    pub KsGetFilterName: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::PWSTR,
 }
 ::windows_core::imp::com_interface!(IKsPropertySet, IKsPropertySet_Vtbl, 0x31efac30_515c_11d0_a9aa_00aa0061be93);
 ::windows_core::imp::interface_hierarchy!(IKsPropertySet, ::windows_core::IUnknown);
@@ -775,9 +775,9 @@ impl IKsPropertySet {
 #[doc(hidden)]
 pub struct IKsPropertySet_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Set: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpropset: *const ::windows_core::GUID, dwpropid: u32, pinstancedata: *const ::core::ffi::c_void, cbinstancedata: u32, ppropdata: *const ::core::ffi::c_void, cbpropdata: u32) -> ::windows_core::HRESULT,
-    pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpropset: *const ::windows_core::GUID, dwpropid: u32, pinstancedata: *const ::core::ffi::c_void, cbinstancedata: u32, ppropdata: *mut ::core::ffi::c_void, cbpropdata: u32, pcbreturned: *mut u32) -> ::windows_core::HRESULT,
-    pub QuerySupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpropset: *const ::windows_core::GUID, dwpropid: u32, ptypesupport: *mut u32) -> ::windows_core::HRESULT,
+    pub Set: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *const ::core::ffi::c_void, u32, *const ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Get: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *const ::core::ffi::c_void, u32, *mut ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub QuerySupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKsQualityForwarder, IKsQualityForwarder_Vtbl, 0x97ebaacb_95bd_11d0_a3ea_00a0c9223196);
 ::windows_core::imp::interface_hierarchy!(IKsQualityForwarder, ::windows_core::IUnknown, IKsObject);
@@ -796,7 +796,7 @@ impl IKsQualityForwarder {
 #[doc(hidden)]
 pub struct IKsQualityForwarder_Vtbl {
     pub base__: IKsObject_Vtbl,
-    pub KsFlushClient: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: *mut ::core::ffi::c_void),
+    pub KsFlushClient: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
 }
 ::windows_core::imp::com_interface!(IKsTopology, IKsTopology_Vtbl, 0x28f54683_06fd_11d2_b27a_00a0c9223196);
 ::windows_core::imp::interface_hierarchy!(IKsTopology, ::windows_core::IUnknown);
@@ -812,7 +812,7 @@ impl IKsTopology {
 #[doc(hidden)]
 pub struct IKsTopology_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateNodeInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: *mut ::core::ffi::c_void, interfaceid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateNodeInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKsTopologyInfo, IKsTopologyInfo_Vtbl, 0x720d4ac0_7533_11d0_a5d6_28db04c10000);
 ::windows_core::imp::interface_hierarchy!(IKsTopologyInfo, ::windows_core::IUnknown);
@@ -852,14 +852,14 @@ impl IKsTopologyInfo {
 #[doc(hidden)]
 pub struct IKsTopologyInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub NumCategories: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwnumcategories: *mut u32) -> ::windows_core::HRESULT,
-    pub get_Category: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pcategory: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub NumConnections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwnumconnections: *mut u32) -> ::windows_core::HRESULT,
-    pub get_ConnectionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pconnectioninfo: *mut KSTOPOLOGY_CONNECTION) -> ::windows_core::HRESULT,
-    pub get_NodeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwnodeid: u32, pwchnodename: ::windows_core::PWSTR, dwbufsize: u32, pdwnamelen: *mut u32) -> ::windows_core::HRESULT,
-    pub NumNodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwnumnodes: *mut u32) -> ::windows_core::HRESULT,
-    pub get_NodeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwnodeid: u32, pnodetype: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub CreateNodeInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwnodeid: u32, iid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub NumCategories: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub get_Category: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub NumConnections: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub get_ConnectionInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut KSTOPOLOGY_CONNECTION) -> ::windows_core::HRESULT,
+    pub get_NodeName: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PWSTR, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub NumNodes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub get_NodeType: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub CreateNodeInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const AEC_MODE_FULL_DUPLEX: u32 = 2u32;
 pub const AEC_MODE_HALF_DUPLEX: u32 = 1u32;

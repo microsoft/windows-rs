@@ -18,7 +18,7 @@ impl ::windows_core::RuntimeType for IDirect3DDevice {
 #[doc(hidden)]
 pub struct IDirect3DDevice_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Trim: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Trim: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirect3DSurface, IDirect3DSurface_Vtbl, 0x0bf4a146_13c1_4694_bee3_7abf15eaf586);
 ::windows_core::imp::interface_hierarchy!(IDirect3DSurface, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -43,7 +43,7 @@ impl ::windows_core::RuntimeType for IDirect3DSurface {
 #[doc(hidden)]
 pub struct IDirect3DSurface_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Direct3DSurfaceDescription) -> ::windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut Direct3DSurfaceDescription) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]

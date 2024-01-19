@@ -31,13 +31,13 @@ impl IUIAnimationInterpolator {
 #[doc(hidden)]
 pub struct IUIAnimationInterpolator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetInitialValueAndVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initialvalue: f64, initialvelocity: f64) -> ::windows_core::HRESULT,
-    pub SetDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64) -> ::windows_core::HRESULT,
-    pub GetDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: *mut f64) -> ::windows_core::HRESULT,
-    pub GetFinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut f64) -> ::windows_core::HRESULT,
-    pub InterpolateValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: f64, value: *mut f64) -> ::windows_core::HRESULT,
-    pub InterpolateVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: f64, velocity: *mut f64) -> ::windows_core::HRESULT,
-    pub GetDependencies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> ::windows_core::HRESULT,
+    pub SetInitialValueAndVelocity: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64) -> ::windows_core::HRESULT,
+    pub SetDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub GetDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub GetFinalValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub InterpolateValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut f64) -> ::windows_core::HRESULT,
+    pub InterpolateVelocity: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut f64) -> ::windows_core::HRESULT,
+    pub GetDependencies: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut UI_ANIMATION_DEPENDENCIES, *mut UI_ANIMATION_DEPENDENCIES, *mut UI_ANIMATION_DEPENDENCIES) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationInterpolator2, IUIAnimationInterpolator2_Vtbl, 0xea76aff8_ea22_4a23_a0ef_a6a966703518);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationInterpolator2, ::windows_core::IUnknown);
@@ -79,15 +79,15 @@ impl IUIAnimationInterpolator2 {
 #[doc(hidden)]
 pub struct IUIAnimationInterpolator2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetDimension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dimension: *mut u32) -> ::windows_core::HRESULT,
-    pub SetInitialValueAndVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initialvalue: *const f64, initialvelocity: *const f64, cdimension: u32) -> ::windows_core::HRESULT,
-    pub SetDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64) -> ::windows_core::HRESULT,
-    pub GetDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: *mut f64) -> ::windows_core::HRESULT,
-    pub GetFinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut f64, cdimension: u32) -> ::windows_core::HRESULT,
-    pub InterpolateValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: f64, value: *mut f64, cdimension: u32) -> ::windows_core::HRESULT,
-    pub InterpolateVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: f64, velocity: *mut f64, cdimension: u32) -> ::windows_core::HRESULT,
-    pub GetPrimitiveInterpolation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interpolation: *mut ::core::ffi::c_void, cdimension: u32) -> ::windows_core::HRESULT,
-    pub GetDependencies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> ::windows_core::HRESULT,
+    pub GetDimension: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetInitialValueAndVelocity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const f64, *const f64, u32) -> ::windows_core::HRESULT,
+    pub SetDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub GetDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub GetFinalValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64, u32) -> ::windows_core::HRESULT,
+    pub InterpolateValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut f64, u32) -> ::windows_core::HRESULT,
+    pub InterpolateVelocity: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut f64, u32) -> ::windows_core::HRESULT,
+    pub GetPrimitiveInterpolation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetDependencies: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut UI_ANIMATION_DEPENDENCIES, *mut UI_ANIMATION_DEPENDENCIES, *mut UI_ANIMATION_DEPENDENCIES) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationLoopIterationChangeHandler2, IUIAnimationLoopIterationChangeHandler2_Vtbl, 0x2d3b15a4_4762_47ab_a030_b23221df3ae0);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationLoopIterationChangeHandler2, ::windows_core::IUnknown);
@@ -103,7 +103,7 @@ impl IUIAnimationLoopIterationChangeHandler2 {
 #[doc(hidden)]
 pub struct IUIAnimationLoopIterationChangeHandler2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnLoopIterationChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut ::core::ffi::c_void, id: usize, newiterationcount: u32, olditerationcount: u32) -> ::windows_core::HRESULT,
+    pub OnLoopIterationChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, usize, u32, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationManager, IUIAnimationManager_Vtbl, 0x9169896c_ac8d_4e7d_94e5_67fa4dc2f2e8);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationManager, ::windows_core::IUnknown);
@@ -200,25 +200,25 @@ impl IUIAnimationManager {
 #[doc(hidden)]
 pub struct IUIAnimationManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateAnimationVariable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initialvalue: f64, variable: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ScheduleTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void, transition: *mut ::core::ffi::c_void, timenow: f64) -> ::windows_core::HRESULT,
-    pub CreateStoryboard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FinishAllStoryboards: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, completiondeadline: f64) -> ::windows_core::HRESULT,
-    pub AbandonAllStoryboards: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timenow: f64, updateresult: *mut UI_ANIMATION_UPDATE_RESULT) -> ::windows_core::HRESULT,
-    pub GetVariableFromTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32, variable: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetStoryboardFromTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32, storyboard: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut UI_ANIMATION_MANAGER_STATUS) -> ::windows_core::HRESULT,
-    pub SetAnimationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: UI_ANIMATION_MODE) -> ::windows_core::HRESULT,
-    pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetManagerEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCancelPriorityComparison: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, comparison: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetTrimPriorityComparison: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, comparison: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCompressPriorityComparison: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, comparison: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetConcludePriorityComparison: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, comparison: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetDefaultLongestAcceptableDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, delay: f64) -> ::windows_core::HRESULT,
-    pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAnimationVariable: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ScheduleTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub CreateStoryboard: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FinishAllStoryboards: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub AbandonAllStoryboards: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Update: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut UI_ANIMATION_UPDATE_RESULT) -> ::windows_core::HRESULT,
+    pub GetVariableFromTag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStoryboardFromTag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut UI_ANIMATION_MANAGER_STATUS) -> ::windows_core::HRESULT,
+    pub SetAnimationMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, UI_ANIMATION_MODE) -> ::windows_core::HRESULT,
+    pub Pause: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Resume: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetManagerEventHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCancelPriorityComparison: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetTrimPriorityComparison: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCompressPriorityComparison: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetConcludePriorityComparison: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetDefaultLongestAcceptableDelay: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub Shutdown: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationManager2, IUIAnimationManager2_Vtbl, 0xd8b6f7d4_4109_4d3f_acee_879926968cb1);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationManager2, ::windows_core::IUnknown);
@@ -324,27 +324,27 @@ impl IUIAnimationManager2 {
 #[doc(hidden)]
 pub struct IUIAnimationManager2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateAnimationVectorVariable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initialvalue: *const f64, cdimension: u32, variable: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateAnimationVariable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initialvalue: f64, variable: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ScheduleTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void, transition: *mut ::core::ffi::c_void, timenow: f64) -> ::windows_core::HRESULT,
-    pub CreateStoryboard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FinishAllStoryboards: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, completiondeadline: f64) -> ::windows_core::HRESULT,
-    pub AbandonAllStoryboards: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timenow: f64, updateresult: *mut UI_ANIMATION_UPDATE_RESULT) -> ::windows_core::HRESULT,
-    pub GetVariableFromTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32, variable: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetStoryboardFromTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32, storyboard: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EstimateNextEventTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, seconds: *mut f64) -> ::windows_core::HRESULT,
-    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut UI_ANIMATION_MANAGER_STATUS) -> ::windows_core::HRESULT,
-    pub SetAnimationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: UI_ANIMATION_MODE) -> ::windows_core::HRESULT,
-    pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetManagerEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetCancelPriorityComparison: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, comparison: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetTrimPriorityComparison: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, comparison: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCompressPriorityComparison: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, comparison: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetConcludePriorityComparison: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, comparison: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetDefaultLongestAcceptableDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, delay: f64) -> ::windows_core::HRESULT,
-    pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAnimationVectorVariable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const f64, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAnimationVariable: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ScheduleTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub CreateStoryboard: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FinishAllStoryboards: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub AbandonAllStoryboards: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Update: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut UI_ANIMATION_UPDATE_RESULT) -> ::windows_core::HRESULT,
+    pub GetVariableFromTag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStoryboardFromTag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EstimateNextEventTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut UI_ANIMATION_MANAGER_STATUS) -> ::windows_core::HRESULT,
+    pub SetAnimationMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, UI_ANIMATION_MODE) -> ::windows_core::HRESULT,
+    pub Pause: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Resume: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetManagerEventHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetCancelPriorityComparison: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetTrimPriorityComparison: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCompressPriorityComparison: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetConcludePriorityComparison: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetDefaultLongestAcceptableDelay: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub Shutdown: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationManagerEventHandler, IUIAnimationManagerEventHandler_Vtbl, 0x783321ed_78a3_4366_b574_6af607a64788);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationManagerEventHandler, ::windows_core::IUnknown);
@@ -357,7 +357,7 @@ impl IUIAnimationManagerEventHandler {
 #[doc(hidden)]
 pub struct IUIAnimationManagerEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnManagerStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows_core::HRESULT,
+    pub OnManagerStatusChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, UI_ANIMATION_MANAGER_STATUS, UI_ANIMATION_MANAGER_STATUS) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationManagerEventHandler2, IUIAnimationManagerEventHandler2_Vtbl, 0xf6e022ba_bff3_42ec_9033_e073f33e83c3);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationManagerEventHandler2, ::windows_core::IUnknown);
@@ -370,7 +370,7 @@ impl IUIAnimationManagerEventHandler2 {
 #[doc(hidden)]
 pub struct IUIAnimationManagerEventHandler2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnManagerStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows_core::HRESULT,
+    pub OnManagerStatusChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, UI_ANIMATION_MANAGER_STATUS, UI_ANIMATION_MANAGER_STATUS) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationPrimitiveInterpolation, IUIAnimationPrimitiveInterpolation_Vtbl, 0xbab20d63_4361_45da_a24f_ab8508846b5b);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationPrimitiveInterpolation, ::windows_core::IUnknown);
@@ -386,8 +386,8 @@ impl IUIAnimationPrimitiveInterpolation {
 #[doc(hidden)]
 pub struct IUIAnimationPrimitiveInterpolation_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AddCubic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dimension: u32, beginoffset: f64, constantcoefficient: f32, linearcoefficient: f32, quadraticcoefficient: f32, cubiccoefficient: f32) -> ::windows_core::HRESULT,
-    pub AddSinusoidal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dimension: u32, beginoffset: f64, bias: f32, amplitude: f32, frequency: f32, phase: f32) -> ::windows_core::HRESULT,
+    pub AddCubic: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, f64, f32, f32, f32, f32) -> ::windows_core::HRESULT,
+    pub AddSinusoidal: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, f64, f32, f32, f32, f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationPriorityComparison, IUIAnimationPriorityComparison_Vtbl, 0x83fa9b74_5f86_4618_bc6a_a2fac19b3f44);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationPriorityComparison, ::windows_core::IUnknown);
@@ -404,7 +404,7 @@ impl IUIAnimationPriorityComparison {
 #[doc(hidden)]
 pub struct IUIAnimationPriorityComparison_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub HasPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scheduledstoryboard: *mut ::core::ffi::c_void, newstoryboard: *mut ::core::ffi::c_void, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> ::windows_core::HRESULT,
+    pub HasPriority: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, UI_ANIMATION_PRIORITY_EFFECT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationPriorityComparison2, IUIAnimationPriorityComparison2_Vtbl, 0x5b6d7a37_4621_467c_8b05_70131de62ddb);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationPriorityComparison2, ::windows_core::IUnknown);
@@ -421,7 +421,7 @@ impl IUIAnimationPriorityComparison2 {
 #[doc(hidden)]
 pub struct IUIAnimationPriorityComparison2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub HasPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scheduledstoryboard: *mut ::core::ffi::c_void, newstoryboard: *mut ::core::ffi::c_void, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> ::windows_core::HRESULT,
+    pub HasPriority: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, UI_ANIMATION_PRIORITY_EFFECT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationStoryboard, IUIAnimationStoryboard_Vtbl, 0xa8ff128f_9bf9_4af1_9e67_e5e410defb84);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationStoryboard, ::windows_core::IUnknown);
@@ -520,23 +520,23 @@ impl IUIAnimationStoryboard {
 #[doc(hidden)]
 pub struct IUIAnimationStoryboard_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AddTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void, transition: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AddKeyframeAtOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, existingkeyframe: UI_ANIMATION_KEYFRAME, offset: f64, keyframe: *mut UI_ANIMATION_KEYFRAME) -> ::windows_core::HRESULT,
-    pub AddKeyframeAfterTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transition: *mut ::core::ffi::c_void, keyframe: *mut UI_ANIMATION_KEYFRAME) -> ::windows_core::HRESULT,
-    pub AddTransitionAtKeyframe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void, transition: *mut ::core::ffi::c_void, startkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows_core::HRESULT,
-    pub AddTransitionBetweenKeyframes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void, transition: *mut ::core::ffi::c_void, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows_core::HRESULT,
-    pub RepeatBetweenKeyframes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, repetitioncount: i32) -> ::windows_core::HRESULT,
-    pub HoldVariable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetLongestAcceptableDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, delay: f64) -> ::windows_core::HRESULT,
-    pub Schedule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timenow: f64, schedulingresult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> ::windows_core::HRESULT,
-    pub Conclude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Finish: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, completiondeadline: f64) -> ::windows_core::HRESULT,
-    pub Abandon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32) -> ::windows_core::HRESULT,
-    pub GetTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void, id: *mut u32) -> ::windows_core::HRESULT,
-    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut UI_ANIMATION_STORYBOARD_STATUS) -> ::windows_core::HRESULT,
-    pub GetElapsedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, elapsedtime: *mut f64) -> ::windows_core::HRESULT,
-    pub SetStoryboardEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddKeyframeAtOffset: unsafe extern "system" fn(*mut ::core::ffi::c_void, UI_ANIMATION_KEYFRAME, f64, *mut UI_ANIMATION_KEYFRAME) -> ::windows_core::HRESULT,
+    pub AddKeyframeAfterTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut UI_ANIMATION_KEYFRAME) -> ::windows_core::HRESULT,
+    pub AddTransitionAtKeyframe: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, UI_ANIMATION_KEYFRAME) -> ::windows_core::HRESULT,
+    pub AddTransitionBetweenKeyframes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, UI_ANIMATION_KEYFRAME, UI_ANIMATION_KEYFRAME) -> ::windows_core::HRESULT,
+    pub RepeatBetweenKeyframes: unsafe extern "system" fn(*mut ::core::ffi::c_void, UI_ANIMATION_KEYFRAME, UI_ANIMATION_KEYFRAME, i32) -> ::windows_core::HRESULT,
+    pub HoldVariable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetLongestAcceptableDelay: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub Schedule: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut UI_ANIMATION_SCHEDULING_RESULT) -> ::windows_core::HRESULT,
+    pub Conclude: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Finish: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub Abandon: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetTag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetTag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut UI_ANIMATION_STORYBOARD_STATUS) -> ::windows_core::HRESULT,
+    pub GetElapsedTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub SetStoryboardEventHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationStoryboard2, IUIAnimationStoryboard2_Vtbl, 0xae289cd2_12d4_4945_9419_9e41be034df2);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationStoryboard2, ::windows_core::IUnknown);
@@ -642,24 +642,24 @@ impl IUIAnimationStoryboard2 {
 #[doc(hidden)]
 pub struct IUIAnimationStoryboard2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AddTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void, transition: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AddKeyframeAtOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, existingkeyframe: UI_ANIMATION_KEYFRAME, offset: f64, keyframe: *mut UI_ANIMATION_KEYFRAME) -> ::windows_core::HRESULT,
-    pub AddKeyframeAfterTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transition: *mut ::core::ffi::c_void, keyframe: *mut UI_ANIMATION_KEYFRAME) -> ::windows_core::HRESULT,
-    pub AddTransitionAtKeyframe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void, transition: *mut ::core::ffi::c_void, startkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows_core::HRESULT,
-    pub AddTransitionBetweenKeyframes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void, transition: *mut ::core::ffi::c_void, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME) -> ::windows_core::HRESULT,
-    pub RepeatBetweenKeyframes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startkeyframe: UI_ANIMATION_KEYFRAME, endkeyframe: UI_ANIMATION_KEYFRAME, crepetition: f64, repeatmode: UI_ANIMATION_REPEAT_MODE, piterationchangehandler: *mut ::core::ffi::c_void, id: usize, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub HoldVariable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetLongestAcceptableDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, delay: f64) -> ::windows_core::HRESULT,
-    pub SetSkipDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, secondsduration: f64) -> ::windows_core::HRESULT,
-    pub Schedule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timenow: f64, schedulingresult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> ::windows_core::HRESULT,
-    pub Conclude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Finish: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, completiondeadline: f64) -> ::windows_core::HRESULT,
-    pub Abandon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32) -> ::windows_core::HRESULT,
-    pub GetTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void, id: *mut u32) -> ::windows_core::HRESULT,
-    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut UI_ANIMATION_STORYBOARD_STATUS) -> ::windows_core::HRESULT,
-    pub GetElapsedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, elapsedtime: *mut f64) -> ::windows_core::HRESULT,
-    pub SetStoryboardEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, fregisterstatuschangefornextanimationevent: super::super::Foundation::BOOL, fregisterupdatefornextanimationevent: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub AddTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddKeyframeAtOffset: unsafe extern "system" fn(*mut ::core::ffi::c_void, UI_ANIMATION_KEYFRAME, f64, *mut UI_ANIMATION_KEYFRAME) -> ::windows_core::HRESULT,
+    pub AddKeyframeAfterTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut UI_ANIMATION_KEYFRAME) -> ::windows_core::HRESULT,
+    pub AddTransitionAtKeyframe: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, UI_ANIMATION_KEYFRAME) -> ::windows_core::HRESULT,
+    pub AddTransitionBetweenKeyframes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, UI_ANIMATION_KEYFRAME, UI_ANIMATION_KEYFRAME) -> ::windows_core::HRESULT,
+    pub RepeatBetweenKeyframes: unsafe extern "system" fn(*mut ::core::ffi::c_void, UI_ANIMATION_KEYFRAME, UI_ANIMATION_KEYFRAME, f64, UI_ANIMATION_REPEAT_MODE, *mut ::core::ffi::c_void, usize, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub HoldVariable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetLongestAcceptableDelay: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub SetSkipDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub Schedule: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut UI_ANIMATION_SCHEDULING_RESULT) -> ::windows_core::HRESULT,
+    pub Conclude: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Finish: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub Abandon: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetTag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetTag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut UI_ANIMATION_STORYBOARD_STATUS) -> ::windows_core::HRESULT,
+    pub GetElapsedTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub SetStoryboardEventHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationStoryboardEventHandler, IUIAnimationStoryboardEventHandler_Vtbl, 0x3d5c9008_ec7c_4364_9f8a_9af3c58cbae6);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationStoryboardEventHandler, ::windows_core::IUnknown);
@@ -681,8 +681,8 @@ impl IUIAnimationStoryboardEventHandler {
 #[doc(hidden)]
 pub struct IUIAnimationStoryboardEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnStoryboardStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut ::core::ffi::c_void, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> ::windows_core::HRESULT,
-    pub OnStoryboardUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnStoryboardStatusChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, UI_ANIMATION_STORYBOARD_STATUS, UI_ANIMATION_STORYBOARD_STATUS) -> ::windows_core::HRESULT,
+    pub OnStoryboardUpdated: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationStoryboardEventHandler2, IUIAnimationStoryboardEventHandler2_Vtbl, 0xbac5f55a_ba7c_414c_b599_fbf850f553c6);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationStoryboardEventHandler2, ::windows_core::IUnknown);
@@ -704,8 +704,8 @@ impl IUIAnimationStoryboardEventHandler2 {
 #[doc(hidden)]
 pub struct IUIAnimationStoryboardEventHandler2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnStoryboardStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut ::core::ffi::c_void, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> ::windows_core::HRESULT,
-    pub OnStoryboardUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnStoryboardStatusChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, UI_ANIMATION_STORYBOARD_STATUS, UI_ANIMATION_STORYBOARD_STATUS) -> ::windows_core::HRESULT,
+    pub OnStoryboardUpdated: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationTimer, IUIAnimationTimer_Vtbl, 0x6b0efad1_a053_41d6_9085_33a689144665);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationTimer, ::windows_core::IUnknown);
@@ -743,13 +743,13 @@ impl IUIAnimationTimer {
 #[doc(hidden)]
 pub struct IUIAnimationTimer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetTimerUpdateHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, updatehandler: *mut ::core::ffi::c_void, idlebehavior: UI_ANIMATION_IDLE_BEHAVIOR) -> ::windows_core::HRESULT,
-    pub SetTimerEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Disable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, seconds: *mut f64) -> ::windows_core::HRESULT,
-    pub SetFrameRateThreshold: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framespersecond: u32) -> ::windows_core::HRESULT,
+    pub SetTimerUpdateHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, UI_ANIMATION_IDLE_BEHAVIOR) -> ::windows_core::HRESULT,
+    pub SetTimerEventHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Enable: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Disable: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub SetFrameRateThreshold: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationTimerClientEventHandler, IUIAnimationTimerClientEventHandler_Vtbl, 0xbedb4db6_94fa_4bfb_a47f_ef2d9e408c25);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationTimerClientEventHandler, ::windows_core::IUnknown);
@@ -762,7 +762,7 @@ impl IUIAnimationTimerClientEventHandler {
 #[doc(hidden)]
 pub struct IUIAnimationTimerClientEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnTimerClientStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newstatus: UI_ANIMATION_TIMER_CLIENT_STATUS, previousstatus: UI_ANIMATION_TIMER_CLIENT_STATUS) -> ::windows_core::HRESULT,
+    pub OnTimerClientStatusChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, UI_ANIMATION_TIMER_CLIENT_STATUS, UI_ANIMATION_TIMER_CLIENT_STATUS) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationTimerEventHandler, IUIAnimationTimerEventHandler_Vtbl, 0x274a7dea_d771_4095_abbd_8df7abd23ce3);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationTimerEventHandler, ::windows_core::IUnknown);
@@ -781,9 +781,9 @@ impl IUIAnimationTimerEventHandler {
 #[doc(hidden)]
 pub struct IUIAnimationTimerEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnPreUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnPostUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnRenderingTooSlow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framespersecond: u32) -> ::windows_core::HRESULT,
+    pub OnPreUpdate: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnPostUpdate: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnRenderingTooSlow: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationTimerUpdateHandler, IUIAnimationTimerUpdateHandler_Vtbl, 0x195509b7_5d5e_4e3e_b278_ee3759b367ad);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationTimerUpdateHandler, ::windows_core::IUnknown);
@@ -806,9 +806,9 @@ impl IUIAnimationTimerUpdateHandler {
 #[doc(hidden)]
 pub struct IUIAnimationTimerUpdateHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timenow: f64, result: *mut UI_ANIMATION_UPDATE_RESULT) -> ::windows_core::HRESULT,
-    pub SetTimerClientEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ClearTimerClientEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnUpdate: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut UI_ANIMATION_UPDATE_RESULT) -> ::windows_core::HRESULT,
+    pub SetTimerClientEventHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ClearTimerClientEventHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationTransition, IUIAnimationTransition_Vtbl, 0xdc6ce252_f731_41cf_b610_614b6ca049ad);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationTransition, ::windows_core::IUnknown);
@@ -831,10 +831,10 @@ impl IUIAnimationTransition {
 #[doc(hidden)]
 pub struct IUIAnimationTransition_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetInitialValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
-    pub SetInitialVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, velocity: f64) -> ::windows_core::HRESULT,
-    pub IsDurationKnown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: *mut f64) -> ::windows_core::HRESULT,
+    pub SetInitialValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub SetInitialVelocity: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub IsDurationKnown: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationTransition2, IUIAnimationTransition2_Vtbl, 0x62ff9123_a85a_4e9b_a218_435a93e268fd);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationTransition2, ::windows_core::IUnknown);
@@ -867,13 +867,13 @@ impl IUIAnimationTransition2 {
 #[doc(hidden)]
 pub struct IUIAnimationTransition2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetDimension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dimension: *mut u32) -> ::windows_core::HRESULT,
-    pub SetInitialValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
-    pub SetInitialVectorValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *const f64, cdimension: u32) -> ::windows_core::HRESULT,
-    pub SetInitialVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, velocity: f64) -> ::windows_core::HRESULT,
-    pub SetInitialVectorVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, velocity: *const f64, cdimension: u32) -> ::windows_core::HRESULT,
-    pub IsDurationKnown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: *mut f64) -> ::windows_core::HRESULT,
+    pub GetDimension: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetInitialValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub SetInitialVectorValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const f64, u32) -> ::windows_core::HRESULT,
+    pub SetInitialVelocity: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub SetInitialVectorVelocity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const f64, u32) -> ::windows_core::HRESULT,
+    pub IsDurationKnown: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationTransitionFactory, IUIAnimationTransitionFactory_Vtbl, 0xfcd91e03_3e3b_45ad_bbb1_6dfc8153743d);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationTransitionFactory, ::windows_core::IUnknown);
@@ -890,7 +890,7 @@ impl IUIAnimationTransitionFactory {
 #[doc(hidden)]
 pub struct IUIAnimationTransitionFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interpolator: *mut ::core::ffi::c_void, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationTransitionFactory2, IUIAnimationTransitionFactory2_Vtbl, 0x937d4916_c1a6_42d5_88d8_30344d6efe31);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationTransitionFactory2, ::windows_core::IUnknown);
@@ -907,7 +907,7 @@ impl IUIAnimationTransitionFactory2 {
 #[doc(hidden)]
 pub struct IUIAnimationTransitionFactory2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interpolator: *mut ::core::ffi::c_void, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationTransitionLibrary, IUIAnimationTransitionLibrary_Vtbl, 0xca5a14b1_d24f_48b8_8fe4_c78169ba954e);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationTransitionLibrary, ::windows_core::IUnknown);
@@ -965,18 +965,18 @@ impl IUIAnimationTransitionLibrary {
 #[doc(hidden)]
 pub struct IUIAnimationTransitionLibrary_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateInstantaneousTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, finalvalue: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateConstantTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateDiscreteTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, delay: f64, finalvalue: f64, hold: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateLinearTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateLinearTransitionFromSpeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, speed: f64, finalvalue: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateSinusoidalTransitionFromVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, period: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateSinusoidalTransitionFromRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, minimumvalue: f64, maximumvalue: f64, period: f64, slope: UI_ANIMATION_SLOPE, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateAccelerateDecelerateTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: f64, accelerationratio: f64, decelerationratio: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateReversalTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateCubicTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: f64, finalvelocity: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateSmoothStopTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maximumduration: f64, finalvalue: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateParabolicTransitionFromAcceleration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, finalvalue: f64, finalvelocity: f64, acceleration: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstantaneousTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateConstantTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDiscreteTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateLinearTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateLinearTransitionFromSpeed: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSinusoidalTransitionFromVelocity: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSinusoidalTransitionFromRange: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64, f64, f64, UI_ANIMATION_SLOPE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAccelerateDecelerateTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64, f64, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateReversalTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateCubicTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSmoothStopTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateParabolicTransitionFromAcceleration: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationTransitionLibrary2, IUIAnimationTransitionLibrary2_Vtbl, 0x03cfae53_9580_4ee3_b363_2ece51b4af6a);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationTransitionLibrary2, ::windows_core::IUnknown);
@@ -1062,25 +1062,25 @@ impl IUIAnimationTransitionLibrary2 {
 #[doc(hidden)]
 pub struct IUIAnimationTransitionLibrary2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateInstantaneousTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, finalvalue: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateInstantaneousVectorTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, finalvalue: *const f64, cdimension: u32, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateConstantTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateDiscreteTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, delay: f64, finalvalue: f64, hold: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateDiscreteVectorTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, delay: f64, finalvalue: *const f64, cdimension: u32, hold: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateLinearTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateLinearVectorTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: *const f64, cdimension: u32, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateLinearTransitionFromSpeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, speed: f64, finalvalue: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateLinearVectorTransitionFromSpeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, speed: f64, finalvalue: *const f64, cdimension: u32, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateSinusoidalTransitionFromVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, period: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateSinusoidalTransitionFromRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, minimumvalue: f64, maximumvalue: f64, period: f64, slope: UI_ANIMATION_SLOPE, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateAccelerateDecelerateTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: f64, accelerationratio: f64, decelerationratio: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateReversalTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateCubicTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: f64, finalvelocity: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateCubicVectorTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: *const f64, finalvelocity: *const f64, cdimension: u32, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateSmoothStopTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maximumduration: f64, finalvalue: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateParabolicTransitionFromAcceleration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, finalvalue: f64, finalvelocity: f64, acceleration: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateCubicBezierLinearTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: f64, x1: f64, y1: f64, x2: f64, y2: f64, pptransition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateCubicBezierLinearVectorTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: *const f64, cdimension: u32, x1: f64, y1: f64, x2: f64, y2: f64, pptransition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstantaneousTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstantaneousVectorTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const f64, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateConstantTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDiscreteTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDiscreteVectorTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *const f64, u32, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateLinearTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateLinearVectorTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *const f64, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateLinearTransitionFromSpeed: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateLinearVectorTransitionFromSpeed: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *const f64, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSinusoidalTransitionFromVelocity: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSinusoidalTransitionFromRange: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64, f64, f64, UI_ANIMATION_SLOPE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAccelerateDecelerateTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64, f64, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateReversalTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateCubicTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateCubicVectorTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *const f64, *const f64, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSmoothStopTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateParabolicTransitionFromAcceleration: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateCubicBezierLinearTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64, f64, f64, f64, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateCubicBezierLinearVectorTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *const f64, u32, f64, f64, f64, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationVariable, IUIAnimationVariable_Vtbl, 0x8ceeb155_2849_4ce5_9448_91ff70e1e4d9);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationVariable, ::windows_core::IUnknown);
@@ -1148,20 +1148,20 @@ impl IUIAnimationVariable {
 #[doc(hidden)]
 pub struct IUIAnimationVariable_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut f64) -> ::windows_core::HRESULT,
-    pub GetFinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, finalvalue: *mut f64) -> ::windows_core::HRESULT,
-    pub GetPreviousValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, previousvalue: *mut f64) -> ::windows_core::HRESULT,
-    pub GetIntegerValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows_core::HRESULT,
-    pub GetFinalIntegerValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, finalvalue: *mut i32) -> ::windows_core::HRESULT,
-    pub GetPreviousIntegerValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, previousvalue: *mut i32) -> ::windows_core::HRESULT,
-    pub GetCurrentStoryboard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetLowerBound: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bound: f64) -> ::windows_core::HRESULT,
-    pub SetUpperBound: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bound: f64) -> ::windows_core::HRESULT,
-    pub SetRoundingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: UI_ANIMATION_ROUNDING_MODE) -> ::windows_core::HRESULT,
-    pub SetTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32) -> ::windows_core::HRESULT,
-    pub GetTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void, id: *mut u32) -> ::windows_core::HRESULT,
-    pub SetVariableChangeHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetVariableIntegerChangeHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub GetFinalValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub GetPreviousValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub GetIntegerValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub GetFinalIntegerValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub GetPreviousIntegerValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub GetCurrentStoryboard: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetLowerBound: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub SetUpperBound: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub SetRoundingMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, UI_ANIMATION_ROUNDING_MODE) -> ::windows_core::HRESULT,
+    pub SetTag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetTag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetVariableChangeHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetVariableIntegerChangeHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationVariable2, IUIAnimationVariable2_Vtbl, 0x4914b304_96ab_44d9_9e77_d5109b7e7466);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationVariable2, ::windows_core::IUnknown);
@@ -1278,38 +1278,38 @@ impl IUIAnimationVariable2 {
 #[doc(hidden)]
 pub struct IUIAnimationVariable2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetDimension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dimension: *mut u32) -> ::windows_core::HRESULT,
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut f64) -> ::windows_core::HRESULT,
-    pub GetVectorValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut f64, cdimension: u32) -> ::windows_core::HRESULT,
+    pub GetDimension: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub GetVectorValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64, u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_DirectComposition")]
-    pub GetCurve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCurve: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectComposition"))]
     GetCurve: usize,
     #[cfg(feature = "Win32_Graphics_DirectComposition")]
-    pub GetVectorCurve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *const *mut ::core::ffi::c_void, cdimension: u32) -> ::windows_core::HRESULT,
+    pub GetVectorCurve: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectComposition"))]
     GetVectorCurve: usize,
-    pub GetFinalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, finalvalue: *mut f64) -> ::windows_core::HRESULT,
-    pub GetFinalVectorValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, finalvalue: *mut f64, cdimension: u32) -> ::windows_core::HRESULT,
-    pub GetPreviousValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, previousvalue: *mut f64) -> ::windows_core::HRESULT,
-    pub GetPreviousVectorValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, previousvalue: *mut f64, cdimension: u32) -> ::windows_core::HRESULT,
-    pub GetIntegerValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows_core::HRESULT,
-    pub GetIntegerVectorValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32, cdimension: u32) -> ::windows_core::HRESULT,
-    pub GetFinalIntegerValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, finalvalue: *mut i32) -> ::windows_core::HRESULT,
-    pub GetFinalIntegerVectorValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, finalvalue: *mut i32, cdimension: u32) -> ::windows_core::HRESULT,
-    pub GetPreviousIntegerValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, previousvalue: *mut i32) -> ::windows_core::HRESULT,
-    pub GetPreviousIntegerVectorValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, previousvalue: *mut i32, cdimension: u32) -> ::windows_core::HRESULT,
-    pub GetCurrentStoryboard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetLowerBound: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bound: f64) -> ::windows_core::HRESULT,
-    pub SetLowerBoundVector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bound: *const f64, cdimension: u32) -> ::windows_core::HRESULT,
-    pub SetUpperBound: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bound: f64) -> ::windows_core::HRESULT,
-    pub SetUpperBoundVector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bound: *const f64, cdimension: u32) -> ::windows_core::HRESULT,
-    pub SetRoundingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: UI_ANIMATION_ROUNDING_MODE) -> ::windows_core::HRESULT,
-    pub SetTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void, id: u32) -> ::windows_core::HRESULT,
-    pub GetTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut *mut ::core::ffi::c_void, id: *mut u32) -> ::windows_core::HRESULT,
-    pub SetVariableChangeHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetVariableIntegerChangeHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, fregisterfornextanimationevent: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetVariableCurveChangeHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetFinalValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub GetFinalVectorValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64, u32) -> ::windows_core::HRESULT,
+    pub GetPreviousValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub GetPreviousVectorValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64, u32) -> ::windows_core::HRESULT,
+    pub GetIntegerValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub GetIntegerVectorValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32, u32) -> ::windows_core::HRESULT,
+    pub GetFinalIntegerValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub GetFinalIntegerVectorValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32, u32) -> ::windows_core::HRESULT,
+    pub GetPreviousIntegerValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub GetPreviousIntegerVectorValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32, u32) -> ::windows_core::HRESULT,
+    pub GetCurrentStoryboard: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetLowerBound: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub SetLowerBoundVector: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const f64, u32) -> ::windows_core::HRESULT,
+    pub SetUpperBound: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub SetUpperBoundVector: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const f64, u32) -> ::windows_core::HRESULT,
+    pub SetRoundingMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, UI_ANIMATION_ROUNDING_MODE) -> ::windows_core::HRESULT,
+    pub SetTag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetTag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetVariableChangeHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetVariableIntegerChangeHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetVariableCurveChangeHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationVariableChangeHandler, IUIAnimationVariableChangeHandler_Vtbl, 0x6358b7ba_87d2_42d5_bf71_82e919dd5862);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationVariableChangeHandler, ::windows_core::IUnknown);
@@ -1326,7 +1326,7 @@ impl IUIAnimationVariableChangeHandler {
 #[doc(hidden)]
 pub struct IUIAnimationVariableChangeHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnValueChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void, newvalue: f64, previousvalue: f64) -> ::windows_core::HRESULT,
+    pub OnValueChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, f64, f64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationVariableChangeHandler2, IUIAnimationVariableChangeHandler2_Vtbl, 0x63acc8d2_6eae_4bb0_b879_586dd8cfbe42);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationVariableChangeHandler2, ::windows_core::IUnknown);
@@ -1343,7 +1343,7 @@ impl IUIAnimationVariableChangeHandler2 {
 #[doc(hidden)]
 pub struct IUIAnimationVariableChangeHandler2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnValueChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void, newvalue: *const f64, previousvalue: *const f64, cdimension: u32) -> ::windows_core::HRESULT,
+    pub OnValueChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const f64, *const f64, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationVariableCurveChangeHandler2, IUIAnimationVariableCurveChangeHandler2_Vtbl, 0x72895e91_0145_4c21_9192_5aab40eddf80);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationVariableCurveChangeHandler2, ::windows_core::IUnknown);
@@ -1359,7 +1359,7 @@ impl IUIAnimationVariableCurveChangeHandler2 {
 #[doc(hidden)]
 pub struct IUIAnimationVariableCurveChangeHandler2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnCurveChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnCurveChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationVariableIntegerChangeHandler, IUIAnimationVariableIntegerChangeHandler_Vtbl, 0xbb3e1550_356e_44b0_99da_85ac6017865e);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationVariableIntegerChangeHandler, ::windows_core::IUnknown);
@@ -1376,7 +1376,7 @@ impl IUIAnimationVariableIntegerChangeHandler {
 #[doc(hidden)]
 pub struct IUIAnimationVariableIntegerChangeHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnIntegerValueChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void, newvalue: i32, previousvalue: i32) -> ::windows_core::HRESULT,
+    pub OnIntegerValueChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, i32, i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIAnimationVariableIntegerChangeHandler2, IUIAnimationVariableIntegerChangeHandler2_Vtbl, 0x829b6cf1_4f3a_4412_ae09_b243eb4c6b58);
 ::windows_core::imp::interface_hierarchy!(IUIAnimationVariableIntegerChangeHandler2, ::windows_core::IUnknown);
@@ -1393,7 +1393,7 @@ impl IUIAnimationVariableIntegerChangeHandler2 {
 #[doc(hidden)]
 pub struct IUIAnimationVariableIntegerChangeHandler2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnIntegerValueChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void, newvalue: *const i32, previousvalue: *const i32, cdimension: u32) -> ::windows_core::HRESULT,
+    pub OnIntegerValueChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const i32, *const i32, u32) -> ::windows_core::HRESULT,
 }
 pub const UIAnimationManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c1fc63a_695c_47e8_a339_1a194be3d0b8);
 pub const UIAnimationManager2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd25d8842_8884_4a4a_b321_091314379bdd);

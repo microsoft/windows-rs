@@ -29,7 +29,7 @@ impl IRendezvousApplication {
 #[doc(hidden)]
 pub struct IRendezvousApplication_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetRendezvousSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prendezvoussession: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetRendezvousSession: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRendezvousSession, IRendezvousSession_Vtbl, 0x9ba4b1dd_8b0c_48b7_9e7c_2f25857c8df5);
 ::windows_core::imp::interface_hierarchy!(IRendezvousSession, ::windows_core::IUnknown);
@@ -63,11 +63,11 @@ impl IRendezvousSession {
 #[doc(hidden)]
 pub struct IRendezvousSession_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psessionstate: *mut RENDEZVOUS_SESSION_STATE) -> ::windows_core::HRESULT,
-    pub RemoteUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Flags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflags: *mut i32) -> ::windows_core::HRESULT,
-    pub SendContextData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdata: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Terminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows_core::HRESULT, bstrappdata: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub State: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut RENDEZVOUS_SESSION_STATE) -> ::windows_core::HRESULT,
+    pub RemoteUser: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Flags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SendContextData: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Terminate: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 pub const DISPID_EVENT_ON_CONTEXT_DATA: u32 = 7u32;
 pub const DISPID_EVENT_ON_SEND_ERROR: u32 = 8u32;

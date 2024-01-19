@@ -4,7 +4,7 @@
 pub struct IDetectedFace_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Imaging")]
-    pub FaceBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapBounds) -> ::windows_core::HRESULT,
+    pub FaceBox: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Graphics::Imaging::BitmapBounds) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     FaceBox: usize,
 }
@@ -14,27 +14,27 @@ pub struct IDetectedFace_Vtbl {
 pub struct IFaceDetector_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
-    pub DetectFacesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, image: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DetectFacesAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Imaging")))]
     DetectFacesAsync: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
-    pub DetectFacesWithSearchAreaAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, image: *mut ::core::ffi::c_void, searcharea: super::super::Graphics::Imaging::BitmapBounds, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DetectFacesWithSearchAreaAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Graphics::Imaging::BitmapBounds, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Imaging")))]
     DetectFacesWithSearchAreaAsync: usize,
     #[cfg(feature = "Graphics_Imaging")]
-    pub MinDetectableFaceSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapSize) -> ::windows_core::HRESULT,
+    pub MinDetectableFaceSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Graphics::Imaging::BitmapSize) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     MinDetectableFaceSize: usize,
     #[cfg(feature = "Graphics_Imaging")]
-    pub SetMinDetectableFaceSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Imaging::BitmapSize) -> ::windows_core::HRESULT,
+    pub SetMinDetectableFaceSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Graphics::Imaging::BitmapSize) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     SetMinDetectableFaceSize: usize,
     #[cfg(feature = "Graphics_Imaging")]
-    pub MaxDetectableFaceSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapSize) -> ::windows_core::HRESULT,
+    pub MaxDetectableFaceSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Graphics::Imaging::BitmapSize) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     MaxDetectableFaceSize: usize,
     #[cfg(feature = "Graphics_Imaging")]
-    pub SetMaxDetectableFaceSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Imaging::BitmapSize) -> ::windows_core::HRESULT,
+    pub SetMaxDetectableFaceSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Graphics::Imaging::BitmapSize) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     SetMaxDetectableFaceSize: usize,
 }
@@ -43,16 +43,16 @@ pub struct IFaceDetector_Vtbl {
 #[doc(hidden)]
 pub struct IFaceDetectorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
-    pub GetSupportedBitmapPixelFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetSupportedBitmapPixelFormats: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Imaging")))]
     GetSupportedBitmapPixelFormats: usize,
     #[cfg(feature = "Graphics_Imaging")]
-    pub IsBitmapPixelFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsBitmapPixelFormatSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Graphics::Imaging::BitmapPixelFormat, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     IsBitmapPixelFormatSupported: usize,
-    pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFaceTracker, IFaceTracker_Vtbl, 0x6ba67d8c_a841_4420_93e6_2420a1884fcf);
 #[repr(C)]
@@ -60,23 +60,23 @@ pub struct IFaceDetectorStatics_Vtbl {
 pub struct IFaceTracker_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub ProcessNextFrameAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, videoframe: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ProcessNextFrameAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     ProcessNextFrameAsync: usize,
     #[cfg(feature = "Graphics_Imaging")]
-    pub MinDetectableFaceSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapSize) -> ::windows_core::HRESULT,
+    pub MinDetectableFaceSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Graphics::Imaging::BitmapSize) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     MinDetectableFaceSize: usize,
     #[cfg(feature = "Graphics_Imaging")]
-    pub SetMinDetectableFaceSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Imaging::BitmapSize) -> ::windows_core::HRESULT,
+    pub SetMinDetectableFaceSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Graphics::Imaging::BitmapSize) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     SetMinDetectableFaceSize: usize,
     #[cfg(feature = "Graphics_Imaging")]
-    pub MaxDetectableFaceSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapSize) -> ::windows_core::HRESULT,
+    pub MaxDetectableFaceSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Graphics::Imaging::BitmapSize) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     MaxDetectableFaceSize: usize,
     #[cfg(feature = "Graphics_Imaging")]
-    pub SetMaxDetectableFaceSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Imaging::BitmapSize) -> ::windows_core::HRESULT,
+    pub SetMaxDetectableFaceSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Graphics::Imaging::BitmapSize) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     SetMaxDetectableFaceSize: usize,
 }
@@ -85,16 +85,16 @@ pub struct IFaceTracker_Vtbl {
 #[doc(hidden)]
 pub struct IFaceTrackerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
-    pub GetSupportedBitmapPixelFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetSupportedBitmapPixelFormats: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Imaging")))]
     GetSupportedBitmapPixelFormats: usize,
     #[cfg(feature = "Graphics_Imaging")]
-    pub IsBitmapPixelFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsBitmapPixelFormatSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Graphics::Imaging::BitmapPixelFormat, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     IsBitmapPixelFormatSupported: usize,
-    pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

@@ -14,7 +14,7 @@ impl IRadialControllerConfigurationInterop {
 #[doc(hidden)]
 pub struct IRadialControllerConfigurationInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetForWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::HWND, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRadialControllerIndependentInputSourceInterop, IRadialControllerIndependentInputSourceInterop_Vtbl, 0x3d577eff_4cee_11e6_b535_001bdc06ab3b);
 ::windows_core::imp::interface_hierarchy!(IRadialControllerIndependentInputSourceInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -32,7 +32,7 @@ impl IRadialControllerIndependentInputSourceInterop {
 #[doc(hidden)]
 pub struct IRadialControllerIndependentInputSourceInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateForWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::HWND, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRadialControllerInterop, IRadialControllerInterop_Vtbl, 0x1b0535c9_57ad_45c1_9d79_ad5c34360513);
 ::windows_core::imp::interface_hierarchy!(IRadialControllerInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -50,7 +50,7 @@ impl IRadialControllerInterop {
 #[doc(hidden)]
 pub struct IRadialControllerInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateForWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::HWND, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

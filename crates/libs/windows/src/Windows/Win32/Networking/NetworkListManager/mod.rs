@@ -39,17 +39,17 @@ impl IEnumNetworkConnections {
 pub struct IEnumNetworkConnections_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumvar: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Next: usize,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumnetwork: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
@@ -94,17 +94,17 @@ impl IEnumNetworks {
 pub struct IEnumNetworks_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Ole")]
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumvar: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Next: usize,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumnetwork: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
@@ -181,22 +181,22 @@ impl INetwork {
 #[doc(hidden)]
 pub struct INetwork_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psznetworkname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sznetworknewname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdescription: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szdescription: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetNetworkId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgdguidnetworkid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetDomainType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnetworktype: *mut NLM_DOMAIN_TYPE) -> ::windows_core::HRESULT,
+    pub GetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetNetworkId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetDomainType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NLM_DOMAIN_TYPE) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetNetworkConnections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumnetworkconnection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNetworkConnections: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetNetworkConnections: usize,
-    pub GetTimeCreatedAndConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlowdatetimecreated: *mut u32, pdwhighdatetimecreated: *mut u32, pdwlowdatetimeconnected: *mut u32, pdwhighdatetimeconnected: *mut u32) -> ::windows_core::HRESULT,
-    pub IsConnectedToInternet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub IsConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub GetConnectivity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconnectivity: *mut NLM_CONNECTIVITY) -> ::windows_core::HRESULT,
-    pub GetCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcategory: *mut NLM_NETWORK_CATEGORY) -> ::windows_core::HRESULT,
-    pub SetCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcategory: NLM_NETWORK_CATEGORY) -> ::windows_core::HRESULT,
+    pub GetTimeCreatedAndConnected: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub IsConnectedToInternet: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub IsConnected: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub GetConnectivity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NLM_CONNECTIVITY) -> ::windows_core::HRESULT,
+    pub GetCategory: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NLM_NETWORK_CATEGORY) -> ::windows_core::HRESULT,
+    pub SetCategory: unsafe extern "system" fn(*mut ::core::ffi::c_void, NLM_NETWORK_CATEGORY) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -275,7 +275,7 @@ impl INetwork2 {
 #[doc(hidden)]
 pub struct INetwork2_Vtbl {
     pub base__: INetwork_Vtbl,
-    pub IsDomainAuthenticatedBy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND, pvalue: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub IsDomainAuthenticatedBy: unsafe extern "system" fn(*mut ::core::ffi::c_void, NLM_DOMAIN_AUTHENTICATION_KIND, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -325,15 +325,15 @@ impl INetworkConnection {
 pub struct INetworkConnection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetNetwork: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnetwork: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNetwork: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetNetwork: usize,
-    pub IsConnectedToInternet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub IsConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub GetConnectivity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconnectivity: *mut NLM_CONNECTIVITY) -> ::windows_core::HRESULT,
-    pub GetConnectionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgdconnectionid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetAdapterId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgdadapterid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetDomainType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdomaintype: *mut NLM_DOMAIN_TYPE) -> ::windows_core::HRESULT,
+    pub IsConnectedToInternet: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub IsConnected: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub GetConnectivity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NLM_CONNECTIVITY) -> ::windows_core::HRESULT,
+    pub GetConnectionId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetAdapterId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetDomainType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NLM_DOMAIN_TYPE) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -386,7 +386,7 @@ impl INetworkConnection2 {
 #[doc(hidden)]
 pub struct INetworkConnection2_Vtbl {
     pub base__: INetworkConnection_Vtbl,
-    pub IsDomainAuthenticatedBy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND, pvalue: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub IsDomainAuthenticatedBy: unsafe extern "system" fn(*mut ::core::ffi::c_void, NLM_DOMAIN_AUTHENTICATION_KIND, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INetworkConnectionCost, INetworkConnectionCost_Vtbl, 0xdcb0000a_570f_4a9b_8d69_199fdba5723b);
 ::windows_core::imp::interface_hierarchy!(INetworkConnectionCost, ::windows_core::IUnknown);
@@ -403,8 +403,8 @@ impl INetworkConnectionCost {
 #[doc(hidden)]
 pub struct INetworkConnectionCost_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcost: *mut u32) -> ::windows_core::HRESULT,
-    pub GetDataPlanStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataplanstatus: *mut NLM_DATAPLAN_STATUS) -> ::windows_core::HRESULT,
+    pub GetCost: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetDataPlanStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NLM_DATAPLAN_STATUS) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INetworkConnectionCostEvents, INetworkConnectionCostEvents_Vtbl, 0xdcb0000b_570f_4a9b_8d69_199fdba5723b);
 ::windows_core::imp::interface_hierarchy!(INetworkConnectionCostEvents, ::windows_core::IUnknown);
@@ -420,8 +420,8 @@ impl INetworkConnectionCostEvents {
 #[doc(hidden)]
 pub struct INetworkConnectionCostEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ConnectionCostChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: ::windows_core::GUID, newcost: u32) -> ::windows_core::HRESULT,
-    pub ConnectionDataPlanStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub ConnectionCostChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, u32) -> ::windows_core::HRESULT,
+    pub ConnectionDataPlanStatusChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INetworkConnectionEvents, INetworkConnectionEvents_Vtbl, 0xdcb00007_570f_4a9b_8d69_199fdba5723b);
 ::windows_core::imp::interface_hierarchy!(INetworkConnectionEvents, ::windows_core::IUnknown);
@@ -437,8 +437,8 @@ impl INetworkConnectionEvents {
 #[doc(hidden)]
 pub struct INetworkConnectionEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub NetworkConnectionConnectivityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: ::windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> ::windows_core::HRESULT,
-    pub NetworkConnectionPropertyChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: ::windows_core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> ::windows_core::HRESULT,
+    pub NetworkConnectionConnectivityChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, NLM_CONNECTIVITY) -> ::windows_core::HRESULT,
+    pub NetworkConnectionPropertyChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, NLM_CONNECTION_PROPERTY_CHANGE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INetworkCostManager, INetworkCostManager_Vtbl, 0xdcb00008_570f_4a9b_8d69_199fdba5723b);
 ::windows_core::imp::interface_hierarchy!(INetworkCostManager, ::windows_core::IUnknown);
@@ -460,9 +460,9 @@ impl INetworkCostManager {
 #[doc(hidden)]
 pub struct INetworkCostManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcost: *mut u32, pdestipaddr: *const NLM_SOCKADDR) -> ::windows_core::HRESULT,
-    pub GetDataPlanStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> ::windows_core::HRESULT,
-    pub SetDestinationAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: u32, pdestipaddrlist: *const NLM_SOCKADDR, bappend: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub GetCost: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *const NLM_SOCKADDR) -> ::windows_core::HRESULT,
+    pub GetDataPlanStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NLM_DATAPLAN_STATUS, *const NLM_SOCKADDR) -> ::windows_core::HRESULT,
+    pub SetDestinationAddresses: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const NLM_SOCKADDR, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INetworkCostManagerEvents, INetworkCostManagerEvents_Vtbl, 0xdcb00009_570f_4a9b_8d69_199fdba5723b);
 ::windows_core::imp::interface_hierarchy!(INetworkCostManagerEvents, ::windows_core::IUnknown);
@@ -478,8 +478,8 @@ impl INetworkCostManagerEvents {
 #[doc(hidden)]
 pub struct INetworkCostManagerEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CostChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcost: u32, pdestaddr: *const NLM_SOCKADDR) -> ::windows_core::HRESULT,
-    pub DataPlanStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestaddr: *const NLM_SOCKADDR) -> ::windows_core::HRESULT,
+    pub CostChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const NLM_SOCKADDR) -> ::windows_core::HRESULT,
+    pub DataPlanStatusChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const NLM_SOCKADDR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INetworkEvents, INetworkEvents_Vtbl, 0xdcb00004_570f_4a9b_8d69_199fdba5723b);
 ::windows_core::imp::interface_hierarchy!(INetworkEvents, ::windows_core::IUnknown);
@@ -501,10 +501,10 @@ impl INetworkEvents {
 #[doc(hidden)]
 pub struct INetworkEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub NetworkAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networkid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub NetworkDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networkid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub NetworkConnectivityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networkid: ::windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> ::windows_core::HRESULT,
-    pub NetworkPropertyChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networkid: ::windows_core::GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> ::windows_core::HRESULT,
+    pub NetworkAdded: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub NetworkDeleted: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub NetworkConnectivityChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, NLM_CONNECTIVITY) -> ::windows_core::HRESULT,
+    pub NetworkPropertyChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, NLM_NETWORK_PROPERTY_CHANGE) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -566,26 +566,26 @@ impl INetworkListManager {
 pub struct INetworkListManager_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetNetworks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: NLM_ENUM_NETWORK, ppenumnetwork: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNetworks: unsafe extern "system" fn(*mut ::core::ffi::c_void, NLM_ENUM_NETWORK, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetNetworks: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetNetwork: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gdnetworkid: ::windows_core::GUID, ppnetwork: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNetwork: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetNetwork: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetNetworkConnections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNetworkConnections: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetNetworkConnections: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetNetworkConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gdnetworkconnectionid: ::windows_core::GUID, ppnetworkconnection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNetworkConnection: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetNetworkConnection: usize,
-    pub IsConnectedToInternet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub IsConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbisconnected: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub GetConnectivity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconnectivity: *mut NLM_CONNECTIVITY) -> ::windows_core::HRESULT,
-    pub SetSimulatedProfileInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> ::windows_core::HRESULT,
-    pub ClearSimulatedProfileInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsConnectedToInternet: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub IsConnected: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub GetConnectivity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NLM_CONNECTIVITY) -> ::windows_core::HRESULT,
+    pub SetSimulatedProfileInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const NLM_SIMULATED_PROFILE_INFO) -> ::windows_core::HRESULT,
+    pub ClearSimulatedProfileInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INetworkListManagerEvents, INetworkListManagerEvents_Vtbl, 0xdcb00001_570f_4a9b_8d69_199fdba5723b);
 ::windows_core::imp::interface_hierarchy!(INetworkListManagerEvents, ::windows_core::IUnknown);
@@ -598,7 +598,7 @@ impl INetworkListManagerEvents {
 #[doc(hidden)]
 pub struct INetworkListManagerEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ConnectivityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newconnectivity: NLM_CONNECTIVITY) -> ::windows_core::HRESULT,
+    pub ConnectivityChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, NLM_CONNECTIVITY) -> ::windows_core::HRESULT,
 }
 pub const NA_AllowMerge: ::windows_core::PCWSTR = ::windows_core::w!("NA_AllowMerge");
 pub const NA_CategoryReadOnly: ::windows_core::PCWSTR = ::windows_core::w!("NA_CategoryReadOnly");

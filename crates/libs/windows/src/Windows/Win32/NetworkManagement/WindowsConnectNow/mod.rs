@@ -12,8 +12,8 @@ impl IWCNConnectNotify {
 #[doc(hidden)]
 pub struct IWCNConnectNotify_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ConnectSucceeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ConnectFailed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrfailure: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub ConnectSucceeded: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ConnectFailed: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWCNDevice, IWCNDevice_Vtbl, 0xc100be9c_d33a_4a4b_bf23_bbef4663d017);
 ::windows_core::imp::interface_hierarchy!(IWCNDevice, ::windows_core::IUnknown);
@@ -74,17 +74,17 @@ impl IWCNDevice {
 #[doc(hidden)]
 pub struct IWCNDevice_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetPassword: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WCN_PASSWORD_TYPE, dwpasswordlength: u32, pbpassword: *const u8) -> ::windows_core::HRESULT,
-    pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnotify: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributetype: WCN_ATTRIBUTE_TYPE, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows_core::HRESULT,
-    pub GetIntegerAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributetype: WCN_ATTRIBUTE_TYPE, puinteger: *mut u32) -> ::windows_core::HRESULT,
-    pub GetStringAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributetype: WCN_ATTRIBUTE_TYPE, cchmaxstring: u32, wszstring: ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetNetworkProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchmaxstringlength: u32, wszprofile: ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetNetworkProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszprofilexml: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetVendorExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, dwmaxbuffersize: u32, pbbuffer: *mut u8, pdwbufferused: *mut u32) -> ::windows_core::HRESULT,
-    pub SetVendorExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvendorextspec: *const WCN_VENDOR_EXTENSION_SPEC, cbbuffer: u32, pbbuffer: *const u8) -> ::windows_core::HRESULT,
-    pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetNFCPasswordParams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WCN_PASSWORD_TYPE, dwoobpasswordid: u32, dwpasswordlength: u32, pbpassword: *const u8, dwremotepublickeyhashlength: u32, pbremotepublickeyhash: *const u8, dwdhkeybloblength: u32, pbdhkeyblob: *const u8) -> ::windows_core::HRESULT,
+    pub SetPassword: unsafe extern "system" fn(*mut ::core::ffi::c_void, WCN_PASSWORD_TYPE, u32, *const u8) -> ::windows_core::HRESULT,
+    pub Connect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAttribute: unsafe extern "system" fn(*mut ::core::ffi::c_void, WCN_ATTRIBUTE_TYPE, u32, *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub GetIntegerAttribute: unsafe extern "system" fn(*mut ::core::ffi::c_void, WCN_ATTRIBUTE_TYPE, *mut u32) -> ::windows_core::HRESULT,
+    pub GetStringAttribute: unsafe extern "system" fn(*mut ::core::ffi::c_void, WCN_ATTRIBUTE_TYPE, u32, ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetNetworkProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetNetworkProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetVendorExtension: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WCN_VENDOR_EXTENSION_SPEC, u32, *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub SetVendorExtension: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WCN_VENDOR_EXTENSION_SPEC, u32, *const u8) -> ::windows_core::HRESULT,
+    pub Unadvise: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetNFCPasswordParams: unsafe extern "system" fn(*mut ::core::ffi::c_void, WCN_PASSWORD_TYPE, u32, u32, *const u8, u32, *const u8, u32, *const u8) -> ::windows_core::HRESULT,
 }
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]

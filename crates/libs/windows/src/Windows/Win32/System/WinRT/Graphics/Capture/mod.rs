@@ -24,9 +24,9 @@ impl IGraphicsCaptureItemInterop {
 #[doc(hidden)]
 pub struct IGraphicsCaptureItemInterop_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: super::super::super::super::Foundation::HWND, riid: *const ::windows_core::GUID, result: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateForWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::super::Foundation::HWND, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub CreateForMonitor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, monitor: super::super::super::super::Graphics::Gdi::HMONITOR, riid: *const ::windows_core::GUID, result: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateForMonitor: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::super::Graphics::Gdi::HMONITOR, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     CreateForMonitor: usize,
 }

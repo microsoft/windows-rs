@@ -146,20 +146,20 @@ impl IFhConfigMgr {
 #[doc(hidden)]
 pub struct IFhConfigMgr_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub LoadConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateDefaultConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overwriteifexists: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SaveConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AddRemoveExcludeRule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, add: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, item: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetIncludeExcludeRules: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, include: super::super::Foundation::BOOL, category: FH_PROTECTED_ITEM_CATEGORY, iterator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetLocalPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: *mut u64) -> ::windows_core::HRESULT,
-    pub SetLocalPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localpolicytype: FH_LOCAL_POLICY_TYPE, policyvalue: u64) -> ::windows_core::HRESULT,
-    pub GetBackupStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, backupstatus: *mut FH_BACKUP_STATUS) -> ::windows_core::HRESULT,
-    pub SetBackupStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, backupstatus: FH_BACKUP_STATUS) -> ::windows_core::HRESULT,
-    pub GetDefaultTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, defaulttarget: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ValidateTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: ::std::mem::MaybeUninit<::windows_core::BSTR>, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows_core::HRESULT,
-    pub ProvisionAndSetNewTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: ::std::mem::MaybeUninit<::windows_core::BSTR>, targetname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ChangeDefaultTargetRecommendation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recommend: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub QueryProtectionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protectionstate: *mut u32, protecteduntiltime: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub LoadConfiguration: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDefaultConfiguration: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SaveConfiguration: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddRemoveExcludeRule: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL, FH_PROTECTED_ITEM_CATEGORY, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetIncludeExcludeRules: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL, FH_PROTECTED_ITEM_CATEGORY, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetLocalPolicy: unsafe extern "system" fn(*mut ::core::ffi::c_void, FH_LOCAL_POLICY_TYPE, *mut u64) -> ::windows_core::HRESULT,
+    pub SetLocalPolicy: unsafe extern "system" fn(*mut ::core::ffi::c_void, FH_LOCAL_POLICY_TYPE, u64) -> ::windows_core::HRESULT,
+    pub GetBackupStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut FH_BACKUP_STATUS) -> ::windows_core::HRESULT,
+    pub SetBackupStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, FH_BACKUP_STATUS) -> ::windows_core::HRESULT,
+    pub GetDefaultTarget: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ValidateTarget: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows_core::HRESULT,
+    pub ProvisionAndSetNewTarget: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ChangeDefaultTargetRecommendation: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub QueryProtectionStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFhReassociation, IFhReassociation_Vtbl, 0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee);
 ::windows_core::imp::interface_hierarchy!(IFhReassociation, ::windows_core::IUnknown);
@@ -194,11 +194,11 @@ impl IFhReassociation {
 #[doc(hidden)]
 pub struct IFhReassociation_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ValidateTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: ::std::mem::MaybeUninit<::windows_core::BSTR>, validationresult: *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows_core::HRESULT,
-    pub ScanTargetForConfigurations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targeturl: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetConfigurationDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, username: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pcname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, backuptime: *mut super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
-    pub SelectConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows_core::HRESULT,
-    pub PerformReassociation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overwriteifexists: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub ValidateTarget: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut FH_DEVICE_VALIDATION_RESULT) -> ::windows_core::HRESULT,
+    pub ScanTargetForConfigurations: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetConfigurationDetails: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
+    pub SelectConfiguration: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub PerformReassociation: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFhScopeIterator, IFhScopeIterator_Vtbl, 0x3197abce_532a_44c6_8615_f3666566a720);
 ::windows_core::imp::interface_hierarchy!(IFhScopeIterator, ::windows_core::IUnknown);
@@ -215,8 +215,8 @@ impl IFhScopeIterator {
 #[doc(hidden)]
 pub struct IFhScopeIterator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub MoveToNextItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub MoveToNextItem: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFhTarget, IFhTarget_Vtbl, 0xd87965fd_2bad_4657_bd3b_9567eb300ced);
 ::windows_core::imp::interface_hierarchy!(IFhTarget, ::windows_core::IUnknown);
@@ -234,8 +234,8 @@ impl IFhTarget {
 #[doc(hidden)]
 pub struct IFhTarget_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetStringProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertytype: FH_TARGET_PROPERTY_TYPE, propertyvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetNumericalProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertytype: FH_TARGET_PROPERTY_TYPE, propertyvalue: *mut u64) -> ::windows_core::HRESULT,
+    pub GetStringProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, FH_TARGET_PROPERTY_TYPE, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetNumericalProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, FH_TARGET_PROPERTY_TYPE, *mut u64) -> ::windows_core::HRESULT,
 }
 pub const BackupCancelled: FhBackupStopReason = FhBackupStopReason(4i32);
 pub const BackupInvalidStopReason: FhBackupStopReason = FhBackupStopReason(0i32);

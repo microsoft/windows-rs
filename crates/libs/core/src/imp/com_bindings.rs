@@ -103,7 +103,7 @@ impl IAgileReference {
 #[doc(hidden)]
 pub struct IAgileReference_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Resolve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppvobjectreference: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Resolve: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IErrorInfo, IErrorInfo_Vtbl, 0x1cf2b120_547d_101b_8e65_08002b2bd119);
 ::windows_core::imp::interface_hierarchy!(IErrorInfo, ::windows_core::IUnknown);
@@ -133,11 +133,11 @@ impl IErrorInfo {
 #[doc(hidden)]
 pub struct IErrorInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetGUID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsource: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdescription: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetHelpFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrhelpfile: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetHelpContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwhelpcontext: *mut u32) -> ::windows_core::HRESULT,
+    pub GetGUID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetSource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetHelpFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetHelpContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILanguageExceptionErrorInfo, ILanguageExceptionErrorInfo_Vtbl, 0x04a2dbf3_df83_116c_0946_0812abf6e07d);
 ::windows_core::imp::interface_hierarchy!(ILanguageExceptionErrorInfo, ::windows_core::IUnknown);
@@ -151,7 +151,7 @@ impl ILanguageExceptionErrorInfo {
 #[doc(hidden)]
 pub struct ILanguageExceptionErrorInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetLanguageException: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageexception: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetLanguageException: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILanguageExceptionErrorInfo2, ILanguageExceptionErrorInfo2_Vtbl, 0x5746e5c4_5b97_424c_b620_2822915734dd);
 ::windows_core::imp::interface_hierarchy!(ILanguageExceptionErrorInfo2, ::windows_core::IUnknown, ILanguageExceptionErrorInfo);
@@ -179,9 +179,9 @@ impl ILanguageExceptionErrorInfo2 {
 #[doc(hidden)]
 pub struct ILanguageExceptionErrorInfo2_Vtbl {
     pub base__: ILanguageExceptionErrorInfo_Vtbl,
-    pub GetPreviousLanguageExceptionErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, previouslanguageexceptionerrorinfo: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CapturePropagationContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageexception: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetPropagationContextHead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propagatedlanguageexceptionerrorinfohead: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPreviousLanguageExceptionErrorInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CapturePropagationContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPropagationContextHead: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyValue, IPropertyValue_Vtbl, 0x4bd682dd_7554_40e9_9a9b_82654ede7e62);
 ::windows_core::imp::interface_hierarchy!(IPropertyValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -410,90 +410,90 @@ impl ::windows_core::RuntimeType for IPropertyValue {
 #[doc(hidden)]
 pub struct IPropertyValue_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PropertyType) -> ::windows_core::HRESULT,
-    pub IsNumericScalar: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub GetUInt8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u8) -> ::windows_core::HRESULT,
-    pub GetInt16: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i16) -> ::windows_core::HRESULT,
-    pub GetUInt16: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT,
-    pub GetInt32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub GetUInt32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub GetInt64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows_core::HRESULT,
-    pub GetUInt64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows_core::HRESULT,
-    pub GetSingle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
-    pub GetDouble: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub GetChar16: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT,
-    pub GetBoolean: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub GetGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetDateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DateTime) -> ::windows_core::HRESULT,
-    pub GetTimeSpan: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TimeSpan) -> ::windows_core::HRESULT,
-    pub GetPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Point) -> ::windows_core::HRESULT,
-    pub GetSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Size) -> ::windows_core::HRESULT,
-    pub GetRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Rect) -> ::windows_core::HRESULT,
-    pub GetUInt8Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut u8) -> ::windows_core::HRESULT,
-    pub GetInt16Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut i16) -> ::windows_core::HRESULT,
-    pub GetUInt16Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut u16) -> ::windows_core::HRESULT,
-    pub GetInt32Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut i32) -> ::windows_core::HRESULT,
-    pub GetUInt32Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut u32) -> ::windows_core::HRESULT,
-    pub GetInt64Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut i64) -> ::windows_core::HRESULT,
-    pub GetUInt64Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut u64) -> ::windows_core::HRESULT,
-    pub GetSingleArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut f32) -> ::windows_core::HRESULT,
-    pub GetDoubleArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut f64) -> ::windows_core::HRESULT,
-    pub GetChar16Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut u16) -> ::windows_core::HRESULT,
-    pub GetBooleanArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut bool) -> ::windows_core::HRESULT,
-    pub GetStringArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub GetInspectableArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetGuidArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetDateTimeArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut DateTime) -> ::windows_core::HRESULT,
-    pub GetTimeSpanArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut TimeSpan) -> ::windows_core::HRESULT,
-    pub GetPointArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut Point) -> ::windows_core::HRESULT,
-    pub GetSizeArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut Size) -> ::windows_core::HRESULT,
-    pub GetRectArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut Rect) -> ::windows_core::HRESULT,
+    pub Type: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PropertyType) -> ::windows_core::HRESULT,
+    pub IsNumericScalar: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub GetUInt8: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8) -> ::windows_core::HRESULT,
+    pub GetInt16: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i16) -> ::windows_core::HRESULT,
+    pub GetUInt16: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
+    pub GetInt32: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub GetUInt32: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetInt64: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
+    pub GetUInt64: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
+    pub GetSingle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
+    pub GetDouble: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub GetChar16: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
+    pub GetBoolean: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub GetString: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub GetGuid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetDateTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DateTime) -> ::windows_core::HRESULT,
+    pub GetTimeSpan: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut TimeSpan) -> ::windows_core::HRESULT,
+    pub GetPoint: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut Point) -> ::windows_core::HRESULT,
+    pub GetSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut Size) -> ::windows_core::HRESULT,
+    pub GetRect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut Rect) -> ::windows_core::HRESULT,
+    pub GetUInt8Array: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut u8) -> ::windows_core::HRESULT,
+    pub GetInt16Array: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut i16) -> ::windows_core::HRESULT,
+    pub GetUInt16Array: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut u16) -> ::windows_core::HRESULT,
+    pub GetInt32Array: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut i32) -> ::windows_core::HRESULT,
+    pub GetUInt32Array: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut u32) -> ::windows_core::HRESULT,
+    pub GetInt64Array: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut i64) -> ::windows_core::HRESULT,
+    pub GetUInt64Array: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut u64) -> ::windows_core::HRESULT,
+    pub GetSingleArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut f32) -> ::windows_core::HRESULT,
+    pub GetDoubleArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut f64) -> ::windows_core::HRESULT,
+    pub GetChar16Array: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut u16) -> ::windows_core::HRESULT,
+    pub GetBooleanArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut bool) -> ::windows_core::HRESULT,
+    pub GetStringArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub GetInspectableArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetGuidArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetDateTimeArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut DateTime) -> ::windows_core::HRESULT,
+    pub GetTimeSpanArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut TimeSpan) -> ::windows_core::HRESULT,
+    pub GetPointArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut Point) -> ::windows_core::HRESULT,
+    pub GetSizeArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut Size) -> ::windows_core::HRESULT,
+    pub GetRectArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut Rect) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyValueStatics, IPropertyValueStatics_Vtbl, 0x629bdbc8_d932_4ff4_96b9_8d96c5c1e858);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyValueStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateEmpty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateUInt8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateInt16: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i16, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateUInt16: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateInt32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateUInt32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateInt64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i64, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateUInt64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u64, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateSingle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateDouble: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateChar16: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateBoolean: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateInspectable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows_core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateDateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: DateTime, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateTimeSpan: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreatePoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Point, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Size, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Rect, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateUInt8Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateInt16Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const i16, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateUInt16Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateInt32Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateUInt32Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateInt64Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const i64, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateUInt64Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u64, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateSingleArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateDoubleArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const f64, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateChar16Array: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateBooleanArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateStringArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateInspectableArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateGuidArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const ::windows_core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateDateTimeArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const DateTime, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateTimeSpanArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreatePointArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const Point, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateSizeArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const Size, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateRectArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const Rect, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateEmpty: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateUInt8: unsafe extern "system" fn(*mut ::core::ffi::c_void, u8, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInt16: unsafe extern "system" fn(*mut ::core::ffi::c_void, i16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateUInt16: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInt32: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateUInt32: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInt64: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateUInt64: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSingle: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDouble: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateChar16: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateBoolean: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateString: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInspectable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateGuid: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDateTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, DateTime, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTimeSpan: unsafe extern "system" fn(*mut ::core::ffi::c_void, TimeSpan, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreatePoint: unsafe extern "system" fn(*mut ::core::ffi::c_void, Point, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, Size, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateRect: unsafe extern "system" fn(*mut ::core::ffi::c_void, Rect, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateUInt8Array: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInt16Array: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateUInt16Array: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInt32Array: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateUInt32Array: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInt64Array: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateUInt64Array: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSingleArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const f32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDoubleArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateChar16Array: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateBooleanArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const bool, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateStringArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInspectableArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateGuidArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDateTimeArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const DateTime, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTimeSpanArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const TimeSpan, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreatePointArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const Point, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSizeArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const Size, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateRectArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const Rect, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -744,7 +744,7 @@ where
     T: ::windows_core::RuntimeType + 'static,
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
 ::windows_core::imp::com_interface!(IRestrictedErrorInfo, IRestrictedErrorInfo_Vtbl, 0x82ba7092_4c88_427d_a7bc_16dd93feb67e);
@@ -764,8 +764,8 @@ unsafe impl ::core::marker::Sync for IRestrictedErrorInfo {}
 #[doc(hidden)]
 pub struct IRestrictedErrorInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetErrorDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, error: *mut ::windows_core::HRESULT, restricteddescription: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, capabilitysid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reference: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetErrorDetails: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::windows_core::HRESULT, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetReference: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IStringable, IStringable_Vtbl, 0x96369f54_8eb6_48f0_abce_c1b211e627c3);
 ::windows_core::imp::interface_hierarchy!(IStringable, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -785,7 +785,7 @@ impl ::windows_core::RuntimeType for IStringable {
 #[doc(hidden)]
 pub struct IStringable_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub ToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub ToString: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWeakReference, IWeakReference_Vtbl, 0x00000037_0000_0000_c000_000000000046);
 ::windows_core::imp::interface_hierarchy!(IWeakReference, ::windows_core::IUnknown);
@@ -802,7 +802,7 @@ impl IWeakReference {
 #[doc(hidden)]
 pub struct IWeakReference_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Resolve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, objectreference: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Resolve: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWeakReferenceSource, IWeakReferenceSource_Vtbl, 0x00000038_0000_0000_c000_000000000046);
 ::windows_core::imp::interface_hierarchy!(IWeakReferenceSource, ::windows_core::IUnknown);
@@ -816,7 +816,7 @@ impl IWeakReferenceSource {
 #[doc(hidden)]
 pub struct IWeakReferenceSource_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetWeakReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, weakreference: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetWeakReference: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const JSCRIPT_E_CANTEXECUTE: ::windows_core::HRESULT = ::windows_core::HRESULT(-1996357631i32);
 #[repr(C)]

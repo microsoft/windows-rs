@@ -126,14 +126,14 @@ impl INSNetSourceCreator {
 #[doc(hidden)]
 pub struct INSNetSourceCreator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateNetSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstreamname: ::windows_core::PCWSTR, pmonitor: *mut ::core::ffi::c_void, pdata: *const u8, pusercontext: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, qwcontext: u64) -> ::windows_core::HRESULT,
-    pub GetNetSourceProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstreamname: ::windows_core::PCWSTR, pppropertiesnode: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetNetSourceSharedNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsharednamespace: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetNetSourceAdminInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstreamname: ::windows_core::PCWSTR, pval: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub GetNumProtocolsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcprotocols: *mut u32) -> ::windows_core::HRESULT,
-    pub GetProtocolName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwprotocolnum: u32, pwszprotocolname: ::windows_core::PWSTR, pcchprotocolname: *mut u16) -> ::windows_core::HRESULT,
-    pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateNetSource: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void, *const u8, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
+    pub GetNetSourceProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNetSourceSharedNamespace: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNetSourceAdminInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub GetNumProtocolsSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetProtocolName: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PWSTR, *mut u16) -> ::windows_core::HRESULT,
+    pub Shutdown: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INSSBuffer, INSSBuffer_Vtbl, 0xe1cd3524_03d7_11d2_9eed_006097d2d7cf);
 ::windows_core::imp::interface_hierarchy!(INSSBuffer, ::windows_core::IUnknown);
@@ -161,11 +161,11 @@ impl INSSBuffer {
 #[doc(hidden)]
 pub struct INSSBuffer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlength: *mut u32) -> ::windows_core::HRESULT,
-    pub SetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlength: u32) -> ::windows_core::HRESULT,
-    pub GetMaxLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlength: *mut u32) -> ::windows_core::HRESULT,
-    pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdwbuffer: *mut *mut u8) -> ::windows_core::HRESULT,
-    pub GetBufferAndLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdwbuffer: *mut *mut u8, pdwlength: *mut u32) -> ::windows_core::HRESULT,
+    pub GetLength: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetLength: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetMaxLength: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut u8) -> ::windows_core::HRESULT,
+    pub GetBufferAndLength: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut u8, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INSSBuffer2, INSSBuffer2_Vtbl, 0x4f528693_1035_43fe_b428_757561ad3a68);
 ::windows_core::imp::interface_hierarchy!(INSSBuffer2, ::windows_core::IUnknown, INSSBuffer);
@@ -200,8 +200,8 @@ impl INSSBuffer2 {
 #[doc(hidden)]
 pub struct INSSBuffer2_Vtbl {
     pub base__: INSSBuffer_Vtbl,
-    pub GetSampleProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbproperties: u32, pbproperties: *mut u8) -> ::windows_core::HRESULT,
-    pub SetSampleProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbproperties: u32, pbproperties: *const u8) -> ::windows_core::HRESULT,
+    pub GetSampleProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u8) -> ::windows_core::HRESULT,
+    pub SetSampleProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INSSBuffer3, INSSBuffer3_Vtbl, 0xc87ceaaf_75be_4bc4_84eb_ac2798507672);
 ::windows_core::imp::interface_hierarchy!(INSSBuffer3, ::windows_core::IUnknown, INSSBuffer, INSSBuffer2);
@@ -242,8 +242,8 @@ impl INSSBuffer3 {
 #[doc(hidden)]
 pub struct INSSBuffer3_Vtbl {
     pub base__: INSSBuffer2_Vtbl,
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidbufferproperty: ::windows_core::GUID, pvbufferproperty: *const ::core::ffi::c_void, dwbufferpropertysize: u32) -> ::windows_core::HRESULT,
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidbufferproperty: ::windows_core::GUID, pvbufferproperty: *mut ::core::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *const ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INSSBuffer4, INSSBuffer4_Vtbl, 0xb6b8fd5a_32e2_49d4_a910_c26cc85465ed);
 ::windows_core::imp::interface_hierarchy!(INSSBuffer4, ::windows_core::IUnknown, INSSBuffer, INSSBuffer2, INSSBuffer3);
@@ -291,8 +291,8 @@ impl INSSBuffer4 {
 #[doc(hidden)]
 pub struct INSSBuffer4_Vtbl {
     pub base__: INSSBuffer3_Vtbl,
-    pub GetPropertyCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbufferproperties: *mut u32) -> ::windows_core::HRESULT,
-    pub GetPropertyByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwbufferpropertyindex: u32, pguidbufferproperty: *mut ::windows_core::GUID, pvbufferproperty: *mut ::core::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows_core::HRESULT,
+    pub GetPropertyCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetPropertyByIndex: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::GUID, *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMAddressAccess, IWMAddressAccess_Vtbl, 0xbb3c6389_1633_4e92_af14_9f3173ba39d0);
 ::windows_core::imp::interface_hierarchy!(IWMAddressAccess, ::windows_core::IUnknown);
@@ -316,10 +316,10 @@ impl IWMAddressAccess {
 #[doc(hidden)]
 pub struct IWMAddressAccess_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetAccessEntryCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aetype: WM_AETYPE, pcentries: *mut u32) -> ::windows_core::HRESULT,
-    pub GetAccessEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aetype: WM_AETYPE, dwentrynum: u32, paddraccessentry: *mut WM_ADDRESS_ACCESSENTRY) -> ::windows_core::HRESULT,
-    pub AddAccessEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aetype: WM_AETYPE, paddraccessentry: *const WM_ADDRESS_ACCESSENTRY) -> ::windows_core::HRESULT,
-    pub RemoveAccessEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aetype: WM_AETYPE, dwentrynum: u32) -> ::windows_core::HRESULT,
+    pub GetAccessEntryCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, WM_AETYPE, *mut u32) -> ::windows_core::HRESULT,
+    pub GetAccessEntry: unsafe extern "system" fn(*mut ::core::ffi::c_void, WM_AETYPE, u32, *mut WM_ADDRESS_ACCESSENTRY) -> ::windows_core::HRESULT,
+    pub AddAccessEntry: unsafe extern "system" fn(*mut ::core::ffi::c_void, WM_AETYPE, *const WM_ADDRESS_ACCESSENTRY) -> ::windows_core::HRESULT,
+    pub RemoveAccessEntry: unsafe extern "system" fn(*mut ::core::ffi::c_void, WM_AETYPE, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMAddressAccess2, IWMAddressAccess2_Vtbl, 0x65a83fc2_3e98_4d4d_81b5_2a742886b33d);
 ::windows_core::imp::interface_hierarchy!(IWMAddressAccess2, ::windows_core::IUnknown, IWMAddressAccess);
@@ -353,8 +353,8 @@ impl IWMAddressAccess2 {
 #[doc(hidden)]
 pub struct IWMAddressAccess2_Vtbl {
     pub base__: IWMAddressAccess_Vtbl,
-    pub GetAccessEntryEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aetype: WM_AETYPE, dwentrynum: u32, pbstraddress: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrmask: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub AddAccessEntryEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aetype: WM_AETYPE, bstraddress: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrmask: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetAccessEntryEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, WM_AETYPE, u32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub AddAccessEntryEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, WM_AETYPE, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMAuthorizer, IWMAuthorizer_Vtbl, 0xd9b67d36_a9ad_4eb4_baef_db284ef5504c);
 ::windows_core::imp::interface_hierarchy!(IWMAuthorizer, ::windows_core::IUnknown);
@@ -376,9 +376,9 @@ impl IWMAuthorizer {
 #[doc(hidden)]
 pub struct IWMAuthorizer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCertCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccerts: *mut u32) -> ::windows_core::HRESULT,
-    pub GetCert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppbcertdata: *mut *mut u8) -> ::windows_core::HRESULT,
-    pub GetSharedData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcertindex: u32, pbshareddata: *const u8, pbcert: *const u8, ppbshareddata: *mut *mut u8) -> ::windows_core::HRESULT,
+    pub GetCertCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetCert: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut u8) -> ::windows_core::HRESULT,
+    pub GetSharedData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, *const u8, *mut *mut u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMBackupRestoreProps, IWMBackupRestoreProps_Vtbl, 0x3c8e0da6_996f_4ff3_a1af_4838f9377e2e);
 ::windows_core::imp::interface_hierarchy!(IWMBackupRestoreProps, ::windows_core::IUnknown);
@@ -416,12 +416,12 @@ impl IWMBackupRestoreProps {
 #[doc(hidden)]
 pub struct IWMBackupRestoreProps_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetPropCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcprops: *mut u16) -> ::windows_core::HRESULT,
-    pub GetPropByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windex: u16, pwszname: ::windows_core::PWSTR, pcchnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows_core::HRESULT,
-    pub GetPropByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows_core::HRESULT,
-    pub SetProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows_core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows_core::HRESULT,
-    pub RemoveProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcwszname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub RemoveAllProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPropCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
+    pub GetPropByIndex: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, ::windows_core::PWSTR, *mut u16, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u16) -> ::windows_core::HRESULT,
+    pub GetPropByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u16) -> ::windows_core::HRESULT,
+    pub SetProp: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, WMT_ATTR_DATATYPE, *const u8, u16) -> ::windows_core::HRESULT,
+    pub RemoveProp: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub RemoveAllProps: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMBandwidthSharing, IWMBandwidthSharing_Vtbl, 0xad694af1_f8d9_42f8_bc47_70311b0c4f9e);
 ::windows_core::imp::interface_hierarchy!(IWMBandwidthSharing, ::windows_core::IUnknown, IWMStreamList);
@@ -453,10 +453,10 @@ impl IWMBandwidthSharing {
 #[doc(hidden)]
 pub struct IWMBandwidthSharing_Vtbl {
     pub base__: IWMStreamList_Vtbl,
-    pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidtype: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub SetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetBandwidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwbitrate: *mut u32, pmsbufferwindow: *mut u32) -> ::windows_core::HRESULT,
-    pub SetBandwidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwbitrate: u32, msbufferwindow: u32) -> ::windows_core::HRESULT,
+    pub GetType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub SetType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetBandwidth: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub SetBandwidth: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMClientConnections, IWMClientConnections_Vtbl, 0x73c66010_a299_41df_b1f0_ccf03b09c1c6);
 ::windows_core::imp::interface_hierarchy!(IWMClientConnections, ::windows_core::IUnknown);
@@ -474,8 +474,8 @@ impl IWMClientConnections {
 #[doc(hidden)]
 pub struct IWMClientConnections_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetClientCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcclients: *mut u32) -> ::windows_core::HRESULT,
-    pub GetClientProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwclientnum: u32, pclientproperties: *mut WM_CLIENT_PROPERTIES) -> ::windows_core::HRESULT,
+    pub GetClientCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetClientProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut WM_CLIENT_PROPERTIES) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMClientConnections2, IWMClientConnections2_Vtbl, 0x4091571e_4701_4593_bb3d_d5f5f0c74246);
 ::windows_core::imp::interface_hierarchy!(IWMClientConnections2, ::windows_core::IUnknown, IWMClientConnections);
@@ -496,7 +496,7 @@ impl IWMClientConnections2 {
 #[doc(hidden)]
 pub struct IWMClientConnections2_Vtbl {
     pub base__: IWMClientConnections_Vtbl,
-    pub GetClientInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwclientnum: u32, pwsznetworkaddress: ::windows_core::PWSTR, pcchnetworkaddress: *mut u32, pwszport: ::windows_core::PWSTR, pcchport: *mut u32, pwszdnsname: ::windows_core::PWSTR, pcchdnsname: *mut u32) -> ::windows_core::HRESULT,
+    pub GetClientInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PWSTR, *mut u32, ::windows_core::PWSTR, *mut u32, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMCodecInfo, IWMCodecInfo_Vtbl, 0xa970f41e_34de_4a98_b3ba_e4b3ca7528f0);
 ::windows_core::imp::interface_hierarchy!(IWMCodecInfo, ::windows_core::IUnknown);
@@ -518,9 +518,9 @@ impl IWMCodecInfo {
 #[doc(hidden)]
 pub struct IWMCodecInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCodecInfoCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows_core::GUID, pccodecs: *mut u32) -> ::windows_core::HRESULT,
-    pub GetCodecFormatCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows_core::GUID, dwcodecindex: u32, pcformat: *mut u32) -> ::windows_core::HRESULT,
-    pub GetCodecFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows_core::GUID, dwcodecindex: u32, dwformatindex: u32, ppistreamconfig: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCodecInfoCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut u32) -> ::windows_core::HRESULT,
+    pub GetCodecFormatCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetCodecFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMCodecInfo2, IWMCodecInfo2_Vtbl, 0xaa65e273_b686_4056_91ec_dd768d4df710);
 ::windows_core::imp::interface_hierarchy!(IWMCodecInfo2, ::windows_core::IUnknown, IWMCodecInfo);
@@ -548,8 +548,8 @@ impl IWMCodecInfo2 {
 #[doc(hidden)]
 pub struct IWMCodecInfo2_Vtbl {
     pub base__: IWMCodecInfo_Vtbl,
-    pub GetCodecName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows_core::GUID, dwcodecindex: u32, wszname: ::windows_core::PWSTR, pcchname: *mut u32) -> ::windows_core::HRESULT,
-    pub GetCodecFormatDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows_core::GUID, dwcodecindex: u32, dwformatindex: u32, ppistreamconfig: *mut *mut ::core::ffi::c_void, wszdesc: ::windows_core::PWSTR, pcchdesc: *mut u32) -> ::windows_core::HRESULT,
+    pub GetCodecName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub GetCodecFormatDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, u32, *mut *mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMCodecInfo3, IWMCodecInfo3_Vtbl, 0x7e51f487_4d93_4f98_8ab4_27d0565adc51);
 ::windows_core::imp::interface_hierarchy!(IWMCodecInfo3, ::windows_core::IUnknown, IWMCodecInfo, IWMCodecInfo2);
@@ -601,10 +601,10 @@ impl IWMCodecInfo3 {
 #[doc(hidden)]
 pub struct IWMCodecInfo3_Vtbl {
     pub base__: IWMCodecInfo2_Vtbl,
-    pub GetCodecFormatProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows_core::GUID, dwcodecindex: u32, dwformatindex: u32, pszname: ::windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows_core::HRESULT,
-    pub GetCodecProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows_core::GUID, dwcodecindex: u32, pszname: ::windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows_core::HRESULT,
-    pub SetCodecEnumerationSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows_core::GUID, dwcodecindex: u32, pszname: ::windows_core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, dwsize: u32) -> ::windows_core::HRESULT,
-    pub GetCodecEnumerationSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows_core::GUID, dwcodecindex: u32, pszname: ::windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows_core::HRESULT,
+    pub GetCodecFormatProp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, u32, ::windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub GetCodecProp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, ::windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub SetCodecEnumerationSetting: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, ::windows_core::PCWSTR, WMT_ATTR_DATATYPE, *const u8, u32) -> ::windows_core::HRESULT,
+    pub GetCodecEnumerationSetting: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, ::windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMCredentialCallback, IWMCredentialCallback_Vtbl, 0x342e0eb7_e651_450c_975b_2ace2c90c48e);
 ::windows_core::imp::interface_hierarchy!(IWMCredentialCallback, ::windows_core::IUnknown);
@@ -621,7 +621,7 @@ impl IWMCredentialCallback {
 #[doc(hidden)]
 pub struct IWMCredentialCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AcquireCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszrealm: ::windows_core::PCWSTR, pwszsite: ::windows_core::PCWSTR, pwszuser: ::windows_core::PWSTR, cchuser: u32, pwszpassword: ::windows_core::PWSTR, cchpassword: u32, hrstatus: ::windows_core::HRESULT, pdwflags: *mut u32) -> ::windows_core::HRESULT,
+    pub AcquireCredentials: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PWSTR, u32, ::windows_core::PWSTR, u32, ::windows_core::HRESULT, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMDRMEditor, IWMDRMEditor_Vtbl, 0xff130ebc_a6c3_42a6_b401_c3382c3e08b3);
 ::windows_core::imp::interface_hierarchy!(IWMDRMEditor, ::windows_core::IUnknown);
@@ -637,7 +637,7 @@ impl IWMDRMEditor {
 #[doc(hidden)]
 pub struct IWMDRMEditor_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetDRMProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstrname: ::windows_core::PCWSTR, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows_core::HRESULT,
+    pub GetDRMProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u16) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMDRMMessageParser, IWMDRMMessageParser_Vtbl, 0xa73a0072_25a0_4c99_b4a5_ede8101a6c39);
 ::windows_core::imp::interface_hierarchy!(IWMDRMMessageParser, ::windows_core::IUnknown);
@@ -653,8 +653,8 @@ impl IWMDRMMessageParser {
 #[doc(hidden)]
 pub struct IWMDRMMessageParser_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ParseRegistrationReqMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbregistrationreqmsg: *const u8, cbregistrationreqmsg: u32, ppdevicecert: *mut *mut ::core::ffi::c_void, pdeviceserialnumber: *mut DRM_VAL16) -> ::windows_core::HRESULT,
-    pub ParseLicenseRequestMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblicenserequestmsg: *const u8, cblicenserequestmsg: u32, ppdevicecert: *mut *mut ::core::ffi::c_void, pdeviceserialnumber: *mut DRM_VAL16, pbstraction: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ParseRegistrationReqMsg: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32, *mut *mut ::core::ffi::c_void, *mut DRM_VAL16) -> ::windows_core::HRESULT,
+    pub ParseLicenseRequestMsg: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32, *mut *mut ::core::ffi::c_void, *mut DRM_VAL16, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMDRMReader, IWMDRMReader_Vtbl, 0xd2827540_3ee7_432c_b14c_dc17f085d3b3);
 ::windows_core::imp::interface_hierarchy!(IWMDRMReader, ::windows_core::IUnknown);
@@ -694,14 +694,14 @@ impl IWMDRMReader {
 #[doc(hidden)]
 pub struct IWMDRMReader_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AcquireLicense: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
-    pub CancelLicenseAcquisition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Individualize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
-    pub CancelIndividualization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub MonitorLicenseAcquisition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CancelMonitorLicenseAcquisition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetDRMProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstrname: ::windows_core::PCWSTR, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows_core::HRESULT,
-    pub GetDRMProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstrname: ::windows_core::PCWSTR, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows_core::HRESULT,
+    pub AcquireLicense: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub CancelLicenseAcquisition: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Individualize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub CancelIndividualization: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub MonitorLicenseAcquisition: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CancelMonitorLicenseAcquisition: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetDRMProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, WMT_ATTR_DATATYPE, *const u8, u16) -> ::windows_core::HRESULT,
+    pub GetDRMProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u16) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMDRMReader2, IWMDRMReader2_Vtbl, 0xbefe7a75_9f1d_4075_b9d9_a3c37bda49a0);
 ::windows_core::imp::interface_hierarchy!(IWMDRMReader2, ::windows_core::IUnknown, IWMDRMReader);
@@ -756,10 +756,10 @@ impl IWMDRMReader2 {
 #[doc(hidden)]
 pub struct IWMDRMReader2_Vtbl {
     pub base__: IWMDRMReader_Vtbl,
-    pub SetEvaluateOutputLevelLicenses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fevaluate: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetPlayOutputLevels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplayopl: *mut DRM_PLAY_OPL, pcblength: *mut u32, pdwminappcompliancelevel: *mut u32) -> ::windows_core::HRESULT,
-    pub GetCopyOutputLevels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcopyopl: *mut DRM_COPY_OPL, pcblength: *mut u32, pdwminappcompliancelevel: *mut u32) -> ::windows_core::HRESULT,
-    pub TryNextLicense: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetEvaluateOutputLevelLicenses: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetPlayOutputLevels: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DRM_PLAY_OPL, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetCopyOutputLevels: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DRM_COPY_OPL, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub TryNextLicense: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMDRMReader3, IWMDRMReader3_Vtbl, 0xe08672de_f1e7_4ff4_a0a3_fc4b08e4caf8);
 ::windows_core::imp::interface_hierarchy!(IWMDRMReader3, ::windows_core::IUnknown, IWMDRMReader, IWMDRMReader2);
@@ -817,7 +817,7 @@ impl IWMDRMReader3 {
 #[doc(hidden)]
 pub struct IWMDRMReader3_Vtbl {
     pub base__: IWMDRMReader2_Vtbl,
-    pub GetInclusionList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppguids: *mut *mut ::windows_core::GUID, pcguids: *mut u32) -> ::windows_core::HRESULT,
+    pub GetInclusionList: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::windows_core::GUID, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMDRMTranscryptionManager, IWMDRMTranscryptionManager_Vtbl, 0xb1a887b2_a4f0_407a_b02e_efbd23bbecdf);
 ::windows_core::imp::interface_hierarchy!(IWMDRMTranscryptionManager, ::windows_core::IUnknown);
@@ -831,7 +831,7 @@ impl IWMDRMTranscryptionManager {
 #[doc(hidden)]
 pub struct IWMDRMTranscryptionManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateTranscryptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptranscryptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTranscryptor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMDRMTranscryptor, IWMDRMTranscryptor_Vtbl, 0x69059850_6e6f_4bb2_806f_71863ddfc471);
 ::windows_core::imp::interface_hierarchy!(IWMDRMTranscryptor, ::windows_core::IUnknown);
@@ -857,10 +857,10 @@ impl IWMDRMTranscryptor {
 #[doc(hidden)]
 pub struct IWMDRMTranscryptor_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrfilename: ::std::mem::MaybeUninit<::windows_core::BSTR>, pblicenserequestmsg: *mut u8, cblicenserequestmsg: u32, pplicenseresponsemsg: *mut *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Seek: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hnstime: u64) -> ::windows_core::HRESULT,
-    pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdata: *const u8, pcbdata: *const u32) -> ::windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut u8, u32, *mut *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Seek: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
+    pub Read: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, *const u32) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMDRMTranscryptor2, IWMDRMTranscryptor2_Vtbl, 0xe0da439f_d331_496a_bece_18e5bac5dd23);
 ::windows_core::imp::interface_hierarchy!(IWMDRMTranscryptor2, ::windows_core::IUnknown, IWMDRMTranscryptor);
@@ -906,10 +906,10 @@ impl IWMDRMTranscryptor2 {
 #[doc(hidden)]
 pub struct IWMDRMTranscryptor2_Vtbl {
     pub base__: IWMDRMTranscryptor_Vtbl,
-    pub SeekEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnsstarttime: u64, cnsduration: u64, flrate: f32, fincludefileheader: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub ZeroAdjustTimestamps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetSeekStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnstime: *mut u64) -> ::windows_core::HRESULT,
-    pub GetDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnsduration: *mut u64) -> ::windows_core::HRESULT,
+    pub SeekEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, u64, f32, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub ZeroAdjustTimestamps: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetSeekStartTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
+    pub GetDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMDRMWriter, IWMDRMWriter_Vtbl, 0xd6ea5dd0_12a0_43f4_90ab_a3fd451e6a07);
 ::windows_core::imp::interface_hierarchy!(IWMDRMWriter, ::windows_core::IUnknown);
@@ -934,10 +934,10 @@ impl IWMDRMWriter {
 #[doc(hidden)]
 pub struct IWMDRMWriter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GenerateKeySeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszkeyseed: ::windows_core::PWSTR, pcwchlength: *mut u32) -> ::windows_core::HRESULT,
-    pub GenerateKeyID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszkeyid: ::windows_core::PWSTR, pcwchlength: *mut u32) -> ::windows_core::HRESULT,
-    pub GenerateSigningKeyPair: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprivkey: ::windows_core::PWSTR, pcwchprivkeylength: *mut u32, pwszpubkey: ::windows_core::PWSTR, pcwchpubkeylength: *mut u32) -> ::windows_core::HRESULT,
-    pub SetDRMAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pszname: ::windows_core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows_core::HRESULT,
+    pub GenerateKeySeed: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub GenerateKeyID: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub GenerateSigningKeyPair: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u32, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub SetDRMAttribute: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, ::windows_core::PCWSTR, WMT_ATTR_DATATYPE, *const u8, u16) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMDRMWriter2, IWMDRMWriter2_Vtbl, 0x38ee7a94_40e2_4e10_aa3f_33fd3210ed5b);
 ::windows_core::imp::interface_hierarchy!(IWMDRMWriter2, ::windows_core::IUnknown, IWMDRMWriter);
@@ -968,7 +968,7 @@ impl IWMDRMWriter2 {
 #[doc(hidden)]
 pub struct IWMDRMWriter2_Vtbl {
     pub base__: IWMDRMWriter_Vtbl,
-    pub SetWMDRMNetEncryption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fsamplesencrypted: super::super::Foundation::BOOL, pbkeyid: *const u8, cbkeyid: u32) -> ::windows_core::HRESULT,
+    pub SetWMDRMNetEncryption: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL, *const u8, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMDRMWriter3, IWMDRMWriter3_Vtbl, 0xa7184082_a4aa_4dde_ac9c_e75dbd1117ce);
 ::windows_core::imp::interface_hierarchy!(IWMDRMWriter3, ::windows_core::IUnknown, IWMDRMWriter, IWMDRMWriter2);
@@ -1002,7 +1002,7 @@ impl IWMDRMWriter3 {
 #[doc(hidden)]
 pub struct IWMDRMWriter3_Vtbl {
     pub base__: IWMDRMWriter2_Vtbl,
-    pub SetProtectStreamSamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimportinitstruct: *const WMDRM_IMPORT_INIT_STRUCT) -> ::windows_core::HRESULT,
+    pub SetProtectStreamSamples: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WMDRM_IMPORT_INIT_STRUCT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMDeviceRegistration, IWMDeviceRegistration_Vtbl, 0xf6211f03_8d21_4e94_93e6_8510805f2d99);
 ::windows_core::imp::interface_hierarchy!(IWMDeviceRegistration, ::windows_core::IUnknown);
@@ -1035,12 +1035,12 @@ impl IWMDeviceRegistration {
 #[doc(hidden)]
 pub struct IWMDeviceRegistration_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub RegisterDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: DRM_VAL16, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub UnregisterDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: DRM_VAL16) -> ::windows_core::HRESULT,
-    pub GetRegistrationStats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwregistertype: u32, pcregistereddevices: *mut u32) -> ::windows_core::HRESULT,
-    pub GetFirstRegisteredDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwregistertype: u32, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetNextRegisteredDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetRegisteredDeviceByID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: DRM_VAL16, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RegisterDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, u32, DRM_VAL16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UnregisterDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, u32, DRM_VAL16) -> ::windows_core::HRESULT,
+    pub GetRegistrationStats: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetFirstRegisteredDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNextRegisteredDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetRegisteredDeviceByID: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, u32, DRM_VAL16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMGetSecureChannel, IWMGetSecureChannel_Vtbl, 0x94bc0598_c3d2_11d3_bedf_00c04f612986);
 ::windows_core::imp::interface_hierarchy!(IWMGetSecureChannel, ::windows_core::IUnknown);
@@ -1054,7 +1054,7 @@ impl IWMGetSecureChannel {
 #[doc(hidden)]
 pub struct IWMGetSecureChannel_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetPeerSecureChannelInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppeer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPeerSecureChannelInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMHeaderInfo, IWMHeaderInfo_Vtbl, 0x96406bda_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMHeaderInfo, ::windows_core::IUnknown);
@@ -1116,18 +1116,18 @@ impl IWMHeaderInfo {
 #[doc(hidden)]
 pub struct IWMHeaderInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetAttributeCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pcattributes: *mut u16) -> ::windows_core::HRESULT,
-    pub GetAttributeByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windex: u16, pwstreamnum: *mut u16, pwszname: ::windows_core::PWSTR, pcchnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows_core::HRESULT,
-    pub GetAttributeByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstreamnum: *mut u16, pszname: ::windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows_core::HRESULT,
-    pub SetAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pszname: ::windows_core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows_core::HRESULT,
-    pub GetMarkerCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcmarkers: *mut u16) -> ::windows_core::HRESULT,
-    pub GetMarker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windex: u16, pwszmarkername: ::windows_core::PWSTR, pcchmarkernamelen: *mut u16, pcnsmarkertime: *mut u64) -> ::windows_core::HRESULT,
-    pub AddMarker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszmarkername: ::windows_core::PCWSTR, cnsmarkertime: u64) -> ::windows_core::HRESULT,
-    pub RemoveMarker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windex: u16) -> ::windows_core::HRESULT,
-    pub GetScriptCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcscripts: *mut u16) -> ::windows_core::HRESULT,
-    pub GetScript: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windex: u16, pwsztype: ::windows_core::PWSTR, pcchtypelen: *mut u16, pwszcommand: ::windows_core::PWSTR, pcchcommandlen: *mut u16, pcnsscripttime: *mut u64) -> ::windows_core::HRESULT,
-    pub AddScript: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwsztype: ::windows_core::PCWSTR, pwszcommand: ::windows_core::PCWSTR, cnsscripttime: u64) -> ::windows_core::HRESULT,
-    pub RemoveScript: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windex: u16) -> ::windows_core::HRESULT,
+    pub GetAttributeCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut u16) -> ::windows_core::HRESULT,
+    pub GetAttributeByIndex: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut u16, ::windows_core::PWSTR, *mut u16, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u16) -> ::windows_core::HRESULT,
+    pub GetAttributeByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16, ::windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u16) -> ::windows_core::HRESULT,
+    pub SetAttribute: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, ::windows_core::PCWSTR, WMT_ATTR_DATATYPE, *const u8, u16) -> ::windows_core::HRESULT,
+    pub GetMarkerCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
+    pub GetMarker: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, ::windows_core::PWSTR, *mut u16, *mut u64) -> ::windows_core::HRESULT,
+    pub AddMarker: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u64) -> ::windows_core::HRESULT,
+    pub RemoveMarker: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16) -> ::windows_core::HRESULT,
+    pub GetScriptCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
+    pub GetScript: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, ::windows_core::PWSTR, *mut u16, ::windows_core::PWSTR, *mut u16, *mut u64) -> ::windows_core::HRESULT,
+    pub AddScript: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, u64) -> ::windows_core::HRESULT,
+    pub RemoveScript: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMHeaderInfo2, IWMHeaderInfo2_Vtbl, 0x15cf9781_454e_482e_b393_85fae487a810);
 ::windows_core::imp::interface_hierarchy!(IWMHeaderInfo2, ::windows_core::IUnknown, IWMHeaderInfo);
@@ -1196,8 +1196,8 @@ impl IWMHeaderInfo2 {
 #[doc(hidden)]
 pub struct IWMHeaderInfo2_Vtbl {
     pub base__: IWMHeaderInfo_Vtbl,
-    pub GetCodecInfoCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccodecinfos: *mut u32) -> ::windows_core::HRESULT,
-    pub GetCodecInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windex: u32, pcchname: *mut u16, pwszname: ::windows_core::PWSTR, pcchdescription: *mut u16, pwszdescription: ::windows_core::PWSTR, pcodectype: *mut WMT_CODEC_INFO_TYPE, pcbcodecinfo: *mut u16, pbcodecinfo: *mut u8) -> ::windows_core::HRESULT,
+    pub GetCodecInfoCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetCodecInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u16, ::windows_core::PWSTR, *mut u16, ::windows_core::PWSTR, *mut WMT_CODEC_INFO_TYPE, *mut u16, *mut u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMHeaderInfo3, IWMHeaderInfo3_Vtbl, 0x15cc68e3_27cc_4ecd_b222_3f5d02d80bd5);
 ::windows_core::imp::interface_hierarchy!(IWMHeaderInfo3, ::windows_core::IUnknown, IWMHeaderInfo, IWMHeaderInfo2);
@@ -1298,13 +1298,13 @@ impl IWMHeaderInfo3 {
 #[doc(hidden)]
 pub struct IWMHeaderInfo3_Vtbl {
     pub base__: IWMHeaderInfo2_Vtbl,
-    pub GetAttributeCountEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pcattributes: *mut u16) -> ::windows_core::HRESULT,
-    pub GetAttributeIndices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pwszname: ::windows_core::PCWSTR, pwlangindex: *const u16, pwindices: *mut u16, pwcount: *mut u16) -> ::windows_core::HRESULT,
-    pub GetAttributeByIndexEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, windex: u16, pwszname: ::windows_core::PWSTR, pwnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pwlangindex: *mut u16, pvalue: *mut u8, pdwdatalength: *mut u32) -> ::windows_core::HRESULT,
-    pub ModifyAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, windex: u16, r#type: WMT_ATTR_DATATYPE, wlangindex: u16, pvalue: *const u8, dwlength: u32) -> ::windows_core::HRESULT,
-    pub AddAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pszname: ::windows_core::PCWSTR, pwindex: *mut u16, r#type: WMT_ATTR_DATATYPE, wlangindex: u16, pvalue: *const u8, dwlength: u32) -> ::windows_core::HRESULT,
-    pub DeleteAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, windex: u16) -> ::windows_core::HRESULT,
-    pub AddCodecInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows_core::PCWSTR, pwszdescription: ::windows_core::PCWSTR, codectype: WMT_CODEC_INFO_TYPE, cbcodecinfo: u16, pbcodecinfo: *const u8) -> ::windows_core::HRESULT,
+    pub GetAttributeCountEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut u16) -> ::windows_core::HRESULT,
+    pub GetAttributeIndices: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, ::windows_core::PCWSTR, *const u16, *mut u16, *mut u16) -> ::windows_core::HRESULT,
+    pub GetAttributeByIndexEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u16, ::windows_core::PWSTR, *mut u16, *mut WMT_ATTR_DATATYPE, *mut u16, *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub ModifyAttribute: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u16, WMT_ATTR_DATATYPE, u16, *const u8, u32) -> ::windows_core::HRESULT,
+    pub AddAttribute: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, ::windows_core::PCWSTR, *mut u16, WMT_ATTR_DATATYPE, u16, *const u8, u32) -> ::windows_core::HRESULT,
+    pub DeleteAttribute: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u16) -> ::windows_core::HRESULT,
+    pub AddCodecInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, WMT_CODEC_INFO_TYPE, u16, *const u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMIStreamProps, IWMIStreamProps_Vtbl, 0x6816dad3_2b4b_4c8e_8149_874c3483a753);
 ::windows_core::imp::interface_hierarchy!(IWMIStreamProps, ::windows_core::IUnknown);
@@ -1320,7 +1320,7 @@ impl IWMIStreamProps {
 #[doc(hidden)]
 pub struct IWMIStreamProps_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows_core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMImageInfo, IWMImageInfo_Vtbl, 0x9f0aa3b6_7267_4d89_88f2_ba915aa5c4c6);
 ::windows_core::imp::interface_hierarchy!(IWMImageInfo, ::windows_core::IUnknown);
@@ -1337,8 +1337,8 @@ impl IWMImageInfo {
 #[doc(hidden)]
 pub struct IWMImageInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetImageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcimages: *mut u32) -> ::windows_core::HRESULT,
-    pub GetImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windex: u32, pcchmimetype: *mut u16, pwszmimetype: ::windows_core::PWSTR, pcchdescription: *mut u16, pwszdescription: ::windows_core::PWSTR, pimagetype: *mut u16, pcbimagedata: *mut u32, pbimagedata: *mut u8) -> ::windows_core::HRESULT,
+    pub GetImageCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetImage: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u16, ::windows_core::PWSTR, *mut u16, ::windows_core::PWSTR, *mut u16, *mut u32, *mut u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMIndexer, IWMIndexer_Vtbl, 0x6d7cdc71_9888_11d3_8edc_00c04f6109cf);
 ::windows_core::imp::interface_hierarchy!(IWMIndexer, ::windows_core::IUnknown);
@@ -1358,8 +1358,8 @@ impl IWMIndexer {
 #[doc(hidden)]
 pub struct IWMIndexer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub StartIndexing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: ::windows_core::PCWSTR, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub StartIndexing: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Cancel: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMIndexer2, IWMIndexer2_Vtbl, 0xb70f1e42_6255_4df0_a6b9_02b212d9e2bb);
 ::windows_core::imp::interface_hierarchy!(IWMIndexer2, ::windows_core::IUnknown, IWMIndexer);
@@ -1382,7 +1382,7 @@ impl IWMIndexer2 {
 #[doc(hidden)]
 pub struct IWMIndexer2_Vtbl {
     pub base__: IWMIndexer_Vtbl,
-    pub Configure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, nindexertype: WMT_INDEXER_TYPE, pvinterval: *const ::core::ffi::c_void, pvindextype: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Configure: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, WMT_INDEXER_TYPE, *const ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMInputMediaProps, IWMInputMediaProps_Vtbl, 0x96406bd5_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMInputMediaProps, ::windows_core::IUnknown, IWMMediaProps);
@@ -1408,8 +1408,8 @@ impl IWMInputMediaProps {
 #[doc(hidden)]
 pub struct IWMInputMediaProps_Vtbl {
     pub base__: IWMMediaProps_Vtbl,
-    pub GetConnectionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows_core::PWSTR, pcchname: *mut u16) -> ::windows_core::HRESULT,
-    pub GetGroupName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows_core::PWSTR, pcchname: *mut u16) -> ::windows_core::HRESULT,
+    pub GetConnectionName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u16) -> ::windows_core::HRESULT,
+    pub GetGroupName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u16) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMLanguageList, IWMLanguageList_Vtbl, 0xdf683f00_2d49_4d8e_92b7_fb19f6a0dc57);
 ::windows_core::imp::interface_hierarchy!(IWMLanguageList, ::windows_core::IUnknown);
@@ -1433,9 +1433,9 @@ impl IWMLanguageList {
 #[doc(hidden)]
 pub struct IWMLanguageList_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetLanguageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcount: *mut u16) -> ::windows_core::HRESULT,
-    pub GetLanguageDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windex: u16, pwszlanguagestring: ::windows_core::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows_core::HRESULT,
-    pub AddLanguageByRFC1766String: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszlanguagestring: ::windows_core::PCWSTR, pwindex: *mut u16) -> ::windows_core::HRESULT,
+    pub GetLanguageCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
+    pub GetLanguageDetails: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, ::windows_core::PWSTR, *mut u16) -> ::windows_core::HRESULT,
+    pub AddLanguageByRFC1766String: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut u16) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMLicenseBackup, IWMLicenseBackup_Vtbl, 0x05e5ac9f_3fb6_4508_bb43_a4067ba1ebe8);
 ::windows_core::imp::interface_hierarchy!(IWMLicenseBackup, ::windows_core::IUnknown);
@@ -1454,8 +1454,8 @@ impl IWMLicenseBackup {
 #[doc(hidden)]
 pub struct IWMLicenseBackup_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub BackupLicenses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pcallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CancelLicenseBackup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BackupLicenses: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CancelLicenseBackup: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMLicenseRestore, IWMLicenseRestore_Vtbl, 0xc70b6334_a22e_4efb_a245_15e65a004a13);
 ::windows_core::imp::interface_hierarchy!(IWMLicenseRestore, ::windows_core::IUnknown);
@@ -1474,8 +1474,8 @@ impl IWMLicenseRestore {
 #[doc(hidden)]
 pub struct IWMLicenseRestore_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub RestoreLicenses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pcallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CancelLicenseRestore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RestoreLicenses: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CancelLicenseRestore: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMLicenseRevocationAgent, IWMLicenseRevocationAgent_Vtbl, 0x6967f2c9_4e26_4b57_8894_799880f7ac7b);
 ::windows_core::imp::interface_hierarchy!(IWMLicenseRevocationAgent, ::windows_core::IUnknown);
@@ -1491,8 +1491,8 @@ impl IWMLicenseRevocationAgent {
 #[doc(hidden)]
 pub struct IWMLicenseRevocationAgent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetLRBChallenge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmachineid: *const u8, dwmachineidlength: u32, pchallenge: *const u8, dwchallengelength: u32, pchallengeoutput: *mut u8, pdwchallengeoutputlength: *mut u32) -> ::windows_core::HRESULT,
-    pub ProcessLRB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psignedlrb: *const u8, dwsignedlrblength: u32, psignedack: *mut u8, pdwsignedacklength: *mut u32) -> ::windows_core::HRESULT,
+    pub GetLRBChallenge: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32, *const u8, u32, *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub ProcessLRB: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32, *mut u8, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMMediaProps, IWMMediaProps_Vtbl, 0x96406bce_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMMediaProps, ::windows_core::IUnknown);
@@ -1512,9 +1512,9 @@ impl IWMMediaProps {
 #[doc(hidden)]
 pub struct IWMMediaProps_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidtype: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> ::windows_core::HRESULT,
-    pub SetMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *const WM_MEDIA_TYPE) -> ::windows_core::HRESULT,
+    pub GetType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetMediaType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WM_MEDIA_TYPE, *mut u32) -> ::windows_core::HRESULT,
+    pub SetMediaType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WM_MEDIA_TYPE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMMetadataEditor, IWMMetadataEditor_Vtbl, 0x96406bd9_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMMetadataEditor, ::windows_core::IUnknown);
@@ -1536,9 +1536,9 @@ impl IWMMetadataEditor {
 #[doc(hidden)]
 pub struct IWMMetadataEditor_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszfilename: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Flush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Open: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Flush: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMMetadataEditor2, IWMMetadataEditor2_Vtbl, 0x203cffe3_2e18_4fdf_b59d_6e71530534cf);
 ::windows_core::imp::interface_hierarchy!(IWMMetadataEditor2, ::windows_core::IUnknown, IWMMetadataEditor);
@@ -1566,7 +1566,7 @@ impl IWMMetadataEditor2 {
 #[doc(hidden)]
 pub struct IWMMetadataEditor2_Vtbl {
     pub base__: IWMMetadataEditor_Vtbl,
-    pub OpenEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszfilename: ::windows_core::PCWSTR, dwdesiredaccess: u32, dwsharemode: u32) -> ::windows_core::HRESULT,
+    pub OpenEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMMutualExclusion, IWMMutualExclusion_Vtbl, 0x96406bde_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMMutualExclusion, ::windows_core::IUnknown, IWMStreamList);
@@ -1592,8 +1592,8 @@ impl IWMMutualExclusion {
 #[doc(hidden)]
 pub struct IWMMutualExclusion_Vtbl {
     pub base__: IWMStreamList_Vtbl,
-    pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidtype: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub SetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub SetType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMMutualExclusion2, IWMMutualExclusion2_Vtbl, 0x0302b57d_89d1_4ba2_85c9_166f2c53eb91);
 ::windows_core::imp::interface_hierarchy!(IWMMutualExclusion2, ::windows_core::IUnknown, IWMStreamList, IWMMutualExclusion);
@@ -1656,16 +1656,16 @@ impl IWMMutualExclusion2 {
 #[doc(hidden)]
 pub struct IWMMutualExclusion2_Vtbl {
     pub base__: IWMMutualExclusion_Vtbl,
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows_core::PWSTR, pcchname: *mut u16) -> ::windows_core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetRecordCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwrecordcount: *mut u16) -> ::windows_core::HRESULT,
-    pub AddRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wrecordnumber: u16) -> ::windows_core::HRESULT,
-    pub GetRecordName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wrecordnumber: u16, pwszrecordname: ::windows_core::PWSTR, pcchrecordname: *mut u16) -> ::windows_core::HRESULT,
-    pub SetRecordName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wrecordnumber: u16, pwszrecordname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetStreamsForRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wrecordnumber: u16, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> ::windows_core::HRESULT,
-    pub AddStreamForRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wrecordnumber: u16, wstreamnumber: u16) -> ::windows_core::HRESULT,
-    pub RemoveStreamForRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wrecordnumber: u16, wstreamnumber: u16) -> ::windows_core::HRESULT,
+    pub GetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u16) -> ::windows_core::HRESULT,
+    pub SetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetRecordCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
+    pub AddRecord: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveRecord: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16) -> ::windows_core::HRESULT,
+    pub GetRecordName: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, ::windows_core::PWSTR, *mut u16) -> ::windows_core::HRESULT,
+    pub SetRecordName: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetStreamsForRecord: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut u16, *mut u16) -> ::windows_core::HRESULT,
+    pub AddStreamForRecord: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u16) -> ::windows_core::HRESULT,
+    pub RemoveStreamForRecord: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u16) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMOutputMediaProps, IWMOutputMediaProps_Vtbl, 0x96406bd7_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMOutputMediaProps, ::windows_core::IUnknown, IWMMediaProps);
@@ -1691,8 +1691,8 @@ impl IWMOutputMediaProps {
 #[doc(hidden)]
 pub struct IWMOutputMediaProps_Vtbl {
     pub base__: IWMMediaProps_Vtbl,
-    pub GetStreamGroupName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows_core::PWSTR, pcchname: *mut u16) -> ::windows_core::HRESULT,
-    pub GetConnectionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows_core::PWSTR, pcchname: *mut u16) -> ::windows_core::HRESULT,
+    pub GetStreamGroupName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u16) -> ::windows_core::HRESULT,
+    pub GetConnectionName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u16) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMPacketSize, IWMPacketSize_Vtbl, 0xcdfb97ab_188f_40b3_b643_5b7903975c59);
 ::windows_core::imp::interface_hierarchy!(IWMPacketSize, ::windows_core::IUnknown);
@@ -1709,8 +1709,8 @@ impl IWMPacketSize {
 #[doc(hidden)]
 pub struct IWMPacketSize_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetMaxPacketSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmaxpacketsize: *mut u32) -> ::windows_core::HRESULT,
-    pub SetMaxPacketSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxpacketsize: u32) -> ::windows_core::HRESULT,
+    pub GetMaxPacketSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetMaxPacketSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMPacketSize2, IWMPacketSize2_Vtbl, 0x8bfc2b9e_b646_4233_a877_1c6a079669dc);
 ::windows_core::imp::interface_hierarchy!(IWMPacketSize2, ::windows_core::IUnknown, IWMPacketSize);
@@ -1734,8 +1734,8 @@ impl IWMPacketSize2 {
 #[doc(hidden)]
 pub struct IWMPacketSize2_Vtbl {
     pub base__: IWMPacketSize_Vtbl,
-    pub GetMinPacketSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwminpacketsize: *mut u32) -> ::windows_core::HRESULT,
-    pub SetMinPacketSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwminpacketsize: u32) -> ::windows_core::HRESULT,
+    pub GetMinPacketSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetMinPacketSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMPlayerHook, IWMPlayerHook_Vtbl, 0xe5b7ca9a_0f1c_4f66_9002_74ec50d8b304);
 ::windows_core::imp::interface_hierarchy!(IWMPlayerHook, ::windows_core::IUnknown);
@@ -1748,7 +1748,7 @@ impl IWMPlayerHook {
 #[doc(hidden)]
 pub struct IWMPlayerHook_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub PreDecode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PreDecode: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMPlayerTimestampHook, IWMPlayerTimestampHook_Vtbl, 0x28580dda_d98e_48d0_b7ae_69e473a02825);
 ::windows_core::imp::interface_hierarchy!(IWMPlayerTimestampHook, ::windows_core::IUnknown);
@@ -1762,7 +1762,7 @@ impl IWMPlayerTimestampHook {
 #[doc(hidden)]
 pub struct IWMPlayerTimestampHook_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub MapTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rtin: i64, prtout: *mut i64) -> ::windows_core::HRESULT,
+    pub MapTimestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64, *mut i64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMProfile, IWMProfile_Vtbl, 0x96406bdb_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMProfile, ::windows_core::IUnknown);
@@ -1855,24 +1855,24 @@ impl IWMProfile {
 #[doc(hidden)]
 pub struct IWMProfile_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwversion: *mut WMT_VERSION) -> ::windows_core::HRESULT,
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows_core::PWSTR, pcchname: *mut u32) -> ::windows_core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszdescription: ::windows_core::PWSTR, pcchdescription: *mut u32) -> ::windows_core::HRESULT,
-    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszdescription: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetStreamCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcstreams: *mut u32) -> ::windows_core::HRESULT,
-    pub GetStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, ppconfig: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetStreamByNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, ppconfig: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconfig: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveStreamByNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16) -> ::windows_core::HRESULT,
-    pub AddStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconfig: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ReconfigStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconfig: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateNewStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidstreamtype: *const ::windows_core::GUID, ppconfig: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetMutualExclusionCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcme: *mut u32) -> ::windows_core::HRESULT,
-    pub GetMutualExclusion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmeindex: u32, ppme: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveMutualExclusion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pme: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AddMutualExclusion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pme: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateNewMutualExclusion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppme: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WMT_VERSION) -> ::windows_core::HRESULT,
+    pub GetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub SetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub SetDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetStreamCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStreamByNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveStreamByNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16) -> ::windows_core::HRESULT,
+    pub AddStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ReconfigStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateNewStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetMutualExclusionCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetMutualExclusion: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveMutualExclusion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddMutualExclusion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateNewMutualExclusion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMProfile2, IWMProfile2_Vtbl, 0x07e72d33_d94e_4be7_8843_60ae5ff7e5f5);
 ::windows_core::imp::interface_hierarchy!(IWMProfile2, ::windows_core::IUnknown, IWMProfile);
@@ -1969,7 +1969,7 @@ impl IWMProfile2 {
 #[doc(hidden)]
 pub struct IWMProfile2_Vtbl {
     pub base__: IWMProfile_Vtbl,
-    pub GetProfileID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetProfileID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMProfile3, IWMProfile3_Vtbl, 0x00ef96cc_a461_4546_8bcd_c9a28f0e06f5);
 ::windows_core::imp::interface_hierarchy!(IWMProfile3, ::windows_core::IUnknown, IWMProfile, IWMProfile2);
@@ -2118,18 +2118,18 @@ impl IWMProfile3 {
 #[doc(hidden)]
 pub struct IWMProfile3_Vtbl {
     pub base__: IWMProfile2_Vtbl,
-    pub GetStorageFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnstorageformat: *mut WMT_STORAGE_FORMAT) -> ::windows_core::HRESULT,
-    pub SetStorageFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nstorageformat: WMT_STORAGE_FORMAT) -> ::windows_core::HRESULT,
-    pub GetBandwidthSharingCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbs: *mut u32) -> ::windows_core::HRESULT,
-    pub GetBandwidthSharing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwbsindex: u32, ppbs: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveBandwidthSharing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbs: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AddBandwidthSharing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbs: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateNewBandwidthSharing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbs: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetStreamPrioritization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsp: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetStreamPrioritization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psp: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveStreamPrioritization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateNewStreamPrioritization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsp: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetExpectedPacketCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msduration: u64, pcpackets: *mut u64) -> ::windows_core::HRESULT,
+    pub GetStorageFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WMT_STORAGE_FORMAT) -> ::windows_core::HRESULT,
+    pub SetStorageFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, WMT_STORAGE_FORMAT) -> ::windows_core::HRESULT,
+    pub GetBandwidthSharingCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetBandwidthSharing: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveBandwidthSharing: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddBandwidthSharing: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateNewBandwidthSharing: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStreamPrioritization: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetStreamPrioritization: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveStreamPrioritization: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateNewStreamPrioritization: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetExpectedPacketCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, *mut u64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMProfileManager, IWMProfileManager_Vtbl, 0xd16679f2_6ca0_472d_8d31_2f5d55aee155);
 ::windows_core::imp::interface_hierarchy!(IWMProfileManager, ::windows_core::IUnknown);
@@ -2169,12 +2169,12 @@ impl IWMProfileManager {
 #[doc(hidden)]
 pub struct IWMProfileManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateEmptyProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwversion: WMT_VERSION, ppprofile: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub LoadProfileByID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidprofile: *const ::windows_core::GUID, ppprofile: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub LoadProfileByData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprofile: ::windows_core::PCWSTR, ppprofile: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SaveProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piwmprofile: *mut ::core::ffi::c_void, pwszprofile: ::windows_core::PCWSTR, pdwlength: *mut u32) -> ::windows_core::HRESULT,
-    pub GetSystemProfileCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcprofiles: *mut u32) -> ::windows_core::HRESULT,
-    pub LoadSystemProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwprofileindex: u32, ppprofile: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateEmptyProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, WMT_VERSION, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LoadProfileByID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LoadProfileByData: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SaveProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub GetSystemProfileCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub LoadSystemProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMProfileManager2, IWMProfileManager2_Vtbl, 0x7a924e51_73c1_494d_8019_23d37ed9b89a);
 ::windows_core::imp::interface_hierarchy!(IWMProfileManager2, ::windows_core::IUnknown, IWMProfileManager);
@@ -2220,8 +2220,8 @@ impl IWMProfileManager2 {
 #[doc(hidden)]
 pub struct IWMProfileManager2_Vtbl {
     pub base__: IWMProfileManager_Vtbl,
-    pub GetSystemProfileVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwversion: *mut WMT_VERSION) -> ::windows_core::HRESULT,
-    pub SetSystemProfileVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwversion: WMT_VERSION) -> ::windows_core::HRESULT,
+    pub GetSystemProfileVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WMT_VERSION) -> ::windows_core::HRESULT,
+    pub SetSystemProfileVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, WMT_VERSION) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMProfileManagerLanguage, IWMProfileManagerLanguage_Vtbl, 0xba4dcc78_7ee0_4ab8_b27a_dbce8bc51454);
 ::windows_core::imp::interface_hierarchy!(IWMProfileManagerLanguage, ::windows_core::IUnknown);
@@ -2237,8 +2237,8 @@ impl IWMProfileManagerLanguage {
 #[doc(hidden)]
 pub struct IWMProfileManagerLanguage_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetUserLanguageID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wlangid: *mut u16) -> ::windows_core::HRESULT,
-    pub SetUserLanguageID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wlangid: u16) -> ::windows_core::HRESULT,
+    pub GetUserLanguageID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
+    pub SetUserLanguageID: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMPropertyVault, IWMPropertyVault_Vtbl, 0x72995a79_5090_42a4_9c8c_d9d0b6d34be5);
 ::windows_core::imp::interface_hierarchy!(IWMPropertyVault, ::windows_core::IUnknown);
@@ -2275,12 +2275,12 @@ impl IWMPropertyVault {
 #[doc(hidden)]
 pub struct IWMPropertyVault_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetPropertyCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *const u32) -> ::windows_core::HRESULT,
-    pub GetPropertyByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows_core::HRESULT,
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows_core::PCWSTR, ptype: WMT_ATTR_DATATYPE, pvalue: *const u8, dwsize: u32) -> ::windows_core::HRESULT,
-    pub GetPropertyByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pszname: ::windows_core::PWSTR, pdwnamelen: *mut u32, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows_core::HRESULT,
-    pub CopyPropertiesFrom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piwmpropertyvault: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPropertyCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u32) -> ::windows_core::HRESULT,
+    pub GetPropertyByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, WMT_ATTR_DATATYPE, *const u8, u32) -> ::windows_core::HRESULT,
+    pub GetPropertyByIndex: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PWSTR, *mut u32, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub CopyPropertiesFrom: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clear: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMProximityDetection, IWMProximityDetection_Vtbl, 0x6a9fd8ee_b651_4bf0_b849_7d4ece79a2b1);
 ::windows_core::imp::interface_hierarchy!(IWMProximityDetection, ::windows_core::IUnknown);
@@ -2296,7 +2296,7 @@ impl IWMProximityDetection {
 #[doc(hidden)]
 pub struct IWMProximityDetection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub StartDetection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbregistrationmsg: *const u8, cbregistrationmsg: u32, pblocaladdress: *const u8, cblocaladdress: u32, dwextraportsallowed: u32, ppregistrationresponsemsg: *mut *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub StartDetection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32, *const u8, u32, u32, *mut *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMReader, IWMReader_Vtbl, 0x96406bd6_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMReader, ::windows_core::IUnknown);
@@ -2350,17 +2350,17 @@ impl IWMReader {
 #[doc(hidden)]
 pub struct IWMReader_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: ::windows_core::PCWSTR, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetOutputCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcoutputs: *mut u32) -> ::windows_core::HRESULT,
-    pub GetOutputProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, ppoutput: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetOutputProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, poutput: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetOutputFormatCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnumber: u32, pcformats: *mut u32) -> ::windows_core::HRESULT,
-    pub GetOutputFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnumber: u32, dwformatnumber: u32, ppprops: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnsstart: u64, cnsduration: u64, frate: f32, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Open: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetOutputCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetOutputProps: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetOutputProps: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetOutputFormatCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetOutputFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Start: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, u64, f32, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Stop: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Pause: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Resume: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMReaderAccelerator, IWMReaderAccelerator_Vtbl, 0xbddc4d08_944d_4d52_a612_46c3fda07dd4);
 ::windows_core::imp::interface_hierarchy!(IWMReaderAccelerator, ::windows_core::IUnknown);
@@ -2376,8 +2376,8 @@ impl IWMReaderAccelerator {
 #[doc(hidden)]
 pub struct IWMReaderAccelerator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCodecInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, riid: *const ::windows_core::GUID, ppvcodecinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Notify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, psubtype: *const WM_MEDIA_TYPE) -> ::windows_core::HRESULT,
+    pub GetCodecInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Notify: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const WM_MEDIA_TYPE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMReaderAdvanced, IWMReaderAdvanced_Vtbl, 0x96406bea_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMReaderAdvanced, ::windows_core::IUnknown);
@@ -2474,26 +2474,26 @@ impl IWMReaderAdvanced {
 #[doc(hidden)]
 pub struct IWMReaderAdvanced_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetUserProvidedClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fuserclock: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetUserProvidedClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfuserclock: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub DeliverTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnstime: u64) -> ::windows_core::HRESULT,
-    pub SetManualStreamSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fselection: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetManualStreamSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfselection: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetStreamsSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> ::windows_core::HRESULT,
-    pub GetStreamSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pselection: *mut WMT_STREAM_SELECTION) -> ::windows_core::HRESULT,
-    pub SetReceiveSelectionCallbacks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fgetcallbacks: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetReceiveSelectionCallbacks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfgetcallbacks: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetReceiveStreamSamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, freceivestreamsamples: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetReceiveStreamSamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pfreceivestreamsamples: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetAllocateForOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, fallocate: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetAllocateForOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, pfallocate: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetAllocateForStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, fallocate: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetAllocateForStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsreamnum: u16, pfallocate: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatistics: *mut WM_READER_STATISTICS) -> ::windows_core::HRESULT,
-    pub SetClientInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclientinfo: *const WM_READER_CLIENTINFO) -> ::windows_core::HRESULT,
-    pub GetMaxOutputSampleSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutput: u32, pcbmax: *mut u32) -> ::windows_core::HRESULT,
-    pub GetMaxStreamSampleSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstream: u16, pcbmax: *mut u32) -> ::windows_core::HRESULT,
-    pub NotifyLateDelivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnslateness: u64) -> ::windows_core::HRESULT,
+    pub SetUserProvidedClock: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetUserProvidedClock: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub DeliverTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
+    pub SetManualStreamSelection: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetManualStreamSelection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetStreamsSelected: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *const u16, *const WMT_STREAM_SELECTION) -> ::windows_core::HRESULT,
+    pub GetStreamSelected: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut WMT_STREAM_SELECTION) -> ::windows_core::HRESULT,
+    pub SetReceiveSelectionCallbacks: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetReceiveSelectionCallbacks: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetReceiveStreamSamples: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetReceiveStreamSamples: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetAllocateForOutput: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetAllocateForOutput: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetAllocateForStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetAllocateForStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetStatistics: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WM_READER_STATISTICS) -> ::windows_core::HRESULT,
+    pub SetClientInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WM_READER_CLIENTINFO) -> ::windows_core::HRESULT,
+    pub GetMaxOutputSampleSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetMaxStreamSampleSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut u32) -> ::windows_core::HRESULT,
+    pub NotifyLateDelivery: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMReaderAdvanced2, IWMReaderAdvanced2_Vtbl, 0xae14a945_b90c_4d0d_9127_80d665f7d73e);
 ::windows_core::imp::interface_hierarchy!(IWMReaderAdvanced2, ::windows_core::IUnknown, IWMReaderAdvanced);
@@ -2656,22 +2656,22 @@ impl IWMReaderAdvanced2 {
 #[doc(hidden)]
 pub struct IWMReaderAdvanced2_Vtbl {
     pub base__: IWMReaderAdvanced_Vtbl,
-    pub SetPlayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: WMT_PLAY_MODE) -> ::windows_core::HRESULT,
-    pub GetPlayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmode: *mut WMT_PLAY_MODE) -> ::windows_core::HRESULT,
-    pub GetBufferProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwpercent: *mut u32, pcnsbuffering: *mut u64) -> ::windows_core::HRESULT,
-    pub GetDownloadProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwpercent: *mut u32, pqwbytesdownloaded: *mut u64, pcnsdownload: *mut u64) -> ::windows_core::HRESULT,
-    pub GetSaveAsProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwpercent: *mut u32) -> ::windows_core::HRESULT,
-    pub SaveFileAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszfilename: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetProtocolName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprotocol: ::windows_core::PWSTR, pcchprotocol: *mut u32) -> ::windows_core::HRESULT,
-    pub StartAtMarker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wmarkerindex: u16, cnsduration: u64, frate: f32, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetOutputSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, pszname: ::windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows_core::HRESULT,
-    pub SetOutputSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, pszname: ::windows_core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows_core::HRESULT,
-    pub Preroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows_core::HRESULT,
-    pub SetLogClientID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flogclientid: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetLogClientID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflogclientid: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub StopBuffering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetPlayMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, WMT_PLAY_MODE) -> ::windows_core::HRESULT,
+    pub GetPlayMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WMT_PLAY_MODE) -> ::windows_core::HRESULT,
+    pub GetBufferProgress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u64) -> ::windows_core::HRESULT,
+    pub GetDownloadProgress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u64, *mut u64) -> ::windows_core::HRESULT,
+    pub GetSaveAsProgress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SaveFileAs: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetProtocolName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub StartAtMarker: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u64, f32, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetOutputSetting: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u16) -> ::windows_core::HRESULT,
+    pub SetOutputSetting: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, WMT_ATTR_DATATYPE, *const u8, u16) -> ::windows_core::HRESULT,
+    pub Preroll: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, u64, f32) -> ::windows_core::HRESULT,
+    pub SetLogClientID: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetLogClientID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub StopBuffering: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub OpenStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstream: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OpenStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     OpenStream: usize,
 }
@@ -2842,8 +2842,8 @@ impl IWMReaderAdvanced3 {
 #[doc(hidden)]
 pub struct IWMReaderAdvanced3_Vtbl {
     pub base__: IWMReaderAdvanced2_Vtbl,
-    pub StopNetStreaming: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub StartAtPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pvoffsetstart: *const ::core::ffi::c_void, pvduration: *const ::core::ffi::c_void, dwoffsetformat: WMT_OFFSET_FORMAT, frate: f32, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub StopNetStreaming: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub StartAtPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *const ::core::ffi::c_void, *const ::core::ffi::c_void, WMT_OFFSET_FORMAT, f32, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMReaderAdvanced4, IWMReaderAdvanced4_Vtbl, 0x945a76a2_12ae_4d48_bd3c_cd1d90399b85);
 ::windows_core::imp::interface_hierarchy!(IWMReaderAdvanced4, ::windows_core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3);
@@ -3048,15 +3048,15 @@ impl IWMReaderAdvanced4 {
 #[doc(hidden)]
 pub struct IWMReaderAdvanced4_Vtbl {
     pub base__: IWMReaderAdvanced3_Vtbl,
-    pub GetLanguageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, pwlanguagecount: *mut u16) -> ::windows_core::HRESULT,
-    pub GetLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, wlanguage: u16, pwszlanguagestring: ::windows_core::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows_core::HRESULT,
-    pub GetMaxSpeedFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdblfactor: *mut f64) -> ::windows_core::HRESULT,
-    pub IsUsingFastCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfusingfastcache: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub AddLogParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wsznamespace: ::windows_core::PCWSTR, wszname: ::windows_core::PCWSTR, wszvalue: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub SendLogParams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CanSaveFileAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfcansave: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub CancelSaveFileAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: ::windows_core::PWSTR, pcchurl: *mut u32) -> ::windows_core::HRESULT,
+    pub GetLanguageCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u16) -> ::windows_core::HRESULT,
+    pub GetLanguage: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u16, ::windows_core::PWSTR, *mut u16) -> ::windows_core::HRESULT,
+    pub GetMaxSpeedFactor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub IsUsingFastCache: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub AddLogParam: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub SendLogParams: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CanSaveFileAs: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub CancelSaveFileAs: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetURL: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMReaderAdvanced5, IWMReaderAdvanced5_Vtbl, 0x24c44db0_55d1_49ae_a5cc_f13815e36363);
 ::windows_core::imp::interface_hierarchy!(IWMReaderAdvanced5, ::windows_core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3, IWMReaderAdvanced4);
@@ -3267,7 +3267,7 @@ impl IWMReaderAdvanced5 {
 #[doc(hidden)]
 pub struct IWMReaderAdvanced5_Vtbl {
     pub base__: IWMReaderAdvanced4_Vtbl,
-    pub SetPlayerHook: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, phook: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetPlayerHook: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMReaderAdvanced6, IWMReaderAdvanced6_Vtbl, 0x18a2e7f8_428f_4acd_8a00_e64639bc93de);
 ::windows_core::imp::interface_hierarchy!(IWMReaderAdvanced6, ::windows_core::IUnknown, IWMReaderAdvanced, IWMReaderAdvanced2, IWMReaderAdvanced3, IWMReaderAdvanced4, IWMReaderAdvanced5);
@@ -3481,7 +3481,7 @@ impl IWMReaderAdvanced6 {
 #[doc(hidden)]
 pub struct IWMReaderAdvanced6_Vtbl {
     pub base__: IWMReaderAdvanced5_Vtbl,
-    pub SetProtectStreamSamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbcertificate: *const u8, cbcertificate: u32, dwcertificatetype: u32, dwflags: u32, pbinitializationvector: *mut u8, pcbinitializationvector: *mut u32) -> ::windows_core::HRESULT,
+    pub SetProtectStreamSamples: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32, u32, u32, *mut u8, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMReaderAllocatorEx, IWMReaderAllocatorEx_Vtbl, 0x9f762fa7_a22e_428d_93c9_ac82f3aafe5a);
 ::windows_core::imp::interface_hierarchy!(IWMReaderAllocatorEx, ::windows_core::IUnknown);
@@ -3497,8 +3497,8 @@ impl IWMReaderAllocatorEx {
 #[doc(hidden)]
 pub struct IWMReaderAllocatorEx_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AllocateForStreamEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut *mut ::core::ffi::c_void, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AllocateForOutputEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut *mut ::core::ffi::c_void, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AllocateForStreamEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u32, *mut *mut ::core::ffi::c_void, u32, u64, u64, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AllocateForOutputEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void, u32, u64, u64, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMReaderCallback, IWMReaderCallback_Vtbl, 0x96406bd8_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMReaderCallback, ::windows_core::IUnknown, IWMStatusCallback);
@@ -3517,7 +3517,7 @@ impl IWMReaderCallback {
 #[doc(hidden)]
 pub struct IWMReaderCallback_Vtbl {
     pub base__: IWMStatusCallback_Vtbl,
-    pub OnSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnSample: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u64, u64, u32, *mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMReaderCallbackAdvanced, IWMReaderCallbackAdvanced_Vtbl, 0x96406beb_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMReaderCallbackAdvanced, ::windows_core::IUnknown);
@@ -3548,12 +3548,12 @@ impl IWMReaderCallbackAdvanced {
 #[doc(hidden)]
 pub struct IWMReaderCallbackAdvanced_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnStreamSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnscurrenttime: u64, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnStreamSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamcount: u16, pstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnOutputPropsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, pmediatype: *const WM_MEDIA_TYPE, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AllocateForStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AllocateForOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnStreamSample: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u64, u64, u32, *mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnStreamSelection: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *const u16, *const WMT_STREAM_SELECTION, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnOutputPropsChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const WM_MEDIA_TYPE, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AllocateForStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u32, *mut *mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AllocateForOutput: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMReaderNetworkConfig, IWMReaderNetworkConfig_Vtbl, 0x96406bec_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMReaderNetworkConfig, ::windows_core::IUnknown);
@@ -3725,39 +3725,39 @@ impl IWMReaderNetworkConfig {
 #[doc(hidden)]
 pub struct IWMReaderNetworkConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetBufferingTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnsbufferingtime: *mut u64) -> ::windows_core::HRESULT,
-    pub SetBufferingTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnsbufferingtime: u64) -> ::windows_core::HRESULT,
-    pub GetUDPPortRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prangearray: *mut WM_PORT_NUMBER_RANGE, pcranges: *mut u32) -> ::windows_core::HRESULT,
-    pub SetUDPPortRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prangearray: *const WM_PORT_NUMBER_RANGE, cranges: u32) -> ::windows_core::HRESULT,
-    pub GetProxySettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprotocol: ::windows_core::PCWSTR, pproxysetting: *mut WMT_PROXY_SETTINGS) -> ::windows_core::HRESULT,
-    pub SetProxySettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprotocol: ::windows_core::PCWSTR, proxysetting: WMT_PROXY_SETTINGS) -> ::windows_core::HRESULT,
-    pub GetProxyHostName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprotocol: ::windows_core::PCWSTR, pwszhostname: ::windows_core::PWSTR, pcchhostname: *mut u32) -> ::windows_core::HRESULT,
-    pub SetProxyHostName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprotocol: ::windows_core::PCWSTR, pwszhostname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetProxyPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprotocol: ::windows_core::PCWSTR, pdwport: *mut u32) -> ::windows_core::HRESULT,
-    pub SetProxyPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprotocol: ::windows_core::PCWSTR, dwport: u32) -> ::windows_core::HRESULT,
-    pub GetProxyExceptionList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprotocol: ::windows_core::PCWSTR, pwszexceptionlist: ::windows_core::PWSTR, pcchexceptionlist: *mut u32) -> ::windows_core::HRESULT,
-    pub SetProxyExceptionList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprotocol: ::windows_core::PCWSTR, pwszexceptionlist: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetProxyBypassForLocal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprotocol: ::windows_core::PCWSTR, pfbypassforlocal: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetProxyBypassForLocal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprotocol: ::windows_core::PCWSTR, fbypassforlocal: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetForceRerunAutoProxyDetection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfforcererundetection: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetForceRerunAutoProxyDetection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fforcererundetection: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetEnableMulticast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenablemulticast: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetEnableMulticast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenablemulticast: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetEnableHTTP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenablehttp: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetEnableHTTP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenablehttp: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetEnableUDP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenableudp: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetEnableUDP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenableudp: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetEnableTCP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenabletcp: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetEnableTCP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenabletcp: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub ResetProtocolRollover: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetConnectionBandwidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwconnectionbandwidth: *mut u32) -> ::windows_core::HRESULT,
-    pub SetConnectionBandwidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwconnectionbandwidth: u32) -> ::windows_core::HRESULT,
-    pub GetNumProtocolsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcprotocols: *mut u32) -> ::windows_core::HRESULT,
-    pub GetSupportedProtocolName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwprotocolnum: u32, pwszprotocolname: ::windows_core::PWSTR, pcchprotocolname: *mut u32) -> ::windows_core::HRESULT,
-    pub AddLoggingUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetLoggingUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pwszurl: ::windows_core::PWSTR, pcchurl: *mut u32) -> ::windows_core::HRESULT,
-    pub GetLoggingUrlCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwurlcount: *mut u32) -> ::windows_core::HRESULT,
-    pub ResetLoggingUrlList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetBufferingTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
+    pub SetBufferingTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
+    pub GetUDPPortRanges: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WM_PORT_NUMBER_RANGE, *mut u32) -> ::windows_core::HRESULT,
+    pub SetUDPPortRanges: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WM_PORT_NUMBER_RANGE, u32) -> ::windows_core::HRESULT,
+    pub GetProxySettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut WMT_PROXY_SETTINGS) -> ::windows_core::HRESULT,
+    pub SetProxySettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, WMT_PROXY_SETTINGS) -> ::windows_core::HRESULT,
+    pub GetProxyHostName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub SetProxyHostName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetProxyPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub SetProxyPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub GetProxyExceptionList: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub SetProxyExceptionList: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetProxyBypassForLocal: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetProxyBypassForLocal: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetForceRerunAutoProxyDetection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetForceRerunAutoProxyDetection: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetEnableMulticast: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetEnableMulticast: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetEnableHTTP: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetEnableHTTP: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetEnableUDP: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetEnableUDP: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetEnableTCP: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetEnableTCP: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub ResetProtocolRollover: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetConnectionBandwidth: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetConnectionBandwidth: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetNumProtocolsSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetSupportedProtocolName: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub AddLoggingUrl: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetLoggingUrl: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub GetLoggingUrlCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub ResetLoggingUrlList: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMReaderNetworkConfig2, IWMReaderNetworkConfig2_Vtbl, 0xd979a853_042b_4050_8387_c939db22013f);
 ::windows_core::imp::interface_hierarchy!(IWMReaderNetworkConfig2, ::windows_core::IUnknown, IWMReaderNetworkConfig);
@@ -3987,19 +3987,19 @@ impl IWMReaderNetworkConfig2 {
 #[doc(hidden)]
 pub struct IWMReaderNetworkConfig2_Vtbl {
     pub base__: IWMReaderNetworkConfig_Vtbl,
-    pub GetEnableContentCaching: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenablecontentcaching: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetEnableContentCaching: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenablecontentcaching: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetEnableFastCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenablefastcache: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetEnableFastCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenablefastcache: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetAcceleratedStreamingDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnsaccelduration: *mut u64) -> ::windows_core::HRESULT,
-    pub SetAcceleratedStreamingDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnsaccelduration: u64) -> ::windows_core::HRESULT,
-    pub GetAutoReconnectLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwautoreconnectlimit: *mut u32) -> ::windows_core::HRESULT,
-    pub SetAutoReconnectLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwautoreconnectlimit: u32) -> ::windows_core::HRESULT,
-    pub GetEnableResends: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenableresends: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetEnableResends: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenableresends: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetEnableThinning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenablethinning: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetEnableThinning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenablethinning: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetMaxNetPacketSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmaxnetpacketsize: *mut u32) -> ::windows_core::HRESULT,
+    pub GetEnableContentCaching: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetEnableContentCaching: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetEnableFastCache: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetEnableFastCache: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetAcceleratedStreamingDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
+    pub SetAcceleratedStreamingDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
+    pub GetAutoReconnectLimit: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetAutoReconnectLimit: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetEnableResends: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetEnableResends: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetEnableThinning: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetEnableThinning: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetMaxNetPacketSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMReaderPlaylistBurn, IWMReaderPlaylistBurn_Vtbl, 0xf28c0300_9baa_4477_a846_1744d9cbf533);
 ::windows_core::imp::interface_hierarchy!(IWMReaderPlaylistBurn, ::windows_core::IUnknown);
@@ -4025,10 +4025,10 @@ impl IWMReaderPlaylistBurn {
 #[doc(hidden)]
 pub struct IWMReaderPlaylistBurn_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub InitPlaylistBurn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cfiles: u32, ppwszfilenames: *const ::windows_core::PCWSTR, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetInitResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cfiles: u32, phrstati: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EndPlaylistBurn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrburnresult: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub InitPlaylistBurn: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::PCWSTR, *mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetInitResults: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub Cancel: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EndPlaylistBurn: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMReaderStreamClock, IWMReaderStreamClock_Vtbl, 0x96406bed_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMReaderStreamClock, ::windows_core::IUnknown);
@@ -4048,9 +4048,9 @@ impl IWMReaderStreamClock {
 #[doc(hidden)]
 pub struct IWMReaderStreamClock_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnsnow: *const u64) -> ::windows_core::HRESULT,
-    pub SetTimer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnswhen: u64, pvparam: *const ::core::ffi::c_void, pdwtimerid: *mut u32) -> ::windows_core::HRESULT,
-    pub KillTimer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtimerid: u32) -> ::windows_core::HRESULT,
+    pub GetTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u64) -> ::windows_core::HRESULT,
+    pub SetTimer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, *const ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub KillTimer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMReaderTimecode, IWMReaderTimecode_Vtbl, 0xf369e2f0_e081_4fe6_8450_b810b2f410d1);
 ::windows_core::imp::interface_hierarchy!(IWMReaderTimecode, ::windows_core::IUnknown);
@@ -4067,8 +4067,8 @@ impl IWMReaderTimecode {
 #[doc(hidden)]
 pub struct IWMReaderTimecode_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetTimecodeRangeCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pwrangecount: *mut u16) -> ::windows_core::HRESULT,
-    pub GetTimecodeRangeBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, wrangenum: u16, pstarttimecode: *mut u32, pendtimecode: *mut u32) -> ::windows_core::HRESULT,
+    pub GetTimecodeRangeCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut u16) -> ::windows_core::HRESULT,
+    pub GetTimecodeRangeBounds: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u16, *mut u32, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMReaderTypeNegotiation, IWMReaderTypeNegotiation_Vtbl, 0xfdbe5592_81a1_41ea_93bd_735cad1adc05);
 ::windows_core::imp::interface_hierarchy!(IWMReaderTypeNegotiation, ::windows_core::IUnknown);
@@ -4084,7 +4084,7 @@ impl IWMReaderTypeNegotiation {
 #[doc(hidden)]
 pub struct IWMReaderTypeNegotiation_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub TryOutputProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, poutput: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TryOutputProps: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMRegisterCallback, IWMRegisterCallback_Vtbl, 0xcf4b1f99_4de2_4e49_a363_252740d99bc1);
 ::windows_core::imp::interface_hierarchy!(IWMRegisterCallback, ::windows_core::IUnknown);
@@ -4106,8 +4106,8 @@ impl IWMRegisterCallback {
 #[doc(hidden)]
 pub struct IWMRegisterCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Advise: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Unadvise: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMRegisteredDevice, IWMRegisteredDevice_Vtbl, 0xa4503bec_5508_4148_97ac_bfa75760a70d);
 ::windows_core::imp::interface_hierarchy!(IWMRegisteredDevice, ::windows_core::IUnknown);
@@ -4178,20 +4178,20 @@ impl IWMRegisteredDevice {
 #[doc(hidden)]
 pub struct IWMRegisteredDevice_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetDeviceSerialNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pserialnumber: *mut DRM_VAL16) -> ::windows_core::HRESULT,
-    pub GetDeviceCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcertificate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetDeviceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwtype: *mut u32) -> ::windows_core::HRESULT,
-    pub GetAttributeCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcattributes: *mut u32) -> ::windows_core::HRESULT,
-    pub GetAttributeByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetAttributeByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrvalue: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetAttributeByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrvalue: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Approve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fapprove: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub IsValid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfvalid: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub IsApproved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfapproved: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub IsWmdrmCompliant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfcompliant: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub IsOpened: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfopened: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceSerialNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DRM_VAL16) -> ::windows_core::HRESULT,
+    pub GetDeviceCertificate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetAttributeCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetAttributeByIndex: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetAttributeByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetAttributeByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Approve: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub IsValid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub IsApproved: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub IsWmdrmCompliant: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub IsOpened: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub Open: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMSBufferAllocator, IWMSBufferAllocator_Vtbl, 0x61103ca4_2033_11d2_9ef1_006097d2d7cf);
 ::windows_core::imp::interface_hierarchy!(IWMSBufferAllocator, ::windows_core::IUnknown);
@@ -4209,8 +4209,8 @@ impl IWMSBufferAllocator {
 #[doc(hidden)]
 pub struct IWMSBufferAllocator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AllocateBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxbuffersize: u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AllocatePageSizeBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxbuffersize: u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AllocateBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AllocatePageSizeBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMSInternalAdminNetSource, IWMSInternalAdminNetSource_Vtbl, 0x8bb23e5f_d127_4afb_8d02_ae5b66d54c78);
 ::windows_core::imp::interface_hierarchy!(IWMSInternalAdminNetSource, ::windows_core::IUnknown);
@@ -4279,17 +4279,17 @@ impl IWMSInternalAdminNetSource {
 #[doc(hidden)]
 pub struct IWMSInternalAdminNetSource_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psharednamespace: *mut ::core::ffi::c_void, pnamespacenode: *mut ::core::ffi::c_void, pnetsourcecreator: *mut ::core::ffi::c_void, fembeddedinserver: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetNetSourceCreator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnetsourcecreator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrealm: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrpassword: ::std::mem::MaybeUninit<::windows_core::BSTR>, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrealm: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrpassword: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub DeleteCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrealm: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetCredentialFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpdwflags: *mut u32) -> ::windows_core::HRESULT,
-    pub SetCredentialFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
-    pub FindProxyForURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprotocol: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrhost: ::std::mem::MaybeUninit<::windows_core::BSTR>, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows_core::HRESULT,
-    pub RegisterProxyFailure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrparam: ::windows_core::HRESULT, dwproxycontext: u32) -> ::windows_core::HRESULT,
-    pub ShutdownProxyContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproxycontext: u32) -> ::windows_core::HRESULT,
-    pub IsUsingIE: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproxycontext: u32, pfisusingie: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetNetSourceCreator: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCredentials: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetCredentials: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub DeleteCredentials: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetCredentialFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetCredentialFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub FindProxyForURL: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::BOOL, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub RegisterProxyFailure: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, u32) -> ::windows_core::HRESULT,
+    pub ShutdownProxyContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub IsUsingIE: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMSInternalAdminNetSource2, IWMSInternalAdminNetSource2_Vtbl, 0xe74d58c3_cf77_4b51_af17_744687c43eae);
 ::windows_core::imp::interface_hierarchy!(IWMSInternalAdminNetSource2, ::windows_core::IUnknown);
@@ -4335,10 +4335,10 @@ impl IWMSInternalAdminNetSource2 {
 #[doc(hidden)]
 pub struct IWMSInternalAdminNetSource2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetCredentialsEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrealm: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, fproxy: super::super::Foundation::BOOL, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrpassword: ::std::mem::MaybeUninit<::windows_core::BSTR>, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetCredentialsEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrealm: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, fproxy: super::super::Foundation::BOOL, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrpassword: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub DeleteCredentialsEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrealm: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, fproxy: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub FindProxyForURLEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprotocol: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrhost: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pdwproxyport: *mut u32, pdwproxycontext: *mut u32) -> ::windows_core::HRESULT,
+    pub SetCredentialsEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, super::super::Foundation::BOOL, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetCredentialsEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, super::super::Foundation::BOOL, *mut NETSOURCE_URLCREDPOLICY_SETTINGS, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub DeleteCredentialsEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub FindProxyForURLEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::BOOL, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut u32, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMSInternalAdminNetSource3, IWMSInternalAdminNetSource3_Vtbl, 0x6b63d08e_4590_44af_9eb3_57ff1e73bf80);
 ::windows_core::imp::interface_hierarchy!(IWMSInternalAdminNetSource3, ::windows_core::IUnknown, IWMSInternalAdminNetSource2);
@@ -4428,13 +4428,13 @@ impl IWMSInternalAdminNetSource3 {
 #[doc(hidden)]
 pub struct IWMSInternalAdminNetSource3_Vtbl {
     pub base__: IWMSInternalAdminNetSource2_Vtbl,
-    pub GetNetSourceCreator2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnetsourcecreator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FindProxyForURLEx2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprotocol: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrhost: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, pfproxyenabled: *mut super::super::Foundation::BOOL, pbstrproxyserver: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pdwproxyport: *mut u32, pqwproxycontext: *mut u64) -> ::windows_core::HRESULT,
-    pub RegisterProxyFailure2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrparam: ::windows_core::HRESULT, qwproxycontext: u64) -> ::windows_core::HRESULT,
-    pub ShutdownProxyContext2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, qwproxycontext: u64) -> ::windows_core::HRESULT,
-    pub IsUsingIE2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, qwproxycontext: u64, pfisusingie: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetCredentialsEx2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrealm: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, fproxy: super::super::Foundation::BOOL, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrpassword: ::std::mem::MaybeUninit<::windows_core::BSTR>, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL, fcleartextauthentication: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetCredentialsEx2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrealm: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, fproxy: super::super::Foundation::BOOL, fcleartextauthentication: super::super::Foundation::BOOL, pdwurlpolicy: *mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrpassword: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pfconfirmedgood: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetNetSourceCreator2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindProxyForURLEx2: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::BOOL, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut u32, *mut u64) -> ::windows_core::HRESULT,
+    pub RegisterProxyFailure2: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, u64) -> ::windows_core::HRESULT,
+    pub ShutdownProxyContext2: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
+    pub IsUsingIE2: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetCredentialsEx2: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, super::super::Foundation::BOOL, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, super::super::Foundation::BOOL, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetCredentialsEx2: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, super::super::Foundation::BOOL, super::super::Foundation::BOOL, *mut NETSOURCE_URLCREDPOLICY_SETTINGS, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMSecureChannel, IWMSecureChannel_Vtbl, 0x2720598a_d0f2_4189_bd10_91c46ef0936f);
 ::windows_core::imp::interface_hierarchy!(IWMSecureChannel, ::windows_core::IUnknown, IWMAuthorizer);
@@ -4496,17 +4496,17 @@ impl IWMSecureChannel {
 #[doc(hidden)]
 pub struct IWMSecureChannel_Vtbl {
     pub base__: IWMAuthorizer_Vtbl,
-    pub WMSC_AddCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcert: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub WMSC_AddSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbcertsig: *const u8, cbcertsig: u32) -> ::windows_core::HRESULT,
-    pub WMSC_Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, potherside: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub WMSC_IsConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisconnected: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub WMSC_Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub WMSC_GetValidCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbcertificate: *mut *mut u8, pdwsignature: *mut u32) -> ::windows_core::HRESULT,
-    pub WMSC_Encrypt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdata: *const u8, cbdata: u32) -> ::windows_core::HRESULT,
-    pub WMSC_Decrypt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdata: *const u8, cbdata: u32) -> ::windows_core::HRESULT,
-    pub WMSC_Lock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub WMSC_Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub WMSC_SetSharedData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcertindex: u32, pbshareddata: *const u8) -> ::windows_core::HRESULT,
+    pub WMSC_AddCertificate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub WMSC_AddSignature: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32) -> ::windows_core::HRESULT,
+    pub WMSC_Connect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub WMSC_IsConnected: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub WMSC_Disconnect: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub WMSC_GetValidCertificate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub WMSC_Encrypt: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32) -> ::windows_core::HRESULT,
+    pub WMSC_Decrypt: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32) -> ::windows_core::HRESULT,
+    pub WMSC_Lock: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub WMSC_Unlock: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub WMSC_SetSharedData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMStatusCallback, IWMStatusCallback_Vtbl, 0x6d7cdc70_9888_11d3_8edc_00c04f6109cf);
 ::windows_core::imp::interface_hierarchy!(IWMStatusCallback, ::windows_core::IUnknown);
@@ -4519,7 +4519,7 @@ impl IWMStatusCallback {
 #[doc(hidden)]
 pub struct IWMStatusCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: WMT_STATUS, hr: ::windows_core::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, WMT_STATUS, ::windows_core::HRESULT, WMT_ATTR_DATATYPE, *const u8, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMStreamConfig, IWMStreamConfig_Vtbl, 0x96406bdc_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMStreamConfig, ::windows_core::IUnknown);
@@ -4572,17 +4572,17 @@ impl IWMStreamConfig {
 #[doc(hidden)]
 pub struct IWMStreamConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetStreamType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidstreamtype: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetStreamNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstreamnum: *mut u16) -> ::windows_core::HRESULT,
-    pub SetStreamNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16) -> ::windows_core::HRESULT,
-    pub GetStreamName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszstreamname: ::windows_core::PWSTR, pcchstreamname: *mut u16) -> ::windows_core::HRESULT,
-    pub SetStreamName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszstreamname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetConnectionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszinputname: ::windows_core::PWSTR, pcchinputname: *mut u16) -> ::windows_core::HRESULT,
-    pub SetConnectionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszinputname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetBitrate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwbitrate: *mut u32) -> ::windows_core::HRESULT,
-    pub SetBitrate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwbitrate: u32) -> ::windows_core::HRESULT,
-    pub GetBufferWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmsbufferwindow: *mut u32) -> ::windows_core::HRESULT,
-    pub SetBufferWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msbufferwindow: u32) -> ::windows_core::HRESULT,
+    pub GetStreamType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetStreamNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
+    pub SetStreamNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16) -> ::windows_core::HRESULT,
+    pub GetStreamName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u16) -> ::windows_core::HRESULT,
+    pub SetStreamName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetConnectionName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u16) -> ::windows_core::HRESULT,
+    pub SetConnectionName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetBitrate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetBitrate: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetBufferWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetBufferWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMStreamConfig2, IWMStreamConfig2_Vtbl, 0x7688d8cb_fc0d_43bd_9459_5a8dec200cfa);
 ::windows_core::imp::interface_hierarchy!(IWMStreamConfig2, ::windows_core::IUnknown, IWMStreamConfig);
@@ -4655,12 +4655,12 @@ impl IWMStreamConfig2 {
 #[doc(hidden)]
 pub struct IWMStreamConfig2_Vtbl {
     pub base__: IWMStreamConfig_Vtbl,
-    pub GetTransportType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pntransporttype: *mut WMT_TRANSPORT_TYPE) -> ::windows_core::HRESULT,
-    pub SetTransportType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ntransporttype: WMT_TRANSPORT_TYPE) -> ::windows_core::HRESULT,
-    pub AddDataUnitExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidextensionsystemid: ::windows_core::GUID, cbextensiondatasize: u16, pbextensionsysteminfo: *const u8, cbextensionsysteminfo: u32) -> ::windows_core::HRESULT,
-    pub GetDataUnitExtensionCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdataunitextensions: *mut u16) -> ::windows_core::HRESULT,
-    pub GetDataUnitExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wdataunitextensionnumber: u16, pguidextensionsystemid: *mut ::windows_core::GUID, pcbextensiondatasize: *mut u16, pbextensionsysteminfo: *mut u8, pcbextensionsysteminfo: *mut u32) -> ::windows_core::HRESULT,
-    pub RemoveAllDataUnitExtensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetTransportType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WMT_TRANSPORT_TYPE) -> ::windows_core::HRESULT,
+    pub SetTransportType: unsafe extern "system" fn(*mut ::core::ffi::c_void, WMT_TRANSPORT_TYPE) -> ::windows_core::HRESULT,
+    pub AddDataUnitExtension: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, u16, *const u8, u32) -> ::windows_core::HRESULT,
+    pub GetDataUnitExtensionCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
+    pub GetDataUnitExtension: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut ::windows_core::GUID, *mut u16, *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub RemoveAllDataUnitExtensions: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMStreamConfig3, IWMStreamConfig3_Vtbl, 0xcb164104_3aa9_45a7_9ac9_4daee131d6e1);
 ::windows_core::imp::interface_hierarchy!(IWMStreamConfig3, ::windows_core::IUnknown, IWMStreamConfig, IWMStreamConfig2);
@@ -4742,8 +4742,8 @@ impl IWMStreamConfig3 {
 #[doc(hidden)]
 pub struct IWMStreamConfig3_Vtbl {
     pub base__: IWMStreamConfig2_Vtbl,
-    pub GetLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszlanguagestring: ::windows_core::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows_core::HRESULT,
-    pub SetLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszlanguagestring: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetLanguage: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u16) -> ::windows_core::HRESULT,
+    pub SetLanguage: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMStreamList, IWMStreamList_Vtbl, 0x96406bdd_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMStreamList, ::windows_core::IUnknown);
@@ -4762,9 +4762,9 @@ impl IWMStreamList {
 #[doc(hidden)]
 pub struct IWMStreamList_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> ::windows_core::HRESULT,
-    pub AddStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16) -> ::windows_core::HRESULT,
-    pub RemoveStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16) -> ::windows_core::HRESULT,
+    pub GetStreams: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16, *mut u16) -> ::windows_core::HRESULT,
+    pub AddStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16) -> ::windows_core::HRESULT,
+    pub RemoveStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMStreamPrioritization, IWMStreamPrioritization_Vtbl, 0x8c1c6090_f9a8_4748_8ec3_dd1108ba1e77);
 ::windows_core::imp::interface_hierarchy!(IWMStreamPrioritization, ::windows_core::IUnknown);
@@ -4780,8 +4780,8 @@ impl IWMStreamPrioritization {
 #[doc(hidden)]
 pub struct IWMStreamPrioritization_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetPriorityRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precordarray: *mut WM_STREAM_PRIORITY_RECORD, pcrecords: *mut u16) -> ::windows_core::HRESULT,
-    pub SetPriorityRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precordarray: *const WM_STREAM_PRIORITY_RECORD, crecords: u16) -> ::windows_core::HRESULT,
+    pub GetPriorityRecords: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WM_STREAM_PRIORITY_RECORD, *mut u16) -> ::windows_core::HRESULT,
+    pub SetPriorityRecords: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WM_STREAM_PRIORITY_RECORD, u16) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMSyncReader, IWMSyncReader_Vtbl, 0x9397f121_7705_4dc9_b049_98b698188414);
 ::windows_core::imp::interface_hierarchy!(IWMSyncReader, ::windows_core::IUnknown);
@@ -4884,28 +4884,28 @@ impl IWMSyncReader {
 #[doc(hidden)]
 pub struct IWMSyncReader_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszfilename: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnsstarttime: u64, cnsduration: i64) -> ::windows_core::HRESULT,
-    pub SetRangeByFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, qwframenumber: u64, cframestoread: i64) -> ::windows_core::HRESULT,
-    pub GetNextSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, ppsample: *mut *mut ::core::ffi::c_void, pcnssampletime: *mut u64, pcnsduration: *mut u64, pdwflags: *mut u32, pdwoutputnum: *mut u32, pwstreamnum: *mut u16) -> ::windows_core::HRESULT,
-    pub SetStreamsSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cstreamcount: u16, pwstreamnumbers: *const u16, pselections: *const WMT_STREAM_SELECTION) -> ::windows_core::HRESULT,
-    pub GetStreamSelected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pselection: *mut WMT_STREAM_SELECTION) -> ::windows_core::HRESULT,
-    pub SetReadStreamSamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, fcompressed: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetReadStreamSamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pfcompressed: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetOutputSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, pszname: ::windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows_core::HRESULT,
-    pub SetOutputSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, pszname: ::windows_core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows_core::HRESULT,
-    pub GetOutputCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcoutputs: *mut u32) -> ::windows_core::HRESULT,
-    pub GetOutputProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, ppoutput: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetOutputProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, poutput: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetOutputFormatCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, pcformats: *mut u32) -> ::windows_core::HRESULT,
-    pub GetOutputFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, dwformatnum: u32, ppprops: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetOutputNumberForStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pdwoutputnum: *mut u32) -> ::windows_core::HRESULT,
-    pub GetStreamNumberForOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, pwstreamnum: *mut u16) -> ::windows_core::HRESULT,
-    pub GetMaxOutputSampleSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutput: u32, pcbmax: *mut u32) -> ::windows_core::HRESULT,
-    pub GetMaxStreamSampleSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstream: u16, pcbmax: *mut u32) -> ::windows_core::HRESULT,
+    pub Open: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetRange: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, i64) -> ::windows_core::HRESULT,
+    pub SetRangeByFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u64, i64) -> ::windows_core::HRESULT,
+    pub GetNextSample: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut *mut ::core::ffi::c_void, *mut u64, *mut u64, *mut u32, *mut u32, *mut u16) -> ::windows_core::HRESULT,
+    pub SetStreamsSelected: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *const u16, *const WMT_STREAM_SELECTION) -> ::windows_core::HRESULT,
+    pub GetStreamSelected: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut WMT_STREAM_SELECTION) -> ::windows_core::HRESULT,
+    pub SetReadStreamSamples: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetReadStreamSamples: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetOutputSetting: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u16) -> ::windows_core::HRESULT,
+    pub SetOutputSetting: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, WMT_ATTR_DATATYPE, *const u8, u16) -> ::windows_core::HRESULT,
+    pub GetOutputCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetOutputProps: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetOutputProps: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetOutputFormatCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetOutputFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetOutputNumberForStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut u32) -> ::windows_core::HRESULT,
+    pub GetStreamNumberForOutput: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u16) -> ::windows_core::HRESULT,
+    pub GetMaxOutputSampleSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetMaxStreamSampleSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub OpenStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstream: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OpenStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     OpenStream: usize,
 }
@@ -5037,12 +5037,12 @@ impl IWMSyncReader2 {
 #[doc(hidden)]
 pub struct IWMSyncReader2_Vtbl {
     pub base__: IWMSyncReader_Vtbl,
-    pub SetRangeByTimecode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pstart: *const WMT_TIMECODE_EXTENSION_DATA, pend: *const WMT_TIMECODE_EXTENSION_DATA) -> ::windows_core::HRESULT,
-    pub SetRangeByFrameEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, qwframenumber: u64, cframestoread: i64, pcnsstarttime: *mut u64) -> ::windows_core::HRESULT,
-    pub SetAllocateForOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, pallocator: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetAllocateForOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, ppallocator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetAllocateForStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pallocator: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetAllocateForStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsreamnum: u16, ppallocator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetRangeByTimecode: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *const WMT_TIMECODE_EXTENSION_DATA, *const WMT_TIMECODE_EXTENSION_DATA) -> ::windows_core::HRESULT,
+    pub SetRangeByFrameEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u64, i64, *mut u64) -> ::windows_core::HRESULT,
+    pub SetAllocateForOutput: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAllocateForOutput: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAllocateForStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAllocateForStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMVideoMediaProps, IWMVideoMediaProps_Vtbl, 0x96406bcf_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMVideoMediaProps, ::windows_core::IUnknown, IWMMediaProps);
@@ -5076,10 +5076,10 @@ impl IWMVideoMediaProps {
 #[doc(hidden)]
 pub struct IWMVideoMediaProps_Vtbl {
     pub base__: IWMMediaProps_Vtbl,
-    pub GetMaxKeyFrameSpacing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plltime: *mut i64) -> ::windows_core::HRESULT,
-    pub SetMaxKeyFrameSpacing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lltime: i64) -> ::windows_core::HRESULT,
-    pub GetQuality: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwquality: *mut u32) -> ::windows_core::HRESULT,
-    pub SetQuality: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwquality: u32) -> ::windows_core::HRESULT,
+    pub GetMaxKeyFrameSpacing: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
+    pub SetMaxKeyFrameSpacing: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64) -> ::windows_core::HRESULT,
+    pub GetQuality: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetQuality: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMWatermarkInfo, IWMWatermarkInfo_Vtbl, 0x6f497062_f2e2_4624_8ea7_9dd40d81fc8d);
 ::windows_core::imp::interface_hierarchy!(IWMWatermarkInfo, ::windows_core::IUnknown);
@@ -5096,8 +5096,8 @@ impl IWMWatermarkInfo {
 #[doc(hidden)]
 pub struct IWMWatermarkInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetWatermarkEntryCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wmettype: WMT_WATERMARK_ENTRY_TYPE, pdwcount: *mut u32) -> ::windows_core::HRESULT,
-    pub GetWatermarkEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wmettype: WMT_WATERMARK_ENTRY_TYPE, dwentrynum: u32, pentry: *mut WMT_WATERMARK_ENTRY) -> ::windows_core::HRESULT,
+    pub GetWatermarkEntryCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, WMT_WATERMARK_ENTRY_TYPE, *mut u32) -> ::windows_core::HRESULT,
+    pub GetWatermarkEntry: unsafe extern "system" fn(*mut ::core::ffi::c_void, WMT_WATERMARK_ENTRY_TYPE, u32, *mut WMT_WATERMARK_ENTRY) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMWriter, IWMWriter_Vtbl, 0x96406bd4_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMWriter, ::windows_core::IUnknown);
@@ -5163,19 +5163,19 @@ impl IWMWriter {
 #[doc(hidden)]
 pub struct IWMWriter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetProfileByID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidprofile: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub SetProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprofile: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetOutputFilename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszfilename: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetInputCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcinputs: *mut u32) -> ::windows_core::HRESULT,
-    pub GetInputProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputnum: u32, ppinput: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetInputProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputnum: u32, pinput: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetInputFormatCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputnumber: u32, pcformats: *mut u32) -> ::windows_core::HRESULT,
-    pub GetInputFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputnumber: u32, dwformatnumber: u32, pprops: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub BeginWriting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EndWriting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AllocateSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsamplesize: u32, ppsample: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub WriteSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Flush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetProfileByID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub SetProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetOutputFilename: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetInputCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetInputProps: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetInputProps: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetInputFormatCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetInputFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BeginWriting: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EndWriting: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AllocateSample: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub WriteSample: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u64, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Flush: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMWriterAdvanced, IWMWriterAdvanced_Vtbl, 0x96406be3_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMWriterAdvanced, ::windows_core::IUnknown);
@@ -5235,17 +5235,17 @@ impl IWMWriterAdvanced {
 #[doc(hidden)]
 pub struct IWMWriterAdvanced_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetSinkCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcsinks: *mut u32) -> ::windows_core::HRESULT,
-    pub GetSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsinknum: u32, ppsink: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AddSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub WriteStreamSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, cnssampletime: u64, mssamplesendtime: u32, cnssampleduration: u64, dwflags: u32, psample: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetLiveSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fislivesource: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub IsRealTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfrealtime: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetWriterTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnscurrenttime: *mut u64) -> ::windows_core::HRESULT,
-    pub GetStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pstats: *mut WM_WRITER_STATISTICS) -> ::windows_core::HRESULT,
-    pub SetSyncTolerance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mswindow: u32) -> ::windows_core::HRESULT,
-    pub GetSyncTolerance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmswindow: *mut u32) -> ::windows_core::HRESULT,
+    pub GetSinkCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetSink: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddSink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveSink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub WriteStreamSample: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u64, u32, u64, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetLiveSource: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub IsRealTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetWriterTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
+    pub GetStatistics: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut WM_WRITER_STATISTICS) -> ::windows_core::HRESULT,
+    pub SetSyncTolerance: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetSyncTolerance: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMWriterAdvanced2, IWMWriterAdvanced2_Vtbl, 0x962dc1ec_c046_4db8_9cc7_26ceae500817);
 ::windows_core::imp::interface_hierarchy!(IWMWriterAdvanced2, ::windows_core::IUnknown, IWMWriterAdvanced);
@@ -5317,8 +5317,8 @@ impl IWMWriterAdvanced2 {
 #[doc(hidden)]
 pub struct IWMWriterAdvanced2_Vtbl {
     pub base__: IWMWriterAdvanced_Vtbl,
-    pub GetInputSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputnum: u32, pszname: ::windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows_core::HRESULT,
-    pub SetInputSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputnum: u32, pszname: ::windows_core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows_core::HRESULT,
+    pub GetInputSetting: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, *mut WMT_ATTR_DATATYPE, *mut u8, *mut u16) -> ::windows_core::HRESULT,
+    pub SetInputSetting: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, WMT_ATTR_DATATYPE, *const u8, u16) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMWriterAdvanced3, IWMWriterAdvanced3_Vtbl, 0x2cd6492d_7c37_4e76_9d3b_59261183a22e);
 ::windows_core::imp::interface_hierarchy!(IWMWriterAdvanced3, ::windows_core::IUnknown, IWMWriterAdvanced, IWMWriterAdvanced2);
@@ -5396,8 +5396,8 @@ impl IWMWriterAdvanced3 {
 #[doc(hidden)]
 pub struct IWMWriterAdvanced3_Vtbl {
     pub base__: IWMWriterAdvanced2_Vtbl,
-    pub GetStatisticsEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pstats: *mut WM_WRITER_STATISTICS_EX) -> ::windows_core::HRESULT,
-    pub SetNonBlocking: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStatisticsEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut WM_WRITER_STATISTICS_EX) -> ::windows_core::HRESULT,
+    pub SetNonBlocking: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMWriterFileSink, IWMWriterFileSink_Vtbl, 0x96406be5_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMWriterFileSink, ::windows_core::IUnknown, IWMWriterSink);
@@ -5436,7 +5436,7 @@ impl IWMWriterFileSink {
 #[doc(hidden)]
 pub struct IWMWriterFileSink_Vtbl {
     pub base__: IWMWriterSink_Vtbl,
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszfilename: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Open: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMWriterFileSink2, IWMWriterFileSink2_Vtbl, 0x14282ba7_4aef_4205_8ce5_c229035a05bc);
 ::windows_core::imp::interface_hierarchy!(IWMWriterFileSink2, ::windows_core::IUnknown, IWMWriterSink, IWMWriterFileSink);
@@ -5500,13 +5500,13 @@ impl IWMWriterFileSink2 {
 #[doc(hidden)]
 pub struct IWMWriterFileSink2_Vtbl {
     pub base__: IWMWriterFileSink_Vtbl,
-    pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnsstarttime: u64) -> ::windows_core::HRESULT,
-    pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnsstoptime: u64) -> ::windows_core::HRESULT,
-    pub IsStopped: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfstopped: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetFileDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnsduration: *mut u64) -> ::windows_core::HRESULT,
-    pub GetFileSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbfile: *mut u64) -> ::windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub IsClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfclosed: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub Start: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
+    pub Stop: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
+    pub IsStopped: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetFileDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
+    pub GetFileSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsClosed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMWriterFileSink3, IWMWriterFileSink3_Vtbl, 0x3fea4feb_2945_47a7_a1dd_c53a8fc4c45c);
 ::windows_core::imp::interface_hierarchy!(IWMWriterFileSink3, ::windows_core::IUnknown, IWMWriterSink, IWMWriterFileSink, IWMWriterFileSink2);
@@ -5607,14 +5607,14 @@ impl IWMWriterFileSink3 {
 #[doc(hidden)]
 pub struct IWMWriterFileSink3_Vtbl {
     pub base__: IWMWriterFileSink2_Vtbl,
-    pub SetAutoIndexing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fdoautoindexing: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetAutoIndexing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfautoindexing: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetControlStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnumber: u16, fshouldcontrolstartandstop: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwfilesinkmode: *mut u32) -> ::windows_core::HRESULT,
-    pub OnDataUnitEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilesinkdataunit: *const WMT_FILESINK_DATA_UNIT) -> ::windows_core::HRESULT,
-    pub SetUnbufferedIO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, funbufferedio: super::super::Foundation::BOOL, frestrictmemusage: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetUnbufferedIO: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfunbufferedio: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub CompleteOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAutoIndexing: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetAutoIndexing: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetControlStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub OnDataUnitEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const WMT_FILESINK_DATA_UNIT) -> ::windows_core::HRESULT,
+    pub SetUnbufferedIO: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetUnbufferedIO: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub CompleteOperations: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMWriterNetworkSink, IWMWriterNetworkSink_Vtbl, 0x96406be7_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMWriterNetworkSink, ::windows_core::IUnknown, IWMWriterSink);
@@ -5673,14 +5673,14 @@ impl IWMWriterNetworkSink {
 #[doc(hidden)]
 pub struct IWMWriterNetworkSink_Vtbl {
     pub base__: IWMWriterSink_Vtbl,
-    pub SetMaximumClients: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxclients: u32) -> ::windows_core::HRESULT,
-    pub GetMaximumClients: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmaxclients: *mut u32) -> ::windows_core::HRESULT,
-    pub SetNetworkProtocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protocol: WMT_NET_PROTOCOL) -> ::windows_core::HRESULT,
-    pub GetNetworkProtocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprotocol: *mut WMT_NET_PROTOCOL) -> ::windows_core::HRESULT,
-    pub GetHostURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: ::windows_core::PWSTR, pcchurl: *mut u32) -> ::windows_core::HRESULT,
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwportnum: *mut u32) -> ::windows_core::HRESULT,
-    pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetMaximumClients: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetMaximumClients: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetNetworkProtocol: unsafe extern "system" fn(*mut ::core::ffi::c_void, WMT_NET_PROTOCOL) -> ::windows_core::HRESULT,
+    pub GetNetworkProtocol: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WMT_NET_PROTOCOL) -> ::windows_core::HRESULT,
+    pub GetHostURL: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub Open: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Disconnect: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMWriterPostView, IWMWriterPostView_Vtbl, 0x81e20ce4_75ef_491a_8004_fc53c45bdc3e);
 ::windows_core::imp::interface_hierarchy!(IWMWriterPostView, ::windows_core::IUnknown);
@@ -5734,15 +5734,15 @@ impl IWMWriterPostView {
 #[doc(hidden)]
 pub struct IWMWriterPostView_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetPostViewCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, pvcontext: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetReceivePostViewSamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, freceivepostviewsamples: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetReceivePostViewSamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pfreceivepostviewsamples: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetPostViewProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnumber: u16, ppoutput: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetPostViewProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnumber: u16, poutput: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetPostViewFormatCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnumber: u16, pcformats: *mut u32) -> ::windows_core::HRESULT,
-    pub GetPostViewFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnumber: u16, dwformatnumber: u32, ppprops: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetAllocateForPostView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnumber: u16, fallocate: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetAllocateForPostView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnumber: u16, pfallocate: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetPostViewCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetReceivePostViewSamples: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetReceivePostViewSamples: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetPostViewProps: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetPostViewProps: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPostViewFormatCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut u32) -> ::windows_core::HRESULT,
+    pub GetPostViewFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAllocateForPostView: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetAllocateForPostView: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMWriterPostViewCallback, IWMWriterPostViewCallback_Vtbl, 0xd9d6549d_a193_4f24_b308_03123d9b7f8d);
 ::windows_core::imp::interface_hierarchy!(IWMWriterPostViewCallback, ::windows_core::IUnknown, IWMStatusCallback);
@@ -5764,8 +5764,8 @@ impl IWMWriterPostViewCallback {
 #[doc(hidden)]
 pub struct IWMWriterPostViewCallback_Vtbl {
     pub base__: IWMStatusCallback_Vtbl,
-    pub OnPostViewSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnumber: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AllocateForPostView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnPostViewSample: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u64, u64, u32, *mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AllocateForPostView: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u32, *mut *mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMWriterPreprocess, IWMWriterPreprocess_Vtbl, 0xfc54a285_38c4_45b5_aa23_85b9f7cb424b);
 ::windows_core::imp::interface_hierarchy!(IWMWriterPreprocess, ::windows_core::IUnknown);
@@ -5794,11 +5794,11 @@ impl IWMWriterPreprocess {
 #[doc(hidden)]
 pub struct IWMWriterPreprocess_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetMaxPreprocessingPasses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputnum: u32, dwflags: u32, pdwmaxnumpasses: *mut u32) -> ::windows_core::HRESULT,
-    pub SetNumPreprocessingPasses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputnum: u32, dwflags: u32, dwnumpasses: u32) -> ::windows_core::HRESULT,
-    pub BeginPreprocessingPass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputnum: u32, dwflags: u32) -> ::windows_core::HRESULT,
-    pub PreprocessSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EndPreprocessingPass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputnum: u32, dwflags: u32) -> ::windows_core::HRESULT,
+    pub GetMaxPreprocessingPasses: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub SetNumPreprocessingPasses: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32) -> ::windows_core::HRESULT,
+    pub BeginPreprocessingPass: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub PreprocessSample: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u64, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EndPreprocessingPass: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMWriterPushSink, IWMWriterPushSink_Vtbl, 0xdc10e6a5_072c_467d_bf57_6330a9dde12a);
 ::windows_core::imp::interface_hierarchy!(IWMWriterPushSink, ::windows_core::IUnknown, IWMWriterSink);
@@ -5845,9 +5845,9 @@ impl IWMWriterPushSink {
 #[doc(hidden)]
 pub struct IWMWriterPushSink_Vtbl {
     pub base__: IWMWriterSink_Vtbl,
-    pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: ::windows_core::PCWSTR, pwsztemplateurl: ::windows_core::PCWSTR, fautodestroy: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EndSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Connect: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub Disconnect: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EndSession: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWMWriterSink, IWMWriterSink_Vtbl, 0x96406be4_2b2b_11d3_b36b_00c04f6108ff);
 ::windows_core::imp::interface_hierarchy!(IWMWriterSink, ::windows_core::IUnknown);
@@ -5880,11 +5880,11 @@ impl IWMWriterSink {
 #[doc(hidden)]
 pub struct IWMWriterSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pheader: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub IsRealTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfrealtime: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub AllocateDataUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbdataunit: u32, ppdataunit: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnDataUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataunit: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnEndWriting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnHeader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsRealTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub AllocateDataUnit: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnDataUnit: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnEndWriting: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const AM_CONFIGASFWRITER_PARAM_AUTOINDEX: _AM_ASFWRITERCONFIG_PARAM = _AM_ASFWRITERCONFIG_PARAM(1i32);
 pub const AM_CONFIGASFWRITER_PARAM_DONTCOMPRESS: _AM_ASFWRITERCONFIG_PARAM = _AM_ASFWRITERCONFIG_PARAM(3i32);

@@ -12,14 +12,14 @@ pub mod UserProfile;
 #[doc(hidden)]
 pub struct ISystemProtectionStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub ScreenLocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub ScreenLocked: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISystemProtectionUnlockStatics, ISystemProtectionUnlockStatics_Vtbl, 0x0692fa3f_8f11_4c4b_aa0d_87d7af7b1779);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemProtectionUnlockStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub RequestScreenUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RequestScreenUnlock: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub struct SystemProtection;
 impl SystemProtection {

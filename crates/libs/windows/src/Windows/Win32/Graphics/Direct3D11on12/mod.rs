@@ -50,15 +50,15 @@ unsafe impl ::core::marker::Sync for ID3D11On12Device {}
 pub struct ID3D11On12Device_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub CreateWrappedResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource12: *mut ::core::ffi::c_void, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, riid: *const ::windows_core::GUID, ppresource11: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateWrappedResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_RESOURCE_FLAGS, super::Direct3D12::D3D12_RESOURCE_STATES, super::Direct3D12::D3D12_RESOURCE_STATES, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     CreateWrappedResource: usize,
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    pub ReleaseWrappedResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresources: *const *mut ::core::ffi::c_void, numresources: u32),
+    pub ReleaseWrappedResources: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const *mut ::core::ffi::c_void, u32),
     #[cfg(not(feature = "Win32_Graphics_Direct3D11"))]
     ReleaseWrappedResources: usize,
     #[cfg(feature = "Win32_Graphics_Direct3D11")]
-    pub AcquireWrappedResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresources: *const *mut ::core::ffi::c_void, numresources: u32),
+    pub AcquireWrappedResources: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const *mut ::core::ffi::c_void, u32),
     #[cfg(not(feature = "Win32_Graphics_Direct3D11"))]
     AcquireWrappedResources: usize,
 }
@@ -98,7 +98,7 @@ unsafe impl ::core::marker::Sync for ID3D11On12Device1 {}
 #[doc(hidden)]
 pub struct ID3D11On12Device1_Vtbl {
     pub base__: ID3D11On12Device_Vtbl,
-    pub GetD3D12Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetD3D12Device: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11On12Device2, ID3D11On12Device2_Vtbl, 0xdc90f331_4740_43fa_866e_67f12cb58223);
 ::windows_core::imp::interface_hierarchy!(ID3D11On12Device2, ::windows_core::IUnknown, ID3D11On12Device, ID3D11On12Device1);
@@ -156,11 +156,11 @@ unsafe impl ::core::marker::Sync for ID3D11On12Device2 {}
 pub struct ID3D11On12Device2_Vtbl {
     pub base__: ID3D11On12Device1_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
-    pub UnwrapUnderlyingResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource11: *mut ::core::ffi::c_void, pcommandqueue: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppvresource12: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UnwrapUnderlyingResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12")))]
     UnwrapUnderlyingResource: usize,
     #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
-    pub ReturnUnderlyingResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource11: *mut ::core::ffi::c_void, numsync: u32, psignalvalues: *const u64, ppfences: *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ReturnUnderlyingResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const u64, *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12")))]
     ReturnUnderlyingResource: usize,
 }

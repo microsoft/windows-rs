@@ -921,17 +921,17 @@ impl IDeviceModelPlugIn {
 #[doc(hidden)]
 pub struct IDeviceModelPlugIn_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxml: ::std::mem::MaybeUninit<::windows_core::BSTR>, cnummodels: u32, imodelposition: u32) -> ::windows_core::HRESULT,
-    pub GetNumChannels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnumchannels: *mut u32) -> ::windows_core::HRESULT,
-    pub DeviceToColorimetricColors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolors: u32, cchannels: u32, pdevicevalues: *const f32, pxyzcolors: *mut XYZColorF) -> ::windows_core::HRESULT,
-    pub ColorimetricToDeviceColors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pdevicevalues: *mut f32) -> ::windows_core::HRESULT,
-    pub ColorimetricToDeviceColorsWithBlack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolors: u32, cchannels: u32, pxyzcolors: *const XYZColorF, pblackinformation: *const BlackInformation, pdevicevalues: *mut f32) -> ::windows_core::HRESULT,
-    pub SetTransformDeviceModelInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imodelposition: u32, pidevicemodelother: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetPrimarySamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprimarycolor: *mut PrimaryXYZColors) -> ::windows_core::HRESULT,
-    pub GetGamutBoundaryMeshSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnumvertices: *mut u32, pnumtriangles: *mut u32) -> ::windows_core::HRESULT,
-    pub GetGamutBoundaryMesh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchannels: u32, cvertices: u32, ctriangles: u32, pvertices: *mut f32, ptriangles: *mut GamutShellTriangle) -> ::windows_core::HRESULT,
-    pub GetNeutralAxisSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccolors: *mut u32) -> ::windows_core::HRESULT,
-    pub GetNeutralAxis: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolors: u32, pxyzcolors: *mut XYZColorF) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, u32, u32) -> ::windows_core::HRESULT,
+    pub GetNumChannels: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub DeviceToColorimetricColors: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const f32, *mut XYZColorF) -> ::windows_core::HRESULT,
+    pub ColorimetricToDeviceColors: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const XYZColorF, *mut f32) -> ::windows_core::HRESULT,
+    pub ColorimetricToDeviceColorsWithBlack: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const XYZColorF, *const BlackInformation, *mut f32) -> ::windows_core::HRESULT,
+    pub SetTransformDeviceModelInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPrimarySamples: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PrimaryXYZColors) -> ::windows_core::HRESULT,
+    pub GetGamutBoundaryMeshSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetGamutBoundaryMesh: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32, *mut f32, *mut GamutShellTriangle) -> ::windows_core::HRESULT,
+    pub GetNeutralAxisSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetNeutralAxis: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut XYZColorF) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGamutMapModelPlugIn, IGamutMapModelPlugIn_Vtbl, 0x2dd80115_ad1e_41f6_a219_a4f4b583d1f9);
 ::windows_core::imp::interface_hierarchy!(IGamutMapModelPlugIn, ::windows_core::IUnknown);
@@ -952,8 +952,8 @@ impl IGamutMapModelPlugIn {
 #[doc(hidden)]
 pub struct IGamutMapModelPlugIn_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrxml: ::std::mem::MaybeUninit<::windows_core::BSTR>, psrcplugin: *mut ::core::ffi::c_void, pdestplugin: *mut ::core::ffi::c_void, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows_core::HRESULT,
-    pub SourceToDestinationAppearanceColors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const GamutBoundaryDescription, *const GamutBoundaryDescription) -> ::windows_core::HRESULT,
+    pub SourceToDestinationAppearanceColors: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const JChColorF, *mut JChColorF) -> ::windows_core::HRESULT,
 }
 pub const ATTRIB_MATTE: u32 = 2u32;
 pub const ATTRIB_TRANSPARENCY: u32 = 1u32;

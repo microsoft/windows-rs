@@ -816,10 +816,10 @@ impl ICloneViewHelper {
 #[doc(hidden)]
 pub struct ICloneViewHelper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetConnectedIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszadaptorname: ::windows_core::PCWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows_core::HRESULT,
-    pub GetActiveTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszadaptorname: ::windows_core::PCWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows_core::HRESULT,
-    pub SetActiveTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszadaptorname: ::windows_core::PCWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows_core::HRESULT,
-    pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ffinalcall: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetConnectedIDs: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut u32, *mut u32, u32) -> ::windows_core::HRESULT,
+    pub GetActiveTopology: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub SetActiveTopology: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, u32, *const u32) -> ::windows_core::HRESULT,
+    pub Commit: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IViewHelper, IViewHelper_Vtbl, 0xe85ccef5_aaaa_47f0_b5e3_61f7aecdc4c1);
 ::windows_core::imp::interface_hierarchy!(IViewHelper, ::windows_core::IUnknown);
@@ -862,15 +862,15 @@ impl IViewHelper {
 #[doc(hidden)]
 pub struct IViewHelper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetConnectedIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszadaptorname: ::windows_core::PCWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows_core::HRESULT,
-    pub GetActiveTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszadaptorname: ::windows_core::PCWSTR, ulsourceid: u32, pulcount: *mut u32, pultargetid: *mut u32) -> ::windows_core::HRESULT,
-    pub SetActiveTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszadaptorname: ::windows_core::PCWSTR, ulsourceid: u32, ulcount: u32, pultargetid: *const u32) -> ::windows_core::HRESULT,
-    pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetConnectedIDs: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut u32, *mut u32, u32) -> ::windows_core::HRESULT,
+    pub GetActiveTopology: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub SetActiveTopology: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, u32, *const u32) -> ::windows_core::HRESULT,
+    pub Commit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistream: *mut ::core::ffi::c_void, pulstatus: *mut u32) -> ::windows_core::HRESULT,
+    pub SetConfiguration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetConfiguration: usize,
-    pub GetProceedOnNewConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetProceedOnNewConfiguration: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const AR_DISABLED: AR_STATE = AR_STATE(1i32);
 pub const AR_DOCKED: AR_STATE = AR_STATE(64i32);

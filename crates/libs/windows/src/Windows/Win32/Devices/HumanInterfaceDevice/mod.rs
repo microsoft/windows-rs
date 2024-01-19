@@ -403,7 +403,7 @@ impl IDirectInput2A {
 #[doc(hidden)]
 pub struct IDirectInput2A_Vtbl {
     pub base__: IDirectInputA_Vtbl,
-    pub FindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: ::windows_core::PCSTR, param2: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub FindDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, ::windows_core::PCSTR, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectInput2W, IDirectInput2W_Vtbl, 0x5944e663_aa8a_11cf_bfc7_444553540000);
 ::windows_core::imp::interface_hierarchy!(IDirectInput2W, ::windows_core::IUnknown, IDirectInputW);
@@ -443,7 +443,7 @@ impl IDirectInput2W {
 #[doc(hidden)]
 pub struct IDirectInput2W_Vtbl {
     pub base__: IDirectInputW_Vtbl,
-    pub FindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: ::windows_core::PCWSTR, param2: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub FindDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, ::windows_core::PCWSTR, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectInput7A, IDirectInput7A_Vtbl, 0x9a4cb684_236d_11d3_8e9d_00c04f6844ae);
 ::windows_core::imp::interface_hierarchy!(IDirectInput7A, ::windows_core::IUnknown, IDirectInputA, IDirectInput2A);
@@ -489,7 +489,7 @@ impl IDirectInput7A {
 #[doc(hidden)]
 pub struct IDirectInput7A_Vtbl {
     pub base__: IDirectInput2A_Vtbl,
-    pub CreateDeviceEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *const ::windows_core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDeviceEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectInput7W, IDirectInput7W_Vtbl, 0x9a4cb685_236d_11d3_8e9d_00c04f6844ae);
 ::windows_core::imp::interface_hierarchy!(IDirectInput7W, ::windows_core::IUnknown, IDirectInputW, IDirectInput2W);
@@ -535,7 +535,7 @@ impl IDirectInput7W {
 #[doc(hidden)]
 pub struct IDirectInput7W_Vtbl {
     pub base__: IDirectInput2W_Vtbl,
-    pub CreateDeviceEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *const ::windows_core::GUID, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDeviceEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectInput8A, IDirectInput8A_Vtbl, 0xbf798030_483a_4da2_aa99_5d64ed369700);
 ::windows_core::imp::interface_hierarchy!(IDirectInput8A, ::windows_core::IUnknown);
@@ -584,14 +584,14 @@ impl IDirectInput8A {
 #[doc(hidden)]
 pub struct IDirectInput8A_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows_core::HRESULT,
-    pub GetDeviceStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub RunControlPanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows_core::HRESULT,
-    pub FindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: ::windows_core::PCSTR, param2: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub EnumDevicesBySemantics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCSTR, param1: *mut DIACTIONFORMATA, param2: LPDIENUMDEVICESBYSEMANTICSCBA, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows_core::HRESULT,
-    pub ConfigureDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumDevices: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKA, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetDeviceStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub RunControlPanel: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, u32) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HINSTANCE, u32) -> ::windows_core::HRESULT,
+    pub FindDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, ::windows_core::PCSTR, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub EnumDevicesBySemantics: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, *mut DIACTIONFORMATA, LPDIENUMDEVICESBYSEMANTICSCBA, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub ConfigureDevices: unsafe extern "system" fn(*mut ::core::ffi::c_void, LPDICONFIGUREDEVICESCALLBACK, *mut DICONFIGUREDEVICESPARAMSA, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectInput8W, IDirectInput8W_Vtbl, 0xbf798031_483a_4da2_aa99_5d64ed369700);
 ::windows_core::imp::interface_hierarchy!(IDirectInput8W, ::windows_core::IUnknown);
@@ -640,14 +640,14 @@ impl IDirectInput8W {
 #[doc(hidden)]
 pub struct IDirectInput8W_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows_core::HRESULT,
-    pub GetDeviceStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub RunControlPanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows_core::HRESULT,
-    pub FindDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: ::windows_core::PCWSTR, param2: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub EnumDevicesBySemantics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCWSTR, param1: *mut DIACTIONFORMATW, param2: LPDIENUMDEVICESBYSEMANTICSCBW, param3: *mut ::core::ffi::c_void, param4: u32) -> ::windows_core::HRESULT,
-    pub ConfigureDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumDevices: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKW, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetDeviceStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub RunControlPanel: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, u32) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HINSTANCE, u32) -> ::windows_core::HRESULT,
+    pub FindDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, ::windows_core::PCWSTR, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub EnumDevicesBySemantics: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut DIACTIONFORMATW, LPDIENUMDEVICESBYSEMANTICSCBW, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub ConfigureDevices: unsafe extern "system" fn(*mut ::core::ffi::c_void, LPDICONFIGUREDEVICESCALLBACK, *mut DICONFIGUREDEVICESPARAMSW, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectInputA, IDirectInputA_Vtbl, 0x89521360_aa8a_11cf_bfc7_444553540000);
 ::windows_core::imp::interface_hierarchy!(IDirectInputA, ::windows_core::IUnknown);
@@ -681,11 +681,11 @@ impl IDirectInputA {
 #[doc(hidden)]
 pub struct IDirectInputA_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows_core::HRESULT,
-    pub GetDeviceStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub RunControlPanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows_core::HRESULT,
+    pub CreateDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumDevices: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKA, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetDeviceStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub RunControlPanel: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, u32) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HINSTANCE, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectInputDevice2A, IDirectInputDevice2A_Vtbl, 0x5944e682_c92e_11cf_bfc7_444553540000);
 ::windows_core::imp::interface_hierarchy!(IDirectInputDevice2A, ::windows_core::IUnknown, IDirectInputDeviceA);
@@ -782,15 +782,15 @@ impl IDirectInputDevice2A {
 #[doc(hidden)]
 pub struct IDirectInputDevice2A_Vtbl {
     pub base__: IDirectInputDeviceA_Vtbl,
-    pub CreateEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut DIEFFECT, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumEffects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows_core::HRESULT,
-    pub GetEffectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOA, param1: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetForceFeedbackState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
-    pub SendForceFeedbackCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
-    pub EnumCreatedEffectObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows_core::HRESULT,
-    pub Escape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFESCAPE) -> ::windows_core::HRESULT,
-    pub Poll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SendDeviceData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows_core::HRESULT,
+    pub CreateEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut DIEFFECT, *mut *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumEffects: unsafe extern "system" fn(*mut ::core::ffi::c_void, LPDIENUMEFFECTSCALLBACKA, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetEffectInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIEFFECTINFOA, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetForceFeedbackState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SendForceFeedbackCommand: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub EnumCreatedEffectObjects: unsafe extern "system" fn(*mut ::core::ffi::c_void, LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Escape: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIEFFESCAPE) -> ::windows_core::HRESULT,
+    pub Poll: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SendDeviceData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectInputDevice2W, IDirectInputDevice2W_Vtbl, 0x5944e683_c92e_11cf_bfc7_444553540000);
 ::windows_core::imp::interface_hierarchy!(IDirectInputDevice2W, ::windows_core::IUnknown, IDirectInputDeviceW);
@@ -887,15 +887,15 @@ impl IDirectInputDevice2W {
 #[doc(hidden)]
 pub struct IDirectInputDevice2W_Vtbl {
     pub base__: IDirectInputDeviceW_Vtbl,
-    pub CreateEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut DIEFFECT, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumEffects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows_core::HRESULT,
-    pub GetEffectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOW, param1: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetForceFeedbackState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
-    pub SendForceFeedbackCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
-    pub EnumCreatedEffectObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows_core::HRESULT,
-    pub Escape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFESCAPE) -> ::windows_core::HRESULT,
-    pub Poll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SendDeviceData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows_core::HRESULT,
+    pub CreateEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut DIEFFECT, *mut *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumEffects: unsafe extern "system" fn(*mut ::core::ffi::c_void, LPDIENUMEFFECTSCALLBACKW, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetEffectInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIEFFECTINFOW, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetForceFeedbackState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SendForceFeedbackCommand: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub EnumCreatedEffectObjects: unsafe extern "system" fn(*mut ::core::ffi::c_void, LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Escape: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIEFFESCAPE) -> ::windows_core::HRESULT,
+    pub Poll: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SendDeviceData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectInputDevice7A, IDirectInputDevice7A_Vtbl, 0x57d7c6bc_2356_11d3_8e9d_00c04f6844ae);
 ::windows_core::imp::interface_hierarchy!(IDirectInputDevice7A, ::windows_core::IUnknown, IDirectInputDeviceA, IDirectInputDevice2A);
@@ -1004,8 +1004,8 @@ impl IDirectInputDevice7A {
 #[doc(hidden)]
 pub struct IDirectInputDevice7A_Vtbl {
     pub base__: IDirectInputDevice2A_Vtbl,
-    pub EnumEffectsInFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows_core::HRESULT,
-    pub WriteEffectToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows_core::HRESULT,
+    pub EnumEffectsInFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, LPDIENUMEFFECTSINFILECALLBACK, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub WriteEffectToFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, u32, *mut DIFILEEFFECT, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectInputDevice7W, IDirectInputDevice7W_Vtbl, 0x57d7c6bd_2356_11d3_8e9d_00c04f6844ae);
 ::windows_core::imp::interface_hierarchy!(IDirectInputDevice7W, ::windows_core::IUnknown, IDirectInputDeviceW, IDirectInputDevice2W);
@@ -1114,8 +1114,8 @@ impl IDirectInputDevice7W {
 #[doc(hidden)]
 pub struct IDirectInputDevice7W_Vtbl {
     pub base__: IDirectInputDevice2W_Vtbl,
-    pub EnumEffectsInFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows_core::HRESULT,
-    pub WriteEffectToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows_core::HRESULT,
+    pub EnumEffectsInFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, LPDIENUMEFFECTSINFILECALLBACK, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub WriteEffectToFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, *mut DIFILEEFFECT, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectInputDevice8A, IDirectInputDevice8A_Vtbl, 0x54d41080_dc15_4833_a41b_748f73a38179);
 ::windows_core::imp::interface_hierarchy!(IDirectInputDevice8A, ::windows_core::IUnknown);
@@ -1239,35 +1239,35 @@ impl IDirectInputDevice8A {
 #[doc(hidden)]
 pub struct IDirectInputDevice8A_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVCAPS) -> ::windows_core::HRESULT,
-    pub EnumObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows_core::HRESULT,
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut DIPROPHEADER) -> ::windows_core::HRESULT,
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut DIPROPHEADER) -> ::windows_core::HRESULT,
-    pub Acquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Unacquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetDeviceState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetDeviceData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows_core::HRESULT,
-    pub SetDataFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDATAFORMAT) -> ::windows_core::HRESULT,
-    pub SetEventNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
-    pub SetCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
-    pub GetObjectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows_core::HRESULT,
-    pub GetDeviceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEINSTANCEA) -> ::windows_core::HRESULT,
-    pub RunControlPanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub CreateEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut DIEFFECT, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumEffects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows_core::HRESULT,
-    pub GetEffectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOA, param1: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetForceFeedbackState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
-    pub SendForceFeedbackCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
-    pub EnumCreatedEffectObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows_core::HRESULT,
-    pub Escape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFESCAPE) -> ::windows_core::HRESULT,
-    pub Poll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SendDeviceData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows_core::HRESULT,
-    pub EnumEffectsInFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows_core::HRESULT,
-    pub WriteEffectToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows_core::HRESULT,
-    pub BuildActionMap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIACTIONFORMATA, param1: ::windows_core::PCSTR, param2: u32) -> ::windows_core::HRESULT,
-    pub SetActionMap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIACTIONFORMATA, param1: ::windows_core::PCSTR, param2: u32) -> ::windows_core::HRESULT,
-    pub GetImageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEIMAGEINFOHEADERA) -> ::windows_core::HRESULT,
+    pub GetCapabilities: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIDEVCAPS) -> ::windows_core::HRESULT,
+    pub EnumObjects: unsafe extern "system" fn(*mut ::core::ffi::c_void, LPDIENUMDEVICEOBJECTSCALLBACKA, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut DIPROPHEADER) -> ::windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut DIPROPHEADER) -> ::windows_core::HRESULT,
+    pub Acquire: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Unacquire: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceState: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> ::windows_core::HRESULT,
+    pub SetDataFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIDATAFORMAT) -> ::windows_core::HRESULT,
+    pub SetEventNotification: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
+    pub SetCooperativeLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, u32) -> ::windows_core::HRESULT,
+    pub GetObjectInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIDEVICEOBJECTINSTANCEA, u32, u32) -> ::windows_core::HRESULT,
+    pub GetDeviceInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIDEVICEINSTANCEA) -> ::windows_core::HRESULT,
+    pub RunControlPanel: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, u32) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HINSTANCE, u32, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub CreateEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut DIEFFECT, *mut *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumEffects: unsafe extern "system" fn(*mut ::core::ffi::c_void, LPDIENUMEFFECTSCALLBACKA, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetEffectInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIEFFECTINFOA, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetForceFeedbackState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SendForceFeedbackCommand: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub EnumCreatedEffectObjects: unsafe extern "system" fn(*mut ::core::ffi::c_void, LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Escape: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIEFFESCAPE) -> ::windows_core::HRESULT,
+    pub Poll: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SendDeviceData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> ::windows_core::HRESULT,
+    pub EnumEffectsInFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, LPDIENUMEFFECTSINFILECALLBACK, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub WriteEffectToFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, u32, *mut DIFILEEFFECT, u32) -> ::windows_core::HRESULT,
+    pub BuildActionMap: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIACTIONFORMATA, ::windows_core::PCSTR, u32) -> ::windows_core::HRESULT,
+    pub SetActionMap: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIACTIONFORMATA, ::windows_core::PCSTR, u32) -> ::windows_core::HRESULT,
+    pub GetImageInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIDEVICEIMAGEINFOHEADERA) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectInputDevice8W, IDirectInputDevice8W_Vtbl, 0x54d41081_dc15_4833_a41b_748f73a38179);
 ::windows_core::imp::interface_hierarchy!(IDirectInputDevice8W, ::windows_core::IUnknown);
@@ -1391,35 +1391,35 @@ impl IDirectInputDevice8W {
 #[doc(hidden)]
 pub struct IDirectInputDevice8W_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVCAPS) -> ::windows_core::HRESULT,
-    pub EnumObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows_core::HRESULT,
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut DIPROPHEADER) -> ::windows_core::HRESULT,
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut DIPROPHEADER) -> ::windows_core::HRESULT,
-    pub Acquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Unacquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetDeviceState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetDeviceData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows_core::HRESULT,
-    pub SetDataFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDATAFORMAT) -> ::windows_core::HRESULT,
-    pub SetEventNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
-    pub SetCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
-    pub GetObjectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows_core::HRESULT,
-    pub GetDeviceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEINSTANCEW) -> ::windows_core::HRESULT,
-    pub RunControlPanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub CreateEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut DIEFFECT, param2: *mut *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumEffects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows_core::HRESULT,
-    pub GetEffectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECTINFOW, param1: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetForceFeedbackState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
-    pub SendForceFeedbackCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
-    pub EnumCreatedEffectObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows_core::HRESULT,
-    pub Escape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFESCAPE) -> ::windows_core::HRESULT,
-    pub Poll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SendDeviceData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows_core::HRESULT,
-    pub EnumEffectsInFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows_core::HRESULT,
-    pub WriteEffectToFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows_core::HRESULT,
-    pub BuildActionMap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIACTIONFORMATW, param1: ::windows_core::PCWSTR, param2: u32) -> ::windows_core::HRESULT,
-    pub SetActionMap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIACTIONFORMATW, param1: ::windows_core::PCWSTR, param2: u32) -> ::windows_core::HRESULT,
-    pub GetImageInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEIMAGEINFOHEADERW) -> ::windows_core::HRESULT,
+    pub GetCapabilities: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIDEVCAPS) -> ::windows_core::HRESULT,
+    pub EnumObjects: unsafe extern "system" fn(*mut ::core::ffi::c_void, LPDIENUMDEVICEOBJECTSCALLBACKW, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut DIPROPHEADER) -> ::windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut DIPROPHEADER) -> ::windows_core::HRESULT,
+    pub Acquire: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Unacquire: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceState: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> ::windows_core::HRESULT,
+    pub SetDataFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIDATAFORMAT) -> ::windows_core::HRESULT,
+    pub SetEventNotification: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
+    pub SetCooperativeLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, u32) -> ::windows_core::HRESULT,
+    pub GetObjectInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIDEVICEOBJECTINSTANCEW, u32, u32) -> ::windows_core::HRESULT,
+    pub GetDeviceInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIDEVICEINSTANCEW) -> ::windows_core::HRESULT,
+    pub RunControlPanel: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, u32) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HINSTANCE, u32, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub CreateEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut DIEFFECT, *mut *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumEffects: unsafe extern "system" fn(*mut ::core::ffi::c_void, LPDIENUMEFFECTSCALLBACKW, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetEffectInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIEFFECTINFOW, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetForceFeedbackState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SendForceFeedbackCommand: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub EnumCreatedEffectObjects: unsafe extern "system" fn(*mut ::core::ffi::c_void, LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Escape: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIEFFESCAPE) -> ::windows_core::HRESULT,
+    pub Poll: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SendDeviceData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> ::windows_core::HRESULT,
+    pub EnumEffectsInFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, LPDIENUMEFFECTSINFILECALLBACK, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub WriteEffectToFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, *mut DIFILEEFFECT, u32) -> ::windows_core::HRESULT,
+    pub BuildActionMap: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIACTIONFORMATW, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub SetActionMap: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIACTIONFORMATW, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub GetImageInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIDEVICEIMAGEINFOHEADERW) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectInputDeviceA, IDirectInputDeviceA_Vtbl, 0x5944e680_c92e_11cf_bfc7_444553540000);
 ::windows_core::imp::interface_hierarchy!(IDirectInputDeviceA, ::windows_core::IUnknown);
@@ -1486,21 +1486,21 @@ impl IDirectInputDeviceA {
 #[doc(hidden)]
 pub struct IDirectInputDeviceA_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVCAPS) -> ::windows_core::HRESULT,
-    pub EnumObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows_core::HRESULT,
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut DIPROPHEADER) -> ::windows_core::HRESULT,
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut DIPROPHEADER) -> ::windows_core::HRESULT,
-    pub Acquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Unacquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetDeviceState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetDeviceData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows_core::HRESULT,
-    pub SetDataFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDATAFORMAT) -> ::windows_core::HRESULT,
-    pub SetEventNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
-    pub SetCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
-    pub GetObjectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows_core::HRESULT,
-    pub GetDeviceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEINSTANCEA) -> ::windows_core::HRESULT,
-    pub RunControlPanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetCapabilities: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIDEVCAPS) -> ::windows_core::HRESULT,
+    pub EnumObjects: unsafe extern "system" fn(*mut ::core::ffi::c_void, LPDIENUMDEVICEOBJECTSCALLBACKA, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut DIPROPHEADER) -> ::windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut DIPROPHEADER) -> ::windows_core::HRESULT,
+    pub Acquire: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Unacquire: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceState: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> ::windows_core::HRESULT,
+    pub SetDataFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIDATAFORMAT) -> ::windows_core::HRESULT,
+    pub SetEventNotification: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
+    pub SetCooperativeLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, u32) -> ::windows_core::HRESULT,
+    pub GetObjectInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIDEVICEOBJECTINSTANCEA, u32, u32) -> ::windows_core::HRESULT,
+    pub GetDeviceInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIDEVICEINSTANCEA) -> ::windows_core::HRESULT,
+    pub RunControlPanel: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, u32) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HINSTANCE, u32, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectInputDeviceW, IDirectInputDeviceW_Vtbl, 0x5944e681_c92e_11cf_bfc7_444553540000);
 ::windows_core::imp::interface_hierarchy!(IDirectInputDeviceW, ::windows_core::IUnknown);
@@ -1567,21 +1567,21 @@ impl IDirectInputDeviceW {
 #[doc(hidden)]
 pub struct IDirectInputDeviceW_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVCAPS) -> ::windows_core::HRESULT,
-    pub EnumObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut ::core::ffi::c_void, param2: u32) -> ::windows_core::HRESULT,
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut DIPROPHEADER) -> ::windows_core::HRESULT,
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut DIPROPHEADER) -> ::windows_core::HRESULT,
-    pub Acquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Unacquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetDeviceState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetDeviceData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows_core::HRESULT,
-    pub SetDataFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDATAFORMAT) -> ::windows_core::HRESULT,
-    pub SetEventNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
-    pub SetCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
-    pub GetObjectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows_core::HRESULT,
-    pub GetDeviceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDEVICEINSTANCEW) -> ::windows_core::HRESULT,
-    pub RunControlPanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetCapabilities: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIDEVCAPS) -> ::windows_core::HRESULT,
+    pub EnumObjects: unsafe extern "system" fn(*mut ::core::ffi::c_void, LPDIENUMDEVICEOBJECTSCALLBACKW, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut DIPROPHEADER) -> ::windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut DIPROPHEADER) -> ::windows_core::HRESULT,
+    pub Acquire: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Unacquire: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceState: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> ::windows_core::HRESULT,
+    pub SetDataFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIDATAFORMAT) -> ::windows_core::HRESULT,
+    pub SetEventNotification: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
+    pub SetCooperativeLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, u32) -> ::windows_core::HRESULT,
+    pub GetObjectInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIDEVICEOBJECTINSTANCEW, u32, u32) -> ::windows_core::HRESULT,
+    pub GetDeviceInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIDEVICEINSTANCEW) -> ::windows_core::HRESULT,
+    pub RunControlPanel: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, u32) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HINSTANCE, u32, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectInputEffect, IDirectInputEffect_Vtbl, 0xe7e1f7c0_88d2_11d0_9ad0_00a0c9a06e35);
 ::windows_core::imp::interface_hierarchy!(IDirectInputEffect, ::windows_core::IUnknown);
@@ -1624,16 +1624,16 @@ impl IDirectInputEffect {
 #[doc(hidden)]
 pub struct IDirectInputEffect_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetEffectGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECT, param1: u32) -> ::windows_core::HRESULT,
-    pub SetParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFECT, param1: u32) -> ::windows_core::HRESULT,
-    pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32) -> ::windows_core::HRESULT,
-    pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetEffectStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
-    pub Download: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Unload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Escape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIEFFESCAPE) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HINSTANCE, u32, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetEffectGuid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIEFFECT, u32) -> ::windows_core::HRESULT,
+    pub SetParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIEFFECT, u32) -> ::windows_core::HRESULT,
+    pub Start: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub Stop: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetEffectStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Download: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Unload: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Escape: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIEFFESCAPE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectInputEffectDriver, IDirectInputEffectDriver_Vtbl, 0x02538130_898f_11d0_9ad0_00a0c9a06e35);
 ::windows_core::imp::interface_hierarchy!(IDirectInputEffectDriver, ::windows_core::IUnknown);
@@ -1676,17 +1676,17 @@ impl IDirectInputEffectDriver {
 #[doc(hidden)]
 pub struct IDirectInputEffectDriver_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub DeviceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetVersions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIDRIVERVERSIONS) -> ::windows_core::HRESULT,
-    pub Escape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut DIEFFESCAPE) -> ::windows_core::HRESULT,
-    pub SetGain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32) -> ::windows_core::HRESULT,
-    pub SendForceFeedbackCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32) -> ::windows_core::HRESULT,
-    pub GetForceFeedbackState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIDEVICESTATE) -> ::windows_core::HRESULT,
-    pub DownloadEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut u32, param3: *mut DIEFFECT, param4: u32) -> ::windows_core::HRESULT,
-    pub DestroyEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32) -> ::windows_core::HRESULT,
-    pub StartEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32, param3: u32) -> ::windows_core::HRESULT,
-    pub StopEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32) -> ::windows_core::HRESULT,
-    pub GetEffectStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut u32) -> ::windows_core::HRESULT,
+    pub DeviceID: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetVersions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIDRIVERVERSIONS) -> ::windows_core::HRESULT,
+    pub Escape: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut DIEFFESCAPE) -> ::windows_core::HRESULT,
+    pub SetGain: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub SendForceFeedbackCommand: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub GetForceFeedbackState: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DIDEVICESTATE) -> ::windows_core::HRESULT,
+    pub DownloadEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut u32, *mut DIEFFECT, u32) -> ::windows_core::HRESULT,
+    pub DestroyEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub StartEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32, u32) -> ::windows_core::HRESULT,
+    pub StopEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub GetEffectStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectInputJoyConfig, IDirectInputJoyConfig_Vtbl, 0x1de12ab1_c9f5_11cf_bfc7_444553540000);
 ::windows_core::imp::interface_hierarchy!(IDirectInputJoyConfig, ::windows_core::IUnknown);
@@ -1766,26 +1766,26 @@ impl IDirectInputJoyConfig {
 #[doc(hidden)]
 pub struct IDirectInputJoyConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Acquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Unacquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
-    pub SendNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDIJOYTYPECALLBACK, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetTypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows_core::HRESULT,
-    pub SetTypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows_core::HRESULT,
-    pub DeleteType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows_core::HRESULT,
-    pub SetConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows_core::HRESULT,
-    pub DeleteConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
-    pub GetUserValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows_core::HRESULT,
-    pub SetUserValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows_core::HRESULT,
-    pub AddNewHardware: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub Acquire: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Unacquire: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCooperativeLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, u32) -> ::windows_core::HRESULT,
+    pub SendNotify: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumTypes: unsafe extern "system" fn(*mut ::core::ffi::c_void, LPDIJOYTYPECALLBACK, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetTypeInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut DIJOYTYPEINFO, u32) -> ::windows_core::HRESULT,
+    pub SetTypeInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut DIJOYTYPEINFO, u32) -> ::windows_core::HRESULT,
+    pub DeleteType: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetConfig: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DIJOYCONFIG, u32) -> ::windows_core::HRESULT,
+    pub SetConfig: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DIJOYCONFIG, u32) -> ::windows_core::HRESULT,
+    pub DeleteConfig: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetUserValues: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIJOYUSERVALUES, u32) -> ::windows_core::HRESULT,
+    pub SetUserValues: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIJOYUSERVALUES, u32) -> ::windows_core::HRESULT,
+    pub AddNewHardware: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Registry")]
-    pub OpenTypeKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCWSTR, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows_core::HRESULT,
+    pub OpenTypeKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, *mut super::super::System::Registry::HKEY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Registry"))]
     OpenTypeKey: usize,
     #[cfg(feature = "Win32_System_Registry")]
-    pub OpenConfigKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows_core::HRESULT,
+    pub OpenConfigKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut super::super::System::Registry::HKEY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Registry"))]
     OpenConfigKey: usize,
 }
@@ -1868,26 +1868,26 @@ impl IDirectInputJoyConfig8 {
 #[doc(hidden)]
 pub struct IDirectInputJoyConfig8_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Acquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Unacquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCooperativeLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
-    pub SendNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: LPDIJOYTYPECALLBACK, param1: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetTypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows_core::HRESULT,
-    pub SetTypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCWSTR, param1: *mut DIJOYTYPEINFO, param2: u32, param3: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub DeleteType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows_core::HRESULT,
-    pub SetConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows_core::HRESULT,
-    pub DeleteConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows_core::HRESULT,
-    pub GetUserValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows_core::HRESULT,
-    pub SetUserValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows_core::HRESULT,
-    pub AddNewHardware: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub Acquire: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Unacquire: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCooperativeLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, u32) -> ::windows_core::HRESULT,
+    pub SendNotify: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumTypes: unsafe extern "system" fn(*mut ::core::ffi::c_void, LPDIJOYTYPECALLBACK, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetTypeInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut DIJOYTYPEINFO, u32) -> ::windows_core::HRESULT,
+    pub SetTypeInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut DIJOYTYPEINFO, u32, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub DeleteType: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetConfig: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DIJOYCONFIG, u32) -> ::windows_core::HRESULT,
+    pub SetConfig: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DIJOYCONFIG, u32) -> ::windows_core::HRESULT,
+    pub DeleteConfig: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetUserValues: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIJOYUSERVALUES, u32) -> ::windows_core::HRESULT,
+    pub SetUserValues: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DIJOYUSERVALUES, u32) -> ::windows_core::HRESULT,
+    pub AddNewHardware: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Registry")]
-    pub OpenTypeKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: ::windows_core::PCWSTR, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows_core::HRESULT,
+    pub OpenTypeKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, *mut super::super::System::Registry::HKEY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Registry"))]
     OpenTypeKey: usize,
     #[cfg(feature = "Win32_System_Registry")]
-    pub OpenAppStatusKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::System::Registry::HKEY) -> ::windows_core::HRESULT,
+    pub OpenAppStatusKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::System::Registry::HKEY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Registry"))]
     OpenAppStatusKey: usize,
 }
@@ -1923,11 +1923,11 @@ impl IDirectInputW {
 #[doc(hidden)]
 pub struct IDirectInputW_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID, param1: *mut *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumDevices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut ::core::ffi::c_void, param3: u32) -> ::windows_core::HRESULT,
-    pub GetDeviceStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub RunControlPanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows_core::HRESULT,
+    pub CreateDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumDevices: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKW, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetDeviceStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub RunControlPanel: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, u32) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HINSTANCE, u32) -> ::windows_core::HRESULT,
 }
 pub const BALLPOINT_I8042_HARDWARE: u32 = 8u32;
 pub const BALLPOINT_SERIAL_HARDWARE: u32 = 16u32;

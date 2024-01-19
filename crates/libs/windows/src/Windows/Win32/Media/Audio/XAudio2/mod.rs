@@ -68,16 +68,16 @@ impl IXAPO {
 #[doc(hidden)]
 pub struct IXAPO_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetRegistrationProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppregistrationproperties: *mut *mut XAPO_REGISTRATION_PROPERTIES) -> ::windows_core::HRESULT,
-    pub IsInputFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX, ppsupportedinputformat: *mut *mut super::WAVEFORMATEX) -> ::windows_core::HRESULT,
-    pub IsOutputFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX, ppsupportedoutputformat: *mut *mut super::WAVEFORMATEX) -> ::windows_core::HRESULT,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const ::core::ffi::c_void, databytesize: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub LockForProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputlockedparametercount: u32, pinputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS, outputlockedparametercount: u32, poutputlockedparameters: *const XAPO_LOCKFORPROCESS_PARAMETERS) -> ::windows_core::HRESULT,
-    pub UnlockForProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Process: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputprocessparametercount: u32, pinputprocessparameters: *const XAPO_PROCESS_BUFFER_PARAMETERS, outputprocessparametercount: u32, poutputprocessparameters: *mut XAPO_PROCESS_BUFFER_PARAMETERS, isenabled: super::super::super::Foundation::BOOL),
-    pub CalcInputFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputframecount: u32) -> u32,
-    pub CalcOutputFrames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputframecount: u32) -> u32,
+    pub GetRegistrationProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut XAPO_REGISTRATION_PROPERTIES) -> ::windows_core::HRESULT,
+    pub IsInputFormatSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::WAVEFORMATEX, *const super::WAVEFORMATEX, *mut *mut super::WAVEFORMATEX) -> ::windows_core::HRESULT,
+    pub IsOutputFormatSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::WAVEFORMATEX, *const super::WAVEFORMATEX, *mut *mut super::WAVEFORMATEX) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub LockForProcess: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const XAPO_LOCKFORPROCESS_PARAMETERS, u32, *const XAPO_LOCKFORPROCESS_PARAMETERS) -> ::windows_core::HRESULT,
+    pub UnlockForProcess: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Process: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const XAPO_PROCESS_BUFFER_PARAMETERS, u32, *mut XAPO_PROCESS_BUFFER_PARAMETERS, super::super::super::Foundation::BOOL),
+    pub CalcInputFrames: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> u32,
+    pub CalcOutputFrames: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> u32,
 }
 ::windows_core::imp::com_interface!(IXAPOHrtfParameters, IXAPOHrtfParameters_Vtbl, 0x15b3cd66_e9de_4464_b6e6_2bc3cf63d455);
 ::windows_core::imp::interface_hierarchy!(IXAPOHrtfParameters, ::windows_core::IUnknown);
@@ -99,10 +99,10 @@ impl IXAPOHrtfParameters {
 #[doc(hidden)]
 pub struct IXAPOHrtfParameters_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetSourcePosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: *const HrtfPosition) -> ::windows_core::HRESULT,
-    pub SetSourceOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, orientation: *const HrtfOrientation) -> ::windows_core::HRESULT,
-    pub SetSourceGain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gain: f32) -> ::windows_core::HRESULT,
-    pub SetEnvironment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, environment: HrtfEnvironment) -> ::windows_core::HRESULT,
+    pub SetSourcePosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const HrtfPosition) -> ::windows_core::HRESULT,
+    pub SetSourceOrientation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const HrtfOrientation) -> ::windows_core::HRESULT,
+    pub SetSourceGain: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetEnvironment: unsafe extern "system" fn(*mut ::core::ffi::c_void, HrtfEnvironment) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IXAPOParameters, IXAPOParameters_Vtbl, 0x26d95c66_80f2_499a_ad54_5ae7f01c6d98);
 ::windows_core::imp::interface_hierarchy!(IXAPOParameters, ::windows_core::IUnknown);
@@ -118,8 +118,8 @@ impl IXAPOParameters {
 #[doc(hidden)]
 pub struct IXAPOParameters_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparameters: *const ::core::ffi::c_void, parameterbytesize: u32),
-    pub GetParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparameters: *mut ::core::ffi::c_void, parameterbytesize: u32),
+    pub SetParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, u32),
+    pub GetParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32),
 }
 ::windows_core::imp::com_interface!(IXAudio2, IXAudio2_Vtbl, 0x2b02e3cf_2e0b_4ec3_be45_1b2a3fe7210d);
 ::windows_core::imp::interface_hierarchy!(IXAudio2, ::windows_core::IUnknown);
@@ -171,16 +171,16 @@ impl IXAudio2 {
 #[doc(hidden)]
 pub struct IXAudio2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub RegisterForCallbacks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub UnregisterForCallbacks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void),
-    pub CreateSourceVoice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsourcevoice: *mut *mut ::core::ffi::c_void, psourceformat: *const super::WAVEFORMATEX, flags: u32, maxfrequencyratio: f32, pcallback: *mut ::core::ffi::c_void, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows_core::HRESULT,
-    pub CreateSubmixVoice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsubmixvoice: *mut *mut ::core::ffi::c_void, inputchannels: u32, inputsamplerate: u32, flags: u32, processingstage: u32, psendlist: *const XAUDIO2_VOICE_SENDS, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows_core::HRESULT,
-    pub CreateMasteringVoice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmasteringvoice: *mut *mut ::core::ffi::c_void, inputchannels: u32, inputsamplerate: u32, flags: u32, szdeviceid: ::windows_core::PCWSTR, peffectchain: *const XAUDIO2_EFFECT_CHAIN, streamcategory: super::AUDIO_STREAM_CATEGORY) -> ::windows_core::HRESULT,
-    pub StartEngine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub StopEngine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub CommitChanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operationset: u32) -> ::windows_core::HRESULT,
-    pub GetPerformanceData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pperfdata: *mut XAUDIO2_PERFORMANCE_DATA),
-    pub SetDebugConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdebugconfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, preserved: *const ::core::ffi::c_void),
+    pub RegisterForCallbacks: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UnregisterForCallbacks: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
+    pub CreateSourceVoice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *const super::WAVEFORMATEX, u32, f32, *mut ::core::ffi::c_void, *const XAUDIO2_VOICE_SENDS, *const XAUDIO2_EFFECT_CHAIN) -> ::windows_core::HRESULT,
+    pub CreateSubmixVoice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, u32, u32, u32, u32, *const XAUDIO2_VOICE_SENDS, *const XAUDIO2_EFFECT_CHAIN) -> ::windows_core::HRESULT,
+    pub CreateMasteringVoice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, u32, u32, u32, ::windows_core::PCWSTR, *const XAUDIO2_EFFECT_CHAIN, super::AUDIO_STREAM_CATEGORY) -> ::windows_core::HRESULT,
+    pub StartEngine: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub StopEngine: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub CommitChanges: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetPerformanceData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut XAUDIO2_PERFORMANCE_DATA),
+    pub SetDebugConfiguration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const XAUDIO2_DEBUG_CONFIGURATION, *const ::core::ffi::c_void),
 }
 ::windows_core::imp::interface!(IXAudio2EngineCallback, IXAudio2EngineCallback_Vtbl);
 impl IXAudio2EngineCallback {
@@ -197,9 +197,9 @@ impl IXAudio2EngineCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAudio2EngineCallback_Vtbl {
-    pub OnProcessingPassStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub OnProcessingPassEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub OnCriticalError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: ::windows_core::HRESULT),
+    pub OnProcessingPassStart: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub OnProcessingPassEnd: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub OnCriticalError: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT),
 }
 ::windows_core::imp::com_interface!(IXAudio2Extension, IXAudio2Extension_Vtbl, 0x84ac29bb_d619_44d2_b197_e4acf7df3ed6);
 ::windows_core::imp::interface_hierarchy!(IXAudio2Extension, ::windows_core::IUnknown);
@@ -215,8 +215,8 @@ impl IXAudio2Extension {
 #[doc(hidden)]
 pub struct IXAudio2Extension_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetProcessingQuantum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, quantumnumerator: *mut u32, quantumdenominator: *mut u32),
-    pub GetProcessor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, processor: *mut u32),
+    pub GetProcessingQuantum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32),
+    pub GetProcessor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32),
 }
 ::windows_core::imp::interface!(IXAudio2MasteringVoice, IXAudio2MasteringVoice_Vtbl);
 ::windows_core::imp::interface_hierarchy!(IXAudio2MasteringVoice, IXAudio2Voice);
@@ -311,7 +311,7 @@ impl IXAudio2MasteringVoice {
 #[doc(hidden)]
 pub struct IXAudio2MasteringVoice_Vtbl {
     pub base__: IXAudio2Voice_Vtbl,
-    pub GetChannelMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchannelmask: *mut u32) -> ::windows_core::HRESULT,
+    pub GetChannelMask: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::interface!(IXAudio2SourceVoice, IXAudio2SourceVoice_Vtbl);
 ::windows_core::imp::interface_hierarchy!(IXAudio2SourceVoice, IXAudio2Voice);
@@ -434,16 +434,16 @@ impl IXAudio2SourceVoice {
 #[doc(hidden)]
 pub struct IXAudio2SourceVoice_Vtbl {
     pub base__: IXAudio2Voice_Vtbl,
-    pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, operationset: u32) -> ::windows_core::HRESULT,
-    pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, operationset: u32) -> ::windows_core::HRESULT,
-    pub SubmitSourceBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *const XAUDIO2_BUFFER, pbufferwma: *const XAUDIO2_BUFFER_WMA) -> ::windows_core::HRESULT,
-    pub FlushSourceBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Discontinuity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ExitLoop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operationset: u32) -> ::windows_core::HRESULT,
-    pub GetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvoicestate: *mut XAUDIO2_VOICE_STATE, flags: u32),
-    pub SetFrequencyRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ratio: f32, operationset: u32) -> ::windows_core::HRESULT,
-    pub GetFrequencyRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pratio: *mut f32),
-    pub SetSourceSampleRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newsourcesamplerate: u32) -> ::windows_core::HRESULT,
+    pub Start: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub Stop: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub SubmitSourceBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const XAUDIO2_BUFFER, *const XAUDIO2_BUFFER_WMA) -> ::windows_core::HRESULT,
+    pub FlushSourceBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Discontinuity: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ExitLoop: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut XAUDIO2_VOICE_STATE, u32),
+    pub SetFrequencyRatio: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, u32) -> ::windows_core::HRESULT,
+    pub GetFrequencyRatio: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32),
+    pub SetSourceSampleRate: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::interface!(IXAudio2SubmixVoice, IXAudio2SubmixVoice_Vtbl);
 ::windows_core::imp::interface_hierarchy!(IXAudio2SubmixVoice, IXAudio2Voice);
@@ -622,25 +622,25 @@ impl IXAudio2Voice {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAudio2Voice_Vtbl {
-    pub GetVoiceDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvoicedetails: *mut XAUDIO2_VOICE_DETAILS),
-    pub SetOutputVoices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psendlist: *const XAUDIO2_VOICE_SENDS) -> ::windows_core::HRESULT,
-    pub SetEffectChain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peffectchain: *const XAUDIO2_EFFECT_CHAIN) -> ::windows_core::HRESULT,
-    pub EnableEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effectindex: u32, operationset: u32) -> ::windows_core::HRESULT,
-    pub DisableEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effectindex: u32, operationset: u32) -> ::windows_core::HRESULT,
-    pub GetEffectState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effectindex: u32, penabled: *mut super::super::super::Foundation::BOOL),
-    pub SetEffectParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effectindex: u32, pparameters: *const ::core::ffi::c_void, parametersbytesize: u32, operationset: u32) -> ::windows_core::HRESULT,
-    pub GetEffectParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effectindex: u32, pparameters: *mut ::core::ffi::c_void, parametersbytesize: u32) -> ::windows_core::HRESULT,
-    pub SetFilterParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows_core::HRESULT,
-    pub GetFilterParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparameters: *mut XAUDIO2_FILTER_PARAMETERS),
-    pub SetOutputFilterParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestinationvoice: *mut ::core::ffi::c_void, pparameters: *const XAUDIO2_FILTER_PARAMETERS, operationset: u32) -> ::windows_core::HRESULT,
-    pub GetOutputFilterParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestinationvoice: *mut ::core::ffi::c_void, pparameters: *mut XAUDIO2_FILTER_PARAMETERS),
-    pub SetVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, volume: f32, operationset: u32) -> ::windows_core::HRESULT,
-    pub GetVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvolume: *mut f32),
-    pub SetChannelVolumes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channels: u32, pvolumes: *const f32, operationset: u32) -> ::windows_core::HRESULT,
-    pub GetChannelVolumes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channels: u32, pvolumes: *mut f32),
-    pub SetOutputMatrix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestinationvoice: *mut ::core::ffi::c_void, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> ::windows_core::HRESULT,
-    pub GetOutputMatrix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestinationvoice: *mut ::core::ffi::c_void, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *mut f32),
-    pub DestroyVoice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
+    pub GetVoiceDetails: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut XAUDIO2_VOICE_DETAILS),
+    pub SetOutputVoices: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const XAUDIO2_VOICE_SENDS) -> ::windows_core::HRESULT,
+    pub SetEffectChain: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const XAUDIO2_EFFECT_CHAIN) -> ::windows_core::HRESULT,
+    pub EnableEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub DisableEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub GetEffectState: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut super::super::super::Foundation::BOOL),
+    pub SetEffectParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub GetEffectParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub SetFilterParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const XAUDIO2_FILTER_PARAMETERS, u32) -> ::windows_core::HRESULT,
+    pub GetFilterParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut XAUDIO2_FILTER_PARAMETERS),
+    pub SetOutputFilterParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const XAUDIO2_FILTER_PARAMETERS, u32) -> ::windows_core::HRESULT,
+    pub GetOutputFilterParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut XAUDIO2_FILTER_PARAMETERS),
+    pub SetVolume: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, u32) -> ::windows_core::HRESULT,
+    pub GetVolume: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32),
+    pub SetChannelVolumes: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const f32, u32) -> ::windows_core::HRESULT,
+    pub GetChannelVolumes: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut f32),
+    pub SetOutputMatrix: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32, *const f32, u32) -> ::windows_core::HRESULT,
+    pub GetOutputMatrix: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32, *mut f32),
+    pub DestroyVoice: unsafe extern "system" fn(*mut ::core::ffi::c_void),
 }
 ::windows_core::imp::interface!(IXAudio2VoiceCallback, IXAudio2VoiceCallback_Vtbl);
 impl IXAudio2VoiceCallback {
@@ -669,13 +669,13 @@ impl IXAudio2VoiceCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAudio2VoiceCallback_Vtbl {
-    pub OnVoiceProcessingPassStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bytesrequired: u32),
-    pub OnVoiceProcessingPassEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub OnStreamEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub OnBufferStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffercontext: *mut ::core::ffi::c_void),
-    pub OnBufferEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffercontext: *mut ::core::ffi::c_void),
-    pub OnLoopEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffercontext: *mut ::core::ffi::c_void),
-    pub OnVoiceError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffercontext: *mut ::core::ffi::c_void, error: ::windows_core::HRESULT),
+    pub OnVoiceProcessingPassStart: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32),
+    pub OnVoiceProcessingPassEnd: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub OnStreamEnd: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub OnBufferStart: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
+    pub OnBufferEnd: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
+    pub OnLoopEnd: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
+    pub OnVoiceError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::windows_core::HRESULT),
 }
 pub const AudioReverb: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2633b16_471b_4498_b8c5_4f0959e2ec09);
 pub const AudioVolumeMeter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4fc3b166_972a_40cf_bc37_7db03db2fba3);

@@ -499,9 +499,9 @@ impl IAccountsSettingsPaneInterop {
 #[doc(hidden)]
 pub struct IAccountsSettingsPaneInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, accountssettingspane: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ShowManageAccountsForWindowAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, asyncaction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ShowAddAccountForWindowAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, asyncaction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetForWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShowManageAccountsForWindowAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShowAddAccountForWindowAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IActivationFactory, IActivationFactory_Vtbl, 0x00000035_0000_0000_c000_000000000046);
 ::windows_core::imp::interface_hierarchy!(IActivationFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -515,7 +515,7 @@ impl IActivationFactory {
 #[doc(hidden)]
 pub struct IActivationFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub ActivateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instance: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ActivateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAgileReference, IAgileReference_Vtbl, 0xc03f6a43_65a4_9818_987e_e0b810d2a6f2);
 ::windows_core::imp::interface_hierarchy!(IAgileReference, ::windows_core::IUnknown);
@@ -532,7 +532,7 @@ impl IAgileReference {
 #[doc(hidden)]
 pub struct IAgileReference_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Resolve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppvobjectreference: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Resolve: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IApartmentShutdown, IApartmentShutdown_Vtbl, 0xa2f05a09_27a2_42b5_bc0e_ac163ef49d9b);
 ::windows_core::imp::interface_hierarchy!(IApartmentShutdown, ::windows_core::IUnknown);
@@ -545,7 +545,7 @@ impl IApartmentShutdown {
 #[doc(hidden)]
 pub struct IApartmentShutdown_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnUninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ui64apartmentidentifier: u64),
+    pub OnUninitialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64),
 }
 ::windows_core::imp::com_interface!(IAppServiceConnectionExtendedExecution, IAppServiceConnectionExtendedExecution_Vtbl, 0x65219584_f9cb_4ae3_81f9_a28a6ca450d9);
 ::windows_core::imp::interface_hierarchy!(IAppServiceConnectionExtendedExecution, ::windows_core::IUnknown);
@@ -562,7 +562,7 @@ impl IAppServiceConnectionExtendedExecution {
 #[doc(hidden)]
 pub struct IAppServiceConnectionExtendedExecution_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OpenForExtendedExecutionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, operation: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OpenForExtendedExecutionAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IBufferByteAccess, IBufferByteAccess_Vtbl, 0x905a0fef_bc53_11df_8c49_001e4fc686da);
 ::windows_core::imp::interface_hierarchy!(IBufferByteAccess, ::windows_core::IUnknown);
@@ -576,7 +576,7 @@ impl IBufferByteAccess {
 #[doc(hidden)]
 pub struct IBufferByteAccess_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Buffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut u8) -> ::windows_core::HRESULT,
+    pub Buffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICastingController, ICastingController_Vtbl, 0xf0a56423_a664_4fbd_8b43_409a45e8d9a1);
 ::windows_core::imp::interface_hierarchy!(ICastingController, ::windows_core::IUnknown);
@@ -609,11 +609,11 @@ impl ICastingController {
 #[doc(hidden)]
 pub struct ICastingController_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, castingengine: *mut ::core::ffi::c_void, castingsource: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventhandler: *mut ::core::ffi::c_void, cookie: *mut u32) -> ::windows_core::HRESULT,
-    pub UnAdvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: u32) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Connect: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Disconnect: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Advise: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub UnAdvise: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICastingEventHandler, ICastingEventHandler_Vtbl, 0xc79a6cb7_bebd_47a6_a2ad_4d45ad79c7bc);
 ::windows_core::imp::interface_hierarchy!(ICastingEventHandler, ::windows_core::IUnknown);
@@ -632,8 +632,8 @@ impl ICastingEventHandler {
 #[doc(hidden)]
 pub struct ICastingEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newstate: CASTING_CONNECTION_STATE) -> ::windows_core::HRESULT,
-    pub OnError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errorstatus: CASTING_CONNECTION_ERROR_STATUS, errormessage: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub OnStateChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, CASTING_CONNECTION_STATE) -> ::windows_core::HRESULT,
+    pub OnError: unsafe extern "system" fn(*mut ::core::ffi::c_void, CASTING_CONNECTION_ERROR_STATUS, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICastingSourceInfo, ICastingSourceInfo_Vtbl, 0x45101ab7_7c3a_4bce_9500_12c09024b298);
 ::windows_core::imp::interface_hierarchy!(ICastingSourceInfo, ::windows_core::IUnknown);
@@ -653,9 +653,9 @@ impl ICastingSourceInfo {
 #[doc(hidden)]
 pub struct ICastingSourceInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, controller: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetController: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, props: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     GetProperties: usize,
 }
@@ -676,8 +676,8 @@ impl ICoreInputInterop {
 #[doc(hidden)]
 pub struct ICoreInputInterop_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetInputSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetMessageHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows_core::HRESULT,
+    pub SetInputSource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetMessageHandled: unsafe extern "system" fn(*mut ::core::ffi::c_void, u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreWindowAdapterInterop, ICoreWindowAdapterInterop_Vtbl, 0x7a5b6fd1_cd73_4b6c_9cf4_2e869eaf470a);
 ::windows_core::imp::interface_hierarchy!(ICoreWindowAdapterInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -721,14 +721,14 @@ impl ICoreWindowAdapterInterop {
 #[doc(hidden)]
 pub struct ICoreWindowAdapterInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub AppActivationClientAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ApplicationViewClientAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CoreApplicationViewClientAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub HoloViewClientAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub PositionerClientAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SystemNavigationClientAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub TitleBarClientAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetWindowClientAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AppActivationClientAdapter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ApplicationViewClientAdapter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CoreApplicationViewClientAdapter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub HoloViewClientAdapter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PositionerClientAdapter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SystemNavigationClientAdapter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TitleBarClientAdapter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetWindowClientAdapter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreWindowComponentInterop, ICoreWindowComponentInterop_Vtbl, 0x0576ab31_a310_4c40_ba31_fd37e0298dfa);
 ::windows_core::imp::interface_hierarchy!(ICoreWindowComponentInterop, ::windows_core::IUnknown);
@@ -749,8 +749,8 @@ impl ICoreWindowComponentInterop {
 #[doc(hidden)]
 pub struct ICoreWindowComponentInterop_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ConfigureComponentInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hostviewinstanceid: u32, hwndhost: super::super::Foundation::HWND, inputsourcevisual: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetViewInstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, componentviewinstanceid: *mut u32) -> ::windows_core::HRESULT,
+    pub ConfigureComponentInput: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, super::super::Foundation::HWND, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetViewInstanceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreWindowInterop, ICoreWindowInterop_Vtbl, 0x45d64a29_a63e_4cb6_b498_5781d298cb4f);
 ::windows_core::imp::interface_hierarchy!(ICoreWindowInterop, ::windows_core::IUnknown);
@@ -767,8 +767,8 @@ impl ICoreWindowInterop {
 #[doc(hidden)]
 pub struct ICoreWindowInterop_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub WindowHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: *mut super::super::Foundation::HWND) -> ::windows_core::HRESULT,
-    pub SetMessageHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows_core::HRESULT,
+    pub WindowHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HWND) -> ::windows_core::HRESULT,
+    pub SetMessageHandled: unsafe extern "system" fn(*mut ::core::ffi::c_void, u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorrelationVectorInformation, ICorrelationVectorInformation_Vtbl, 0x83c78b3c_d88b_4950_aa6e_22b8d22aabd3);
 ::windows_core::imp::interface_hierarchy!(ICorrelationVectorInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -789,9 +789,9 @@ impl ICorrelationVectorInformation {
 #[doc(hidden)]
 pub struct ICorrelationVectorInformation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub LastCorrelationVectorForThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cv: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub NextCorrelationVectorForThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cv: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub SetNextCorrelationVectorForThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cv: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub LastCorrelationVectorForThread: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub NextCorrelationVectorForThread: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetNextCorrelationVectorForThread: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorrelationVectorSource, ICorrelationVectorSource_Vtbl, 0x152b8a3b_b9b9_4685_b56e_974847bc7545);
 ::windows_core::imp::interface_hierarchy!(ICorrelationVectorSource, ::windows_core::IUnknown);
@@ -805,7 +805,7 @@ impl ICorrelationVectorSource {
 #[doc(hidden)]
 pub struct ICorrelationVectorSource_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CorrelationVector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cv: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub CorrelationVector: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDragDropManagerInterop, IDragDropManagerInterop_Vtbl, 0x5ad8cba7_4c01_4dac_9074_827894292d63);
 ::windows_core::imp::interface_hierarchy!(IDragDropManagerInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -823,7 +823,7 @@ impl IDragDropManagerInterop {
 #[doc(hidden)]
 pub struct IDragDropManagerInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetForWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHolographicSpaceInterop, IHolographicSpaceInterop_Vtbl, 0x5c4ee536_6a98_4b86_a170_587013d6fd4b);
 ::windows_core::imp::interface_hierarchy!(IHolographicSpaceInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -841,7 +841,7 @@ impl IHolographicSpaceInterop {
 #[doc(hidden)]
 pub struct IHolographicSpaceInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, holographicspace: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateForWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInputPaneInterop, IInputPaneInterop_Vtbl, 0x75cf2c57_9195_4931_8332_f0b409e916af);
 ::windows_core::imp::interface_hierarchy!(IInputPaneInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -859,7 +859,7 @@ impl IInputPaneInterop {
 #[doc(hidden)]
 pub struct IInputPaneInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, inputpane: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetForWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILanguageExceptionErrorInfo, ILanguageExceptionErrorInfo_Vtbl, 0x04a2dbf3_df83_116c_0946_0812abf6e07d);
 ::windows_core::imp::interface_hierarchy!(ILanguageExceptionErrorInfo, ::windows_core::IUnknown);
@@ -873,7 +873,7 @@ impl ILanguageExceptionErrorInfo {
 #[doc(hidden)]
 pub struct ILanguageExceptionErrorInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetLanguageException: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageexception: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetLanguageException: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILanguageExceptionErrorInfo2, ILanguageExceptionErrorInfo2_Vtbl, 0x5746e5c4_5b97_424c_b620_2822915734dd);
 ::windows_core::imp::interface_hierarchy!(ILanguageExceptionErrorInfo2, ::windows_core::IUnknown, ILanguageExceptionErrorInfo);
@@ -901,9 +901,9 @@ impl ILanguageExceptionErrorInfo2 {
 #[doc(hidden)]
 pub struct ILanguageExceptionErrorInfo2_Vtbl {
     pub base__: ILanguageExceptionErrorInfo_Vtbl,
-    pub GetPreviousLanguageExceptionErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, previouslanguageexceptionerrorinfo: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CapturePropagationContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageexception: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetPropagationContextHead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propagatedlanguageexceptionerrorinfohead: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPreviousLanguageExceptionErrorInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CapturePropagationContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPropagationContextHead: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILanguageExceptionStackBackTrace, ILanguageExceptionStackBackTrace_Vtbl, 0xcbe53fb5_f967_4258_8d34_42f5e25833de);
 ::windows_core::imp::interface_hierarchy!(ILanguageExceptionStackBackTrace, ::windows_core::IUnknown);
@@ -916,7 +916,7 @@ impl ILanguageExceptionStackBackTrace {
 #[doc(hidden)]
 pub struct ILanguageExceptionStackBackTrace_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetStackBackTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxframestocapture: u32, stackbacktrace: *mut usize, framescaptured: *mut u32) -> ::windows_core::HRESULT,
+    pub GetStackBackTrace: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut usize, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILanguageExceptionTransform, ILanguageExceptionTransform_Vtbl, 0xfeb5a271_a6cd_45ce_880a_696706badc65);
 ::windows_core::imp::interface_hierarchy!(ILanguageExceptionTransform, ::windows_core::IUnknown);
@@ -930,7 +930,7 @@ impl ILanguageExceptionTransform {
 #[doc(hidden)]
 pub struct ILanguageExceptionTransform_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetTransformedRestrictedErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, restrictederrorinfo: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetTransformedRestrictedErrorInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMemoryBufferByteAccess, IMemoryBufferByteAccess_Vtbl, 0x5b0d3235_4dba_4d44_865e_8f1d0e4fd04d);
 ::windows_core::imp::interface_hierarchy!(IMemoryBufferByteAccess, ::windows_core::IUnknown);
@@ -943,7 +943,7 @@ impl IMemoryBufferByteAccess {
 #[doc(hidden)]
 pub struct IMemoryBufferByteAccess_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut u8, capacity: *mut u32) -> ::windows_core::HRESULT,
+    pub GetBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut u8, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMessageDispatcher, IMessageDispatcher_Vtbl, 0xf5f84c8f_cfd0_4cd6_b66b_c5d26ff1689d);
 ::windows_core::imp::interface_hierarchy!(IMessageDispatcher, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -956,7 +956,7 @@ impl IMessageDispatcher {
 #[doc(hidden)]
 pub struct IMessageDispatcher_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub PumpMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PumpMessages: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPlayToManagerInterop, IPlayToManagerInterop_Vtbl, 0x24394699_1f2c_4eb3_8cd7_0ec1da42a540);
 ::windows_core::imp::interface_hierarchy!(IPlayToManagerInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -980,8 +980,8 @@ impl IPlayToManagerInterop {
 #[doc(hidden)]
 pub struct IPlayToManagerInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, playtomanager: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ShowPlayToUIForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND) -> ::windows_core::HRESULT,
+    pub GetForWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShowPlayToUIForWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRestrictedErrorInfo, IRestrictedErrorInfo_Vtbl, 0x82ba7092_4c88_427d_a7bc_16dd93feb67e);
 ::windows_core::imp::interface_hierarchy!(IRestrictedErrorInfo, ::windows_core::IUnknown);
@@ -1000,8 +1000,8 @@ unsafe impl ::core::marker::Sync for IRestrictedErrorInfo {}
 #[doc(hidden)]
 pub struct IRestrictedErrorInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetErrorDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, error: *mut ::windows_core::HRESULT, restricteddescription: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, capabilitysid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reference: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetErrorDetails: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::windows_core::HRESULT, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetReference: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IShareWindowCommandEventArgsInterop, IShareWindowCommandEventArgsInterop_Vtbl, 0x6571a721_643d_43d4_aca4_6b6f5f30f1ad);
 ::windows_core::imp::interface_hierarchy!(IShareWindowCommandEventArgsInterop, ::windows_core::IUnknown);
@@ -1015,7 +1015,7 @@ impl IShareWindowCommandEventArgsInterop {
 #[doc(hidden)]
 pub struct IShareWindowCommandEventArgsInterop_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::Foundation::HWND) -> ::windows_core::HRESULT,
+    pub GetWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HWND) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IShareWindowCommandSourceInterop, IShareWindowCommandSourceInterop_Vtbl, 0x461a191f_8424_43a6_a0fa_3451a22f56ab);
 ::windows_core::imp::interface_hierarchy!(IShareWindowCommandSourceInterop, ::windows_core::IUnknown);
@@ -1033,7 +1033,7 @@ impl IShareWindowCommandSourceInterop {
 #[doc(hidden)]
 pub struct IShareWindowCommandSourceInterop_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, sharewindowcommandsource: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetForWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialInteractionManagerInterop, ISpatialInteractionManagerInterop_Vtbl, 0x5c4ee536_6a98_4b86_a170_587013d6fd4b);
 ::windows_core::imp::interface_hierarchy!(ISpatialInteractionManagerInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -1051,7 +1051,7 @@ impl ISpatialInteractionManagerInterop {
 #[doc(hidden)]
 pub struct ISpatialInteractionManagerInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, spatialinteractionmanager: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetForWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISystemMediaTransportControlsInterop, ISystemMediaTransportControlsInterop_Vtbl, 0xddb0472d_c911_4a1f_86d9_dc3d71a95f5a);
 ::windows_core::imp::interface_hierarchy!(ISystemMediaTransportControlsInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -1069,7 +1069,7 @@ impl ISystemMediaTransportControlsInterop {
 #[doc(hidden)]
 pub struct ISystemMediaTransportControlsInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, mediatransportcontrol: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetForWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUIViewSettingsInterop, IUIViewSettingsInterop_Vtbl, 0x3694dbf9_8f68_44be_8ff5_195c98ede8a6);
 ::windows_core::imp::interface_hierarchy!(IUIViewSettingsInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -1087,7 +1087,7 @@ impl IUIViewSettingsInterop {
 #[doc(hidden)]
 pub struct IUIViewSettingsInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetForWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserActivityInterop, IUserActivityInterop_Vtbl, 0x1ade314d_0e0a_40d9_824c_9a088a50059f);
 ::windows_core::imp::interface_hierarchy!(IUserActivityInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -1105,7 +1105,7 @@ impl IUserActivityInterop {
 #[doc(hidden)]
 pub struct IUserActivityInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateSessionForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND, iid: *const ::windows_core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSessionForWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserActivityRequestManagerInterop, IUserActivityRequestManagerInterop_Vtbl, 0xdd69f876_9699_4715_9095_e37ea30dfa1b);
 ::windows_core::imp::interface_hierarchy!(IUserActivityRequestManagerInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -1123,7 +1123,7 @@ impl IUserActivityRequestManagerInterop {
 #[doc(hidden)]
 pub struct IUserActivityRequestManagerInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: super::super::Foundation::HWND, iid: *const ::windows_core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetForWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserActivitySourceHostInterop, IUserActivitySourceHostInterop_Vtbl, 0xc15df8bc_8844_487a_b85b_7578e0f61419);
 ::windows_core::imp::interface_hierarchy!(IUserActivitySourceHostInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -1136,7 +1136,7 @@ impl IUserActivitySourceHostInterop {
 #[doc(hidden)]
 pub struct IUserActivitySourceHostInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub SetActivitySourceHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activitysourcehost: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetActivitySourceHost: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserConsentVerifierInterop, IUserConsentVerifierInterop_Vtbl, 0x39e050c3_4e74_441a_8dc0_b81104df949c);
 ::windows_core::imp::interface_hierarchy!(IUserConsentVerifierInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -1154,7 +1154,7 @@ impl IUserConsentVerifierInterop {
 #[doc(hidden)]
 pub struct IUserConsentVerifierInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub RequestVerificationForWindowAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, message: ::std::mem::MaybeUninit<::windows_core::HSTRING>, riid: *const ::windows_core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RequestVerificationForWindowAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWeakReference, IWeakReference_Vtbl, 0x00000037_0000_0000_c000_000000000046);
 ::windows_core::imp::interface_hierarchy!(IWeakReference, ::windows_core::IUnknown);
@@ -1171,7 +1171,7 @@ impl IWeakReference {
 #[doc(hidden)]
 pub struct IWeakReference_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Resolve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, objectreference: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Resolve: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWeakReferenceSource, IWeakReferenceSource_Vtbl, 0x00000038_0000_0000_c000_000000000046);
 ::windows_core::imp::interface_hierarchy!(IWeakReferenceSource, ::windows_core::IUnknown);
@@ -1185,7 +1185,7 @@ impl IWeakReferenceSource {
 #[doc(hidden)]
 pub struct IWeakReferenceSource_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetWeakReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, weakreference: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetWeakReference: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWebAuthenticationCoreManagerInterop, IWebAuthenticationCoreManagerInterop_Vtbl, 0xf4b8e804_811e_4436_b69c_44cb67b72084);
 ::windows_core::imp::interface_hierarchy!(IWebAuthenticationCoreManagerInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -1214,8 +1214,8 @@ impl IWebAuthenticationCoreManagerInterop {
 #[doc(hidden)]
 pub struct IWebAuthenticationCoreManagerInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub RequestTokenForWindowAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, request: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, asyncinfo: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RequestTokenWithWebAccountForWindowAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::Foundation::HWND, request: *mut ::core::ffi::c_void, webaccount: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, asyncinfo: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RequestTokenForWindowAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RequestTokenWithWebAccountForWindowAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const ACTIVATIONTYPE_FROM_DATA: ACTIVATIONTYPE = ACTIVATIONTYPE(2i32);
 pub const ACTIVATIONTYPE_FROM_FILE: ACTIVATIONTYPE = ACTIVATIONTYPE(16i32);

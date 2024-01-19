@@ -161,7 +161,7 @@ unsafe impl ::core::marker::Sync for ID3D11Asynchronous {}
 #[doc(hidden)]
 pub struct ID3D11Asynchronous_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
-    pub GetDataSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub GetDataSize: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
 }
 ::windows_core::imp::com_interface!(ID3D11AuthenticatedChannel, ID3D11AuthenticatedChannel_Vtbl, 0x3015a308_dcbd_47aa_a747_192486d14d4a);
 ::windows_core::imp::interface_hierarchy!(ID3D11AuthenticatedChannel, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -202,9 +202,9 @@ unsafe impl ::core::marker::Sync for ID3D11AuthenticatedChannel {}
 #[doc(hidden)]
 pub struct ID3D11AuthenticatedChannel_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
-    pub GetCertificateSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcertificatesize: *mut u32) -> ::windows_core::HRESULT,
-    pub GetCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificatesize: u32, pcertificate: *mut u8) -> ::windows_core::HRESULT,
-    pub GetChannelHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchannelhandle: *mut super::super::Foundation::HANDLE),
+    pub GetCertificateSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetCertificate: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u8) -> ::windows_core::HRESULT,
+    pub GetChannelHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HANDLE),
 }
 ::windows_core::imp::com_interface!(ID3D11BlendState, ID3D11BlendState_Vtbl, 0x75b68faa_347d_4159_8f45_a0640f01cd9a);
 ::windows_core::imp::interface_hierarchy!(ID3D11BlendState, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -236,7 +236,7 @@ unsafe impl ::core::marker::Sync for ID3D11BlendState {}
 #[doc(hidden)]
 pub struct ID3D11BlendState_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_BLEND_DESC),
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_BLEND_DESC),
 }
 ::windows_core::imp::com_interface!(ID3D11BlendState1, ID3D11BlendState1_Vtbl, 0xcc86fabe_da55_401d_85e7_e3c9de2877e9);
 ::windows_core::imp::interface_hierarchy!(ID3D11BlendState1, ::windows_core::IUnknown, ID3D11DeviceChild, ID3D11BlendState);
@@ -271,7 +271,7 @@ unsafe impl ::core::marker::Sync for ID3D11BlendState1 {}
 #[doc(hidden)]
 pub struct ID3D11BlendState1_Vtbl {
     pub base__: ID3D11BlendState_Vtbl,
-    pub GetDesc1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_BLEND_DESC1),
+    pub GetDesc1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_BLEND_DESC1),
 }
 ::windows_core::imp::com_interface!(ID3D11Buffer, ID3D11Buffer_Vtbl, 0x48570b85_d1ee_4fcd_a250_eb350722b037);
 ::windows_core::imp::interface_hierarchy!(ID3D11Buffer, ::windows_core::IUnknown, ID3D11DeviceChild, ID3D11Resource);
@@ -314,7 +314,7 @@ unsafe impl ::core::marker::Sync for ID3D11Buffer {}
 #[doc(hidden)]
 pub struct ID3D11Buffer_Vtbl {
     pub base__: ID3D11Resource_Vtbl,
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_BUFFER_DESC),
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_BUFFER_DESC),
 }
 ::windows_core::imp::com_interface!(ID3D11ClassInstance, ID3D11ClassInstance_Vtbl, 0xa6cd7faa_b0b7_4a2f_9436_8662a65797cb);
 ::windows_core::imp::interface_hierarchy!(ID3D11ClassInstance, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -357,10 +357,10 @@ unsafe impl ::core::marker::Sync for ID3D11ClassInstance {}
 #[doc(hidden)]
 pub struct ID3D11ClassInstance_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
-    pub GetClassLinkage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplinkage: *mut *mut ::core::ffi::c_void),
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_CLASS_INSTANCE_DESC),
-    pub GetInstanceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinstancename: ::windows_core::PSTR, pbufferlength: *mut usize),
-    pub GetTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptypename: ::windows_core::PSTR, pbufferlength: *mut usize),
+    pub GetClassLinkage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void),
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_CLASS_INSTANCE_DESC),
+    pub GetInstanceName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PSTR, *mut usize),
+    pub GetTypeName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PSTR, *mut usize),
 }
 ::windows_core::imp::com_interface!(ID3D11ClassLinkage, ID3D11ClassLinkage_Vtbl, 0xddf57cba_9543_46e4_a12b_f207a0fe7fed);
 ::windows_core::imp::interface_hierarchy!(ID3D11ClassLinkage, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -403,8 +403,8 @@ unsafe impl ::core::marker::Sync for ID3D11ClassLinkage {}
 #[doc(hidden)]
 pub struct ID3D11ClassLinkage_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
-    pub GetClassInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclassinstancename: ::windows_core::PCSTR, instanceindex: u32, ppinstance: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateClassInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclasstypename: ::windows_core::PCSTR, constantbufferoffset: u32, constantvectoroffset: u32, textureoffset: u32, sampleroffset: u32, ppinstance: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetClassInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateClassInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, u32, u32, u32, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11CommandList, ID3D11CommandList_Vtbl, 0xa24bc4d1_769e_43f7_8013_98ff566c18e2);
 ::windows_core::imp::interface_hierarchy!(ID3D11CommandList, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -436,7 +436,7 @@ unsafe impl ::core::marker::Sync for ID3D11CommandList {}
 #[doc(hidden)]
 pub struct ID3D11CommandList_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
-    pub GetContextFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub GetContextFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
 }
 ::windows_core::imp::com_interface!(ID3D11ComputeShader, ID3D11ComputeShader_Vtbl, 0x4f5b196e_c2bd_495e_bd01_1fded38e4969);
 ::windows_core::imp::interface_hierarchy!(ID3D11ComputeShader, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -501,7 +501,7 @@ unsafe impl ::core::marker::Sync for ID3D11Counter {}
 #[doc(hidden)]
 pub struct ID3D11Counter_Vtbl {
     pub base__: ID3D11Asynchronous_Vtbl,
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_COUNTER_DESC),
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_COUNTER_DESC),
 }
 ::windows_core::imp::com_interface!(ID3D11CryptoSession, ID3D11CryptoSession_Vtbl, 0x9b32f9ad_bdcc_40a6_a39d_d5c865845720);
 ::windows_core::imp::interface_hierarchy!(ID3D11CryptoSession, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -552,11 +552,11 @@ unsafe impl ::core::marker::Sync for ID3D11CryptoSession {}
 #[doc(hidden)]
 pub struct ID3D11CryptoSession_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
-    pub GetCryptoType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptotype: *mut ::windows_core::GUID),
-    pub GetDecoderProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoderprofile: *mut ::windows_core::GUID),
-    pub GetCertificateSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcertificatesize: *mut u32) -> ::windows_core::HRESULT,
-    pub GetCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificatesize: u32, pcertificate: *mut u8) -> ::windows_core::HRESULT,
-    pub GetCryptoSessionHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosessionhandle: *mut super::super::Foundation::HANDLE),
+    pub GetCryptoType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID),
+    pub GetDecoderProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID),
+    pub GetCertificateSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetCertificate: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u8) -> ::windows_core::HRESULT,
+    pub GetCryptoSessionHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HANDLE),
 }
 ::windows_core::imp::com_interface!(ID3D11Debug, ID3D11Debug_Vtbl, 0x79cf2233_7536_4948_9d36_1e4692dc5760);
 ::windows_core::imp::interface_hierarchy!(ID3D11Debug, ::windows_core::IUnknown);
@@ -609,21 +609,21 @@ unsafe impl ::core::marker::Sync for ID3D11Debug {}
 #[doc(hidden)]
 pub struct ID3D11Debug_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetFeatureMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mask: u32) -> ::windows_core::HRESULT,
-    pub GetFeatureMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub SetPresentPerRenderOpDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, milliseconds: u32) -> ::windows_core::HRESULT,
-    pub GetPresentPerRenderOpDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub SetFeatureMask: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetFeatureMask: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
+    pub SetPresentPerRenderOpDelay: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetPresentPerRenderOpDelay: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub SetSwapChain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pswapchain: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetSwapChain: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))]
     SetSwapChain: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub GetSwapChain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppswapchain: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetSwapChain: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))]
     GetSwapChain: usize,
-    pub ValidateContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ReportLiveDeviceObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: D3D11_RLDO_FLAGS) -> ::windows_core::HRESULT,
-    pub ValidateContextForDispatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ValidateContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ReportLiveDeviceObjects: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3D11_RLDO_FLAGS) -> ::windows_core::HRESULT,
+    pub ValidateContextForDispatch: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11DepthStencilState, ID3D11DepthStencilState_Vtbl, 0x03823efb_8d8f_4e1c_9aa2_f64bb2cbfdf1);
 ::windows_core::imp::interface_hierarchy!(ID3D11DepthStencilState, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -655,7 +655,7 @@ unsafe impl ::core::marker::Sync for ID3D11DepthStencilState {}
 #[doc(hidden)]
 pub struct ID3D11DepthStencilState_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_DEPTH_STENCIL_DESC),
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_DEPTH_STENCIL_DESC),
 }
 ::windows_core::imp::com_interface!(ID3D11DepthStencilView, ID3D11DepthStencilView_Vtbl, 0x9fdac92a_1876_48c3_afad_25b94f84a9b6);
 ::windows_core::imp::interface_hierarchy!(ID3D11DepthStencilView, ::windows_core::IUnknown, ID3D11DeviceChild, ID3D11View);
@@ -695,7 +695,7 @@ unsafe impl ::core::marker::Sync for ID3D11DepthStencilView {}
 pub struct ID3D11DepthStencilView_Vtbl {
     pub base__: ID3D11View_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_DEPTH_STENCIL_VIEW_DESC),
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_DEPTH_STENCIL_VIEW_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
@@ -910,79 +910,79 @@ unsafe impl ::core::marker::Sync for ID3D11Device {}
 #[doc(hidden)]
 pub struct ID3D11Device_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D11_BUFFER_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_BUFFER_DESC, *const D3D11_SUBRESOURCE_DATA, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CreateTexture1D: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D11_TEXTURE1D_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA, pptexture1d: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTexture1D: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_TEXTURE1D_DESC, *const D3D11_SUBRESOURCE_DATA, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateTexture1D: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CreateTexture2D: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D11_TEXTURE2D_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA, pptexture2d: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTexture2D: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_TEXTURE2D_DESC, *const D3D11_SUBRESOURCE_DATA, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateTexture2D: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CreateTexture3D: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D11_TEXTURE3D_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA, pptexture3d: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTexture3D: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_TEXTURE3D_DESC, *const D3D11_SUBRESOURCE_DATA, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateTexture3D: usize,
     #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub CreateShaderResourceView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc: *const D3D11_SHADER_RESOURCE_VIEW_DESC, ppsrview: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateShaderResourceView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_SHADER_RESOURCE_VIEW_DESC, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common")))]
     CreateShaderResourceView: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CreateUnorderedAccessView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc: *const D3D11_UNORDERED_ACCESS_VIEW_DESC, ppuaview: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateUnorderedAccessView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_UNORDERED_ACCESS_VIEW_DESC, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateUnorderedAccessView: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CreateRenderTargetView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc: *const D3D11_RENDER_TARGET_VIEW_DESC, pprtview: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateRenderTargetView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_RENDER_TARGET_VIEW_DESC, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateRenderTargetView: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CreateDepthStencilView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc: *const D3D11_DEPTH_STENCIL_VIEW_DESC, ppdepthstencilview: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDepthStencilView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_DEPTH_STENCIL_VIEW_DESC, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateDepthStencilView: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CreateInputLayout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinputelementdescs: *const D3D11_INPUT_ELEMENT_DESC, numelements: u32, pshaderbytecodewithinputsignature: *const ::core::ffi::c_void, bytecodelength: usize, ppinputlayout: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInputLayout: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_INPUT_ELEMENT_DESC, u32, *const ::core::ffi::c_void, usize, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateInputLayout: usize,
-    pub CreateVertexShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: *mut ::core::ffi::c_void, ppvertexshader: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateGeometryShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: *mut ::core::ffi::c_void, ppgeometryshader: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateGeometryShaderWithStreamOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, psodeclaration: *const D3D11_SO_DECLARATION_ENTRY, numentries: u32, pbufferstrides: *const u32, numstrides: u32, rasterizedstream: u32, pclasslinkage: *mut ::core::ffi::c_void, ppgeometryshader: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreatePixelShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: *mut ::core::ffi::c_void, pppixelshader: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateHullShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: *mut ::core::ffi::c_void, pphullshader: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateDomainShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: *mut ::core::ffi::c_void, ppdomainshader: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateComputeShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshaderbytecode: *const ::core::ffi::c_void, bytecodelength: usize, pclasslinkage: *mut ::core::ffi::c_void, ppcomputeshader: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateClassLinkage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplinkage: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateBlendState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblendstatedesc: *const D3D11_BLEND_DESC, ppblendstate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateDepthStencilState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdepthstencildesc: *const D3D11_DEPTH_STENCIL_DESC, ppdepthstencilstate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateRasterizerState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prasterizerdesc: *const D3D11_RASTERIZER_DESC, pprasterizerstate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateSamplerState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psamplerdesc: *const D3D11_SAMPLER_DESC, ppsamplerstate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pquerydesc: *const D3D11_QUERY_DESC, ppquery: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreatePredicate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppredicatedesc: *const D3D11_QUERY_DESC, pppredicate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateCounter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcounterdesc: *const D3D11_COUNTER_DESC, ppcounter: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateDeferredContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextflags: u32, ppdeferredcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OpenSharedResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresource: super::super::Foundation::HANDLE, returnedinterface: *const ::windows_core::GUID, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateVertexShader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, usize, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateGeometryShader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, usize, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateGeometryShaderWithStreamOutput: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, usize, *const D3D11_SO_DECLARATION_ENTRY, u32, *const u32, u32, u32, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreatePixelShader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, usize, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateHullShader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, usize, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDomainShader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, usize, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateComputeShader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, usize, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateClassLinkage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateBlendState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_BLEND_DESC, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDepthStencilState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_DEPTH_STENCIL_DESC, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateRasterizerState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_RASTERIZER_DESC, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSamplerState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_SAMPLER_DESC, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateQuery: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_QUERY_DESC, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreatePredicate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_QUERY_DESC, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateCounter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_COUNTER_DESC, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDeferredContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OpenSharedResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CheckFormatSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: super::Dxgi::Common::DXGI_FORMAT, pformatsupport: *mut u32) -> ::windows_core::HRESULT,
+    pub CheckFormatSupport: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Dxgi::Common::DXGI_FORMAT, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CheckFormatSupport: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CheckMultisampleQualityLevels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32, pnumqualitylevels: *mut u32) -> ::windows_core::HRESULT,
+    pub CheckMultisampleQualityLevels: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Dxgi::Common::DXGI_FORMAT, u32, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CheckMultisampleQualityLevels: usize,
-    pub CheckCounterInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcounterinfo: *mut D3D11_COUNTER_INFO),
-    pub CheckCounter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D11_COUNTER_DESC, ptype: *mut D3D11_COUNTER_TYPE, pactivecounters: *mut u32, szname: ::windows_core::PSTR, pnamelength: *mut u32, szunits: ::windows_core::PSTR, punitslength: *mut u32, szdescription: ::windows_core::PSTR, pdescriptionlength: *mut u32) -> ::windows_core::HRESULT,
-    pub CheckFeatureSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: D3D11_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows_core::HRESULT,
-    pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetPrivateDataInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CheckCounterInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_COUNTER_INFO),
+    pub CheckCounter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_COUNTER_DESC, *mut D3D11_COUNTER_TYPE, *mut u32, ::windows_core::PSTR, *mut u32, ::windows_core::PSTR, *mut u32, ::windows_core::PSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub CheckFeatureSupport: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3D11_FEATURE, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetPrivateData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetPrivateData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetPrivateDataInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub GetFeatureLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::Direct3D::D3D_FEATURE_LEVEL,
+    pub GetFeatureLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::Direct3D::D3D_FEATURE_LEVEL,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetFeatureLevel: usize,
-    pub GetCreationFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub GetDeviceRemovedReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetImmediateContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppimmediatecontext: *mut *mut ::core::ffi::c_void),
-    pub SetExceptionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, raiseflags: u32) -> ::windows_core::HRESULT,
-    pub GetExceptionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub GetCreationFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
+    pub GetDeviceRemovedReason: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetImmediateContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void),
+    pub SetExceptionMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetExceptionMode: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
 }
 ::windows_core::imp::com_interface!(ID3D11Device1, ID3D11Device1_Vtbl, 0xa04bfb29_08ef_43d6_a49c_a9bdbdcbe686);
 ::windows_core::imp::interface_hierarchy!(ID3D11Device1, ::windows_core::IUnknown, ID3D11Device);
@@ -1230,16 +1230,16 @@ unsafe impl ::core::marker::Sync for ID3D11Device1 {}
 #[doc(hidden)]
 pub struct ID3D11Device1_Vtbl {
     pub base__: ID3D11Device_Vtbl,
-    pub GetImmediateContext1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppimmediatecontext: *mut *mut ::core::ffi::c_void),
-    pub CreateDeferredContext1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextflags: u32, ppdeferredcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateBlendState1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblendstatedesc: *const D3D11_BLEND_DESC1, ppblendstate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateRasterizerState1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prasterizerdesc: *const D3D11_RASTERIZER_DESC1, pprasterizerstate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetImmediateContext1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void),
+    pub CreateDeferredContext1: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateBlendState1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_BLEND_DESC1, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateRasterizerState1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_RASTERIZER_DESC1, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub CreateDeviceContextState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, emulatedinterface: *const ::windows_core::GUID, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppcontextstate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDeviceContextState: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const super::Direct3D::D3D_FEATURE_LEVEL, u32, u32, *const ::windows_core::GUID, *mut super::Direct3D::D3D_FEATURE_LEVEL, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     CreateDeviceContextState: usize,
-    pub OpenSharedResource1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresource: super::super::Foundation::HANDLE, returnedinterface: *const ::windows_core::GUID, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OpenSharedResourceByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpname: ::windows_core::PCWSTR, dwdesiredaccess: u32, returnedinterface: *const ::windows_core::GUID, ppresource: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OpenSharedResource1: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OpenSharedResourceByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11Device2, ID3D11Device2_Vtbl, 0x9d06dffa_d1e5_4d07_83a8_1bb123f2f841);
 ::windows_core::imp::interface_hierarchy!(ID3D11Device2, ::windows_core::IUnknown, ID3D11Device, ID3D11Device1);
@@ -1507,11 +1507,11 @@ unsafe impl ::core::marker::Sync for ID3D11Device2 {}
 #[doc(hidden)]
 pub struct ID3D11Device2_Vtbl {
     pub base__: ID3D11Device1_Vtbl,
-    pub GetImmediateContext2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppimmediatecontext: *mut *mut ::core::ffi::c_void),
-    pub CreateDeferredContext2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextflags: u32, ppdeferredcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetResourceTiling: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptiledresource: *mut ::core::ffi::c_void, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D11_PACKED_MIP_DESC, pstandardtileshapefornonpackedmips: *mut D3D11_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D11_SUBRESOURCE_TILING),
+    pub GetImmediateContext2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void),
+    pub CreateDeferredContext2: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetResourceTiling: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut u32, *mut D3D11_PACKED_MIP_DESC, *mut D3D11_TILE_SHAPE, *mut u32, u32, *mut D3D11_SUBRESOURCE_TILING),
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CheckMultisampleQualityLevels1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32, flags: u32, pnumqualitylevels: *mut u32) -> ::windows_core::HRESULT,
+    pub CheckMultisampleQualityLevels1: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Dxgi::Common::DXGI_FORMAT, u32, u32, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CheckMultisampleQualityLevels1: usize,
 }
@@ -1842,31 +1842,31 @@ unsafe impl ::core::marker::Sync for ID3D11Device3 {}
 pub struct ID3D11Device3_Vtbl {
     pub base__: ID3D11Device2_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CreateTexture2D1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc1: *const D3D11_TEXTURE2D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA, pptexture2d: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTexture2D1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_TEXTURE2D_DESC1, *const D3D11_SUBRESOURCE_DATA, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateTexture2D1: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CreateTexture3D1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc1: *const D3D11_TEXTURE3D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA, pptexture3d: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTexture3D1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_TEXTURE3D_DESC1, *const D3D11_SUBRESOURCE_DATA, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateTexture3D1: usize,
-    pub CreateRasterizerState2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prasterizerdesc: *const D3D11_RASTERIZER_DESC2, pprasterizerstate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateRasterizerState2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_RASTERIZER_DESC2, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub CreateShaderResourceView1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc1: *const D3D11_SHADER_RESOURCE_VIEW_DESC1, ppsrview1: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateShaderResourceView1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_SHADER_RESOURCE_VIEW_DESC1, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common")))]
     CreateShaderResourceView1: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CreateUnorderedAccessView1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc1: *const D3D11_UNORDERED_ACCESS_VIEW_DESC1, ppuaview1: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateUnorderedAccessView1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_UNORDERED_ACCESS_VIEW_DESC1, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateUnorderedAccessView1: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CreateRenderTargetView1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc1: *const D3D11_RENDER_TARGET_VIEW_DESC1, pprtview1: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateRenderTargetView1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_RENDER_TARGET_VIEW_DESC1, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateRenderTargetView1: usize,
-    pub CreateQuery1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pquerydesc1: *const D3D11_QUERY_DESC1, ppquery1: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetImmediateContext3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppimmediatecontext: *mut *mut ::core::ffi::c_void),
-    pub CreateDeferredContext3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextflags: u32, ppdeferredcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub WriteToSubresource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdstresource: *mut ::core::ffi::c_void, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32),
-    pub ReadFromSubresource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdstdata: *mut ::core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, psrcresource: *mut ::core::ffi::c_void, srcsubresource: u32, psrcbox: *const D3D11_BOX),
+    pub CreateQuery1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_QUERY_DESC1, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetImmediateContext3: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void),
+    pub CreateDeferredContext3: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub WriteToSubresource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const D3D11_BOX, *const ::core::ffi::c_void, u32, u32),
+    pub ReadFromSubresource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32, *mut ::core::ffi::c_void, u32, *const D3D11_BOX),
 }
 ::windows_core::imp::com_interface!(ID3D11Device4, ID3D11Device4_Vtbl, 0x8992ab71_02e6_4b8d_ba48_b056dcda42c4);
 ::windows_core::imp::interface_hierarchy!(ID3D11Device4, ::windows_core::IUnknown, ID3D11Device, ID3D11Device1, ID3D11Device2, ID3D11Device3);
@@ -2204,8 +2204,8 @@ unsafe impl ::core::marker::Sync for ID3D11Device4 {}
 #[doc(hidden)]
 pub struct ID3D11Device4_Vtbl {
     pub base__: ID3D11Device3_Vtbl,
-    pub RegisterDeviceRemovedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hevent: super::super::Foundation::HANDLE, pdwcookie: *mut u32) -> ::windows_core::HRESULT,
-    pub UnregisterDeviceRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32),
+    pub RegisterDeviceRemovedEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE, *mut u32) -> ::windows_core::HRESULT,
+    pub UnregisterDeviceRemoved: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32),
 }
 ::windows_core::imp::com_interface!(ID3D11Device5, ID3D11Device5_Vtbl, 0x8ffde202_a0e7_45df_9e01_e837801b5ea0);
 ::windows_core::imp::interface_hierarchy!(ID3D11Device5, ::windows_core::IUnknown, ID3D11Device, ID3D11Device1, ID3D11Device2, ID3D11Device3, ID3D11Device4);
@@ -2556,8 +2556,8 @@ unsafe impl ::core::marker::Sync for ID3D11Device5 {}
 #[doc(hidden)]
 pub struct ID3D11Device5_Vtbl {
     pub base__: ID3D11Device4_Vtbl,
-    pub OpenSharedFence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hfence: super::super::Foundation::HANDLE, returnedinterface: *const ::windows_core::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateFence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initialvalue: u64, flags: D3D11_FENCE_FLAG, returnedinterface: *const ::windows_core::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OpenSharedFence: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFence: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, D3D11_FENCE_FLAG, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11DeviceChild, ID3D11DeviceChild_Vtbl, 0x1841e5c8_16b0_489b_bcc8_44cfb0d5deae);
 ::windows_core::imp::interface_hierarchy!(ID3D11DeviceChild, ::windows_core::IUnknown);
@@ -2586,10 +2586,10 @@ unsafe impl ::core::marker::Sync for ID3D11DeviceChild {}
 #[doc(hidden)]
 pub struct ID3D11DeviceChild_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void),
-    pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetPrivateDataInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void),
+    pub GetPrivateData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetPrivateData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetPrivateDataInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11DeviceContext, ID3D11DeviceContext_Vtbl, 0xc0bfa96c_e089_44fb_8eaf_26f8796190da);
 ::windows_core::imp::interface_hierarchy!(ID3D11DeviceContext, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -3080,129 +3080,129 @@ unsafe impl ::core::marker::Sync for ID3D11DeviceContext {}
 #[doc(hidden)]
 pub struct ID3D11DeviceContext_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
-    pub VSSetConstantBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *const *mut ::core::ffi::c_void),
-    pub PSSetShaderResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numviews: u32, ppshaderresourceviews: *const *mut ::core::ffi::c_void),
-    pub PSSetShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppixelshader: *mut ::core::ffi::c_void, ppclassinstances: *const *mut ::core::ffi::c_void, numclassinstances: u32),
-    pub PSSetSamplers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numsamplers: u32, ppsamplers: *const *mut ::core::ffi::c_void),
-    pub VSSetShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvertexshader: *mut ::core::ffi::c_void, ppclassinstances: *const *mut ::core::ffi::c_void, numclassinstances: u32),
-    pub DrawIndexed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexcount: u32, startindexlocation: u32, basevertexlocation: i32),
-    pub Draw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vertexcount: u32, startvertexlocation: u32),
-    pub Map: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, subresource: u32, maptype: D3D11_MAP, mapflags: u32, pmappedresource: *mut D3D11_MAPPED_SUBRESOURCE) -> ::windows_core::HRESULT,
-    pub Unmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, subresource: u32),
-    pub PSSetConstantBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *const *mut ::core::ffi::c_void),
-    pub IASetInputLayout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinputlayout: *mut ::core::ffi::c_void),
-    pub IASetVertexBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppvertexbuffers: *const *mut ::core::ffi::c_void, pstrides: *const u32, poffsets: *const u32),
+    pub VSSetConstantBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
+    pub PSSetShaderResources: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
+    pub PSSetShader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const *mut ::core::ffi::c_void, u32),
+    pub PSSetSamplers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
+    pub VSSetShader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const *mut ::core::ffi::c_void, u32),
+    pub DrawIndexed: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, i32),
+    pub Draw: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32),
+    pub Map: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, D3D11_MAP, u32, *mut D3D11_MAPPED_SUBRESOURCE) -> ::windows_core::HRESULT,
+    pub Unmap: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32),
+    pub PSSetConstantBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
+    pub IASetInputLayout: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
+    pub IASetVertexBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void, *const u32, *const u32),
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub IASetIndexBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pindexbuffer: *mut ::core::ffi::c_void, format: super::Dxgi::Common::DXGI_FORMAT, offset: u32),
+    pub IASetIndexBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::Dxgi::Common::DXGI_FORMAT, u32),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     IASetIndexBuffer: usize,
-    pub DrawIndexedInstanced: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32),
-    pub DrawInstanced: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32),
-    pub GSSetConstantBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *const *mut ::core::ffi::c_void),
-    pub GSSetShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshader: *mut ::core::ffi::c_void, ppclassinstances: *const *mut ::core::ffi::c_void, numclassinstances: u32),
+    pub DrawIndexedInstanced: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32, i32, u32),
+    pub DrawInstanced: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32, u32),
+    pub GSSetConstantBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
+    pub GSSetShader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const *mut ::core::ffi::c_void, u32),
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub IASetPrimitiveTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, topology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY),
+    pub IASetPrimitiveTopology: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Direct3D::D3D_PRIMITIVE_TOPOLOGY),
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     IASetPrimitiveTopology: usize,
-    pub VSSetShaderResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numviews: u32, ppshaderresourceviews: *const *mut ::core::ffi::c_void),
-    pub VSSetSamplers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numsamplers: u32, ppsamplers: *const *mut ::core::ffi::c_void),
-    pub Begin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pasync: *mut ::core::ffi::c_void),
-    pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pasync: *mut ::core::ffi::c_void),
-    pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pasync: *mut ::core::ffi::c_void, pdata: *mut ::core::ffi::c_void, datasize: u32, getdataflags: u32) -> ::windows_core::HRESULT,
-    pub SetPredication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppredicate: *mut ::core::ffi::c_void, predicatevalue: super::super::Foundation::BOOL),
-    pub GSSetShaderResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numviews: u32, ppshaderresourceviews: *const *mut ::core::ffi::c_void),
-    pub GSSetSamplers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numsamplers: u32, ppsamplers: *const *mut ::core::ffi::c_void),
-    pub OMSetRenderTargets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numviews: u32, pprendertargetviews: *const *mut ::core::ffi::c_void, pdepthstencilview: *mut ::core::ffi::c_void),
-    pub OMSetRenderTargetsAndUnorderedAccessViews: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numrtvs: u32, pprendertargetviews: *const *mut ::core::ffi::c_void, pdepthstencilview: *mut ::core::ffi::c_void, uavstartslot: u32, numuavs: u32, ppunorderedaccessviews: *const *mut ::core::ffi::c_void, puavinitialcounts: *const u32),
-    pub OMSetBlendState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblendstate: *mut ::core::ffi::c_void, blendfactor: *const f32, samplemask: u32),
-    pub OMSetDepthStencilState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdepthstencilstate: *mut ::core::ffi::c_void, stencilref: u32),
-    pub SOSetTargets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numbuffers: u32, ppsotargets: *const *mut ::core::ffi::c_void, poffsets: *const u32),
-    pub DrawAuto: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub DrawIndexedInstancedIndirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbufferforargs: *mut ::core::ffi::c_void, alignedbyteoffsetforargs: u32),
-    pub DrawInstancedIndirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbufferforargs: *mut ::core::ffi::c_void, alignedbyteoffsetforargs: u32),
-    pub Dispatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32),
-    pub DispatchIndirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbufferforargs: *mut ::core::ffi::c_void, alignedbyteoffsetforargs: u32),
-    pub RSSetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prasterizerstate: *mut ::core::ffi::c_void),
-    pub RSSetViewports: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numviewports: u32, pviewports: *const D3D11_VIEWPORT),
-    pub RSSetScissorRects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numrects: u32, prects: *const super::super::Foundation::RECT),
-    pub CopySubresourceRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdstresource: *mut ::core::ffi::c_void, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: *mut ::core::ffi::c_void, srcsubresource: u32, psrcbox: *const D3D11_BOX),
-    pub CopyResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdstresource: *mut ::core::ffi::c_void, psrcresource: *mut ::core::ffi::c_void),
-    pub UpdateSubresource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdstresource: *mut ::core::ffi::c_void, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32),
-    pub CopyStructureCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdstbuffer: *mut ::core::ffi::c_void, dstalignedbyteoffset: u32, psrcview: *mut ::core::ffi::c_void),
-    pub ClearRenderTargetView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prendertargetview: *mut ::core::ffi::c_void, colorrgba: *const f32),
-    pub ClearUnorderedAccessViewUint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punorderedaccessview: *mut ::core::ffi::c_void, values: *const u32),
-    pub ClearUnorderedAccessViewFloat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punorderedaccessview: *mut ::core::ffi::c_void, values: *const f32),
-    pub ClearDepthStencilView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdepthstencilview: *mut ::core::ffi::c_void, clearflags: u32, depth: f32, stencil: u8),
-    pub GenerateMips: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshaderresourceview: *mut ::core::ffi::c_void),
-    pub SetResourceMinLOD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, minlod: f32),
-    pub GetResourceMinLOD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void) -> f32,
+    pub VSSetShaderResources: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
+    pub VSSetSamplers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
+    pub Begin: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
+    pub End: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
+    pub GetData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub SetPredication: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::BOOL),
+    pub GSSetShaderResources: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
+    pub GSSetSamplers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
+    pub OMSetRenderTargets: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const *mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
+    pub OMSetRenderTargetsAndUnorderedAccessViews: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void, *const u32),
+    pub OMSetBlendState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const f32, u32),
+    pub OMSetDepthStencilState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32),
+    pub SOSetTargets: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const *mut ::core::ffi::c_void, *const u32),
+    pub DrawAuto: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub DrawIndexedInstancedIndirect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32),
+    pub DrawInstancedIndirect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32),
+    pub Dispatch: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32),
+    pub DispatchIndirect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32),
+    pub RSSetState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
+    pub RSSetViewports: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const D3D11_VIEWPORT),
+    pub RSSetScissorRects: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const super::super::Foundation::RECT),
+    pub CopySubresourceRegion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32, u32, u32, *mut ::core::ffi::c_void, u32, *const D3D11_BOX),
+    pub CopyResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
+    pub UpdateSubresource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const D3D11_BOX, *const ::core::ffi::c_void, u32, u32),
+    pub CopyStructureCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void),
+    pub ClearRenderTargetView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const f32),
+    pub ClearUnorderedAccessViewUint: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const u32),
+    pub ClearUnorderedAccessViewFloat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const f32),
+    pub ClearDepthStencilView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, f32, u8),
+    pub GenerateMips: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
+    pub SetResourceMinLOD: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, f32),
+    pub GetResourceMinLOD: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> f32,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub ResolveSubresource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdstresource: *mut ::core::ffi::c_void, dstsubresource: u32, psrcresource: *mut ::core::ffi::c_void, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT),
+    pub ResolveSubresource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void, u32, super::Dxgi::Common::DXGI_FORMAT),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     ResolveSubresource: usize,
-    pub ExecuteCommandList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcommandlist: *mut ::core::ffi::c_void, restorecontextstate: super::super::Foundation::BOOL),
-    pub HSSetShaderResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numviews: u32, ppshaderresourceviews: *const *mut ::core::ffi::c_void),
-    pub HSSetShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phullshader: *mut ::core::ffi::c_void, ppclassinstances: *const *mut ::core::ffi::c_void, numclassinstances: u32),
-    pub HSSetSamplers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numsamplers: u32, ppsamplers: *const *mut ::core::ffi::c_void),
-    pub HSSetConstantBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *const *mut ::core::ffi::c_void),
-    pub DSSetShaderResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numviews: u32, ppshaderresourceviews: *const *mut ::core::ffi::c_void),
-    pub DSSetShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdomainshader: *mut ::core::ffi::c_void, ppclassinstances: *const *mut ::core::ffi::c_void, numclassinstances: u32),
-    pub DSSetSamplers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numsamplers: u32, ppsamplers: *const *mut ::core::ffi::c_void),
-    pub DSSetConstantBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *const *mut ::core::ffi::c_void),
-    pub CSSetShaderResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numviews: u32, ppshaderresourceviews: *const *mut ::core::ffi::c_void),
-    pub CSSetUnorderedAccessViews: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numuavs: u32, ppunorderedaccessviews: *const *mut ::core::ffi::c_void, puavinitialcounts: *const u32),
-    pub CSSetShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcomputeshader: *mut ::core::ffi::c_void, ppclassinstances: *const *mut ::core::ffi::c_void, numclassinstances: u32),
-    pub CSSetSamplers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numsamplers: u32, ppsamplers: *const *mut ::core::ffi::c_void),
-    pub CSSetConstantBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *const *mut ::core::ffi::c_void),
-    pub VSGetConstantBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut *mut ::core::ffi::c_void),
-    pub PSGetShaderResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numviews: u32, ppshaderresourceviews: *mut *mut ::core::ffi::c_void),
-    pub PSGetShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppixelshader: *mut *mut ::core::ffi::c_void, ppclassinstances: *mut *mut ::core::ffi::c_void, pnumclassinstances: *mut u32),
-    pub PSGetSamplers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numsamplers: u32, ppsamplers: *mut *mut ::core::ffi::c_void),
-    pub VSGetShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppvertexshader: *mut *mut ::core::ffi::c_void, ppclassinstances: *mut *mut ::core::ffi::c_void, pnumclassinstances: *mut u32),
-    pub PSGetConstantBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut *mut ::core::ffi::c_void),
-    pub IAGetInputLayout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppinputlayout: *mut *mut ::core::ffi::c_void),
-    pub IAGetVertexBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppvertexbuffers: *mut *mut ::core::ffi::c_void, pstrides: *mut u32, poffsets: *mut u32),
+    pub ExecuteCommandList: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::BOOL),
+    pub HSSetShaderResources: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
+    pub HSSetShader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const *mut ::core::ffi::c_void, u32),
+    pub HSSetSamplers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
+    pub HSSetConstantBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
+    pub DSSetShaderResources: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
+    pub DSSetShader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const *mut ::core::ffi::c_void, u32),
+    pub DSSetSamplers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
+    pub DSSetConstantBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
+    pub CSSetShaderResources: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
+    pub CSSetUnorderedAccessViews: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void, *const u32),
+    pub CSSetShader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const *mut ::core::ffi::c_void, u32),
+    pub CSSetSamplers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
+    pub CSSetConstantBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void),
+    pub VSGetConstantBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub PSGetShaderResources: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub PSGetShader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut u32),
+    pub PSGetSamplers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub VSGetShader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut u32),
+    pub PSGetConstantBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub IAGetInputLayout: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void),
+    pub IAGetVertexBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void, *mut u32, *mut u32),
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub IAGetIndexBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pindexbuffer: *mut *mut ::core::ffi::c_void, format: *mut super::Dxgi::Common::DXGI_FORMAT, offset: *mut u32),
+    pub IAGetIndexBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut super::Dxgi::Common::DXGI_FORMAT, *mut u32),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     IAGetIndexBuffer: usize,
-    pub GSGetConstantBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut *mut ::core::ffi::c_void),
-    pub GSGetShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppgeometryshader: *mut *mut ::core::ffi::c_void, ppclassinstances: *mut *mut ::core::ffi::c_void, pnumclassinstances: *mut u32),
+    pub GSGetConstantBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub GSGetShader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut u32),
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub IAGetPrimitiveTopology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptopology: *mut super::Direct3D::D3D_PRIMITIVE_TOPOLOGY),
+    pub IAGetPrimitiveTopology: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::Direct3D::D3D_PRIMITIVE_TOPOLOGY),
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     IAGetPrimitiveTopology: usize,
-    pub VSGetShaderResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numviews: u32, ppshaderresourceviews: *mut *mut ::core::ffi::c_void),
-    pub VSGetSamplers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numsamplers: u32, ppsamplers: *mut *mut ::core::ffi::c_void),
-    pub GetPredication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppredicate: *mut *mut ::core::ffi::c_void, ppredicatevalue: *mut super::super::Foundation::BOOL),
-    pub GSGetShaderResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numviews: u32, ppshaderresourceviews: *mut *mut ::core::ffi::c_void),
-    pub GSGetSamplers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numsamplers: u32, ppsamplers: *mut *mut ::core::ffi::c_void),
-    pub OMGetRenderTargets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numviews: u32, pprendertargetviews: *mut *mut ::core::ffi::c_void, ppdepthstencilview: *mut *mut ::core::ffi::c_void),
-    pub OMGetRenderTargetsAndUnorderedAccessViews: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numrtvs: u32, pprendertargetviews: *mut *mut ::core::ffi::c_void, ppdepthstencilview: *mut *mut ::core::ffi::c_void, uavstartslot: u32, numuavs: u32, ppunorderedaccessviews: *mut *mut ::core::ffi::c_void),
-    pub OMGetBlendState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppblendstate: *mut *mut ::core::ffi::c_void, blendfactor: *mut f32, psamplemask: *mut u32),
-    pub OMGetDepthStencilState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdepthstencilstate: *mut *mut ::core::ffi::c_void, pstencilref: *mut u32),
-    pub SOGetTargets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numbuffers: u32, ppsotargets: *mut *mut ::core::ffi::c_void),
-    pub RSGetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprasterizerstate: *mut *mut ::core::ffi::c_void),
-    pub RSGetViewports: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnumviewports: *mut u32, pviewports: *mut D3D11_VIEWPORT),
-    pub RSGetScissorRects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnumrects: *mut u32, prects: *mut super::super::Foundation::RECT),
-    pub HSGetShaderResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numviews: u32, ppshaderresourceviews: *mut *mut ::core::ffi::c_void),
-    pub HSGetShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pphullshader: *mut *mut ::core::ffi::c_void, ppclassinstances: *mut *mut ::core::ffi::c_void, pnumclassinstances: *mut u32),
-    pub HSGetSamplers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numsamplers: u32, ppsamplers: *mut *mut ::core::ffi::c_void),
-    pub HSGetConstantBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut *mut ::core::ffi::c_void),
-    pub DSGetShaderResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numviews: u32, ppshaderresourceviews: *mut *mut ::core::ffi::c_void),
-    pub DSGetShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdomainshader: *mut *mut ::core::ffi::c_void, ppclassinstances: *mut *mut ::core::ffi::c_void, pnumclassinstances: *mut u32),
-    pub DSGetSamplers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numsamplers: u32, ppsamplers: *mut *mut ::core::ffi::c_void),
-    pub DSGetConstantBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut *mut ::core::ffi::c_void),
-    pub CSGetShaderResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numviews: u32, ppshaderresourceviews: *mut *mut ::core::ffi::c_void),
-    pub CSGetUnorderedAccessViews: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numuavs: u32, ppunorderedaccessviews: *mut *mut ::core::ffi::c_void),
-    pub CSGetShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcomputeshader: *mut *mut ::core::ffi::c_void, ppclassinstances: *mut *mut ::core::ffi::c_void, pnumclassinstances: *mut u32),
-    pub CSGetSamplers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numsamplers: u32, ppsamplers: *mut *mut ::core::ffi::c_void),
-    pub CSGetConstantBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut *mut ::core::ffi::c_void),
-    pub ClearState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Flush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3D11_DEVICE_CONTEXT_TYPE,
-    pub GetContextFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub FinishCommandList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, restoredeferredcontextstate: super::super::Foundation::BOOL, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub VSGetShaderResources: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub VSGetSamplers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub GetPredication: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL),
+    pub GSGetShaderResources: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub GSGetSamplers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub OMGetRenderTargets: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void),
+    pub OMGetRenderTargetsAndUnorderedAccessViews: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub OMGetBlendState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut f32, *mut u32),
+    pub OMGetDepthStencilState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut u32),
+    pub SOGetTargets: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void),
+    pub RSGetState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void),
+    pub RSGetViewports: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut D3D11_VIEWPORT),
+    pub RSGetScissorRects: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut super::super::Foundation::RECT),
+    pub HSGetShaderResources: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub HSGetShader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut u32),
+    pub HSGetSamplers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub HSGetConstantBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub DSGetShaderResources: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub DSGetShader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut u32),
+    pub DSGetSamplers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub DSGetConstantBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub CSGetShaderResources: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub CSGetUnorderedAccessViews: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub CSGetShader: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut u32),
+    pub CSGetSamplers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub CSGetConstantBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void),
+    pub ClearState: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Flush: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub GetType: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> D3D11_DEVICE_CONTEXT_TYPE,
+    pub GetContextFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
+    pub FinishCommandList: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11DeviceContext1, ID3D11DeviceContext1_Vtbl, 0xbb2c6faa_b5fb_4082_8e6b_388b8cfa90e1);
 ::windows_core::imp::interface_hierarchy!(ID3D11DeviceContext1, ::windows_core::IUnknown, ID3D11DeviceChild, ID3D11DeviceContext);
@@ -3772,25 +3772,25 @@ unsafe impl ::core::marker::Sync for ID3D11DeviceContext1 {}
 #[doc(hidden)]
 pub struct ID3D11DeviceContext1_Vtbl {
     pub base__: ID3D11DeviceContext_Vtbl,
-    pub CopySubresourceRegion1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdstresource: *mut ::core::ffi::c_void, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: *mut ::core::ffi::c_void, srcsubresource: u32, psrcbox: *const D3D11_BOX, copyflags: u32),
-    pub UpdateSubresource1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdstresource: *mut ::core::ffi::c_void, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32, copyflags: u32),
-    pub DiscardResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void),
-    pub DiscardView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presourceview: *mut ::core::ffi::c_void),
-    pub VSSetConstantBuffers1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *const *mut ::core::ffi::c_void, pfirstconstant: *const u32, pnumconstants: *const u32),
-    pub HSSetConstantBuffers1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *const *mut ::core::ffi::c_void, pfirstconstant: *const u32, pnumconstants: *const u32),
-    pub DSSetConstantBuffers1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *const *mut ::core::ffi::c_void, pfirstconstant: *const u32, pnumconstants: *const u32),
-    pub GSSetConstantBuffers1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *const *mut ::core::ffi::c_void, pfirstconstant: *const u32, pnumconstants: *const u32),
-    pub PSSetConstantBuffers1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *const *mut ::core::ffi::c_void, pfirstconstant: *const u32, pnumconstants: *const u32),
-    pub CSSetConstantBuffers1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *const *mut ::core::ffi::c_void, pfirstconstant: *const u32, pnumconstants: *const u32),
-    pub VSGetConstantBuffers1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut *mut ::core::ffi::c_void, pfirstconstant: *mut u32, pnumconstants: *mut u32),
-    pub HSGetConstantBuffers1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut *mut ::core::ffi::c_void, pfirstconstant: *mut u32, pnumconstants: *mut u32),
-    pub DSGetConstantBuffers1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut *mut ::core::ffi::c_void, pfirstconstant: *mut u32, pnumconstants: *mut u32),
-    pub GSGetConstantBuffers1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut *mut ::core::ffi::c_void, pfirstconstant: *mut u32, pnumconstants: *mut u32),
-    pub PSGetConstantBuffers1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut *mut ::core::ffi::c_void, pfirstconstant: *mut u32, pnumconstants: *mut u32),
-    pub CSGetConstantBuffers1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut *mut ::core::ffi::c_void, pfirstconstant: *mut u32, pnumconstants: *mut u32),
-    pub SwapDeviceContextState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut ::core::ffi::c_void, pppreviousstate: *mut *mut ::core::ffi::c_void),
-    pub ClearView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pview: *mut ::core::ffi::c_void, color: *const f32, prect: *const super::super::Foundation::RECT, numrects: u32),
-    pub DiscardView1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presourceview: *mut ::core::ffi::c_void, prects: *const super::super::Foundation::RECT, numrects: u32),
+    pub CopySubresourceRegion1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32, u32, u32, *mut ::core::ffi::c_void, u32, *const D3D11_BOX, u32),
+    pub UpdateSubresource1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const D3D11_BOX, *const ::core::ffi::c_void, u32, u32, u32),
+    pub DiscardResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
+    pub DiscardView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
+    pub VSSetConstantBuffers1: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void, *const u32, *const u32),
+    pub HSSetConstantBuffers1: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void, *const u32, *const u32),
+    pub DSSetConstantBuffers1: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void, *const u32, *const u32),
+    pub GSSetConstantBuffers1: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void, *const u32, *const u32),
+    pub PSSetConstantBuffers1: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void, *const u32, *const u32),
+    pub CSSetConstantBuffers1: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const *mut ::core::ffi::c_void, *const u32, *const u32),
+    pub VSGetConstantBuffers1: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void, *mut u32, *mut u32),
+    pub HSGetConstantBuffers1: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void, *mut u32, *mut u32),
+    pub DSGetConstantBuffers1: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void, *mut u32, *mut u32),
+    pub GSGetConstantBuffers1: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void, *mut u32, *mut u32),
+    pub PSGetConstantBuffers1: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void, *mut u32, *mut u32),
+    pub CSGetConstantBuffers1: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void, *mut u32, *mut u32),
+    pub SwapDeviceContextState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void),
+    pub ClearView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const f32, *const super::super::Foundation::RECT, u32),
+    pub DiscardView1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const super::super::Foundation::RECT, u32),
 }
 ::windows_core::imp::com_interface!(ID3D11DeviceContext2, ID3D11DeviceContext2_Vtbl, 0x420d5b32_b90c_4da4_bef0_359f6a24a83a);
 ::windows_core::imp::interface_hierarchy!(ID3D11DeviceContext2, ::windows_core::IUnknown, ID3D11DeviceChild, ID3D11DeviceContext, ID3D11DeviceContext1);
@@ -4431,16 +4431,16 @@ unsafe impl ::core::marker::Sync for ID3D11DeviceContext2 {}
 #[doc(hidden)]
 pub struct ID3D11DeviceContext2_Vtbl {
     pub base__: ID3D11DeviceContext1_Vtbl,
-    pub UpdateTileMappings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptiledresource: *mut ::core::ffi::c_void, numtiledresourceregions: u32, ptiledresourceregionstartcoordinates: *const D3D11_TILED_RESOURCE_COORDINATE, ptiledresourceregionsizes: *const D3D11_TILE_REGION_SIZE, ptilepool: *mut ::core::ffi::c_void, numranges: u32, prangeflags: *const u32, ptilepoolstartoffsets: *const u32, prangetilecounts: *const u32, flags: u32) -> ::windows_core::HRESULT,
-    pub CopyTileMappings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesttiledresource: *mut ::core::ffi::c_void, pdestregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, psourcetiledresource: *mut ::core::ffi::c_void, psourceregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, flags: u32) -> ::windows_core::HRESULT,
-    pub CopyTiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptiledresource: *mut ::core::ffi::c_void, ptileregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, pbuffer: *mut ::core::ffi::c_void, bufferstartoffsetinbytes: u64, flags: u32),
-    pub UpdateTiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesttiledresource: *mut ::core::ffi::c_void, pdesttileregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, pdesttileregionsize: *const D3D11_TILE_REGION_SIZE, psourcetiledata: *const ::core::ffi::c_void, flags: u32),
-    pub ResizeTilePool: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptilepool: *mut ::core::ffi::c_void, newsizeinbytes: u64) -> ::windows_core::HRESULT,
-    pub TiledResourceBarrier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptiledresourceorviewaccessbeforebarrier: *mut ::core::ffi::c_void, ptiledresourceorviewaccessafterbarrier: *mut ::core::ffi::c_void),
-    pub IsAnnotationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
-    pub SetMarkerInt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plabel: ::windows_core::PCWSTR, data: i32),
-    pub BeginEventInt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plabel: ::windows_core::PCWSTR, data: i32),
-    pub EndEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
+    pub UpdateTileMappings: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const D3D11_TILED_RESOURCE_COORDINATE, *const D3D11_TILE_REGION_SIZE, *mut ::core::ffi::c_void, u32, *const u32, *const u32, *const u32, u32) -> ::windows_core::HRESULT,
+    pub CopyTileMappings: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_TILED_RESOURCE_COORDINATE, *mut ::core::ffi::c_void, *const D3D11_TILED_RESOURCE_COORDINATE, *const D3D11_TILE_REGION_SIZE, u32) -> ::windows_core::HRESULT,
+    pub CopyTiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_TILED_RESOURCE_COORDINATE, *const D3D11_TILE_REGION_SIZE, *mut ::core::ffi::c_void, u64, u32),
+    pub UpdateTiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_TILED_RESOURCE_COORDINATE, *const D3D11_TILE_REGION_SIZE, *const ::core::ffi::c_void, u32),
+    pub ResizeTilePool: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
+    pub TiledResourceBarrier: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
+    pub IsAnnotationEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub SetMarkerInt: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, i32),
+    pub BeginEventInt: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, i32),
+    pub EndEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void),
 }
 ::windows_core::imp::com_interface!(ID3D11DeviceContext3, ID3D11DeviceContext3_Vtbl, 0xb4e3c01d_e79e_4637_91b2_510e9f4c9b8f);
 ::windows_core::imp::interface_hierarchy!(ID3D11DeviceContext3, ::windows_core::IUnknown, ID3D11DeviceChild, ID3D11DeviceContext, ID3D11DeviceContext1, ID3D11DeviceContext2);
@@ -5098,9 +5098,9 @@ unsafe impl ::core::marker::Sync for ID3D11DeviceContext3 {}
 #[doc(hidden)]
 pub struct ID3D11DeviceContext3_Vtbl {
     pub base__: ID3D11DeviceContext2_Vtbl,
-    pub Flush1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contexttype: D3D11_CONTEXT_TYPE, hevent: super::super::Foundation::HANDLE),
-    pub SetHardwareProtectionState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwprotectionenable: super::super::Foundation::BOOL),
-    pub GetHardwareProtectionState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwprotectionenable: *mut super::super::Foundation::BOOL),
+    pub Flush1: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3D11_CONTEXT_TYPE, super::super::Foundation::HANDLE),
+    pub SetHardwareProtectionState: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL),
+    pub GetHardwareProtectionState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL),
 }
 ::windows_core::imp::com_interface!(ID3D11DeviceContext4, ID3D11DeviceContext4_Vtbl, 0x917600da_f58c_4c33_98d8_3e15b390fa24);
 ::windows_core::imp::interface_hierarchy!(ID3D11DeviceContext4, ::windows_core::IUnknown, ID3D11DeviceChild, ID3D11DeviceContext, ID3D11DeviceContext1, ID3D11DeviceContext2, ID3D11DeviceContext3);
@@ -5770,8 +5770,8 @@ unsafe impl ::core::marker::Sync for ID3D11DeviceContext4 {}
 #[doc(hidden)]
 pub struct ID3D11DeviceContext4_Vtbl {
     pub base__: ID3D11DeviceContext3_Vtbl,
-    pub Signal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfence: *mut ::core::ffi::c_void, value: u64) -> ::windows_core::HRESULT,
-    pub Wait: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfence: *mut ::core::ffi::c_void, value: u64) -> ::windows_core::HRESULT,
+    pub Signal: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
+    pub Wait: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11DomainShader, ID3D11DomainShader_Vtbl, 0xf582c508_0f36_490c_9977_31eece268cfa);
 ::windows_core::imp::interface_hierarchy!(ID3D11DomainShader, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -5847,11 +5847,11 @@ unsafe impl ::core::marker::Sync for ID3D11Fence {}
 pub struct ID3D11Fence_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     #[cfg(feature = "Win32_Security")]
-    pub CreateSharedHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwaccess: u32, lpname: ::windows_core::PCWSTR, phandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
+    pub CreateSharedHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::Security::SECURITY_ATTRIBUTES, u32, ::windows_core::PCWSTR, *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Security"))]
     CreateSharedHandle: usize,
-    pub GetCompletedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
-    pub SetEventOnCompletion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u64, hevent: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
+    pub GetCompletedValue: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u64,
+    pub SetEventOnCompletion: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11FunctionLinkingGraph, ID3D11FunctionLinkingGraph_Vtbl, 0x54133220_1ce8_43d3_8236_9855c5ceecff);
 ::windows_core::imp::interface_hierarchy!(ID3D11FunctionLinkingGraph, ::windows_core::IUnknown);
@@ -5917,26 +5917,26 @@ unsafe impl ::core::marker::Sync for ID3D11FunctionLinkingGraph {}
 pub struct ID3D11FunctionLinkingGraph_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub CreateModuleInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmoduleinstance: *mut *mut ::core::ffi::c_void, pperrorbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateModuleInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     CreateModuleInstance: usize,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub SetInputSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinputparameters: *const D3D11_PARAMETER_DESC, cinputparameters: u32, ppinputnode: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetInputSignature: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_PARAMETER_DESC, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     SetInputSignature: usize,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub SetOutputSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poutputparameters: *const D3D11_PARAMETER_DESC, coutputparameters: u32, ppoutputnode: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetOutputSignature: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_PARAMETER_DESC, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     SetOutputSignature: usize,
-    pub CallFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmoduleinstancenamespace: ::windows_core::PCSTR, pmodulewithfunctionprototype: *mut ::core::ffi::c_void, pfunctionname: ::windows_core::PCSTR, ppcallnode: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub PassValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psrcnode: *mut ::core::ffi::c_void, srcparameterindex: i32, pdstnode: *mut ::core::ffi::c_void, dstparameterindex: i32) -> ::windows_core::HRESULT,
-    pub PassValueWithSwizzle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psrcnode: *mut ::core::ffi::c_void, srcparameterindex: i32, psrcswizzle: ::windows_core::PCSTR, pdstnode: *mut ::core::ffi::c_void, dstparameterindex: i32, pdstswizzle: ::windows_core::PCSTR) -> ::windows_core::HRESULT,
+    pub CallFunction: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, *mut ::core::ffi::c_void, ::windows_core::PCSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PassValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, i32, *mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub PassValueWithSwizzle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, i32, ::windows_core::PCSTR, *mut ::core::ffi::c_void, i32, ::windows_core::PCSTR) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub GetLastError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pperrorbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetLastError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetLastError: usize,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub GenerateHlsl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uflags: u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GenerateHlsl: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GenerateHlsl: usize,
 }
@@ -5954,7 +5954,7 @@ unsafe impl ::core::marker::Sync for ID3D11FunctionParameterReflection {}
 #[doc(hidden)]
 pub struct ID3D11FunctionParameterReflection_Vtbl {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_PARAMETER_DESC) -> ::windows_core::HRESULT,
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_PARAMETER_DESC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetDesc: usize,
 }
@@ -6003,21 +6003,21 @@ unsafe impl ::core::marker::Sync for ID3D11FunctionReflection {}
 #[doc(hidden)]
 pub struct ID3D11FunctionReflection_Vtbl {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_FUNCTION_DESC) -> ::windows_core::HRESULT,
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_FUNCTION_DESC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetDesc: usize,
-    pub GetConstantBufferByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bufferindex: u32) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>,
-    pub GetConstantBufferByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows_core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>,
+    pub GetConstantBufferByIndex: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>,
+    pub GetConstantBufferByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub GetResourceBindingDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourceindex: u32, pdesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> ::windows_core::HRESULT,
+    pub GetResourceBindingDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut D3D11_SHADER_INPUT_BIND_DESC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetResourceBindingDesc: usize,
-    pub GetVariableByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows_core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionVariable>,
+    pub GetVariableByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionVariable>,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub GetResourceBindingDescByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows_core::PCSTR, pdesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> ::windows_core::HRESULT,
+    pub GetResourceBindingDescByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, *mut D3D11_SHADER_INPUT_BIND_DESC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetResourceBindingDescByName: usize,
-    pub GetFunctionParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameterindex: i32) -> ::core::option::Option<ID3D11FunctionParameterReflection>,
+    pub GetFunctionParameter: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::core::option::Option<ID3D11FunctionParameterReflection>,
 }
 ::windows_core::imp::com_interface!(ID3D11GeometryShader, ID3D11GeometryShader_Vtbl, 0x38325b96_effb_4022_ba02_2e795b70275c);
 ::windows_core::imp::interface_hierarchy!(ID3D11GeometryShader, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -6208,41 +6208,41 @@ unsafe impl ::core::marker::Sync for ID3D11InfoQueue {}
 #[doc(hidden)]
 pub struct ID3D11InfoQueue_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetMessageCountLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, messagecountlimit: u64) -> ::windows_core::HRESULT,
-    pub ClearStoredMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub GetMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, messageindex: u64, pmessage: *mut D3D11_MESSAGE, pmessagebytelength: *mut usize) -> ::windows_core::HRESULT,
-    pub GetNumMessagesAllowedByStorageFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
-    pub GetNumMessagesDeniedByStorageFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
-    pub GetNumStoredMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
-    pub GetNumStoredMessagesAllowedByRetrievalFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
-    pub GetNumMessagesDiscardedByMessageCountLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
-    pub GetMessageCountLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
-    pub AddStorageFilterEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilter: *const D3D11_INFO_QUEUE_FILTER) -> ::windows_core::HRESULT,
-    pub GetStorageFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilter: *mut D3D11_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows_core::HRESULT,
-    pub ClearStorageFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub PushEmptyStorageFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub PushCopyOfStorageFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub PushStorageFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilter: *const D3D11_INFO_QUEUE_FILTER) -> ::windows_core::HRESULT,
-    pub PopStorageFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub GetStorageFilterStackSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub AddRetrievalFilterEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilter: *const D3D11_INFO_QUEUE_FILTER) -> ::windows_core::HRESULT,
-    pub GetRetrievalFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilter: *mut D3D11_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows_core::HRESULT,
-    pub ClearRetrievalFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub PushEmptyRetrievalFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub PushCopyOfRetrievalFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub PushRetrievalFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilter: *const D3D11_INFO_QUEUE_FILTER) -> ::windows_core::HRESULT,
-    pub PopRetrievalFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub GetRetrievalFilterStackSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub AddMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: D3D11_MESSAGE_CATEGORY, severity: D3D11_MESSAGE_SEVERITY, id: D3D11_MESSAGE_ID, pdescription: ::windows_core::PCSTR) -> ::windows_core::HRESULT,
-    pub AddApplicationMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, severity: D3D11_MESSAGE_SEVERITY, pdescription: ::windows_core::PCSTR) -> ::windows_core::HRESULT,
-    pub SetBreakOnCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: D3D11_MESSAGE_CATEGORY, benable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetBreakOnSeverity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, severity: D3D11_MESSAGE_SEVERITY, benable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetBreakOnID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: D3D11_MESSAGE_ID, benable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetBreakOnCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: D3D11_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL,
-    pub GetBreakOnSeverity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, severity: D3D11_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL,
-    pub GetBreakOnID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: D3D11_MESSAGE_ID) -> super::super::Foundation::BOOL,
-    pub SetMuteDebugOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bmute: super::super::Foundation::BOOL),
-    pub GetMuteDebugOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub SetMessageCountLimit: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
+    pub ClearStoredMessages: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub GetMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, *mut D3D11_MESSAGE, *mut usize) -> ::windows_core::HRESULT,
+    pub GetNumMessagesAllowedByStorageFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u64,
+    pub GetNumMessagesDeniedByStorageFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u64,
+    pub GetNumStoredMessages: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u64,
+    pub GetNumStoredMessagesAllowedByRetrievalFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u64,
+    pub GetNumMessagesDiscardedByMessageCountLimit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u64,
+    pub GetMessageCountLimit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u64,
+    pub AddStorageFilterEntries: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_INFO_QUEUE_FILTER) -> ::windows_core::HRESULT,
+    pub GetStorageFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_INFO_QUEUE_FILTER, *mut usize) -> ::windows_core::HRESULT,
+    pub ClearStorageFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub PushEmptyStorageFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PushCopyOfStorageFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PushStorageFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_INFO_QUEUE_FILTER) -> ::windows_core::HRESULT,
+    pub PopStorageFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub GetStorageFilterStackSize: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
+    pub AddRetrievalFilterEntries: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_INFO_QUEUE_FILTER) -> ::windows_core::HRESULT,
+    pub GetRetrievalFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_INFO_QUEUE_FILTER, *mut usize) -> ::windows_core::HRESULT,
+    pub ClearRetrievalFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub PushEmptyRetrievalFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PushCopyOfRetrievalFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PushRetrievalFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_INFO_QUEUE_FILTER) -> ::windows_core::HRESULT,
+    pub PopRetrievalFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub GetRetrievalFilterStackSize: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
+    pub AddMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3D11_MESSAGE_CATEGORY, D3D11_MESSAGE_SEVERITY, D3D11_MESSAGE_ID, ::windows_core::PCSTR) -> ::windows_core::HRESULT,
+    pub AddApplicationMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3D11_MESSAGE_SEVERITY, ::windows_core::PCSTR) -> ::windows_core::HRESULT,
+    pub SetBreakOnCategory: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3D11_MESSAGE_CATEGORY, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetBreakOnSeverity: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3D11_MESSAGE_SEVERITY, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetBreakOnID: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3D11_MESSAGE_ID, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetBreakOnCategory: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3D11_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL,
+    pub GetBreakOnSeverity: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3D11_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL,
+    pub GetBreakOnID: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3D11_MESSAGE_ID) -> super::super::Foundation::BOOL,
+    pub SetMuteDebugOutput: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL),
+    pub GetMuteDebugOutput: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
 ::windows_core::imp::com_interface!(ID3D11InputLayout, ID3D11InputLayout_Vtbl, 0xe4819ddc_4cf0_4025_bd26_5de82a3e07b7);
 ::windows_core::imp::interface_hierarchy!(ID3D11InputLayout, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -6289,8 +6289,8 @@ unsafe impl ::core::marker::Sync for ID3D11LibraryReflection {}
 #[doc(hidden)]
 pub struct ID3D11LibraryReflection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_LIBRARY_DESC) -> ::windows_core::HRESULT,
-    pub GetFunctionByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionindex: i32) -> ::core::option::Option<ID3D11FunctionReflection>,
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_LIBRARY_DESC) -> ::windows_core::HRESULT,
+    pub GetFunctionByIndex: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::core::option::Option<ID3D11FunctionReflection>,
 }
 ::windows_core::imp::com_interface!(ID3D11Linker, ID3D11Linker_Vtbl, 0x59a6cd0e_e10d_4c1f_88c0_63aba1daf30e);
 ::windows_core::imp::interface_hierarchy!(ID3D11Linker, ::windows_core::IUnknown);
@@ -6322,11 +6322,11 @@ unsafe impl ::core::marker::Sync for ID3D11Linker {}
 pub struct ID3D11Linker_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub Link: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pentry: *mut ::core::ffi::c_void, pentryname: ::windows_core::PCSTR, ptargetname: ::windows_core::PCSTR, uflags: u32, ppshaderblob: *mut *mut ::core::ffi::c_void, pperrorbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Link: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::windows_core::PCSTR, ::windows_core::PCSTR, u32, *mut *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     Link: usize,
-    pub UseLibrary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plibrarymi: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AddClipPlaneFromCBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ucbufferslot: u32, ucbufferentry: u32) -> ::windows_core::HRESULT,
+    pub UseLibrary: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddClipPlaneFromCBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11LinkingNode, ID3D11LinkingNode_Vtbl, 0xd80dd70c_8d2f_4751_94a1_03c79b3556db);
 ::windows_core::imp::interface_hierarchy!(ID3D11LinkingNode, ::windows_core::IUnknown);
@@ -6355,7 +6355,7 @@ unsafe impl ::core::marker::Sync for ID3D11Module {}
 #[doc(hidden)]
 pub struct ID3D11Module_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnamespace: ::windows_core::PCSTR, ppmoduleinstance: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11ModuleInstance, ID3D11ModuleInstance_Vtbl, 0x469e07f7_045a_48d5_aa12_68a478cdf75d);
 ::windows_core::imp::interface_hierarchy!(ID3D11ModuleInstance, ::windows_core::IUnknown);
@@ -6412,16 +6412,16 @@ unsafe impl ::core::marker::Sync for ID3D11ModuleInstance {}
 #[doc(hidden)]
 pub struct ID3D11ModuleInstance_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub BindConstantBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usrcslot: u32, udstslot: u32, cbdstoffset: u32) -> ::windows_core::HRESULT,
-    pub BindConstantBufferByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows_core::PCSTR, udstslot: u32, cbdstoffset: u32) -> ::windows_core::HRESULT,
-    pub BindResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usrcslot: u32, udstslot: u32, ucount: u32) -> ::windows_core::HRESULT,
-    pub BindResourceByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows_core::PCSTR, udstslot: u32, ucount: u32) -> ::windows_core::HRESULT,
-    pub BindSampler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usrcslot: u32, udstslot: u32, ucount: u32) -> ::windows_core::HRESULT,
-    pub BindSamplerByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows_core::PCSTR, udstslot: u32, ucount: u32) -> ::windows_core::HRESULT,
-    pub BindUnorderedAccessView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usrcslot: u32, udstslot: u32, ucount: u32) -> ::windows_core::HRESULT,
-    pub BindUnorderedAccessViewByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows_core::PCSTR, udstslot: u32, ucount: u32) -> ::windows_core::HRESULT,
-    pub BindResourceAsUnorderedAccessView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usrcsrvslot: u32, udstuavslot: u32, ucount: u32) -> ::windows_core::HRESULT,
-    pub BindResourceAsUnorderedAccessViewByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psrvname: ::windows_core::PCSTR, udstuavslot: u32, ucount: u32) -> ::windows_core::HRESULT,
+    pub BindConstantBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32) -> ::windows_core::HRESULT,
+    pub BindConstantBufferByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, u32, u32) -> ::windows_core::HRESULT,
+    pub BindResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32) -> ::windows_core::HRESULT,
+    pub BindResourceByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, u32, u32) -> ::windows_core::HRESULT,
+    pub BindSampler: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32) -> ::windows_core::HRESULT,
+    pub BindSamplerByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, u32, u32) -> ::windows_core::HRESULT,
+    pub BindUnorderedAccessView: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32) -> ::windows_core::HRESULT,
+    pub BindUnorderedAccessViewByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, u32, u32) -> ::windows_core::HRESULT,
+    pub BindResourceAsUnorderedAccessView: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32) -> ::windows_core::HRESULT,
+    pub BindResourceAsUnorderedAccessViewByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, u32, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11Multithread, ID3D11Multithread_Vtbl, 0x9b7e4e00_342c_4106_a19f_4f2704f689f0);
 ::windows_core::imp::interface_hierarchy!(ID3D11Multithread, ::windows_core::IUnknown);
@@ -6448,10 +6448,10 @@ unsafe impl ::core::marker::Sync for ID3D11Multithread {}
 #[doc(hidden)]
 pub struct ID3D11Multithread_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Enter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Leave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub SetMultithreadProtected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bmtprotect: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL,
-    pub GetMultithreadProtected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub Enter: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Leave: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub SetMultithreadProtected: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> super::super::Foundation::BOOL,
+    pub GetMultithreadProtected: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
 ::windows_core::imp::com_interface!(ID3D11PixelShader, ID3D11PixelShader_Vtbl, 0xea82e40d_51dc_4f33_93d4_db7c9125ae8c);
 ::windows_core::imp::interface_hierarchy!(ID3D11PixelShader, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -6552,7 +6552,7 @@ unsafe impl ::core::marker::Sync for ID3D11Query {}
 #[doc(hidden)]
 pub struct ID3D11Query_Vtbl {
     pub base__: ID3D11Asynchronous_Vtbl,
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_QUERY_DESC),
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_QUERY_DESC),
 }
 ::windows_core::imp::com_interface!(ID3D11Query1, ID3D11Query1_Vtbl, 0x631b4766_36dc_461d_8db6_c47e13e60916);
 ::windows_core::imp::interface_hierarchy!(ID3D11Query1, ::windows_core::IUnknown, ID3D11DeviceChild, ID3D11Asynchronous, ID3D11Query);
@@ -6594,7 +6594,7 @@ unsafe impl ::core::marker::Sync for ID3D11Query1 {}
 #[doc(hidden)]
 pub struct ID3D11Query1_Vtbl {
     pub base__: ID3D11Query_Vtbl,
-    pub GetDesc1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc1: *mut D3D11_QUERY_DESC1),
+    pub GetDesc1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_QUERY_DESC1),
 }
 ::windows_core::imp::com_interface!(ID3D11RasterizerState, ID3D11RasterizerState_Vtbl, 0x9bb4ab81_ab1a_4d8f_b506_fc04200b6ee7);
 ::windows_core::imp::interface_hierarchy!(ID3D11RasterizerState, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -6626,7 +6626,7 @@ unsafe impl ::core::marker::Sync for ID3D11RasterizerState {}
 #[doc(hidden)]
 pub struct ID3D11RasterizerState_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_RASTERIZER_DESC),
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_RASTERIZER_DESC),
 }
 ::windows_core::imp::com_interface!(ID3D11RasterizerState1, ID3D11RasterizerState1_Vtbl, 0x1217d7a6_5039_418c_b042_9cbe256afd6e);
 ::windows_core::imp::interface_hierarchy!(ID3D11RasterizerState1, ::windows_core::IUnknown, ID3D11DeviceChild, ID3D11RasterizerState);
@@ -6661,7 +6661,7 @@ unsafe impl ::core::marker::Sync for ID3D11RasterizerState1 {}
 #[doc(hidden)]
 pub struct ID3D11RasterizerState1_Vtbl {
     pub base__: ID3D11RasterizerState_Vtbl,
-    pub GetDesc1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_RASTERIZER_DESC1),
+    pub GetDesc1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_RASTERIZER_DESC1),
 }
 ::windows_core::imp::com_interface!(ID3D11RasterizerState2, ID3D11RasterizerState2_Vtbl, 0x6fbd02fb_209f_46c4_b059_2ed15586a6ac);
 ::windows_core::imp::interface_hierarchy!(ID3D11RasterizerState2, ::windows_core::IUnknown, ID3D11DeviceChild, ID3D11RasterizerState, ID3D11RasterizerState1);
@@ -6699,7 +6699,7 @@ unsafe impl ::core::marker::Sync for ID3D11RasterizerState2 {}
 #[doc(hidden)]
 pub struct ID3D11RasterizerState2_Vtbl {
     pub base__: ID3D11RasterizerState1_Vtbl,
-    pub GetDesc2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_RASTERIZER_DESC2),
+    pub GetDesc2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_RASTERIZER_DESC2),
 }
 ::windows_core::imp::com_interface!(ID3D11RefDefaultTrackingOptions, ID3D11RefDefaultTrackingOptions_Vtbl, 0x03916615_c644_418c_9bf4_75db5be63ca0);
 ::windows_core::imp::interface_hierarchy!(ID3D11RefDefaultTrackingOptions, ::windows_core::IUnknown);
@@ -6714,7 +6714,7 @@ unsafe impl ::core::marker::Sync for ID3D11RefDefaultTrackingOptions {}
 #[doc(hidden)]
 pub struct ID3D11RefDefaultTrackingOptions_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetTrackingOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourcetypeflags: u32, options: u32) -> ::windows_core::HRESULT,
+    pub SetTrackingOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11RefTrackingOptions, ID3D11RefTrackingOptions_Vtbl, 0x193dacdf_0db2_4c05_a55c_ef06cac56fd9);
 ::windows_core::imp::interface_hierarchy!(ID3D11RefTrackingOptions, ::windows_core::IUnknown);
@@ -6729,7 +6729,7 @@ unsafe impl ::core::marker::Sync for ID3D11RefTrackingOptions {}
 #[doc(hidden)]
 pub struct ID3D11RefTrackingOptions_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetTrackingOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uoptions: u32) -> ::windows_core::HRESULT,
+    pub SetTrackingOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11RenderTargetView, ID3D11RenderTargetView_Vtbl, 0xdfdba067_0b8d_4865_875b_d7b4516cc164);
 ::windows_core::imp::interface_hierarchy!(ID3D11RenderTargetView, ::windows_core::IUnknown, ID3D11DeviceChild, ID3D11View);
@@ -6769,7 +6769,7 @@ unsafe impl ::core::marker::Sync for ID3D11RenderTargetView {}
 pub struct ID3D11RenderTargetView_Vtbl {
     pub base__: ID3D11View_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_RENDER_TARGET_VIEW_DESC),
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_RENDER_TARGET_VIEW_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
@@ -6816,7 +6816,7 @@ unsafe impl ::core::marker::Sync for ID3D11RenderTargetView1 {}
 pub struct ID3D11RenderTargetView1_Vtbl {
     pub base__: ID3D11RenderTargetView_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetDesc1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc1: *mut D3D11_RENDER_TARGET_VIEW_DESC1),
+    pub GetDesc1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_RENDER_TARGET_VIEW_DESC1),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc1: usize,
 }
@@ -6858,9 +6858,9 @@ unsafe impl ::core::marker::Sync for ID3D11Resource {}
 #[doc(hidden)]
 pub struct ID3D11Resource_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
-    pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presourcedimension: *mut D3D11_RESOURCE_DIMENSION),
-    pub SetEvictionPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, evictionpriority: u32),
-    pub GetEvictionPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub GetType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_RESOURCE_DIMENSION),
+    pub SetEvictionPriority: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32),
+    pub GetEvictionPriority: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
 }
 ::windows_core::imp::com_interface!(ID3D11SamplerState, ID3D11SamplerState_Vtbl, 0xda6fea51_564c_4487_9810_f0d0f9b4e3a5);
 ::windows_core::imp::interface_hierarchy!(ID3D11SamplerState, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -6892,7 +6892,7 @@ unsafe impl ::core::marker::Sync for ID3D11SamplerState {}
 #[doc(hidden)]
 pub struct ID3D11SamplerState_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_SAMPLER_DESC),
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_SAMPLER_DESC),
 }
 ::windows_core::imp::com_interface!(ID3D11ShaderReflection, ID3D11ShaderReflection_Vtbl, 0x8d536ca1_0cca_4956_a837_786963755584);
 ::windows_core::imp::interface_hierarchy!(ID3D11ShaderReflection, ::windows_core::IUnknown);
@@ -6988,48 +6988,48 @@ unsafe impl ::core::marker::Sync for ID3D11ShaderReflection {}
 pub struct ID3D11ShaderReflection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_SHADER_DESC) -> ::windows_core::HRESULT,
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_SHADER_DESC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetDesc: usize,
-    pub GetConstantBufferByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>,
-    pub GetConstantBufferByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows_core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>,
+    pub GetConstantBufferByIndex: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>,
+    pub GetConstantBufferByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub GetResourceBindingDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourceindex: u32, pdesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> ::windows_core::HRESULT,
+    pub GetResourceBindingDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut D3D11_SHADER_INPUT_BIND_DESC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetResourceBindingDesc: usize,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub GetInputParameterDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameterindex: u32, pdesc: *mut D3D11_SIGNATURE_PARAMETER_DESC) -> ::windows_core::HRESULT,
+    pub GetInputParameterDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut D3D11_SIGNATURE_PARAMETER_DESC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetInputParameterDesc: usize,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub GetOutputParameterDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameterindex: u32, pdesc: *mut D3D11_SIGNATURE_PARAMETER_DESC) -> ::windows_core::HRESULT,
+    pub GetOutputParameterDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut D3D11_SIGNATURE_PARAMETER_DESC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetOutputParameterDesc: usize,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub GetPatchConstantParameterDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parameterindex: u32, pdesc: *mut D3D11_SIGNATURE_PARAMETER_DESC) -> ::windows_core::HRESULT,
+    pub GetPatchConstantParameterDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut D3D11_SIGNATURE_PARAMETER_DESC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetPatchConstantParameterDesc: usize,
-    pub GetVariableByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows_core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionVariable>,
+    pub GetVariableByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionVariable>,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub GetResourceBindingDescByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows_core::PCSTR, pdesc: *mut D3D11_SHADER_INPUT_BIND_DESC) -> ::windows_core::HRESULT,
+    pub GetResourceBindingDescByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, *mut D3D11_SHADER_INPUT_BIND_DESC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetResourceBindingDescByName: usize,
-    pub GetMovInstructionCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub GetMovcInstructionCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub GetConversionInstructionCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub GetBitwiseInstructionCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub GetMovInstructionCount: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
+    pub GetMovcInstructionCount: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
+    pub GetConversionInstructionCount: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
+    pub GetBitwiseInstructionCount: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub GetGSInputPrimitive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::Direct3D::D3D_PRIMITIVE,
+    pub GetGSInputPrimitive: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::Direct3D::D3D_PRIMITIVE,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetGSInputPrimitive: usize,
-    pub IsSampleFrequencyShader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
-    pub GetNumInterfaceSlots: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub IsSampleFrequencyShader: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub GetNumInterfaceSlots: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub GetMinFeatureLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plevel: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows_core::HRESULT,
+    pub GetMinFeatureLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetMinFeatureLevel: usize,
-    pub GetThreadGroupSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psizex: *mut u32, psizey: *mut u32, psizez: *mut u32) -> u32,
-    pub GetRequiresFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
+    pub GetThreadGroupSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> u32,
+    pub GetRequiresFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u64,
 }
 ::windows_core::imp::interface!(ID3D11ShaderReflectionConstantBuffer, ID3D11ShaderReflectionConstantBuffer_Vtbl);
 impl ID3D11ShaderReflectionConstantBuffer {
@@ -7054,11 +7054,11 @@ unsafe impl ::core::marker::Sync for ID3D11ShaderReflectionConstantBuffer {}
 #[doc(hidden)]
 pub struct ID3D11ShaderReflectionConstantBuffer_Vtbl {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_SHADER_BUFFER_DESC) -> ::windows_core::HRESULT,
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_SHADER_BUFFER_DESC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetDesc: usize,
-    pub GetVariableByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D11ShaderReflectionVariable>,
-    pub GetVariableByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows_core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionVariable>,
+    pub GetVariableByIndex: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::core::option::Option<ID3D11ShaderReflectionVariable>,
+    pub GetVariableByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionVariable>,
 }
 ::windows_core::imp::interface!(ID3D11ShaderReflectionType, ID3D11ShaderReflectionType_Vtbl);
 impl ID3D11ShaderReflectionType {
@@ -7116,19 +7116,19 @@ unsafe impl ::core::marker::Sync for ID3D11ShaderReflectionType {}
 #[doc(hidden)]
 pub struct ID3D11ShaderReflectionType_Vtbl {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_SHADER_TYPE_DESC) -> ::windows_core::HRESULT,
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_SHADER_TYPE_DESC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     GetDesc: usize,
-    pub GetMemberTypeByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D11ShaderReflectionType>,
-    pub GetMemberTypeByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows_core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionType>,
-    pub GetMemberTypeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows_core::PCSTR,
-    pub IsEqual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetSubType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D11ShaderReflectionType>,
-    pub GetBaseClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D11ShaderReflectionType>,
-    pub GetNumInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub GetInterfaceByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32) -> ::core::option::Option<ID3D11ShaderReflectionType>,
-    pub IsOfType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ImplementsInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbase: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetMemberTypeByIndex: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::core::option::Option<ID3D11ShaderReflectionType>,
+    pub GetMemberTypeByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR) -> ::core::option::Option<ID3D11ShaderReflectionType>,
+    pub GetMemberTypeName: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::PCSTR,
+    pub IsEqual: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetSubType: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::core::option::Option<ID3D11ShaderReflectionType>,
+    pub GetBaseClass: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::core::option::Option<ID3D11ShaderReflectionType>,
+    pub GetNumInterfaces: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
+    pub GetInterfaceByIndex: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::core::option::Option<ID3D11ShaderReflectionType>,
+    pub IsOfType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ImplementsInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::interface!(ID3D11ShaderReflectionVariable, ID3D11ShaderReflectionVariable_Vtbl);
 impl ID3D11ShaderReflectionVariable {
@@ -7150,10 +7150,10 @@ unsafe impl ::core::marker::Sync for ID3D11ShaderReflectionVariable {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11ShaderReflectionVariable_Vtbl {
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_SHADER_VARIABLE_DESC) -> ::windows_core::HRESULT,
-    pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D11ShaderReflectionType>,
-    pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>,
-    pub GetInterfaceSlot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uarrayindex: u32) -> u32,
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_SHADER_VARIABLE_DESC) -> ::windows_core::HRESULT,
+    pub GetType: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::core::option::Option<ID3D11ShaderReflectionType>,
+    pub GetBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::core::option::Option<ID3D11ShaderReflectionConstantBuffer>,
+    pub GetInterfaceSlot: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> u32,
 }
 ::windows_core::imp::com_interface!(ID3D11ShaderResourceView, ID3D11ShaderResourceView_Vtbl, 0xb0e06fe0_8192_4e1a_b1ca_36d7414710b2);
 ::windows_core::imp::interface_hierarchy!(ID3D11ShaderResourceView, ::windows_core::IUnknown, ID3D11DeviceChild, ID3D11View);
@@ -7193,7 +7193,7 @@ unsafe impl ::core::marker::Sync for ID3D11ShaderResourceView {}
 pub struct ID3D11ShaderResourceView_Vtbl {
     pub base__: ID3D11View_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_SHADER_RESOURCE_VIEW_DESC),
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_SHADER_RESOURCE_VIEW_DESC),
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common")))]
     GetDesc: usize,
 }
@@ -7240,7 +7240,7 @@ unsafe impl ::core::marker::Sync for ID3D11ShaderResourceView1 {}
 pub struct ID3D11ShaderResourceView1_Vtbl {
     pub base__: ID3D11ShaderResourceView_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub GetDesc1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc1: *mut D3D11_SHADER_RESOURCE_VIEW_DESC1),
+    pub GetDesc1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_SHADER_RESOURCE_VIEW_DESC1),
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common")))]
     GetDesc1: usize,
 }
@@ -7278,14 +7278,14 @@ unsafe impl ::core::marker::Sync for ID3D11ShaderTrace {}
 #[doc(hidden)]
 pub struct ID3D11ShaderTrace_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub TraceReady: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptestcount: *mut u64) -> ::windows_core::HRESULT,
-    pub ResetTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub GetTraceStats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptracestats: *mut D3D11_TRACE_STATS) -> ::windows_core::HRESULT,
-    pub PSSelectStamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stampindex: u32) -> ::windows_core::HRESULT,
-    pub GetInitialRegisterContents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pregister: *const D3D11_TRACE_REGISTER, pvalue: *mut D3D11_TRACE_VALUE) -> ::windows_core::HRESULT,
-    pub GetStep: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stepindex: u32, ptracestep: *mut D3D11_TRACE_STEP) -> ::windows_core::HRESULT,
-    pub GetWrittenRegister: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stepindex: u32, writtenregisterindex: u32, pregister: *mut D3D11_TRACE_REGISTER, pvalue: *mut D3D11_TRACE_VALUE) -> ::windows_core::HRESULT,
-    pub GetReadRegister: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stepindex: u32, readregisterindex: u32, pregister: *mut D3D11_TRACE_REGISTER, pvalue: *mut D3D11_TRACE_VALUE) -> ::windows_core::HRESULT,
+    pub TraceReady: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
+    pub ResetTrace: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub GetTraceStats: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_TRACE_STATS) -> ::windows_core::HRESULT,
+    pub PSSelectStamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetInitialRegisterContents: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_TRACE_REGISTER, *mut D3D11_TRACE_VALUE) -> ::windows_core::HRESULT,
+    pub GetStep: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut D3D11_TRACE_STEP) -> ::windows_core::HRESULT,
+    pub GetWrittenRegister: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut D3D11_TRACE_REGISTER, *mut D3D11_TRACE_VALUE) -> ::windows_core::HRESULT,
+    pub GetReadRegister: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut D3D11_TRACE_REGISTER, *mut D3D11_TRACE_VALUE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11ShaderTraceFactory, ID3D11ShaderTraceFactory_Vtbl, 0x1fbad429_66ab_41cc_9617_667ac10e4459);
 ::windows_core::imp::interface_hierarchy!(ID3D11ShaderTraceFactory, ::windows_core::IUnknown);
@@ -7304,7 +7304,7 @@ unsafe impl ::core::marker::Sync for ID3D11ShaderTraceFactory {}
 #[doc(hidden)]
 pub struct ID3D11ShaderTraceFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateShaderTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshader: *mut ::core::ffi::c_void, ptracedesc: *const D3D11_SHADER_TRACE_DESC, ppshadertrace: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateShaderTrace: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_SHADER_TRACE_DESC, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11SwitchToRef, ID3D11SwitchToRef_Vtbl, 0x1ef337e3_58e7_4f83_a692_db221f5ed47e);
 ::windows_core::imp::interface_hierarchy!(ID3D11SwitchToRef, ::windows_core::IUnknown);
@@ -7325,8 +7325,8 @@ unsafe impl ::core::marker::Sync for ID3D11SwitchToRef {}
 #[doc(hidden)]
 pub struct ID3D11SwitchToRef_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetUseRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, useref: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL,
-    pub GetUseRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub SetUseRef: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> super::super::Foundation::BOOL,
+    pub GetUseRef: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
 ::windows_core::imp::com_interface!(ID3D11Texture1D, ID3D11Texture1D_Vtbl, 0xf8fb5c27_c6b3_4f75_a4c8_439af2ef564c);
 ::windows_core::imp::interface_hierarchy!(ID3D11Texture1D, ::windows_core::IUnknown, ID3D11DeviceChild, ID3D11Resource);
@@ -7372,7 +7372,7 @@ unsafe impl ::core::marker::Sync for ID3D11Texture1D {}
 pub struct ID3D11Texture1D_Vtbl {
     pub base__: ID3D11Resource_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_TEXTURE1D_DESC),
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_TEXTURE1D_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
@@ -7420,7 +7420,7 @@ unsafe impl ::core::marker::Sync for ID3D11Texture2D {}
 pub struct ID3D11Texture2D_Vtbl {
     pub base__: ID3D11Resource_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_TEXTURE2D_DESC),
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_TEXTURE2D_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
@@ -7473,7 +7473,7 @@ unsafe impl ::core::marker::Sync for ID3D11Texture2D1 {}
 pub struct ID3D11Texture2D1_Vtbl {
     pub base__: ID3D11Texture2D_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetDesc1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_TEXTURE2D_DESC1),
+    pub GetDesc1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_TEXTURE2D_DESC1),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc1: usize,
 }
@@ -7521,7 +7521,7 @@ unsafe impl ::core::marker::Sync for ID3D11Texture3D {}
 pub struct ID3D11Texture3D_Vtbl {
     pub base__: ID3D11Resource_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_TEXTURE3D_DESC),
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_TEXTURE3D_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
@@ -7574,7 +7574,7 @@ unsafe impl ::core::marker::Sync for ID3D11Texture3D1 {}
 pub struct ID3D11Texture3D1_Vtbl {
     pub base__: ID3D11Texture3D_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetDesc1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_TEXTURE3D_DESC1),
+    pub GetDesc1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_TEXTURE3D_DESC1),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc1: usize,
 }
@@ -7597,8 +7597,8 @@ unsafe impl ::core::marker::Sync for ID3D11TracingDevice {}
 #[doc(hidden)]
 pub struct ID3D11TracingDevice_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetShaderTrackingOptionsByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourcetypeflags: u32, options: u32) -> ::windows_core::HRESULT,
-    pub SetShaderTrackingOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshader: *mut ::core::ffi::c_void, options: u32) -> ::windows_core::HRESULT,
+    pub SetShaderTrackingOptionsByType: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub SetShaderTrackingOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11UnorderedAccessView, ID3D11UnorderedAccessView_Vtbl, 0x28acf509_7f5c_48f6_8611_f316010a6380);
 ::windows_core::imp::interface_hierarchy!(ID3D11UnorderedAccessView, ::windows_core::IUnknown, ID3D11DeviceChild, ID3D11View);
@@ -7638,7 +7638,7 @@ unsafe impl ::core::marker::Sync for ID3D11UnorderedAccessView {}
 pub struct ID3D11UnorderedAccessView_Vtbl {
     pub base__: ID3D11View_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_UNORDERED_ACCESS_VIEW_DESC),
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_UNORDERED_ACCESS_VIEW_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
@@ -7685,7 +7685,7 @@ unsafe impl ::core::marker::Sync for ID3D11UnorderedAccessView1 {}
 pub struct ID3D11UnorderedAccessView1_Vtbl {
     pub base__: ID3D11UnorderedAccessView_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetDesc1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc1: *mut D3D11_UNORDERED_ACCESS_VIEW_DESC1),
+    pub GetDesc1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_UNORDERED_ACCESS_VIEW_DESC1),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc1: usize,
 }
@@ -8132,76 +8132,76 @@ unsafe impl ::core::marker::Sync for ID3D11VideoContext {}
 #[doc(hidden)]
 pub struct ID3D11VideoContext_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
-    pub GetDecoderBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoder: *mut ::core::ffi::c_void, r#type: D3D11_VIDEO_DECODER_BUFFER_TYPE, pbuffersize: *mut u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ReleaseDecoderBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoder: *mut ::core::ffi::c_void, r#type: D3D11_VIDEO_DECODER_BUFFER_TYPE) -> ::windows_core::HRESULT,
-    pub DecoderBeginFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoder: *mut ::core::ffi::c_void, pview: *mut ::core::ffi::c_void, contentkeysize: u32, pcontentkey: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DecoderEndFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoder: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SubmitDecoderBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoder: *mut ::core::ffi::c_void, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC) -> ::windows_core::HRESULT,
-    pub DecoderExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoder: *mut ::core::ffi::c_void, pextensiondata: *const D3D11_VIDEO_DECODER_EXTENSION) -> i32,
-    pub VideoProcessorSetOutputTargetRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, enable: super::super::Foundation::BOOL, prect: *const super::super::Foundation::RECT),
-    pub VideoProcessorSetOutputBackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, ycbcr: super::super::Foundation::BOOL, pcolor: *const D3D11_VIDEO_COLOR),
-    pub VideoProcessorSetOutputColorSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, pcolorspace: *const D3D11_VIDEO_PROCESSOR_COLOR_SPACE),
-    pub VideoProcessorSetOutputAlphaFillMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, alphafillmode: D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE, streamindex: u32),
-    pub VideoProcessorSetOutputConstriction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, enable: super::super::Foundation::BOOL, size: super::super::Foundation::SIZE),
-    pub VideoProcessorSetOutputStereoMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, enable: super::super::Foundation::BOOL),
-    pub VideoProcessorSetOutputExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, pextensionguid: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> i32,
-    pub VideoProcessorGetOutputTargetRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::BOOL, prect: *mut super::super::Foundation::RECT),
-    pub VideoProcessorGetOutputBackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, pycbcr: *mut super::super::Foundation::BOOL, pcolor: *mut D3D11_VIDEO_COLOR),
-    pub VideoProcessorGetOutputColorSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, pcolorspace: *mut D3D11_VIDEO_PROCESSOR_COLOR_SPACE),
-    pub VideoProcessorGetOutputAlphaFillMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, palphafillmode: *mut D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE, pstreamindex: *mut u32),
-    pub VideoProcessorGetOutputConstriction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, penabled: *mut super::super::Foundation::BOOL, psize: *mut super::super::Foundation::SIZE),
-    pub VideoProcessorGetOutputStereoMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, penabled: *mut super::super::Foundation::BOOL),
-    pub VideoProcessorGetOutputExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, pextensionguid: *const ::windows_core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32,
-    pub VideoProcessorSetStreamFrameFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, frameformat: D3D11_VIDEO_FRAME_FORMAT),
-    pub VideoProcessorSetStreamColorSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, pcolorspace: *const D3D11_VIDEO_PROCESSOR_COLOR_SPACE),
+    pub GetDecoderBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, D3D11_VIDEO_DECODER_BUFFER_TYPE, *mut u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ReleaseDecoderBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, D3D11_VIDEO_DECODER_BUFFER_TYPE) -> ::windows_core::HRESULT,
+    pub DecoderBeginFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DecoderEndFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SubmitDecoderBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const D3D11_VIDEO_DECODER_BUFFER_DESC) -> ::windows_core::HRESULT,
+    pub DecoderExtension: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_VIDEO_DECODER_EXTENSION) -> i32,
+    pub VideoProcessorSetOutputTargetRect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::BOOL, *const super::super::Foundation::RECT),
+    pub VideoProcessorSetOutputBackgroundColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::BOOL, *const D3D11_VIDEO_COLOR),
+    pub VideoProcessorSetOutputColorSpace: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_VIDEO_PROCESSOR_COLOR_SPACE),
+    pub VideoProcessorSetOutputAlphaFillMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE, u32),
+    pub VideoProcessorSetOutputConstriction: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::SIZE),
+    pub VideoProcessorSetOutputStereoMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::BOOL),
+    pub VideoProcessorSetOutputExtension: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *const ::core::ffi::c_void) -> i32,
+    pub VideoProcessorGetOutputTargetRect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::RECT),
+    pub VideoProcessorGetOutputBackgroundColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut D3D11_VIDEO_COLOR),
+    pub VideoProcessorGetOutputColorSpace: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut D3D11_VIDEO_PROCESSOR_COLOR_SPACE),
+    pub VideoProcessorGetOutputAlphaFillMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE, *mut u32),
+    pub VideoProcessorGetOutputConstriction: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::SIZE),
+    pub VideoProcessorGetOutputStereoMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL),
+    pub VideoProcessorGetOutputExtension: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *mut ::core::ffi::c_void) -> i32,
+    pub VideoProcessorSetStreamFrameFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, D3D11_VIDEO_FRAME_FORMAT),
+    pub VideoProcessorSetStreamColorSpace: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const D3D11_VIDEO_PROCESSOR_COLOR_SPACE),
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub VideoProcessorSetStreamOutputRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, outputrate: D3D11_VIDEO_PROCESSOR_OUTPUT_RATE, repeatframe: super::super::Foundation::BOOL, pcustomrate: *const super::Dxgi::Common::DXGI_RATIONAL),
+    pub VideoProcessorSetStreamOutputRate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, D3D11_VIDEO_PROCESSOR_OUTPUT_RATE, super::super::Foundation::BOOL, *const super::Dxgi::Common::DXGI_RATIONAL),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     VideoProcessorSetStreamOutputRate: usize,
-    pub VideoProcessorSetStreamSourceRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, enable: super::super::Foundation::BOOL, prect: *const super::super::Foundation::RECT),
-    pub VideoProcessorSetStreamDestRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, enable: super::super::Foundation::BOOL, prect: *const super::super::Foundation::RECT),
-    pub VideoProcessorSetStreamAlpha: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, enable: super::super::Foundation::BOOL, alpha: f32),
-    pub VideoProcessorSetStreamPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, count: u32, pentries: *const u32),
+    pub VideoProcessorSetStreamSourceRect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, super::super::Foundation::BOOL, *const super::super::Foundation::RECT),
+    pub VideoProcessorSetStreamDestRect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, super::super::Foundation::BOOL, *const super::super::Foundation::RECT),
+    pub VideoProcessorSetStreamAlpha: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, super::super::Foundation::BOOL, f32),
+    pub VideoProcessorSetStreamPalette: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32, *const u32),
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub VideoProcessorSetStreamPixelAspectRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, enable: super::super::Foundation::BOOL, psourceaspectratio: *const super::Dxgi::Common::DXGI_RATIONAL, pdestinationaspectratio: *const super::Dxgi::Common::DXGI_RATIONAL),
+    pub VideoProcessorSetStreamPixelAspectRatio: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, super::super::Foundation::BOOL, *const super::Dxgi::Common::DXGI_RATIONAL, *const super::Dxgi::Common::DXGI_RATIONAL),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     VideoProcessorSetStreamPixelAspectRatio: usize,
-    pub VideoProcessorSetStreamLumaKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, enable: super::super::Foundation::BOOL, lower: f32, upper: f32),
-    pub VideoProcessorSetStreamStereoFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, enable: super::super::Foundation::BOOL, format: D3D11_VIDEO_PROCESSOR_STEREO_FORMAT, leftviewframe0: super::super::Foundation::BOOL, baseviewframe0: super::super::Foundation::BOOL, flipmode: D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE, monooffset: i32),
-    pub VideoProcessorSetStreamAutoProcessingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, enable: super::super::Foundation::BOOL),
-    pub VideoProcessorSetStreamFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, filter: D3D11_VIDEO_PROCESSOR_FILTER, enable: super::super::Foundation::BOOL, level: i32),
-    pub VideoProcessorSetStreamExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, pextensionguid: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> i32,
-    pub VideoProcessorGetStreamFrameFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, pframeformat: *mut D3D11_VIDEO_FRAME_FORMAT),
-    pub VideoProcessorGetStreamColorSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, pcolorspace: *mut D3D11_VIDEO_PROCESSOR_COLOR_SPACE),
+    pub VideoProcessorSetStreamLumaKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, super::super::Foundation::BOOL, f32, f32),
+    pub VideoProcessorSetStreamStereoFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, super::super::Foundation::BOOL, D3D11_VIDEO_PROCESSOR_STEREO_FORMAT, super::super::Foundation::BOOL, super::super::Foundation::BOOL, D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE, i32),
+    pub VideoProcessorSetStreamAutoProcessingMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, super::super::Foundation::BOOL),
+    pub VideoProcessorSetStreamFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, D3D11_VIDEO_PROCESSOR_FILTER, super::super::Foundation::BOOL, i32),
+    pub VideoProcessorSetStreamExtension: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, u32, *const ::core::ffi::c_void) -> i32,
+    pub VideoProcessorGetStreamFrameFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut D3D11_VIDEO_FRAME_FORMAT),
+    pub VideoProcessorGetStreamColorSpace: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut D3D11_VIDEO_PROCESSOR_COLOR_SPACE),
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub VideoProcessorGetStreamOutputRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, poutputrate: *mut D3D11_VIDEO_PROCESSOR_OUTPUT_RATE, prepeatframe: *mut super::super::Foundation::BOOL, pcustomrate: *mut super::Dxgi::Common::DXGI_RATIONAL),
+    pub VideoProcessorGetStreamOutputRate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut D3D11_VIDEO_PROCESSOR_OUTPUT_RATE, *mut super::super::Foundation::BOOL, *mut super::Dxgi::Common::DXGI_RATIONAL),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     VideoProcessorGetStreamOutputRate: usize,
-    pub VideoProcessorGetStreamSourceRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, penabled: *mut super::super::Foundation::BOOL, prect: *mut super::super::Foundation::RECT),
-    pub VideoProcessorGetStreamDestRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, penabled: *mut super::super::Foundation::BOOL, prect: *mut super::super::Foundation::RECT),
-    pub VideoProcessorGetStreamAlpha: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, penabled: *mut super::super::Foundation::BOOL, palpha: *mut f32),
-    pub VideoProcessorGetStreamPalette: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, count: u32, pentries: *mut u32),
+    pub VideoProcessorGetStreamSourceRect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::RECT),
+    pub VideoProcessorGetStreamDestRect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::RECT),
+    pub VideoProcessorGetStreamAlpha: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut super::super::Foundation::BOOL, *mut f32),
+    pub VideoProcessorGetStreamPalette: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32, *mut u32),
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub VideoProcessorGetStreamPixelAspectRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, penabled: *mut super::super::Foundation::BOOL, psourceaspectratio: *mut super::Dxgi::Common::DXGI_RATIONAL, pdestinationaspectratio: *mut super::Dxgi::Common::DXGI_RATIONAL),
+    pub VideoProcessorGetStreamPixelAspectRatio: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut super::super::Foundation::BOOL, *mut super::Dxgi::Common::DXGI_RATIONAL, *mut super::Dxgi::Common::DXGI_RATIONAL),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     VideoProcessorGetStreamPixelAspectRatio: usize,
-    pub VideoProcessorGetStreamLumaKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, penabled: *mut super::super::Foundation::BOOL, plower: *mut f32, pupper: *mut f32),
-    pub VideoProcessorGetStreamStereoFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, penable: *mut super::super::Foundation::BOOL, pformat: *mut D3D11_VIDEO_PROCESSOR_STEREO_FORMAT, pleftviewframe0: *mut super::super::Foundation::BOOL, pbaseviewframe0: *mut super::super::Foundation::BOOL, pflipmode: *mut D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE, monooffset: *mut i32),
-    pub VideoProcessorGetStreamAutoProcessingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, penabled: *mut super::super::Foundation::BOOL),
-    pub VideoProcessorGetStreamFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, filter: D3D11_VIDEO_PROCESSOR_FILTER, penabled: *mut super::super::Foundation::BOOL, plevel: *mut i32),
-    pub VideoProcessorGetStreamExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, pextensionguid: *const ::windows_core::GUID, datasize: u32, pdata: *mut ::core::ffi::c_void) -> i32,
-    pub VideoProcessorBlt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, pview: *mut ::core::ffi::c_void, outputframe: u32, streamcount: u32, pstreams: *const D3D11_VIDEO_PROCESSOR_STREAM) -> ::windows_core::HRESULT,
-    pub NegotiateCryptoSessionKeyExchange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosession: *mut ::core::ffi::c_void, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EncryptionBlt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosession: *mut ::core::ffi::c_void, psrcsurface: *mut ::core::ffi::c_void, pdstsurface: *mut ::core::ffi::c_void, ivsize: u32, piv: *mut ::core::ffi::c_void),
-    pub DecryptionBlt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosession: *mut ::core::ffi::c_void, psrcsurface: *mut ::core::ffi::c_void, pdstsurface: *mut ::core::ffi::c_void, pencryptedblockinfo: *const D3D11_ENCRYPTED_BLOCK_INFO, contentkeysize: u32, pcontentkey: *const ::core::ffi::c_void, ivsize: u32, piv: *mut ::core::ffi::c_void),
-    pub StartSessionKeyRefresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosession: *mut ::core::ffi::c_void, randomnumbersize: u32, prandomnumber: *mut ::core::ffi::c_void),
-    pub FinishSessionKeyRefresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosession: *mut ::core::ffi::c_void),
-    pub GetEncryptionBltKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosession: *mut ::core::ffi::c_void, keysize: u32, preadbackkey: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub NegotiateAuthenticatedChannelKeyExchange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchannel: *mut ::core::ffi::c_void, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub QueryAuthenticatedChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchannel: *mut ::core::ffi::c_void, inputsize: u32, pinput: *const ::core::ffi::c_void, outputsize: u32, poutput: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ConfigureAuthenticatedChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchannel: *mut ::core::ffi::c_void, inputsize: u32, pinput: *const ::core::ffi::c_void, poutput: *mut D3D11_AUTHENTICATED_CONFIGURE_OUTPUT) -> ::windows_core::HRESULT,
-    pub VideoProcessorSetStreamRotation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, enable: super::super::Foundation::BOOL, rotation: D3D11_VIDEO_PROCESSOR_ROTATION),
-    pub VideoProcessorGetStreamRotation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, penable: *mut super::super::Foundation::BOOL, protation: *mut D3D11_VIDEO_PROCESSOR_ROTATION),
+    pub VideoProcessorGetStreamLumaKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut super::super::Foundation::BOOL, *mut f32, *mut f32),
+    pub VideoProcessorGetStreamStereoFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut super::super::Foundation::BOOL, *mut D3D11_VIDEO_PROCESSOR_STEREO_FORMAT, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL, *mut D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE, *mut i32),
+    pub VideoProcessorGetStreamAutoProcessingMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut super::super::Foundation::BOOL),
+    pub VideoProcessorGetStreamFilter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, D3D11_VIDEO_PROCESSOR_FILTER, *mut super::super::Foundation::BOOL, *mut i32),
+    pub VideoProcessorGetStreamExtension: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, u32, *mut ::core::ffi::c_void) -> i32,
+    pub VideoProcessorBlt: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32, *const D3D11_VIDEO_PROCESSOR_STREAM) -> ::windows_core::HRESULT,
+    pub NegotiateCryptoSessionKeyExchange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EncryptionBlt: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void),
+    pub DecryptionBlt: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_ENCRYPTED_BLOCK_INFO, u32, *const ::core::ffi::c_void, u32, *mut ::core::ffi::c_void),
+    pub StartSessionKeyRefresh: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void),
+    pub FinishSessionKeyRefresh: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
+    pub GetEncryptionBltKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub NegotiateAuthenticatedChannelKeyExchange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub QueryAuthenticatedChannel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ConfigureAuthenticatedChannel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const ::core::ffi::c_void, *mut D3D11_AUTHENTICATED_CONFIGURE_OUTPUT) -> ::windows_core::HRESULT,
+    pub VideoProcessorSetStreamRotation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, super::super::Foundation::BOOL, D3D11_VIDEO_PROCESSOR_ROTATION),
+    pub VideoProcessorGetStreamRotation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut super::super::Foundation::BOOL, *mut D3D11_VIDEO_PROCESSOR_ROTATION),
 }
 ::windows_core::imp::com_interface!(ID3D11VideoContext1, ID3D11VideoContext1_Vtbl, 0xa7f026da_a5f8_4487_a564_15e34357651e);
 ::windows_core::imp::interface_hierarchy!(ID3D11VideoContext1, ::windows_core::IUnknown, ID3D11DeviceChild, ID3D11VideoContext);
@@ -8729,39 +8729,39 @@ unsafe impl ::core::marker::Sync for ID3D11VideoContext1 {}
 #[doc(hidden)]
 pub struct ID3D11VideoContext1_Vtbl {
     pub base__: ID3D11VideoContext_Vtbl,
-    pub SubmitDecoderBuffers1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoder: *mut ::core::ffi::c_void, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC1) -> ::windows_core::HRESULT,
-    pub GetDataForNewHardwareKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosession: *mut ::core::ffi::c_void, privateinputsize: u32, pprivatinputdata: *const ::core::ffi::c_void, pprivateoutputdata: *mut u64) -> ::windows_core::HRESULT,
-    pub CheckCryptoSessionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosession: *mut ::core::ffi::c_void, pstatus: *mut D3D11_CRYPTO_SESSION_STATUS) -> ::windows_core::HRESULT,
+    pub SubmitDecoderBuffers1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const D3D11_VIDEO_DECODER_BUFFER_DESC1) -> ::windows_core::HRESULT,
+    pub GetDataForNewHardwareKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
+    pub CheckCryptoSessionStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut D3D11_CRYPTO_SESSION_STATUS) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub DecoderEnableDownsampling: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoder: *mut ::core::ffi::c_void, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC, referenceframecount: u32) -> ::windows_core::HRESULT,
+    pub DecoderEnableDownsampling: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, *const D3D11_VIDEO_SAMPLE_DESC, u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     DecoderEnableDownsampling: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub DecoderUpdateDownsampling: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoder: *mut ::core::ffi::c_void, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC) -> ::windows_core::HRESULT,
+    pub DecoderUpdateDownsampling: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_VIDEO_SAMPLE_DESC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     DecoderUpdateDownsampling: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub VideoProcessorSetOutputColorSpace1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE),
+    pub VideoProcessorSetOutputColorSpace1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     VideoProcessorSetOutputColorSpace1: usize,
-    pub VideoProcessorSetOutputShaderUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, shaderusage: super::super::Foundation::BOOL),
+    pub VideoProcessorSetOutputShaderUsage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::BOOL),
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub VideoProcessorGetOutputColorSpace1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, pcolorspace: *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE),
+    pub VideoProcessorGetOutputColorSpace1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     VideoProcessorGetOutputColorSpace1: usize,
-    pub VideoProcessorGetOutputShaderUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, pshaderusage: *mut super::super::Foundation::BOOL),
+    pub VideoProcessorGetOutputShaderUsage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL),
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub VideoProcessorSetStreamColorSpace1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE),
+    pub VideoProcessorSetStreamColorSpace1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     VideoProcessorSetStreamColorSpace1: usize,
-    pub VideoProcessorSetStreamMirror: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, enable: super::super::Foundation::BOOL, fliphorizontal: super::super::Foundation::BOOL, flipvertical: super::super::Foundation::BOOL),
+    pub VideoProcessorSetStreamMirror: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, super::super::Foundation::BOOL, super::super::Foundation::BOOL, super::super::Foundation::BOOL),
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub VideoProcessorGetStreamColorSpace1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, pcolorspace: *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE),
+    pub VideoProcessorGetStreamColorSpace1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     VideoProcessorGetStreamColorSpace1: usize,
-    pub VideoProcessorGetStreamMirror: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, penable: *mut super::super::Foundation::BOOL, pfliphorizontal: *mut super::super::Foundation::BOOL, pflipvertical: *mut super::super::Foundation::BOOL),
+    pub VideoProcessorGetStreamMirror: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL),
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub VideoProcessorGetBehaviorHints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, outputwidth: u32, outputheight: u32, outputformat: super::Dxgi::Common::DXGI_FORMAT, streamcount: u32, pstreams: *const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT, pbehaviorhints: *mut u32) -> ::windows_core::HRESULT,
+    pub VideoProcessorGetBehaviorHints: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32, super::Dxgi::Common::DXGI_FORMAT, u32, *const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     VideoProcessorGetBehaviorHints: usize,
 }
@@ -9324,19 +9324,19 @@ unsafe impl ::core::marker::Sync for ID3D11VideoContext2 {}
 pub struct ID3D11VideoContext2_Vtbl {
     pub base__: ID3D11VideoContext1_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub VideoProcessorSetOutputHDRMetaData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: *const ::core::ffi::c_void),
+    pub VideoProcessorSetOutputHDRMetaData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::Dxgi::DXGI_HDR_METADATA_TYPE, u32, *const ::core::ffi::c_void),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))]
     VideoProcessorSetOutputHDRMetaData: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub VideoProcessorGetOutputHDRMetaData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *mut ::core::ffi::c_void),
+    pub VideoProcessorGetOutputHDRMetaData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, u32, *mut ::core::ffi::c_void),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))]
     VideoProcessorGetOutputHDRMetaData: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub VideoProcessorSetStreamHDRMetaData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: *const ::core::ffi::c_void),
+    pub VideoProcessorSetStreamHDRMetaData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, super::Dxgi::DXGI_HDR_METADATA_TYPE, u32, *const ::core::ffi::c_void),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))]
     VideoProcessorSetStreamHDRMetaData: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub VideoProcessorGetStreamHDRMetaData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: *mut ::core::ffi::c_void, streamindex: u32, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *mut ::core::ffi::c_void),
+    pub VideoProcessorGetStreamHDRMetaData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, u32, *mut ::core::ffi::c_void),
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))]
     VideoProcessorGetStreamHDRMetaData: usize,
 }
@@ -9911,8 +9911,8 @@ unsafe impl ::core::marker::Sync for ID3D11VideoContext3 {}
 #[doc(hidden)]
 pub struct ID3D11VideoContext3_Vtbl {
     pub base__: ID3D11VideoContext2_Vtbl,
-    pub DecoderBeginFrame1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoder: *mut ::core::ffi::c_void, pview: *mut ::core::ffi::c_void, contentkeysize: u32, pcontentkey: *const ::core::ffi::c_void, numcomponenthistograms: u32, phistogramoffsets: *const u32, pphistogrambuffers: *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SubmitDecoderBuffers2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoder: *mut ::core::ffi::c_void, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC2) -> ::windows_core::HRESULT,
+    pub DecoderBeginFrame1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const ::core::ffi::c_void, u32, *const u32, *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SubmitDecoderBuffers2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const D3D11_VIDEO_DECODER_BUFFER_DESC2) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11VideoDecoder, ID3D11VideoDecoder_Vtbl, 0x3c9c5b51_995d_48d1_9b8d_fa5caeded65c);
 ::windows_core::imp::interface_hierarchy!(ID3D11VideoDecoder, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -9951,10 +9951,10 @@ unsafe impl ::core::marker::Sync for ID3D11VideoDecoder {}
 pub struct ID3D11VideoDecoder_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetCreationParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodesc: *mut D3D11_VIDEO_DECODER_DESC, pconfig: *mut D3D11_VIDEO_DECODER_CONFIG) -> ::windows_core::HRESULT,
+    pub GetCreationParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_VIDEO_DECODER_DESC, *mut D3D11_VIDEO_DECODER_CONFIG) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetCreationParameters: usize,
-    pub GetDriverHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdriverhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
+    pub GetDriverHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11VideoDecoderOutputView, ID3D11VideoDecoderOutputView_Vtbl, 0xc2931aea_2a85_4f20_860f_fba1fd256e18);
 ::windows_core::imp::interface_hierarchy!(ID3D11VideoDecoderOutputView, ::windows_core::IUnknown, ID3D11DeviceChild, ID3D11View);
@@ -9991,7 +9991,7 @@ unsafe impl ::core::marker::Sync for ID3D11VideoDecoderOutputView {}
 #[doc(hidden)]
 pub struct ID3D11VideoDecoderOutputView_Vtbl {
     pub base__: ID3D11View_Vtbl,
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC),
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC),
 }
 ::windows_core::imp::com_interface!(ID3D11VideoDevice, ID3D11VideoDevice_Vtbl, 0x10ec4d5b_975a_4689_b9e4_d0aac30fe333);
 ::windows_core::imp::interface_hierarchy!(ID3D11VideoDevice, ::windows_core::IUnknown);
@@ -10091,37 +10091,37 @@ unsafe impl ::core::marker::Sync for ID3D11VideoDevice {}
 pub struct ID3D11VideoDevice_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CreateVideoDecoder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodesc: *const D3D11_VIDEO_DECODER_DESC, pconfig: *const D3D11_VIDEO_DECODER_CONFIG, ppdecoder: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateVideoDecoder: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_VIDEO_DECODER_DESC, *const D3D11_VIDEO_DECODER_CONFIG, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateVideoDecoder: usize,
-    pub CreateVideoProcessor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penum: *mut ::core::ffi::c_void, rateconversionindex: u32, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateAuthenticatedChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channeltype: D3D11_AUTHENTICATED_CHANNEL_TYPE, ppauthenticatedchannel: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateCryptoSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptotype: *const ::windows_core::GUID, pdecoderprofile: *const ::windows_core::GUID, pkeyexchangetype: *const ::windows_core::GUID, ppcryptosession: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateVideoDecoderOutputView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, pdesc: *const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC, ppvdovview: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateVideoProcessorInputView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, penum: *mut ::core::ffi::c_void, pdesc: *const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC, ppvpiview: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateVideoProcessorOutputView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: *mut ::core::ffi::c_void, penum: *mut ::core::ffi::c_void, pdesc: *const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC, ppvpoview: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateVideoProcessor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAuthenticatedChannel: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3D11_AUTHENTICATED_CHANNEL_TYPE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateCryptoSession: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::windows_core::GUID, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateVideoDecoderOutputView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateVideoProcessorInputView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateVideoProcessorOutputView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CreateVideoProcessorEnumerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateVideoProcessorEnumerator: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_VIDEO_PROCESSOR_CONTENT_DESC, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateVideoProcessorEnumerator: usize,
-    pub GetVideoDecoderProfileCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub GetVideoDecoderProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pdecoderprofile: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetVideoDecoderProfileCount: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
+    pub GetVideoDecoderProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CheckVideoDecoderFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoderprofile: *const ::windows_core::GUID, format: super::Dxgi::Common::DXGI_FORMAT, psupported: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub CheckVideoDecoderFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, super::Dxgi::Common::DXGI_FORMAT, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CheckVideoDecoderFormat: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetVideoDecoderConfigCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D11_VIDEO_DECODER_DESC, pcount: *mut u32) -> ::windows_core::HRESULT,
+    pub GetVideoDecoderConfigCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_VIDEO_DECODER_DESC, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetVideoDecoderConfigCount: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetVideoDecoderConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D11_VIDEO_DECODER_DESC, index: u32, pconfig: *mut D3D11_VIDEO_DECODER_CONFIG) -> ::windows_core::HRESULT,
+    pub GetVideoDecoderConfig: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_VIDEO_DECODER_DESC, u32, *mut D3D11_VIDEO_DECODER_CONFIG) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetVideoDecoderConfig: usize,
-    pub GetContentProtectionCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptotype: *const ::windows_core::GUID, pdecoderprofile: *const ::windows_core::GUID, pcaps: *mut D3D11_VIDEO_CONTENT_PROTECTION_CAPS) -> ::windows_core::HRESULT,
-    pub CheckCryptoKeyExchange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptotype: *const ::windows_core::GUID, pdecoderprofile: *const ::windows_core::GUID, index: u32, pkeyexchangetype: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetPrivateDataInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetContentProtectionCaps: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::windows_core::GUID, *mut D3D11_VIDEO_CONTENT_PROTECTION_CAPS) -> ::windows_core::HRESULT,
+    pub CheckCryptoKeyExchange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::windows_core::GUID, u32, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub SetPrivateData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetPrivateDataInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11VideoDevice1, ID3D11VideoDevice1_Vtbl, 0x29da1d51_1321_4454_804b_f5fc9f861f0f);
 ::windows_core::imp::interface_hierarchy!(ID3D11VideoDevice1, ::windows_core::IUnknown, ID3D11VideoDevice);
@@ -10240,17 +10240,17 @@ unsafe impl ::core::marker::Sync for ID3D11VideoDevice1 {}
 #[doc(hidden)]
 pub struct ID3D11VideoDevice1_Vtbl {
     pub base__: ID3D11VideoDevice_Vtbl,
-    pub GetCryptoSessionPrivateDataSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptotype: *const ::windows_core::GUID, pdecoderprofile: *const ::windows_core::GUID, pkeyexchangetype: *const ::windows_core::GUID, pprivateinputsize: *mut u32, pprivateoutputsize: *mut u32) -> ::windows_core::HRESULT,
+    pub GetCryptoSessionPrivateDataSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::windows_core::GUID, *const ::windows_core::GUID, *mut u32, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetVideoDecoderCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoderprofile: *const ::windows_core::GUID, samplewidth: u32, sampleheight: u32, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL, bitrate: u32, pcryptotype: *const ::windows_core::GUID, pdecodercaps: *mut u32) -> ::windows_core::HRESULT,
+    pub GetVideoDecoderCaps: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, u32, *const super::Dxgi::Common::DXGI_RATIONAL, u32, *const ::windows_core::GUID, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetVideoDecoderCaps: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CheckVideoDecoderDownsampling: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinputdesc: *const D3D11_VIDEO_DECODER_DESC, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, pinputconfig: *const D3D11_VIDEO_DECODER_CONFIG, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC, psupported: *mut super::super::Foundation::BOOL, prealtimehint: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub CheckVideoDecoderDownsampling: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_VIDEO_DECODER_DESC, super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, *const D3D11_VIDEO_DECODER_CONFIG, *const super::Dxgi::Common::DXGI_RATIONAL, *const D3D11_VIDEO_SAMPLE_DESC, *mut super::super::Foundation::BOOL, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CheckVideoDecoderDownsampling: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub RecommendVideoDecoderDownsampleParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinputdesc: *const D3D11_VIDEO_DECODER_DESC, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, pinputconfig: *const D3D11_VIDEO_DECODER_CONFIG, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL, precommendedoutputdesc: *mut D3D11_VIDEO_SAMPLE_DESC) -> ::windows_core::HRESULT,
+    pub RecommendVideoDecoderDownsampleParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const D3D11_VIDEO_DECODER_DESC, super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, *const D3D11_VIDEO_DECODER_CONFIG, *const super::Dxgi::Common::DXGI_RATIONAL, *mut D3D11_VIDEO_SAMPLE_DESC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     RecommendVideoDecoderDownsampleParameters: usize,
 }
@@ -10380,8 +10380,8 @@ unsafe impl ::core::marker::Sync for ID3D11VideoDevice2 {}
 #[doc(hidden)]
 pub struct ID3D11VideoDevice2_Vtbl {
     pub base__: ID3D11VideoDevice1_Vtbl,
-    pub CheckFeatureSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: D3D11_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows_core::HRESULT,
-    pub NegotiateCryptoSessionKeyExchangeMT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosession: *mut ::core::ffi::c_void, flags: D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CheckFeatureSupport: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3D11_FEATURE_VIDEO, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub NegotiateCryptoSessionKeyExchangeMT: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11VideoProcessor, ID3D11VideoProcessor_Vtbl, 0x1d7b0652_185f_41c6_85ce_0c5be3d4ae6c);
 ::windows_core::imp::interface_hierarchy!(ID3D11VideoProcessor, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -10419,10 +10419,10 @@ unsafe impl ::core::marker::Sync for ID3D11VideoProcessor {}
 pub struct ID3D11VideoProcessor_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetContentDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_VIDEO_PROCESSOR_CONTENT_DESC),
+    pub GetContentDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_VIDEO_PROCESSOR_CONTENT_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetContentDesc: usize,
-    pub GetRateConversionCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcaps: *mut D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS),
+    pub GetRateConversionCaps: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS),
 }
 ::windows_core::imp::com_interface!(ID3D11VideoProcessorEnumerator, ID3D11VideoProcessorEnumerator_Vtbl, 0x31627037_53ab_4200_9061_05faa9ab45f9);
 ::windows_core::imp::interface_hierarchy!(ID3D11VideoProcessorEnumerator, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -10478,20 +10478,20 @@ unsafe impl ::core::marker::Sync for ID3D11VideoProcessorEnumerator {}
 pub struct ID3D11VideoProcessorEnumerator_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetVideoProcessorContentDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontentdesc: *mut D3D11_VIDEO_PROCESSOR_CONTENT_DESC) -> ::windows_core::HRESULT,
+    pub GetVideoProcessorContentDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_VIDEO_PROCESSOR_CONTENT_DESC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetVideoProcessorContentDesc: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CheckVideoProcessorFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: super::Dxgi::Common::DXGI_FORMAT, pflags: *mut u32) -> ::windows_core::HRESULT,
+    pub CheckVideoProcessorFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Dxgi::Common::DXGI_FORMAT, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CheckVideoProcessorFormat: usize,
-    pub GetVideoProcessorCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcaps: *mut D3D11_VIDEO_PROCESSOR_CAPS) -> ::windows_core::HRESULT,
-    pub GetVideoProcessorRateConversionCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typeindex: u32, pcaps: *mut D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS) -> ::windows_core::HRESULT,
+    pub GetVideoProcessorCaps: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_VIDEO_PROCESSOR_CAPS) -> ::windows_core::HRESULT,
+    pub GetVideoProcessorRateConversionCaps: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetVideoProcessorCustomRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typeindex: u32, customrateindex: u32, prate: *mut D3D11_VIDEO_PROCESSOR_CUSTOM_RATE) -> ::windows_core::HRESULT,
+    pub GetVideoProcessorCustomRate: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut D3D11_VIDEO_PROCESSOR_CUSTOM_RATE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetVideoProcessorCustomRate: usize,
-    pub GetVideoProcessorFilterRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filter: D3D11_VIDEO_PROCESSOR_FILTER, prange: *mut D3D11_VIDEO_PROCESSOR_FILTER_RANGE) -> ::windows_core::HRESULT,
+    pub GetVideoProcessorFilterRange: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3D11_VIDEO_PROCESSOR_FILTER, *mut D3D11_VIDEO_PROCESSOR_FILTER_RANGE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3D11VideoProcessorEnumerator1, ID3D11VideoProcessorEnumerator1_Vtbl, 0x465217f2_5568_43cf_b5b9_f61d54531ca1);
 ::windows_core::imp::interface_hierarchy!(ID3D11VideoProcessorEnumerator1, ::windows_core::IUnknown, ID3D11DeviceChild, ID3D11VideoProcessorEnumerator);
@@ -10553,7 +10553,7 @@ unsafe impl ::core::marker::Sync for ID3D11VideoProcessorEnumerator1 {}
 pub struct ID3D11VideoProcessorEnumerator1_Vtbl {
     pub base__: ID3D11VideoProcessorEnumerator_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CheckVideoProcessorFormatConversion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputformat: super::Dxgi::Common::DXGI_FORMAT, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, outputformat: super::Dxgi::Common::DXGI_FORMAT, outputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, psupported: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub CheckVideoProcessorFormatConversion: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Dxgi::Common::DXGI_FORMAT, super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, super::Dxgi::Common::DXGI_FORMAT, super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CheckVideoProcessorFormatConversion: usize,
 }
@@ -10594,7 +10594,7 @@ unsafe impl ::core::marker::Sync for ID3D11VideoProcessorInputView {}
 #[doc(hidden)]
 pub struct ID3D11VideoProcessorInputView_Vtbl {
     pub base__: ID3D11View_Vtbl,
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC),
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC),
 }
 ::windows_core::imp::com_interface!(ID3D11VideoProcessorOutputView, ID3D11VideoProcessorOutputView_Vtbl, 0xa048285e_25a9_4527_bd93_d68b68c44254);
 ::windows_core::imp::interface_hierarchy!(ID3D11VideoProcessorOutputView, ::windows_core::IUnknown, ID3D11DeviceChild, ID3D11View);
@@ -10633,7 +10633,7 @@ unsafe impl ::core::marker::Sync for ID3D11VideoProcessorOutputView {}
 #[doc(hidden)]
 pub struct ID3D11VideoProcessorOutputView_Vtbl {
     pub base__: ID3D11View_Vtbl,
-    pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC),
+    pub GetDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC),
 }
 ::windows_core::imp::com_interface!(ID3D11View, ID3D11View_Vtbl, 0x839d1216_bb2e_412b_b7f4_a9dbebe08ed1);
 ::windows_core::imp::interface_hierarchy!(ID3D11View, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -10667,7 +10667,7 @@ unsafe impl ::core::marker::Sync for ID3D11View {}
 #[doc(hidden)]
 pub struct ID3D11View_Vtbl {
     pub base__: ID3D11DeviceChild_Vtbl,
-    pub GetResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresource: *mut *mut ::core::ffi::c_void),
+    pub GetResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void),
 }
 ::windows_core::imp::com_interface!(ID3DDeviceContextState, ID3DDeviceContextState_Vtbl, 0x5c1e0d8a_7c23_48f9_8c59_a92958ceff11);
 ::windows_core::imp::interface_hierarchy!(ID3DDeviceContextState, ::windows_core::IUnknown, ID3D11DeviceChild);
@@ -10725,10 +10725,10 @@ unsafe impl ::core::marker::Sync for ID3DUserDefinedAnnotation {}
 #[doc(hidden)]
 pub struct ID3DUserDefinedAnnotation_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub BeginEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows_core::PCWSTR) -> i32,
-    pub EndEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> i32,
-    pub SetMarker: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows_core::PCWSTR),
-    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub BeginEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> i32,
+    pub EndEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> i32,
+    pub SetMarker: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR),
+    pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
 ::windows_core::imp::com_interface!(ID3DX11FFT, ID3DX11FFT_Vtbl, 0xb3f7a938_4c93_4310_a675_b30d6de50553);
 ::windows_core::imp::interface_hierarchy!(ID3DX11FFT, ::windows_core::IUnknown);
@@ -10767,13 +10767,13 @@ unsafe impl ::core::marker::Sync for ID3DX11FFT {}
 #[doc(hidden)]
 pub struct ID3DX11FFT_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetForwardScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, forwardscale: f32) -> ::windows_core::HRESULT,
-    pub GetForwardScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> f32,
-    pub SetInverseScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inversescale: f32) -> ::windows_core::HRESULT,
-    pub GetInverseScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> f32,
-    pub AttachBuffersAndPrecompute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numtempbuffers: u32, pptempbuffers: *const *mut ::core::ffi::c_void, numprecomputebuffers: u32, ppprecomputebuffersizes: *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ForwardTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinputbuffer: *mut ::core::ffi::c_void, ppoutputbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub InverseTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinputbuffer: *mut ::core::ffi::c_void, ppoutputbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetForwardScale: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub GetForwardScale: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> f32,
+    pub SetInverseScale: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub GetInverseScale: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> f32,
+    pub AttachBuffersAndPrecompute: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const *mut ::core::ffi::c_void, u32, *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ForwardTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InverseTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3DX11Scan, ID3DX11Scan_Vtbl, 0x5089b68f_e71d_4d38_be8e_f363b95a9405);
 ::windows_core::imp::interface_hierarchy!(ID3DX11Scan, ::windows_core::IUnknown);
@@ -10802,9 +10802,9 @@ unsafe impl ::core::marker::Sync for ID3DX11Scan {}
 #[doc(hidden)]
 pub struct ID3DX11Scan_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetScanDirection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, direction: D3DX11_SCAN_DIRECTION) -> ::windows_core::HRESULT,
-    pub Scan: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, elementtype: D3DX11_SCAN_DATA_TYPE, opcode: D3DX11_SCAN_OPCODE, elementscansize: u32, psrc: *mut ::core::ffi::c_void, pdst: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Multiscan: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, elementtype: D3DX11_SCAN_DATA_TYPE, opcode: D3DX11_SCAN_OPCODE, elementscansize: u32, elementscanpitch: u32, scancount: u32, psrc: *mut ::core::ffi::c_void, pdst: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetScanDirection: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3DX11_SCAN_DIRECTION) -> ::windows_core::HRESULT,
+    pub Scan: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3DX11_SCAN_DATA_TYPE, D3DX11_SCAN_OPCODE, u32, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Multiscan: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3DX11_SCAN_DATA_TYPE, D3DX11_SCAN_OPCODE, u32, u32, u32, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ID3DX11SegmentedScan, ID3DX11SegmentedScan_Vtbl, 0xa915128c_d954_4c79_bfe1_64db923194d6);
 ::windows_core::imp::interface_hierarchy!(ID3DX11SegmentedScan, ::windows_core::IUnknown);
@@ -10827,8 +10827,8 @@ unsafe impl ::core::marker::Sync for ID3DX11SegmentedScan {}
 #[doc(hidden)]
 pub struct ID3DX11SegmentedScan_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetScanDirection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, direction: D3DX11_SCAN_DIRECTION) -> ::windows_core::HRESULT,
-    pub SegScan: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, elementtype: D3DX11_SCAN_DATA_TYPE, opcode: D3DX11_SCAN_OPCODE, elementscansize: u32, psrc: *mut ::core::ffi::c_void, psrcelementflags: *mut ::core::ffi::c_void, pdst: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetScanDirection: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3DX11_SCAN_DIRECTION) -> ::windows_core::HRESULT,
+    pub SegScan: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3DX11_SCAN_DATA_TYPE, D3DX11_SCAN_OPCODE, u32, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const D3D11_16BIT_INDEX_STRIP_CUT_VALUE: u32 = 65535u32;
 pub const D3D11_1_CREATE_DEVICE_CONTEXT_STATE_SINGLETHREADED: D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG = D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG(1i32);

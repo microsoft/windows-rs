@@ -3,18 +3,18 @@
 #[doc(hidden)]
 pub struct IAudioRoutingManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetAudioEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioRoutingEndpoint) -> ::windows_core::HRESULT,
-    pub SetAudioEndpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpoint: AudioRoutingEndpoint) -> ::windows_core::HRESULT,
-    pub AudioEndpointChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpointchangehandler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveAudioEndpointChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub AvailableAudioEndpoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AvailableAudioRoutingEndpoints) -> ::windows_core::HRESULT,
+    pub GetAudioEndpoint: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AudioRoutingEndpoint) -> ::windows_core::HRESULT,
+    pub SetAudioEndpoint: unsafe extern "system" fn(*mut ::core::ffi::c_void, AudioRoutingEndpoint) -> ::windows_core::HRESULT,
+    pub AudioEndpointChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveAudioEndpointChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub AvailableAudioEndpoints: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AvailableAudioRoutingEndpoints) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAudioRoutingManagerStatics, IAudioRoutingManagerStatics_Vtbl, 0x977fb2a4_5590_4a6f_adde_6a3d0ad58250);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioRoutingManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

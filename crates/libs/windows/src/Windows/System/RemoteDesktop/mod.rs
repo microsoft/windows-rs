@@ -9,7 +9,7 @@ pub mod Provider;
 #[doc(hidden)]
 pub struct IInteractiveSessionStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub IsRemote: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsRemote: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 pub struct InteractiveSession;
 impl InteractiveSession {

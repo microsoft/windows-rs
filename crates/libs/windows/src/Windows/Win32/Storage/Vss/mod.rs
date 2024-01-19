@@ -25,10 +25,10 @@ impl IVssAdmin {
 #[doc(hidden)]
 pub struct IVssAdmin_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub RegisterProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pproviderid: ::windows_core::GUID, classid: ::windows_core::GUID, pwszprovidername: *const u16, eprovidertype: VSS_PROVIDER_TYPE, pwszproviderversion: *const u16, providerversionid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub UnregisterProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, providerid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub QueryProviders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AbortAllSnapshotsInProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RegisterProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, ::windows_core::GUID, *const u16, VSS_PROVIDER_TYPE, *const u16, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub UnregisterProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub QueryProviders: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AbortAllSnapshotsInProgress: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssAdminEx, IVssAdminEx_Vtbl, 0x7858a9f8_b1fa_41a6_964f_b9b36b8cd8d8);
 ::windows_core::imp::interface_hierarchy!(IVssAdminEx, ::windows_core::IUnknown, IVssAdmin);
@@ -62,9 +62,9 @@ impl IVssAdminEx {
 #[doc(hidden)]
 pub struct IVssAdminEx_Vtbl {
     pub base__: IVssAdmin_Vtbl,
-    pub GetProviderCapability: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pproviderid: ::windows_core::GUID, plloriginalcapabilitymask: *mut u64) -> ::windows_core::HRESULT,
-    pub GetProviderContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, providerid: ::windows_core::GUID, plcontext: *mut i32) -> ::windows_core::HRESULT,
-    pub SetProviderContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, providerid: ::windows_core::GUID, lcontext: i32) -> ::windows_core::HRESULT,
+    pub GetProviderCapability: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut u64) -> ::windows_core::HRESULT,
+    pub GetProviderContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut i32) -> ::windows_core::HRESULT,
+    pub SetProviderContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssAsync, IVssAsync_Vtbl, 0x507c37b4_cf5b_4e95_b0af_14eb9767467e);
 ::windows_core::imp::interface_hierarchy!(IVssAsync, ::windows_core::IUnknown);
@@ -83,9 +83,9 @@ impl IVssAsync {
 #[doc(hidden)]
 pub struct IVssAsync_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Wait: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmilliseconds: u32) -> ::windows_core::HRESULT,
-    pub QueryStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows_core::HRESULT, preserved: *mut i32) -> ::windows_core::HRESULT,
+    pub Cancel: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Wait: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub QueryStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT, *mut i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssComponent, IVssComponent_Vtbl, 0xd2c72c96_c121_4518_b627_e5a93d010ead);
 ::windows_core::imp::interface_hierarchy!(IVssComponent, ::windows_core::IUnknown);
@@ -251,44 +251,44 @@ impl IVssComponent {
 #[doc(hidden)]
 pub struct IVssComponent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetLogicalPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpath: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetComponentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pct: *mut VSS_COMPONENT_TYPE) -> ::windows_core::HRESULT,
-    pub GetComponentName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetBackupSucceeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsucceeded: *mut bool) -> ::windows_core::HRESULT,
-    pub GetAlternateLocationMappingCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcmappings: *mut u32) -> ::windows_core::HRESULT,
-    pub GetAlternateLocationMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imapping: u32, ppfiledesc: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetBackupMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszdata: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetBackupMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdata: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub AddPartialFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpath: ::windows_core::PCWSTR, wszfilename: ::windows_core::PCWSTR, wszranges: ::windows_core::PCWSTR, wszmetadata: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetPartialFileCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcpartialfiles: *mut u32) -> ::windows_core::HRESULT,
-    pub GetPartialFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ipartialfile: u32, pbstrpath: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrfilename: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrrange: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrmetadata: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub IsSelectedForRestore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbselectedforrestore: *mut bool) -> ::windows_core::HRESULT,
-    pub GetAdditionalRestores: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbadditionalrestores: *mut bool) -> ::windows_core::HRESULT,
-    pub GetNewTargetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnewtarget: *mut u32) -> ::windows_core::HRESULT,
-    pub GetNewTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inewtarget: u32, ppfiledesc: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AddDirectedTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszsourcepath: ::windows_core::PCWSTR, wszsourcefilename: ::windows_core::PCWSTR, wszsourcerangelist: ::windows_core::PCWSTR, wszdestinationpath: ::windows_core::PCWSTR, wszdestinationfilename: ::windows_core::PCWSTR, wszdestinationrangelist: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetDirectedTargetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdirectedtarget: *mut u32) -> ::windows_core::HRESULT,
-    pub GetDirectedTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idirectedtarget: u32, pbstrsourcepath: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrsourcefilename: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrsourcerangelist: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrdestinationpath: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrdestinationfilename: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrdestinationrangelist: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetRestoreMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszrestoremetadata: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetRestoreMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrrestoremetadata: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetRestoreTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: VSS_RESTORE_TARGET) -> ::windows_core::HRESULT,
-    pub GetRestoreTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptarget: *mut VSS_RESTORE_TARGET) -> ::windows_core::HRESULT,
-    pub SetPreRestoreFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszprerestorefailuremsg: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetPreRestoreFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrprerestorefailuremsg: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetPostRestoreFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpostrestorefailuremsg: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetPostRestoreFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpostrestorefailuremsg: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetBackupStamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszbackupstamp: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetBackupStamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbackupstamp: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetPreviousBackupStamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbackupstamp: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetBackupOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbackupoptions: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetRestoreOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrrestoreoptions: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetRestoreSubcomponentCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcrestoresubcomponent: *mut u32) -> ::windows_core::HRESULT,
-    pub GetRestoreSubcomponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, icomponent: u32, pbstrlogicalpath: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrcomponentname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbrepair: *mut bool) -> ::windows_core::HRESULT,
-    pub GetFileRestoreStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut VSS_FILE_RESTORE_STATUS) -> ::windows_core::HRESULT,
-    pub AddDifferencedFilesByLastModifyTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpath: ::windows_core::PCWSTR, wszfilespec: ::windows_core::PCWSTR, brecursive: super::super::Foundation::BOOL, ftlastmodifytime: super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
-    pub AddDifferencedFilesByLastModifyLSN: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpath: ::windows_core::PCWSTR, wszfilespec: ::windows_core::PCWSTR, brecursive: super::super::Foundation::BOOL, bstrlsnstring: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetDifferencedFilesCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdifferencedfiles: *mut u32) -> ::windows_core::HRESULT,
-    pub GetDifferencedFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idifferencedfile: u32, pbstrpath: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrfilespec: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbrecursive: *mut super::super::Foundation::BOOL, pbstrlsnstring: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pftlastmodifytime: *mut super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
+    pub GetLogicalPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetComponentType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VSS_COMPONENT_TYPE) -> ::windows_core::HRESULT,
+    pub GetComponentName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetBackupSucceeded: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub GetAlternateLocationMappingCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetAlternateLocationMapping: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetBackupMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetBackupMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub AddPartialFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetPartialFileCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetPartialFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub IsSelectedForRestore: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub GetAdditionalRestores: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub GetNewTargetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetNewTarget: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddDirectedTarget: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetDirectedTargetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetDirectedTarget: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetRestoreMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetRestoreMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetRestoreTarget: unsafe extern "system" fn(*mut ::core::ffi::c_void, VSS_RESTORE_TARGET) -> ::windows_core::HRESULT,
+    pub GetRestoreTarget: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VSS_RESTORE_TARGET) -> ::windows_core::HRESULT,
+    pub SetPreRestoreFailureMsg: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetPreRestoreFailureMsg: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetPostRestoreFailureMsg: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetPostRestoreFailureMsg: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetBackupStamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetBackupStamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetPreviousBackupStamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetBackupOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetRestoreOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetRestoreSubcomponentCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetRestoreSubcomponent: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut bool) -> ::windows_core::HRESULT,
+    pub GetFileRestoreStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VSS_FILE_RESTORE_STATUS) -> ::windows_core::HRESULT,
+    pub AddDifferencedFilesByLastModifyTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, super::super::Foundation::BOOL, super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
+    pub AddDifferencedFilesByLastModifyLSN: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, super::super::Foundation::BOOL, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetDifferencedFilesCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetDifferencedFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::BOOL, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssComponentEx, IVssComponentEx_Vtbl, 0x156c8b5e_f131_4bd7_9c97_d1923be7e1fa);
 ::windows_core::imp::interface_hierarchy!(IVssComponentEx, ::windows_core::IUnknown, IVssComponent);
@@ -485,13 +485,13 @@ impl IVssComponentEx {
 #[doc(hidden)]
 pub struct IVssComponentEx_Vtbl {
     pub base__: IVssComponent_Vtbl,
-    pub SetPrepareForBackupFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszfailuremsg: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub SetPostSnapshotFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszfailuremsg: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetPrepareForBackupFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfailuremsg: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetPostSnapshotFailureMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfailuremsg: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetAuthoritativeRestore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbauth: *mut bool) -> ::windows_core::HRESULT,
-    pub GetRollForward: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prolltype: *mut VSS_ROLLFORWARD_TYPE, pbstrpoint: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetRestoreName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetPrepareForBackupFailureMsg: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub SetPostSnapshotFailureMsg: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetPrepareForBackupFailureMsg: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetPostSnapshotFailureMsg: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetAuthoritativeRestore: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub GetRollForward: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut VSS_ROLLFORWARD_TYPE, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetRestoreName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssComponentEx2, IVssComponentEx2_Vtbl, 0x3b5be0f2_07a9_4e4b_bdd3_cfdc8e2c0d2d);
 ::windows_core::imp::interface_hierarchy!(IVssComponentEx2, ::windows_core::IUnknown, IVssComponent, IVssComponentEx);
@@ -697,8 +697,8 @@ impl IVssComponentEx2 {
 #[doc(hidden)]
 pub struct IVssComponentEx2_Vtbl {
     pub base__: IVssComponentEx_Vtbl,
-    pub SetFailure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows_core::HRESULT, hrapplication: ::windows_core::HRESULT, wszapplicationmessage: ::windows_core::PCWSTR, dwreserved: u32) -> ::windows_core::HRESULT,
-    pub GetFailure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phr: *mut ::windows_core::HRESULT, phrapplication: *mut ::windows_core::HRESULT, pbstrapplicationmessage: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pdwreserved: *mut u32) -> ::windows_core::HRESULT,
+    pub SetFailure: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, ::windows_core::HRESULT, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub GetFailure: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT, *mut ::windows_core::HRESULT, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssCreateExpressWriterMetadata, IVssCreateExpressWriterMetadata_Vtbl, 0x9c772e77_b26e_427f_92dd_c996f41ea5e3);
 ::windows_core::imp::interface_hierarchy!(IVssCreateExpressWriterMetadata, ::windows_core::IUnknown);
@@ -756,13 +756,13 @@ impl IVssCreateExpressWriterMetadata {
 #[doc(hidden)]
 pub struct IVssCreateExpressWriterMetadata_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AddExcludeFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpath: ::windows_core::PCWSTR, wszfilespec: ::windows_core::PCWSTR, brecursive: u8) -> ::windows_core::HRESULT,
-    pub AddComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ct: VSS_COMPONENT_TYPE, wszlogicalpath: ::windows_core::PCWSTR, wszcomponentname: ::windows_core::PCWSTR, wszcaption: ::windows_core::PCWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows_core::HRESULT,
-    pub AddFilesToFileGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszlogicalpath: ::windows_core::PCWSTR, wszgroupname: ::windows_core::PCWSTR, wszpath: ::windows_core::PCWSTR, wszfilespec: ::windows_core::PCWSTR, brecursive: u8, wszalternatelocation: ::windows_core::PCWSTR, dwbackuptypemask: u32) -> ::windows_core::HRESULT,
-    pub SetRestoreMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: VSS_RESTOREMETHOD_ENUM, wszservice: ::windows_core::PCWSTR, wszuserprocedure: ::windows_core::PCWSTR, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows_core::HRESULT,
-    pub AddComponentDependency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszforlogicalpath: ::windows_core::PCWSTR, wszforcomponentname: ::windows_core::PCWSTR, onwriterid: ::windows_core::GUID, wszonlogicalpath: ::windows_core::PCWSTR, wszoncomponentname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub SetBackupSchema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwschemamask: u32) -> ::windows_core::HRESULT,
-    pub SaveAsXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrxml: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub AddExcludeFiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, u8) -> ::windows_core::HRESULT,
+    pub AddComponent: unsafe extern "system" fn(*mut ::core::ffi::c_void, VSS_COMPONENT_TYPE, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *const u8, u32, u8, u8, u8, u8, u32) -> ::windows_core::HRESULT,
+    pub AddFilesToFileGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, u8, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub SetRestoreMethod: unsafe extern "system" fn(*mut ::core::ffi::c_void, VSS_RESTOREMETHOD_ENUM, ::windows_core::PCWSTR, ::windows_core::PCWSTR, VSS_WRITERRESTORE_ENUM, u8) -> ::windows_core::HRESULT,
+    pub AddComponentDependency: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::GUID, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub SetBackupSchema: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub SaveAsXML: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::interface!(IVssCreateWriterMetadata, IVssCreateWriterMetadata_Vtbl);
 impl IVssCreateWriterMetadata {
@@ -857,21 +857,21 @@ impl IVssCreateWriterMetadata {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssCreateWriterMetadata_Vtbl {
-    pub AddIncludeFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpath: ::windows_core::PCWSTR, wszfilespec: ::windows_core::PCWSTR, brecursive: u8, wszalternatelocation: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub AddExcludeFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpath: ::windows_core::PCWSTR, wszfilespec: ::windows_core::PCWSTR, brecursive: u8) -> ::windows_core::HRESULT,
-    pub AddComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ct: VSS_COMPONENT_TYPE, wszlogicalpath: ::windows_core::PCWSTR, wszcomponentname: ::windows_core::PCWSTR, wszcaption: ::windows_core::PCWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> ::windows_core::HRESULT,
-    pub AddDatabaseFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszlogicalpath: ::windows_core::PCWSTR, wszdatabasename: ::windows_core::PCWSTR, wszpath: ::windows_core::PCWSTR, wszfilespec: ::windows_core::PCWSTR, dwbackuptypemask: u32) -> ::windows_core::HRESULT,
-    pub AddDatabaseLogFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszlogicalpath: ::windows_core::PCWSTR, wszdatabasename: ::windows_core::PCWSTR, wszpath: ::windows_core::PCWSTR, wszfilespec: ::windows_core::PCWSTR, dwbackuptypemask: u32) -> ::windows_core::HRESULT,
-    pub AddFilesToFileGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszlogicalpath: ::windows_core::PCWSTR, wszgroupname: ::windows_core::PCWSTR, wszpath: ::windows_core::PCWSTR, wszfilespec: ::windows_core::PCWSTR, brecursive: u8, wszalternatelocation: ::windows_core::PCWSTR, dwbackuptypemask: u32) -> ::windows_core::HRESULT,
-    pub SetRestoreMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: VSS_RESTOREMETHOD_ENUM, wszservice: ::windows_core::PCWSTR, wszuserprocedure: ::windows_core::PCWSTR, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> ::windows_core::HRESULT,
-    pub AddAlternateLocationMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszsourcepath: ::windows_core::PCWSTR, wszsourcefilespec: ::windows_core::PCWSTR, brecursive: u8, wszdestination: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub AddComponentDependency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszforlogicalpath: ::windows_core::PCWSTR, wszforcomponentname: ::windows_core::PCWSTR, onwriterid: ::windows_core::GUID, wszonlogicalpath: ::windows_core::PCWSTR, wszoncomponentname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub SetBackupSchema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwschemamask: u32) -> ::windows_core::HRESULT,
+    pub AddIncludeFiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, u8, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub AddExcludeFiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, u8) -> ::windows_core::HRESULT,
+    pub AddComponent: unsafe extern "system" fn(*mut ::core::ffi::c_void, VSS_COMPONENT_TYPE, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *const u8, u32, u8, u8, u8, u8, u32) -> ::windows_core::HRESULT,
+    pub AddDatabaseFiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub AddDatabaseLogFiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub AddFilesToFileGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, u8, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub SetRestoreMethod: unsafe extern "system" fn(*mut ::core::ffi::c_void, VSS_RESTOREMETHOD_ENUM, ::windows_core::PCWSTR, ::windows_core::PCWSTR, VSS_WRITERRESTORE_ENUM, u8) -> ::windows_core::HRESULT,
+    pub AddAlternateLocationMapping: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, u8, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub AddComponentDependency: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::GUID, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub SetBackupSchema: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-    pub GetDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdoc: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDocument: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com")))]
     GetDocument: usize,
-    pub SaveAsXML: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrxml: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SaveAsXML: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssDifferentialSoftwareSnapshotMgmt, IVssDifferentialSoftwareSnapshotMgmt_Vtbl, 0x214a0f28_b737_4026_b847_4f9e37d79529);
 ::windows_core::imp::interface_hierarchy!(IVssDifferentialSoftwareSnapshotMgmt, ::windows_core::IUnknown);
@@ -903,12 +903,12 @@ impl IVssDifferentialSoftwareSnapshotMgmt {
 #[doc(hidden)]
 pub struct IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AddDiffArea: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64) -> ::windows_core::HRESULT,
-    pub ChangeDiffAreaMaximumSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64) -> ::windows_core::HRESULT,
-    pub QueryVolumesSupportedForDiffAreas: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszoriginalvolumename: *const u16, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub QueryDiffAreasForVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub QueryDiffAreasOnVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub QueryDiffAreasForSnapshot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotid: ::windows_core::GUID, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddDiffArea: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, *const u16, i64) -> ::windows_core::HRESULT,
+    pub ChangeDiffAreaMaximumSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, *const u16, i64) -> ::windows_core::HRESULT,
+    pub QueryVolumesSupportedForDiffAreas: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub QueryDiffAreasForVolume: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub QueryDiffAreasOnVolume: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub QueryDiffAreasForSnapshot: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssDifferentialSoftwareSnapshotMgmt2, IVssDifferentialSoftwareSnapshotMgmt2_Vtbl, 0x949d7353_675f_4275_8969_f044c6277815);
 ::windows_core::imp::interface_hierarchy!(IVssDifferentialSoftwareSnapshotMgmt2, ::windows_core::IUnknown, IVssDifferentialSoftwareSnapshotMgmt);
@@ -956,10 +956,10 @@ impl IVssDifferentialSoftwareSnapshotMgmt2 {
 #[doc(hidden)]
 pub struct IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
     pub base__: IVssDifferentialSoftwareSnapshotMgmt_Vtbl,
-    pub ChangeDiffAreaMaximumSizeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64, bvolatile: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub MigrateDiffAreas: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, pwsznewdiffareavolumename: *const u16) -> ::windows_core::HRESULT,
-    pub QueryMigrationStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, ppasync: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetSnapshotPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idsnapshot: ::windows_core::GUID, priority: u8) -> ::windows_core::HRESULT,
+    pub ChangeDiffAreaMaximumSizeEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, *const u16, i64, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub MigrateDiffAreas: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, *const u16, *const u16) -> ::windows_core::HRESULT,
+    pub QueryMigrationStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, *const u16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetSnapshotPriority: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssDifferentialSoftwareSnapshotMgmt3, IVssDifferentialSoftwareSnapshotMgmt3_Vtbl, 0x383f7e71_a4c5_401f_b27f_f826289f8458);
 ::windows_core::imp::interface_hierarchy!(IVssDifferentialSoftwareSnapshotMgmt3, ::windows_core::IUnknown, IVssDifferentialSoftwareSnapshotMgmt, IVssDifferentialSoftwareSnapshotMgmt2);
@@ -1022,11 +1022,11 @@ impl IVssDifferentialSoftwareSnapshotMgmt3 {
 #[doc(hidden)]
 pub struct IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
     pub base__: IVssDifferentialSoftwareSnapshotMgmt2_Vtbl,
-    pub SetVolumeProtectLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16, protectionlevel: VSS_PROTECTION_LEVEL) -> ::windows_core::HRESULT,
-    pub GetVolumeProtectLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16, protectionlevel: *mut VSS_VOLUME_PROTECTION_INFO) -> ::windows_core::HRESULT,
-    pub ClearVolumeProtectFault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16) -> ::windows_core::HRESULT,
-    pub DeleteUnusedDiffAreas: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszdiffareavolumename: *const u16) -> ::windows_core::HRESULT,
-    pub QuerySnapshotDeltaBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idsnapshotolder: ::windows_core::GUID, idsnapshotyounger: ::windows_core::GUID, pcblocksizeperbit: *mut u32, pcbitmaplength: *mut u32, ppbbitmap: *mut *mut u8) -> ::windows_core::HRESULT,
+    pub SetVolumeProtectLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, VSS_PROTECTION_LEVEL) -> ::windows_core::HRESULT,
+    pub GetVolumeProtectLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, *mut VSS_VOLUME_PROTECTION_INFO) -> ::windows_core::HRESULT,
+    pub ClearVolumeProtectFault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16) -> ::windows_core::HRESULT,
+    pub DeleteUnusedDiffAreas: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16) -> ::windows_core::HRESULT,
+    pub QuerySnapshotDeltaBitmap: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, ::windows_core::GUID, *mut u32, *mut u32, *mut *mut u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssEnumMgmtObject, IVssEnumMgmtObject_Vtbl, 0x01954e6b_9254_4e6e_808c_c9e05d007696);
 ::windows_core::imp::interface_hierarchy!(IVssEnumMgmtObject, ::windows_core::IUnknown);
@@ -1048,10 +1048,10 @@ impl IVssEnumMgmtObject {
 #[doc(hidden)]
 pub struct IVssEnumMgmtObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut VSS_MGMT_OBJECT_PROP, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut VSS_MGMT_OBJECT_PROP, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssEnumObject, IVssEnumObject_Vtbl, 0xae1c7110_2f60_11d3_8a39_00c04f72d8e3);
 ::windows_core::imp::interface_hierarchy!(IVssEnumObject, ::windows_core::IUnknown);
@@ -1073,10 +1073,10 @@ impl IVssEnumObject {
 #[doc(hidden)]
 pub struct IVssEnumObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut VSS_OBJECT_PROP, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut VSS_OBJECT_PROP, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssExpressWriter, IVssExpressWriter_Vtbl, 0xe33affdc_59c7_47b1_97d5_4266598f6235);
 ::windows_core::imp::interface_hierarchy!(IVssExpressWriter, ::windows_core::IUnknown);
@@ -1105,10 +1105,10 @@ impl IVssExpressWriter {
 #[doc(hidden)]
 pub struct IVssExpressWriter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writerid: ::windows_core::GUID, writername: ::windows_core::PCWSTR, usagetype: VSS_USAGE_TYPE, versionmajor: u32, versionminor: u32, reserved: u32, ppmetadata: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub LoadMetadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, metadata: ::windows_core::PCWSTR, reserved: u32) -> ::windows_core::HRESULT,
-    pub Register: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Unregister: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writerid: ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub CreateMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, ::windows_core::PCWSTR, VSS_USAGE_TYPE, u32, u32, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LoadMetadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub Register: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Unregister: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssFileShareSnapshotProvider, IVssFileShareSnapshotProvider_Vtbl, 0xc8636060_7c2e_11df_8c4a_0800200c9a66);
 ::windows_core::imp::interface_hierarchy!(IVssFileShareSnapshotProvider, ::windows_core::IUnknown);
@@ -1150,14 +1150,14 @@ impl IVssFileShareSnapshotProvider {
 #[doc(hidden)]
 pub struct IVssFileShareSnapshotProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcontext: i32) -> ::windows_core::HRESULT,
-    pub GetSnapshotProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotid: ::windows_core::GUID, pprop: *mut VSS_SNAPSHOT_PROP) -> ::windows_core::HRESULT,
-    pub Query: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queriedobjectid: ::windows_core::GUID, equeriedobjecttype: VSS_OBJECT_TYPE, ereturnedobjectstype: VSS_OBJECT_TYPE, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DeleteSnapshots: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourceobjectid: ::windows_core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: super::super::Foundation::BOOL, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub BeginPrepareSnapshot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows_core::GUID, snapshotid: ::windows_core::GUID, pwszsharepath: *const u16, lnewcontext: i32, providerid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub IsPathSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszsharepath: *const u16, pbsupportedbythisprovider: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub IsPathSnapshotted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszsharepath: *const u16, pbsnapshotspresent: *mut super::super::Foundation::BOOL, plsnapshotcompatibility: *mut i32) -> ::windows_core::HRESULT,
-    pub SetSnapshotProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotid: ::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub GetSnapshotProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut VSS_SNAPSHOT_PROP) -> ::windows_core::HRESULT,
+    pub Query: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, VSS_OBJECT_TYPE, VSS_OBJECT_TYPE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeleteSnapshots: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, VSS_OBJECT_TYPE, super::super::Foundation::BOOL, *mut i32, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub BeginPrepareSnapshot: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, ::windows_core::GUID, *const u16, i32, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub IsPathSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub IsPathSnapshotted: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, *mut super::super::Foundation::BOOL, *mut i32) -> ::windows_core::HRESULT,
+    pub SetSnapshotProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, VSS_SNAPSHOT_PROPERTY_ID, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssHardwareSnapshotProvider, IVssHardwareSnapshotProvider_Vtbl, 0x9593a157_44e9_4344_bbeb_44fbf9b06b10);
 ::windows_core::imp::interface_hierarchy!(IVssHardwareSnapshotProvider, ::windows_core::IUnknown);
@@ -1198,27 +1198,27 @@ impl IVssHardwareSnapshotProvider {
 pub struct IVssHardwareSnapshotProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Storage_VirtualDiskService")]
-    pub AreLunsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lluncount: i32, lcontext: i32, rgwszdevices: *const *const u16, pluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbissupported: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub AreLunsSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, *const *const u16, *mut super::VirtualDiskService::VDS_LUN_INFORMATION, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_VirtualDiskService"))]
     AreLunsSupported: usize,
     #[cfg(feature = "Win32_Storage_VirtualDiskService")]
-    pub FillInLunInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszdevicename: *const u16, pluninfo: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbissupported: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub FillInLunInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, *mut super::VirtualDiskService::VDS_LUN_INFORMATION, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_VirtualDiskService"))]
     FillInLunInfo: usize,
     #[cfg(feature = "Win32_Storage_VirtualDiskService")]
-    pub BeginPrepareSnapshot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows_core::GUID, snapshotid: ::windows_core::GUID, lcontext: i32, lluncount: i32, rgdevicenames: *const *const u16, rgluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows_core::HRESULT,
+    pub BeginPrepareSnapshot: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, ::windows_core::GUID, i32, i32, *const *const u16, *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_VirtualDiskService"))]
     BeginPrepareSnapshot: usize,
     #[cfg(feature = "Win32_Storage_VirtualDiskService")]
-    pub GetTargetLuns: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lluncount: i32, rgdevicenames: *const *const u16, rgsourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, rgdestinationluns: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows_core::HRESULT,
+    pub GetTargetLuns: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *const *const u16, *const super::VirtualDiskService::VDS_LUN_INFORMATION, *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_VirtualDiskService"))]
     GetTargetLuns: usize,
     #[cfg(feature = "Win32_Storage_VirtualDiskService")]
-    pub LocateLuns: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lluncount: i32, rgsourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows_core::HRESULT,
+    pub LocateLuns: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *const super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_VirtualDiskService"))]
     LocateLuns: usize,
     #[cfg(feature = "Win32_Storage_VirtualDiskService")]
-    pub OnLunEmpty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszdevicename: *const u16, pinformation: *const super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows_core::HRESULT,
+    pub OnLunEmpty: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, *const super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_VirtualDiskService"))]
     OnLunEmpty: usize,
 }
@@ -1280,17 +1280,17 @@ impl IVssHardwareSnapshotProviderEx {
 #[doc(hidden)]
 pub struct IVssHardwareSnapshotProviderEx_Vtbl {
     pub base__: IVssHardwareSnapshotProvider_Vtbl,
-    pub GetProviderCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plloriginalcapabilitymask: *mut u64) -> ::windows_core::HRESULT,
+    pub GetProviderCapabilities: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Storage_VirtualDiskService")]
-    pub OnLunStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psnapshotluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, poriginalluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32, dwflags: u32) -> ::windows_core::HRESULT,
+    pub OnLunStateChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::VirtualDiskService::VDS_LUN_INFORMATION, *const super::VirtualDiskService::VDS_LUN_INFORMATION, u32, u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_VirtualDiskService"))]
     OnLunStateChange: usize,
     #[cfg(feature = "Win32_Storage_VirtualDiskService")]
-    pub ResyncLuns: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, ptargetluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32, ppasync: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ResyncLuns: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::VirtualDiskService::VDS_LUN_INFORMATION, *const super::VirtualDiskService::VDS_LUN_INFORMATION, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_VirtualDiskService"))]
     ResyncLuns: usize,
     #[cfg(feature = "Win32_Storage_VirtualDiskService")]
-    pub OnReuseLuns: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psnapshotluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, poriginalluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32) -> ::windows_core::HRESULT,
+    pub OnReuseLuns: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::VirtualDiskService::VDS_LUN_INFORMATION, *const super::VirtualDiskService::VDS_LUN_INFORMATION, u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_VirtualDiskService"))]
     OnReuseLuns: usize,
 }
@@ -1323,13 +1323,13 @@ impl IVssProviderCreateSnapshotSet {
 #[doc(hidden)]
 pub struct IVssProviderCreateSnapshotSet_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub EndPrepareSnapshots: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub PreCommitSnapshots: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub CommitSnapshots: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub PostCommitSnapshots: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows_core::GUID, lsnapshotscount: i32) -> ::windows_core::HRESULT,
-    pub PreFinalCommitSnapshots: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub PostFinalCommitSnapshots: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub AbortSnapshots: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub EndPrepareSnapshots: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub PreCommitSnapshots: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub CommitSnapshots: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub PostCommitSnapshots: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, i32) -> ::windows_core::HRESULT,
+    pub PreFinalCommitSnapshots: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub PostFinalCommitSnapshots: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub AbortSnapshots: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssProviderNotifications, IVssProviderNotifications_Vtbl, 0xe561901f_03a5_4afe_86d0_72baeece7004);
 ::windows_core::imp::interface_hierarchy!(IVssProviderNotifications, ::windows_core::IUnknown);
@@ -1351,8 +1351,8 @@ impl IVssProviderNotifications {
 #[doc(hidden)]
 pub struct IVssProviderNotifications_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnLoad: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnUnload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bforceunload: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub OnLoad: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnUnload: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssSnapshotMgmt, IVssSnapshotMgmt_Vtbl, 0xfa7df749_66e7_4986_a27f_e2f04ae53772);
 ::windows_core::imp::interface_hierarchy!(IVssSnapshotMgmt, ::windows_core::IUnknown);
@@ -1374,9 +1374,9 @@ impl IVssSnapshotMgmt {
 #[doc(hidden)]
 pub struct IVssSnapshotMgmt_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetProviderMgmtInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, providerid: ::windows_core::GUID, interfaceid: *const ::windows_core::GUID, ppitf: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub QueryVolumesSupportedForSnapshots: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, providerid: ::windows_core::GUID, lcontext: i32, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub QuerySnapshotsByVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16, providerid: ::windows_core::GUID, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetProviderMgmtInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub QueryVolumesSupportedForSnapshots: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub QuerySnapshotsByVolume: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssSnapshotMgmt2, IVssSnapshotMgmt2_Vtbl, 0x0f61ec39_fe82_45f2_a3f0_768b5d427102);
 ::windows_core::imp::interface_hierarchy!(IVssSnapshotMgmt2, ::windows_core::IUnknown);
@@ -1390,7 +1390,7 @@ impl IVssSnapshotMgmt2 {
 #[doc(hidden)]
 pub struct IVssSnapshotMgmt2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetMinDiffAreaSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pllmindiffareasize: *mut i64) -> ::windows_core::HRESULT,
+    pub GetMinDiffAreaSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssSoftwareSnapshotProvider, IVssSoftwareSnapshotProvider_Vtbl, 0x609e123e_2c5a_44d3_8f01_0b1d9a47d1ff);
 ::windows_core::imp::interface_hierarchy!(IVssSoftwareSnapshotProvider, ::windows_core::IUnknown);
@@ -1439,16 +1439,16 @@ impl IVssSoftwareSnapshotProvider {
 #[doc(hidden)]
 pub struct IVssSoftwareSnapshotProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcontext: i32) -> ::windows_core::HRESULT,
-    pub GetSnapshotProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotid: ::windows_core::GUID, pprop: *mut VSS_SNAPSHOT_PROP) -> ::windows_core::HRESULT,
-    pub Query: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queriedobjectid: ::windows_core::GUID, equeriedobjecttype: VSS_OBJECT_TYPE, ereturnedobjectstype: VSS_OBJECT_TYPE, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DeleteSnapshots: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourceobjectid: ::windows_core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: super::super::Foundation::BOOL, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub BeginPrepareSnapshot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotsetid: ::windows_core::GUID, snapshotid: ::windows_core::GUID, pwszvolumename: *const u16, lnewcontext: i32) -> ::windows_core::HRESULT,
-    pub IsVolumeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16, pbsupportedbythisprovider: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub IsVolumeSnapshotted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszvolumename: *const u16, pbsnapshotspresent: *mut super::super::Foundation::BOOL, plsnapshotcompatibility: *mut i32) -> ::windows_core::HRESULT,
-    pub SetSnapshotProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotid: ::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub RevertToSnapshot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapshotid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub QueryRevertStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszvolume: *const u16, ppasync: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub GetSnapshotProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut VSS_SNAPSHOT_PROP) -> ::windows_core::HRESULT,
+    pub Query: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, VSS_OBJECT_TYPE, VSS_OBJECT_TYPE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeleteSnapshots: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, VSS_OBJECT_TYPE, super::super::Foundation::BOOL, *mut i32, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub BeginPrepareSnapshot: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, ::windows_core::GUID, *const u16, i32) -> ::windows_core::HRESULT,
+    pub IsVolumeSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub IsVolumeSnapshotted: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, *mut super::super::Foundation::BOOL, *mut i32) -> ::windows_core::HRESULT,
+    pub SetSnapshotProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, VSS_SNAPSHOT_PROPERTY_ID, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub RevertToSnapshot: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub QueryRevertStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssWMDependency, IVssWMDependency_Vtbl, 0);
 ::windows_core::imp::interface_hierarchy!(IVssWMDependency, ::windows_core::IUnknown);
@@ -1467,9 +1467,9 @@ impl IVssWMDependency {
 #[doc(hidden)]
 pub struct IVssWMDependency_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetWriterId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwriterid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetLogicalPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlogicalpath: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetComponentName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcomponentname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetWriterId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetLogicalPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetComponentName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVssWMFiledesc, IVssWMFiledesc_Vtbl, 0);
 ::windows_core::imp::interface_hierarchy!(IVssWMFiledesc, ::windows_core::IUnknown);
@@ -1499,11 +1499,11 @@ impl IVssWMFiledesc {
 #[doc(hidden)]
 pub struct IVssWMFiledesc_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpath: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetFilespec: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfilespec: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetRecursive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbrecursive: *mut bool) -> ::windows_core::HRESULT,
-    pub GetAlternateLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstralternatelocation: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetBackupTypeMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwtypemask: *mut u32) -> ::windows_core::HRESULT,
+    pub GetPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetFilespec: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetRecursive: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub GetAlternateLocation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetBackupTypeMask: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::interface!(IVssWriterComponents, IVssWriterComponents_Vtbl);
 impl IVssWriterComponents {
@@ -1521,9 +1521,9 @@ impl IVssWriterComponents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssWriterComponents_Vtbl {
-    pub GetComponentCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccomponents: *mut u32) -> ::windows_core::HRESULT,
-    pub GetWriterInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidinstance: *mut ::windows_core::GUID, pidwriter: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, icomponent: u32, ppcomponent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetComponentCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetWriterInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetComponent: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const VSSCoordinator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe579ab5f_1cc4_44b4_bed9_de0991ff0623);
 pub const VSS_APP_AUTO: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(-1i32);

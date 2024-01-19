@@ -48,16 +48,16 @@ impl IDirectMusic {
 #[doc(hidden)]
 pub struct IDirectMusic_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub EnumPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows_core::HRESULT,
-    pub CreateMusicBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreatePort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsidport: *const ::windows_core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumMasterClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, lpclockinfo: *mut DMUS_CLOCKINFO8) -> ::windows_core::HRESULT,
-    pub GetMasterClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidclock: *mut ::windows_core::GUID, ppreferenceclock: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetMasterClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguidclock: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenable: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetDefaultPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidport: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub EnumPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DMUS_PORTCAPS) -> ::windows_core::HRESULT,
+    pub CreateMusicBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DMUS_BUFFERDESC, *mut *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreatePort: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut DMUS_PORTPARAMS8, *mut *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumMasterClock: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DMUS_CLOCKINFO8) -> ::windows_core::HRESULT,
+    pub GetMasterClock: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetMasterClock: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub Activate: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetDefaultPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
-    pub SetDirectSound: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdirectsound: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND) -> ::windows_core::HRESULT,
+    pub SetDirectSound: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::super::Foundation::HWND) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Media_Audio_DirectSound"))]
     SetDirectSound: usize,
 }
@@ -117,7 +117,7 @@ impl IDirectMusic8 {
 #[doc(hidden)]
 pub struct IDirectMusic8_Vtbl {
     pub base__: IDirectMusic_Vtbl,
-    pub SetExternalMasterClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclock: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetExternalMasterClock: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectMusicBuffer, IDirectMusicBuffer_Vtbl, 0xd2ac2878_b39b_11d1_8704_00600893b1bd);
 ::windows_core::imp::interface_hierarchy!(IDirectMusicBuffer, ::windows_core::IUnknown);
@@ -166,19 +166,19 @@ impl IDirectMusicBuffer {
 #[doc(hidden)]
 pub struct IDirectMusicBuffer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Flush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub TotalTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prttime: *mut i64) -> ::windows_core::HRESULT,
-    pub PackStructured: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rt: i64, dwchannelgroup: u32, dwchannelmessage: u32) -> ::windows_core::HRESULT,
-    pub PackUnstructured: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rt: i64, dwchannelgroup: u32, cb: u32, lpb: *mut u8) -> ::windows_core::HRESULT,
-    pub ResetReadPtr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetNextEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prt: *mut i64, pdwchannelgroup: *mut u32, pdwlength: *mut u32, ppdata: *mut *mut u8) -> ::windows_core::HRESULT,
-    pub GetRawBufferPtr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdata: *mut *mut u8) -> ::windows_core::HRESULT,
-    pub GetStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prt: *mut i64) -> ::windows_core::HRESULT,
-    pub GetUsedBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcb: *mut u32) -> ::windows_core::HRESULT,
-    pub GetMaxBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcb: *mut u32) -> ::windows_core::HRESULT,
-    pub GetBufferFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidformat: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub SetStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rt: i64) -> ::windows_core::HRESULT,
-    pub SetUsedBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cb: u32) -> ::windows_core::HRESULT,
+    pub Flush: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TotalTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
+    pub PackStructured: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64, u32, u32) -> ::windows_core::HRESULT,
+    pub PackUnstructured: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64, u32, u32, *mut u8) -> ::windows_core::HRESULT,
+    pub ResetReadPtr: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNextEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64, *mut u32, *mut u32, *mut *mut u8) -> ::windows_core::HRESULT,
+    pub GetRawBufferPtr: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut u8) -> ::windows_core::HRESULT,
+    pub GetStartTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
+    pub GetUsedBytes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetMaxBytes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetBufferFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub SetStartTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64) -> ::windows_core::HRESULT,
+    pub SetUsedBytes: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectMusicCollection, IDirectMusicCollection_Vtbl, 0xd2ac287c_b39b_11d1_8704_00600893b1bd);
 ::windows_core::imp::interface_hierarchy!(IDirectMusicCollection, ::windows_core::IUnknown);
@@ -198,8 +198,8 @@ impl IDirectMusicCollection {
 #[doc(hidden)]
 pub struct IDirectMusicCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetInstrument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwpatch: u32, ppinstrument: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumInstrument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pdwpatch: *mut u32, pwszname: ::windows_core::PCWSTR, dwnamelen: u32) -> ::windows_core::HRESULT,
+    pub GetInstrument: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumInstrument: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u32, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectMusicDownload, IDirectMusicDownload_Vtbl, 0xd2ac287b_b39b_11d1_8704_00600893b1bd);
 ::windows_core::imp::interface_hierarchy!(IDirectMusicDownload, ::windows_core::IUnknown);
@@ -212,7 +212,7 @@ impl IDirectMusicDownload {
 #[doc(hidden)]
 pub struct IDirectMusicDownload_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppvbuffer: *mut *mut ::core::ffi::c_void, pdwsize: *mut u32) -> ::windows_core::HRESULT,
+    pub GetBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectMusicDownloadedInstrument, IDirectMusicDownloadedInstrument_Vtbl, 0xd2ac287e_b39b_11d1_8704_00600893b1bd);
 ::windows_core::imp::interface_hierarchy!(IDirectMusicDownloadedInstrument, ::windows_core::IUnknown);
@@ -236,8 +236,8 @@ impl IDirectMusicInstrument {
 #[doc(hidden)]
 pub struct IDirectMusicInstrument_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetPatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwpatch: *mut u32) -> ::windows_core::HRESULT,
-    pub SetPatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwpatch: u32) -> ::windows_core::HRESULT,
+    pub GetPatch: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetPatch: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectMusicPort, IDirectMusicPort_Vtbl, 0x08f2d8c9_37c2_11d2_b9f9_0000f875ac12);
 ::windows_core::imp::interface_hierarchy!(IDirectMusicPort, ::windows_core::IUnknown);
@@ -325,29 +325,29 @@ impl IDirectMusicPort {
 #[doc(hidden)]
 pub struct IDirectMusicPort_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub PlayBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetReadNotificationHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hevent: super::super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
-    pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DownloadInstrument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinstrument: *mut ::core::ffi::c_void, ppdownloadedinstrument: *mut *mut ::core::ffi::c_void, pnoteranges: *mut DMUS_NOTERANGE, dwnumnoteranges: u32) -> ::windows_core::HRESULT,
-    pub UnloadInstrument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdownloadedinstrument: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetLatencyClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppclock: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetRunningStats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstats: *mut DMUS_SYNTHSTATS) -> ::windows_core::HRESULT,
-    pub Compact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pportcaps: *mut DMUS_PORTCAPS) -> ::windows_core::HRESULT,
+    pub PlayBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetReadNotificationHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
+    pub Read: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DownloadInstrument: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut DMUS_NOTERANGE, u32) -> ::windows_core::HRESULT,
+    pub UnloadInstrument: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetLatencyClock: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetRunningStats: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DMUS_SYNTHSTATS) -> ::windows_core::HRESULT,
+    pub Compact: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCaps: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DMUS_PORTCAPS) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_IO")]
-    pub DeviceIoControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwiocontrolcode: u32, lpinbuffer: *mut ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::super::System::IO::OVERLAPPED) -> ::windows_core::HRESULT,
+    pub DeviceIoControl: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void, u32, *mut u32, *mut super::super::super::System::IO::OVERLAPPED) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_IO"))]
     DeviceIoControl: usize,
-    pub SetNumChannelGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwchannelgroups: u32) -> ::windows_core::HRESULT,
-    pub GetNumChannelGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwchannelgroups: *mut u32) -> ::windows_core::HRESULT,
-    pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factive: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetChannelPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows_core::HRESULT,
-    pub GetChannelPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows_core::HRESULT,
+    pub SetNumChannelGroups: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetNumChannelGroups: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Activate: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetChannelPriority: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32) -> ::windows_core::HRESULT,
+    pub GetChannelPriority: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
-    pub SetDirectSound: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdirectsound: *mut ::core::ffi::c_void, pdirectsoundbuffer: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetDirectSound: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Media_Audio_DirectSound"))]
     SetDirectSound: usize,
-    pub GetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwaveformatex: *mut super::WAVEFORMATEX, pdwwaveformatexsize: *mut u32, pdwbuffersize: *mut u32) -> ::windows_core::HRESULT,
+    pub GetFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::WAVEFORMATEX, *mut u32, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectMusicPortDownload, IDirectMusicPortDownload_Vtbl, 0xd2ac287a_b39b_11d1_8704_00600893b1bd);
 ::windows_core::imp::interface_hierarchy!(IDirectMusicPortDownload, ::windows_core::IUnknown);
@@ -383,12 +383,12 @@ impl IDirectMusicPortDownload {
 #[doc(hidden)]
 pub struct IDirectMusicPortDownload_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdlid: u32, ppidmdownload: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AllocateBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsize: u32, ppidmdownload: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetDLId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstartdlid: *mut u32, dwcount: u32) -> ::windows_core::HRESULT,
-    pub GetAppend: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwappend: *mut u32) -> ::windows_core::HRESULT,
-    pub Download: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidmdownload: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Unload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidmdownload: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AllocateBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDLId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, u32) -> ::windows_core::HRESULT,
+    pub GetAppend: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Download: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Unload: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectMusicSynth, IDirectMusicSynth_Vtbl, 0x09823661_5c85_11d2_afa6_00aa0024d8b6);
 ::windows_core::imp::interface_hierarchy!(IDirectMusicSynth, ::windows_core::IUnknown);
@@ -463,23 +463,23 @@ impl IDirectMusicSynth {
 #[doc(hidden)]
 pub struct IDirectMusicSynth_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pportparams: *mut DMUS_PORTPARAMS8) -> ::windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetNumChannelGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwgroups: u32) -> ::windows_core::HRESULT,
-    pub Download: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::core::ffi::c_void, pbfree: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub Unload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdownload: super::super::super::Foundation::HANDLE, lpfreehandle: isize, huserdata: super::super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
-    pub PlayBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rt: i64, pbbuffer: *mut u8, cbbuffer: u32) -> ::windows_core::HRESULT,
-    pub GetRunningStats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstats: *mut DMUS_SYNTHSTATS) -> ::windows_core::HRESULT,
-    pub GetPortCaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcaps: *mut DMUS_PORTCAPS) -> ::windows_core::HRESULT,
-    pub SetMasterClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclock: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetLatencyClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppclock: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenable: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetSynthSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psynthsink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Render: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *mut i16, dwlength: u32, llposition: i64) -> ::windows_core::HRESULT,
-    pub SetChannelPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows_core::HRESULT,
-    pub GetChannelPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows_core::HRESULT,
-    pub GetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwaveformatex: *mut super::WAVEFORMATEX, pdwwaveformatexsize: *mut u32) -> ::windows_core::HRESULT,
-    pub GetAppend: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwappend: *mut u32) -> ::windows_core::HRESULT,
+    pub Open: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DMUS_PORTPARAMS8) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetNumChannelGroups: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Download: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::HANDLE, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub Unload: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::HANDLE, isize, super::super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
+    pub PlayBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64, *mut u8, u32) -> ::windows_core::HRESULT,
+    pub GetRunningStats: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DMUS_SYNTHSTATS) -> ::windows_core::HRESULT,
+    pub GetPortCaps: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DMUS_PORTCAPS) -> ::windows_core::HRESULT,
+    pub SetMasterClock: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetLatencyClock: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Activate: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetSynthSink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Render: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i16, u32, i64) -> ::windows_core::HRESULT,
+    pub SetChannelPriority: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32) -> ::windows_core::HRESULT,
+    pub GetChannelPriority: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::WAVEFORMATEX, *mut u32) -> ::windows_core::HRESULT,
+    pub GetAppend: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectMusicSynth8, IDirectMusicSynth8_Vtbl, 0x53cab625_2711_4c9f_9de7_1b7f925f6fc8);
 ::windows_core::imp::interface_hierarchy!(IDirectMusicSynth8, ::windows_core::IUnknown, IDirectMusicSynth);
@@ -569,11 +569,11 @@ impl IDirectMusicSynth8 {
 #[doc(hidden)]
 pub struct IDirectMusicSynth8_Vtbl {
     pub base__: IDirectMusicSynth_Vtbl,
-    pub PlayVoice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rt: i64, dwvoiceid: u32, dwchannelgroup: u32, dwchannel: u32, dwdlid: u32, prpitch: i32, vrvolume: i32, stvoicestart: u64, stloopstart: u64, stloopend: u64) -> ::windows_core::HRESULT,
-    pub StopVoice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rt: i64, dwvoiceid: u32) -> ::windows_core::HRESULT,
-    pub GetVoiceState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwvoice: *mut u32, cbvoice: u32, dwvoicestate: *mut DMUS_VOICE_STATE) -> ::windows_core::HRESULT,
-    pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdownloadid: u32, dwflags: u32) -> ::windows_core::HRESULT,
-    pub AssignChannelToBuses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwchannelgroup: u32, dwchannel: u32, pdwbuses: *mut u32, cbuses: u32) -> ::windows_core::HRESULT,
+    pub PlayVoice: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64, u32, u32, u32, u32, i32, i32, u64, u64, u64) -> ::windows_core::HRESULT,
+    pub StopVoice: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64, u32) -> ::windows_core::HRESULT,
+    pub GetVoiceState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, u32, *mut DMUS_VOICE_STATE) -> ::windows_core::HRESULT,
+    pub Refresh: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub AssignChannelToBuses: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut u32, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectMusicSynthSink, IDirectMusicSynthSink_Vtbl, 0x09823663_5c85_11d2_afa6_00aa0024d8b6);
 ::windows_core::imp::interface_hierarchy!(IDirectMusicSynthSink, ::windows_core::IUnknown);
@@ -623,17 +623,17 @@ impl IDirectMusicSynthSink {
 #[doc(hidden)]
 pub struct IDirectMusicSynthSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psynth: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetMasterClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclock: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetLatencyClock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppclock: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenable: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SampleToRefTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, llsampletime: i64, prftime: *mut i64) -> ::windows_core::HRESULT,
-    pub RefTimeToSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rftime: i64, pllsampletime: *mut i64) -> ::windows_core::HRESULT,
+    pub Init: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetMasterClock: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetLatencyClock: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Activate: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SampleToRefTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64, *mut i64) -> ::windows_core::HRESULT,
+    pub RefTimeToSample: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64, *mut i64) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
-    pub SetDirectSound: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdirectsound: *mut ::core::ffi::c_void, pdirectsoundbuffer: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetDirectSound: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Media_Audio_DirectSound"))]
     SetDirectSound: usize,
-    pub GetDesiredBufferSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwbuffersizeinsamples: *mut u32) -> ::windows_core::HRESULT,
+    pub GetDesiredBufferSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDirectMusicThru, IDirectMusicThru_Vtbl, 0xced153e7_3606_11d2_b9f9_0000f875ac12);
 ::windows_core::imp::interface_hierarchy!(IDirectMusicThru, ::windows_core::IUnknown);
@@ -649,7 +649,7 @@ impl IDirectMusicThru {
 #[doc(hidden)]
 pub struct IDirectMusicThru_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ThruChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ThruChannel: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const CLSID_DirectMusic: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x636b9f10_0c7d_11d1_95b2_0020afdc7421);
 pub const CLSID_DirectMusicCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x480ff4b0_28b2_11d1_bef7_00c04fbf8fef);

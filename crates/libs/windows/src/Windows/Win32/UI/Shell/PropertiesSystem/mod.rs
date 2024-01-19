@@ -730,7 +730,7 @@ impl ICreateObject {
 #[doc(hidden)]
 pub struct ICreateObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows_core::GUID, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDelayedPropertyStoreFactory, IDelayedPropertyStoreFactory_Vtbl, 0x40d4577f_e237_4bdb_bd69_58f089431b6a);
 ::windows_core::imp::interface_hierarchy!(IDelayedPropertyStoreFactory, ::windows_core::IUnknown, IPropertyStoreFactory);
@@ -762,7 +762,7 @@ impl IDelayedPropertyStoreFactory {
 #[doc(hidden)]
 pub struct IDelayedPropertyStoreFactory_Vtbl {
     pub base__: IPropertyStoreFactory_Vtbl,
-    pub GetDelayedPropertyStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: GETPROPERTYSTOREFLAGS, dwstoreid: u32, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDelayedPropertyStore: unsafe extern "system" fn(*mut ::core::ffi::c_void, GETPROPERTYSTOREFLAGS, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInitializeWithFile, IInitializeWithFile_Vtbl, 0xb7d14566_0509_4cce_a71f_0a554233bd9b);
 ::windows_core::imp::interface_hierarchy!(IInitializeWithFile, ::windows_core::IUnknown);
@@ -778,7 +778,7 @@ impl IInitializeWithFile {
 #[doc(hidden)]
 pub struct IInitializeWithFile_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfilepath: ::windows_core::PCWSTR, grfmode: u32) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInitializeWithStream, IInitializeWithStream_Vtbl, 0xb824b49d_22ac_4161_ac8a_9916e8fa3f7f);
 ::windows_core::imp::interface_hierarchy!(IInitializeWithStream, ::windows_core::IUnknown);
@@ -797,7 +797,7 @@ impl IInitializeWithStream {
 pub struct IInitializeWithStream_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstream: *mut ::core::ffi::c_void, grfmode: u32) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Initialize: usize,
 }
@@ -830,10 +830,10 @@ impl INamedPropertyStore {
 #[doc(hidden)]
 pub struct INamedPropertyStore_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetNamedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows_core::PCWSTR, ppropvar: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
-    pub SetNamedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows_core::PCWSTR, propvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
-    pub GetNameCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows_core::HRESULT,
-    pub GetNameAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iprop: u32, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetNamedValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub SetNamedValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub GetNameCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetNameAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IObjectWithPropertyKey, IObjectWithPropertyKey_Vtbl, 0xfc0ca0a7_c316_4fd2_9031_3e628e6d4f23);
 ::windows_core::imp::interface_hierarchy!(IObjectWithPropertyKey, ::windows_core::IUnknown);
@@ -849,8 +849,8 @@ impl IObjectWithPropertyKey {
 #[doc(hidden)]
 pub struct IObjectWithPropertyKey_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetPropertyKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY) -> ::windows_core::HRESULT,
-    pub GetPropertyKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkey: *mut PROPERTYKEY) -> ::windows_core::HRESULT,
+    pub SetPropertyKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PROPERTYKEY) -> ::windows_core::HRESULT,
+    pub GetPropertyKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PROPERTYKEY) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPersistSerializedPropStorage, IPersistSerializedPropStorage_Vtbl, 0xe318ad57_0aa0_450f_aca5_6fab7103d917);
 ::windows_core::imp::interface_hierarchy!(IPersistSerializedPropStorage, ::windows_core::IUnknown);
@@ -872,9 +872,9 @@ impl IPersistSerializedPropStorage {
 #[doc(hidden)]
 pub struct IPersistSerializedPropStorage_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32) -> ::windows_core::HRESULT,
-    pub SetPropertyStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psps: PCUSERIALIZEDPROPSTORAGE, cb: u32) -> ::windows_core::HRESULT,
-    pub GetPropertyStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsps: *mut *mut SERIALIZEDPROPSTORAGE, pcb: *mut u32) -> ::windows_core::HRESULT,
+    pub SetFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub SetPropertyStorage: unsafe extern "system" fn(*mut ::core::ffi::c_void, PCUSERIALIZEDPROPSTORAGE, u32) -> ::windows_core::HRESULT,
+    pub GetPropertyStorage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut SERIALIZEDPROPSTORAGE, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPersistSerializedPropStorage2, IPersistSerializedPropStorage2_Vtbl, 0x77effa68_4f98_4366_ba72_573b3d880571);
 ::windows_core::imp::interface_hierarchy!(IPersistSerializedPropStorage2, ::windows_core::IUnknown, IPersistSerializedPropStorage);
@@ -903,8 +903,8 @@ impl IPersistSerializedPropStorage2 {
 #[doc(hidden)]
 pub struct IPersistSerializedPropStorage2_Vtbl {
     pub base__: IPersistSerializedPropStorage_Vtbl,
-    pub GetPropertyStorageSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcb: *mut u32) -> ::windows_core::HRESULT,
-    pub GetPropertyStorageBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psps: *mut SERIALIZEDPROPSTORAGE, cb: u32, pcbwritten: *mut u32) -> ::windows_core::HRESULT,
+    pub GetPropertyStorageSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetPropertyStorageBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SERIALIZEDPROPSTORAGE, u32, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyChange, IPropertyChange_Vtbl, 0xf917bc8a_1bba_4478_a245_1bde03eb9431);
 ::windows_core::imp::interface_hierarchy!(IPropertyChange, ::windows_core::IUnknown, IObjectWithPropertyKey);
@@ -924,7 +924,7 @@ impl IPropertyChange {
 #[doc(hidden)]
 pub struct IPropertyChange_Vtbl {
     pub base__: IObjectWithPropertyKey_Vtbl,
-    pub ApplyToPropVariant: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvarin: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, ppropvarout: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub ApplyToPropVariant: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyChangeArray, IPropertyChangeArray_Vtbl, 0x380f5cad_1b5e_42f2_805d_637fd392d31e);
 ::windows_core::imp::interface_hierarchy!(IPropertyChangeArray, ::windows_core::IUnknown);
@@ -969,13 +969,13 @@ impl IPropertyChangeArray {
 #[doc(hidden)]
 pub struct IPropertyChangeArray_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcoperations: *mut u32) -> ::windows_core::HRESULT,
-    pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iindex: u32, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub InsertAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iindex: u32, ppropchange: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Append: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropchange: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AppendOrReplace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropchange: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iindex: u32) -> ::windows_core::HRESULT,
-    pub IsKeyInArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InsertAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Append: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AppendOrReplace: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub IsKeyInArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PROPERTYKEY) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyDescription, IPropertyDescription_Vtbl, 0x6f79d558_3e96_4549_a1d1_7d75d2288814);
 ::windows_core::imp::interface_hierarchy!(IPropertyDescription, ::windows_core::IUnknown);
@@ -1072,30 +1072,30 @@ impl IPropertyDescription {
 #[doc(hidden)]
 pub struct IPropertyDescription_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetPropertyKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkey: *mut PROPERTYKEY) -> ::windows_core::HRESULT,
-    pub GetCanonicalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetPropertyType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvartype: *mut u16) -> ::windows_core::HRESULT,
-    pub GetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetEditInvitation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszinvite: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetTypeFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mask: PROPDESC_TYPE_FLAGS, ppdtflags: *mut PROPDESC_TYPE_FLAGS) -> ::windows_core::HRESULT,
-    pub GetViewFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdvflags: *mut PROPDESC_VIEW_FLAGS) -> ::windows_core::HRESULT,
-    pub GetDefaultColumnWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcxchars: *mut u32) -> ::windows_core::HRESULT,
-    pub GetDisplayType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdisplaytype: *mut PROPDESC_DISPLAYTYPE) -> ::windows_core::HRESULT,
-    pub GetColumnState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcsflags: *mut u32) -> ::windows_core::HRESULT,
-    pub GetGroupingRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgr: *mut PROPDESC_GROUPING_RANGE) -> ::windows_core::HRESULT,
-    pub GetRelativeDescriptionType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prdt: *mut PROPDESC_RELATIVEDESCRIPTION_TYPE) -> ::windows_core::HRESULT,
-    pub GetRelativeDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvar1: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, propvar2: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, ppszdesc1: *mut ::windows_core::PWSTR, ppszdesc2: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetSortDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psd: *mut PROPDESC_SORTDESCRIPTION) -> ::windows_core::HRESULT,
-    pub GetSortDescriptionLabel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fdescending: super::super::super::Foundation::BOOL, ppszdescription: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetAggregationType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paggtype: *mut PROPDESC_AGGREGATION_TYPE) -> ::windows_core::HRESULT,
+    pub GetPropertyKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PROPERTYKEY) -> ::windows_core::HRESULT,
+    pub GetCanonicalName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetPropertyType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
+    pub GetDisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetEditInvitation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetTypeFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, PROPDESC_TYPE_FLAGS, *mut PROPDESC_TYPE_FLAGS) -> ::windows_core::HRESULT,
+    pub GetViewFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PROPDESC_VIEW_FLAGS) -> ::windows_core::HRESULT,
+    pub GetDefaultColumnWidth: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetDisplayType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PROPDESC_DISPLAYTYPE) -> ::windows_core::HRESULT,
+    pub GetColumnState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetGroupingRange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PROPDESC_GROUPING_RANGE) -> ::windows_core::HRESULT,
+    pub GetRelativeDescriptionType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PROPDESC_RELATIVEDESCRIPTION_TYPE) -> ::windows_core::HRESULT,
+    pub GetRelativeDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, *mut ::windows_core::PWSTR, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetSortDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PROPDESC_SORTDESCRIPTION) -> ::windows_core::HRESULT,
+    pub GetSortDescriptionLabel: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::BOOL, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetAggregationType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PROPDESC_AGGREGATION_TYPE) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Search_Common")]
-    pub GetConditionType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontype: *mut PROPDESC_CONDITION_TYPE, popdefault: *mut super::super::super::System::Search::Common::CONDITION_OPERATION) -> ::windows_core::HRESULT,
+    pub GetConditionType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PROPDESC_CONDITION_TYPE, *mut super::super::super::System::Search::Common::CONDITION_OPERATION) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Search_Common"))]
     GetConditionType: usize,
-    pub GetEnumTypeList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CoerceToCanonicalValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropvar: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
-    pub FormatForDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, pdfflags: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub IsValueCanonical: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub GetEnumTypeList: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CoerceToCanonicalValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub FormatForDisplay: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, PROPDESC_FORMAT_FLAGS, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub IsValueCanonical: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyDescription2, IPropertyDescription2_Vtbl, 0x57d2eded_5062_400e_b107_5dae79fe57a6);
 ::windows_core::imp::interface_hierarchy!(IPropertyDescription2, ::windows_core::IUnknown, IPropertyDescription);
@@ -1196,7 +1196,7 @@ impl IPropertyDescription2 {
 #[doc(hidden)]
 pub struct IPropertyDescription2_Vtbl {
     pub base__: IPropertyDescription_Vtbl,
-    pub GetImageReferenceForValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, ppszimageres: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetImageReferenceForValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyDescriptionAliasInfo, IPropertyDescriptionAliasInfo_Vtbl, 0xf67104fc_2af9_46fd_b32d_243c1404f3d1);
 ::windows_core::imp::interface_hierarchy!(IPropertyDescriptionAliasInfo, ::windows_core::IUnknown, IPropertyDescription);
@@ -1307,8 +1307,8 @@ impl IPropertyDescriptionAliasInfo {
 #[doc(hidden)]
 pub struct IPropertyDescriptionAliasInfo_Vtbl {
     pub base__: IPropertyDescription_Vtbl,
-    pub GetSortByAlias: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetAdditionalSortByAliases: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetSortByAlias: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAdditionalSortByAliases: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyDescriptionList, IPropertyDescriptionList_Vtbl, 0x1f9fc1d0_c39b_4b26_817f_011967d3440e);
 ::windows_core::imp::interface_hierarchy!(IPropertyDescriptionList, ::windows_core::IUnknown);
@@ -1329,8 +1329,8 @@ impl IPropertyDescriptionList {
 #[doc(hidden)]
 pub struct IPropertyDescriptionList_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelem: *mut u32) -> ::windows_core::HRESULT,
-    pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ielem: u32, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyDescriptionRelatedPropertyInfo, IPropertyDescriptionRelatedPropertyInfo_Vtbl, 0x507393f4_2a3d_4a60_b59e_d9c75716c2dd);
 ::windows_core::imp::interface_hierarchy!(IPropertyDescriptionRelatedPropertyInfo, ::windows_core::IUnknown, IPropertyDescription);
@@ -1435,7 +1435,7 @@ impl IPropertyDescriptionRelatedPropertyInfo {
 #[doc(hidden)]
 pub struct IPropertyDescriptionRelatedPropertyInfo_Vtbl {
     pub base__: IPropertyDescription_Vtbl,
-    pub GetRelatedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszrelationshipname: ::windows_core::PCWSTR, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetRelatedProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyDescriptionSearchInfo, IPropertyDescriptionSearchInfo_Vtbl, 0x078f91bd_29a2_440f_924e_46a291524520);
 ::windows_core::imp::interface_hierarchy!(IPropertyDescriptionSearchInfo, ::windows_core::IUnknown, IPropertyDescription);
@@ -1548,10 +1548,10 @@ impl IPropertyDescriptionSearchInfo {
 #[doc(hidden)]
 pub struct IPropertyDescriptionSearchInfo_Vtbl {
     pub base__: IPropertyDescription_Vtbl,
-    pub GetSearchInfoFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdsiflags: *mut PROPDESC_SEARCHINFO_FLAGS) -> ::windows_core::HRESULT,
-    pub GetColumnIndexType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdcitype: *mut PROPDESC_COLUMNINDEX_TYPE) -> ::windows_core::HRESULT,
-    pub GetProjectionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszprojection: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetMaxSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbmaxsize: *mut u32) -> ::windows_core::HRESULT,
+    pub GetSearchInfoFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PROPDESC_SEARCHINFO_FLAGS) -> ::windows_core::HRESULT,
+    pub GetColumnIndexType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PROPDESC_COLUMNINDEX_TYPE) -> ::windows_core::HRESULT,
+    pub GetProjectionString: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetMaxSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyEnumType, IPropertyEnumType_Vtbl, 0x11e1fbf9_2d56_4a6b_8db3_7cd193a471f2);
 ::windows_core::imp::interface_hierarchy!(IPropertyEnumType, ::windows_core::IUnknown);
@@ -1581,11 +1581,11 @@ impl IPropertyEnumType {
 #[doc(hidden)]
 pub struct IPropertyEnumType_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetEnumType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penumtype: *mut PROPENUMTYPE) -> ::windows_core::HRESULT,
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropvar: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
-    pub GetRangeMinValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropvarmin: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
-    pub GetRangeSetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropvarset: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
-    pub GetDisplayText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszdisplay: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetEnumType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PROPENUMTYPE) -> ::windows_core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub GetRangeMinValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub GetRangeSetValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub GetDisplayText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyEnumType2, IPropertyEnumType2_Vtbl, 0x9b6e051c_5ddd_4321_9070_fe2acb55e794);
 ::windows_core::imp::interface_hierarchy!(IPropertyEnumType2, ::windows_core::IUnknown, IPropertyEnumType);
@@ -1619,7 +1619,7 @@ impl IPropertyEnumType2 {
 #[doc(hidden)]
 pub struct IPropertyEnumType2_Vtbl {
     pub base__: IPropertyEnumType_Vtbl,
-    pub GetImageReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszimageres: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetImageReference: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyEnumTypeList, IPropertyEnumTypeList_Vtbl, 0xa99400f4_3d84_4557_94ba_1242fb2cc9a6);
 ::windows_core::imp::interface_hierarchy!(IPropertyEnumTypeList, ::windows_core::IUnknown);
@@ -1651,10 +1651,10 @@ impl IPropertyEnumTypeList {
 #[doc(hidden)]
 pub struct IPropertyEnumTypeList_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pctypes: *mut u32) -> ::windows_core::HRESULT,
-    pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itype: u32, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetConditionAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FindMatchingIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propvarcmp: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, pnindex: *mut u32) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetConditionAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindMatchingIndex: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyStore, IPropertyStore_Vtbl, 0x886d8eeb_8cf2_4446_8d02_cdba1dbdcf99);
 ::windows_core::imp::interface_hierarchy!(IPropertyStore, ::windows_core::IUnknown);
@@ -1681,11 +1681,11 @@ impl IPropertyStore {
 #[doc(hidden)]
 pub struct IPropertyStore_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cprops: *mut u32) -> ::windows_core::HRESULT,
-    pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iprop: u32, pkey: *mut PROPERTYKEY) -> ::windows_core::HRESULT,
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, pv: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
-    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
-    pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut PROPERTYKEY) -> ::windows_core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PROPERTYKEY, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub SetValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PROPERTYKEY, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub Commit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyStoreCache, IPropertyStoreCache_Vtbl, 0x3017056d_9a91_4e90_937d_746c72abbf4f);
 ::windows_core::imp::interface_hierarchy!(IPropertyStoreCache, ::windows_core::IUnknown, IPropertyStore);
@@ -1725,10 +1725,10 @@ impl IPropertyStoreCache {
 #[doc(hidden)]
 pub struct IPropertyStoreCache_Vtbl {
     pub base__: IPropertyStore_Vtbl,
-    pub GetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, pstate: *mut PSC_STATE) -> ::windows_core::HRESULT,
-    pub GetValueAndState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, ppropvar: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, pstate: *mut PSC_STATE) -> ::windows_core::HRESULT,
-    pub SetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, state: PSC_STATE) -> ::windows_core::HRESULT,
-    pub SetValueAndState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, ppropvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, state: PSC_STATE) -> ::windows_core::HRESULT,
+    pub GetState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PROPERTYKEY, *mut PSC_STATE) -> ::windows_core::HRESULT,
+    pub GetValueAndState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PROPERTYKEY, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, *mut PSC_STATE) -> ::windows_core::HRESULT,
+    pub SetState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PROPERTYKEY, PSC_STATE) -> ::windows_core::HRESULT,
+    pub SetValueAndState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PROPERTYKEY, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, PSC_STATE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyStoreCapabilities, IPropertyStoreCapabilities_Vtbl, 0xc8e2d566_186e_4d49_bf41_6909ead56acc);
 ::windows_core::imp::interface_hierarchy!(IPropertyStoreCapabilities, ::windows_core::IUnknown);
@@ -1741,7 +1741,7 @@ impl IPropertyStoreCapabilities {
 #[doc(hidden)]
 pub struct IPropertyStoreCapabilities_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub IsPropertyWritable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY) -> ::windows_core::HRESULT,
+    pub IsPropertyWritable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PROPERTYKEY) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyStoreFactory, IPropertyStoreFactory_Vtbl, 0xbc110b6d_57e8_4148_a9c6_91015ab2f3a5);
 ::windows_core::imp::interface_hierarchy!(IPropertyStoreFactory, ::windows_core::IUnknown);
@@ -1766,8 +1766,8 @@ impl IPropertyStoreFactory {
 #[doc(hidden)]
 pub struct IPropertyStoreFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetPropertyStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: GETPROPERTYSTOREFLAGS, punkfactory: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetPropertyStoreForKeys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rgkeys: *const PROPERTYKEY, ckeys: u32, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPropertyStore: unsafe extern "system" fn(*mut ::core::ffi::c_void, GETPROPERTYSTOREFLAGS, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPropertyStoreForKeys: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PROPERTYKEY, u32, GETPROPERTYSTOREFLAGS, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertySystem, IPropertySystem_Vtbl, 0xca724e8a_c3e6_442b_88a4_6fb0db8035a3);
 ::windows_core::imp::interface_hierarchy!(IPropertySystem, ::windows_core::IUnknown);
@@ -1829,15 +1829,15 @@ impl IPropertySystem {
 #[doc(hidden)]
 pub struct IPropertySystem_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetPropertyDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propkey: *const PROPERTYKEY, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetPropertyDescriptionByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcanonicalname: ::windows_core::PCWSTR, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetPropertyDescriptionListFromString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszproplist: ::windows_core::PCWSTR, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnumeratePropertyDescriptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filteron: PROPDESC_ENUMFILTER, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FormatForDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, pdff: PROPDESC_FORMAT_FLAGS, psztext: ::windows_core::PWSTR, cchtext: u32) -> ::windows_core::HRESULT,
-    pub FormatForDisplayAlloc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY, propvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, pdff: PROPDESC_FORMAT_FLAGS, ppszdisplay: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub RegisterPropertySchema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub UnregisterPropertySchema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub RefreshPropertySchema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPropertyDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PROPERTYKEY, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPropertyDescriptionByName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPropertyDescriptionListFromString: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumeratePropertyDescriptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, PROPDESC_ENUMFILTER, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FormatForDisplay: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PROPERTYKEY, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, PROPDESC_FORMAT_FLAGS, ::windows_core::PWSTR, u32) -> ::windows_core::HRESULT,
+    pub FormatForDisplayAlloc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PROPERTYKEY, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, PROPDESC_FORMAT_FLAGS, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub RegisterPropertySchema: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub UnregisterPropertySchema: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub RefreshPropertySchema: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertySystemChangeNotify, IPropertySystemChangeNotify_Vtbl, 0xfa955fd9_38be_4879_a6ce_824cf52d609f);
 ::windows_core::imp::interface_hierarchy!(IPropertySystemChangeNotify, ::windows_core::IUnknown);
@@ -1850,7 +1850,7 @@ impl IPropertySystemChangeNotify {
 #[doc(hidden)]
 pub struct IPropertySystemChangeNotify_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SchemaRefreshed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SchemaRefreshed: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyUI, IPropertyUI_Vtbl, 0x757a7d9f_919a_4118_99d7_dbb208c8cc66);
 ::windows_core::imp::interface_hierarchy!(IPropertyUI, ::windows_core::IUnknown);
@@ -1889,14 +1889,14 @@ impl IPropertyUI {
 #[doc(hidden)]
 pub struct IPropertyUI_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ParsePropertyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows_core::PCWSTR, pfmtid: *mut ::windows_core::GUID, ppid: *mut u32, pcheaten: *mut u32) -> ::windows_core::HRESULT,
-    pub GetCannonicalName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fmtid: *const ::windows_core::GUID, pid: u32, pwsztext: ::windows_core::PWSTR, cchtext: u32) -> ::windows_core::HRESULT,
-    pub GetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fmtid: *const ::windows_core::GUID, pid: u32, flags: PROPERTYUI_NAME_FLAGS, pwsztext: ::windows_core::PWSTR, cchtext: u32) -> ::windows_core::HRESULT,
-    pub GetPropertyDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fmtid: *const ::windows_core::GUID, pid: u32, pwsztext: ::windows_core::PWSTR, cchtext: u32) -> ::windows_core::HRESULT,
-    pub GetDefaultWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fmtid: *const ::windows_core::GUID, pid: u32, pcxchars: *mut u32) -> ::windows_core::HRESULT,
-    pub GetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fmtid: *const ::windows_core::GUID, pid: u32, pflags: *mut PROPERTYUI_FLAGS) -> ::windows_core::HRESULT,
-    pub FormatForDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fmtid: *const ::windows_core::GUID, pid: u32, ppropvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, puiff: PROPERTYUI_FORMAT_FLAGS, pwsztext: ::windows_core::PWSTR, cchtext: u32) -> ::windows_core::HRESULT,
-    pub GetHelpInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fmtid: *const ::windows_core::GUID, pid: u32, pwszhelpfile: ::windows_core::PWSTR, cch: u32, puhelpid: *mut u32) -> ::windows_core::HRESULT,
+    pub ParsePropertyName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::windows_core::GUID, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetCannonicalName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, ::windows_core::PWSTR, u32) -> ::windows_core::HRESULT,
+    pub GetDisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, PROPERTYUI_NAME_FLAGS, ::windows_core::PWSTR, u32) -> ::windows_core::HRESULT,
+    pub GetPropertyDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, ::windows_core::PWSTR, u32) -> ::windows_core::HRESULT,
+    pub GetDefaultWidth: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *mut PROPERTYUI_FLAGS) -> ::windows_core::HRESULT,
+    pub FormatForDisplay: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, PROPERTYUI_FORMAT_FLAGS, ::windows_core::PWSTR, u32) -> ::windows_core::HRESULT,
+    pub GetHelpInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, ::windows_core::PWSTR, u32, *mut u32) -> ::windows_core::HRESULT,
 }
 pub const FPSPS_DEFAULT: _PERSIST_SPROPSTORE_FLAGS = _PERSIST_SPROPSTORE_FLAGS(0i32);
 pub const FPSPS_READONLY: _PERSIST_SPROPSTORE_FLAGS = _PERSIST_SPROPSTORE_FLAGS(1i32);
