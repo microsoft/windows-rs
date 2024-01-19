@@ -68,6 +68,7 @@ void __stdcall CloseGestureInfoHandle(int p0) {}
 void __stdcall CloseTouchInputHandle(int p0) {}
 void __stdcall CloseWindow(int p0) {}
 void __stdcall CloseWindowStation(int p0) {}
+void __stdcall ConsoleControl(int p0, int p1, int p2) {}
 void __stdcall CopyAcceleratorTableA(int p0, int p1, int p2) {}
 void __stdcall CopyAcceleratorTableW(int p0, int p1, int p2) {}
 void __stdcall CopyIcon(int p0) {}
@@ -468,6 +469,7 @@ void __stdcall IsTouchWindow(int p0, int p1) {}
 void __stdcall IsValidDpiAwarenessContext(int p0) {}
 void __stdcall IsWinEventHookInstalled(int p0) {}
 void __stdcall IsWindow(int p0) {}
+void __stdcall IsWindowArranged(int p0) {}
 void __stdcall IsWindowEnabled(int p0) {}
 void __stdcall IsWindowUnicode(int p0) {}
 void __stdcall IsWindowVisible(int p0) {}
