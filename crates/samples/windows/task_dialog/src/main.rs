@@ -34,7 +34,13 @@ fn main() -> Result<()> {
     }
 }
 
-extern "system" fn callback(_: HWND, notification: TASKDIALOG_NOTIFICATIONS, _: WPARAM, _: LPARAM, _: isize) -> HRESULT {
+extern "system" fn callback(
+    _: HWND,
+    notification: TASKDIALOG_NOTIFICATIONS,
+    _: WPARAM,
+    _: LPARAM,
+    _: isize,
+) -> HRESULT {
     if notification == TDN_BUTTON_CLICKED {
         println!("button clicked");
     }
