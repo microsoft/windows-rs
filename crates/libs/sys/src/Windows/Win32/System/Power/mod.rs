@@ -126,7 +126,8 @@
 ::windows_targets::link!("powrprof.dll" "system" fn ReadGlobalPwrPolicy(pglobalpowerpolicy : *const GLOBAL_POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("powrprof.dll" "system" fn ReadProcessorPwrScheme(uiid : u32, pmachineprocessorpowerpolicy : *mut MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("powrprof.dll" "system" fn ReadPwrScheme(uiid : u32, ppowerpolicy : *mut POWER_POLICY) -> super::super::Foundation:: BOOLEAN);
-::windows_targets::link!("user32.dll" "system" fn RegisterPowerSettingNotification(hrecipient : super::super::Foundation:: HANDLE, powersettingguid : *const ::windows_sys::core::GUID, flags : u32) -> HPOWERNOTIFY);
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"] fn RegisterPowerSettingNotification(hrecipient : super::super::Foundation:: HANDLE, powersettingguid : *const ::windows_sys::core::GUID, flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS) -> HPOWERNOTIFY);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"] fn RegisterSuspendResumeNotification(hrecipient : super::super::Foundation:: HANDLE, flags : super::super::UI::WindowsAndMessaging:: REGISTER_NOTIFICATION_FLAGS) -> HPOWERNOTIFY);
 ::windows_targets::link!("kernel32.dll" "system" fn RequestWakeupLatency(latency : LATENCY_TIME) -> super::super::Foundation:: BOOL);

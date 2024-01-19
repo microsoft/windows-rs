@@ -250,6 +250,7 @@
 ::windows_targets::link!("user32.dll" "system" fn IsMenu(hmenu : HMENU) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn IsProcessDPIAware() -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn IsWindow(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" fn IsWindowArranged(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn IsWindowUnicode(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn IsWindowVisible(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn IsWow64Message() -> super::super::Foundation:: BOOL);

@@ -495,10 +495,10 @@ pub const CALLBACK_TYPEMASK: MIDI_WAVE_OPEN_TYPE = 458752u32;
 pub const CALLBACK_WINDOW: MIDI_WAVE_OPEN_TYPE = 65536u32;
 pub const Connector: PartType = 0i32;
 pub const DEVICE_STATEMASK_ALL: u32 = 15u32;
-pub const DEVICE_STATE_ACTIVE: u32 = 1u32;
-pub const DEVICE_STATE_DISABLED: u32 = 2u32;
-pub const DEVICE_STATE_NOTPRESENT: u32 = 4u32;
-pub const DEVICE_STATE_UNPLUGGED: u32 = 8u32;
+pub const DEVICE_STATE_ACTIVE: DEVICE_STATE = 1u32;
+pub const DEVICE_STATE_DISABLED: DEVICE_STATE = 2u32;
+pub const DEVICE_STATE_NOTPRESENT: DEVICE_STATE = 4u32;
+pub const DEVICE_STATE_UNPLUGGED: DEVICE_STATE = 8u32;
 pub const DEVINTERFACE_AUDIO_CAPTURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2eef81be_33fa_4800_9670_1cd474972c3f);
 pub const DEVINTERFACE_AUDIO_RENDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe6327cad_dcec_4949_ae8a_991e976a79d2);
 pub const DEVINTERFACE_MIDI_INPUT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x504be32c_ccf6_4d2c_b73f_6f8b3747e22b);
@@ -932,6 +932,7 @@ impl ConnectorType {
     pub const Software_Fixed: Self = Self(4i32);
     pub const Network: Self = Self(5i32);
 }
+pub type DEVICE_STATE = u32;
 pub type DataFlow = i32;
 pub type EDataFlow = i32;
 pub type ERole = i32;

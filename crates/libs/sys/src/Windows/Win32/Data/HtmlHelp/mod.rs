@@ -1,5 +1,5 @@
-::windows_targets::link!("htmlhelp.dll" "system" fn HtmlHelpA(hwndcaller : super::super::Foundation:: HWND, pszfile : ::windows_sys::core::PCSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
-::windows_targets::link!("htmlhelp.dll" "system" fn HtmlHelpW(hwndcaller : super::super::Foundation:: HWND, pszfile : ::windows_sys::core::PCWSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
+::windows_targets::link!("hhctrl.ocx" "system" fn HtmlHelpA(hwndcaller : super::super::Foundation:: HWND, pszfile : ::windows_sys::core::PCSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
+::windows_targets::link!("hhctrl.ocx" "system" fn HtmlHelpW(hwndcaller : super::super::Foundation:: HWND, pszfile : ::windows_sys::core::PCWSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
 pub type IITDatabase = *mut ::core::ffi::c_void;
 pub type IITPropList = *mut ::core::ffi::c_void;
 pub type IITResultSet = *mut ::core::ffi::c_void;

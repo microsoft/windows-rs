@@ -310,6 +310,9 @@ pub const INTENT_ABSOLUTE_COLORIMETRIC: u32 = 3u32;
 pub const INTENT_PERCEPTUAL: u32 = 0u32;
 pub const INTENT_RELATIVE_COLORIMETRIC: u32 = 1u32;
 pub const INTENT_SATURATION: u32 = 2u32;
+pub const LCS_CALIBRATED_RGB: LCSCSTYPE = 0i32;
+pub const LCS_WINDOWS_COLOR_SPACE: LCSCSTYPE = 1466527264i32;
+pub const LCS_sRGB: LCSCSTYPE = 1934772034i32;
 pub const MAX_COLOR_CHANNELS: u32 = 8u32;
 pub const MicrosoftHardwareColorV2: WCS_DEVICE_CAPABILITIES_TYPE = 2i32;
 pub const NORMAL_MODE: u32 = 2u32;
@@ -336,6 +339,7 @@ pub type COLORTYPE = i32;
 pub type COLOR_MATCH_TO_TARGET_ACTION = u32;
 pub type ICM_COMMAND = u32;
 pub type ICM_MODE = i32;
+pub type LCSCSTYPE = i32;
 pub type WCS_DEVICE_CAPABILITIES_TYPE = i32;
 pub type WCS_PROFILE_MANAGEMENT_SCOPE = i32;
 #[repr(C)]
@@ -653,7 +657,7 @@ pub struct LOGCOLORSPACEA {
     pub lcsSignature: u32,
     pub lcsVersion: u32,
     pub lcsSize: u32,
-    pub lcsCSType: i32,
+    pub lcsCSType: LCSCSTYPE,
     pub lcsIntent: i32,
     pub lcsEndpoints: super::super::Graphics::Gdi::CIEXYZTRIPLE,
     pub lcsGammaRed: u32,
@@ -676,7 +680,7 @@ pub struct LOGCOLORSPACEW {
     pub lcsSignature: u32,
     pub lcsVersion: u32,
     pub lcsSize: u32,
-    pub lcsCSType: i32,
+    pub lcsCSType: LCSCSTYPE,
     pub lcsIntent: i32,
     pub lcsEndpoints: super::super::Graphics::Gdi::CIEXYZTRIPLE,
     pub lcsGammaRed: u32,

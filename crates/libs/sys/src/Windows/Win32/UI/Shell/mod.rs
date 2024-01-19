@@ -1776,6 +1776,7 @@ pub const CLSID_CFSIconOverlayManager: ::windows_sys::core::GUID = ::windows_sys
 pub const CLSID_CImageBrowsePropertyPage: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3050f3b3_98b5_11cf_bb82_00aa00bdce0b);
 pub const CLSID_CURLSearchHook: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcfbfae00_17a6_11d0_99cb_00c04fd64497);
 pub const CLSID_CUrlHistory: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x3c374a40_bae4_11cf_bf7d_00aa006946ee);
+pub const CLSID_CUrlHistoryBoth: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6659983c_8476_4eb4_b78c_e5968f326ba0);
 pub const CLSID_ControlPanel: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x21ec2020_3aea_1069_a2dd_08002b30309d);
 pub const CLSID_DarwinAppPublisher: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xcfccc7a0_a282_11d1_9082_006008059382);
 pub const CLSID_DocHostUIHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7057e952_bd1b_11d1_8919_00c04fc2c836);
@@ -1960,6 +1961,7 @@ pub const COPYENGINE_S_KEEP_BOTH: ::windows_sys::core::HRESULT = 2555916i32;
 pub const COPYENGINE_S_MERGE: ::windows_sys::core::HRESULT = 2555910i32;
 pub const COPYENGINE_S_NOT_HANDLED: ::windows_sys::core::HRESULT = 2555907i32;
 pub const COPYENGINE_S_PENDING: ::windows_sys::core::HRESULT = 2555915i32;
+pub const COPYENGINE_S_PENDING_DELETE: ::windows_sys::core::HRESULT = 2555920i32;
 pub const COPYENGINE_S_PROGRESS_PAUSE: ::windows_sys::core::HRESULT = 2555919i32;
 pub const COPYENGINE_S_USER_IGNORED: ::windows_sys::core::HRESULT = 2555909i32;
 pub const COPYENGINE_S_USER_RETRY: ::windows_sys::core::HRESULT = 2555908i32;
@@ -6556,7 +6558,7 @@ pub struct NOTIFYICONDATAA {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub szTip: [i8; 128],
     pub dwState: NOTIFY_ICON_STATE,
-    pub dwStateMask: u32,
+    pub dwStateMask: NOTIFY_ICON_STATE,
     pub szInfo: [i8; 256],
     pub Anonymous: NOTIFYICONDATAA_0,
     pub szInfoTitle: [i8; 64],
@@ -6605,7 +6607,7 @@ pub struct NOTIFYICONDATAA {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub szTip: [i8; 128],
     pub dwState: NOTIFY_ICON_STATE,
-    pub dwStateMask: u32,
+    pub dwStateMask: NOTIFY_ICON_STATE,
     pub szInfo: [i8; 256],
     pub Anonymous: NOTIFYICONDATAA_0,
     pub szInfoTitle: [i8; 64],
@@ -6654,7 +6656,7 @@ pub struct NOTIFYICONDATAW {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub szTip: [u16; 128],
     pub dwState: NOTIFY_ICON_STATE,
-    pub dwStateMask: u32,
+    pub dwStateMask: NOTIFY_ICON_STATE,
     pub szInfo: [u16; 256],
     pub Anonymous: NOTIFYICONDATAW_0,
     pub szInfoTitle: [u16; 64],
@@ -6703,7 +6705,7 @@ pub struct NOTIFYICONDATAW {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub szTip: [u16; 128],
     pub dwState: NOTIFY_ICON_STATE,
-    pub dwStateMask: u32,
+    pub dwStateMask: NOTIFY_ICON_STATE,
     pub szInfo: [u16; 256],
     pub Anonymous: NOTIFYICONDATAW_0,
     pub szInfoTitle: [u16; 64],

@@ -13,3 +13,6 @@ pub mod ProcessSnapshotting;
 #[cfg(feature = "Win32_System_Diagnostics_ToolHelp")]
 #[doc = "Required features: `\"Win32_System_Diagnostics_ToolHelp\"`"]
 pub mod ToolHelp;
+#[cfg(feature = "Win32_System_Diagnostics_TraceLogging")]
+#[doc = "Required features: `\"Win32_System_Diagnostics_TraceLogging\"`"]
+pub mod TraceLogging;

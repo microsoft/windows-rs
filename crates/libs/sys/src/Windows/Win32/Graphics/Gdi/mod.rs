@@ -1443,7 +1443,6 @@ pub const LAYOUT_BITMAPORIENTATIONPRESERVED: DC_LAYOUT = 8u32;
 pub const LAYOUT_BTT: u32 = 2u32;
 pub const LAYOUT_RTL: DC_LAYOUT = 1u32;
 pub const LAYOUT_VBH: u32 = 4u32;
-pub const LCS_CALIBRATED_RGB: i32 = 0i32;
 pub const LCS_GM_ABS_COLORIMETRIC: i32 = 8i32;
 pub const LCS_GM_BUSINESS: i32 = 1i32;
 pub const LCS_GM_GRAPHICS: i32 = 2i32;

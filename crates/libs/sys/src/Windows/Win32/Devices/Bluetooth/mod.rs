@@ -85,7 +85,6 @@ pub const BDIF_BR: u32 = 16384u32;
 pub const BDIF_BR_SECURE_CONNECTION_PAIRED: u32 = 134217728u32;
 pub const BDIF_COD: u32 = 2u32;
 pub const BDIF_CONNECTED: u32 = 32u32;
-pub const BDIF_CONNECTION_INBOUND: u32 = 67108864u32;
 pub const BDIF_DEBUGKEY: u32 = 536870912u32;
 pub const BDIF_EIR: u32 = 8192u32;
 pub const BDIF_LE: u32 = 32768u32;

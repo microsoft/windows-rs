@@ -205,15 +205,22 @@
 ::windows_targets::link!("webservices.dll" "system" fn WsWriteXmlnsAttribute(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, ns : *const WS_XML_STRING, singlequote : super::super::Foundation:: BOOL, error : *const WS_ERROR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("webservices.dll" "system" fn WsXmlStringEquals(string1 : *const WS_XML_STRING, string2 : *const WS_XML_STRING, error : *const WS_ERROR) -> ::windows_sys::core::HRESULT);
 pub type IContentPrefetcherTaskTrigger = *mut ::core::ffi::c_void;
-pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 4u32;
+pub const CTAPCBOR_HYBRID_STORAGE_LINKED_DATA_CURRENT_VERSION: u32 = 1u32;
+pub const CTAPCBOR_HYBRID_STORAGE_LINKED_DATA_VERSION_1: u32 = 1u32;
+pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 7u32;
 pub const WEBAUTHN_API_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_API_VERSION_2: u32 = 2u32;
 pub const WEBAUTHN_API_VERSION_3: u32 = 3u32;
 pub const WEBAUTHN_API_VERSION_4: u32 = 4u32;
-pub const WEBAUTHN_ASSERTION_CURRENT_VERSION: u32 = 3u32;
+pub const WEBAUTHN_API_VERSION_5: u32 = 5u32;
+pub const WEBAUTHN_API_VERSION_6: u32 = 6u32;
+pub const WEBAUTHN_API_VERSION_7: u32 = 7u32;
+pub const WEBAUTHN_ASSERTION_CURRENT_VERSION: u32 = 5u32;
 pub const WEBAUTHN_ASSERTION_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_ASSERTION_VERSION_2: u32 = 2u32;
 pub const WEBAUTHN_ASSERTION_VERSION_3: u32 = 3u32;
+pub const WEBAUTHN_ASSERTION_VERSION_4: u32 = 4u32;
+pub const WEBAUTHN_ASSERTION_VERSION_5: u32 = 5u32;
 pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_ANY: u32 = 0u32;
 pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_DIRECT: u32 = 3u32;
 pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_INDIRECT: u32 = 2u32;
@@ -229,20 +236,23 @@ pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_ANY: u32 = 0u32;
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM: u32 = 2u32;
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM_U2F_V2: u32 = 3u32;
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_PLATFORM: u32 = 1u32;
-pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: u32 = 6u32;
+pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: u32 = 7u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_2: u32 = 2u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_3: u32 = 3u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_4: u32 = 4u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_5: u32 = 5u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_6: u32 = 6u32;
+pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_7: u32 = 7u32;
 pub const WEBAUTHN_AUTHENTICATOR_HMAC_SECRET_VALUES_FLAG: u32 = 1048576u32;
-pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: u32 = 5u32;
+pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: u32 = 7u32;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_2: u32 = 2u32;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_3: u32 = 3u32;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_4: u32 = 4u32;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_5: u32 = 5u32;
+pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_6: u32 = 6u32;
+pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_7: u32 = 7u32;
 pub const WEBAUTHN_CLIENT_DATA_CURRENT_VERSION: u32 = 1u32;
 pub const WEBAUTHN_COMMON_ATTESTATION_CURRENT_VERSION: u32 = 1u32;
 pub const WEBAUTHN_COSE_ALGORITHM_ECDSA_P256_WITH_SHA256: i32 = -7i32;
@@ -255,14 +265,17 @@ pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA256: i32 = -37i32;
 pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA384: i32 = -38i32;
 pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA512: i32 = -39i32;
 pub const WEBAUTHN_COSE_CREDENTIAL_PARAMETER_CURRENT_VERSION: u32 = 1u32;
-pub const WEBAUTHN_CREDENTIAL_ATTESTATION_CURRENT_VERSION: u32 = 4u32;
+pub const WEBAUTHN_CREDENTIAL_ATTESTATION_CURRENT_VERSION: u32 = 6u32;
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_2: u32 = 2u32;
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_3: u32 = 3u32;
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_4: u32 = 4u32;
+pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_5: u32 = 5u32;
+pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_6: u32 = 6u32;
 pub const WEBAUTHN_CREDENTIAL_CURRENT_VERSION: u32 = 1u32;
-pub const WEBAUTHN_CREDENTIAL_DETAILS_CURRENT_VERSION: u32 = 1u32;
+pub const WEBAUTHN_CREDENTIAL_DETAILS_CURRENT_VERSION: u32 = 2u32;
 pub const WEBAUTHN_CREDENTIAL_DETAILS_VERSION_1: u32 = 1u32;
+pub const WEBAUTHN_CREDENTIAL_DETAILS_VERSION_2: u32 = 2u32;
 pub const WEBAUTHN_CREDENTIAL_EX_CURRENT_VERSION: u32 = 1u32;
 pub const WEBAUTHN_CREDENTIAL_TYPE_PUBLIC_KEY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("public-key");
 pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_DELETE: u32 = 3u32;
@@ -281,7 +294,8 @@ pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_PLATFORM_ERROR: u32 = 8u32;
 pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_SUCCESS: u32 = 1u32;
 pub const WEBAUTHN_CTAP_ONE_HMAC_SECRET_LENGTH: u32 = 32u32;
 pub const WEBAUTHN_CTAP_TRANSPORT_BLE: u32 = 4u32;
-pub const WEBAUTHN_CTAP_TRANSPORT_FLAGS_MASK: u32 = 31u32;
+pub const WEBAUTHN_CTAP_TRANSPORT_FLAGS_MASK: u32 = 63u32;
+pub const WEBAUTHN_CTAP_TRANSPORT_HYBRID: u32 = 32u32;
 pub const WEBAUTHN_CTAP_TRANSPORT_INTERNAL: u32 = 16u32;
 pub const WEBAUTHN_CTAP_TRANSPORT_NFC: u32 = 2u32;
 pub const WEBAUTHN_CTAP_TRANSPORT_TEST: u32 = 8u32;
@@ -1281,6 +1295,26 @@ pub type WS_XML_WRITER_ENCODING_TYPE = i32;
 pub type WS_XML_WRITER_OUTPUT_TYPE = i32;
 pub type WS_XML_WRITER_PROPERTY_ID = i32;
 #[repr(C)]
+pub struct CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
+    pub dwVersion: u32,
+    pub cbContactId: u32,
+    pub pbContactId: *mut u8,
+    pub cbLinkId: u32,
+    pub pbLinkId: *mut u8,
+    pub cbLinkSecret: u32,
+    pub pbLinkSecret: *mut u8,
+    pub cbPublicKey: u32,
+    pub pbPublicKey: *mut u8,
+    pub pwszAuthenticatorName: ::windows_sys::core::PCWSTR,
+    pub wEncodedTunnelServerDomain: u16,
+}
+impl ::core::marker::Copy for CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {}
+impl ::core::clone::Clone for CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 pub struct WEBAUTHN_ASSERTION {
     pub dwVersion: u32,
     pub cbAuthenticatorData: u32,
@@ -1295,6 +1329,9 @@ pub struct WEBAUTHN_ASSERTION {
     pub pbCredLargeBlob: *mut u8,
     pub dwCredLargeBlobStatus: u32,
     pub pHmacSecret: *mut WEBAUTHN_HMAC_SECRET_SALT,
+    pub dwUsedTransport: u32,
+    pub cbUnsignedExtensionOutputs: u32,
+    pub pbUnsignedExtensionOutputs: *mut u8,
 }
 impl ::core::marker::Copy for WEBAUTHN_ASSERTION {}
 impl ::core::clone::Clone for WEBAUTHN_ASSERTION {
@@ -1320,6 +1357,10 @@ pub struct WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
     pub pbCredLargeBlob: *mut u8,
     pub pHmacSecretSaltValues: *mut WEBAUTHN_HMAC_SECRET_SALT_VALUES,
     pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
+    pub pLinkedDevice: *mut CTAPCBOR_HYBRID_STORAGE_LINKED_DATA,
+    pub bAutoFill: super::super::Foundation::BOOL,
+    pub cbJsonExt: u32,
+    pub pbJsonExt: *mut u8,
 }
 impl ::core::marker::Copy for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {}
 impl ::core::clone::Clone for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
@@ -1344,6 +1385,10 @@ pub struct WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
     pub dwLargeBlobSupport: u32,
     pub bPreferResidentKey: super::super::Foundation::BOOL,
     pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
+    pub bEnablePrf: super::super::Foundation::BOOL,
+    pub pLinkedDevice: *mut CTAPCBOR_HYBRID_STORAGE_LINKED_DATA,
+    pub cbJsonExt: u32,
+    pub pbJsonExt: *mut u8,
 }
 impl ::core::marker::Copy for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {}
 impl ::core::clone::Clone for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
@@ -1451,6 +1496,9 @@ pub struct WEBAUTHN_CREDENTIAL_ATTESTATION {
     pub bEpAtt: super::super::Foundation::BOOL,
     pub bLargeBlobSupported: super::super::Foundation::BOOL,
     pub bResidentKey: super::super::Foundation::BOOL,
+    pub bPrfEnabled: super::super::Foundation::BOOL,
+    pub cbUnsignedExtensionOutputs: u32,
+    pub pbUnsignedExtensionOutputs: *mut u8,
 }
 impl ::core::marker::Copy for WEBAUTHN_CREDENTIAL_ATTESTATION {}
 impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_ATTESTATION {
@@ -1466,6 +1514,7 @@ pub struct WEBAUTHN_CREDENTIAL_DETAILS {
     pub pRpInformation: *mut WEBAUTHN_RP_ENTITY_INFORMATION,
     pub pUserInformation: *mut WEBAUTHN_USER_ENTITY_INFORMATION,
     pub bRemovable: super::super::Foundation::BOOL,
+    pub bBackedUp: super::super::Foundation::BOOL,
 }
 impl ::core::marker::Copy for WEBAUTHN_CREDENTIAL_DETAILS {}
 impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_DETAILS {

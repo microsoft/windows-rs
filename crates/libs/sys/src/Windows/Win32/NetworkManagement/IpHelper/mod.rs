@@ -70,8 +70,8 @@
 #[cfg(feature = "Win32_Networking_WinSock")]
 ::windows_targets::link!("iphlpapi.dll" "system" #[doc = "Required features: `\"Win32_Networking_WinSock\"`"] fn FlushIpPathTable(family : super::super::Networking::WinSock:: ADDRESS_FAMILY) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("iphlpapi.dll" "system" fn FreeDnsSettings(settings : *mut DNS_SETTINGS));
-::windows_targets::link!("iphlpapi.dll" "system" fn FreeInterfaceDnsSettings(settings : *mut DNS_INTERFACE_SETTINGS) -> super::super::Foundation:: WIN32_ERROR);
-::windows_targets::link!("iphlpapi.dll" "system" fn FreeMibTable(memory : *const ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("iphlpapi.dll" "system" fn FreeInterfaceDnsSettings(settings : *mut DNS_INTERFACE_SETTINGS));
+::windows_targets::link!("iphlpapi.dll" "system" fn FreeMibTable(memory : *const ::core::ffi::c_void));
 ::windows_targets::link!("iphlpapi.dll" "system" fn GetAdapterIndex(adaptername : ::windows_sys::core::PCWSTR, ifindex : *mut u32) -> u32);
 ::windows_targets::link!("iphlpapi.dll" "system" fn GetAdapterOrderMap() -> *mut IP_ADAPTER_ORDER_MAP);
 #[cfg(all(feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]

@@ -11,6 +11,8 @@
 ::windows_targets::link!("isolatedwindowsenvironmentutils.dll" "system" fn IsProcessInIsolatedWindowsEnvironment(isprocessinisolatedwindowsenvironment : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("api-ms-win-security-isolatedcontainer-l1-1-1.dll" "system" fn IsProcessInWDAGContainer(reserved : *const ::core::ffi::c_void, isprocessinwdagcontainer : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 pub type IIsolatedAppLauncher = *mut ::core::ffi::c_void;
+pub type IIsolatedProcessLauncher = *mut ::core::ffi::c_void;
+pub type IIsolatedProcessLauncher2 = *mut ::core::ffi::c_void;
 pub const IsolatedAppLauncher: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbc812430_e75e_4fd1_9641_1f9f1e2d9a1f);
 pub const WDAG_CLIPBOARD_TAG: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("CrossIsolatedEnvironmentContent");
 #[repr(C)]

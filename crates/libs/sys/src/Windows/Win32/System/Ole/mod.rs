@@ -59,6 +59,10 @@
 ::windows_targets::link!("oleaut32.dll" "system" fn OaEnablePerUserTLibRegistration());
 ::windows_targets::link!("ole32.dll" "system" fn OleBuildVersion() -> u32);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"] fn OleConvertOLESTREAMToIStorage2(lpolestream : *const super::Com::StructuredStorage:: OLESTREAM, pstg : super::Com::StructuredStorage:: IStorage, ptd : *const super::Com:: DVTARGETDEVICE, opt : u32, pvcallbackcontext : *const ::core::ffi::c_void, pqueryconvertolelinkcallback : OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn OleConvertOLESTREAMToIStorageEx2(polestm : *const super::Com::StructuredStorage:: OLESTREAM, pstg : super::Com::StructuredStorage:: IStorage, pcfformat : *mut u16, plwwidth : *mut i32, plheight : *mut i32, pdwsize : *mut u32, pmedium : *mut super::Com:: STGMEDIUM, opt : u32, pvcallbackcontext : *const ::core::ffi::c_void, pqueryconvertolelinkcallback : OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 ::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"] fn OleCreate(rclsid : *const ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, renderopt : u32, pformatetc : *const super::Com:: FORMATETC, pclientsite : IOleClientSite, pstg : super::Com::StructuredStorage:: IStorage, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn OleCreateDefaultHandler(clsid : *const ::windows_sys::core::GUID, punkouter : ::windows_sys::core::IUnknown, riid : *const ::windows_sys::core::GUID, lplpobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
@@ -1437,6 +1441,8 @@ pub const OLERENDER_DRAW: OLERENDER = 1i32;
 pub const OLERENDER_FORMAT: OLERENDER = 2i32;
 pub const OLERENDER_NONE: OLERENDER = 0i32;
 pub const OLESTDDELIM: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("\\");
+pub const OLESTREAM_CONVERSION_DEFAULT: i32 = 0i32;
+pub const OLESTREAM_CONVERSION_DISABLEOLELINK: i32 = 1i32;
 pub const OLEUIPASTE_ENABLEICON: OLEUIPASTEFLAG = 2048i32;
 pub const OLEUIPASTE_LINKANYTYPE: OLEUIPASTEFLAG = 1024i32;
 pub const OLEUIPASTE_LINKTYPE1: OLEUIPASTEFLAG = 1i32;
@@ -3212,3 +3218,4 @@ impl ::core::clone::Clone for _wireVARIANT_0 {
     }
 }
 pub type LPFNOLEUIHOOK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> u32>;
+pub type OLESTREAMQUERYCONVERTOLELINKCALLBACK = ::core::option::Option<unsafe extern "system" fn(pclsid: *const ::windows_sys::core::GUID, szclass: ::windows_sys::core::PCWSTR, sztopicname: ::windows_sys::core::PCWSTR, szitemname: ::windows_sys::core::PCWSTR, szuncname: ::windows_sys::core::PCWSTR, linkupdatingoption: u32, pvcontext: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;

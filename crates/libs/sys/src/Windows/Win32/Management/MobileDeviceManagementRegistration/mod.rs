@@ -7,7 +7,6 @@
 ::windows_targets::link!("mdmregistration.dll" "system" fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagement : *mut super::super::Foundation:: BOOL, cchupn : u32, pszupn : ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mdmregistration.dll" "system" fn IsManagementRegistrationAllowed(pfismanagementregistrationallowed : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mdmregistration.dll" "system" fn IsMdmUxWithoutAadAllowed(isenrollmentallowed : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mdmregistration.dll" "system" fn RegisterDeviceDualEnrollMmpcUsingAADDeviceCredentials(cchenrollmentid : u32, pszenrollmentid : ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mdmlocalmanagement.dll" "system" fn RegisterDeviceWithLocalManagement(alreadyregistered : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mdmregistration.dll" "system" fn RegisterDeviceWithManagement(pszupn : ::windows_sys::core::PCWSTR, ppszmdmserviceuri : ::windows_sys::core::PCWSTR, ppzsaccesstoken : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mdmregistration.dll" "system" fn RegisterDeviceWithManagementUsingAADCredentials(usertoken : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
@@ -27,6 +26,7 @@ pub const MDM_REGISTRATION_FACILITY_CODE: u32 = 25u32;
 pub const MENROLL_E_CERTAUTH_FAILED_TO_FIND_CERT: ::windows_sys::core::HRESULT = -2145910744i32;
 pub const MENROLL_E_CERTPOLICY_PRIVATEKEYCREATION_FAILED: ::windows_sys::core::HRESULT = -2145910745i32;
 pub const MENROLL_E_CONNECTIVITY: ::windows_sys::core::HRESULT = -2145910768i32;
+pub const MENROLL_E_CUSTOMSERVERERROR: ::windows_sys::core::HRESULT = -2145910734i32;
 pub const MENROLL_E_DEVICECAPREACHED: ::windows_sys::core::HRESULT = -2145910765i32;
 pub const MENROLL_E_DEVICENOTSUPPORTED: ::windows_sys::core::HRESULT = -2145910764i32;
 pub const MENROLL_E_DEVICE_ALREADY_ENROLLED: ::windows_sys::core::HRESULT = -2145910774i32;
