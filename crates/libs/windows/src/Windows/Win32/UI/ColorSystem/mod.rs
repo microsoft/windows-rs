@@ -1111,6 +1111,9 @@ pub const INTENT_ABSOLUTE_COLORIMETRIC: u32 = 3u32;
 pub const INTENT_PERCEPTUAL: u32 = 0u32;
 pub const INTENT_RELATIVE_COLORIMETRIC: u32 = 1u32;
 pub const INTENT_SATURATION: u32 = 2u32;
+pub const LCS_CALIBRATED_RGB: LCSCSTYPE = LCSCSTYPE(0i32);
+pub const LCS_WINDOWS_COLOR_SPACE: LCSCSTYPE = LCSCSTYPE(1466527264i32);
+pub const LCS_sRGB: LCSCSTYPE = LCSCSTYPE(1934772034i32);
 pub const MAX_COLOR_CHANNELS: u32 = 8u32;
 pub const MicrosoftHardwareColorV2: WCS_DEVICE_CAPABILITIES_TYPE = WCS_DEVICE_CAPABILITIES_TYPE(2i32);
 pub const NORMAL_MODE: u32 = 2u32;
@@ -1215,6 +1218,17 @@ impl ::windows_core::TypeKind for ICM_MODE {
 impl ::core::fmt::Debug for ICM_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ICM_MODE").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+pub struct LCSCSTYPE(pub i32);
+impl ::windows_core::TypeKind for LCSCSTYPE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for LCSCSTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LCSCSTYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
@@ -2031,7 +2045,7 @@ pub struct LOGCOLORSPACEA {
     pub lcsSignature: u32,
     pub lcsVersion: u32,
     pub lcsSize: u32,
-    pub lcsCSType: i32,
+    pub lcsCSType: LCSCSTYPE,
     pub lcsIntent: i32,
     pub lcsEndpoints: super::super::Graphics::Gdi::CIEXYZTRIPLE,
     pub lcsGammaRed: u32,
@@ -2078,7 +2092,7 @@ pub struct LOGCOLORSPACEW {
     pub lcsSignature: u32,
     pub lcsVersion: u32,
     pub lcsSize: u32,
-    pub lcsCSType: i32,
+    pub lcsCSType: LCSCSTYPE,
     pub lcsIntent: i32,
     pub lcsEndpoints: super::super::Graphics::Gdi::CIEXYZTRIPLE,
     pub lcsGammaRed: u32,

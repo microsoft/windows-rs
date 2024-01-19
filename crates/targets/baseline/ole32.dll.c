@@ -213,7 +213,9 @@ void __stdcall OleBuildVersion() {}
 void __stdcall OleConvertIStorageToOLESTREAM(int p0, int p1) {}
 void __stdcall OleConvertIStorageToOLESTREAMEx(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
 void __stdcall OleConvertOLESTREAMToIStorage(int p0, int p1, int p2) {}
+void __stdcall OleConvertOLESTREAMToIStorage2(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall OleConvertOLESTREAMToIStorageEx(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
+void __stdcall OleConvertOLESTREAMToIStorageEx2(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
 void __stdcall OleCreate(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
 void __stdcall OleCreateDefaultHandler(int p0, int p1, int p2, int p3) {}
 void __stdcall OleCreateEmbeddingHelper(int p0, int p1, int p2, int p3, int p4, int p5) {}

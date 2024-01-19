@@ -450,7 +450,7 @@ pub const MEMORY_PRIORITY_NORMAL: MEMORY_PRIORITY = 5u32;
 pub const MEMORY_PRIORITY_VERY_LOW: MEMORY_PRIORITY = 1u32;
 pub const MUTEX_ALL_ACCESS: SYNCHRONIZATION_ACCESS_RIGHTS = 2031617u32;
 pub const MUTEX_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 1u32;
-pub const MaxProcessMitigationPolicy: PROCESS_MITIGATION_POLICY = 19i32;
+pub const MaxProcessMitigationPolicy: PROCESS_MITIGATION_POLICY = 20i32;
 pub const NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 32u32;
 pub const PF_3DNOW_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 7u32;
 pub const PF_ALPHA_BYTE_INSTRUCTIONS: PROCESSOR_FEATURE_ID = 5u32;
@@ -596,6 +596,7 @@ pub const ProcThreadAttributeTrustedApp: PROC_THREAD_ATTRIBUTE_NUM = 29u32;
 pub const ProcThreadAttributeUmsThread: PROC_THREAD_ATTRIBUTE_NUM = 6u32;
 pub const ProcThreadAttributeWin32kFilter: PROC_THREAD_ATTRIBUTE_NUM = 16u32;
 pub const ProcessASLRPolicy: PROCESS_MITIGATION_POLICY = 1i32;
+pub const ProcessActivationContextTrustPolicy: PROCESS_MITIGATION_POLICY = 19i32;
 pub const ProcessAppMemoryInfo: PROCESS_INFORMATION_CLASS = 2i32;
 pub const ProcessChildProcessPolicy: PROCESS_MITIGATION_POLICY = 13i32;
 pub const ProcessControlFlowGuardPolicy: PROCESS_MITIGATION_POLICY = 7i32;
@@ -605,12 +606,14 @@ pub const ProcessExtensionPointDisablePolicy: PROCESS_MITIGATION_POLICY = 6i32;
 pub const ProcessFontDisablePolicy: PROCESS_MITIGATION_POLICY = 9i32;
 pub const ProcessImageLoadPolicy: PROCESS_MITIGATION_POLICY = 10i32;
 pub const ProcessInPrivateInfo: PROCESS_INFORMATION_CLASS = 3i32;
-pub const ProcessInformationClassMax: PROCESS_INFORMATION_CLASS = 10i32;
+pub const ProcessInformationClassMax: PROCESS_INFORMATION_CLASS = 12i32;
 pub const ProcessLeapSecondInfo: PROCESS_INFORMATION_CLASS = 8i32;
 pub const ProcessMachineTypeInfo: PROCESS_INFORMATION_CLASS = 9i32;
+pub const ProcessMaxOverridePrefetchParameter: PROCESS_INFORMATION_CLASS = 11i32;
 pub const ProcessMemoryExhaustionInfo: PROCESS_INFORMATION_CLASS = 1i32;
 pub const ProcessMemoryPriority: PROCESS_INFORMATION_CLASS = 0i32;
 pub const ProcessMitigationOptionsMask: PROCESS_MITIGATION_POLICY = 5i32;
+pub const ProcessOverrideSubsequentPrefetchParameter: PROCESS_INFORMATION_CLASS = 10i32;
 pub const ProcessPayloadRestrictionPolicy: PROCESS_MITIGATION_POLICY = 12i32;
 pub const ProcessPowerThrottling: PROCESS_INFORMATION_CLASS = 4i32;
 pub const ProcessProtectionLevelInfo: PROCESS_INFORMATION_CLASS = 7i32;
@@ -848,6 +851,16 @@ pub struct MEMORY_PRIORITY_INFORMATION {
 }
 impl ::core::marker::Copy for MEMORY_PRIORITY_INFORMATION {}
 impl ::core::clone::Clone for MEMORY_PRIORITY_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct OVERRIDE_PREFETCH_PARAMETER {
+    pub Value: u32,
+}
+impl ::core::marker::Copy for OVERRIDE_PREFETCH_PARAMETER {}
+impl ::core::clone::Clone for OVERRIDE_PREFETCH_PARAMETER {
     fn clone(&self) -> Self {
         *self
     }

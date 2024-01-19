@@ -306,7 +306,7 @@
 ::windows_targets::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoList(flags : u32, classguidlist : *mut ::windows_sys::core::GUID, classguidlistsize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoListExA(flags : u32, classguidlist : *mut ::windows_sys::core::GUID, classguidlistsize : u32, requiredsize : *mut u32, machinename : ::windows_sys::core::PCSTR, reserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoListExW(flags : u32, classguidlist : *mut ::windows_sys::core::GUID, classguidlistsize : u32, requiredsize : *mut u32, machinename : ::windows_sys::core::PCWSTR, reserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("setupapi.dll" "system" fn SetupDiBuildDriverInfoList(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA, drivertype : SETUP_DI_BUILD_DRIVER_DRIVER_TYPE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("setupapi.dll" "system" fn SetupDiBuildDriverInfoList(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA, drivertype : SETUP_DI_DRIVER_TYPE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("setupapi.dll" "system" fn SetupDiCallClassInstaller(installfunction : u32, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("setupapi.dll" "system" fn SetupDiCancelDriverInfoSearch(deviceinfoset : HDEVINFO) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("setupapi.dll" "system" fn SetupDiChangeState(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA) -> super::super::Foundation:: BOOL);
@@ -340,13 +340,13 @@
 #[cfg(feature = "Win32_UI_Controls")]
 ::windows_targets::link!("setupapi.dll" "system" #[doc = "Required features: `\"Win32_UI_Controls\"`"] fn SetupDiDestroyClassImageList(classimagelistdata : *const SP_CLASSIMAGELIST_DATA) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("setupapi.dll" "system" fn SetupDiDestroyDeviceInfoList(deviceinfoset : HDEVINFO) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("setupapi.dll" "system" fn SetupDiDestroyDriverInfoList(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, drivertype : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("setupapi.dll" "system" fn SetupDiDestroyDriverInfoList(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, drivertype : SETUP_DI_DRIVER_TYPE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("setupapi.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn SetupDiDrawMiniIcon(hdc : super::super::Graphics::Gdi:: HDC, rc : super::super::Foundation:: RECT, miniiconindex : i32, flags : u32) -> i32);
 ::windows_targets::link!("setupapi.dll" "system" fn SetupDiEnumDeviceInfo(deviceinfoset : HDEVINFO, memberindex : u32, deviceinfodata : *mut SP_DEVINFO_DATA) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("setupapi.dll" "system" fn SetupDiEnumDeviceInterfaces(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, interfaceclassguid : *const ::windows_sys::core::GUID, memberindex : u32, deviceinterfacedata : *mut SP_DEVICE_INTERFACE_DATA) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("setupapi.dll" "system" fn SetupDiEnumDriverInfoA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, drivertype : u32, memberindex : u32, driverinfodata : *mut SP_DRVINFO_DATA_V2_A) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("setupapi.dll" "system" fn SetupDiEnumDriverInfoW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, drivertype : u32, memberindex : u32, driverinfodata : *mut SP_DRVINFO_DATA_V2_W) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("setupapi.dll" "system" fn SetupDiEnumDriverInfoA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, drivertype : SETUP_DI_DRIVER_TYPE, memberindex : u32, driverinfodata : *mut SP_DRVINFO_DATA_V2_A) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("setupapi.dll" "system" fn SetupDiEnumDriverInfoW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, drivertype : SETUP_DI_DRIVER_TYPE, memberindex : u32, driverinfodata : *mut SP_DRVINFO_DATA_V2_W) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 ::windows_targets::link!("setupapi.dll" "system" #[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`"] fn SetupDiGetActualModelsSectionA(context : *const INFCONTEXT, alternateplatforminfo : *const SP_ALTPLATFORM_INFO_V2, infsectionwithext : ::windows_sys::core::PSTR, infsectionwithextsize : u32, requiredsize : *mut u32, reserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -1940,8 +1940,8 @@ pub const SPCRP_MAXIMUM_PROPERTY: u32 = 28u32;
 pub const SPCRP_SECURITY: u32 = 23u32;
 pub const SPCRP_SECURITY_SDS: u32 = 24u32;
 pub const SPCRP_UPPERFILTERS: u32 = 17u32;
-pub const SPDIT_CLASSDRIVER: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE = 1u32;
-pub const SPDIT_COMPATDRIVER: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE = 2u32;
+pub const SPDIT_CLASSDRIVER: SETUP_DI_DRIVER_TYPE = 1u32;
+pub const SPDIT_COMPATDRIVER: SETUP_DI_DRIVER_TYPE = 2u32;
 pub const SPDIT_NODRIVER: u32 = 0u32;
 pub const SPDRP_ADDRESS: u32 = 28u32;
 pub const SPDRP_BASE_CONTAINERID: u32 = 36u32;
@@ -2332,7 +2332,7 @@ pub type PCD_FLAGS = u32;
 pub type PMF_FLAGS = u32;
 pub type PNP_VETO_TYPE = i32;
 pub type SETUPSCANFILEQUEUE_FLAGS = u32;
-pub type SETUP_DI_BUILD_DRIVER_DRIVER_TYPE = u32;
+pub type SETUP_DI_DRIVER_TYPE = u32;
 pub type SETUP_FILE_OPERATION = u32;
 pub type SPSVCINST_FLAGS = u32;
 pub type SP_COPY_STYLE = u32;
@@ -2724,7 +2724,7 @@ impl ::core::clone::Clone for DMA_DES {
 pub struct DMA_RANGE {
     pub DR_Min: u32,
     pub DR_Max: u32,
-    pub DR_Flags: u32,
+    pub DR_Flags: DD_FLAGS,
 }
 impl ::core::marker::Copy for DMA_RANGE {}
 impl ::core::clone::Clone for DMA_RANGE {
@@ -3037,7 +3037,7 @@ pub struct IO_RANGE {
     pub IOR_nPorts: u32,
     pub IOR_Min: u64,
     pub IOR_Max: u64,
-    pub IOR_RangeFlags: u32,
+    pub IOR_RangeFlags: IOD_DESFLAGS,
     pub IOR_Alias: u64,
 }
 impl ::core::marker::Copy for IO_RANGE {}
@@ -3089,7 +3089,7 @@ impl ::core::clone::Clone for IRQ_DES_64 {
 pub struct IRQ_RANGE {
     pub IRQR_Min: u32,
     pub IRQR_Max: u32,
-    pub IRQR_Flags: u32,
+    pub IRQR_Flags: IRQD_FLAGS,
 }
 impl ::core::marker::Copy for IRQ_RANGE {}
 impl ::core::clone::Clone for IRQ_RANGE {
@@ -3181,7 +3181,7 @@ pub struct MEM_RANGE {
     pub MR_nBytes: u32,
     pub MR_Min: u64,
     pub MR_Max: u64,
-    pub MR_Flags: u32,
+    pub MR_Flags: MD_FLAGS,
     pub MR_Reserved: u32,
 }
 impl ::core::marker::Copy for MEM_RANGE {}

@@ -307,6 +307,7 @@ pub struct CONFIG_CI_PROV_INFO {
     pub pPolicies: *mut super::Cryptography::CRYPT_INTEGER_BLOB,
     pub result: CONFIG_CI_PROV_INFO_RESULT,
     pub dwScenario: u32,
+    pub result2: *mut CONFIG_CI_PROV_INFO_RESULT2,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for CONFIG_CI_PROV_INFO {}
@@ -325,6 +326,22 @@ pub struct CONFIG_CI_PROV_INFO_RESULT {
 }
 impl ::core::marker::Copy for CONFIG_CI_PROV_INFO_RESULT {}
 impl ::core::clone::Clone for CONFIG_CI_PROV_INFO_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CONFIG_CI_PROV_INFO_RESULT2 {
+    pub cbSize: u32,
+    pub hr: ::windows_sys::core::HRESULT,
+    pub dwResult: u32,
+    pub dwPolicyIndex: u32,
+    pub fIsExplicitDeny: super::super::Foundation::BOOLEAN,
+    pub cbCalculatedFileHash: u32,
+    pub pbCalculatedFileHash: *mut u8,
+}
+impl ::core::marker::Copy for CONFIG_CI_PROV_INFO_RESULT2 {}
+impl ::core::clone::Clone for CONFIG_CI_PROV_INFO_RESULT2 {
     fn clone(&self) -> Self {
         *self
     }

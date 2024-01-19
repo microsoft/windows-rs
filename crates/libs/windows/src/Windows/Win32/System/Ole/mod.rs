@@ -273,6 +273,26 @@ pub unsafe fn OleBuildVersion() -> u32 {
 #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
+pub unsafe fn OleConvertOLESTREAMToIStorage2<P0>(lpolestream: *const super::Com::StructuredStorage::OLESTREAM, pstg: P0, ptd: ::core::option::Option<*const super::Com::DVTARGETDEVICE>, opt: u32, pvcallbackcontext: ::core::option::Option<*const ::core::ffi::c_void>, pqueryconvertolelinkcallback: OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<super::Com::StructuredStorage::IStorage>,
+{
+    ::windows_targets::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorage2(lpolestream : *const super::Com::StructuredStorage:: OLESTREAM, pstg : * mut::core::ffi::c_void, ptd : *const super::Com:: DVTARGETDEVICE, opt : u32, pvcallbackcontext : *const ::core::ffi::c_void, pqueryconvertolelinkcallback : OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> ::windows_core::HRESULT);
+    OleConvertOLESTREAMToIStorage2(lpolestream, pstg.into_param().abi(), ::core::mem::transmute(ptd.unwrap_or(::std::ptr::null())), opt, ::core::mem::transmute(pvcallbackcontext.unwrap_or(::std::ptr::null())), pqueryconvertolelinkcallback).ok()
+}
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[inline]
+pub unsafe fn OleConvertOLESTREAMToIStorageEx2<P0>(polestm: *const super::Com::StructuredStorage::OLESTREAM, pstg: P0, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::Com::STGMEDIUM, opt: u32, pvcallbackcontext: ::core::option::Option<*const ::core::ffi::c_void>, pqueryconvertolelinkcallback: OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<super::Com::StructuredStorage::IStorage>,
+{
+    ::windows_targets::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorageEx2(polestm : *const super::Com::StructuredStorage:: OLESTREAM, pstg : * mut::core::ffi::c_void, pcfformat : *mut u16, plwwidth : *mut i32, plheight : *mut i32, pdwsize : *mut u32, pmedium : *mut super::Com:: STGMEDIUM, opt : u32, pvcallbackcontext : *const ::core::ffi::c_void, pqueryconvertolelinkcallback : OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> ::windows_core::HRESULT);
+    OleConvertOLESTREAMToIStorageEx2(polestm, pstg.into_param().abi(), pcfformat, plwwidth, plheight, pdwsize, pmedium, opt, ::core::mem::transmute(pvcallbackcontext.unwrap_or(::std::ptr::null())), pqueryconvertolelinkcallback).ok()
+}
+#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+#[inline]
 pub unsafe fn OleCreate<P0, P1>(rclsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, renderopt: OLERENDER, pformatetc: *const super::Com::FORMATETC, pclientsite: P0, pstg: P1, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<IOleClientSite>,
@@ -4251,8 +4271,8 @@ pub struct IEnumOleDocumentViews_Vtbl {
 ::windows_core::imp::com_interface!(IEnumOleUndoUnits, IEnumOleUndoUnits_Vtbl, 0xb3e7c340_ef97_11ce_9bc9_00aa00608e01);
 ::windows_core::imp::interface_hierarchy!(IEnumOleUndoUnits, ::windows_core::IUnknown);
 impl IEnumOleUndoUnits {
-    pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IOleUndoUnit>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
+    pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IOleUndoUnit>], pceltfetched: *mut u32) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), pceltfetched)
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -6322,12 +6342,12 @@ impl IOleUndoManager {
     {
         (::windows_core::Interface::vtable(self).Open)(::windows_core::Interface::as_raw(self), ppuu.into_param().abi()).ok()
     }
-    pub unsafe fn Close<P0, P1>(&self, ppuu: P0, fcommit: P1) -> ::windows_core::Result<()>
+    pub unsafe fn Close<P0, P1>(&self, ppuu: P0, fcommit: P1) -> ::windows_core::HRESULT
     where
         P0: ::windows_core::IntoParam<IOleParentUndoUnit>,
         P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self), ppuu.into_param().abi(), fcommit.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self), ppuu.into_param().abi(), fcommit.into_param().abi())
     }
     pub unsafe fn Add<P0>(&self, puu: P0) -> ::windows_core::Result<()>
     where
@@ -8449,6 +8469,8 @@ pub const OLERENDER_DRAW: OLERENDER = OLERENDER(1i32);
 pub const OLERENDER_FORMAT: OLERENDER = OLERENDER(2i32);
 pub const OLERENDER_NONE: OLERENDER = OLERENDER(0i32);
 pub const OLESTDDELIM: ::windows_core::PCWSTR = ::windows_core::w!("\\");
+pub const OLESTREAM_CONVERSION_DEFAULT: i32 = 0i32;
+pub const OLESTREAM_CONVERSION_DISABLEOLELINK: i32 = 1i32;
 pub const OLEUIPASTE_ENABLEICON: OLEUIPASTEFLAG = OLEUIPASTEFLAG(2048i32);
 pub const OLEUIPASTE_LINKANYTYPE: OLEUIPASTEFLAG = OLEUIPASTEFLAG(1024i32);
 pub const OLEUIPASTE_LINKTYPE1: OLEUIPASTEFLAG = OLEUIPASTEFLAG(1i32);
@@ -13140,5 +13162,6 @@ impl ::core::default::Default for _wireVARIANT_0 {
     }
 }
 pub type LPFNOLEUIHOOK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> u32>;
+pub type OLESTREAMQUERYCONVERTOLELINKCALLBACK = ::core::option::Option<unsafe extern "system" fn(pclsid: *const ::windows_core::GUID, szclass: ::windows_core::PCWSTR, sztopicname: ::windows_core::PCWSTR, szitemname: ::windows_core::PCWSTR, szuncname: ::windows_core::PCWSTR, linkupdatingoption: u32, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

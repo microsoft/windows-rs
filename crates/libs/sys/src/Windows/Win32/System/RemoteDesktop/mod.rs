@@ -136,6 +136,7 @@ pub type IWRdsProtocolSettings = *mut ::core::ffi::c_void;
 pub type IWRdsProtocolShadowCallback = *mut ::core::ffi::c_void;
 pub type IWRdsProtocolShadowConnection = *mut ::core::ffi::c_void;
 pub type IWRdsWddmIddProps = *mut ::core::ffi::c_void;
+pub type IWRdsWddmIddProps1 = *mut ::core::ffi::c_void;
 pub type IWTSBitmapRenderService = *mut ::core::ffi::c_void;
 pub type IWTSBitmapRenderer = *mut ::core::ffi::c_void;
 pub type IWTSBitmapRendererCallback = *mut ::core::ffi::c_void;

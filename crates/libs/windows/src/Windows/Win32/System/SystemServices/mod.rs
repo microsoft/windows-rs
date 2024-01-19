@@ -572,8 +572,10 @@ pub const GUID_GPU_PREFERENCE_POLICY: ::windows_core::GUID = ::windows_core::GUI
 pub const GUID_GRAPHICS_SUBGROUP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5fb4938d_1ee8_4b0f_9a3c_5036b0ab995c);
 pub const GUID_HIBERNATE_FASTS4_POLICY: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x94ac6d29_73ce_41a6_809f_6363ba21b47e);
 pub const GUID_HIBERNATE_TIMEOUT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d7815a6_7ee4_497e_8888_515a05f02364);
-pub const GUID_HUPR_ADAPTIVE_DIM_TIMEOUT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf8c6097_12b8_4279_bbdd_44601ee5209d);
-pub const GUID_HUPR_ADAPTIVE_DISPLAY_TIMEOUT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a7d6ab6_ac83_4ad1_8282_eca5b58308f3);
+pub const GUID_HUPR_ADAPTIVE_AWAY_DIM_TIMEOUT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa79c8e0e_f271_482d_8f8a_5db9a18312de);
+pub const GUID_HUPR_ADAPTIVE_AWAY_DISPLAY_TIMEOUT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a7d6ab6_ac83_4ad1_8282_eca5b58308f3);
+pub const GUID_HUPR_ADAPTIVE_INATTENTIVE_DIM_TIMEOUT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf8c6097_12b8_4279_bbdd_44601ee5209d);
+pub const GUID_HUPR_ADAPTIVE_INATTENTIVE_DISPLAY_TIMEOUT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xee16691e_6ab3_4619_bb48_1c77c9357e5a);
 pub const GUID_IDLE_BACKGROUND_TASK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x515c31d8_f734_163d_a0fd_11a08c91e8f1);
 pub const GUID_IDLE_RESILIENCY_PERIOD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc42b79aa_aa3a_484b_a98f_2cf32aa90a28);
 pub const GUID_IDLE_RESILIENCY_SUBGROUP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e601130_5351_4d9d_8e04_252966bad054);
@@ -1220,6 +1222,7 @@ pub const IO_REPARSE_TAG_NFS: u32 = 2147483668u32;
 pub const IO_REPARSE_TAG_ONEDRIVE: u32 = 2147483681u32;
 pub const IO_REPARSE_TAG_PROJFS: u32 = 2415919132u32;
 pub const IO_REPARSE_TAG_PROJFS_TOMBSTONE: u32 = 2684354594u32;
+pub const IO_REPARSE_TAG_RESERVED_INVALID: i32 = -1073709056i32;
 pub const IO_REPARSE_TAG_RESERVED_ONE: u32 = 1u32;
 pub const IO_REPARSE_TAG_RESERVED_RANGE: u32 = 2u32;
 pub const IO_REPARSE_TAG_RESERVED_TWO: u32 = 2u32;
@@ -6532,6 +6535,72 @@ impl ::core::cmp::PartialEq for PROCESSOR_PERFSTATE_POLICY_0_0_0 {
 }
 impl ::core::cmp::Eq for PROCESSOR_PERFSTATE_POLICY_0_0_0 {}
 impl ::core::default::Default for PROCESSOR_PERFSTATE_POLICY_0_0_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub struct PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {
+    pub Anonymous: PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0,
+}
+impl ::core::marker::Copy for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {}
+impl ::core::clone::Clone for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows_core::TypeKind for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::default::Default for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub union PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {
+    pub Flags: u32,
+    pub Anonymous: PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0,
+}
+impl ::core::marker::Copy for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {}
+impl ::core::clone::Clone for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows_core::TypeKind for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::default::Default for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub struct PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {}
+impl ::core::clone::Clone for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
+impl ::windows_core::TypeKind for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self._bitfield == other._bitfield
+    }
+}
+impl ::core::cmp::Eq for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {}
+impl ::core::default::Default for PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

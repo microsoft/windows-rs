@@ -3,6 +3,7 @@
 ::windows_targets::link!("kernel32.dll" "system" fn AllocConsole() -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn AttachConsole(dwprocessid : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn ClosePseudoConsole(hpc : HPCON));
+::windows_targets::link!("user32.dll" "system" fn ConsoleControl(command : CONSOLECONTROL, consoleinformation : *const ::core::ffi::c_void, consoleinformationlength : u32) -> super::super::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Security")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn CreateConsoleScreenBuffer(dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwflags : u32, lpscreenbufferdata : *const ::core::ffi::c_void) -> super::super::Foundation:: HANDLE);
 ::windows_targets::link!("kernel32.dll" "system" fn CreatePseudoConsole(size : COORD, hinput : super::super::Foundation:: HANDLE, houtput : super::super::Foundation:: HANDLE, dwflags : u32, phpc : *mut HPCON) -> ::windows_sys::core::HRESULT);
@@ -123,6 +124,11 @@ pub const CTRL_CLOSE_EVENT: u32 = 2u32;
 pub const CTRL_C_EVENT: u32 = 0u32;
 pub const CTRL_LOGOFF_EVENT: u32 = 5u32;
 pub const CTRL_SHUTDOWN_EVENT: u32 = 6u32;
+pub const ConsoleEndTask: CONSOLECONTROL = 7i32;
+pub const ConsoleNotifyConsoleApplication: CONSOLECONTROL = 1i32;
+pub const ConsoleSetCaretInfo: CONSOLECONTROL = 3i32;
+pub const ConsoleSetForeground: CONSOLECONTROL = 5i32;
+pub const ConsoleSetWindowOwner: CONSOLECONTROL = 6i32;
 pub const DISABLE_NEWLINE_AUTO_RETURN: CONSOLE_MODE = 8u32;
 pub const DOUBLE_CLICK: u32 = 2u32;
 pub const ENABLE_AUTO_POSITION: CONSOLE_MODE = 256u32;
@@ -170,12 +176,16 @@ pub const PSEUDOCONSOLE_INHERIT_CURSOR: u32 = 1u32;
 pub const RIGHTMOST_BUTTON_PRESSED: u32 = 2u32;
 pub const RIGHT_ALT_PRESSED: u32 = 1u32;
 pub const RIGHT_CTRL_PRESSED: u32 = 4u32;
+pub const Reserved1: CONSOLECONTROL = 0i32;
+pub const Reserved2: CONSOLECONTROL = 2i32;
+pub const Reserved3: CONSOLECONTROL = 4i32;
 pub const SCROLLLOCK_ON: u32 = 64u32;
 pub const SHIFT_PRESSED: u32 = 16u32;
 pub const STD_ERROR_HANDLE: STD_HANDLE = 4294967284u32;
 pub const STD_INPUT_HANDLE: STD_HANDLE = 4294967286u32;
 pub const STD_OUTPUT_HANDLE: STD_HANDLE = 4294967285u32;
 pub const WINDOW_BUFFER_SIZE_EVENT: u32 = 4u32;
+pub type CONSOLECONTROL = i32;
 pub type CONSOLE_CHARACTER_ATTRIBUTES = u16;
 pub type CONSOLE_MODE = u32;
 pub type STD_HANDLE = u32;
@@ -197,6 +207,53 @@ pub union CHAR_INFO_0 {
 }
 impl ::core::marker::Copy for CHAR_INFO_0 {}
 impl ::core::clone::Clone for CHAR_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CONSOLEENDTASK {
+    pub ProcessId: super::super::Foundation::HANDLE,
+    pub hwnd: super::super::Foundation::HWND,
+    pub ConsoleEventCode: u32,
+    pub ConsoleFlags: u32,
+}
+impl ::core::marker::Copy for CONSOLEENDTASK {}
+impl ::core::clone::Clone for CONSOLEENDTASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CONSOLESETFOREGROUND {
+    pub hProcess: super::super::Foundation::HANDLE,
+    pub bForeground: super::super::Foundation::BOOL,
+}
+impl ::core::marker::Copy for CONSOLESETFOREGROUND {}
+impl ::core::clone::Clone for CONSOLESETFOREGROUND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CONSOLEWINDOWOWNER {
+    pub hwnd: super::super::Foundation::HWND,
+    pub ProcessId: u32,
+    pub ThreadId: u32,
+}
+impl ::core::marker::Copy for CONSOLEWINDOWOWNER {}
+impl ::core::clone::Clone for CONSOLEWINDOWOWNER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CONSOLE_CARET_INFO {
+    pub hwnd: super::super::Foundation::HWND,
+    pub rc: super::super::Foundation::RECT,
+}
+impl ::core::marker::Copy for CONSOLE_CARET_INFO {}
+impl ::core::clone::Clone for CONSOLE_CARET_INFO {
     fn clone(&self) -> Self {
         *self
     }
@@ -247,6 +304,17 @@ pub struct CONSOLE_HISTORY_INFO {
 }
 impl ::core::marker::Copy for CONSOLE_HISTORY_INFO {}
 impl ::core::clone::Clone for CONSOLE_HISTORY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct CONSOLE_PROCESS_INFO {
+    pub dwProcessID: u32,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for CONSOLE_PROCESS_INFO {}
+impl ::core::clone::Clone for CONSOLE_PROCESS_INFO {
     fn clone(&self) -> Self {
         *self
     }

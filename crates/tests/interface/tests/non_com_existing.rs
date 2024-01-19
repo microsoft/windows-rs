@@ -159,7 +159,7 @@ impl IXAudio2VoiceCallback_Impl for Callback {
 #[test]
 fn test() -> Result<()> {
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED)?;
+        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
 
         let reflection = ID3D12FunctionParameterReflection::new(&Reflection);
         let mut desc = Default::default();

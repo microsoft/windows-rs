@@ -15,6 +15,7 @@ void __stdcall AddScopedPolicyIDAce(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall AddSecureMemoryCacheCallback(int p0) {}
 void __stdcall AddVectoredContinueHandler(int p0, int p1) {}
 void __stdcall AddVectoredExceptionHandler(int p0, int p1) {}
+void __stdcall AdjustCalendarDate(int p0, int p1, int p2) {}
 void __stdcall AllocConsole() {}
 void __stdcall AllocateUserPhysicalPages(int p0, int p1, int p2) {}
 void __stdcall AllocateUserPhysicalPagesNuma(int p0, int p1, int p2, int p3) {}
@@ -85,8 +86,10 @@ void __stdcall CompareStringOrdinal(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall CompareStringW(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall ConnectNamedPipe(int p0, int p1) {}
 void __stdcall ContinueDebugEvent(int p0, int p1, int p2) {}
+void __stdcall ConvertCalDateTimeToSystemTime(int p0, int p1) {}
 void __stdcall ConvertDefaultLocale(int p0) {}
 void __stdcall ConvertFiberToThread() {}
+void __stdcall ConvertSystemTimeToCalDateTime(int p0, int p1, int p2) {}
 void __stdcall ConvertThreadToFiber(int p0) {}
 void __stdcall ConvertThreadToFiberEx(int p0, int p1) {}
 void __stdcall CopyContext(int p0, int p1, int p2) {}
@@ -366,9 +369,11 @@ void __stdcall GetCPInfo(int p0, int p1) {}
 void __stdcall GetCPInfoExA(int p0, int p1, int p2) {}
 void __stdcall GetCPInfoExW(int p0, int p1, int p2) {}
 void __stdcall GetCachedSigningLevel(int p0, int p1, int p2, int p3, int p4, int p5) {}
+void __stdcall GetCalendarDateFormatEx(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall GetCalendarInfoA(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall GetCalendarInfoEx(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
 void __stdcall GetCalendarInfoW(int p0, int p1, int p2, int p3, int p4, int p5) {}
+void __stdcall GetCalendarSupportedDateRange(int p0, int p1, int p2) {}
 void __stdcall GetCommConfig(int p0, int p1, int p2) {}
 void __stdcall GetCommMask(int p0, int p1) {}
 void __stdcall GetCommModemStatus(int p0, int p1) {}
@@ -428,6 +433,7 @@ void __stdcall GetCurrentPackageFamilyName(int p0, int p1) {}
 void __stdcall GetCurrentPackageFullName(int p0, int p1) {}
 void __stdcall GetCurrentPackageId(int p0, int p1) {}
 void __stdcall GetCurrentPackageInfo(int p0, int p1, int p2, int p3) {}
+void __stdcall GetCurrentPackageInfo3(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall GetCurrentPackagePath(int p0, int p1) {}
 void __stdcall GetCurrentPackageVirtualizationContext() {}
 void __stdcall GetCurrentProcess() {}
@@ -774,6 +780,7 @@ void __stdcall IsBadReadPtr(int p0, int p1) {}
 void __stdcall IsBadStringPtrA(int p0, int p1) {}
 void __stdcall IsBadStringPtrW(int p0, int p1) {}
 void __stdcall IsBadWritePtr(int p0, int p1) {}
+void __stdcall IsCalendarLeapYear(int p0, int p1, int p2) {}
 void __stdcall IsDBCSLeadByte(int p0) {}
 void __stdcall IsDBCSLeadByteEx(int p0, int p1) {}
 void __stdcall IsDebuggerPresent() {}
@@ -1225,6 +1232,7 @@ void __stdcall UnregisterBadMemoryNotification(int p0) {}
 void __stdcall UnregisterWait(int p0) {}
 void __stdcall UnregisterWaitEx(int p0, int p1) {}
 void __stdcall UnregisterWaitUntilOOBECompleted(int p0) {}
+void __stdcall UpdateCalendarDayOfWeek(int p0) {}
 void __stdcall UpdateProcThreadAttribute(int p0, int p1, int p2, int p3, int p4, int p5, int p6) {}
 void __stdcall UpdateResourceA(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall UpdateResourceW(int p0, int p1, int p2, int p3, int p4, int p5) {}

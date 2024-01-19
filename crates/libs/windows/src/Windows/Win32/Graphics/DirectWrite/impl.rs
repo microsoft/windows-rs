@@ -135,6 +135,71 @@ impl IDWriteBitmapRenderTarget1_Vtbl {
         iid == &<IDWriteBitmapRenderTarget1 as ::windows_core::Interface>::IID || iid == &<IDWriteBitmapRenderTarget as ::windows_core::Interface>::IID
     }
 }
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub trait IDWriteBitmapRenderTarget2_Impl: Sized + IDWriteBitmapRenderTarget1_Impl {
+    fn GetBitmapData(&self) -> ::windows_core::Result<DWRITE_BITMAP_DATA_BGRA32>;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::windows_core::RuntimeName for IDWriteBitmapRenderTarget2 {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl IDWriteBitmapRenderTarget2_Vtbl {
+    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWriteBitmapRenderTarget2_Impl, const OFFSET: isize>() -> IDWriteBitmapRenderTarget2_Vtbl {
+        unsafe extern "system" fn GetBitmapData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWriteBitmapRenderTarget2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapdata: *mut DWRITE_BITMAP_DATA_BGRA32) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetBitmapData() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(bitmapdata, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self { base__: IDWriteBitmapRenderTarget1_Vtbl::new::<Identity, Impl, OFFSET>(), GetBitmapData: GetBitmapData::<Identity, Impl, OFFSET> }
+    }
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteBitmapRenderTarget2 as ::windows_core::Interface>::IID || iid == &<IDWriteBitmapRenderTarget as ::windows_core::Interface>::IID || iid == &<IDWriteBitmapRenderTarget1 as ::windows_core::Interface>::IID
+    }
+}
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub trait IDWriteBitmapRenderTarget3_Impl: Sized + IDWriteBitmapRenderTarget2_Impl {
+    fn GetPaintFeatureLevel(&self) -> DWRITE_PAINT_FEATURE_LEVEL;
+    fn DrawPaintGlyphRun(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphimageformat: DWRITE_GLYPH_IMAGE_FORMATS, textcolor: super::super::Foundation::COLORREF, colorpaletteindex: u32, blackboxrect: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()>;
+    fn DrawGlyphRunWithColorSupport(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: ::core::option::Option<&IDWriteRenderingParams>, textcolor: super::super::Foundation::COLORREF, colorpaletteindex: u32, blackboxrect: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::windows_core::RuntimeName for IDWriteBitmapRenderTarget3 {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl IDWriteBitmapRenderTarget3_Vtbl {
+    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWriteBitmapRenderTarget3_Impl, const OFFSET: isize>() -> IDWriteBitmapRenderTarget3_Vtbl {
+        unsafe extern "system" fn GetPaintFeatureLevel<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWriteBitmapRenderTarget3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> DWRITE_PAINT_FEATURE_LEVEL {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetPaintFeatureLevel()
+        }
+        unsafe extern "system" fn DrawPaintGlyphRun<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWriteBitmapRenderTarget3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphimageformat: DWRITE_GLYPH_IMAGE_FORMATS, textcolor: super::super::Foundation::COLORREF, colorpaletteindex: u32, blackboxrect: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.DrawPaintGlyphRun(::core::mem::transmute_copy(&baselineoriginx), ::core::mem::transmute_copy(&baselineoriginy), ::core::mem::transmute_copy(&measuringmode), ::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute_copy(&glyphimageformat), ::core::mem::transmute_copy(&textcolor), ::core::mem::transmute_copy(&colorpaletteindex), ::core::mem::transmute_copy(&blackboxrect)).into()
+        }
+        unsafe extern "system" fn DrawGlyphRunWithColorSupport<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWriteBitmapRenderTarget3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: *mut ::core::ffi::c_void, textcolor: super::super::Foundation::COLORREF, colorpaletteindex: u32, blackboxrect: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.DrawGlyphRunWithColorSupport(::core::mem::transmute_copy(&baselineoriginx), ::core::mem::transmute_copy(&baselineoriginy), ::core::mem::transmute_copy(&measuringmode), ::core::mem::transmute_copy(&glyphrun), ::windows_core::from_raw_borrowed(&renderingparams), ::core::mem::transmute_copy(&textcolor), ::core::mem::transmute_copy(&colorpaletteindex), ::core::mem::transmute_copy(&blackboxrect)).into()
+        }
+        Self {
+            base__: IDWriteBitmapRenderTarget2_Vtbl::new::<Identity, Impl, OFFSET>(),
+            GetPaintFeatureLevel: GetPaintFeatureLevel::<Identity, Impl, OFFSET>,
+            DrawPaintGlyphRun: DrawPaintGlyphRun::<Identity, Impl, OFFSET>,
+            DrawGlyphRunWithColorSupport: DrawGlyphRunWithColorSupport::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteBitmapRenderTarget3 as ::windows_core::Interface>::IID || iid == &<IDWriteBitmapRenderTarget as ::windows_core::Interface>::IID || iid == &<IDWriteBitmapRenderTarget1 as ::windows_core::Interface>::IID || iid == &<IDWriteBitmapRenderTarget2 as ::windows_core::Interface>::IID
+    }
+}
 pub trait IDWriteColorGlyphRunEnumerator_Impl: Sized {
     fn MoveNext(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn GetCurrentRun(&self) -> ::windows_core::Result<*mut DWRITE_COLOR_GLYPH_RUN>;
@@ -985,6 +1050,33 @@ impl IDWriteFactory7_Vtbl {
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
         iid == &<IDWriteFactory7 as ::windows_core::Interface>::IID || iid == &<IDWriteFactory as ::windows_core::Interface>::IID || iid == &<IDWriteFactory1 as ::windows_core::Interface>::IID || iid == &<IDWriteFactory2 as ::windows_core::Interface>::IID || iid == &<IDWriteFactory3 as ::windows_core::Interface>::IID || iid == &<IDWriteFactory4 as ::windows_core::Interface>::IID || iid == &<IDWriteFactory5 as ::windows_core::Interface>::IID || iid == &<IDWriteFactory6 as ::windows_core::Interface>::IID
+    }
+}
+#[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Gdi\"`"]
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
+pub trait IDWriteFactory8_Impl: Sized + IDWriteFactory7_Impl {
+    fn TranslateColorGlyphRun3(&self, baselineorigin: &super::Direct2D::Common::D2D_POINT_2F, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, paintfeaturelevel: DWRITE_PAINT_FEATURE_LEVEL, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32) -> ::windows_core::Result<IDWriteColorGlyphRunEnumerator1>;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
+impl ::windows_core::RuntimeName for IDWriteFactory8 {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Gdi"))]
+impl IDWriteFactory8_Vtbl {
+    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFactory8_Impl, const OFFSET: isize>() -> IDWriteFactory8_Vtbl {
+        unsafe extern "system" fn TranslateColorGlyphRun3<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFactory8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineorigin: super::Direct2D::Common::D2D_POINT_2F, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredglyphimageformats: DWRITE_GLYPH_IMAGE_FORMATS, paintfeaturelevel: DWRITE_PAINT_FEATURE_LEVEL, measuringmode: DWRITE_MEASURING_MODE, worldanddpitransform: *const DWRITE_MATRIX, colorpaletteindex: u32, colorenumerator: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.TranslateColorGlyphRun3(::core::mem::transmute(&baselineorigin), ::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute_copy(&glyphrundescription), ::core::mem::transmute_copy(&desiredglyphimageformats), ::core::mem::transmute_copy(&paintfeaturelevel), ::core::mem::transmute_copy(&measuringmode), ::core::mem::transmute_copy(&worldanddpitransform), ::core::mem::transmute_copy(&colorpaletteindex)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(colorenumerator, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self { base__: IDWriteFactory7_Vtbl::new::<Identity, Impl, OFFSET>(), TranslateColorGlyphRun3: TranslateColorGlyphRun3::<Identity, Impl, OFFSET> }
+    }
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFactory8 as ::windows_core::Interface>::IID || iid == &<IDWriteFactory as ::windows_core::Interface>::IID || iid == &<IDWriteFactory1 as ::windows_core::Interface>::IID || iid == &<IDWriteFactory2 as ::windows_core::Interface>::IID || iid == &<IDWriteFactory3 as ::windows_core::Interface>::IID || iid == &<IDWriteFactory4 as ::windows_core::Interface>::IID || iid == &<IDWriteFactory5 as ::windows_core::Interface>::IID || iid == &<IDWriteFactory6 as ::windows_core::Interface>::IID || iid == &<IDWriteFactory7 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDWriteFont_Impl: Sized {
@@ -2070,6 +2162,43 @@ impl IDWriteFontFace6_Vtbl {
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
         iid == &<IDWriteFontFace6 as ::windows_core::Interface>::IID || iid == &<IDWriteFontFace as ::windows_core::Interface>::IID || iid == &<IDWriteFontFace1 as ::windows_core::Interface>::IID || iid == &<IDWriteFontFace2 as ::windows_core::Interface>::IID || iid == &<IDWriteFontFace3 as ::windows_core::Interface>::IID || iid == &<IDWriteFontFace4 as ::windows_core::Interface>::IID || iid == &<IDWriteFontFace5 as ::windows_core::Interface>::IID
+    }
+}
+#[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+pub trait IDWriteFontFace7_Impl: Sized + IDWriteFontFace6_Impl {
+    fn GetPaintFeatureLevel(&self, glyphimageformat: DWRITE_GLYPH_IMAGE_FORMATS) -> DWRITE_PAINT_FEATURE_LEVEL;
+    fn CreatePaintReader(&self, glyphimageformat: DWRITE_GLYPH_IMAGE_FORMATS, paintfeaturelevel: DWRITE_PAINT_FEATURE_LEVEL) -> ::windows_core::Result<IDWritePaintReader>;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::windows_core::RuntimeName for IDWriteFontFace7 {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl IDWriteFontFace7_Vtbl {
+    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFontFace7_Impl, const OFFSET: isize>() -> IDWriteFontFace7_Vtbl {
+        unsafe extern "system" fn GetPaintFeatureLevel<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFontFace7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphimageformat: DWRITE_GLYPH_IMAGE_FORMATS) -> DWRITE_PAINT_FEATURE_LEVEL {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetPaintFeatureLevel(::core::mem::transmute_copy(&glyphimageformat))
+        }
+        unsafe extern "system" fn CreatePaintReader<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWriteFontFace7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphimageformat: DWRITE_GLYPH_IMAGE_FORMATS, paintfeaturelevel: DWRITE_PAINT_FEATURE_LEVEL, paintreader: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.CreatePaintReader(::core::mem::transmute_copy(&glyphimageformat), ::core::mem::transmute_copy(&paintfeaturelevel)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(paintreader, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: IDWriteFontFace6_Vtbl::new::<Identity, Impl, OFFSET>(),
+            GetPaintFeatureLevel: GetPaintFeatureLevel::<Identity, Impl, OFFSET>,
+            CreatePaintReader: CreatePaintReader::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWriteFontFace7 as ::windows_core::Interface>::IID || iid == &<IDWriteFontFace as ::windows_core::Interface>::IID || iid == &<IDWriteFontFace1 as ::windows_core::Interface>::IID || iid == &<IDWriteFontFace2 as ::windows_core::Interface>::IID || iid == &<IDWriteFontFace3 as ::windows_core::Interface>::IID || iid == &<IDWriteFontFace4 as ::windows_core::Interface>::IID || iid == &<IDWriteFontFace5 as ::windows_core::Interface>::IID || iid == &<IDWriteFontFace6 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDWriteFontFaceReference_Impl: Sized {
@@ -3683,6 +3812,86 @@ impl IDWriteNumberSubstitution_Vtbl {
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
         iid == &<IDWriteNumberSubstitution as ::windows_core::Interface>::IID
+    }
+}
+#[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+pub trait IDWritePaintReader_Impl: Sized {
+    fn SetCurrentGlyph(&self, glyphindex: u32, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: u32, clipbox: *mut super::Direct2D::Common::D2D_RECT_F, glyphattributes: *mut DWRITE_PAINT_ATTRIBUTES) -> ::windows_core::Result<()>;
+    fn SetTextColor(&self, textcolor: *const DWRITE_COLOR_F) -> ::windows_core::Result<()>;
+    fn SetColorPaletteIndex(&self, colorpaletteindex: u32) -> ::windows_core::Result<()>;
+    fn SetCustomColorPalette(&self, paletteentries: *const DWRITE_COLOR_F, paletteentrycount: u32) -> ::windows_core::Result<()>;
+    fn MoveToFirstChild(&self, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: u32) -> ::windows_core::Result<()>;
+    fn MoveToNextSibling(&self, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: u32) -> ::windows_core::Result<()>;
+    fn MoveToParent(&self) -> ::windows_core::Result<()>;
+    fn GetGradientStops(&self, firstgradientstopindex: u32, gradientstopcount: u32, gradientstops: *mut super::Direct2D::Common::D2D1_GRADIENT_STOP) -> ::windows_core::Result<()>;
+    fn GetGradientStopColors(&self, firstgradientstopindex: u32, gradientstopcount: u32, gradientstopcolors: *mut DWRITE_PAINT_COLOR) -> ::windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl ::windows_core::RuntimeName for IDWritePaintReader {}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl IDWritePaintReader_Vtbl {
+    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWritePaintReader_Impl, const OFFSET: isize>() -> IDWritePaintReader_Vtbl {
+        unsafe extern "system" fn SetCurrentGlyph<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWritePaintReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, glyphindex: u32, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: u32, clipbox: *mut super::Direct2D::Common::D2D_RECT_F, glyphattributes: *mut DWRITE_PAINT_ATTRIBUTES) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetCurrentGlyph(::core::mem::transmute_copy(&glyphindex), ::core::mem::transmute_copy(&paintelement), ::core::mem::transmute_copy(&structsize), ::core::mem::transmute_copy(&clipbox), ::core::mem::transmute_copy(&glyphattributes)).into()
+        }
+        unsafe extern "system" fn SetTextColor<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWritePaintReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, textcolor: *const DWRITE_COLOR_F) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetTextColor(::core::mem::transmute_copy(&textcolor)).into()
+        }
+        unsafe extern "system" fn SetColorPaletteIndex<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWritePaintReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, colorpaletteindex: u32) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetColorPaletteIndex(::core::mem::transmute_copy(&colorpaletteindex)).into()
+        }
+        unsafe extern "system" fn SetCustomColorPalette<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWritePaintReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paletteentries: *const DWRITE_COLOR_F, paletteentrycount: u32) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetCustomColorPalette(::core::mem::transmute_copy(&paletteentries), ::core::mem::transmute_copy(&paletteentrycount)).into()
+        }
+        unsafe extern "system" fn MoveToFirstChild<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWritePaintReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: u32) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.MoveToFirstChild(::core::mem::transmute_copy(&paintelement), ::core::mem::transmute_copy(&structsize)).into()
+        }
+        unsafe extern "system" fn MoveToNextSibling<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWritePaintReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paintelement: *mut DWRITE_PAINT_ELEMENT, structsize: u32) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.MoveToNextSibling(::core::mem::transmute_copy(&paintelement), ::core::mem::transmute_copy(&structsize)).into()
+        }
+        unsafe extern "system" fn MoveToParent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWritePaintReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.MoveToParent().into()
+        }
+        unsafe extern "system" fn GetGradientStops<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWritePaintReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, firstgradientstopindex: u32, gradientstopcount: u32, gradientstops: *mut super::Direct2D::Common::D2D1_GRADIENT_STOP) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetGradientStops(::core::mem::transmute_copy(&firstgradientstopindex), ::core::mem::transmute_copy(&gradientstopcount), ::core::mem::transmute_copy(&gradientstops)).into()
+        }
+        unsafe extern "system" fn GetGradientStopColors<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDWritePaintReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, firstgradientstopindex: u32, gradientstopcount: u32, gradientstopcolors: *mut DWRITE_PAINT_COLOR) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetGradientStopColors(::core::mem::transmute_copy(&firstgradientstopindex), ::core::mem::transmute_copy(&gradientstopcount), ::core::mem::transmute_copy(&gradientstopcolors)).into()
+        }
+        Self {
+            base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            SetCurrentGlyph: SetCurrentGlyph::<Identity, Impl, OFFSET>,
+            SetTextColor: SetTextColor::<Identity, Impl, OFFSET>,
+            SetColorPaletteIndex: SetColorPaletteIndex::<Identity, Impl, OFFSET>,
+            SetCustomColorPalette: SetCustomColorPalette::<Identity, Impl, OFFSET>,
+            MoveToFirstChild: MoveToFirstChild::<Identity, Impl, OFFSET>,
+            MoveToNextSibling: MoveToNextSibling::<Identity, Impl, OFFSET>,
+            MoveToParent: MoveToParent::<Identity, Impl, OFFSET>,
+            GetGradientStops: GetGradientStops::<Identity, Impl, OFFSET>,
+            GetGradientStopColors: GetGradientStopColors::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDWritePaintReader as ::windows_core::Interface>::IID
     }
 }
 pub trait IDWritePixelSnapping_Impl: Sized {

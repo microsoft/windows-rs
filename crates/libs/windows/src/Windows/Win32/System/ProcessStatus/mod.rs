@@ -624,6 +624,61 @@ impl ::core::default::Default for PROCESS_MEMORY_COUNTERS_EX {
     }
 }
 #[repr(C)]
+pub struct PROCESS_MEMORY_COUNTERS_EX2 {
+    pub cb: u32,
+    pub PageFaultCount: u32,
+    pub PeakWorkingSetSize: usize,
+    pub WorkingSetSize: usize,
+    pub QuotaPeakPagedPoolUsage: usize,
+    pub QuotaPagedPoolUsage: usize,
+    pub QuotaPeakNonPagedPoolUsage: usize,
+    pub QuotaNonPagedPoolUsage: usize,
+    pub PagefileUsage: usize,
+    pub PeakPagefileUsage: usize,
+    pub PrivateUsage: usize,
+    pub PrivateWorkingSetSize: usize,
+    pub SharedCommitUsage: u64,
+}
+impl ::core::marker::Copy for PROCESS_MEMORY_COUNTERS_EX2 {}
+impl ::core::clone::Clone for PROCESS_MEMORY_COUNTERS_EX2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PROCESS_MEMORY_COUNTERS_EX2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESS_MEMORY_COUNTERS_EX2")
+            .field("cb", &self.cb)
+            .field("PageFaultCount", &self.PageFaultCount)
+            .field("PeakWorkingSetSize", &self.PeakWorkingSetSize)
+            .field("WorkingSetSize", &self.WorkingSetSize)
+            .field("QuotaPeakPagedPoolUsage", &self.QuotaPeakPagedPoolUsage)
+            .field("QuotaPagedPoolUsage", &self.QuotaPagedPoolUsage)
+            .field("QuotaPeakNonPagedPoolUsage", &self.QuotaPeakNonPagedPoolUsage)
+            .field("QuotaNonPagedPoolUsage", &self.QuotaNonPagedPoolUsage)
+            .field("PagefileUsage", &self.PagefileUsage)
+            .field("PeakPagefileUsage", &self.PeakPagefileUsage)
+            .field("PrivateUsage", &self.PrivateUsage)
+            .field("PrivateWorkingSetSize", &self.PrivateWorkingSetSize)
+            .field("SharedCommitUsage", &self.SharedCommitUsage)
+            .finish()
+    }
+}
+impl ::windows_core::TypeKind for PROCESS_MEMORY_COUNTERS_EX2 {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for PROCESS_MEMORY_COUNTERS_EX2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.cb == other.cb && self.PageFaultCount == other.PageFaultCount && self.PeakWorkingSetSize == other.PeakWorkingSetSize && self.WorkingSetSize == other.WorkingSetSize && self.QuotaPeakPagedPoolUsage == other.QuotaPeakPagedPoolUsage && self.QuotaPagedPoolUsage == other.QuotaPagedPoolUsage && self.QuotaPeakNonPagedPoolUsage == other.QuotaPeakNonPagedPoolUsage && self.QuotaNonPagedPoolUsage == other.QuotaNonPagedPoolUsage && self.PagefileUsage == other.PagefileUsage && self.PeakPagefileUsage == other.PeakPagefileUsage && self.PrivateUsage == other.PrivateUsage && self.PrivateWorkingSetSize == other.PrivateWorkingSetSize && self.SharedCommitUsage == other.SharedCommitUsage
+    }
+}
+impl ::core::cmp::Eq for PROCESS_MEMORY_COUNTERS_EX2 {}
+impl ::core::default::Default for PROCESS_MEMORY_COUNTERS_EX2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 pub union PSAPI_WORKING_SET_BLOCK {
     pub Flags: usize,
     pub Anonymous: PSAPI_WORKING_SET_BLOCK_0,

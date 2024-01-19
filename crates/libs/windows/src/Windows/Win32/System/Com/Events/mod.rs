@@ -16,8 +16,8 @@ impl IEnumEventObject {
     pub unsafe fn Next(&self, ppinterface: &mut [::core::option::Option<::windows_core::IUnknown>], cretelem: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppinterface.len().try_into().unwrap(), ::core::mem::transmute(ppinterface.as_ptr()), cretelem).ok()
     }
-    pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
+    pub unsafe fn Reset(&self) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self))
     }
     pub unsafe fn Skip(&self, cskipelem: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), cskipelem).ok()

@@ -1845,7 +1845,7 @@ pub trait IMMDevice_Impl: Sized {
     fn Activate(&self, iid: *const ::windows_core::GUID, dwclsctx: super::super::System::Com::CLSCTX, pactivationparams: *const ::windows_core::PROPVARIANT, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn OpenPropertyStore(&self, stgmaccess: super::super::System::Com::STGM) -> ::windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
     fn GetId(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
-    fn GetState(&self) -> ::windows_core::Result<u32>;
+    fn GetState(&self, pdwstate: *mut u32) -> DEVICE_STATE;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::windows_core::RuntimeName for IMMDevice {}
@@ -1879,16 +1879,10 @@ impl IMMDevice_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetState<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMMDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetState<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMMDevice_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> DEVICE_STATE {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetState() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdwstate, ::core::mem::transmute(ok__));
-                    ::windows_core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.GetState(::core::mem::transmute_copy(&pdwstate))
         }
         Self {
             base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -1959,7 +1953,7 @@ impl IMMDeviceCollection_Vtbl {
     }
 }
 pub trait IMMDeviceEnumerator_Impl: Sized {
-    fn EnumAudioEndpoints(&self, dataflow: EDataFlow, dwstatemask: u32) -> ::windows_core::Result<IMMDeviceCollection>;
+    fn EnumAudioEndpoints(&self, dataflow: EDataFlow, dwstatemask: DEVICE_STATE) -> ::windows_core::Result<IMMDeviceCollection>;
     fn GetDefaultAudioEndpoint(&self, dataflow: EDataFlow, role: ERole) -> ::windows_core::Result<IMMDevice>;
     fn GetDevice(&self, pwstrid: &::windows_core::PCWSTR) -> ::windows_core::Result<IMMDevice>;
     fn RegisterEndpointNotificationCallback(&self, pclient: ::core::option::Option<&IMMNotificationClient>) -> ::windows_core::Result<()>;
@@ -1968,7 +1962,7 @@ pub trait IMMDeviceEnumerator_Impl: Sized {
 impl ::windows_core::RuntimeName for IMMDeviceEnumerator {}
 impl IMMDeviceEnumerator_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMMDeviceEnumerator_Impl, const OFFSET: isize>() -> IMMDeviceEnumerator_Vtbl {
-        unsafe extern "system" fn EnumAudioEndpoints<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMMDeviceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dataflow: EDataFlow, dwstatemask: u32, ppdevices: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn EnumAudioEndpoints<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMMDeviceEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dataflow: EDataFlow, dwstatemask: DEVICE_STATE, ppdevices: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.EnumAudioEndpoints(::core::mem::transmute_copy(&dataflow), ::core::mem::transmute_copy(&dwstatemask)) {
@@ -2050,7 +2044,7 @@ impl IMMEndpoint_Vtbl {
 #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMMNotificationClient_Impl: Sized {
-    fn OnDeviceStateChanged(&self, pwstrdeviceid: &::windows_core::PCWSTR, dwnewstate: u32) -> ::windows_core::Result<()>;
+    fn OnDeviceStateChanged(&self, pwstrdeviceid: &::windows_core::PCWSTR, dwnewstate: DEVICE_STATE) -> ::windows_core::Result<()>;
     fn OnDeviceAdded(&self, pwstrdeviceid: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn OnDeviceRemoved(&self, pwstrdeviceid: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn OnDefaultDeviceChanged(&self, flow: EDataFlow, role: ERole, pwstrdefaultdeviceid: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -2061,7 +2055,7 @@ impl ::windows_core::RuntimeName for IMMNotificationClient {}
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IMMNotificationClient_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMMNotificationClient_Impl, const OFFSET: isize>() -> IMMNotificationClient_Vtbl {
-        unsafe extern "system" fn OnDeviceStateChanged<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrdeviceid: ::windows_core::PCWSTR, dwnewstate: u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn OnDeviceStateChanged<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMMNotificationClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrdeviceid: ::windows_core::PCWSTR, dwnewstate: DEVICE_STATE) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnDeviceStateChanged(::core::mem::transmute(&pwstrdeviceid), ::core::mem::transmute_copy(&dwnewstate)).into()

@@ -1819,11 +1819,11 @@ where
     SetupDiBuildClassInfoListExW(flags, ::core::mem::transmute(classguidlist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), classguidlist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredsize, machinename.into_param().abi(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn SetupDiBuildDriverInfoList<P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*mut SP_DEVINFO_DATA>, drivertype: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE) -> ::windows_core::Result<()>
+pub unsafe fn SetupDiBuildDriverInfoList<P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*mut SP_DEVINFO_DATA>, drivertype: SETUP_DI_DRIVER_TYPE) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HDEVINFO>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiBuildDriverInfoList(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA, drivertype : SETUP_DI_BUILD_DRIVER_DRIVER_TYPE) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiBuildDriverInfoList(deviceinfoset : HDEVINFO, deviceinfodata : *mut SP_DEVINFO_DATA, drivertype : SETUP_DI_DRIVER_TYPE) -> super::super::Foundation:: BOOL);
     SetupDiBuildDriverInfoList(deviceinfoset.into_param().abi(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null_mut())), drivertype).ok()
 }
 #[inline]
@@ -2075,11 +2075,11 @@ where
     SetupDiDestroyDeviceInfoList(deviceinfoset.into_param().abi()).ok()
 }
 #[inline]
-pub unsafe fn SetupDiDestroyDriverInfoList<P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, drivertype: u32) -> ::windows_core::Result<()>
+pub unsafe fn SetupDiDestroyDriverInfoList<P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, drivertype: SETUP_DI_DRIVER_TYPE) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HDEVINFO>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiDestroyDriverInfoList(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, drivertype : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiDestroyDriverInfoList(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, drivertype : SETUP_DI_DRIVER_TYPE) -> super::super::Foundation:: BOOL);
     SetupDiDestroyDriverInfoList(deviceinfoset.into_param().abi(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), drivertype).ok()
 }
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
@@ -2109,19 +2109,19 @@ where
     SetupDiEnumDeviceInterfaces(deviceinfoset.into_param().abi(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), interfaceclassguid, memberindex, deviceinterfacedata).ok()
 }
 #[inline]
-pub unsafe fn SetupDiEnumDriverInfoA<P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, drivertype: u32, memberindex: u32, driverinfodata: *mut SP_DRVINFO_DATA_V2_A) -> ::windows_core::Result<()>
+pub unsafe fn SetupDiEnumDriverInfoA<P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, drivertype: SETUP_DI_DRIVER_TYPE, memberindex: u32, driverinfodata: *mut SP_DRVINFO_DATA_V2_A) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HDEVINFO>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiEnumDriverInfoA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, drivertype : u32, memberindex : u32, driverinfodata : *mut SP_DRVINFO_DATA_V2_A) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiEnumDriverInfoA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, drivertype : SETUP_DI_DRIVER_TYPE, memberindex : u32, driverinfodata : *mut SP_DRVINFO_DATA_V2_A) -> super::super::Foundation:: BOOL);
     SetupDiEnumDriverInfoA(deviceinfoset.into_param().abi(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), drivertype, memberindex, driverinfodata).ok()
 }
 #[inline]
-pub unsafe fn SetupDiEnumDriverInfoW<P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, drivertype: u32, memberindex: u32, driverinfodata: *mut SP_DRVINFO_DATA_V2_W) -> ::windows_core::Result<()>
+pub unsafe fn SetupDiEnumDriverInfoW<P0>(deviceinfoset: P0, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, drivertype: SETUP_DI_DRIVER_TYPE, memberindex: u32, driverinfodata: *mut SP_DRVINFO_DATA_V2_W) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HDEVINFO>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiEnumDriverInfoW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, drivertype : u32, memberindex : u32, driverinfodata : *mut SP_DRVINFO_DATA_V2_W) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupDiEnumDriverInfoW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, drivertype : SETUP_DI_DRIVER_TYPE, memberindex : u32, driverinfodata : *mut SP_DRVINFO_DATA_V2_W) -> super::super::Foundation:: BOOL);
     SetupDiEnumDriverInfoW(deviceinfoset.into_param().abi(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), drivertype, memberindex, driverinfodata).ok()
 }
 #[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`"]
@@ -5556,8 +5556,8 @@ pub const SPCRP_MAXIMUM_PROPERTY: u32 = 28u32;
 pub const SPCRP_SECURITY: u32 = 23u32;
 pub const SPCRP_SECURITY_SDS: u32 = 24u32;
 pub const SPCRP_UPPERFILTERS: u32 = 17u32;
-pub const SPDIT_CLASSDRIVER: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE = SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(1u32);
-pub const SPDIT_COMPATDRIVER: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE = SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(2u32);
+pub const SPDIT_CLASSDRIVER: SETUP_DI_DRIVER_TYPE = SETUP_DI_DRIVER_TYPE(1u32);
+pub const SPDIT_COMPATDRIVER: SETUP_DI_DRIVER_TYPE = SETUP_DI_DRIVER_TYPE(2u32);
 pub const SPDIT_NODRIVER: u32 = 0u32;
 pub const SPDRP_ADDRESS: u32 = 28u32;
 pub const SPDRP_BASE_CONTAINERID: u32 = 36u32;
@@ -6844,13 +6844,13 @@ impl ::core::ops::Not for SETUPSCANFILEQUEUE_FLAGS {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
-pub struct SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(pub u32);
-impl ::windows_core::TypeKind for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
+pub struct SETUP_DI_DRIVER_TYPE(pub u32);
+impl ::windows_core::TypeKind for SETUP_DI_DRIVER_TYPE {
     type TypeKind = ::windows_core::CopyType;
 }
-impl ::core::fmt::Debug for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
+impl ::core::fmt::Debug for SETUP_DI_DRIVER_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SETUP_DI_BUILD_DRIVER_DRIVER_TYPE").field(&self.0).finish()
+        f.debug_tuple("SETUP_DI_DRIVER_TYPE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
@@ -7725,7 +7725,7 @@ impl ::core::default::Default for DMA_DES {
 pub struct DMA_RANGE {
     pub DR_Min: u32,
     pub DR_Max: u32,
-    pub DR_Flags: u32,
+    pub DR_Flags: DD_FLAGS,
 }
 impl ::core::marker::Copy for DMA_RANGE {}
 impl ::core::clone::Clone for DMA_RANGE {
@@ -8270,7 +8270,7 @@ pub struct IO_RANGE {
     pub IOR_nPorts: u32,
     pub IOR_Min: u64,
     pub IOR_Max: u64,
-    pub IOR_RangeFlags: u32,
+    pub IOR_RangeFlags: IOD_DESFLAGS,
     pub IOR_Alias: u64,
 }
 impl ::core::marker::Copy for IO_RANGE {}
@@ -8354,7 +8354,7 @@ impl ::core::default::Default for IRQ_DES_64 {
 pub struct IRQ_RANGE {
     pub IRQR_Min: u32,
     pub IRQR_Max: u32,
-    pub IRQR_Flags: u32,
+    pub IRQR_Flags: IRQD_FLAGS,
 }
 impl ::core::marker::Copy for IRQ_RANGE {}
 impl ::core::clone::Clone for IRQ_RANGE {
@@ -8502,7 +8502,7 @@ pub struct MEM_RANGE {
     pub MR_nBytes: u32,
     pub MR_Min: u64,
     pub MR_Max: u64,
-    pub MR_Flags: u32,
+    pub MR_Flags: MD_FLAGS,
     pub MR_Reserved: u32,
 }
 impl ::core::marker::Copy for MEM_RANGE {}

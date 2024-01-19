@@ -2206,7 +2206,6 @@ pub const wszREGDBTEMPDIRECTORY: ::windows_sys::core::PCWSTR = ::windows_sys::co
 pub const wszREGDEFAULTSMIME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DefaultSMIME");
 pub const wszREGDIRECTORY: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("ConfigurationDirectory");
 pub const wszREGDISABLEEXTENSIONLIST: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DisableExtensionList");
-pub const wszREGDISABLESECEXTENSION: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DisableSecExtension");
 pub const wszREGDSCONFIGDN: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DSConfigDN");
 pub const wszREGDSDOMAINDN: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DSDomainDN");
 pub const wszREGEDITFLAGS: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("EditFlags");

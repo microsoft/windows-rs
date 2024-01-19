@@ -1279,6 +1279,49 @@ impl IDCompositionDevice3_Vtbl {
         iid == &<IDCompositionDevice3 as ::windows_core::Interface>::IID || iid == &<IDCompositionDevice2 as ::windows_core::Interface>::IID
     }
 }
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+pub trait IDCompositionDevice4_Impl: Sized + IDCompositionDevice3_Impl {
+    fn CheckCompositionTextureSupport(&self, renderingdevice: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<super::super::Foundation::BOOL>;
+    fn CreateCompositionTexture(&self, d3dtexture: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<IDCompositionTexture>;
+}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl ::windows_core::RuntimeName for IDCompositionDevice4 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+impl IDCompositionDevice4_Vtbl {
+    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice4_Impl, const OFFSET: isize>() -> IDCompositionDevice4_Vtbl {
+        unsafe extern "system" fn CheckCompositionTextureSupport<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, renderingdevice: *mut ::core::ffi::c_void, supportscompositiontextures: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.CheckCompositionTextureSupport(::windows_core::from_raw_borrowed(&renderingdevice)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(supportscompositiontextures, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CreateCompositionTexture<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionDevice4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, d3dtexture: *mut ::core::ffi::c_void, compositiontexture: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.CreateCompositionTexture(::windows_core::from_raw_borrowed(&d3dtexture)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(compositiontexture, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: IDCompositionDevice3_Vtbl::new::<Identity, Impl, OFFSET>(),
+            CheckCompositionTextureSupport: CheckCompositionTextureSupport::<Identity, Impl, OFFSET>,
+            CreateCompositionTexture: CreateCompositionTexture::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionDevice4 as ::windows_core::Interface>::IID || iid == &<IDCompositionDevice2 as ::windows_core::Interface>::IID || iid == &<IDCompositionDevice3 as ::windows_core::Interface>::IID
+    }
+}
 pub trait IDCompositionDeviceDebug_Impl: Sized {
     fn EnableDebugCounters(&self) -> ::windows_core::Result<()>;
     fn DisableDebugCounters(&self) -> ::windows_core::Result<()>;
@@ -2648,6 +2691,51 @@ impl IDCompositionTarget_Vtbl {
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
         iid == &<IDCompositionTarget as ::windows_core::Interface>::IID
+    }
+}
+#[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+pub trait IDCompositionTexture_Impl: Sized {
+    fn SetSourceRect(&self, sourcerect: *const super::Direct2D::Common::D2D_RECT_U) -> ::windows_core::Result<()>;
+    fn SetColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows_core::Result<()>;
+    fn SetAlphaMode(&self, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows_core::Result<()>;
+    fn GetAvailableFence(&self, fencevalue: *mut u64, iid: *const ::windows_core::GUID, availablefence: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
+}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::windows_core::RuntimeName for IDCompositionTexture {}
+#[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
+impl IDCompositionTexture_Vtbl {
+    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTexture_Impl, const OFFSET: isize>() -> IDCompositionTexture_Vtbl {
+        unsafe extern "system" fn SetSourceRect<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTexture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourcerect: *const super::Direct2D::Common::D2D_RECT_U) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetSourceRect(::core::mem::transmute_copy(&sourcerect)).into()
+        }
+        unsafe extern "system" fn SetColorSpace<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTexture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetColorSpace(::core::mem::transmute_copy(&colorspace)).into()
+        }
+        unsafe extern "system" fn SetAlphaMode<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTexture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetAlphaMode(::core::mem::transmute_copy(&alphamode)).into()
+        }
+        unsafe extern "system" fn GetAvailableFence<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDCompositionTexture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fencevalue: *mut u64, iid: *const ::windows_core::GUID, availablefence: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetAvailableFence(::core::mem::transmute_copy(&fencevalue), ::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&availablefence)).into()
+        }
+        Self {
+            base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            SetSourceRect: SetSourceRect::<Identity, Impl, OFFSET>,
+            SetColorSpace: SetColorSpace::<Identity, Impl, OFFSET>,
+            SetAlphaMode: SetAlphaMode::<Identity, Impl, OFFSET>,
+            GetAvailableFence: GetAvailableFence::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IDCompositionTexture as ::windows_core::Interface>::IID
     }
 }
 pub trait IDCompositionTransform_Impl: Sized + IDCompositionTransform3D_Impl {}

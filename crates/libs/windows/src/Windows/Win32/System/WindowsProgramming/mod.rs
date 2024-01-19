@@ -2225,6 +2225,7 @@ pub const FILE_DIR_DISALLOWED: u32 = 9u32;
 pub const FILE_DOES_NOT_EXIST: u32 = 5u32;
 pub const FILE_ENCRYPTABLE: u32 = 0u32;
 pub const FILE_EXISTS: u32 = 4u32;
+pub const FILE_FLAG_IGNORE_IMPERSONATED_DEVICEMAP: u32 = 131072u32;
 pub const FILE_FLAG_OPEN_REQUIRING_OPLOCK: u32 = 262144u32;
 pub const FILE_IS_ENCRYPTED: u32 = 1u32;
 pub const FILE_MAXIMUM_DISPOSITION: u32 = 5u32;
@@ -2261,7 +2262,6 @@ pub const FS_FILE_ENCRYPTION: u32 = 131072u32;
 pub const FS_PERSISTENT_ACLS: u32 = 8u32;
 pub const FS_UNICODE_STORED_ON_DISK: u32 = 4u32;
 pub const FS_VOL_IS_COMPRESSED: u32 = 32768u32;
-pub const FileDirectoryInformation: FILE_INFORMATION_CLASS = FILE_INFORMATION_CLASS(1i32);
 pub const GENERIC_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(0u32);
 pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_A: ::windows_core::PCSTR = ::windows_core::s!("GetSystemWow64DirectoryA");
 pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_T: ::windows_core::PCWSTR = ::windows_core::w!("GetSystemWow64DirectoryA");
@@ -2752,17 +2752,6 @@ impl ::windows_core::TypeKind for FEATURE_ENABLED_STATE {
 impl ::core::fmt::Debug for FEATURE_ENABLED_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FEATURE_ENABLED_STATE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
-pub struct FILE_INFORMATION_CLASS(pub i32);
-impl ::windows_core::TypeKind for FILE_INFORMATION_CLASS {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for FILE_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FILE_INFORMATION_CLASS").field(&self.0).finish()
     }
 }
 #[repr(transparent)]

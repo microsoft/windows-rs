@@ -4,7 +4,7 @@ use windows::{
 
 fn main() -> Result<()> {
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED)?;
+        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
 
         let manager: IBackgroundCopyManager =
             CoCreateInstance(&BackgroundCopyManager, None, CLSCTX_LOCAL_SERVER)?;

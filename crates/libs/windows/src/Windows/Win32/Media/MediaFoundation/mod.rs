@@ -1978,8 +1978,8 @@ impl ICodecAPI {
     pub unsafe fn IsSupported(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsSupported)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    pub unsafe fn IsModifiable(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).IsModifiable)(::windows_core::Interface::as_raw(self), api).ok()
+    pub unsafe fn IsModifiable(&self, api: *const ::windows_core::GUID) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).IsModifiable)(::windows_core::Interface::as_raw(self), api)
     }
     pub unsafe fn GetParameterRange(&self, api: *const ::windows_core::GUID, valuemin: *mut ::windows_core::VARIANT, valuemax: *mut ::windows_core::VARIANT, steppingdelta: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetParameterRange)(::windows_core::Interface::as_raw(self), api, ::core::mem::transmute(valuemin), ::core::mem::transmute(valuemax), ::core::mem::transmute(steppingdelta)).ok()

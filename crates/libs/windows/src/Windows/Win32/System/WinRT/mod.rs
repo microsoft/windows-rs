@@ -679,6 +679,27 @@ pub struct ICoreInputInterop_Vtbl {
     pub SetInputSource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetMessageHandled: unsafe extern "system" fn(*mut ::core::ffi::c_void, u8) -> ::windows_core::HRESULT,
 }
+::windows_core::imp::com_interface!(ICoreInputInterop2, ICoreInputInterop2_Vtbl, 0xb8a2acd7_a0f0_40ee_8ee7_c82f59cc5cd4);
+::windows_core::imp::interface_hierarchy!(ICoreInputInterop2, ::windows_core::IUnknown, ::windows_core::IInspectable);
+impl ICoreInputInterop2 {
+    pub unsafe fn WindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).WindowHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn ChangeHostingContext<P0>(&self, newparentwindow: P0, newviewinstanceid: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+    {
+        (::windows_core::Interface::vtable(self).ChangeHostingContext)(::windows_core::Interface::as_raw(self), newparentwindow.into_param().abi(), newviewinstanceid).ok()
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICoreInputInterop2_Vtbl {
+    pub base__: ::windows_core::IInspectable_Vtbl,
+    pub WindowHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HWND) -> ::windows_core::HRESULT,
+    pub ChangeHostingContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, u32) -> ::windows_core::HRESULT,
+}
 ::windows_core::imp::com_interface!(ICoreWindowAdapterInterop, ICoreWindowAdapterInterop_Vtbl, 0x7a5b6fd1_cd73_4b6c_9cf4_2e869eaf470a);
 ::windows_core::imp::interface_hierarchy!(ICoreWindowAdapterInterop, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ICoreWindowAdapterInterop {

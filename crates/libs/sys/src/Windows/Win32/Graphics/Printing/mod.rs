@@ -1699,6 +1699,7 @@ pub const SETOPTIONS_FLAG_RESOLVE_CONFLICT: u32 = 1u32;
 pub const SETOPTIONS_RESULT_CONFLICT_REMAINED: u32 = 2u32;
 pub const SETOPTIONS_RESULT_CONFLICT_RESOLVED: u32 = 1u32;
 pub const SETOPTIONS_RESULT_NO_CONFLICT: u32 = 0u32;
+pub const SPLCLIENT_INFO_INTERNAL_LEVEL: u32 = 100u32;
 pub const SPLDS_ASSET_NUMBER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("assetNumber");
 pub const SPLDS_BYTES_PER_MINUTE: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("bytesPerMinute");
 pub const SPLDS_DESCRIPTION: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("description");
@@ -5135,6 +5136,27 @@ pub struct SPLCLIENT_INFO_3_VISTA {
 }
 impl ::core::marker::Copy for SPLCLIENT_INFO_3_VISTA {}
 impl ::core::clone::Clone for SPLCLIENT_INFO_3_VISTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+pub struct SPLCLIENT_INFO_INTERNAL {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub dwSize: u32,
+    pub pMachineName: ::windows_sys::core::PWSTR,
+    pub pUserName: ::windows_sys::core::PWSTR,
+    pub dwBuildNum: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub wProcessorArchitecture: u16,
+    pub hSplPrinter: u64,
+    pub dwProcessId: u32,
+    pub dwSessionId: u32,
+}
+impl ::core::marker::Copy for SPLCLIENT_INFO_INTERNAL {}
+impl ::core::clone::Clone for SPLCLIENT_INFO_INTERNAL {
     fn clone(&self) -> Self {
         *self
     }

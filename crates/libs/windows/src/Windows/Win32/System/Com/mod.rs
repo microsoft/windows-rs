@@ -298,10 +298,9 @@ pub unsafe fn CoGetSystemSecurityPermissions(comsdtype: COMSD, ppsd: *mut super:
     CoGetSystemSecurityPermissions(comsdtype, ppsd).ok()
 }
 #[inline]
-pub unsafe fn CoGetTreatAsClass(clsidold: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::GUID> {
+pub unsafe fn CoGetTreatAsClass(clsidold: *const ::windows_core::GUID, pclsidnew: *mut ::windows_core::GUID) -> ::windows_core::HRESULT {
     ::windows_targets::link!("ole32.dll" "system" fn CoGetTreatAsClass(clsidold : *const ::windows_core::GUID, pclsidnew : *mut ::windows_core::GUID) -> ::windows_core::HRESULT);
-    let mut result__ = ::std::mem::zeroed();
-    CoGetTreatAsClass(clsidold, &mut result__).from_abi(result__)
+    CoGetTreatAsClass(clsidold, pclsidnew)
 }
 #[inline]
 pub unsafe fn CoImpersonateClient() -> ::windows_core::Result<()> {
@@ -315,14 +314,14 @@ pub unsafe fn CoIncrementMTAUsage() -> ::windows_core::Result<CO_MTA_USAGE_COOKI
     CoIncrementMTAUsage(&mut result__).from_abi(result__)
 }
 #[inline]
-pub unsafe fn CoInitialize(pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
+pub unsafe fn CoInitialize(pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::HRESULT {
     ::windows_targets::link!("ole32.dll" "system" fn CoInitialize(pvreserved : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
-    CoInitialize(::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null()))).ok()
+    CoInitialize(::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())))
 }
 #[inline]
-pub unsafe fn CoInitializeEx(pvreserved: ::core::option::Option<*const ::core::ffi::c_void>, dwcoinit: COINIT) -> ::windows_core::Result<()> {
+pub unsafe fn CoInitializeEx(pvreserved: ::core::option::Option<*const ::core::ffi::c_void>, dwcoinit: COINIT) -> ::windows_core::HRESULT {
     ::windows_targets::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const ::core::ffi::c_void, dwcoinit : u32) -> ::windows_core::HRESULT);
-    CoInitializeEx(::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())), dwcoinit.0 as _).ok()
+    CoInitializeEx(::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())), dwcoinit.0 as _)
 }
 #[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
@@ -2063,8 +2062,8 @@ pub struct IEnumCATEGORYINFO_Vtbl {
 ::windows_core::imp::com_interface!(IEnumConnectionPoints, IEnumConnectionPoints_Vtbl, 0xb196b285_bab4_101a_b69c_00aa00341d07);
 ::windows_core::imp::interface_hierarchy!(IEnumConnectionPoints, ::windows_core::IUnknown);
 impl IEnumConnectionPoints {
-    pub unsafe fn Next(&self, ppcp: &mut [::core::option::Option<IConnectionPoint>], pcfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppcp.len().try_into().unwrap(), ::core::mem::transmute(ppcp.as_ptr()), pcfetched).ok()
+    pub unsafe fn Next(&self, ppcp: &mut [::core::option::Option<IConnectionPoint>], pcfetched: *mut u32) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppcp.len().try_into().unwrap(), ::core::mem::transmute(ppcp.as_ptr()), pcfetched)
     }
     pub unsafe fn Skip(&self, cconnections: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), cconnections).ok()
@@ -2089,8 +2088,8 @@ pub struct IEnumConnectionPoints_Vtbl {
 ::windows_core::imp::com_interface!(IEnumConnections, IEnumConnections_Vtbl, 0xb196b287_bab4_101a_b69c_00aa00341d07);
 ::windows_core::imp::interface_hierarchy!(IEnumConnections, ::windows_core::IUnknown);
 impl IEnumConnections {
-    pub unsafe fn Next(&self, rgcd: &mut [CONNECTDATA], pcfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgcd.len().try_into().unwrap(), ::core::mem::transmute(rgcd.as_ptr()), pcfetched).ok()
+    pub unsafe fn Next(&self, rgcd: &mut [CONNECTDATA], pcfetched: *mut u32) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgcd.len().try_into().unwrap(), ::core::mem::transmute(rgcd.as_ptr()), pcfetched)
     }
     pub unsafe fn Skip(&self, cconnections: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), cconnections).ok()
@@ -2146,8 +2145,8 @@ pub struct IEnumContextProps_Vtbl {
 ::windows_core::imp::com_interface!(IEnumFORMATETC, IEnumFORMATETC_Vtbl, 0x00000103_0000_0000_c000_000000000046);
 ::windows_core::imp::interface_hierarchy!(IEnumFORMATETC, ::windows_core::IUnknown);
 impl IEnumFORMATETC {
-    pub unsafe fn Next(&self, rgelt: &mut [FORMATETC], pceltfetched: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn Next(&self, rgelt: &mut [FORMATETC], pceltfetched: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -2276,8 +2275,8 @@ pub struct IEnumString_Vtbl {
 ::windows_core::imp::com_interface!(IEnumUnknown, IEnumUnknown_Vtbl, 0x00000100_0000_0000_c000_000000000046);
 ::windows_core::imp::interface_hierarchy!(IEnumUnknown, ::windows_core::IUnknown);
 impl IEnumUnknown {
-    pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<::windows_core::IUnknown>], pceltfetched: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<::windows_core::IUnknown>], pceltfetched: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -2681,11 +2680,11 @@ impl IMoniker {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Enum)(::windows_core::Interface::as_raw(self), fforward.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn IsEqual<P0>(&self, pmkothermoniker: P0) -> ::windows_core::Result<()>
+    pub unsafe fn IsEqual<P0>(&self, pmkothermoniker: P0) -> ::windows_core::HRESULT
     where
         P0: ::windows_core::IntoParam<IMoniker>,
     {
-        (::windows_core::Interface::vtable(self).IsEqual)(::windows_core::Interface::as_raw(self), pmkothermoniker.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).IsEqual)(::windows_core::Interface::as_raw(self), pmkothermoniker.into_param().abi())
     }
     pub unsafe fn Hash(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();

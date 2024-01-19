@@ -103,6 +103,92 @@ pub struct IIsolatedAppLauncher_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Launch: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *const IsolatedAppLauncherTelemetryParameters) -> ::windows_core::HRESULT,
 }
+::windows_core::imp::com_interface!(IIsolatedProcessLauncher, IIsolatedProcessLauncher_Vtbl, 0x1aa24232_9a91_4201_88cb_122f9d6522e0);
+::windows_core::imp::interface_hierarchy!(IIsolatedProcessLauncher, ::windows_core::IUnknown);
+impl IIsolatedProcessLauncher {
+    pub unsafe fn LaunchProcess<P0, P1, P2>(&self, process: P0, arguments: P1, workingdirectory: P2) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    {
+        (::windows_core::Interface::vtable(self).LaunchProcess)(::windows_core::Interface::as_raw(self), process.into_param().abi(), arguments.into_param().abi(), workingdirectory.into_param().abi()).ok()
+    }
+    pub unsafe fn ShareDirectory<P0, P1, P2>(&self, hostpath: P0, containerpath: P1, readonly: P2) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    {
+        (::windows_core::Interface::vtable(self).ShareDirectory)(::windows_core::Interface::as_raw(self), hostpath.into_param().abi(), containerpath.into_param().abi(), readonly.into_param().abi()).ok()
+    }
+    pub unsafe fn GetContainerGuid(&self) -> ::windows_core::Result<::windows_core::GUID> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetContainerGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn AllowSetForegroundAccess(&self, pid: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).AllowSetForegroundAccess)(::windows_core::Interface::as_raw(self), pid).ok()
+    }
+    pub unsafe fn IsContainerRunning(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).IsContainerRunning)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IIsolatedProcessLauncher_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub LaunchProcess: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub ShareDirectory: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetContainerGuid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub AllowSetForegroundAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub IsContainerRunning: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+}
+::windows_core::imp::com_interface!(IIsolatedProcessLauncher2, IIsolatedProcessLauncher2_Vtbl, 0x780e4416_5e72_4123_808e_66dc6479feef);
+::windows_core::imp::interface_hierarchy!(IIsolatedProcessLauncher2, ::windows_core::IUnknown, IIsolatedProcessLauncher);
+impl IIsolatedProcessLauncher2 {
+    pub unsafe fn LaunchProcess<P0, P1, P2>(&self, process: P0, arguments: P1, workingdirectory: P2) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    {
+        (::windows_core::Interface::vtable(self).base__.LaunchProcess)(::windows_core::Interface::as_raw(self), process.into_param().abi(), arguments.into_param().abi(), workingdirectory.into_param().abi()).ok()
+    }
+    pub unsafe fn ShareDirectory<P0, P1, P2>(&self, hostpath: P0, containerpath: P1, readonly: P2) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    {
+        (::windows_core::Interface::vtable(self).base__.ShareDirectory)(::windows_core::Interface::as_raw(self), hostpath.into_param().abi(), containerpath.into_param().abi(), readonly.into_param().abi()).ok()
+    }
+    pub unsafe fn GetContainerGuid(&self) -> ::windows_core::Result<::windows_core::GUID> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.GetContainerGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn AllowSetForegroundAccess(&self, pid: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.AllowSetForegroundAccess)(::windows_core::Interface::as_raw(self), pid).ok()
+    }
+    pub unsafe fn IsContainerRunning(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.IsContainerRunning)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn LaunchProcess2<P0, P1, P2>(&self, process: P0, arguments: P1, workingdirectory: P2, correlationguid: *const ::windows_core::GUID) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+        P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    {
+        (::windows_core::Interface::vtable(self).LaunchProcess2)(::windows_core::Interface::as_raw(self), process.into_param().abi(), arguments.into_param().abi(), workingdirectory.into_param().abi(), correlationguid).ok()
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IIsolatedProcessLauncher2_Vtbl {
+    pub base__: IIsolatedProcessLauncher_Vtbl,
+    pub LaunchProcess2: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+}
 pub const IsolatedAppLauncher: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc812430_e75e_4fd1_9641_1f9f1e2d9a1f);
 pub const WDAG_CLIPBOARD_TAG: ::windows_core::PCWSTR = ::windows_core::w!("CrossIsolatedEnvironmentContent");
 #[repr(C)]

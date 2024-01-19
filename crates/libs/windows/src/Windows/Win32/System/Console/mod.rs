@@ -36,6 +36,11 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn ClosePseudoConsole(hpc : HPCON));
     ClosePseudoConsole(hpc.into_param().abi())
 }
+#[inline]
+pub unsafe fn ConsoleControl(command: CONSOLECONTROL, consoleinformation: *const ::core::ffi::c_void, consoleinformationlength: u32) -> super::super::Foundation::NTSTATUS {
+    ::windows_targets::link!("user32.dll" "system" fn ConsoleControl(command : CONSOLECONTROL, consoleinformation : *const ::core::ffi::c_void, consoleinformationlength : u32) -> super::super::Foundation:: NTSTATUS);
+    ConsoleControl(command, consoleinformation, consoleinformationlength)
+}
 #[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -721,6 +726,11 @@ pub const CTRL_CLOSE_EVENT: u32 = 2u32;
 pub const CTRL_C_EVENT: u32 = 0u32;
 pub const CTRL_LOGOFF_EVENT: u32 = 5u32;
 pub const CTRL_SHUTDOWN_EVENT: u32 = 6u32;
+pub const ConsoleEndTask: CONSOLECONTROL = CONSOLECONTROL(7i32);
+pub const ConsoleNotifyConsoleApplication: CONSOLECONTROL = CONSOLECONTROL(1i32);
+pub const ConsoleSetCaretInfo: CONSOLECONTROL = CONSOLECONTROL(3i32);
+pub const ConsoleSetForeground: CONSOLECONTROL = CONSOLECONTROL(5i32);
+pub const ConsoleSetWindowOwner: CONSOLECONTROL = CONSOLECONTROL(6i32);
 pub const DISABLE_NEWLINE_AUTO_RETURN: CONSOLE_MODE = CONSOLE_MODE(8u32);
 pub const DOUBLE_CLICK: u32 = 2u32;
 pub const ENABLE_AUTO_POSITION: CONSOLE_MODE = CONSOLE_MODE(256u32);
@@ -768,12 +778,26 @@ pub const PSEUDOCONSOLE_INHERIT_CURSOR: u32 = 1u32;
 pub const RIGHTMOST_BUTTON_PRESSED: u32 = 2u32;
 pub const RIGHT_ALT_PRESSED: u32 = 1u32;
 pub const RIGHT_CTRL_PRESSED: u32 = 4u32;
+pub const Reserved1: CONSOLECONTROL = CONSOLECONTROL(0i32);
+pub const Reserved2: CONSOLECONTROL = CONSOLECONTROL(2i32);
+pub const Reserved3: CONSOLECONTROL = CONSOLECONTROL(4i32);
 pub const SCROLLLOCK_ON: u32 = 64u32;
 pub const SHIFT_PRESSED: u32 = 16u32;
 pub const STD_ERROR_HANDLE: STD_HANDLE = STD_HANDLE(4294967284u32);
 pub const STD_INPUT_HANDLE: STD_HANDLE = STD_HANDLE(4294967286u32);
 pub const STD_OUTPUT_HANDLE: STD_HANDLE = STD_HANDLE(4294967285u32);
 pub const WINDOW_BUFFER_SIZE_EVENT: u32 = 4u32;
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+pub struct CONSOLECONTROL(pub i32);
+impl ::windows_core::TypeKind for CONSOLECONTROL {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for CONSOLECONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONSOLECONTROL").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct CONSOLE_CHARACTER_ATTRIBUTES(pub u16);
@@ -912,6 +936,129 @@ impl ::core::default::Default for CHAR_INFO_0 {
     }
 }
 #[repr(C)]
+pub struct CONSOLEENDTASK {
+    pub ProcessId: super::super::Foundation::HANDLE,
+    pub hwnd: super::super::Foundation::HWND,
+    pub ConsoleEventCode: u32,
+    pub ConsoleFlags: u32,
+}
+impl ::core::marker::Copy for CONSOLEENDTASK {}
+impl ::core::clone::Clone for CONSOLEENDTASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CONSOLEENDTASK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONSOLEENDTASK").field("ProcessId", &self.ProcessId).field("hwnd", &self.hwnd).field("ConsoleEventCode", &self.ConsoleEventCode).field("ConsoleFlags", &self.ConsoleFlags).finish()
+    }
+}
+impl ::windows_core::TypeKind for CONSOLEENDTASK {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for CONSOLEENDTASK {
+    fn eq(&self, other: &Self) -> bool {
+        self.ProcessId == other.ProcessId && self.hwnd == other.hwnd && self.ConsoleEventCode == other.ConsoleEventCode && self.ConsoleFlags == other.ConsoleFlags
+    }
+}
+impl ::core::cmp::Eq for CONSOLEENDTASK {}
+impl ::core::default::Default for CONSOLEENDTASK {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub struct CONSOLESETFOREGROUND {
+    pub hProcess: super::super::Foundation::HANDLE,
+    pub bForeground: super::super::Foundation::BOOL,
+}
+impl ::core::marker::Copy for CONSOLESETFOREGROUND {}
+impl ::core::clone::Clone for CONSOLESETFOREGROUND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CONSOLESETFOREGROUND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONSOLESETFOREGROUND").field("hProcess", &self.hProcess).field("bForeground", &self.bForeground).finish()
+    }
+}
+impl ::windows_core::TypeKind for CONSOLESETFOREGROUND {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for CONSOLESETFOREGROUND {
+    fn eq(&self, other: &Self) -> bool {
+        self.hProcess == other.hProcess && self.bForeground == other.bForeground
+    }
+}
+impl ::core::cmp::Eq for CONSOLESETFOREGROUND {}
+impl ::core::default::Default for CONSOLESETFOREGROUND {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub struct CONSOLEWINDOWOWNER {
+    pub hwnd: super::super::Foundation::HWND,
+    pub ProcessId: u32,
+    pub ThreadId: u32,
+}
+impl ::core::marker::Copy for CONSOLEWINDOWOWNER {}
+impl ::core::clone::Clone for CONSOLEWINDOWOWNER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CONSOLEWINDOWOWNER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONSOLEWINDOWOWNER").field("hwnd", &self.hwnd).field("ProcessId", &self.ProcessId).field("ThreadId", &self.ThreadId).finish()
+    }
+}
+impl ::windows_core::TypeKind for CONSOLEWINDOWOWNER {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for CONSOLEWINDOWOWNER {
+    fn eq(&self, other: &Self) -> bool {
+        self.hwnd == other.hwnd && self.ProcessId == other.ProcessId && self.ThreadId == other.ThreadId
+    }
+}
+impl ::core::cmp::Eq for CONSOLEWINDOWOWNER {}
+impl ::core::default::Default for CONSOLEWINDOWOWNER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub struct CONSOLE_CARET_INFO {
+    pub hwnd: super::super::Foundation::HWND,
+    pub rc: super::super::Foundation::RECT,
+}
+impl ::core::marker::Copy for CONSOLE_CARET_INFO {}
+impl ::core::clone::Clone for CONSOLE_CARET_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CONSOLE_CARET_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONSOLE_CARET_INFO").field("hwnd", &self.hwnd).field("rc", &self.rc).finish()
+    }
+}
+impl ::windows_core::TypeKind for CONSOLE_CARET_INFO {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for CONSOLE_CARET_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.hwnd == other.hwnd && self.rc == other.rc
+    }
+}
+impl ::core::cmp::Eq for CONSOLE_CARET_INFO {}
+impl ::core::default::Default for CONSOLE_CARET_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 pub struct CONSOLE_CURSOR_INFO {
     pub dwSize: u32,
     pub bVisible: super::super::Foundation::BOOL,
@@ -1033,6 +1180,36 @@ impl ::core::cmp::PartialEq for CONSOLE_HISTORY_INFO {
 }
 impl ::core::cmp::Eq for CONSOLE_HISTORY_INFO {}
 impl ::core::default::Default for CONSOLE_HISTORY_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub struct CONSOLE_PROCESS_INFO {
+    pub dwProcessID: u32,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for CONSOLE_PROCESS_INFO {}
+impl ::core::clone::Clone for CONSOLE_PROCESS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CONSOLE_PROCESS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONSOLE_PROCESS_INFO").field("dwProcessID", &self.dwProcessID).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+impl ::windows_core::TypeKind for CONSOLE_PROCESS_INFO {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for CONSOLE_PROCESS_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwProcessID == other.dwProcessID && self.dwFlags == other.dwFlags
+    }
+}
+impl ::core::cmp::Eq for CONSOLE_PROCESS_INFO {}
+impl ::core::default::Default for CONSOLE_PROCESS_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

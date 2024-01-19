@@ -1037,7 +1037,7 @@ impl IEnumOleDocumentViews_Vtbl {
     }
 }
 pub trait IEnumOleUndoUnits_Impl: Sized {
-    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IOleUndoUnit>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IOleUndoUnit>, pceltfetched: *mut u32) -> ::windows_core::HRESULT;
     fn Skip(&self, celt: u32) -> ::windows_core::Result<()>;
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IEnumOleUndoUnits>;
@@ -1048,7 +1048,7 @@ impl IEnumOleUndoUnits_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumOleUndoUnits_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched)).into()
+            this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched))
         }
         unsafe extern "system" fn Skip<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumOleUndoUnits_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -3333,7 +3333,7 @@ impl IOleUIObjInfoW_Vtbl {
 }
 pub trait IOleUndoManager_Impl: Sized {
     fn Open(&self, ppuu: ::core::option::Option<&IOleParentUndoUnit>) -> ::windows_core::Result<()>;
-    fn Close(&self, ppuu: ::core::option::Option<&IOleParentUndoUnit>, fcommit: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
+    fn Close(&self, ppuu: ::core::option::Option<&IOleParentUndoUnit>, fcommit: super::super::Foundation::BOOL) -> ::windows_core::HRESULT;
     fn Add(&self, puu: ::core::option::Option<&IOleUndoUnit>) -> ::windows_core::Result<()>;
     fn GetOpenParentState(&self) -> ::windows_core::Result<u32>;
     fn DiscardFrom(&self, puu: ::core::option::Option<&IOleUndoUnit>) -> ::windows_core::Result<()>;
@@ -3356,7 +3356,7 @@ impl IOleUndoManager_Vtbl {
         unsafe extern "system" fn Close<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOleUndoManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppuu: *mut ::core::ffi::c_void, fcommit: super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Close(::windows_core::from_raw_borrowed(&ppuu), ::core::mem::transmute_copy(&fcommit)).into()
+            this.Close(::windows_core::from_raw_borrowed(&ppuu), ::core::mem::transmute_copy(&fcommit))
         }
         unsafe extern "system" fn Add<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOleUndoManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puu: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

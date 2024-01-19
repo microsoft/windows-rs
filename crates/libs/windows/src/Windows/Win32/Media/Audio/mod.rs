@@ -2543,9 +2543,8 @@ impl IMMDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetState(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    pub unsafe fn GetState(&self, pdwstate: *mut u32) -> DEVICE_STATE {
+        (::windows_core::Interface::vtable(self).GetState)(::windows_core::Interface::as_raw(self), pdwstate)
     }
 }
 #[repr(C)]
@@ -2561,7 +2560,7 @@ pub struct IMMDevice_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem")))]
     OpenPropertyStore: usize,
     pub GetId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> DEVICE_STATE,
 }
 ::windows_core::imp::com_interface!(IMMDeviceActivator, IMMDeviceActivator_Vtbl, 0x3b0d0ea4_d0a9_4b0e_935b_09516746fac0);
 ::windows_core::imp::interface_hierarchy!(IMMDeviceActivator, ::windows_core::IUnknown);
@@ -2601,7 +2600,7 @@ pub struct IMMDeviceCollection_Vtbl {
 ::windows_core::imp::com_interface!(IMMDeviceEnumerator, IMMDeviceEnumerator_Vtbl, 0xa95664d2_9614_4f35_a746_de8db63617e6);
 ::windows_core::imp::interface_hierarchy!(IMMDeviceEnumerator, ::windows_core::IUnknown);
 impl IMMDeviceEnumerator {
-    pub unsafe fn EnumAudioEndpoints(&self, dataflow: EDataFlow, dwstatemask: u32) -> ::windows_core::Result<IMMDeviceCollection> {
+    pub unsafe fn EnumAudioEndpoints(&self, dataflow: EDataFlow, dwstatemask: DEVICE_STATE) -> ::windows_core::Result<IMMDeviceCollection> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumAudioEndpoints)(::windows_core::Interface::as_raw(self), dataflow, dwstatemask, &mut result__).from_abi(result__)
     }
@@ -2633,7 +2632,7 @@ impl IMMDeviceEnumerator {
 #[doc(hidden)]
 pub struct IMMDeviceEnumerator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub EnumAudioEndpoints: unsafe extern "system" fn(*mut ::core::ffi::c_void, EDataFlow, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumAudioEndpoints: unsafe extern "system" fn(*mut ::core::ffi::c_void, EDataFlow, DEVICE_STATE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDefaultAudioEndpoint: unsafe extern "system" fn(*mut ::core::ffi::c_void, EDataFlow, ERole, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RegisterEndpointNotificationCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -2656,7 +2655,7 @@ pub struct IMMEndpoint_Vtbl {
 ::windows_core::imp::com_interface!(IMMNotificationClient, IMMNotificationClient_Vtbl, 0x7991eec9_7e89_4d85_8390_6c703cec60c0);
 ::windows_core::imp::interface_hierarchy!(IMMNotificationClient, ::windows_core::IUnknown);
 impl IMMNotificationClient {
-    pub unsafe fn OnDeviceStateChanged<P0>(&self, pwstrdeviceid: P0, dwnewstate: u32) -> ::windows_core::Result<()>
+    pub unsafe fn OnDeviceStateChanged<P0>(&self, pwstrdeviceid: P0, dwnewstate: DEVICE_STATE) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
@@ -2693,7 +2692,7 @@ impl IMMNotificationClient {
 #[doc(hidden)]
 pub struct IMMNotificationClient_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnDeviceStateChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub OnDeviceStateChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, DEVICE_STATE) -> ::windows_core::HRESULT,
     pub OnDeviceAdded: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub OnDeviceRemoved: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub OnDefaultDeviceChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, EDataFlow, ERole, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
@@ -3784,10 +3783,10 @@ pub const CALLBACK_TYPEMASK: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(458752u32
 pub const CALLBACK_WINDOW: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(65536u32);
 pub const Connector: PartType = PartType(0i32);
 pub const DEVICE_STATEMASK_ALL: u32 = 15u32;
-pub const DEVICE_STATE_ACTIVE: u32 = 1u32;
-pub const DEVICE_STATE_DISABLED: u32 = 2u32;
-pub const DEVICE_STATE_NOTPRESENT: u32 = 4u32;
-pub const DEVICE_STATE_UNPLUGGED: u32 = 8u32;
+pub const DEVICE_STATE_ACTIVE: DEVICE_STATE = DEVICE_STATE(1u32);
+pub const DEVICE_STATE_DISABLED: DEVICE_STATE = DEVICE_STATE(2u32);
+pub const DEVICE_STATE_NOTPRESENT: DEVICE_STATE = DEVICE_STATE(4u32);
+pub const DEVICE_STATE_UNPLUGGED: DEVICE_STATE = DEVICE_STATE(8u32);
 pub const DEVINTERFACE_AUDIO_CAPTURE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2eef81be_33fa_4800_9670_1cd474972c3f);
 pub const DEVINTERFACE_AUDIO_RENDER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe6327cad_dcec_4949_ae8a_991e976a79d2);
 pub const DEVINTERFACE_MIDI_INPUT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x504be32c_ccf6_4d2c_b73f_6f8b3747e22b);
@@ -4466,6 +4465,17 @@ impl ::windows_core::TypeKind for ConnectorType {
 impl ::core::fmt::Debug for ConnectorType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ConnectorType").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+pub struct DEVICE_STATE(pub u32);
+impl ::windows_core::TypeKind for DEVICE_STATE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DEVICE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVICE_STATE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]

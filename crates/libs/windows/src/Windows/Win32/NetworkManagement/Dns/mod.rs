@@ -14,6 +14,11 @@ pub unsafe fn DnsCancelQuery(pcancelhandle: *const DNS_QUERY_CANCEL) -> i32 {
     DnsCancelQuery(pcancelhandle)
 }
 #[inline]
+pub unsafe fn DnsCancelQueryRaw(cancelhandle: *const DNS_QUERY_RAW_CANCEL) -> i32 {
+    ::windows_targets::link!("dnsapi.dll" "system" fn DnsCancelQueryRaw(cancelhandle : *const DNS_QUERY_RAW_CANCEL) -> i32);
+    DnsCancelQueryRaw(cancelhandle)
+}
+#[inline]
 pub unsafe fn DnsConnectionDeletePolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG) -> u32 {
     ::windows_targets::link!("dnsapi.dll" "system" fn DnsConnectionDeletePolicyEntries(policyentrytag : DNS_CONNECTION_POLICY_TAG) -> u32);
     DnsConnectionDeletePolicyEntries(policyentrytag)
@@ -197,6 +202,16 @@ where
 pub unsafe fn DnsQueryEx(pqueryrequest: *const DNS_QUERY_REQUEST, pqueryresults: *mut DNS_QUERY_RESULT, pcancelhandle: ::core::option::Option<*mut DNS_QUERY_CANCEL>) -> i32 {
     ::windows_targets::link!("dnsapi.dll" "system" fn DnsQueryEx(pqueryrequest : *const DNS_QUERY_REQUEST, pqueryresults : *mut DNS_QUERY_RESULT, pcancelhandle : *mut DNS_QUERY_CANCEL) -> i32);
     DnsQueryEx(pqueryrequest, pqueryresults, ::core::mem::transmute(pcancelhandle.unwrap_or(::std::ptr::null_mut())))
+}
+#[inline]
+pub unsafe fn DnsQueryRaw(queryrequest: *const DNS_QUERY_RAW_REQUEST, cancelhandle: *mut DNS_QUERY_RAW_CANCEL) -> i32 {
+    ::windows_targets::link!("dnsapi.dll" "system" fn DnsQueryRaw(queryrequest : *const DNS_QUERY_RAW_REQUEST, cancelhandle : *mut DNS_QUERY_RAW_CANCEL) -> i32);
+    DnsQueryRaw(queryrequest, cancelhandle)
+}
+#[inline]
+pub unsafe fn DnsQueryRawResultFree(queryresults: ::core::option::Option<*const DNS_QUERY_RAW_RESULT>) {
+    ::windows_targets::link!("dnsapi.dll" "system" fn DnsQueryRawResultFree(queryresults : *const DNS_QUERY_RAW_RESULT));
+    DnsQueryRawResultFree(::core::mem::transmute(queryresults.unwrap_or(::std::ptr::null())))
 }
 #[inline]
 pub unsafe fn DnsQuery_A<P0>(pszname: P0, wtype: DNS_TYPE, options: DNS_QUERY_OPTIONS, pextra: ::core::option::Option<*mut ::core::ffi::c_void>, ppqueryresults: *mut *mut DNS_RECORDA, preserved: ::core::option::Option<*mut *mut ::core::ffi::c_void>) -> ::windows_core::Result<()>
@@ -508,6 +523,11 @@ pub const DNS_OPCODE_UNKNOWN: u32 = 3u32;
 pub const DNS_OPCODE_UPDATE: u32 = 5u32;
 pub const DNS_PORT_HOST_ORDER: u32 = 53u32;
 pub const DNS_PORT_NET_ORDER: u32 = 13568u32;
+pub const DNS_PROTOCOL_DOH: u32 = 3u32;
+pub const DNS_PROTOCOL_NO_WIRE: u32 = 5u32;
+pub const DNS_PROTOCOL_TCP: u32 = 2u32;
+pub const DNS_PROTOCOL_UDP: u32 = 1u32;
+pub const DNS_PROTOCOL_UNSPECIFIED: u32 = 0u32;
 pub const DNS_PROXY_INFORMATION_DEFAULT_SETTINGS: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(1i32);
 pub const DNS_PROXY_INFORMATION_DIRECT: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(0i32);
 pub const DNS_PROXY_INFORMATION_DOES_NOT_EXIST: DNS_PROXY_INFORMATION_TYPE = DNS_PROXY_INFORMATION_TYPE(3i32);
@@ -529,6 +549,9 @@ pub const DNS_QUERY_NO_MULTICAST: DNS_QUERY_OPTIONS = DNS_QUERY_OPTIONS(2048u32)
 pub const DNS_QUERY_NO_NETBT: DNS_QUERY_OPTIONS = DNS_QUERY_OPTIONS(128u32);
 pub const DNS_QUERY_NO_RECURSION: DNS_QUERY_OPTIONS = DNS_QUERY_OPTIONS(4u32);
 pub const DNS_QUERY_NO_WIRE_QUERY: DNS_QUERY_OPTIONS = DNS_QUERY_OPTIONS(16u32);
+pub const DNS_QUERY_RAW_OPTION_BEST_EFFORT_PARSE: DNS_QUERY_OPTIONS = DNS_QUERY_OPTIONS(1u32);
+pub const DNS_QUERY_RAW_REQUEST_VERSION1: DNS_QUERY_OPTIONS = DNS_QUERY_OPTIONS(1u32);
+pub const DNS_QUERY_RAW_RESULTS_VERSION1: DNS_QUERY_OPTIONS = DNS_QUERY_OPTIONS(1u32);
 pub const DNS_QUERY_REQUEST_VERSION1: DNS_QUERY_OPTIONS = DNS_QUERY_OPTIONS(1u32);
 pub const DNS_QUERY_REQUEST_VERSION2: DNS_QUERY_OPTIONS = DNS_QUERY_OPTIONS(2u32);
 pub const DNS_QUERY_REQUEST_VERSION3: DNS_QUERY_OPTIONS = DNS_QUERY_OPTIONS(3u32);
@@ -2291,6 +2314,130 @@ impl ::core::cmp::PartialEq for DNS_QUERY_CANCEL {
 }
 impl ::core::cmp::Eq for DNS_QUERY_CANCEL {}
 impl ::core::default::Default for DNS_QUERY_CANCEL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub struct DNS_QUERY_RAW_CANCEL {
+    pub reserved: [i8; 32],
+}
+impl ::core::marker::Copy for DNS_QUERY_RAW_CANCEL {}
+impl ::core::clone::Clone for DNS_QUERY_RAW_CANCEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DNS_QUERY_RAW_CANCEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DNS_QUERY_RAW_CANCEL").field("reserved", &self.reserved).finish()
+    }
+}
+impl ::windows_core::TypeKind for DNS_QUERY_RAW_CANCEL {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for DNS_QUERY_RAW_CANCEL {
+    fn eq(&self, other: &Self) -> bool {
+        self.reserved == other.reserved
+    }
+}
+impl ::core::cmp::Eq for DNS_QUERY_RAW_CANCEL {}
+impl ::core::default::Default for DNS_QUERY_RAW_CANCEL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub struct DNS_QUERY_RAW_REQUEST {
+    pub version: u32,
+    pub resultsVersion: u32,
+    pub dnsQueryRawSize: u32,
+    pub dnsQueryRaw: *mut u8,
+    pub dnsQueryName: ::windows_core::PWSTR,
+    pub dnsQueryType: u16,
+    pub queryOptions: u64,
+    pub interfaceIndex: u32,
+    pub queryCompletionCallback: DNS_QUERY_RAW_COMPLETION_ROUTINE,
+    pub queryContext: *mut ::core::ffi::c_void,
+    pub queryRawOptions: u64,
+    pub customServersSize: u32,
+    pub customServers: *mut DNS_CUSTOM_SERVER,
+    pub protocol: u32,
+    pub Anonymous: DNS_QUERY_RAW_REQUEST_0,
+}
+impl ::core::marker::Copy for DNS_QUERY_RAW_REQUEST {}
+impl ::core::clone::Clone for DNS_QUERY_RAW_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows_core::TypeKind for DNS_QUERY_RAW_REQUEST {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::default::Default for DNS_QUERY_RAW_REQUEST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub union DNS_QUERY_RAW_REQUEST_0 {
+    pub maxSa: [i8; 32],
+}
+impl ::core::marker::Copy for DNS_QUERY_RAW_REQUEST_0 {}
+impl ::core::clone::Clone for DNS_QUERY_RAW_REQUEST_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows_core::TypeKind for DNS_QUERY_RAW_REQUEST_0 {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::default::Default for DNS_QUERY_RAW_REQUEST_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub struct DNS_QUERY_RAW_RESULT {
+    pub version: u32,
+    pub queryStatus: i32,
+    pub queryOptions: u64,
+    pub queryRawOptions: u64,
+    pub responseFlags: u64,
+    pub queryRawResponseSize: u32,
+    pub queryRawResponse: *mut u8,
+    pub queryRecords: *mut DNS_RECORDA,
+    pub protocol: u32,
+    pub Anonymous: DNS_QUERY_RAW_RESULT_0,
+}
+impl ::core::marker::Copy for DNS_QUERY_RAW_RESULT {}
+impl ::core::clone::Clone for DNS_QUERY_RAW_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows_core::TypeKind for DNS_QUERY_RAW_RESULT {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::default::Default for DNS_QUERY_RAW_RESULT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub union DNS_QUERY_RAW_RESULT_0 {
+    pub maxSa: [i8; 32],
+}
+impl ::core::marker::Copy for DNS_QUERY_RAW_RESULT_0 {}
+impl ::core::clone::Clone for DNS_QUERY_RAW_RESULT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::windows_core::TypeKind for DNS_QUERY_RAW_RESULT_0 {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::default::Default for DNS_QUERY_RAW_RESULT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -4158,6 +4305,7 @@ impl ::core::default::Default for _DnsRecordOptA_1 {
     }
 }
 pub type DNS_PROXY_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(completioncontext: *const ::core::ffi::c_void, status: i32)>;
+pub type DNS_QUERY_RAW_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(querycontext: *const ::core::ffi::c_void, queryresults: *const DNS_QUERY_RAW_RESULT)>;
 pub type PDNS_QUERY_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pquerycontext: *const ::core::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT)>;
 pub type PDNS_SERVICE_BROWSE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pdnsrecord: *const DNS_RECORDW)>;
 pub type PDNS_SERVICE_REGISTER_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE)>;

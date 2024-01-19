@@ -6,7 +6,7 @@ fn main() -> Result<()> {
         .expect("Expected one command line argument for text to be spell-corrected");
     // Initialize the COM runtime for this thread
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED)?;
+        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
     }
 
     // Create ISpellCheckerFactory

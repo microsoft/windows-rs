@@ -147,6 +147,28 @@ impl ::core::clone::Clone for PROCESS_MEMORY_COUNTERS_EX {
     }
 }
 #[repr(C)]
+pub struct PROCESS_MEMORY_COUNTERS_EX2 {
+    pub cb: u32,
+    pub PageFaultCount: u32,
+    pub PeakWorkingSetSize: usize,
+    pub WorkingSetSize: usize,
+    pub QuotaPeakPagedPoolUsage: usize,
+    pub QuotaPagedPoolUsage: usize,
+    pub QuotaPeakNonPagedPoolUsage: usize,
+    pub QuotaNonPagedPoolUsage: usize,
+    pub PagefileUsage: usize,
+    pub PeakPagefileUsage: usize,
+    pub PrivateUsage: usize,
+    pub PrivateWorkingSetSize: usize,
+    pub SharedCommitUsage: u64,
+}
+impl ::core::marker::Copy for PROCESS_MEMORY_COUNTERS_EX2 {}
+impl ::core::clone::Clone for PROCESS_MEMORY_COUNTERS_EX2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 pub union PSAPI_WORKING_SET_BLOCK {
     pub Flags: usize,
     pub Anonymous: PSAPI_WORKING_SET_BLOCK_0,

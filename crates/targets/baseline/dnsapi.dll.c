@@ -1,6 +1,7 @@
 void __stdcall DnsAcquireContextHandle_A(int p0, int p1, int p2) {}
 void __stdcall DnsAcquireContextHandle_W(int p0, int p1, int p2) {}
 void __stdcall DnsCancelQuery(int p0) {}
+void __stdcall DnsCancelQueryRaw(int p0) {}
 void __stdcall DnsConnectionDeletePolicyEntries(int p0) {}
 void __stdcall DnsConnectionDeleteProxyInfo(int p0, int p1) {}
 void __stdcall DnsConnectionFreeNameList(int p0) {}
@@ -29,6 +30,8 @@ void __stdcall DnsNameCompare_A(int p0, int p1) {}
 void __stdcall DnsNameCompare_W(int p0, int p1) {}
 void __stdcall DnsQueryConfig(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall DnsQueryEx(int p0, int p1, int p2) {}
+void __stdcall DnsQueryRaw(int p0, int p1) {}
+void __stdcall DnsQueryRawResultFree(int p0) {}
 void __stdcall DnsQuery_A(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall DnsQuery_UTF8(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall DnsQuery_W(int p0, int p1, int p2, int p3, int p4, int p5) {}

@@ -9,7 +9,7 @@ use windows::{
 
 fn main() -> Result<()> {
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED)?;
+        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
     }
     let mut window = Window::new()?;
     window.run()

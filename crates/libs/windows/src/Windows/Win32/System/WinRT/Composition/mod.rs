@@ -116,6 +116,19 @@ pub struct ICompositionGraphicsDeviceInterop_Vtbl {
     pub GetRenderingDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetRenderingDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
+::windows_core::imp::com_interface!(ICompositionTextureInterop, ICompositionTextureInterop_Vtbl, 0xd528a265_f0a5_422f_a39d_ef62d7cd1cc4);
+::windows_core::imp::interface_hierarchy!(ICompositionTextureInterop, ::windows_core::IUnknown);
+impl ICompositionTextureInterop {
+    pub unsafe fn GetAvailableFence(&self, fencevalue: *mut u64, iid: *const ::windows_core::GUID, availablefence: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetAvailableFence)(::windows_core::Interface::as_raw(self), fencevalue, iid, availablefence).ok()
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICompositionTextureInterop_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub GetAvailableFence: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+}
 ::windows_core::imp::com_interface!(ICompositorDesktopInterop, ICompositorDesktopInterop_Vtbl, 0x29e691fa_4567_4dca_b319_d0f207eb6807);
 ::windows_core::imp::interface_hierarchy!(ICompositorDesktopInterop, ::windows_core::IUnknown);
 impl ICompositorDesktopInterop {
@@ -190,6 +203,36 @@ pub struct ICompositorInterop_Vtbl {
     pub CreateGraphicsDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "UI_Composition"))]
     CreateGraphicsDevice: usize,
+}
+::windows_core::imp::com_interface!(ICompositorInterop2, ICompositorInterop2_Vtbl, 0xd3eef34c_0667_4afc_8d13_867607b0fe91);
+::windows_core::imp::interface_hierarchy!(ICompositorInterop2, ::windows_core::IUnknown);
+impl ICompositorInterop2 {
+    pub unsafe fn CheckCompositionTextureSupport<P0>(&self, renderingdevice: P0) -> ::windows_core::Result<super::super::super::Foundation::BOOL>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
+    {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).CheckCompositionTextureSupport)(::windows_core::Interface::as_raw(self), renderingdevice.into_param().abi(), &mut result__).from_abi(result__)
+    }
+    #[doc = "Required features: `\"UI_Composition\"`"]
+    #[cfg(feature = "UI_Composition")]
+    pub unsafe fn CreateCompositionTexture<P0>(&self, d3dtexture: P0) -> ::windows_core::Result<super::super::super::super::UI::Composition::ICompositionTexture>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
+    {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).CreateCompositionTexture)(::windows_core::Interface::as_raw(self), d3dtexture.into_param().abi(), &mut result__).from_abi(result__)
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICompositorInterop2_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub CheckCompositionTextureSupport: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    #[cfg(feature = "UI_Composition")]
+    pub CreateCompositionTexture: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "UI_Composition"))]
+    CreateCompositionTexture: usize,
 }
 ::windows_core::imp::com_interface!(IDesktopWindowTargetInterop, IDesktopWindowTargetInterop_Vtbl, 0x35dbf59e_e3f9_45b0_81e7_fe75f4145dc9);
 ::windows_core::imp::interface_hierarchy!(IDesktopWindowTargetInterop, ::windows_core::IUnknown);

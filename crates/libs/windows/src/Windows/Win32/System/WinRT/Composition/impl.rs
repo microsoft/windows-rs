@@ -133,6 +133,23 @@ impl ICompositionGraphicsDeviceInterop_Vtbl {
         iid == &<ICompositionGraphicsDeviceInterop as ::windows_core::Interface>::IID
     }
 }
+pub trait ICompositionTextureInterop_Impl: Sized {
+    fn GetAvailableFence(&self, fencevalue: *mut u64, iid: *const ::windows_core::GUID, availablefence: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
+}
+impl ::windows_core::RuntimeName for ICompositionTextureInterop {}
+impl ICompositionTextureInterop_Vtbl {
+    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositionTextureInterop_Impl, const OFFSET: isize>() -> ICompositionTextureInterop_Vtbl {
+        unsafe extern "system" fn GetAvailableFence<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositionTextureInterop_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fencevalue: *mut u64, iid: *const ::windows_core::GUID, availablefence: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetAvailableFence(::core::mem::transmute_copy(&fencevalue), ::core::mem::transmute_copy(&iid), ::core::mem::transmute_copy(&availablefence)).into()
+        }
+        Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetAvailableFence: GetAvailableFence::<Identity, Impl, OFFSET> }
+    }
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICompositionTextureInterop as ::windows_core::Interface>::IID
+    }
+}
 #[doc = "Required features: `\"UI_Composition_Desktop\"`"]
 #[cfg(feature = "UI_Composition_Desktop")]
 pub trait ICompositorDesktopInterop_Impl: Sized {
@@ -224,6 +241,49 @@ impl ICompositorInterop_Vtbl {
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
         iid == &<ICompositorInterop as ::windows_core::Interface>::IID
+    }
+}
+#[doc = "Required features: `\"UI_Composition\"`"]
+#[cfg(feature = "UI_Composition")]
+pub trait ICompositorInterop2_Impl: Sized {
+    fn CheckCompositionTextureSupport(&self, renderingdevice: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn CreateCompositionTexture(&self, d3dtexture: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<super::super::super::super::UI::Composition::ICompositionTexture>;
+}
+#[cfg(feature = "UI_Composition")]
+impl ::windows_core::RuntimeName for ICompositorInterop2 {}
+#[cfg(feature = "UI_Composition")]
+impl ICompositorInterop2_Vtbl {
+    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositorInterop2_Impl, const OFFSET: isize>() -> ICompositorInterop2_Vtbl {
+        unsafe extern "system" fn CheckCompositionTextureSupport<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositorInterop2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, renderingdevice: *mut ::core::ffi::c_void, supportscompositiontextures: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.CheckCompositionTextureSupport(::windows_core::from_raw_borrowed(&renderingdevice)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(supportscompositiontextures, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CreateCompositionTexture<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositorInterop2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, d3dtexture: *mut ::core::ffi::c_void, compositiontexture: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.CreateCompositionTexture(::windows_core::from_raw_borrowed(&d3dtexture)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(compositiontexture, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            CheckCompositionTextureSupport: CheckCompositionTextureSupport::<Identity, Impl, OFFSET>,
+            CreateCompositionTexture: CreateCompositionTexture::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICompositorInterop2 as ::windows_core::Interface>::IID
     }
 }
 pub trait IDesktopWindowTargetInterop_Impl: Sized {

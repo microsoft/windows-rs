@@ -4,11 +4,11 @@ like [ILSpy](https://github.com/icsharpcode/ILSpy).
 
 ## Windows.Win32.winmd
 - Source: https://www.nuget.org/packages/Microsoft.Windows.SDK.Win32Metadata/
-- Version: 56.0.13
+- Version: 57.0.42
 
 ## Windows.Wdk.winmd
 - Source: https://www.nuget.org/packages/Microsoft.Windows.WDK.Win32Metadata/
-- Version: 0.9.9
+- Version: 0.10.7
 
 ## Windows.winmd
 - Source: https://www.nuget.org/packages/Microsoft.Windows.SDK.Contracts

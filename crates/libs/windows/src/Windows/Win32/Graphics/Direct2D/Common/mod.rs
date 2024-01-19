@@ -319,6 +319,36 @@ impl ::core::default::Default for D2D1_COLOR_F {
     }
 }
 #[repr(C)]
+pub struct D2D1_GRADIENT_STOP {
+    pub position: f32,
+    pub color: D2D1_COLOR_F,
+}
+impl ::core::marker::Copy for D2D1_GRADIENT_STOP {}
+impl ::core::clone::Clone for D2D1_GRADIENT_STOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for D2D1_GRADIENT_STOP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_GRADIENT_STOP").field("position", &self.position).field("color", &self.color).finish()
+    }
+}
+impl ::windows_core::TypeKind for D2D1_GRADIENT_STOP {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for D2D1_GRADIENT_STOP {
+    fn eq(&self, other: &Self) -> bool {
+        self.position == other.position && self.color == other.color
+    }
+}
+impl ::core::cmp::Eq for D2D1_GRADIENT_STOP {}
+impl ::core::default::Default for D2D1_GRADIENT_STOP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D2D1_PIXEL_FORMAT {
