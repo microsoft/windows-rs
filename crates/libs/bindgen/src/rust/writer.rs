@@ -789,7 +789,7 @@ impl Writer {
             let name = method_names.add(method);
             let signature = metadata::method_def_signature(def.namespace(), method, generics);
             let mut cfg = cfg::signature_cfg(method);
-            let signature = self.vtbl_signature(def, generics, &signature);
+            let signature = self.vtbl_signature(def, false, &signature);
             cfg.add_feature(def.namespace());
             let cfg_all = self.cfg_features(&cfg);
             let cfg_not = self.cfg_not_features(&cfg);
@@ -816,7 +816,7 @@ impl Writer {
             }
         }
     }
-    pub fn vtbl_signature(&self, def: metadata::TypeDef, _generics: &[metadata::Type], signature: &metadata::Signature) -> TokenStream {
+    pub fn vtbl_signature(&self, def: metadata::TypeDef, named_params: bool, signature: &metadata::Signature) -> TokenStream {
         let is_winrt = def.flags().contains(metadata::TypeAttributes::WindowsRuntime);
 
         let crate_name = self.crate_name();
@@ -826,15 +826,27 @@ impl Writer {
             metadata::Type::Void => (quote! {}, quote! {}, quote! {}),
             metadata::Type::WinrtArray(kind) => {
                 let tokens = self.type_abi_name(kind);
-                (quote! { result_size__: *mut u32, result__: *mut *mut #tokens }, quote! { -> #crate_name HRESULT }, quote! {})
+                if named_params {
+                    (quote! { result_size__: *mut u32, result__: *mut *mut #tokens }, quote! { -> #crate_name HRESULT }, quote! {})
+                } else {
+                    (quote! { *mut u32, *mut *mut #tokens }, quote! { -> #crate_name HRESULT }, quote! {})
+                }
             }
             _ if is_winrt => {
                 let tokens = self.type_abi_name(&signature.return_type);
-                (quote! { result__: *mut #tokens }, quote! { -> #crate_name HRESULT }, quote! {})
+                if named_params {
+                    (quote! { result__: *mut #tokens }, quote! { -> #crate_name HRESULT }, quote! {})
+                } else {
+                    (quote! { *mut #tokens }, quote! { -> #crate_name HRESULT }, quote! {})
+                }
             }
             _ if metadata::type_is_struct(&signature.return_type) => {
                 let tokens = self.type_abi_name(&signature.return_type);
-                (quote! {}, quote! {}, quote! { result__: *mut #tokens, })
+                if named_params {
+                    (quote! {}, quote! {}, quote! { result__: *mut #tokens, })
+                } else {
+                    (quote! {}, quote! {}, quote! { *mut #tokens, })
+                }
             }
             _ => {
                 let tokens = self.type_default_name(&signature.return_type);
@@ -850,34 +862,66 @@ impl Writer {
 
                 if p.def.flags().contains(metadata::ParamAttributes::In) {
                     if p.ty.is_winrt_array() {
-                        quote! { #abi_size_name: u32, #name: *const #abi, }
+                        if named_params {
+                            quote! { #abi_size_name: u32, #name: *const #abi, }
+                        } else {
+                            quote! { u32, *const #abi, }
+                        }
                     } else if p.ty.is_const_ref() {
-                        quote! { #name: &#abi, }
-                    } else {
+                        if named_params {
+                            quote! { #name: &#abi, }
+                        } else {
+                            quote! { &#abi, }
+                        }
+                    } else if named_params {
                         quote! { #name: #abi, }
+                    } else {
+                        quote! { #abi, }
                     }
                 } else if p.ty.is_winrt_array() {
-                    quote! { #abi_size_name: u32, #name: *mut #abi, }
+                    if named_params {
+                        quote! { #abi_size_name: u32, #name: *mut #abi, }
+                    } else {
+                        quote! { u32, *mut #abi, }
+                    }
                 } else if p.ty.is_winrt_array_ref() {
-                    quote! { #abi_size_name: *mut u32, #name: *mut *mut #abi, }
-                } else {
+                    if named_params {
+                        quote! { #abi_size_name: *mut u32, #name: *mut *mut #abi, }
+                    } else {
+                        quote! { *mut u32, *mut *mut #abi, }
+                    }
+                } else if named_params {
                     quote! { #name: *mut #abi, }
+                } else {
+                    quote! { *mut #abi, }
                 }
             } else {
                 match p.kind {
                     metadata::SignatureParamKind::ValueType => {
                         let abi = self.type_default_name(&p.ty);
-                        quote! { #name: #abi, }
+                        if named_params {
+                            quote! { #name: #abi, }
+                        } else {
+                            quote! { #abi, }
+                        }
                     }
                     _ => {
                         let abi = self.type_abi_name(&p.ty);
-                        quote! { #name: #abi, }
+                        if named_params {
+                            quote! { #name: #abi, }
+                        } else {
+                            quote! { #abi, }
+                        }
                     }
                 }
             }
         });
 
-        quote! { (this: *mut ::core::ffi::c_void, #udt_return_type #(#params)* #trailing_return_type) #return_type }
+        if named_params {
+            quote! { (this: *mut ::core::ffi::c_void, #udt_return_type #(#params)* #trailing_return_type) #return_type }
+        } else {
+            quote! { (*mut ::core::ffi::c_void, #udt_return_type #(#params)* #trailing_return_type) #return_type }
+        }
     }
     pub fn param_name(&self, param: metadata::Param) -> TokenStream {
         // In Rust, function parameters cannot be named the same as structs. This avoids some collisions that occur in the win32 metadata.
