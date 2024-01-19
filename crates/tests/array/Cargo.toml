@@ -9,4 +9,5 @@ path = "../../libs/windows"
 features = [
     "Foundation",
     "Win32_Media_MediaFoundation",
+    "Win32_System_Com",
 ]
