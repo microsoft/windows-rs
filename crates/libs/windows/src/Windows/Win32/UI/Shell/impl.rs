@@ -5640,7 +5640,7 @@ impl IEnumExtraSearch_Vtbl {
 #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub trait IEnumFullIDList_Impl: Sized {
-    fn Next(&self, celt: u32, rgelt: *mut *mut Common::ITEMIDLIST, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut *mut Common::ITEMIDLIST, pceltfetched: *mut u32) -> ::windows_core::HRESULT;
     fn Skip(&self, celt: u32) -> ::windows_core::Result<()>;
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IEnumFullIDList>;
@@ -5653,7 +5653,7 @@ impl IEnumFullIDList_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumFullIDList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut Common::ITEMIDLIST, pceltfetched: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched)).into()
+            this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched))
         }
         unsafe extern "system" fn Skip<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumFullIDList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -20239,7 +20239,7 @@ pub trait ISyncMgrSyncItemInfo_Impl: Sized {
     fn GetComment(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetLastSyncTime(&self) -> ::windows_core::Result<super::super::Foundation::FILETIME>;
     fn IsEnabled(&self) -> ::windows_core::Result<()>;
-    fn IsConnected(&self) -> ::windows_core::Result<()>;
+    fn IsConnected(&self) -> ::windows_core::HRESULT;
 }
 impl ::windows_core::RuntimeName for ISyncMgrSyncItemInfo {}
 impl ISyncMgrSyncItemInfo_Vtbl {
@@ -20285,7 +20285,7 @@ impl ISyncMgrSyncItemInfo_Vtbl {
         unsafe extern "system" fn IsConnected<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISyncMgrSyncItemInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsConnected().into()
+            this.IsConnected()
         }
         Self {
             base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
@@ -20520,7 +20520,7 @@ impl ISyncMgrSynchronizeInvoke_Vtbl {
     }
 }
 pub trait ISyncMgrUIOperation_Impl: Sized {
-    fn Run(&self, hwndowner: super::super::Foundation::HWND) -> ::windows_core::Result<()>;
+    fn Run(&self, hwndowner: super::super::Foundation::HWND) -> ::windows_core::HRESULT;
 }
 impl ::windows_core::RuntimeName for ISyncMgrUIOperation {}
 impl ISyncMgrUIOperation_Vtbl {
@@ -20528,7 +20528,7 @@ impl ISyncMgrUIOperation_Vtbl {
         unsafe extern "system" fn Run<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISyncMgrUIOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndowner: super::super::Foundation::HWND) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Run(::core::mem::transmute_copy(&hwndowner)).into()
+            this.Run(::core::mem::transmute_copy(&hwndowner))
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Run: Run::<Identity, Impl, OFFSET> }
     }

@@ -1666,7 +1666,7 @@ pub trait IBitsPeerCacheAdministration_Impl: Sized {
     fn GetMaximumCacheSize(&self) -> ::windows_core::Result<u32>;
     fn SetMaximumCacheSize(&self, bytes: u32) -> ::windows_core::Result<()>;
     fn GetMaximumContentAge(&self) -> ::windows_core::Result<u32>;
-    fn SetMaximumContentAge(&self, seconds: u32) -> ::windows_core::Result<()>;
+    fn SetMaximumContentAge(&self, seconds: u32) -> ::windows_core::HRESULT;
     fn GetConfigurationFlags(&self) -> ::windows_core::Result<u32>;
     fn SetConfigurationFlags(&self, flags: u32) -> ::windows_core::Result<()>;
     fn EnumRecords(&self) -> ::windows_core::Result<IEnumBitsPeerCacheRecords>;
@@ -1711,7 +1711,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
         unsafe extern "system" fn SetMaximumContentAge<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, seconds: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetMaximumContentAge(::core::mem::transmute_copy(&seconds)).into()
+            this.SetMaximumContentAge(::core::mem::transmute_copy(&seconds))
         }
         unsafe extern "system" fn GetConfigurationFlags<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IBitsPeerCacheAdministration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pflags: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

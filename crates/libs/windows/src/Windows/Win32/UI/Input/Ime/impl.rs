@@ -1840,7 +1840,7 @@ pub trait IFEDictionary_Impl: Sized {
     fn NextWords(&self, pchbuffer: *mut u8, cbbuffer: u32, pcwrd: *mut u32) -> ::windows_core::Result<()>;
     fn Create(&self, pchdictpath: &::windows_core::PCSTR, pshf: *mut IMESHF) -> ::windows_core::Result<()>;
     fn SetHeader(&self, pshf: *mut IMESHF) -> ::windows_core::Result<()>;
-    fn ExistWord(&self, pwrd: *mut IMEWRD) -> ::windows_core::Result<()>;
+    fn ExistWord(&self, pwrd: *mut IMEWRD) -> ::windows_core::HRESULT;
     fn ExistDependency(&self, pdp: *mut IMEDP) -> ::windows_core::Result<()>;
     fn RegisterWord(&self, reg: IMEREG, pwrd: *mut IMEWRD) -> ::windows_core::Result<()>;
     fn RegisterDependency(&self, reg: IMEREG, pdp: *mut IMEDP) -> ::windows_core::Result<()>;
@@ -1900,7 +1900,7 @@ impl IFEDictionary_Vtbl {
         unsafe extern "system" fn ExistWord<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwrd: *mut IMEWRD) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ExistWord(::core::mem::transmute_copy(&pwrd)).into()
+            this.ExistWord(::core::mem::transmute_copy(&pwrd))
         }
         unsafe extern "system" fn ExistDependency<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IFEDictionary_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdp: *mut IMEDP) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

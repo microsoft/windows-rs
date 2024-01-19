@@ -61,11 +61,6 @@ pub unsafe fn IsMdmUxWithoutAadAllowed() -> ::windows_core::Result<super::super:
     IsMdmUxWithoutAadAllowed(&mut result__).from_abi(result__)
 }
 #[inline]
-pub unsafe fn RegisterDeviceDualEnrollMmpcUsingAADDeviceCredentials(pszenrollmentid: &mut [u16]) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("mdmregistration.dll" "system" fn RegisterDeviceDualEnrollMmpcUsingAADDeviceCredentials(cchenrollmentid : u32, pszenrollmentid : ::windows_core::PWSTR) -> ::windows_core::HRESULT);
-    RegisterDeviceDualEnrollMmpcUsingAADDeviceCredentials(pszenrollmentid.len().try_into().unwrap(), ::core::mem::transmute(pszenrollmentid.as_ptr())).ok()
-}
-#[inline]
 pub unsafe fn RegisterDeviceWithLocalManagement(alreadyregistered: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mdmlocalmanagement.dll" "system" fn RegisterDeviceWithLocalManagement(alreadyregistered : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     RegisterDeviceWithLocalManagement(::core::mem::transmute(alreadyregistered.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -141,6 +136,7 @@ pub const MDM_REGISTRATION_FACILITY_CODE: u32 = 25u32;
 pub const MENROLL_E_CERTAUTH_FAILED_TO_FIND_CERT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2145910744i32);
 pub const MENROLL_E_CERTPOLICY_PRIVATEKEYCREATION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2145910745i32);
 pub const MENROLL_E_CONNECTIVITY: ::windows_core::HRESULT = ::windows_core::HRESULT(-2145910768i32);
+pub const MENROLL_E_CUSTOMSERVERERROR: ::windows_core::HRESULT = ::windows_core::HRESULT(-2145910734i32);
 pub const MENROLL_E_DEVICECAPREACHED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2145910765i32);
 pub const MENROLL_E_DEVICENOTSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2145910764i32);
 pub const MENROLL_E_DEVICE_ALREADY_ENROLLED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2145910774i32);

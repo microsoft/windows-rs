@@ -3824,6 +3824,40 @@ impl IWRdsWddmIddProps_Vtbl {
         iid == &<IWRdsWddmIddProps as ::windows_core::Interface>::IID
     }
 }
+pub trait IWRdsWddmIddProps1_Impl: Sized {
+    fn GetHardwareId(&self, pdisplaydriverhardwareid: &::windows_core::PCWSTR, count: u32) -> ::windows_core::Result<()>;
+    fn OnDriverLoad(&self, sessionid: u32, deviceinstance: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
+    fn OnDriverUnload(&self, sessionid: u32) -> ::windows_core::Result<()>;
+}
+impl ::windows_core::RuntimeName for IWRdsWddmIddProps1 {}
+impl IWRdsWddmIddProps1_Vtbl {
+    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWRdsWddmIddProps1_Impl, const OFFSET: isize>() -> IWRdsWddmIddProps1_Vtbl {
+        unsafe extern "system" fn GetHardwareId<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWRdsWddmIddProps1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdisplaydriverhardwareid: ::windows_core::PCWSTR, count: u32) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetHardwareId(::core::mem::transmute(&pdisplaydriverhardwareid), ::core::mem::transmute_copy(&count)).into()
+        }
+        unsafe extern "system" fn OnDriverLoad<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWRdsWddmIddProps1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionid: u32, deviceinstance: ::windows_core::PCWSTR) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.OnDriverLoad(::core::mem::transmute_copy(&sessionid), ::core::mem::transmute(&deviceinstance)).into()
+        }
+        unsafe extern "system" fn OnDriverUnload<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWRdsWddmIddProps1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionid: u32) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.OnDriverUnload(::core::mem::transmute_copy(&sessionid)).into()
+        }
+        Self {
+            base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetHardwareId: GetHardwareId::<Identity, Impl, OFFSET>,
+            OnDriverLoad: OnDriverLoad::<Identity, Impl, OFFSET>,
+            OnDriverUnload: OnDriverUnload::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IWRdsWddmIddProps1 as ::windows_core::Interface>::IID
+    }
+}
 pub trait IWTSBitmapRenderService_Impl: Sized {
     fn GetMappedRenderer(&self, mappingid: u64, pmappedrenderercallback: ::core::option::Option<&IWTSBitmapRendererCallback>) -> ::windows_core::Result<IWTSBitmapRenderer>;
 }

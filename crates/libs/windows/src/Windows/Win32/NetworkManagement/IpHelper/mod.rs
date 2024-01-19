@@ -293,14 +293,14 @@ pub unsafe fn FreeDnsSettings(settings: *mut DNS_SETTINGS) {
     FreeDnsSettings(settings)
 }
 #[inline]
-pub unsafe fn FreeInterfaceDnsSettings(settings: *mut DNS_INTERFACE_SETTINGS) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("iphlpapi.dll" "system" fn FreeInterfaceDnsSettings(settings : *mut DNS_INTERFACE_SETTINGS) -> super::super::Foundation:: WIN32_ERROR);
-    FreeInterfaceDnsSettings(settings).ok()
+pub unsafe fn FreeInterfaceDnsSettings(settings: *mut DNS_INTERFACE_SETTINGS) {
+    ::windows_targets::link!("iphlpapi.dll" "system" fn FreeInterfaceDnsSettings(settings : *mut DNS_INTERFACE_SETTINGS));
+    FreeInterfaceDnsSettings(settings)
 }
 #[inline]
-pub unsafe fn FreeMibTable(memory: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("iphlpapi.dll" "system" fn FreeMibTable(memory : *const ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
-    FreeMibTable(memory).ok()
+pub unsafe fn FreeMibTable(memory: *const ::core::ffi::c_void) {
+    ::windows_targets::link!("iphlpapi.dll" "system" fn FreeMibTable(memory : *const ::core::ffi::c_void));
+    FreeMibTable(memory)
 }
 #[inline]
 pub unsafe fn GetAdapterIndex<P0>(adaptername: P0, ifindex: *mut u32) -> u32

@@ -1475,14 +1475,14 @@ where
     PathCanonicalizeW(::core::mem::transmute(pszbuf.as_ptr()), pszpath.into_param().abi()).ok()
 }
 #[inline]
-pub unsafe fn PathCchAddBackslash(pszpath: &mut [u16]) -> ::windows_core::Result<()> {
+pub unsafe fn PathCchAddBackslash(pszpath: &mut [u16]) -> ::windows_core::HRESULT {
     ::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAddBackslash(pszpath : ::windows_core::PWSTR, cchpath : usize) -> ::windows_core::HRESULT);
-    PathCchAddBackslash(::core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap()).ok()
+    PathCchAddBackslash(::core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn PathCchAddBackslashEx(pszpath: &mut [u16], ppszend: ::core::option::Option<*mut ::windows_core::PWSTR>, pcchremaining: ::core::option::Option<*mut usize>) -> ::windows_core::Result<()> {
+pub unsafe fn PathCchAddBackslashEx(pszpath: &mut [u16], ppszend: ::core::option::Option<*mut ::windows_core::PWSTR>, pcchremaining: ::core::option::Option<*mut usize>) -> ::windows_core::HRESULT {
     ::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAddBackslashEx(pszpath : ::windows_core::PWSTR, cchpath : usize, ppszend : *mut ::windows_core::PWSTR, pcchremaining : *mut usize) -> ::windows_core::HRESULT);
-    PathCchAddBackslashEx(::core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap(), ::core::mem::transmute(ppszend.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcchremaining.unwrap_or(::std::ptr::null_mut()))).ok()
+    PathCchAddBackslashEx(::core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap(), ::core::mem::transmute(ppszend.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcchremaining.unwrap_or(::std::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn PathCchAddExtension<P0>(pszpath: &mut [u16], pszext: P0) -> ::windows_core::Result<()>
@@ -1560,9 +1560,9 @@ where
     PathCchIsRoot(pszpath.into_param().abi())
 }
 #[inline]
-pub unsafe fn PathCchRemoveBackslash(pszpath: &mut [u16]) -> ::windows_core::Result<()> {
+pub unsafe fn PathCchRemoveBackslash(pszpath: &mut [u16]) -> ::windows_core::HRESULT {
     ::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveBackslash(pszpath : ::windows_core::PWSTR, cchpath : usize) -> ::windows_core::HRESULT);
-    PathCchRemoveBackslash(::core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap()).ok()
+    PathCchRemoveBackslash(::core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn PathCchRemoveBackslashEx(pszpath: ::windows_core::PWSTR, cchpath: usize, ppszend: ::core::option::Option<*mut ::windows_core::PWSTR>, pcchremaining: ::core::option::Option<*mut usize>) -> ::windows_core::Result<()> {
@@ -1597,14 +1597,14 @@ where
     PathCchSkipRoot(pszpath.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[inline]
-pub unsafe fn PathCchStripPrefix(pszpath: &mut [u16]) -> ::windows_core::Result<()> {
+pub unsafe fn PathCchStripPrefix(pszpath: &mut [u16]) -> ::windows_core::HRESULT {
     ::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchStripPrefix(pszpath : ::windows_core::PWSTR, cchpath : usize) -> ::windows_core::HRESULT);
-    PathCchStripPrefix(::core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap()).ok()
+    PathCchStripPrefix(::core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn PathCchStripToRoot(pszpath: ::windows_core::PWSTR, cchpath: usize) -> ::windows_core::Result<()> {
+pub unsafe fn PathCchStripToRoot(pszpath: ::windows_core::PWSTR, cchpath: usize) -> ::windows_core::HRESULT {
     ::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchStripToRoot(pszpath : ::windows_core::PWSTR, cchpath : usize) -> ::windows_core::HRESULT);
-    PathCchStripToRoot(::core::mem::transmute(pszpath), cchpath).ok()
+    PathCchStripToRoot(::core::mem::transmute(pszpath), cchpath)
 }
 #[inline]
 pub unsafe fn PathCleanupSpec<P0>(pszdir: P0, pszspec: ::windows_core::PWSTR) -> i32
@@ -2904,14 +2904,14 @@ where
     SHCreateItemFromRelativeName(psiparent.into_param().abi(), pszname.into_param().abi(), pbc.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
 }
 #[inline]
-pub unsafe fn SHCreateItemInKnownFolder<P0, T>(kfid: *const ::windows_core::GUID, dwkfflags: u32, pszitem: P0) -> ::windows_core::Result<T>
+pub unsafe fn SHCreateItemInKnownFolder<P0, T>(kfid: *const ::windows_core::GUID, dwkfflags: KNOWN_FOLDER_FLAG, pszitem: P0) -> ::windows_core::Result<T>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     T: ::windows_core::Interface,
 {
     ::windows_targets::link!("shell32.dll" "system" fn SHCreateItemInKnownFolder(kfid : *const ::windows_core::GUID, dwkfflags : u32, pszitem : ::windows_core::PCWSTR, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::ptr::null_mut();
-    SHCreateItemInKnownFolder(kfid, dwkfflags, pszitem.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
+    SHCreateItemInKnownFolder(kfid, dwkfflags.0 as _, pszitem.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
 }
 #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -3101,22 +3101,22 @@ pub unsafe fn SHCreateThreadWithHandle(pfnthreadproc: super::super::System::Thre
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn SHDefExtractIconA<P0>(psziconfile: P0, iindex: i32, uflags: u32, phiconlarge: ::core::option::Option<*mut super::WindowsAndMessaging::HICON>, phiconsmall: ::core::option::Option<*mut super::WindowsAndMessaging::HICON>, niconsize: u32) -> ::windows_core::Result<()>
+pub unsafe fn SHDefExtractIconA<P0>(psziconfile: P0, iindex: i32, uflags: u32, phiconlarge: ::core::option::Option<*mut super::WindowsAndMessaging::HICON>, phiconsmall: ::core::option::Option<*mut super::WindowsAndMessaging::HICON>, niconsize: u32) -> ::windows_core::HRESULT
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("shell32.dll" "system" fn SHDefExtractIconA(psziconfile : ::windows_core::PCSTR, iindex : i32, uflags : u32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, niconsize : u32) -> ::windows_core::HRESULT);
-    SHDefExtractIconA(psziconfile.into_param().abi(), iindex, uflags, ::core::mem::transmute(phiconlarge.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(phiconsmall.unwrap_or(::std::ptr::null_mut())), niconsize).ok()
+    SHDefExtractIconA(psziconfile.into_param().abi(), iindex, uflags, ::core::mem::transmute(phiconlarge.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(phiconsmall.unwrap_or(::std::ptr::null_mut())), niconsize)
 }
 #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn SHDefExtractIconW<P0>(psziconfile: P0, iindex: i32, uflags: u32, phiconlarge: ::core::option::Option<*mut super::WindowsAndMessaging::HICON>, phiconsmall: ::core::option::Option<*mut super::WindowsAndMessaging::HICON>, niconsize: u32) -> ::windows_core::Result<()>
+pub unsafe fn SHDefExtractIconW<P0>(psziconfile: P0, iindex: i32, uflags: u32, phiconlarge: ::core::option::Option<*mut super::WindowsAndMessaging::HICON>, phiconsmall: ::core::option::Option<*mut super::WindowsAndMessaging::HICON>, niconsize: u32) -> ::windows_core::HRESULT
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("shell32.dll" "system" fn SHDefExtractIconW(psziconfile : ::windows_core::PCWSTR, iindex : i32, uflags : u32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, niconsize : u32) -> ::windows_core::HRESULT);
-    SHDefExtractIconW(psziconfile.into_param().abi(), iindex, uflags, ::core::mem::transmute(phiconlarge.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(phiconsmall.unwrap_or(::std::ptr::null_mut())), niconsize).ok()
+    SHDefExtractIconW(psziconfile.into_param().abi(), iindex, uflags, ::core::mem::transmute(phiconlarge.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(phiconsmall.unwrap_or(::std::ptr::null_mut())), niconsize)
 }
 #[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3358,12 +3358,12 @@ where
 #[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn SHGetAttributesFromDataObject<P0>(pdo: P0, dwattributemask: u32, pdwattributes: ::core::option::Option<*mut u32>, pcitems: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
+pub unsafe fn SHGetAttributesFromDataObject<P0>(pdo: P0, dwattributemask: u32, pdwattributes: ::core::option::Option<*mut u32>, pcitems: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT
 where
     P0: ::windows_core::IntoParam<super::super::System::Com::IDataObject>,
 {
     ::windows_targets::link!("shell32.dll" "system" fn SHGetAttributesFromDataObject(pdo : * mut::core::ffi::c_void, dwattributemask : u32, pdwattributes : *mut u32, pcitems : *mut u32) -> ::windows_core::HRESULT);
-    SHGetAttributesFromDataObject(pdo.into_param().abi(), dwattributemask, ::core::mem::transmute(pdwattributes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcitems.unwrap_or(::std::ptr::null_mut()))).ok()
+    SHGetAttributesFromDataObject(pdo.into_param().abi(), dwattributemask, ::core::mem::transmute(pdwattributes.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcitems.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
@@ -12177,8 +12177,8 @@ pub struct IEnumExtraSearch_Vtbl {
 impl IEnumFullIDList {
     #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"]
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn Next(&self, rgelt: &mut [*mut Common::ITEMIDLIST], pceltfetched: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched.unwrap_or(::std::ptr::null_mut()))).ok()
+    pub unsafe fn Next(&self, rgelt: &mut [*mut Common::ITEMIDLIST], pceltfetched: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -27660,11 +27660,11 @@ pub struct ISyncMgrEvent_Vtbl {
 ::windows_core::imp::com_interface!(ISyncMgrEventLinkUIOperation, ISyncMgrEventLinkUIOperation_Vtbl, 0x64522e52_848b_4015_89ce_5a36f00b94ff);
 ::windows_core::imp::interface_hierarchy!(ISyncMgrEventLinkUIOperation, ::windows_core::IUnknown, ISyncMgrUIOperation);
 impl ISyncMgrEventLinkUIOperation {
-    pub unsafe fn Run<P0>(&self, hwndowner: P0) -> ::windows_core::Result<()>
+    pub unsafe fn Run<P0>(&self, hwndowner: P0) -> ::windows_core::HRESULT
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows_core::Interface::vtable(self).base__.Run)(::windows_core::Interface::as_raw(self), hwndowner.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.Run)(::windows_core::Interface::as_raw(self), hwndowner.into_param().abi())
     }
     pub unsafe fn Init<P0>(&self, rguideventid: *const ::windows_core::GUID, pevent: P0) -> ::windows_core::Result<()>
     where
@@ -27903,11 +27903,11 @@ pub struct ISyncMgrResolutionHandler_Vtbl {
 ::windows_core::imp::com_interface!(ISyncMgrScheduleWizardUIOperation, ISyncMgrScheduleWizardUIOperation_Vtbl, 0x459a6c84_21d2_4ddc_8a53_f023a46066f2);
 ::windows_core::imp::interface_hierarchy!(ISyncMgrScheduleWizardUIOperation, ::windows_core::IUnknown, ISyncMgrUIOperation);
 impl ISyncMgrScheduleWizardUIOperation {
-    pub unsafe fn Run<P0>(&self, hwndowner: P0) -> ::windows_core::Result<()>
+    pub unsafe fn Run<P0>(&self, hwndowner: P0) -> ::windows_core::HRESULT
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows_core::Interface::vtable(self).base__.Run)(::windows_core::Interface::as_raw(self), hwndowner.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).base__.Run)(::windows_core::Interface::as_raw(self), hwndowner.into_param().abi())
     }
     pub unsafe fn InitWizard<P0>(&self, pszhandlerid: P0) -> ::windows_core::Result<()>
     where
@@ -28122,8 +28122,8 @@ impl ISyncMgrSyncItemInfo {
     pub unsafe fn IsEnabled(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsEnabled)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn IsConnected(&self) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).IsConnected)(::windows_core::Interface::as_raw(self)).ok()
+    pub unsafe fn IsConnected(&self) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).IsConnected)(::windows_core::Interface::as_raw(self))
     }
 }
 #[repr(C)]
@@ -28298,11 +28298,11 @@ pub struct ISyncMgrSynchronizeInvoke_Vtbl {
 ::windows_core::imp::com_interface!(ISyncMgrUIOperation, ISyncMgrUIOperation_Vtbl, 0xfc7cfa47_dfe1_45b5_a049_8cfd82bec271);
 ::windows_core::imp::interface_hierarchy!(ISyncMgrUIOperation, ::windows_core::IUnknown);
 impl ISyncMgrUIOperation {
-    pub unsafe fn Run<P0>(&self, hwndowner: P0) -> ::windows_core::Result<()>
+    pub unsafe fn Run<P0>(&self, hwndowner: P0) -> ::windows_core::HRESULT
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     {
-        (::windows_core::Interface::vtable(self).Run)(::windows_core::Interface::as_raw(self), hwndowner.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).Run)(::windows_core::Interface::as_raw(self), hwndowner.into_param().abi())
     }
 }
 #[repr(C)]
@@ -31237,6 +31237,7 @@ pub const CLSID_CFSIconOverlayManager: ::windows_core::GUID = ::windows_core::GU
 pub const CLSID_CImageBrowsePropertyPage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f3b3_98b5_11cf_bb82_00aa00bdce0b);
 pub const CLSID_CURLSearchHook: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcfbfae00_17a6_11d0_99cb_00c04fd64497);
 pub const CLSID_CUrlHistory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3c374a40_bae4_11cf_bf7d_00aa006946ee);
+pub const CLSID_CUrlHistoryBoth: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6659983c_8476_4eb4_b78c_e5968f326ba0);
 pub const CLSID_ControlPanel: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x21ec2020_3aea_1069_a2dd_08002b30309d);
 pub const CLSID_DarwinAppPublisher: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcfccc7a0_a282_11d1_9082_006008059382);
 pub const CLSID_DocHostUIHandler: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7057e952_bd1b_11d1_8919_00c04fc2c836);
@@ -31421,6 +31422,7 @@ pub const COPYENGINE_S_KEEP_BOTH: ::windows_core::HRESULT = ::windows_core::HRES
 pub const COPYENGINE_S_MERGE: ::windows_core::HRESULT = ::windows_core::HRESULT(2555910i32);
 pub const COPYENGINE_S_NOT_HANDLED: ::windows_core::HRESULT = ::windows_core::HRESULT(2555907i32);
 pub const COPYENGINE_S_PENDING: ::windows_core::HRESULT = ::windows_core::HRESULT(2555915i32);
+pub const COPYENGINE_S_PENDING_DELETE: ::windows_core::HRESULT = ::windows_core::HRESULT(2555920i32);
 pub const COPYENGINE_S_PROGRESS_PAUSE: ::windows_core::HRESULT = ::windows_core::HRESULT(2555919i32);
 pub const COPYENGINE_S_USER_IGNORED: ::windows_core::HRESULT = ::windows_core::HRESULT(2555909i32);
 pub const COPYENGINE_S_USER_RETRY: ::windows_core::HRESULT = ::windows_core::HRESULT(2555908i32);
@@ -37163,6 +37165,39 @@ impl ::core::fmt::Debug for NOTIFY_ICON_INFOTIP_FLAGS {
         f.debug_tuple("NOTIFY_ICON_INFOTIP_FLAGS").field(&self.0).finish()
     }
 }
+impl NOTIFY_ICON_INFOTIP_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for NOTIFY_ICON_INFOTIP_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NOTIFY_ICON_INFOTIP_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NOTIFY_ICON_INFOTIP_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NOTIFY_ICON_INFOTIP_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NOTIFY_ICON_INFOTIP_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct NOTIFY_ICON_MESSAGE(pub u32);
@@ -37183,6 +37218,39 @@ impl ::windows_core::TypeKind for NOTIFY_ICON_STATE {
 impl ::core::fmt::Debug for NOTIFY_ICON_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NOTIFY_ICON_STATE").field(&self.0).finish()
+    }
+}
+impl NOTIFY_ICON_STATE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for NOTIFY_ICON_STATE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NOTIFY_ICON_STATE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NOTIFY_ICON_STATE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NOTIFY_ICON_STATE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NOTIFY_ICON_STATE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(transparent)]
@@ -42374,7 +42442,7 @@ pub struct NOTIFYICONDATAA {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub szTip: [i8; 128],
     pub dwState: NOTIFY_ICON_STATE,
-    pub dwStateMask: u32,
+    pub dwStateMask: NOTIFY_ICON_STATE,
     pub szInfo: [i8; 256],
     pub Anonymous: NOTIFYICONDATAA_0,
     pub szInfoTitle: [i8; 64],
@@ -42447,7 +42515,7 @@ pub struct NOTIFYICONDATAA {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub szTip: [i8; 128],
     pub dwState: NOTIFY_ICON_STATE,
-    pub dwStateMask: u32,
+    pub dwStateMask: NOTIFY_ICON_STATE,
     pub szInfo: [i8; 256],
     pub Anonymous: NOTIFYICONDATAA_0,
     pub szInfoTitle: [i8; 64],
@@ -42520,7 +42588,7 @@ pub struct NOTIFYICONDATAW {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub szTip: [u16; 128],
     pub dwState: NOTIFY_ICON_STATE,
-    pub dwStateMask: u32,
+    pub dwStateMask: NOTIFY_ICON_STATE,
     pub szInfo: [u16; 256],
     pub Anonymous: NOTIFYICONDATAW_0,
     pub szInfoTitle: [u16; 64],
@@ -42593,7 +42661,7 @@ pub struct NOTIFYICONDATAW {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub szTip: [u16; 128],
     pub dwState: NOTIFY_ICON_STATE,
-    pub dwStateMask: u32,
+    pub dwStateMask: NOTIFY_ICON_STATE,
     pub szInfo: [u16; 256],
     pub Anonymous: NOTIFYICONDATAW_0,
     pub szInfoTitle: [u16; 64],

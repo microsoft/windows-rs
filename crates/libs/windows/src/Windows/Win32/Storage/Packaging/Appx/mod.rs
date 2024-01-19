@@ -188,6 +188,11 @@ pub unsafe fn GetCurrentPackageInfo2(flags: u32, packagepathtype: PackagePathTyp
     GetCurrentPackageInfo2(flags, packagepathtype, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[inline]
+pub unsafe fn GetCurrentPackageInfo3(flags: u32, packageinfotype: PackageInfo3Type, bufferlength: *mut u32, buffer: ::core::option::Option<*mut ::core::ffi::c_void>, count: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentPackageInfo3(flags : u32, packageinfotype : PackageInfo3Type, bufferlength : *mut u32, buffer : *mut ::core::ffi::c_void, count : *mut u32) -> ::windows_core::HRESULT);
+    GetCurrentPackageInfo3(flags, packageinfotype, bufferlength, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(count.unwrap_or(::std::ptr::null_mut()))).ok()
+}
+#[inline]
 pub unsafe fn GetCurrentPackagePath(pathlength: *mut u32, path: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentPackagePath(pathlength : *mut u32, path : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     GetCurrentPackagePath(pathlength, ::core::mem::transmute(path)).ok()
@@ -3072,6 +3077,8 @@ pub struct IAppxSourceContentGroupMapReader_Vtbl {
     pub GetRequiredGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetAutomaticGroups: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
+pub const APPLICATION_USER_MODEL_ID_MAX_LENGTH: u32 = 130u32;
+pub const APPLICATION_USER_MODEL_ID_MIN_LENGTH: u32 = 20u32;
 pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_BLOCKMAP: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(1i32);
 pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_FIRST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(0i32);
 pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_LAST: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = APPX_BUNDLE_FOOTPRINT_FILE_TYPE(2i32);
@@ -3164,7 +3171,15 @@ pub const DX_FEATURE_LEVEL_10: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(2i32);
 pub const DX_FEATURE_LEVEL_11: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(3i32);
 pub const DX_FEATURE_LEVEL_9: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(1i32);
 pub const DX_FEATURE_LEVEL_UNSPECIFIED: DX_FEATURE_LEVEL = DX_FEATURE_LEVEL(0i32);
+pub const PACKAGE_APPLICATIONS_MAX_COUNT: u32 = 100u32;
+pub const PACKAGE_APPLICATIONS_MIN_COUNT: u32 = 0u32;
+pub const PACKAGE_ARCHITECTURE_MAX_LENGTH: u32 = 7u32;
+pub const PACKAGE_ARCHITECTURE_MIN_LENGTH: u32 = 3u32;
 pub const PACKAGE_DEPENDENCY_RANK_DEFAULT: u32 = 0u32;
+pub const PACKAGE_FAMILY_MAX_RESOURCE_PACKAGES: u32 = 512u32;
+pub const PACKAGE_FAMILY_MIN_RESOURCE_PACKAGES: u32 = 0u32;
+pub const PACKAGE_FAMILY_NAME_MAX_LENGTH: u32 = 64u32;
+pub const PACKAGE_FAMILY_NAME_MIN_LENGTH: u32 = 17u32;
 pub const PACKAGE_FILTER_ALL_LOADED: u32 = 0u32;
 pub const PACKAGE_FILTER_BUNDLE: u32 = 128u32;
 pub const PACKAGE_FILTER_DIRECT: u32 = 32u32;
@@ -3175,8 +3190,16 @@ pub const PACKAGE_FILTER_IS_IN_RELATED_SET: u32 = 262144u32;
 pub const PACKAGE_FILTER_OPTIONAL: u32 = 131072u32;
 pub const PACKAGE_FILTER_RESOURCE: u32 = 64u32;
 pub const PACKAGE_FILTER_STATIC: u32 = 524288u32;
+pub const PACKAGE_FULL_NAME_MAX_LENGTH: u32 = 127u32;
+pub const PACKAGE_FULL_NAME_MIN_LENGTH: u32 = 30u32;
+pub const PACKAGE_GRAPH_MAX_SIZE: u32 = 641u32;
+pub const PACKAGE_GRAPH_MIN_SIZE: u32 = 1u32;
 pub const PACKAGE_INFORMATION_BASIC: u32 = 0u32;
 pub const PACKAGE_INFORMATION_FULL: u32 = 256u32;
+pub const PACKAGE_MAX_DEPENDENCIES: u32 = 128u32;
+pub const PACKAGE_MIN_DEPENDENCIES: u32 = 0u32;
+pub const PACKAGE_NAME_MAX_LENGTH: u32 = 50u32;
+pub const PACKAGE_NAME_MIN_LENGTH: u32 = 3u32;
 pub const PACKAGE_PROPERTY_BUNDLE: u32 = 4u32;
 pub const PACKAGE_PROPERTY_DEVELOPMENT_MODE: u32 = 65536u32;
 pub const PACKAGE_PROPERTY_DYNAMIC: u32 = 1048576u32;
@@ -3186,6 +3209,16 @@ pub const PACKAGE_PROPERTY_IS_IN_RELATED_SET: u32 = 262144u32;
 pub const PACKAGE_PROPERTY_OPTIONAL: u32 = 8u32;
 pub const PACKAGE_PROPERTY_RESOURCE: u32 = 2u32;
 pub const PACKAGE_PROPERTY_STATIC: u32 = 524288u32;
+pub const PACKAGE_PUBLISHERID_MAX_LENGTH: u32 = 13u32;
+pub const PACKAGE_PUBLISHERID_MIN_LENGTH: u32 = 13u32;
+pub const PACKAGE_PUBLISHER_MAX_LENGTH: u32 = 8192u32;
+pub const PACKAGE_PUBLISHER_MIN_LENGTH: u32 = 3u32;
+pub const PACKAGE_RELATIVE_APPLICATION_ID_MAX_LENGTH: u32 = 65u32;
+pub const PACKAGE_RELATIVE_APPLICATION_ID_MIN_LENGTH: u32 = 2u32;
+pub const PACKAGE_RESOURCEID_MAX_LENGTH: u32 = 30u32;
+pub const PACKAGE_RESOURCEID_MIN_LENGTH: u32 = 0u32;
+pub const PACKAGE_VERSION_MAX_LENGTH: u32 = 23u32;
+pub const PACKAGE_VERSION_MIN_LENGTH: u32 = 7u32;
 pub const PackageDependencyLifetimeKind_FilePath: PackageDependencyLifetimeKind = PackageDependencyLifetimeKind(1i32);
 pub const PackageDependencyLifetimeKind_Process: PackageDependencyLifetimeKind = PackageDependencyLifetimeKind(0i32);
 pub const PackageDependencyLifetimeKind_RegistryKey: PackageDependencyLifetimeKind = PackageDependencyLifetimeKind(2i32);
@@ -3196,6 +3229,7 @@ pub const PackageDependencyProcessorArchitectures_None: PackageDependencyProcess
 pub const PackageDependencyProcessorArchitectures_X64: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(4i32);
 pub const PackageDependencyProcessorArchitectures_X86: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(2i32);
 pub const PackageDependencyProcessorArchitectures_X86A64: PackageDependencyProcessorArchitectures = PackageDependencyProcessorArchitectures(32i32);
+pub const PackageInfo3Type_PackageInfoGeneration: PackageInfo3Type = PackageInfo3Type(16i32);
 pub const PackageOrigin_DeveloperSigned: PackageOrigin = PackageOrigin(5i32);
 pub const PackageOrigin_DeveloperUnsigned: PackageOrigin = PackageOrigin(4i32);
 pub const PackageOrigin_Inbox: PackageOrigin = PackageOrigin(2i32);
@@ -3680,6 +3714,17 @@ impl ::core::ops::Not for PackageDependencyProcessorArchitectures {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+pub struct PackageInfo3Type(pub i32);
+impl ::windows_core::TypeKind for PackageInfo3Type {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for PackageInfo3Type {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageInfo3Type").field(&self.0).finish()
     }
 }
 #[repr(transparent)]

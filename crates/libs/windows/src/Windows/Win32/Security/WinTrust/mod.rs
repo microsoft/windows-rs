@@ -632,6 +632,7 @@ pub struct CONFIG_CI_PROV_INFO {
     pub pPolicies: *mut super::Cryptography::CRYPT_INTEGER_BLOB,
     pub result: CONFIG_CI_PROV_INFO_RESULT,
     pub dwScenario: u32,
+    pub result2: *mut CONFIG_CI_PROV_INFO_RESULT2,
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::marker::Copy for CONFIG_CI_PROV_INFO {}
@@ -644,7 +645,7 @@ impl ::core::clone::Clone for CONFIG_CI_PROV_INFO {
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::fmt::Debug for CONFIG_CI_PROV_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONFIG_CI_PROV_INFO").field("cbSize", &self.cbSize).field("dwPolicies", &self.dwPolicies).field("pPolicies", &self.pPolicies).field("result", &self.result).field("dwScenario", &self.dwScenario).finish()
+        f.debug_struct("CONFIG_CI_PROV_INFO").field("cbSize", &self.cbSize).field("dwPolicies", &self.dwPolicies).field("pPolicies", &self.pPolicies).field("result", &self.result).field("dwScenario", &self.dwScenario).field("result2", &self.result2).finish()
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -654,7 +655,7 @@ impl ::windows_core::TypeKind for CONFIG_CI_PROV_INFO {
 #[cfg(feature = "Win32_Security_Cryptography")]
 impl ::core::cmp::PartialEq for CONFIG_CI_PROV_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwPolicies == other.dwPolicies && self.pPolicies == other.pPolicies && self.result == other.result && self.dwScenario == other.dwScenario
+        self.cbSize == other.cbSize && self.dwPolicies == other.dwPolicies && self.pPolicies == other.pPolicies && self.result == other.result && self.dwScenario == other.dwScenario && self.result2 == other.result2
     }
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
@@ -693,6 +694,41 @@ impl ::core::cmp::PartialEq for CONFIG_CI_PROV_INFO_RESULT {
 }
 impl ::core::cmp::Eq for CONFIG_CI_PROV_INFO_RESULT {}
 impl ::core::default::Default for CONFIG_CI_PROV_INFO_RESULT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub struct CONFIG_CI_PROV_INFO_RESULT2 {
+    pub cbSize: u32,
+    pub hr: ::windows_core::HRESULT,
+    pub dwResult: u32,
+    pub dwPolicyIndex: u32,
+    pub fIsExplicitDeny: super::super::Foundation::BOOLEAN,
+    pub cbCalculatedFileHash: u32,
+    pub pbCalculatedFileHash: *mut u8,
+}
+impl ::core::marker::Copy for CONFIG_CI_PROV_INFO_RESULT2 {}
+impl ::core::clone::Clone for CONFIG_CI_PROV_INFO_RESULT2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CONFIG_CI_PROV_INFO_RESULT2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONFIG_CI_PROV_INFO_RESULT2").field("cbSize", &self.cbSize).field("hr", &self.hr).field("dwResult", &self.dwResult).field("dwPolicyIndex", &self.dwPolicyIndex).field("fIsExplicitDeny", &self.fIsExplicitDeny).field("cbCalculatedFileHash", &self.cbCalculatedFileHash).field("pbCalculatedFileHash", &self.pbCalculatedFileHash).finish()
+    }
+}
+impl ::windows_core::TypeKind for CONFIG_CI_PROV_INFO_RESULT2 {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for CONFIG_CI_PROV_INFO_RESULT2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.cbSize == other.cbSize && self.hr == other.hr && self.dwResult == other.dwResult && self.dwPolicyIndex == other.dwPolicyIndex && self.fIsExplicitDeny == other.fIsExplicitDeny && self.cbCalculatedFileHash == other.cbCalculatedFileHash && self.pbCalculatedFileHash == other.pbCalculatedFileHash
+    }
+}
+impl ::core::cmp::Eq for CONFIG_CI_PROV_INFO_RESULT2 {}
+impl ::core::default::Default for CONFIG_CI_PROV_INFO_RESULT2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

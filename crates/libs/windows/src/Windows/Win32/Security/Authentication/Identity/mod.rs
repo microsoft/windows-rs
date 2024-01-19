@@ -1478,6 +1478,11 @@ where
     SspiPromptForCredentialsW(psztargetname.into_param().abi(), ::core::mem::transmute(puiinfo.unwrap_or(::std::ptr::null())), dwautherror, pszpackage.into_param().abi(), ::core::mem::transmute(pinputauthidentity.unwrap_or(::std::ptr::null())), ppauthidentity, ::core::mem::transmute(pfsave.unwrap_or(::std::ptr::null_mut())), dwflags)
 }
 #[inline]
+pub unsafe fn SspiSetChannelBindingFlags(pbindings: *mut SecPkgContext_Bindings, flags: u32) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("sspicli.dll" "system" fn SspiSetChannelBindingFlags(pbindings : *mut SecPkgContext_Bindings, flags : u32) -> ::windows_core::HRESULT);
+    SspiSetChannelBindingFlags(pbindings, flags).ok()
+}
+#[inline]
 pub unsafe fn SspiUnmarshalAuthIdentity(authidentitybytearray: &[u8], ppauthidentity: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
     ::windows_targets::link!("secur32.dll" "system" fn SspiUnmarshalAuthIdentity(authidentitylength : u32, authidentitybytearray : ::windows_core::PCSTR, ppauthidentity : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     SspiUnmarshalAuthIdentity(authidentitybytearray.len().try_into().unwrap(), ::core::mem::transmute(authidentitybytearray.as_ptr()), ppauthidentity).ok()
@@ -2356,6 +2361,7 @@ pub const PRIMARY_CRED_DO_NOT_SPLIT: u32 = 1024u32;
 pub const PRIMARY_CRED_ENCRYPTED_CREDGUARD_PASSWORD: u32 = 131072u32;
 pub const PRIMARY_CRED_ENTERPRISE_INTERNET_USER: u32 = 65536u32;
 pub const PRIMARY_CRED_EX: u32 = 4096u32;
+pub const PRIMARY_CRED_FOR_PASSWORD_CHANGE: u32 = 8388608u32;
 pub const PRIMARY_CRED_INTERACTIVE_FIDO_LOGON: u32 = 1048576u32;
 pub const PRIMARY_CRED_INTERACTIVE_NGC_LOGON: u32 = 524288u32;
 pub const PRIMARY_CRED_INTERACTIVE_SMARTCARD_LOGON: u32 = 64u32;
@@ -2383,10 +2389,11 @@ pub const PolicyDnsDomainInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMAT
 pub const PolicyDnsDomainInformationInt: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(13i32);
 pub const PolicyDomainEfsInformation: POLICY_DOMAIN_INFORMATION_CLASS = POLICY_DOMAIN_INFORMATION_CLASS(2i32);
 pub const PolicyDomainKerberosTicketInformation: POLICY_DOMAIN_INFORMATION_CLASS = POLICY_DOMAIN_INFORMATION_CLASS(3i32);
-pub const PolicyLastEntry: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(16i32);
+pub const PolicyLastEntry: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(17i32);
 pub const PolicyLocalAccountDomainInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(14i32);
 pub const PolicyLsaServerRoleInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(6i32);
 pub const PolicyMachineAccountInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(15i32);
+pub const PolicyMachineAccountInformation2: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(16i32);
 pub const PolicyModificationInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(9i32);
 pub const PolicyNotifyAccountDomainInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(2i32);
 pub const PolicyNotifyAuditEventsInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(1i32);
@@ -2486,6 +2493,7 @@ pub const SECBUFFER_ATTRMASK: u32 = 4026531840u32;
 pub const SECBUFFER_CERTIFICATE_REQUEST_CONTEXT: u32 = 29u32;
 pub const SECBUFFER_CHANGE_PASS_RESPONSE: u32 = 15u32;
 pub const SECBUFFER_CHANNEL_BINDINGS: u32 = 14u32;
+pub const SECBUFFER_CHANNEL_BINDINGS_RESULT: u32 = 30u32;
 pub const SECBUFFER_DATA: u32 = 1u32;
 pub const SECBUFFER_DTLS_MTU: u32 = 24u32;
 pub const SECBUFFER_EMPTY: u32 = 0u32;
@@ -2736,6 +2744,15 @@ pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_2: u32 = 2u32;
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_3: u32 = 3u32;
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_4: u32 = 4u32;
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_5: u32 = 5u32;
+pub const SEC_CHANNEL_BINDINGS_AUDIT_BINDINGS: u32 = 1u32;
+pub const SEC_CHANNEL_BINDINGS_RESULT_ABSENT: u32 = 2u32;
+pub const SEC_CHANNEL_BINDINGS_RESULT_CLIENT_SUPPORT: u32 = 1u32;
+pub const SEC_CHANNEL_BINDINGS_RESULT_NOTVALID_MISMATCH: u32 = 4u32;
+pub const SEC_CHANNEL_BINDINGS_RESULT_NOTVALID_MISSING: u32 = 8u32;
+pub const SEC_CHANNEL_BINDINGS_RESULT_VALID_MATCHED: u32 = 16u32;
+pub const SEC_CHANNEL_BINDINGS_RESULT_VALID_MISSING: u32 = 64u32;
+pub const SEC_CHANNEL_BINDINGS_RESULT_VALID_PROXY: u32 = 32u32;
+pub const SEC_CHANNEL_BINDINGS_VALID_FLAGS: u32 = 1u32;
 pub const SEC_WINNT_AUTH_IDENTITY_ENCRYPT_FOR_SYSTEM: u32 = 4u32;
 pub const SEC_WINNT_AUTH_IDENTITY_ENCRYPT_SAME_LOGON: u32 = 1u32;
 pub const SEC_WINNT_AUTH_IDENTITY_ENCRYPT_SAME_PROCESS: u32 = 2u32;
@@ -3477,6 +3494,7 @@ pub const TRUST_DIRECTION_BIDIRECTIONAL: TRUSTED_DOMAIN_TRUST_DIRECTION = TRUSTE
 pub const TRUST_DIRECTION_DISABLED: TRUSTED_DOMAIN_TRUST_DIRECTION = TRUSTED_DOMAIN_TRUST_DIRECTION(0u32);
 pub const TRUST_DIRECTION_INBOUND: TRUSTED_DOMAIN_TRUST_DIRECTION = TRUSTED_DOMAIN_TRUST_DIRECTION(1u32);
 pub const TRUST_DIRECTION_OUTBOUND: TRUSTED_DOMAIN_TRUST_DIRECTION = TRUSTED_DOMAIN_TRUST_DIRECTION(2u32);
+pub const TRUST_TYPE_AAD: u32 = 5u32;
 pub const TRUST_TYPE_DCE: TRUSTED_DOMAIN_TRUST_TYPE = TRUSTED_DOMAIN_TRUST_TYPE(4u32);
 pub const TRUST_TYPE_DOWNLEVEL: TRUSTED_DOMAIN_TRUST_TYPE = TRUSTED_DOMAIN_TRUST_TYPE(1u32);
 pub const TRUST_TYPE_MIT: TRUSTED_DOMAIN_TRUST_TYPE = TRUSTED_DOMAIN_TRUST_TYPE(3u32);
@@ -9907,6 +9925,37 @@ impl ::core::default::Default for POLICY_MACHINE_ACCT_INFO {
     }
 }
 #[repr(C)]
+pub struct POLICY_MACHINE_ACCT_INFO2 {
+    pub Rid: u32,
+    pub Sid: super::super::super::Foundation::PSID,
+    pub ObjectGuid: ::windows_core::GUID,
+}
+impl ::core::marker::Copy for POLICY_MACHINE_ACCT_INFO2 {}
+impl ::core::clone::Clone for POLICY_MACHINE_ACCT_INFO2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for POLICY_MACHINE_ACCT_INFO2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POLICY_MACHINE_ACCT_INFO2").field("Rid", &self.Rid).field("Sid", &self.Sid).field("ObjectGuid", &self.ObjectGuid).finish()
+    }
+}
+impl ::windows_core::TypeKind for POLICY_MACHINE_ACCT_INFO2 {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for POLICY_MACHINE_ACCT_INFO2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.Rid == other.Rid && self.Sid == other.Sid && self.ObjectGuid == other.ObjectGuid
+    }
+}
+impl ::core::cmp::Eq for POLICY_MACHINE_ACCT_INFO2 {}
+impl ::core::default::Default for POLICY_MACHINE_ACCT_INFO2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 pub struct POLICY_MODIFICATION_INFO {
     pub ModifiedId: i64,
     pub DatabaseCreationTime: i64,
@@ -12280,6 +12329,88 @@ impl ::core::cmp::PartialEq for SEC_CHANNEL_BINDINGS {
 }
 impl ::core::cmp::Eq for SEC_CHANNEL_BINDINGS {}
 impl ::core::default::Default for SEC_CHANNEL_BINDINGS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub struct SEC_CHANNEL_BINDINGS_EX {
+    pub magicNumber: u32,
+    pub flags: u32,
+    pub cbHeaderLength: u32,
+    pub cbStructureLength: u32,
+    pub dwInitiatorAddrType: u32,
+    pub cbInitiatorLength: u32,
+    pub dwInitiatorOffset: u32,
+    pub dwAcceptorAddrType: u32,
+    pub cbAcceptorLength: u32,
+    pub dwAcceptorOffset: u32,
+    pub cbApplicationDataLength: u32,
+    pub dwApplicationDataOffset: u32,
+}
+impl ::core::marker::Copy for SEC_CHANNEL_BINDINGS_EX {}
+impl ::core::clone::Clone for SEC_CHANNEL_BINDINGS_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SEC_CHANNEL_BINDINGS_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SEC_CHANNEL_BINDINGS_EX")
+            .field("magicNumber", &self.magicNumber)
+            .field("flags", &self.flags)
+            .field("cbHeaderLength", &self.cbHeaderLength)
+            .field("cbStructureLength", &self.cbStructureLength)
+            .field("dwInitiatorAddrType", &self.dwInitiatorAddrType)
+            .field("cbInitiatorLength", &self.cbInitiatorLength)
+            .field("dwInitiatorOffset", &self.dwInitiatorOffset)
+            .field("dwAcceptorAddrType", &self.dwAcceptorAddrType)
+            .field("cbAcceptorLength", &self.cbAcceptorLength)
+            .field("dwAcceptorOffset", &self.dwAcceptorOffset)
+            .field("cbApplicationDataLength", &self.cbApplicationDataLength)
+            .field("dwApplicationDataOffset", &self.dwApplicationDataOffset)
+            .finish()
+    }
+}
+impl ::windows_core::TypeKind for SEC_CHANNEL_BINDINGS_EX {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for SEC_CHANNEL_BINDINGS_EX {
+    fn eq(&self, other: &Self) -> bool {
+        self.magicNumber == other.magicNumber && self.flags == other.flags && self.cbHeaderLength == other.cbHeaderLength && self.cbStructureLength == other.cbStructureLength && self.dwInitiatorAddrType == other.dwInitiatorAddrType && self.cbInitiatorLength == other.cbInitiatorLength && self.dwInitiatorOffset == other.dwInitiatorOffset && self.dwAcceptorAddrType == other.dwAcceptorAddrType && self.cbAcceptorLength == other.cbAcceptorLength && self.dwAcceptorOffset == other.dwAcceptorOffset && self.cbApplicationDataLength == other.cbApplicationDataLength && self.dwApplicationDataOffset == other.dwApplicationDataOffset
+    }
+}
+impl ::core::cmp::Eq for SEC_CHANNEL_BINDINGS_EX {}
+impl ::core::default::Default for SEC_CHANNEL_BINDINGS_EX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub struct SEC_CHANNEL_BINDINGS_RESULT {
+    pub flags: u32,
+}
+impl ::core::marker::Copy for SEC_CHANNEL_BINDINGS_RESULT {}
+impl ::core::clone::Clone for SEC_CHANNEL_BINDINGS_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SEC_CHANNEL_BINDINGS_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SEC_CHANNEL_BINDINGS_RESULT").field("flags", &self.flags).finish()
+    }
+}
+impl ::windows_core::TypeKind for SEC_CHANNEL_BINDINGS_RESULT {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for SEC_CHANNEL_BINDINGS_RESULT {
+    fn eq(&self, other: &Self) -> bool {
+        self.flags == other.flags
+    }
+}
+impl ::core::cmp::Eq for SEC_CHANNEL_BINDINGS_RESULT {}
+impl ::core::default::Default for SEC_CHANNEL_BINDINGS_RESULT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

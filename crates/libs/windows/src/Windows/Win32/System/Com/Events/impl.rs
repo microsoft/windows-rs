@@ -11,7 +11,7 @@ impl IDontSupportEventSubscription_Vtbl {
 pub trait IEnumEventObject_Impl: Sized {
     fn Clone(&self) -> ::windows_core::Result<IEnumEventObject>;
     fn Next(&self, creqelem: u32, ppinterface: *mut ::core::option::Option<::windows_core::IUnknown>, cretelem: *mut u32) -> ::windows_core::Result<()>;
-    fn Reset(&self) -> ::windows_core::Result<()>;
+    fn Reset(&self) -> ::windows_core::HRESULT;
     fn Skip(&self, cskipelem: u32) -> ::windows_core::Result<()>;
 }
 impl ::windows_core::RuntimeName for IEnumEventObject {}
@@ -36,7 +36,7 @@ impl IEnumEventObject_Vtbl {
         unsafe extern "system" fn Reset<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumEventObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            this.Reset()
         }
         unsafe extern "system" fn Skip<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumEventObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cskipelem: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

@@ -7588,6 +7588,7 @@ pub const SETOPTIONS_FLAG_RESOLVE_CONFLICT: u32 = 1u32;
 pub const SETOPTIONS_RESULT_CONFLICT_REMAINED: u32 = 2u32;
 pub const SETOPTIONS_RESULT_CONFLICT_RESOLVED: u32 = 1u32;
 pub const SETOPTIONS_RESULT_NO_CONFLICT: u32 = 0u32;
+pub const SPLCLIENT_INFO_INTERNAL_LEVEL: u32 = 100u32;
 pub const SPLDS_ASSET_NUMBER: ::windows_core::PCWSTR = ::windows_core::w!("assetNumber");
 pub const SPLDS_BYTES_PER_MINUTE: ::windows_core::PCWSTR = ::windows_core::w!("bytesPerMinute");
 pub const SPLDS_DESCRIPTION: ::windows_core::PCWSTR = ::windows_core::w!("description");
@@ -15760,6 +15761,59 @@ impl ::core::cmp::PartialEq for SPLCLIENT_INFO_3_VISTA {
 }
 impl ::core::cmp::Eq for SPLCLIENT_INFO_3_VISTA {}
 impl ::core::default::Default for SPLCLIENT_INFO_3_VISTA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub struct SPLCLIENT_INFO_INTERNAL {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub dwSize: u32,
+    pub pMachineName: ::windows_core::PWSTR,
+    pub pUserName: ::windows_core::PWSTR,
+    pub dwBuildNum: u32,
+    pub dwMajorVersion: u32,
+    pub dwMinorVersion: u32,
+    pub wProcessorArchitecture: u16,
+    pub hSplPrinter: u64,
+    pub dwProcessId: u32,
+    pub dwSessionId: u32,
+}
+impl ::core::marker::Copy for SPLCLIENT_INFO_INTERNAL {}
+impl ::core::clone::Clone for SPLCLIENT_INFO_INTERNAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SPLCLIENT_INFO_INTERNAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SPLCLIENT_INFO_INTERNAL")
+            .field("cbSize", &self.cbSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwSize", &self.dwSize)
+            .field("pMachineName", &self.pMachineName)
+            .field("pUserName", &self.pUserName)
+            .field("dwBuildNum", &self.dwBuildNum)
+            .field("dwMajorVersion", &self.dwMajorVersion)
+            .field("dwMinorVersion", &self.dwMinorVersion)
+            .field("wProcessorArchitecture", &self.wProcessorArchitecture)
+            .field("hSplPrinter", &self.hSplPrinter)
+            .field("dwProcessId", &self.dwProcessId)
+            .field("dwSessionId", &self.dwSessionId)
+            .finish()
+    }
+}
+impl ::windows_core::TypeKind for SPLCLIENT_INFO_INTERNAL {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for SPLCLIENT_INFO_INTERNAL {
+    fn eq(&self, other: &Self) -> bool {
+        self.cbSize == other.cbSize && self.dwFlags == other.dwFlags && self.dwSize == other.dwSize && self.pMachineName == other.pMachineName && self.pUserName == other.pUserName && self.dwBuildNum == other.dwBuildNum && self.dwMajorVersion == other.dwMajorVersion && self.dwMinorVersion == other.dwMinorVersion && self.wProcessorArchitecture == other.wProcessorArchitecture && self.hSplPrinter == other.hSplPrinter && self.dwProcessId == other.dwProcessId && self.dwSessionId == other.dwSessionId
+    }
+}
+impl ::core::cmp::Eq for SPLCLIENT_INFO_INTERNAL {}
+impl ::core::default::Default for SPLCLIENT_INFO_INTERNAL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

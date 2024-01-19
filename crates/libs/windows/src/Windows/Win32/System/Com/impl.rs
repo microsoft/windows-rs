@@ -1729,7 +1729,7 @@ impl IEnumCATEGORYINFO_Vtbl {
     }
 }
 pub trait IEnumConnectionPoints_Impl: Sized {
-    fn Next(&self, cconnections: u32, ppcp: *mut ::core::option::Option<IConnectionPoint>, pcfetched: *mut u32) -> ::windows_core::Result<()>;
+    fn Next(&self, cconnections: u32, ppcp: *mut ::core::option::Option<IConnectionPoint>, pcfetched: *mut u32) -> ::windows_core::HRESULT;
     fn Skip(&self, cconnections: u32) -> ::windows_core::Result<()>;
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IEnumConnectionPoints>;
@@ -1740,7 +1740,7 @@ impl IEnumConnectionPoints_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumConnectionPoints_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cconnections: u32, ppcp: *mut *mut ::core::ffi::c_void, pcfetched: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(::core::mem::transmute_copy(&cconnections), ::core::mem::transmute_copy(&ppcp), ::core::mem::transmute_copy(&pcfetched)).into()
+            this.Next(::core::mem::transmute_copy(&cconnections), ::core::mem::transmute_copy(&ppcp), ::core::mem::transmute_copy(&pcfetched))
         }
         unsafe extern "system" fn Skip<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumConnectionPoints_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cconnections: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1776,7 +1776,7 @@ impl IEnumConnectionPoints_Vtbl {
     }
 }
 pub trait IEnumConnections_Impl: Sized {
-    fn Next(&self, cconnections: u32, rgcd: *mut CONNECTDATA, pcfetched: *mut u32) -> ::windows_core::Result<()>;
+    fn Next(&self, cconnections: u32, rgcd: *mut CONNECTDATA, pcfetched: *mut u32) -> ::windows_core::HRESULT;
     fn Skip(&self, cconnections: u32) -> ::windows_core::Result<()>;
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IEnumConnections>;
@@ -1787,7 +1787,7 @@ impl IEnumConnections_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumConnections_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cconnections: u32, rgcd: *mut CONNECTDATA, pcfetched: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(::core::mem::transmute_copy(&cconnections), ::core::mem::transmute_copy(&rgcd), ::core::mem::transmute_copy(&pcfetched)).into()
+            this.Next(::core::mem::transmute_copy(&cconnections), ::core::mem::transmute_copy(&rgcd), ::core::mem::transmute_copy(&pcfetched))
         }
         unsafe extern "system" fn Skip<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumConnections_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cconnections: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1883,7 +1883,7 @@ impl IEnumContextProps_Vtbl {
     }
 }
 pub trait IEnumFORMATETC_Impl: Sized {
-    fn Next(&self, celt: u32, rgelt: *mut FORMATETC, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut FORMATETC, pceltfetched: *mut u32) -> ::windows_core::HRESULT;
     fn Skip(&self, celt: u32) -> ::windows_core::Result<()>;
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IEnumFORMATETC>;
@@ -1894,7 +1894,7 @@ impl IEnumFORMATETC_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumFORMATETC_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut FORMATETC, pceltfetched: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched)).into()
+            this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched))
         }
         unsafe extern "system" fn Skip<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumFORMATETC_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2118,7 +2118,7 @@ impl IEnumString_Vtbl {
     }
 }
 pub trait IEnumUnknown_Impl: Sized {
-    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<::windows_core::IUnknown>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<::windows_core::IUnknown>, pceltfetched: *mut u32) -> ::windows_core::HRESULT;
     fn Skip(&self, celt: u32) -> ::windows_core::Result<()>;
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IEnumUnknown>;
@@ -2129,7 +2129,7 @@ impl IEnumUnknown_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumUnknown_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched)).into()
+            this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched))
         }
         unsafe extern "system" fn Skip<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumUnknown_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -2638,7 +2638,7 @@ pub trait IMoniker_Impl: Sized + IPersistStream_Impl {
     fn Reduce(&self, pbc: ::core::option::Option<&IBindCtx>, dwreducehowfar: u32, ppmktoleft: *mut ::core::option::Option<IMoniker>, ppmkreduced: *mut ::core::option::Option<IMoniker>) -> ::windows_core::Result<()>;
     fn ComposeWith(&self, pmkright: ::core::option::Option<&IMoniker>, fonlyifnotgeneric: super::super::Foundation::BOOL) -> ::windows_core::Result<IMoniker>;
     fn Enum(&self, fforward: super::super::Foundation::BOOL) -> ::windows_core::Result<IEnumMoniker>;
-    fn IsEqual(&self, pmkothermoniker: ::core::option::Option<&IMoniker>) -> ::windows_core::Result<()>;
+    fn IsEqual(&self, pmkothermoniker: ::core::option::Option<&IMoniker>) -> ::windows_core::HRESULT;
     fn Hash(&self) -> ::windows_core::Result<u32>;
     fn IsRunning(&self, pbc: ::core::option::Option<&IBindCtx>, pmktoleft: ::core::option::Option<&IMoniker>, pmknewlyrunning: ::core::option::Option<&IMoniker>) -> ::windows_core::Result<()>;
     fn GetTimeOfLastChange(&self, pbc: ::core::option::Option<&IBindCtx>, pmktoleft: ::core::option::Option<&IMoniker>) -> ::windows_core::Result<super::super::Foundation::FILETIME>;
@@ -2692,7 +2692,7 @@ impl IMoniker_Vtbl {
         unsafe extern "system" fn IsEqual<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMoniker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmkothermoniker: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsEqual(::windows_core::from_raw_borrowed(&pmkothermoniker)).into()
+            this.IsEqual(::windows_core::from_raw_borrowed(&pmkothermoniker))
         }
         unsafe extern "system" fn Hash<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMoniker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwhash: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

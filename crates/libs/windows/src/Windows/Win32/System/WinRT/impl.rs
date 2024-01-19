@@ -286,6 +286,39 @@ impl ICoreInputInterop_Vtbl {
         iid == &<ICoreInputInterop as ::windows_core::Interface>::IID
     }
 }
+pub trait ICoreInputInterop2_Impl: Sized {
+    fn WindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND>;
+    fn ChangeHostingContext(&self, newparentwindow: super::super::Foundation::HWND, newviewinstanceid: u32) -> ::windows_core::Result<()>;
+}
+impl ::windows_core::RuntimeName for ICoreInputInterop2 {}
+impl ICoreInputInterop2_Vtbl {
+    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICoreInputInterop2_Impl, const OFFSET: isize>() -> ICoreInputInterop2_Vtbl {
+        unsafe extern "system" fn WindowHandle<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICoreInputInterop2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, window: *mut super::super::Foundation::HWND) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.WindowHandle() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(window, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ChangeHostingContext<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICoreInputInterop2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newparentwindow: super::super::Foundation::HWND, newviewinstanceid: u32) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.ChangeHostingContext(::core::mem::transmute_copy(&newparentwindow), ::core::mem::transmute_copy(&newviewinstanceid)).into()
+        }
+        Self {
+            base__: ::windows_core::IInspectable_Vtbl::new::<Identity, ICoreInputInterop2, OFFSET>(),
+            WindowHandle: WindowHandle::<Identity, Impl, OFFSET>,
+            ChangeHostingContext: ChangeHostingContext::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ICoreInputInterop2 as ::windows_core::Interface>::IID
+    }
+}
 pub trait ICoreWindowAdapterInterop_Impl: Sized {
     fn AppActivationClientAdapter(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn ApplicationViewClientAdapter(&self) -> ::windows_core::Result<::windows_core::IUnknown>;

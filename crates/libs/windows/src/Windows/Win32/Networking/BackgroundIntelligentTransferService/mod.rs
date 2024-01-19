@@ -1953,8 +1953,8 @@ impl IBitsPeerCacheAdministration {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMaximumContentAge)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetMaximumContentAge(&self, seconds: u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetMaximumContentAge)(::windows_core::Interface::as_raw(self), seconds).ok()
+    pub unsafe fn SetMaximumContentAge(&self, seconds: u32) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).SetMaximumContentAge)(::windows_core::Interface::as_raw(self), seconds)
     }
     pub unsafe fn GetConfigurationFlags(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();

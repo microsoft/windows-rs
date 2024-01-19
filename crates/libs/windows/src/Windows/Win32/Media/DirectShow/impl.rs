@@ -14288,7 +14288,7 @@ pub trait IPin_Impl: Sized {
     fn QueryPinInfo(&self, pinfo: *mut PIN_INFO) -> ::windows_core::Result<()>;
     fn QueryDirection(&self) -> ::windows_core::Result<PIN_DIRECTION>;
     fn QueryId(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
-    fn QueryAccept(&self, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()>;
+    fn QueryAccept(&self, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::HRESULT;
     fn EnumMediaTypes(&self) -> ::windows_core::Result<IEnumMediaTypes>;
     fn QueryInternalConnections(&self, appin: *mut ::core::option::Option<IPin>, npin: *mut u32) -> ::windows_core::Result<()>;
     fn EndOfStream(&self) -> ::windows_core::Result<()>;
@@ -14362,7 +14362,7 @@ impl IPin_Vtbl {
         unsafe extern "system" fn QueryAccept<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.QueryAccept(::core::mem::transmute_copy(&pmt)).into()
+            this.QueryAccept(::core::mem::transmute_copy(&pmt))
         }
         unsafe extern "system" fn EnumMediaTypes<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPin_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -14428,7 +14428,7 @@ impl IPin_Vtbl {
 pub trait IPinConnection_Impl: Sized {
     fn DynamicQueryAccept(&self, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()>;
     fn NotifyEndOfStream(&self, hnotifyevent: super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
-    fn IsEndPin(&self) -> ::windows_core::Result<()>;
+    fn IsEndPin(&self) -> ::windows_core::HRESULT;
     fn DynamicDisconnect(&self) -> ::windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
@@ -14449,7 +14449,7 @@ impl IPinConnection_Vtbl {
         unsafe extern "system" fn IsEndPin<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPinConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsEndPin().into()
+            this.IsEndPin()
         }
         unsafe extern "system" fn DynamicDisconnect<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPinConnection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

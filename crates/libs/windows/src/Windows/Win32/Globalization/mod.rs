@@ -1,4 +1,9 @@
 #[inline]
+pub unsafe fn AdjustCalendarDate(lpcaldatetime: *mut CALDATETIME, calunit: CALDATETIME_DATEUNIT, amount: i32) -> super::Foundation::BOOL {
+    ::windows_targets::link!("kernel32.dll" "system" fn AdjustCalendarDate(lpcaldatetime : *mut CALDATETIME, calunit : CALDATETIME_DATEUNIT, amount : i32) -> super::Foundation:: BOOL);
+    AdjustCalendarDate(lpcaldatetime, calunit, amount)
+}
+#[inline]
 pub unsafe fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: &[i8], lpstring2: &[i8]) -> COMPARESTRING_RESULT {
     ::windows_targets::link!("kernel32.dll" "system" fn CompareStringA(locale : u32, dwcmpflags : u32, lpstring1 : *const i8, cchcount1 : i32, lpstring2 : *const i8, cchcount2 : i32) -> COMPARESTRING_RESULT);
     CompareStringA(locale, dwcmpflags, ::core::mem::transmute(lpstring1.as_ptr()), lpstring1.len().try_into().unwrap(), ::core::mem::transmute(lpstring2.as_ptr()), lpstring2.len().try_into().unwrap())
@@ -26,9 +31,19 @@ pub unsafe fn CompareStringW(locale: u32, dwcmpflags: u32, lpstring1: &[u16], lp
     CompareStringW(locale, dwcmpflags, ::core::mem::transmute(lpstring1.as_ptr()), lpstring1.len().try_into().unwrap(), ::core::mem::transmute(lpstring2.as_ptr()), lpstring2.len().try_into().unwrap())
 }
 #[inline]
+pub unsafe fn ConvertCalDateTimeToSystemTime(lpcaldatetime: *const CALDATETIME, lpsystime: *mut super::Foundation::SYSTEMTIME) -> super::Foundation::BOOL {
+    ::windows_targets::link!("kernel32.dll" "system" fn ConvertCalDateTimeToSystemTime(lpcaldatetime : *const CALDATETIME, lpsystime : *mut super::Foundation:: SYSTEMTIME) -> super::Foundation:: BOOL);
+    ConvertCalDateTimeToSystemTime(lpcaldatetime, lpsystime)
+}
+#[inline]
 pub unsafe fn ConvertDefaultLocale(locale: u32) -> u32 {
     ::windows_targets::link!("kernel32.dll" "system" fn ConvertDefaultLocale(locale : u32) -> u32);
     ConvertDefaultLocale(locale)
+}
+#[inline]
+pub unsafe fn ConvertSystemTimeToCalDateTime(lpsystime: *const super::Foundation::SYSTEMTIME, calid: u32, lpcaldatetime: *mut CALDATETIME) -> super::Foundation::BOOL {
+    ::windows_targets::link!("kernel32.dll" "system" fn ConvertSystemTimeToCalDateTime(lpsystime : *const super::Foundation:: SYSTEMTIME, calid : u32, lpcaldatetime : *mut CALDATETIME) -> super::Foundation:: BOOL);
+    ConvertSystemTimeToCalDateTime(lpsystime, calid, lpcaldatetime)
 }
 #[inline]
 pub unsafe fn EnumCalendarInfoA(lpcalinfoenumproc: CALINFO_ENUMPROCA, locale: u32, calendar: u32, caltype: u32) -> ::windows_core::Result<()> {
@@ -232,6 +247,15 @@ pub unsafe fn GetCPInfoExW(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOE
     GetCPInfoExW(codepage, dwflags, lpcpinfoex).ok()
 }
 #[inline]
+pub unsafe fn GetCalendarDateFormatEx<P0, P1>(lpszlocale: P0, dwflags: u32, lpcaldatetime: *const CALDATETIME, lpformat: P1, lpdatestr: ::windows_core::PWSTR, cchdate: i32) -> super::Foundation::BOOL
+where
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+{
+    ::windows_targets::link!("kernel32.dll" "system" fn GetCalendarDateFormatEx(lpszlocale : ::windows_core::PCWSTR, dwflags : u32, lpcaldatetime : *const CALDATETIME, lpformat : ::windows_core::PCWSTR, lpdatestr : ::windows_core::PWSTR, cchdate : i32) -> super::Foundation:: BOOL);
+    GetCalendarDateFormatEx(lpszlocale.into_param().abi(), dwflags, lpcaldatetime, lpformat.into_param().abi(), ::core::mem::transmute(lpdatestr), cchdate)
+}
+#[inline]
 pub unsafe fn GetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcaldata: ::core::option::Option<&mut [u8]>, lpvalue: ::core::option::Option<*mut u32>) -> i32 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCalendarInfoA(locale : u32, calendar : u32, caltype : u32, lpcaldata : ::windows_core::PSTR, cchdata : i32, lpvalue : *mut u32) -> i32);
     GetCalendarInfoA(locale, calendar, caltype, ::core::mem::transmute(lpcaldata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpcaldata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(lpvalue.unwrap_or(::std::ptr::null_mut())))
@@ -249,6 +273,11 @@ where
 pub unsafe fn GetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcaldata: ::core::option::Option<&mut [u16]>, lpvalue: ::core::option::Option<*mut u32>) -> i32 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCalendarInfoW(locale : u32, calendar : u32, caltype : u32, lpcaldata : ::windows_core::PWSTR, cchdata : i32, lpvalue : *mut u32) -> i32);
     GetCalendarInfoW(locale, calendar, caltype, ::core::mem::transmute(lpcaldata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpcaldata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(lpvalue.unwrap_or(::std::ptr::null_mut())))
+}
+#[inline]
+pub unsafe fn GetCalendarSupportedDateRange(calendar: u32, lpcalmindatetime: *mut CALDATETIME, lpcalmaxdatetime: *mut CALDATETIME) -> super::Foundation::BOOL {
+    ::windows_targets::link!("kernel32.dll" "system" fn GetCalendarSupportedDateRange(calendar : u32, lpcalmindatetime : *mut CALDATETIME, lpcalmaxdatetime : *mut CALDATETIME) -> super::Foundation:: BOOL);
+    GetCalendarSupportedDateRange(calendar, lpcalmindatetime, lpcalmaxdatetime)
 }
 #[inline]
 pub unsafe fn GetCurrencyFormatA<P0>(locale: u32, dwflags: u32, lpvalue: P0, lpformat: ::core::option::Option<*const CURRENCYFMTA>, lpcurrencystr: ::core::option::Option<&mut [u8]>) -> i32
@@ -606,6 +635,11 @@ pub unsafe fn IdnToUnicode(dwflags: u32, lpasciicharstr: &[u16], lpunicodecharst
     IdnToUnicode(dwflags, ::core::mem::transmute(lpasciicharstr.as_ptr()), lpasciicharstr.len().try_into().unwrap(), ::core::mem::transmute(lpunicodecharstr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpunicodecharstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
+pub unsafe fn IsCalendarLeapYear(calid: u32, year: u32, era: u32) -> super::Foundation::BOOL {
+    ::windows_targets::link!("kernel32.dll" "system" fn IsCalendarLeapYear(calid : u32, year : u32, era : u32) -> super::Foundation:: BOOL);
+    IsCalendarLeapYear(calid, year, era)
+}
+#[inline]
 pub unsafe fn IsDBCSLeadByte(testchar: u8) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn IsDBCSLeadByte(testchar : u8) -> super::Foundation:: BOOL);
     IsDBCSLeadByte(testchar).ok()
@@ -889,9 +923,9 @@ pub unsafe fn ScriptGetProperties(ppsp: *mut *mut *mut SCRIPT_PROPERTIES, pinums
     ScriptGetProperties(ppsp, pinumscripts).ok()
 }
 #[inline]
-pub unsafe fn ScriptIsComplex(pwcinchars: &[u16], dwflags: SCRIPT_IS_COMPLEX_FLAGS) -> ::windows_core::Result<()> {
+pub unsafe fn ScriptIsComplex(pwcinchars: &[u16], dwflags: SCRIPT_IS_COMPLEX_FLAGS) -> ::windows_core::HRESULT {
     ::windows_targets::link!("usp10.dll" "system" fn ScriptIsComplex(pwcinchars : ::windows_core::PCWSTR, cinchars : i32, dwflags : SCRIPT_IS_COMPLEX_FLAGS) -> ::windows_core::HRESULT);
-    ScriptIsComplex(::core::mem::transmute(pwcinchars.as_ptr()), pwcinchars.len().try_into().unwrap(), dwflags).ok()
+    ScriptIsComplex(::core::mem::transmute(pwcinchars.as_ptr()), pwcinchars.len().try_into().unwrap(), dwflags)
 }
 #[inline]
 pub unsafe fn ScriptItemize(pwcinchars: &[u16], pscontrol: ::core::option::Option<*const SCRIPT_CONTROL>, psstate: ::core::option::Option<*const SCRIPT_STATE>, pitems: &mut [SCRIPT_ITEM], pcitems: *mut i32) -> ::windows_core::Result<()> {
@@ -1202,6 +1236,11 @@ where
 {
     ::windows_targets::link!("icu.dll" "cdecl" fn UCNV_TO_U_CALLBACK_SUBSTITUTE(context : *const ::core::ffi::c_void, touargs : *mut UConverterToUnicodeArgs, codeunits : ::windows_core::PCSTR, length : i32, reason : UConverterCallbackReason, err : *mut UErrorCode));
     UCNV_TO_U_CALLBACK_SUBSTITUTE(context, touargs, codeunits.into_param().abi(), length, reason, err)
+}
+#[inline]
+pub unsafe fn UpdateCalendarDayOfWeek(lpcaldatetime: *mut CALDATETIME) -> super::Foundation::BOOL {
+    ::windows_targets::link!("kernel32.dll" "system" fn UpdateCalendarDayOfWeek(lpcaldatetime : *mut CALDATETIME) -> super::Foundation:: BOOL);
+    UpdateCalendarDayOfWeek(lpcaldatetime)
 }
 #[inline]
 pub unsafe fn VerifyScripts<P0, P1>(dwflags: u32, lplocalescripts: P0, cchlocalescripts: i32, lptestscripts: P1, cchtestscripts: i32) -> ::windows_core::Result<()>
@@ -8777,6 +8816,7 @@ pub const DATE_RTLREADING: ENUM_DATE_FORMATS_FLAGS = ENUM_DATE_FORMATS_FLAGS(32u
 pub const DATE_SHORTDATE: ENUM_DATE_FORMATS_FLAGS = ENUM_DATE_FORMATS_FLAGS(1u32);
 pub const DATE_USE_ALT_CALENDAR: ENUM_DATE_FORMATS_FLAGS = ENUM_DATE_FORMATS_FLAGS(4u32);
 pub const DATE_YEARMONTH: ENUM_DATE_FORMATS_FLAGS = ENUM_DATE_FORMATS_FLAGS(8u32);
+pub const DayUnit: CALDATETIME_DATEUNIT = CALDATETIME_DATEUNIT(4i32);
 pub const ELS_GUID_LANGUAGE_DETECTION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf7e00b1_909b_4d95_a8f4_611f7c377702);
 pub const ELS_GUID_SCRIPT_DETECTION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2d64b439_6caf_4f6b_b688_e5d0f4faa7d7);
 pub const ELS_GUID_TRANSLITERATION_BENGALI_TO_LATIN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf4dfd825_91a4_489f_855e_9ad9bee55727);
@@ -8787,6 +8827,7 @@ pub const ELS_GUID_TRANSLITERATION_HANS_TO_HANT: ::windows_core::GUID = ::window
 pub const ELS_GUID_TRANSLITERATION_HANT_TO_HANS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa3a8333b_f4fc_42f6_a0c4_0462fe7317cb);
 pub const ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd8b983b1_f8bf_4a2b_bcd5_5b5ea20613e1);
 pub const ENUM_ALL_CALENDARS: u32 = 4294967295u32;
+pub const EraUnit: CALDATETIME_DATEUNIT = CALDATETIME_DATEUNIT(0i32);
 pub const FIND_ENDSWITH: u32 = 2097152u32;
 pub const FIND_FROMEND: u32 = 8388608u32;
 pub const FIND_FROMSTART: u32 = 4194304u32;
@@ -8817,6 +8858,7 @@ pub const GSS_ALLOW_INHERITED_COMMON: u32 = 1u32;
 pub const HIGHLEVEL_SERVICE_TYPES: u32 = 1u32;
 pub const HIGH_SURROGATE_END: u32 = 56319u32;
 pub const HIGH_SURROGATE_START: u32 = 55296u32;
+pub const HourUnit: CALDATETIME_DATEUNIT = CALDATETIME_DATEUNIT(5i32);
 pub const IDN_ALLOW_UNASSIGNED: u32 = 1u32;
 pub const IDN_EMAIL_ADDRESS: u32 = 4u32;
 pub const IDN_RAW_PUNYCODE: u32 = 8u32;
@@ -9137,6 +9179,8 @@ pub const MUI_USER_PREFERRED_UI_LANGUAGES: u32 = 16u32;
 pub const MUI_USE_INSTALLED_LANGUAGES: u32 = 32u32;
 pub const MUI_USE_SEARCH_ALL_LANGUAGES: u32 = 64u32;
 pub const MUI_VERIFY_FILE_EXISTS: u32 = 4u32;
+pub const MinuteUnit: CALDATETIME_DATEUNIT = CALDATETIME_DATEUNIT(6i32);
+pub const MonthUnit: CALDATETIME_DATEUNIT = CALDATETIME_DATEUNIT(2i32);
 pub const NLS_CP_CPINFO: u32 = 268435456u32;
 pub const NLS_CP_MBTOWC: u32 = 1073741824u32;
 pub const NLS_CP_WCTOMB: u32 = 2147483648u32;
@@ -9210,6 +9254,7 @@ pub const SSA_PASSWORD: u32 = 1u32;
 pub const SSA_PIDX: u32 = 268435456u32;
 pub const SSA_RTL: u32 = 256u32;
 pub const SSA_TAB: u32 = 2u32;
+pub const SecondUnit: CALDATETIME_DATEUNIT = CALDATETIME_DATEUNIT(7i32);
 pub const SpellCheckerFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7ab36653_1796_484b_bdfa_e74f1db7c1dc);
 pub const TCI_SRCCHARSET: TRANSLATE_CHARSET_INFO_FLAGS = TRANSLATE_CHARSET_INFO_FLAGS(1u32);
 pub const TCI_SRCCODEPAGE: TRANSLATE_CHARSET_INFO_FLAGS = TRANSLATE_CHARSET_INFO_FLAGS(2u32);
@@ -9219,6 +9264,7 @@ pub const TIME_FORCE24HOURFORMAT: TIME_FORMAT_FLAGS = TIME_FORMAT_FLAGS(8u32);
 pub const TIME_NOMINUTESORSECONDS: TIME_FORMAT_FLAGS = TIME_FORMAT_FLAGS(1u32);
 pub const TIME_NOSECONDS: TIME_FORMAT_FLAGS = TIME_FORMAT_FLAGS(2u32);
 pub const TIME_NOTIMEMARKER: TIME_FORMAT_FLAGS = TIME_FORMAT_FLAGS(4u32);
+pub const TickUnit: CALDATETIME_DATEUNIT = CALDATETIME_DATEUNIT(8i32);
 pub const U16_MAX_LENGTH: u32 = 2u32;
 pub const U8_LEAD3_T1_BITS: ::windows_core::PCSTR = ::windows_core::s!(" 000000000000\u{10}00");
 pub const U8_LEAD4_T1_BITS: ::windows_core::PCSTR = ::windows_core::s!("\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{0}\u{1e}\u{f}\u{f}\u{f}\u{0}\u{0}\u{0}\u{0}");
@@ -11506,6 +11552,8 @@ pub const WORDLIST_TYPE_ADD: WORDLIST_TYPE = WORDLIST_TYPE(1i32);
 pub const WORDLIST_TYPE_AUTOCORRECT: WORDLIST_TYPE = WORDLIST_TYPE(3i32);
 pub const WORDLIST_TYPE_EXCLUDE: WORDLIST_TYPE = WORDLIST_TYPE(2i32);
 pub const WORDLIST_TYPE_IGNORE: WORDLIST_TYPE = WORDLIST_TYPE(0i32);
+pub const WeekUnit: CALDATETIME_DATEUNIT = CALDATETIME_DATEUNIT(3i32);
+pub const YearUnit: CALDATETIME_DATEUNIT = CALDATETIME_DATEUNIT(1i32);
 pub const sidArabic: SCRIPTCONTF = SCRIPTCONTF(9i32);
 pub const sidArmenian: SCRIPTCONTF = SCRIPTCONTF(7i32);
 pub const sidAsciiLatin: SCRIPTCONTF = SCRIPTCONTF(3i32);
@@ -11550,6 +11598,17 @@ pub const sidThai: SCRIPTCONTF = SCRIPTCONTF(19i32);
 pub const sidTibetan: SCRIPTCONTF = SCRIPTCONTF(21i32);
 pub const sidUserDefined: SCRIPTCONTF = SCRIPTCONTF(40i32);
 pub const sidYi: SCRIPTCONTF = SCRIPTCONTF(30i32);
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+pub struct CALDATETIME_DATEUNIT(pub i32);
+impl ::windows_core::TypeKind for CALDATETIME_DATEUNIT {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for CALDATETIME_DATEUNIT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CALDATETIME_DATEUNIT").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
 pub struct COMPARESTRING_RESULT(pub i32);
@@ -13517,6 +13576,44 @@ impl ::windows_core::TypeKind for WORDLIST_TYPE {
 impl ::core::fmt::Debug for WORDLIST_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WORDLIST_TYPE").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+pub struct CALDATETIME {
+    pub CalId: u32,
+    pub Era: u32,
+    pub Year: u32,
+    pub Month: u32,
+    pub Day: u32,
+    pub DayOfWeek: u32,
+    pub Hour: u32,
+    pub Minute: u32,
+    pub Second: u32,
+    pub Tick: u32,
+}
+impl ::core::marker::Copy for CALDATETIME {}
+impl ::core::clone::Clone for CALDATETIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CALDATETIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CALDATETIME").field("CalId", &self.CalId).field("Era", &self.Era).field("Year", &self.Year).field("Month", &self.Month).field("Day", &self.Day).field("DayOfWeek", &self.DayOfWeek).field("Hour", &self.Hour).field("Minute", &self.Minute).field("Second", &self.Second).field("Tick", &self.Tick).finish()
+    }
+}
+impl ::windows_core::TypeKind for CALDATETIME {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for CALDATETIME {
+    fn eq(&self, other: &Self) -> bool {
+        self.CalId == other.CalId && self.Era == other.Era && self.Year == other.Year && self.Month == other.Month && self.Day == other.Day && self.DayOfWeek == other.DayOfWeek && self.Hour == other.Hour && self.Minute == other.Minute && self.Second == other.Second && self.Tick == other.Tick
+    }
+}
+impl ::core::cmp::Eq for CALDATETIME {}
+impl ::core::default::Default for CALDATETIME {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]

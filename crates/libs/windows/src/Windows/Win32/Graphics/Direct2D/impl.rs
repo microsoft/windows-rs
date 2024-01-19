@@ -1217,6 +1217,33 @@ impl ID2D1Device6_Vtbl {
         iid == &<ID2D1Device6 as ::windows_core::Interface>::IID || iid == &<ID2D1Resource as ::windows_core::Interface>::IID || iid == &<ID2D1Device as ::windows_core::Interface>::IID || iid == &<ID2D1Device1 as ::windows_core::Interface>::IID || iid == &<ID2D1Device2 as ::windows_core::Interface>::IID || iid == &<ID2D1Device3 as ::windows_core::Interface>::IID || iid == &<ID2D1Device4 as ::windows_core::Interface>::IID || iid == &<ID2D1Device5 as ::windows_core::Interface>::IID
     }
 }
+#[doc = "Required features: `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_Storage_Xps_Printing\"`"]
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+pub trait ID2D1Device7_Impl: Sized + ID2D1Device6_Impl {
+    fn CreateDeviceContext8(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows_core::Result<ID2D1DeviceContext7>;
+}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+impl ::windows_core::RuntimeName for ID2D1Device7 {}
+#[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
+impl ID2D1Device7_Vtbl {
+    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device7_Impl, const OFFSET: isize>() -> ID2D1Device7_Vtbl {
+        unsafe extern "system" fn CreateDeviceContext8<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Device7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.CreateDeviceContext8(::core::mem::transmute_copy(&options)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(devicecontext, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self { base__: ID2D1Device6_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDeviceContext8: CreateDeviceContext8::<Identity, Impl, OFFSET> }
+    }
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID2D1Device7 as ::windows_core::Interface>::IID || iid == &<ID2D1Resource as ::windows_core::Interface>::IID || iid == &<ID2D1Device as ::windows_core::Interface>::IID || iid == &<ID2D1Device1 as ::windows_core::Interface>::IID || iid == &<ID2D1Device2 as ::windows_core::Interface>::IID || iid == &<ID2D1Device3 as ::windows_core::Interface>::IID || iid == &<ID2D1Device4 as ::windows_core::Interface>::IID || iid == &<ID2D1Device5 as ::windows_core::Interface>::IID || iid == &<ID2D1Device6 as ::windows_core::Interface>::IID
+    }
+}
 #[doc = "Required features: `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 pub trait ID2D1DeviceContext_Impl: Sized + ID2D1RenderTarget_Impl {
@@ -1227,7 +1254,7 @@ pub trait ID2D1DeviceContext_Impl: Sized + ID2D1RenderTarget_Impl {
     fn CreateColorContextFromWicColorContext(&self, wiccolorcontext: ::core::option::Option<&super::Imaging::IWICColorContext>) -> ::windows_core::Result<ID2D1ColorContext>;
     fn CreateBitmapFromDxgiSurface(&self, surface: ::core::option::Option<&super::Dxgi::IDXGISurface>, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows_core::Result<ID2D1Bitmap1>;
     fn CreateEffect(&self, effectid: *const ::windows_core::GUID) -> ::windows_core::Result<ID2D1Effect>;
-    fn CreateGradientStopCollection2(&self, straightalphagradientstops: *const D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE) -> ::windows_core::Result<ID2D1GradientStopCollection1>;
+    fn CreateGradientStopCollection2(&self, straightalphagradientstops: *const Common::D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE) -> ::windows_core::Result<ID2D1GradientStopCollection1>;
     fn CreateImageBrush(&self, image: ::core::option::Option<&ID2D1Image>, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows_core::Result<ID2D1ImageBrush>;
     fn CreateBitmapBrush2(&self, bitmap: ::core::option::Option<&ID2D1Bitmap>, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows_core::Result<ID2D1BitmapBrush1>;
     fn CreateCommandList(&self) -> ::windows_core::Result<ID2D1CommandList>;
@@ -1338,7 +1365,7 @@ impl ID2D1DeviceContext_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateGradientStopCollection2<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, straightalphagradientstops: *const D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE, gradientstopcollection1: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn CreateGradientStopCollection2<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, straightalphagradientstops: *const Common::D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE, gradientstopcollection1: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateGradientStopCollection2(::core::mem::transmute_copy(&straightalphagradientstops), ::core::mem::transmute_copy(&straightalphagradientstopscount), ::core::mem::transmute_copy(&preinterpolationspace), ::core::mem::transmute_copy(&postinterpolationspace), ::core::mem::transmute_copy(&bufferprecision), ::core::mem::transmute_copy(&extendmode), ::core::mem::transmute_copy(&colorinterpolationmode)) {
@@ -1966,6 +1993,44 @@ impl ID2D1DeviceContext6_Vtbl {
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
         iid == &<ID2D1DeviceContext6 as ::windows_core::Interface>::IID || iid == &<ID2D1Resource as ::windows_core::Interface>::IID || iid == &<ID2D1RenderTarget as ::windows_core::Interface>::IID || iid == &<ID2D1DeviceContext as ::windows_core::Interface>::IID || iid == &<ID2D1DeviceContext1 as ::windows_core::Interface>::IID || iid == &<ID2D1DeviceContext2 as ::windows_core::Interface>::IID || iid == &<ID2D1DeviceContext3 as ::windows_core::Interface>::IID || iid == &<ID2D1DeviceContext4 as ::windows_core::Interface>::IID || iid == &<ID2D1DeviceContext5 as ::windows_core::Interface>::IID
+    }
+}
+#[doc = "Required features: `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`"]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+pub trait ID2D1DeviceContext7_Impl: Sized + ID2D1DeviceContext6_Impl {
+    fn GetPaintFeatureLevel(&self) -> DWRITE_PAINT_FEATURE_LEVEL;
+    fn DrawPaintGlyphRun(&self, baselineorigin: &Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, defaultfillbrush: ::core::option::Option<&ID2D1Brush>, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE);
+    fn DrawGlyphRunWithColorSupport(&self, baselineorigin: &Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: ::core::option::Option<&ID2D1Brush>, svgglyphstyle: ::core::option::Option<&ID2D1SvgGlyphStyle>, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION);
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl ::windows_core::RuntimeName for ID2D1DeviceContext7 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl ID2D1DeviceContext7_Vtbl {
+    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext7_Impl, const OFFSET: isize>() -> ID2D1DeviceContext7_Vtbl {
+        unsafe extern "system" fn GetPaintFeatureLevel<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> DWRITE_PAINT_FEATURE_LEVEL {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetPaintFeatureLevel()
+        }
+        unsafe extern "system" fn DrawPaintGlyphRun<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, defaultfillbrush: *mut ::core::ffi::c_void, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.DrawPaintGlyphRun(::core::mem::transmute(&baselineorigin), ::core::mem::transmute_copy(&glyphrun), ::windows_core::from_raw_borrowed(&defaultfillbrush), ::core::mem::transmute_copy(&colorpaletteindex), ::core::mem::transmute_copy(&measuringmode))
+        }
+        unsafe extern "system" fn DrawGlyphRunWithColorSupport<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1DeviceContext7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: *mut ::core::ffi::c_void, svgglyphstyle: *mut ::core::ffi::c_void, colorpaletteindex: u32, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION) {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.DrawGlyphRunWithColorSupport(::core::mem::transmute(&baselineorigin), ::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute_copy(&glyphrundescription), ::windows_core::from_raw_borrowed(&foregroundbrush), ::windows_core::from_raw_borrowed(&svgglyphstyle), ::core::mem::transmute_copy(&colorpaletteindex), ::core::mem::transmute_copy(&measuringmode), ::core::mem::transmute_copy(&bitmapsnapoption))
+        }
+        Self {
+            base__: ID2D1DeviceContext6_Vtbl::new::<Identity, Impl, OFFSET>(),
+            GetPaintFeatureLevel: GetPaintFeatureLevel::<Identity, Impl, OFFSET>,
+            DrawPaintGlyphRun: DrawPaintGlyphRun::<Identity, Impl, OFFSET>,
+            DrawGlyphRunWithColorSupport: DrawGlyphRunWithColorSupport::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID2D1DeviceContext7 as ::windows_core::Interface>::IID || iid == &<ID2D1Resource as ::windows_core::Interface>::IID || iid == &<ID2D1RenderTarget as ::windows_core::Interface>::IID || iid == &<ID2D1DeviceContext as ::windows_core::Interface>::IID || iid == &<ID2D1DeviceContext1 as ::windows_core::Interface>::IID || iid == &<ID2D1DeviceContext2 as ::windows_core::Interface>::IID || iid == &<ID2D1DeviceContext3 as ::windows_core::Interface>::IID || iid == &<ID2D1DeviceContext4 as ::windows_core::Interface>::IID || iid == &<ID2D1DeviceContext5 as ::windows_core::Interface>::IID || iid == &<ID2D1DeviceContext6 as ::windows_core::Interface>::IID
     }
 }
 pub trait ID2D1DrawInfo_Impl: Sized + ID2D1RenderInfo_Impl {
@@ -3002,6 +3067,33 @@ impl ID2D1Factory7_Vtbl {
         iid == &<ID2D1Factory7 as ::windows_core::Interface>::IID || iid == &<ID2D1Factory as ::windows_core::Interface>::IID || iid == &<ID2D1Factory1 as ::windows_core::Interface>::IID || iid == &<ID2D1Factory2 as ::windows_core::Interface>::IID || iid == &<ID2D1Factory3 as ::windows_core::Interface>::IID || iid == &<ID2D1Factory4 as ::windows_core::Interface>::IID || iid == &<ID2D1Factory5 as ::windows_core::Interface>::IID || iid == &<ID2D1Factory6 as ::windows_core::Interface>::IID
     }
 }
+#[doc = "Required features: `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`"]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+pub trait ID2D1Factory8_Impl: Sized + ID2D1Factory7_Impl {
+    fn CreateDevice8(&self, dxgidevice: ::core::option::Option<&super::Dxgi::IDXGIDevice>) -> ::windows_core::Result<ID2D1Device7>;
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl ::windows_core::RuntimeName for ID2D1Factory8 {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
+impl ID2D1Factory8_Vtbl {
+    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory8_Impl, const OFFSET: isize>() -> ID2D1Factory8_Vtbl {
+        unsafe extern "system" fn CreateDevice8<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1Factory8_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dxgidevice: *mut ::core::ffi::c_void, d2ddevice6: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.CreateDevice8(::windows_core::from_raw_borrowed(&dxgidevice)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(d2ddevice6, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self { base__: ID2D1Factory7_Vtbl::new::<Identity, Impl, OFFSET>(), CreateDevice8: CreateDevice8::<Identity, Impl, OFFSET> }
+    }
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<ID2D1Factory8 as ::windows_core::Interface>::IID || iid == &<ID2D1Factory as ::windows_core::Interface>::IID || iid == &<ID2D1Factory1 as ::windows_core::Interface>::IID || iid == &<ID2D1Factory2 as ::windows_core::Interface>::IID || iid == &<ID2D1Factory3 as ::windows_core::Interface>::IID || iid == &<ID2D1Factory4 as ::windows_core::Interface>::IID || iid == &<ID2D1Factory5 as ::windows_core::Interface>::IID || iid == &<ID2D1Factory6 as ::windows_core::Interface>::IID || iid == &<ID2D1Factory7 as ::windows_core::Interface>::IID
+    }
+}
 #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait ID2D1GdiInteropRenderTarget_Impl: Sized {
@@ -3432,7 +3524,7 @@ impl ID2D1GradientMesh_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait ID2D1GradientStopCollection_Impl: Sized + ID2D1Resource_Impl {
     fn GetGradientStopCount(&self) -> u32;
-    fn GetGradientStops(&self, gradientstops: *mut D2D1_GRADIENT_STOP, gradientstopscount: u32);
+    fn GetGradientStops(&self, gradientstops: *mut Common::D2D1_GRADIENT_STOP, gradientstopscount: u32);
     fn GetColorInterpolationGamma(&self) -> D2D1_GAMMA;
     fn GetExtendMode(&self) -> D2D1_EXTEND_MODE;
 }
@@ -3446,7 +3538,7 @@ impl ID2D1GradientStopCollection_Vtbl {
             let this = (*this).get_impl();
             this.GetGradientStopCount()
         }
-        unsafe extern "system" fn GetGradientStops<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GradientStopCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gradientstops: *mut D2D1_GRADIENT_STOP, gradientstopscount: u32) {
+        unsafe extern "system" fn GetGradientStops<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GradientStopCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gradientstops: *mut Common::D2D1_GRADIENT_STOP, gradientstopscount: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetGradientStops(::core::mem::transmute_copy(&gradientstops), ::core::mem::transmute_copy(&gradientstopscount))
@@ -3476,7 +3568,7 @@ impl ID2D1GradientStopCollection_Vtbl {
 #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait ID2D1GradientStopCollection1_Impl: Sized + ID2D1GradientStopCollection_Impl {
-    fn GetGradientStops1(&self, gradientstops: *mut D2D1_GRADIENT_STOP, gradientstopscount: u32);
+    fn GetGradientStops1(&self, gradientstops: *mut Common::D2D1_GRADIENT_STOP, gradientstopscount: u32);
     fn GetPreInterpolationSpace(&self) -> D2D1_COLOR_SPACE;
     fn GetPostInterpolationSpace(&self) -> D2D1_COLOR_SPACE;
     fn GetBufferPrecision(&self) -> D2D1_BUFFER_PRECISION;
@@ -3487,7 +3579,7 @@ impl ::windows_core::RuntimeName for ID2D1GradientStopCollection1 {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ID2D1GradientStopCollection1_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GradientStopCollection1_Impl, const OFFSET: isize>() -> ID2D1GradientStopCollection1_Vtbl {
-        unsafe extern "system" fn GetGradientStops1<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GradientStopCollection1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gradientstops: *mut D2D1_GRADIENT_STOP, gradientstopscount: u32) {
+        unsafe extern "system" fn GetGradientStops1<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1GradientStopCollection1_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gradientstops: *mut Common::D2D1_GRADIENT_STOP, gradientstopscount: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetGradientStops1(::core::mem::transmute_copy(&gradientstops), ::core::mem::transmute_copy(&gradientstopscount))
@@ -4400,7 +4492,7 @@ pub trait ID2D1RenderTarget_Impl: Sized + ID2D1Resource_Impl {
     fn CreateSharedBitmap(&self, riid: *const ::windows_core::GUID, data: *mut ::core::ffi::c_void, bitmapproperties: *const D2D1_BITMAP_PROPERTIES, bitmap: *mut ::core::option::Option<ID2D1Bitmap>) -> ::windows_core::Result<()>;
     fn CreateBitmapBrush(&self, bitmap: ::core::option::Option<&ID2D1Bitmap>, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows_core::Result<ID2D1BitmapBrush>;
     fn CreateSolidColorBrush(&self, color: *const Common::D2D1_COLOR_F, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows_core::Result<ID2D1SolidColorBrush>;
-    fn CreateGradientStopCollection(&self, gradientstops: *const D2D1_GRADIENT_STOP, gradientstopscount: u32, colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE) -> ::windows_core::Result<ID2D1GradientStopCollection>;
+    fn CreateGradientStopCollection(&self, gradientstops: *const Common::D2D1_GRADIENT_STOP, gradientstopscount: u32, colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE) -> ::windows_core::Result<ID2D1GradientStopCollection>;
     fn CreateLinearGradientBrush(&self, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::core::option::Option<&ID2D1GradientStopCollection>) -> ::windows_core::Result<ID2D1LinearGradientBrush>;
     fn CreateRadialGradientBrush(&self, radialgradientbrushproperties: *const D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, gradientstopcollection: ::core::option::Option<&ID2D1GradientStopCollection>) -> ::windows_core::Result<ID2D1RadialGradientBrush>;
     fn CreateCompatibleRenderTarget(&self, desiredsize: *const Common::D2D_SIZE_F, desiredpixelsize: *const Common::D2D_SIZE_U, desiredformat: *const Common::D2D1_PIXEL_FORMAT, options: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS) -> ::windows_core::Result<ID2D1BitmapRenderTarget>;
@@ -4503,7 +4595,7 @@ impl ID2D1RenderTarget_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateGradientStopCollection<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gradientstops: *const D2D1_GRADIENT_STOP, gradientstopscount: u32, colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE, gradientstopcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn CreateGradientStopCollection<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ID2D1RenderTarget_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gradientstops: *const Common::D2D1_GRADIENT_STOP, gradientstopscount: u32, colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE, gradientstopcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateGradientStopCollection(::core::mem::transmute_copy(&gradientstops), ::core::mem::transmute_copy(&gradientstopscount), ::core::mem::transmute_copy(&colorinterpolationgamma), ::core::mem::transmute_copy(&extendmode)) {

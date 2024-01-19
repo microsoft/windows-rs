@@ -1111,15 +1111,22 @@ pub struct IContentPrefetcherTaskTrigger_Vtbl {
     pub TriggerContentPrefetcherTask: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub IsRegisteredForContentPrefetch: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut u8) -> ::windows_core::HRESULT,
 }
-pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 4u32;
+pub const CTAPCBOR_HYBRID_STORAGE_LINKED_DATA_CURRENT_VERSION: u32 = 1u32;
+pub const CTAPCBOR_HYBRID_STORAGE_LINKED_DATA_VERSION_1: u32 = 1u32;
+pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 7u32;
 pub const WEBAUTHN_API_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_API_VERSION_2: u32 = 2u32;
 pub const WEBAUTHN_API_VERSION_3: u32 = 3u32;
 pub const WEBAUTHN_API_VERSION_4: u32 = 4u32;
-pub const WEBAUTHN_ASSERTION_CURRENT_VERSION: u32 = 3u32;
+pub const WEBAUTHN_API_VERSION_5: u32 = 5u32;
+pub const WEBAUTHN_API_VERSION_6: u32 = 6u32;
+pub const WEBAUTHN_API_VERSION_7: u32 = 7u32;
+pub const WEBAUTHN_ASSERTION_CURRENT_VERSION: u32 = 5u32;
 pub const WEBAUTHN_ASSERTION_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_ASSERTION_VERSION_2: u32 = 2u32;
 pub const WEBAUTHN_ASSERTION_VERSION_3: u32 = 3u32;
+pub const WEBAUTHN_ASSERTION_VERSION_4: u32 = 4u32;
+pub const WEBAUTHN_ASSERTION_VERSION_5: u32 = 5u32;
 pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_ANY: u32 = 0u32;
 pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_DIRECT: u32 = 3u32;
 pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_INDIRECT: u32 = 2u32;
@@ -1135,20 +1142,23 @@ pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_ANY: u32 = 0u32;
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM: u32 = 2u32;
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM_U2F_V2: u32 = 3u32;
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_PLATFORM: u32 = 1u32;
-pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: u32 = 6u32;
+pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: u32 = 7u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_2: u32 = 2u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_3: u32 = 3u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_4: u32 = 4u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_5: u32 = 5u32;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_6: u32 = 6u32;
+pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_7: u32 = 7u32;
 pub const WEBAUTHN_AUTHENTICATOR_HMAC_SECRET_VALUES_FLAG: u32 = 1048576u32;
-pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: u32 = 5u32;
+pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: u32 = 7u32;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_2: u32 = 2u32;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_3: u32 = 3u32;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_4: u32 = 4u32;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_5: u32 = 5u32;
+pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_6: u32 = 6u32;
+pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_7: u32 = 7u32;
 pub const WEBAUTHN_CLIENT_DATA_CURRENT_VERSION: u32 = 1u32;
 pub const WEBAUTHN_COMMON_ATTESTATION_CURRENT_VERSION: u32 = 1u32;
 pub const WEBAUTHN_COSE_ALGORITHM_ECDSA_P256_WITH_SHA256: i32 = -7i32;
@@ -1161,14 +1171,17 @@ pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA256: i32 = -37i32;
 pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA384: i32 = -38i32;
 pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA512: i32 = -39i32;
 pub const WEBAUTHN_COSE_CREDENTIAL_PARAMETER_CURRENT_VERSION: u32 = 1u32;
-pub const WEBAUTHN_CREDENTIAL_ATTESTATION_CURRENT_VERSION: u32 = 4u32;
+pub const WEBAUTHN_CREDENTIAL_ATTESTATION_CURRENT_VERSION: u32 = 6u32;
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_2: u32 = 2u32;
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_3: u32 = 3u32;
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_4: u32 = 4u32;
+pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_5: u32 = 5u32;
+pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_6: u32 = 6u32;
 pub const WEBAUTHN_CREDENTIAL_CURRENT_VERSION: u32 = 1u32;
-pub const WEBAUTHN_CREDENTIAL_DETAILS_CURRENT_VERSION: u32 = 1u32;
+pub const WEBAUTHN_CREDENTIAL_DETAILS_CURRENT_VERSION: u32 = 2u32;
 pub const WEBAUTHN_CREDENTIAL_DETAILS_VERSION_1: u32 = 1u32;
+pub const WEBAUTHN_CREDENTIAL_DETAILS_VERSION_2: u32 = 2u32;
 pub const WEBAUTHN_CREDENTIAL_EX_CURRENT_VERSION: u32 = 1u32;
 pub const WEBAUTHN_CREDENTIAL_TYPE_PUBLIC_KEY: ::windows_core::PCWSTR = ::windows_core::w!("public-key");
 pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_DELETE: u32 = 3u32;
@@ -1187,7 +1200,8 @@ pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_PLATFORM_ERROR: u32 = 8u32;
 pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_SUCCESS: u32 = 1u32;
 pub const WEBAUTHN_CTAP_ONE_HMAC_SECRET_LENGTH: u32 = 32u32;
 pub const WEBAUTHN_CTAP_TRANSPORT_BLE: u32 = 4u32;
-pub const WEBAUTHN_CTAP_TRANSPORT_FLAGS_MASK: u32 = 31u32;
+pub const WEBAUTHN_CTAP_TRANSPORT_FLAGS_MASK: u32 = 63u32;
+pub const WEBAUTHN_CTAP_TRANSPORT_HYBRID: u32 = 32u32;
 pub const WEBAUTHN_CTAP_TRANSPORT_INTERNAL: u32 = 16u32;
 pub const WEBAUTHN_CTAP_TRANSPORT_NFC: u32 = 2u32;
 pub const WEBAUTHN_CTAP_TRANSPORT_TEST: u32 = 8u32;
@@ -3177,6 +3191,57 @@ impl ::core::fmt::Debug for WS_XML_WRITER_PROPERTY_ID {
     }
 }
 #[repr(C)]
+pub struct CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
+    pub dwVersion: u32,
+    pub cbContactId: u32,
+    pub pbContactId: *mut u8,
+    pub cbLinkId: u32,
+    pub pbLinkId: *mut u8,
+    pub cbLinkSecret: u32,
+    pub pbLinkSecret: *mut u8,
+    pub cbPublicKey: u32,
+    pub pbPublicKey: *mut u8,
+    pub pwszAuthenticatorName: ::windows_core::PCWSTR,
+    pub wEncodedTunnelServerDomain: u16,
+}
+impl ::core::marker::Copy for CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {}
+impl ::core::clone::Clone for CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CTAPCBOR_HYBRID_STORAGE_LINKED_DATA")
+            .field("dwVersion", &self.dwVersion)
+            .field("cbContactId", &self.cbContactId)
+            .field("pbContactId", &self.pbContactId)
+            .field("cbLinkId", &self.cbLinkId)
+            .field("pbLinkId", &self.pbLinkId)
+            .field("cbLinkSecret", &self.cbLinkSecret)
+            .field("pbLinkSecret", &self.pbLinkSecret)
+            .field("cbPublicKey", &self.cbPublicKey)
+            .field("pbPublicKey", &self.pbPublicKey)
+            .field("pwszAuthenticatorName", &self.pwszAuthenticatorName)
+            .field("wEncodedTunnelServerDomain", &self.wEncodedTunnelServerDomain)
+            .finish()
+    }
+}
+impl ::windows_core::TypeKind for CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::cmp::PartialEq for CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwVersion == other.dwVersion && self.cbContactId == other.cbContactId && self.pbContactId == other.pbContactId && self.cbLinkId == other.cbLinkId && self.pbLinkId == other.pbLinkId && self.cbLinkSecret == other.cbLinkSecret && self.pbLinkSecret == other.pbLinkSecret && self.cbPublicKey == other.cbPublicKey && self.pbPublicKey == other.pbPublicKey && self.pwszAuthenticatorName == other.pwszAuthenticatorName && self.wEncodedTunnelServerDomain == other.wEncodedTunnelServerDomain
+    }
+}
+impl ::core::cmp::Eq for CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {}
+impl ::core::default::Default for CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 pub struct WEBAUTHN_ASSERTION {
     pub dwVersion: u32,
     pub cbAuthenticatorData: u32,
@@ -3191,6 +3256,9 @@ pub struct WEBAUTHN_ASSERTION {
     pub pbCredLargeBlob: *mut u8,
     pub dwCredLargeBlobStatus: u32,
     pub pHmacSecret: *mut WEBAUTHN_HMAC_SECRET_SALT,
+    pub dwUsedTransport: u32,
+    pub cbUnsignedExtensionOutputs: u32,
+    pub pbUnsignedExtensionOutputs: *mut u8,
 }
 impl ::core::marker::Copy for WEBAUTHN_ASSERTION {}
 impl ::core::clone::Clone for WEBAUTHN_ASSERTION {
@@ -3214,6 +3282,9 @@ impl ::core::fmt::Debug for WEBAUTHN_ASSERTION {
             .field("pbCredLargeBlob", &self.pbCredLargeBlob)
             .field("dwCredLargeBlobStatus", &self.dwCredLargeBlobStatus)
             .field("pHmacSecret", &self.pHmacSecret)
+            .field("dwUsedTransport", &self.dwUsedTransport)
+            .field("cbUnsignedExtensionOutputs", &self.cbUnsignedExtensionOutputs)
+            .field("pbUnsignedExtensionOutputs", &self.pbUnsignedExtensionOutputs)
             .finish()
     }
 }
@@ -3222,7 +3293,7 @@ impl ::windows_core::TypeKind for WEBAUTHN_ASSERTION {
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_ASSERTION {
     fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.cbAuthenticatorData == other.cbAuthenticatorData && self.pbAuthenticatorData == other.pbAuthenticatorData && self.cbSignature == other.cbSignature && self.pbSignature == other.pbSignature && self.Credential == other.Credential && self.cbUserId == other.cbUserId && self.pbUserId == other.pbUserId && self.Extensions == other.Extensions && self.cbCredLargeBlob == other.cbCredLargeBlob && self.pbCredLargeBlob == other.pbCredLargeBlob && self.dwCredLargeBlobStatus == other.dwCredLargeBlobStatus && self.pHmacSecret == other.pHmacSecret
+        self.dwVersion == other.dwVersion && self.cbAuthenticatorData == other.cbAuthenticatorData && self.pbAuthenticatorData == other.pbAuthenticatorData && self.cbSignature == other.cbSignature && self.pbSignature == other.pbSignature && self.Credential == other.Credential && self.cbUserId == other.cbUserId && self.pbUserId == other.pbUserId && self.Extensions == other.Extensions && self.cbCredLargeBlob == other.cbCredLargeBlob && self.pbCredLargeBlob == other.pbCredLargeBlob && self.dwCredLargeBlobStatus == other.dwCredLargeBlobStatus && self.pHmacSecret == other.pHmacSecret && self.dwUsedTransport == other.dwUsedTransport && self.cbUnsignedExtensionOutputs == other.cbUnsignedExtensionOutputs && self.pbUnsignedExtensionOutputs == other.pbUnsignedExtensionOutputs
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_ASSERTION {}
@@ -3249,6 +3320,10 @@ pub struct WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
     pub pbCredLargeBlob: *mut u8,
     pub pHmacSecretSaltValues: *mut WEBAUTHN_HMAC_SECRET_SALT_VALUES,
     pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
+    pub pLinkedDevice: *mut CTAPCBOR_HYBRID_STORAGE_LINKED_DATA,
+    pub bAutoFill: super::super::Foundation::BOOL,
+    pub cbJsonExt: u32,
+    pub pbJsonExt: *mut u8,
 }
 impl ::core::marker::Copy for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {}
 impl ::core::clone::Clone for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
@@ -3275,6 +3350,10 @@ impl ::core::fmt::Debug for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
             .field("pbCredLargeBlob", &self.pbCredLargeBlob)
             .field("pHmacSecretSaltValues", &self.pHmacSecretSaltValues)
             .field("bBrowserInPrivateMode", &self.bBrowserInPrivateMode)
+            .field("pLinkedDevice", &self.pLinkedDevice)
+            .field("bAutoFill", &self.bAutoFill)
+            .field("cbJsonExt", &self.cbJsonExt)
+            .field("pbJsonExt", &self.pbJsonExt)
             .finish()
     }
 }
@@ -3299,6 +3378,10 @@ impl ::core::cmp::PartialEq for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
             && self.pbCredLargeBlob == other.pbCredLargeBlob
             && self.pHmacSecretSaltValues == other.pHmacSecretSaltValues
             && self.bBrowserInPrivateMode == other.bBrowserInPrivateMode
+            && self.pLinkedDevice == other.pLinkedDevice
+            && self.bAutoFill == other.bAutoFill
+            && self.cbJsonExt == other.cbJsonExt
+            && self.pbJsonExt == other.pbJsonExt
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {}
@@ -3324,6 +3407,10 @@ pub struct WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
     pub dwLargeBlobSupport: u32,
     pub bPreferResidentKey: super::super::Foundation::BOOL,
     pub bBrowserInPrivateMode: super::super::Foundation::BOOL,
+    pub bEnablePrf: super::super::Foundation::BOOL,
+    pub pLinkedDevice: *mut CTAPCBOR_HYBRID_STORAGE_LINKED_DATA,
+    pub cbJsonExt: u32,
+    pub pbJsonExt: *mut u8,
 }
 impl ::core::marker::Copy for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {}
 impl ::core::clone::Clone for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
@@ -3349,6 +3436,10 @@ impl ::core::fmt::Debug for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
             .field("dwLargeBlobSupport", &self.dwLargeBlobSupport)
             .field("bPreferResidentKey", &self.bPreferResidentKey)
             .field("bBrowserInPrivateMode", &self.bBrowserInPrivateMode)
+            .field("bEnablePrf", &self.bEnablePrf)
+            .field("pLinkedDevice", &self.pLinkedDevice)
+            .field("cbJsonExt", &self.cbJsonExt)
+            .field("pbJsonExt", &self.pbJsonExt)
             .finish()
     }
 }
@@ -3372,6 +3463,10 @@ impl ::core::cmp::PartialEq for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
             && self.dwLargeBlobSupport == other.dwLargeBlobSupport
             && self.bPreferResidentKey == other.bPreferResidentKey
             && self.bBrowserInPrivateMode == other.bBrowserInPrivateMode
+            && self.bEnablePrf == other.bEnablePrf
+            && self.pLinkedDevice == other.pLinkedDevice
+            && self.cbJsonExt == other.cbJsonExt
+            && self.pbJsonExt == other.pbJsonExt
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {}
@@ -3594,6 +3689,9 @@ pub struct WEBAUTHN_CREDENTIAL_ATTESTATION {
     pub bEpAtt: super::super::Foundation::BOOL,
     pub bLargeBlobSupported: super::super::Foundation::BOOL,
     pub bResidentKey: super::super::Foundation::BOOL,
+    pub bPrfEnabled: super::super::Foundation::BOOL,
+    pub cbUnsignedExtensionOutputs: u32,
+    pub pbUnsignedExtensionOutputs: *mut u8,
 }
 impl ::core::marker::Copy for WEBAUTHN_CREDENTIAL_ATTESTATION {}
 impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_ATTESTATION {
@@ -3621,6 +3719,9 @@ impl ::core::fmt::Debug for WEBAUTHN_CREDENTIAL_ATTESTATION {
             .field("bEpAtt", &self.bEpAtt)
             .field("bLargeBlobSupported", &self.bLargeBlobSupported)
             .field("bResidentKey", &self.bResidentKey)
+            .field("bPrfEnabled", &self.bPrfEnabled)
+            .field("cbUnsignedExtensionOutputs", &self.cbUnsignedExtensionOutputs)
+            .field("pbUnsignedExtensionOutputs", &self.pbUnsignedExtensionOutputs)
             .finish()
     }
 }
@@ -3646,6 +3747,9 @@ impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIAL_ATTESTATION {
             && self.bEpAtt == other.bEpAtt
             && self.bLargeBlobSupported == other.bLargeBlobSupported
             && self.bResidentKey == other.bResidentKey
+            && self.bPrfEnabled == other.bPrfEnabled
+            && self.cbUnsignedExtensionOutputs == other.cbUnsignedExtensionOutputs
+            && self.pbUnsignedExtensionOutputs == other.pbUnsignedExtensionOutputs
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_CREDENTIAL_ATTESTATION {}
@@ -3662,6 +3766,7 @@ pub struct WEBAUTHN_CREDENTIAL_DETAILS {
     pub pRpInformation: *mut WEBAUTHN_RP_ENTITY_INFORMATION,
     pub pUserInformation: *mut WEBAUTHN_USER_ENTITY_INFORMATION,
     pub bRemovable: super::super::Foundation::BOOL,
+    pub bBackedUp: super::super::Foundation::BOOL,
 }
 impl ::core::marker::Copy for WEBAUTHN_CREDENTIAL_DETAILS {}
 impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_DETAILS {
@@ -3671,7 +3776,7 @@ impl ::core::clone::Clone for WEBAUTHN_CREDENTIAL_DETAILS {
 }
 impl ::core::fmt::Debug for WEBAUTHN_CREDENTIAL_DETAILS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WEBAUTHN_CREDENTIAL_DETAILS").field("dwVersion", &self.dwVersion).field("cbCredentialID", &self.cbCredentialID).field("pbCredentialID", &self.pbCredentialID).field("pRpInformation", &self.pRpInformation).field("pUserInformation", &self.pUserInformation).field("bRemovable", &self.bRemovable).finish()
+        f.debug_struct("WEBAUTHN_CREDENTIAL_DETAILS").field("dwVersion", &self.dwVersion).field("cbCredentialID", &self.cbCredentialID).field("pbCredentialID", &self.pbCredentialID).field("pRpInformation", &self.pRpInformation).field("pUserInformation", &self.pUserInformation).field("bRemovable", &self.bRemovable).field("bBackedUp", &self.bBackedUp).finish()
     }
 }
 impl ::windows_core::TypeKind for WEBAUTHN_CREDENTIAL_DETAILS {
@@ -3679,7 +3784,7 @@ impl ::windows_core::TypeKind for WEBAUTHN_CREDENTIAL_DETAILS {
 }
 impl ::core::cmp::PartialEq for WEBAUTHN_CREDENTIAL_DETAILS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.cbCredentialID == other.cbCredentialID && self.pbCredentialID == other.pbCredentialID && self.pRpInformation == other.pRpInformation && self.pUserInformation == other.pUserInformation && self.bRemovable == other.bRemovable
+        self.dwVersion == other.dwVersion && self.cbCredentialID == other.cbCredentialID && self.pbCredentialID == other.pbCredentialID && self.pRpInformation == other.pRpInformation && self.pUserInformation == other.pUserInformation && self.bRemovable == other.bRemovable && self.bBackedUp == other.bBackedUp
     }
 }
 impl ::core::cmp::Eq for WEBAUTHN_CREDENTIAL_DETAILS {}

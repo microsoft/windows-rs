@@ -22,6 +22,11 @@ pub unsafe fn GetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: ::win
     GetComputerNameExW(nametype, ::core::mem::transmute(lpbuffer), nsize).ok()
 }
 #[inline]
+pub unsafe fn GetDeveloperDriveEnablementState() -> DEVELOPER_DRIVE_ENABLEMENT_STATE {
+    ::windows_targets::link!("api-ms-win-core-sysinfo-l1-2-6.dll" "system" fn GetDeveloperDriveEnablementState() -> DEVELOPER_DRIVE_ENABLEMENT_STATE);
+    GetDeveloperDriveEnablementState()
+}
+#[inline]
 pub unsafe fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetFirmwareType(firmwaretype : *mut FIRMWARE_TYPE) -> super::super::Foundation:: BOOL);
     GetFirmwareType(firmwaretype).ok()
@@ -431,6 +436,10 @@ pub const DEVICEFAMILYINFOENUM_WINDOWS_PHONE_8X: DEVICEFAMILYINFOENUM = DEVICEFA
 pub const DEVICEFAMILYINFOENUM_XBOX: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(5u32);
 pub const DEVICEFAMILYINFOENUM_XBOXERA: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(12u32);
 pub const DEVICEFAMILYINFOENUM_XBOXSRA: DEVICEFAMILYINFOENUM = DEVICEFAMILYINFOENUM(11u32);
+pub const DeveloperDriveDisabledByGroupPolicy: DEVELOPER_DRIVE_ENABLEMENT_STATE = DEVELOPER_DRIVE_ENABLEMENT_STATE(3i32);
+pub const DeveloperDriveDisabledBySystemPolicy: DEVELOPER_DRIVE_ENABLEMENT_STATE = DEVELOPER_DRIVE_ENABLEMENT_STATE(2i32);
+pub const DeveloperDriveEnabled: DEVELOPER_DRIVE_ENABLEMENT_STATE = DEVELOPER_DRIVE_ENABLEMENT_STATE(1i32);
+pub const DeveloperDriveEnablementStateError: DEVELOPER_DRIVE_ENABLEMENT_STATE = DEVELOPER_DRIVE_ENABLEMENT_STATE(0i32);
 pub const FIRM: FIRMWARE_TABLE_PROVIDER = FIRMWARE_TABLE_PROVIDER(1179210317u32);
 pub const FirmwareTypeBios: FIRMWARE_TYPE = FIRMWARE_TYPE(1i32);
 pub const FirmwareTypeMax: FIRMWARE_TYPE = FIRMWARE_TYPE(3i32);
@@ -769,6 +778,17 @@ impl ::windows_core::TypeKind for DEP_SYSTEM_POLICY_TYPE {
 impl ::core::fmt::Debug for DEP_SYSTEM_POLICY_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DEP_SYSTEM_POLICY_TYPE").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
+pub struct DEVELOPER_DRIVE_ENABLEMENT_STATE(pub i32);
+impl ::windows_core::TypeKind for DEVELOPER_DRIVE_ENABLEMENT_STATE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DEVELOPER_DRIVE_ENABLEMENT_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVELOPER_DRIVE_ENABLEMENT_STATE").field(&self.0).finish()
     }
 }
 #[repr(transparent)]

@@ -1837,6 +1837,14 @@ where
     IsWindow(hwnd.into_param().abi())
 }
 #[inline]
+pub unsafe fn IsWindowArranged<P0>(hwnd: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
+{
+    ::windows_targets::link!("user32.dll" "system" fn IsWindowArranged(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
+    IsWindowArranged(hwnd.into_param().abi())
+}
+#[inline]
 pub unsafe fn IsWindowUnicode<P0>(hwnd: P0) -> super::super::Foundation::BOOL
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,

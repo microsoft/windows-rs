@@ -3179,8 +3179,8 @@ impl IFEDictionary {
     pub unsafe fn SetHeader(&self, pshf: *mut IMESHF) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetHeader)(::windows_core::Interface::as_raw(self), pshf).ok()
     }
-    pub unsafe fn ExistWord(&self, pwrd: *mut IMEWRD) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).ExistWord)(::windows_core::Interface::as_raw(self), pwrd).ok()
+    pub unsafe fn ExistWord(&self, pwrd: *mut IMEWRD) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).ExistWord)(::windows_core::Interface::as_raw(self), pwrd)
     }
     pub unsafe fn ExistDependency(&self, pdp: *mut IMEDP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ExistDependency)(::windows_core::Interface::as_raw(self), pdp).ok()

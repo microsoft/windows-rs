@@ -118,7 +118,7 @@ impl IClusterDetector_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICodecAPI_Impl: Sized {
     fn IsSupported(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
-    fn IsModifiable(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
+    fn IsModifiable(&self, api: *const ::windows_core::GUID) -> ::windows_core::HRESULT;
     fn GetParameterRange(&self, api: *const ::windows_core::GUID, valuemin: *mut ::windows_core::VARIANT, valuemax: *mut ::windows_core::VARIANT, steppingdelta: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()>;
     fn GetParameterValues(&self, api: *const ::windows_core::GUID, values: *mut *mut ::windows_core::VARIANT, valuescount: *mut u32) -> ::windows_core::Result<()>;
     fn GetDefaultValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -146,7 +146,7 @@ impl ICodecAPI_Vtbl {
         unsafe extern "system" fn IsModifiable<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsModifiable(::core::mem::transmute_copy(&api)).into()
+            this.IsModifiable(::core::mem::transmute_copy(&api))
         }
         unsafe extern "system" fn GetParameterRange<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICodecAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, api: *const ::windows_core::GUID, valuemin: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, valuemax: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, steppingdelta: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

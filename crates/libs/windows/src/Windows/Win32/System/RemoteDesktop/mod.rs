@@ -3341,6 +3341,30 @@ pub struct IWRdsWddmIddProps_Vtbl {
     pub OnDriverUnload: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
     pub EnableWddmIdd: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
+::windows_core::imp::com_interface!(IWRdsWddmIddProps1, IWRdsWddmIddProps1_Vtbl, 0x60f71b1a_3682_4bc7_997e_4e4f02a08148);
+::windows_core::imp::interface_hierarchy!(IWRdsWddmIddProps1, ::windows_core::IUnknown);
+impl IWRdsWddmIddProps1 {
+    pub unsafe fn GetHardwareId(&self, pdisplaydriverhardwareid: &[u16]) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).GetHardwareId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdisplaydriverhardwareid.as_ptr()), pdisplaydriverhardwareid.len().try_into().unwrap()).ok()
+    }
+    pub unsafe fn OnDriverLoad<P0>(&self, sessionid: u32, deviceinstance: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+    {
+        (::windows_core::Interface::vtable(self).OnDriverLoad)(::windows_core::Interface::as_raw(self), sessionid, deviceinstance.into_param().abi()).ok()
+    }
+    pub unsafe fn OnDriverUnload(&self, sessionid: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).OnDriverUnload)(::windows_core::Interface::as_raw(self), sessionid).ok()
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWRdsWddmIddProps1_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub GetHardwareId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub OnDriverLoad: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub OnDriverUnload: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+}
 ::windows_core::imp::com_interface!(IWTSBitmapRenderService, IWTSBitmapRenderService_Vtbl, 0xea326091_05fe_40c1_b49c_3d2ef4626a0e);
 ::windows_core::imp::interface_hierarchy!(IWTSBitmapRenderService, ::windows_core::IUnknown);
 impl IWTSBitmapRenderService {

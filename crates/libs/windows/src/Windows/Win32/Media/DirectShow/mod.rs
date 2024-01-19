@@ -10363,8 +10363,8 @@ impl IPin {
     }
     #[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
-    pub unsafe fn QueryAccept(&self, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).QueryAccept)(::windows_core::Interface::as_raw(self), pmt).ok()
+    pub unsafe fn QueryAccept(&self, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).QueryAccept)(::windows_core::Interface::as_raw(self), pmt)
     }
     pub unsafe fn EnumMediaTypes(&self) -> ::windows_core::Result<IEnumMediaTypes> {
         let mut result__ = ::std::mem::zeroed();
@@ -10435,8 +10435,8 @@ impl IPinConnection {
     {
         (::windows_core::Interface::vtable(self).NotifyEndOfStream)(::windows_core::Interface::as_raw(self), hnotifyevent.into_param().abi()).ok()
     }
-    pub unsafe fn IsEndPin(&self) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).IsEndPin)(::windows_core::Interface::as_raw(self)).ok()
+    pub unsafe fn IsEndPin(&self) -> ::windows_core::HRESULT {
+        (::windows_core::Interface::vtable(self).IsEndPin)(::windows_core::Interface::as_raw(self))
     }
     pub unsafe fn DynamicDisconnect(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DynamicDisconnect)(::windows_core::Interface::as_raw(self)).ok()
