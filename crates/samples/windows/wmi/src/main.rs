@@ -2,7 +2,7 @@ use windows::{core::*, Win32::System::Com::*, Win32::System::Wmi::*};
 
 fn main() -> Result<()> {
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED)?;
+        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
 
         CoInitializeSecurity(
             None,

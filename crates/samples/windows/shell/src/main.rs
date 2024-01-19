@@ -3,7 +3,7 @@ use windows::{
 };
 
 fn main() -> Result<()> {
-    unsafe { CoInitialize(None)? };
+    unsafe { CoInitialize(None).ok()? };
 
     shell_execute_from_explorer(
         "https://github.com/microsoft/windows-rs",

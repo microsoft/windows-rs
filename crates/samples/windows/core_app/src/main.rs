@@ -55,7 +55,7 @@ impl IFrameworkView_Impl for CoreAppView {
 
 fn main() -> Result<()> {
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED)?;
+        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
 
         if let Err(result) = Package::Current() {
             MessageBoxW(
