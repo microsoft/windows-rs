@@ -12,12 +12,12 @@ impl PCSTR {
     }
 
     /// Construct a null `PCSTR`
-    pub fn null() -> Self {
+    pub const fn null() -> Self {
         Self(std::ptr::null())
     }
 
     /// Returns a raw pointer to the `PCSTR`
-    pub fn as_ptr(&self) -> *const u8 {
+    pub const fn as_ptr(&self) -> *const u8 {
         self.0
     }
 

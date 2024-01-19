@@ -12,12 +12,12 @@ impl PSTR {
     }
 
     /// Construct a null `PSTR`
-    pub fn null() -> Self {
+    pub const fn null() -> Self {
         Self(std::ptr::null_mut())
     }
 
     /// Returns a raw pointer to the `PSTR`
-    pub fn as_ptr(&self) -> *mut u8 {
+    pub const fn as_ptr(&self) -> *mut u8 {
         self.0
     }
 

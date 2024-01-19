@@ -12,12 +12,12 @@ impl PWSTR {
     }
 
     /// Construct a null `PWSTR`.
-    pub fn null() -> Self {
+    pub const fn null() -> Self {
         Self(std::ptr::null_mut())
     }
 
     /// Returns a raw pointer to the `PWSTR`.
-    pub fn as_ptr(&self) -> *mut u16 {
+    pub const fn as_ptr(&self) -> *mut u16 {
         self.0
     }
 
