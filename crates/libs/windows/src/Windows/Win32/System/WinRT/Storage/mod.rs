@@ -9,7 +9,7 @@ impl IOplockBreakingHandler {
 #[doc(hidden)]
 pub struct IOplockBreakingHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OplockBreaking: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OplockBreaking: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRandomAccessStreamFileAccessMode, IRandomAccessStreamFileAccessMode_Vtbl, 0x332e5848_2e15_458e_85c4_c911c0c3d6f4);
 ::windows_core::imp::interface_hierarchy!(IRandomAccessStreamFileAccessMode, ::windows_core::IUnknown);
@@ -23,7 +23,7 @@ impl IRandomAccessStreamFileAccessMode {
 #[doc(hidden)]
 pub struct IRandomAccessStreamFileAccessMode_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileaccessmode: *mut u32) -> ::windows_core::HRESULT,
+    pub GetMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IStorageFolderHandleAccess, IStorageFolderHandleAccess_Vtbl, 0xdf19938f_5462_48a0_be65_d2a3271a08d6);
 ::windows_core::imp::interface_hierarchy!(IStorageFolderHandleAccess, ::windows_core::IUnknown);
@@ -41,7 +41,7 @@ impl IStorageFolderHandleAccess {
 #[doc(hidden)]
 pub struct IStorageFolderHandleAccess_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::windows_core::PCWSTR, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: *mut ::core::ffi::c_void, interophandle: *mut super::super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, HANDLE_CREATION_OPTIONS, HANDLE_ACCESS_OPTIONS, HANDLE_SHARING_OPTIONS, HANDLE_OPTIONS, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IStorageItemHandleAccess, IStorageItemHandleAccess_Vtbl, 0x5ca296b2_2c25_4d22_b785_b885c8201e6a);
 ::windows_core::imp::interface_hierarchy!(IStorageItemHandleAccess, ::windows_core::IUnknown);
@@ -58,7 +58,7 @@ impl IStorageItemHandleAccess {
 #[doc(hidden)]
 pub struct IStorageItemHandleAccess_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: *mut ::core::ffi::c_void, interophandle: *mut super::super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, HANDLE_ACCESS_OPTIONS, HANDLE_SHARING_OPTIONS, HANDLE_OPTIONS, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUnbufferedFileHandleOplockCallback, IUnbufferedFileHandleOplockCallback_Vtbl, 0xd1019a0e_6243_4329_8497_2e75894d7710);
 ::windows_core::imp::interface_hierarchy!(IUnbufferedFileHandleOplockCallback, ::windows_core::IUnknown);
@@ -71,7 +71,7 @@ impl IUnbufferedFileHandleOplockCallback {
 #[doc(hidden)]
 pub struct IUnbufferedFileHandleOplockCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnBrokenCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnBrokenCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUnbufferedFileHandleProvider, IUnbufferedFileHandleProvider_Vtbl, 0xa65c9109_42ab_4b94_a7b1_dd2e4e68515e);
 ::windows_core::imp::interface_hierarchy!(IUnbufferedFileHandleProvider, ::windows_core::IUnknown);
@@ -91,8 +91,8 @@ impl IUnbufferedFileHandleProvider {
 #[doc(hidden)]
 pub struct IUnbufferedFileHandleProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OpenUnbufferedFileHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oplockbreakcallback: *mut ::core::ffi::c_void, filehandle: *mut usize) -> ::windows_core::HRESULT,
-    pub CloseUnbufferedFileHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OpenUnbufferedFileHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut usize) -> ::windows_core::HRESULT,
+    pub CloseUnbufferedFileHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const HAO_DELETE: HANDLE_ACCESS_OPTIONS = HANDLE_ACCESS_OPTIONS(65536i32);
 pub const HAO_NONE: HANDLE_ACCESS_OPTIONS = HANDLE_ACCESS_OPTIONS(0i32);

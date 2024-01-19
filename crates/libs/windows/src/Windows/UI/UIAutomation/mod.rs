@@ -6,25 +6,25 @@ pub mod Core;
 #[doc(hidden)]
 pub struct IAutomationConnection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub IsRemoteSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub AppUserModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub ExecutableFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub IsRemoteSystem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub AppUserModelId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub ExecutableFileName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAutomationConnectionBoundObject, IAutomationConnectionBoundObject_Vtbl, 0x5e8558fb_ca52_5b65_9830_dd2905816093);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationConnectionBoundObject_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Connection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Connection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAutomationElement, IAutomationElement_Vtbl, 0xa1898370_2c07_56fd_993f_61a72a08058c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutomationElement_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub IsRemoteSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub AppUserModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub ExecutableFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub IsRemoteSystem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub AppUserModelId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub ExecutableFileName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAutomationTextRange, IAutomationTextRange_Vtbl, 0x7e101b65_40d3_5994_85a9_0a0cb9a4ec98);
 #[repr(C)]

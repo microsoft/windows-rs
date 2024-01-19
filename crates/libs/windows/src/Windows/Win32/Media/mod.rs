@@ -101,10 +101,10 @@ impl IReferenceClock {
 #[doc(hidden)]
 pub struct IReferenceClock_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptime: *mut i64) -> ::windows_core::HRESULT,
-    pub AdviseTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, basetime: i64, streamtime: i64, hevent: super::Foundation::HANDLE, pdwadvisecookie: *mut usize) -> ::windows_core::HRESULT,
-    pub AdvisePeriodic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: i64, periodtime: i64, hsemaphore: super::Foundation::HANDLE, pdwadvisecookie: *mut usize) -> ::windows_core::HRESULT,
-    pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwadvisecookie: usize) -> ::windows_core::HRESULT,
+    pub GetTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
+    pub AdviseTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64, i64, super::Foundation::HANDLE, *mut usize) -> ::windows_core::HRESULT,
+    pub AdvisePeriodic: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64, i64, super::Foundation::HANDLE, *mut usize) -> ::windows_core::HRESULT,
+    pub Unadvise: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IReferenceClock2, IReferenceClock2_Vtbl, 0x36b73885_c2c8_11cf_8b46_00805f6cef60);
 ::windows_core::imp::interface_hierarchy!(IReferenceClock2, ::windows_core::IUnknown, IReferenceClock);
@@ -151,8 +151,8 @@ impl IReferenceClockTimerControl {
 #[doc(hidden)]
 pub struct IReferenceClockTimerControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetDefaultTimerResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timerresolution: i64) -> ::windows_core::HRESULT,
-    pub GetDefaultTimerResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimerresolution: *mut i64) -> ::windows_core::HRESULT,
+    pub SetDefaultTimerResolution: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64) -> ::windows_core::HRESULT,
+    pub GetDefaultTimerResolution: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
 }
 pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5047u32);
 pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5050u32);

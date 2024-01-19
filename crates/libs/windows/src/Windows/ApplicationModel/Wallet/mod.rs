@@ -14,15 +14,15 @@ pub mod System;
 pub struct IWalletBarcode_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
-    pub Symbology: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WalletBarcodeSymbology) -> ::windows_core::HRESULT,
+    pub Symbology: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WalletBarcodeSymbology) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     Symbology: usize,
     #[cfg(feature = "deprecated")]
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     Value: usize,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub GetImageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetImageAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     GetImageAsync: usize,
 }
@@ -39,11 +39,11 @@ pub struct IWalletBarcode_Vtbl {
 pub struct IWalletBarcodeFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
-    pub CreateWalletBarcode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, symbology: WalletBarcodeSymbology, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateWalletBarcode: unsafe extern "system" fn(*mut ::core::ffi::c_void, WalletBarcodeSymbology, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     CreateWalletBarcode: usize,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub CreateCustomWalletBarcode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamtobarcodeimage: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateCustomWalletBarcode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     CreateCustomWalletBarcode: usize,
 }
@@ -60,211 +60,211 @@ pub struct IWalletBarcodeFactory_Vtbl {
 pub struct IWalletItem_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     DisplayName: usize,
     #[cfg(feature = "deprecated")]
-    pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetDisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetDisplayName: usize,
     #[cfg(feature = "deprecated")]
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     Id: usize,
     #[cfg(feature = "deprecated")]
-    pub IsAcknowledged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsAcknowledged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     IsAcknowledged: usize,
     #[cfg(feature = "deprecated")]
-    pub SetIsAcknowledged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+    pub SetIsAcknowledged: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetIsAcknowledged: usize,
     #[cfg(feature = "deprecated")]
-    pub IssuerDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub IssuerDisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     IssuerDisplayName: usize,
     #[cfg(feature = "deprecated")]
-    pub SetIssuerDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetIssuerDisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetIssuerDisplayName: usize,
     #[cfg(feature = "deprecated")]
-    pub LastUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LastUpdated: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     LastUpdated: usize,
     #[cfg(feature = "deprecated")]
-    pub SetLastUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetLastUpdated: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetLastUpdated: usize,
     #[cfg(feature = "deprecated")]
-    pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WalletItemKind) -> ::windows_core::HRESULT,
+    pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WalletItemKind) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     Kind: usize,
     #[cfg(feature = "deprecated")]
-    pub Barcode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Barcode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     Barcode: usize,
     #[cfg(feature = "deprecated")]
-    pub SetBarcode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetBarcode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetBarcode: usize,
     #[cfg(feature = "deprecated")]
-    pub ExpirationDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ExpirationDate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     ExpirationDate: usize,
     #[cfg(feature = "deprecated")]
-    pub SetExpirationDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetExpirationDate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetExpirationDate: usize,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub Logo159x159: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Logo159x159: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     Logo159x159: usize,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub SetLogo159x159: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetLogo159x159: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     SetLogo159x159: usize,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub Logo336x336: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Logo336x336: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     Logo336x336: usize,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub SetLogo336x336: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetLogo336x336: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     SetLogo336x336: usize,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub Logo99x99: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Logo99x99: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     Logo99x99: usize,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub SetLogo99x99: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetLogo99x99: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     SetLogo99x99: usize,
     #[cfg(feature = "deprecated")]
-    pub DisplayMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub DisplayMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     DisplayMessage: usize,
     #[cfg(feature = "deprecated")]
-    pub SetDisplayMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetDisplayMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetDisplayMessage: usize,
     #[cfg(feature = "deprecated")]
-    pub IsDisplayMessageLaunchable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsDisplayMessageLaunchable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     IsDisplayMessageLaunchable: usize,
     #[cfg(feature = "deprecated")]
-    pub SetIsDisplayMessageLaunchable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+    pub SetIsDisplayMessageLaunchable: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetIsDisplayMessageLaunchable: usize,
     #[cfg(feature = "deprecated")]
-    pub LogoText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub LogoText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     LogoText: usize,
     #[cfg(feature = "deprecated")]
-    pub SetLogoText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetLogoText: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetLogoText: usize,
     #[cfg(all(feature = "UI", feature = "deprecated"))]
-    pub HeaderColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows_core::HRESULT,
+    pub HeaderColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::UI::Color) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "UI", feature = "deprecated")))]
     HeaderColor: usize,
     #[cfg(all(feature = "UI", feature = "deprecated"))]
-    pub SetHeaderColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows_core::HRESULT,
+    pub SetHeaderColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::UI::Color) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "UI", feature = "deprecated")))]
     SetHeaderColor: usize,
     #[cfg(all(feature = "UI", feature = "deprecated"))]
-    pub BodyColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows_core::HRESULT,
+    pub BodyColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::UI::Color) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "UI", feature = "deprecated")))]
     BodyColor: usize,
     #[cfg(all(feature = "UI", feature = "deprecated"))]
-    pub SetBodyColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows_core::HRESULT,
+    pub SetBodyColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::UI::Color) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "UI", feature = "deprecated")))]
     SetBodyColor: usize,
     #[cfg(all(feature = "UI", feature = "deprecated"))]
-    pub HeaderFontColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows_core::HRESULT,
+    pub HeaderFontColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::UI::Color) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "UI", feature = "deprecated")))]
     HeaderFontColor: usize,
     #[cfg(all(feature = "UI", feature = "deprecated"))]
-    pub SetHeaderFontColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows_core::HRESULT,
+    pub SetHeaderFontColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::UI::Color) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "UI", feature = "deprecated")))]
     SetHeaderFontColor: usize,
     #[cfg(all(feature = "UI", feature = "deprecated"))]
-    pub BodyFontColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows_core::HRESULT,
+    pub BodyFontColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::UI::Color) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "UI", feature = "deprecated")))]
     BodyFontColor: usize,
     #[cfg(all(feature = "UI", feature = "deprecated"))]
-    pub SetBodyFontColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::UI::Color) -> ::windows_core::HRESULT,
+    pub SetBodyFontColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::UI::Color) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "UI", feature = "deprecated")))]
     SetBodyFontColor: usize,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub HeaderBackgroundImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub HeaderBackgroundImage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     HeaderBackgroundImage: usize,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub SetHeaderBackgroundImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetHeaderBackgroundImage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     SetHeaderBackgroundImage: usize,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub BodyBackgroundImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BodyBackgroundImage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     BodyBackgroundImage: usize,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub SetBodyBackgroundImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetBodyBackgroundImage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     SetBodyBackgroundImage: usize,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub LogoImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LogoImage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     LogoImage: usize,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub SetLogoImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetLogoImage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     SetLogoImage: usize,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub PromotionalImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PromotionalImage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     PromotionalImage: usize,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub SetPromotionalImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetPromotionalImage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     SetPromotionalImage: usize,
     #[cfg(feature = "deprecated")]
-    pub RelevantDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RelevantDate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RelevantDate: usize,
     #[cfg(feature = "deprecated")]
-    pub SetRelevantDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetRelevantDate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetRelevantDate: usize,
     #[cfg(feature = "deprecated")]
-    pub RelevantDateDisplayMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub RelevantDateDisplayMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RelevantDateDisplayMessage: usize,
     #[cfg(feature = "deprecated")]
-    pub SetRelevantDateDisplayMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetRelevantDateDisplayMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetRelevantDateDisplayMessage: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub TransactionHistory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TransactionHistory: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     TransactionHistory: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub RelevantLocations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RelevantLocations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     RelevantLocations: usize,
     #[cfg(feature = "deprecated")]
-    pub IsMoreTransactionHistoryLaunchable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsMoreTransactionHistoryLaunchable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     IsMoreTransactionHistoryLaunchable: usize,
     #[cfg(feature = "deprecated")]
-    pub SetIsMoreTransactionHistoryLaunchable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+    pub SetIsMoreTransactionHistoryLaunchable: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetIsMoreTransactionHistoryLaunchable: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub DisplayProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DisplayProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     DisplayProperties: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub Verbs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Verbs: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     Verbs: usize,
 }
@@ -281,43 +281,43 @@ pub struct IWalletItem_Vtbl {
 pub struct IWalletItemCustomProperty_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     Name: usize,
     #[cfg(feature = "deprecated")]
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetName: usize,
     #[cfg(feature = "deprecated")]
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     Value: usize,
     #[cfg(feature = "deprecated")]
-    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetValue: usize,
     #[cfg(feature = "deprecated")]
-    pub AutoDetectLinks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub AutoDetectLinks: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     AutoDetectLinks: usize,
     #[cfg(feature = "deprecated")]
-    pub SetAutoDetectLinks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+    pub SetAutoDetectLinks: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetAutoDetectLinks: usize,
     #[cfg(feature = "deprecated")]
-    pub DetailViewPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WalletDetailViewPosition) -> ::windows_core::HRESULT,
+    pub DetailViewPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WalletDetailViewPosition) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     DetailViewPosition: usize,
     #[cfg(feature = "deprecated")]
-    pub SetDetailViewPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: WalletDetailViewPosition) -> ::windows_core::HRESULT,
+    pub SetDetailViewPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, WalletDetailViewPosition) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetDetailViewPosition: usize,
     #[cfg(feature = "deprecated")]
-    pub SummaryViewPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WalletSummaryViewPosition) -> ::windows_core::HRESULT,
+    pub SummaryViewPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WalletSummaryViewPosition) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SummaryViewPosition: usize,
     #[cfg(feature = "deprecated")]
-    pub SetSummaryViewPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: WalletSummaryViewPosition) -> ::windows_core::HRESULT,
+    pub SetSummaryViewPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, WalletSummaryViewPosition) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetSummaryViewPosition: usize,
 }
@@ -334,7 +334,7 @@ pub struct IWalletItemCustomProperty_Vtbl {
 pub struct IWalletItemCustomPropertyFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
-    pub CreateWalletItemCustomProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateWalletItemCustomProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     CreateWalletItemCustomProperty: usize,
 }
@@ -351,7 +351,7 @@ pub struct IWalletItemCustomPropertyFactory_Vtbl {
 pub struct IWalletItemFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
-    pub CreateWalletItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: WalletItemKind, displayname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateWalletItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, WalletItemKind, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     CreateWalletItem: usize,
 }
@@ -368,43 +368,43 @@ pub struct IWalletItemFactory_Vtbl {
 pub struct IWalletItemStore_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
-    pub AddAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::std::mem::MaybeUninit<::windows_core::HSTRING>, item: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     AddAsync: usize,
     #[cfg(feature = "deprecated")]
-    pub ClearAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ClearAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     ClearAsync: usize,
     #[cfg(feature = "deprecated")]
-    pub GetWalletItemAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetWalletItemAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     GetWalletItemAsync: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub GetItemsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetItemsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     GetItemsAsync: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub GetItemsWithKindAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: WalletItemKind, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetItemsWithKindAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, WalletItemKind, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     GetItemsWithKindAsync: usize,
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub ImportItemAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ImportItemAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Storage_Streams", feature = "deprecated")))]
     ImportItemAsync: usize,
     #[cfg(feature = "deprecated")]
-    pub DeleteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeleteAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     DeleteAsync: usize,
     #[cfg(feature = "deprecated")]
-    pub ShowAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShowAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     ShowAsync: usize,
     #[cfg(feature = "deprecated")]
-    pub ShowItemAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShowItemAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     ShowItemAsync: usize,
     #[cfg(feature = "deprecated")]
-    pub UpdateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UpdateAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     UpdateAsync: usize,
 }
@@ -421,11 +421,11 @@ pub struct IWalletItemStore_Vtbl {
 pub struct IWalletItemStore2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
-    pub ItemsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub ItemsChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     ItemsChanged: usize,
     #[cfg(feature = "deprecated")]
-    pub RemoveItemsChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveItemsChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RemoveItemsChanged: usize,
 }
@@ -442,7 +442,7 @@ pub struct IWalletItemStore2_Vtbl {
 pub struct IWalletManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
-    pub RequestStoreAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RequestStoreAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RequestStoreAsync: usize,
 }
@@ -459,19 +459,19 @@ pub struct IWalletManagerStatics_Vtbl {
 pub struct IWalletRelevantLocation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Devices_Geolocation", feature = "deprecated"))]
-    pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Devices::Geolocation::BasicGeoposition) -> ::windows_core::HRESULT,
+    pub Position: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Devices::Geolocation::BasicGeoposition) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Devices_Geolocation", feature = "deprecated")))]
     Position: usize,
     #[cfg(all(feature = "Devices_Geolocation", feature = "deprecated"))]
-    pub SetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Devices::Geolocation::BasicGeoposition) -> ::windows_core::HRESULT,
+    pub SetPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Devices::Geolocation::BasicGeoposition) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Devices_Geolocation", feature = "deprecated")))]
     SetPosition: usize,
     #[cfg(feature = "deprecated")]
-    pub DisplayMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub DisplayMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     DisplayMessage: usize,
     #[cfg(feature = "deprecated")]
-    pub SetDisplayMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetDisplayMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetDisplayMessage: usize,
 }
@@ -488,51 +488,51 @@ pub struct IWalletRelevantLocation_Vtbl {
 pub struct IWalletTransaction_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     Description: usize,
     #[cfg(feature = "deprecated")]
-    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetDescription: usize,
     #[cfg(feature = "deprecated")]
-    pub DisplayAmount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub DisplayAmount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     DisplayAmount: usize,
     #[cfg(feature = "deprecated")]
-    pub SetDisplayAmount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetDisplayAmount: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetDisplayAmount: usize,
     #[cfg(feature = "deprecated")]
-    pub IgnoreTimeOfDay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IgnoreTimeOfDay: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     IgnoreTimeOfDay: usize,
     #[cfg(feature = "deprecated")]
-    pub SetIgnoreTimeOfDay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+    pub SetIgnoreTimeOfDay: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetIgnoreTimeOfDay: usize,
     #[cfg(feature = "deprecated")]
-    pub DisplayLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub DisplayLocation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     DisplayLocation: usize,
     #[cfg(feature = "deprecated")]
-    pub SetDisplayLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetDisplayLocation: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetDisplayLocation: usize,
     #[cfg(feature = "deprecated")]
-    pub TransactionDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TransactionDate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     TransactionDate: usize,
     #[cfg(feature = "deprecated")]
-    pub SetTransactionDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetTransactionDate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetTransactionDate: usize,
     #[cfg(feature = "deprecated")]
-    pub IsLaunchable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsLaunchable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     IsLaunchable: usize,
     #[cfg(feature = "deprecated")]
-    pub SetIsLaunchable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+    pub SetIsLaunchable: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetIsLaunchable: usize,
 }
@@ -549,11 +549,11 @@ pub struct IWalletTransaction_Vtbl {
 pub struct IWalletVerb_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     Name: usize,
     #[cfg(feature = "deprecated")]
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetName: usize,
 }
@@ -570,7 +570,7 @@ pub struct IWalletVerb_Vtbl {
 pub struct IWalletVerbFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
-    pub CreateWalletVerb: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateWalletVerb: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     CreateWalletVerb: usize,
 }

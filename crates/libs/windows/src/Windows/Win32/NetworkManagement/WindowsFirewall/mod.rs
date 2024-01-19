@@ -177,20 +177,20 @@ impl IDynamicPortMapping {
 #[doc(hidden)]
 pub struct IDynamicPortMapping_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub ExternalIPAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub RemoteHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ExternalPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
-    pub Protocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub InternalPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
-    pub InternalClient: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub LeaseDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
-    pub RenewLease: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lleasedurationdesired: i32, pleasedurationreturned: *mut i32) -> ::windows_core::HRESULT,
-    pub EditInternalClient: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinternalclient: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vb: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub EditDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdescription: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub EditInternalPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linternalport: i32) -> ::windows_core::HRESULT,
+    pub ExternalIPAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub RemoteHost: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ExternalPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Protocol: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub InternalPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub InternalClient: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub LeaseDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub RenewLease: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut i32) -> ::windows_core::HRESULT,
+    pub EditInternalClient: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Enable: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub EditDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub EditInternalPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -247,15 +247,15 @@ impl IDynamicPortMappingCollection {
 #[doc(hidden)]
 pub struct IDynamicPortMappingCollection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrremotehost: ::std::mem::MaybeUninit<::windows_core::BSTR>, lexternalport: i32, bstrprotocol: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppdpm: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrremotehost: ::std::mem::MaybeUninit<::windows_core::BSTR>, lexternalport: i32, bstrprotocol: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrremotehost: ::std::mem::MaybeUninit<::windows_core::BSTR>, lexternalport: i32, bstrprotocol: ::std::mem::MaybeUninit<::windows_core::BSTR>, linternalport: i32, bstrinternalclient: ::std::mem::MaybeUninit<::windows_core::BSTR>, benabled: super::super::Foundation::VARIANT_BOOL, bstrdescription: ::std::mem::MaybeUninit<::windows_core::BSTR>, lleaseduration: i32, ppdpm: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, super::super::Foundation::VARIANT_BOOL, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
 }
@@ -280,10 +280,10 @@ impl IEnumNetConnection {
 #[doc(hidden)]
 pub struct IEnumNetConnection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumNetSharingEveryConnection, IEnumNetSharingEveryConnection_Vtbl, 0xc08956b8_1cd3_11d1_b1c5_00805fc1270e);
 ::windows_core::imp::interface_hierarchy!(IEnumNetSharingEveryConnection, ::windows_core::IUnknown);
@@ -306,10 +306,10 @@ impl IEnumNetSharingEveryConnection {
 #[doc(hidden)]
 pub struct IEnumNetSharingEveryConnection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumNetSharingPortMapping, IEnumNetSharingPortMapping_Vtbl, 0xc08956b0_1cd3_11d1_b1c5_00805fc1270e);
 ::windows_core::imp::interface_hierarchy!(IEnumNetSharingPortMapping, ::windows_core::IUnknown);
@@ -332,10 +332,10 @@ impl IEnumNetSharingPortMapping {
 #[doc(hidden)]
 pub struct IEnumNetSharingPortMapping_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumNetSharingPrivateConnection, IEnumNetSharingPrivateConnection_Vtbl, 0xc08956b5_1cd3_11d1_b1c5_00805fc1270e);
 ::windows_core::imp::interface_hierarchy!(IEnumNetSharingPrivateConnection, ::windows_core::IUnknown);
@@ -358,10 +358,10 @@ impl IEnumNetSharingPrivateConnection {
 #[doc(hidden)]
 pub struct IEnumNetSharingPrivateConnection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumNetSharingPublicConnection, IEnumNetSharingPublicConnection_Vtbl, 0xc08956b4_1cd3_11d1_b1c5_00805fc1270e);
 ::windows_core::imp::interface_hierarchy!(IEnumNetSharingPublicConnection, ::windows_core::IUnknown);
@@ -384,10 +384,10 @@ impl IEnumNetSharingPublicConnection {
 #[doc(hidden)]
 pub struct IEnumNetSharingPublicConnection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgvar: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -418,8 +418,8 @@ impl INATEventManager {
 #[doc(hidden)]
 pub struct INATEventManager_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub SetExternalIPAddressCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetNumberOfEntriesCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetExternalIPAddressCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetNumberOfEntriesCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INATExternalIPAddressCallback, INATExternalIPAddressCallback_Vtbl, 0x9c416740_a34e_446f_ba06_abd04c3149ae);
 ::windows_core::imp::interface_hierarchy!(INATExternalIPAddressCallback, ::windows_core::IUnknown);
@@ -435,7 +435,7 @@ impl INATExternalIPAddressCallback {
 #[doc(hidden)]
 pub struct INATExternalIPAddressCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub NewExternalIPAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrnewexternalipaddress: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub NewExternalIPAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INATNumberOfEntriesCallback, INATNumberOfEntriesCallback_Vtbl, 0xc83a0a74_91ee_41b6_b67a_67e0f00bbd78);
 ::windows_core::imp::interface_hierarchy!(INATNumberOfEntriesCallback, ::windows_core::IUnknown);
@@ -448,7 +448,7 @@ impl INATNumberOfEntriesCallback {
 #[doc(hidden)]
 pub struct INATNumberOfEntriesCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub NewNumberOfEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnewnumberofentries: i32) -> ::windows_core::HRESULT,
+    pub NewNumberOfEntries: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INetConnection, INetConnection_Vtbl, 0xc08956a1_1cd3_11d1_b1c5_00805fc1270e);
 ::windows_core::imp::interface_hierarchy!(INetConnection, ::windows_core::IUnknown);
@@ -488,13 +488,13 @@ impl INetConnection {
 #[doc(hidden)]
 pub struct INetConnection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Duplicate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszwduplicatename: ::windows_core::PCWSTR, ppcon: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprops: *mut *mut NETCON_PROPERTIES) -> ::windows_core::HRESULT,
-    pub GetUiObjectClassId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub Rename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszwnewname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Connect: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Disconnect: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Delete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Duplicate: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut NETCON_PROPERTIES) -> ::windows_core::HRESULT,
+    pub GetUiObjectClassId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub Rename: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INetConnectionConnectUi, INetConnectionConnectUi_Vtbl, 0xc08956a3_1cd3_11d1_b1c5_00805fc1270e);
 ::windows_core::imp::interface_hierarchy!(INetConnectionConnectUi, ::windows_core::IUnknown);
@@ -522,9 +522,9 @@ impl INetConnectionConnectUi {
 #[doc(hidden)]
 pub struct INetConnectionConnectUi_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcon: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> ::windows_core::HRESULT,
-    pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> ::windows_core::HRESULT,
+    pub SetConnection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Connect: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, u32) -> ::windows_core::HRESULT,
+    pub Disconnect: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INetConnectionManager, INetConnectionManager_Vtbl, 0xc08956a2_1cd3_11d1_b1c5_00805fc1270e);
 ::windows_core::imp::interface_hierarchy!(INetConnectionManager, ::windows_core::IUnknown);
@@ -538,7 +538,7 @@ impl INetConnectionManager {
 #[doc(hidden)]
 pub struct INetConnectionManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub EnumConnections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: NETCONMGR_ENUM_FLAGS, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumConnections: unsafe extern "system" fn(*mut ::core::ffi::c_void, NETCONMGR_ENUM_FLAGS, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -581,12 +581,12 @@ impl INetConnectionProps {
 #[doc(hidden)]
 pub struct INetConnectionProps_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Guid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrguid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub DeviceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdevicename: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut NETCON_STATUS) -> ::windows_core::HRESULT,
-    pub MediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmediatype: *mut NETCON_MEDIATYPE) -> ::windows_core::HRESULT,
-    pub Characteristics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows_core::HRESULT,
+    pub Guid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub DeviceName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NETCON_STATUS) -> ::windows_core::HRESULT,
+    pub MediaType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NETCON_MEDIATYPE) -> ::windows_core::HRESULT,
+    pub Characteristics: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -659,18 +659,18 @@ impl INetFwAuthorizedApplication {
 #[doc(hidden)]
 pub struct INetFwAuthorizedApplication_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ProcessImageFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagefilename: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetProcessImageFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagefilename: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub IpVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ipversion: *mut NET_FW_IP_VERSION) -> ::windows_core::HRESULT,
-    pub SetIpVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ipversion: NET_FW_IP_VERSION) -> ::windows_core::HRESULT,
-    pub Scope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: *mut NET_FW_SCOPE) -> ::windows_core::HRESULT,
-    pub SetScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: NET_FW_SCOPE) -> ::windows_core::HRESULT,
-    pub RemoteAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remoteaddrs: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetRemoteAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remoteaddrs: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ProcessImageFileName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetProcessImageFileName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub IpVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NET_FW_IP_VERSION) -> ::windows_core::HRESULT,
+    pub SetIpVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_IP_VERSION) -> ::windows_core::HRESULT,
+    pub Scope: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NET_FW_SCOPE) -> ::windows_core::HRESULT,
+    pub SetScope: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_SCOPE) -> ::windows_core::HRESULT,
+    pub RemoteAddresses: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetRemoteAddresses: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -720,17 +720,17 @@ impl INetFwAuthorizedApplications {
 #[doc(hidden)]
 pub struct INetFwAuthorizedApplications_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, app: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagefilename: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagefilename: ::std::mem::MaybeUninit<::windows_core::BSTR>, app: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -849,26 +849,26 @@ impl INetFwIcmpSettings {
 #[doc(hidden)]
 pub struct INetFwIcmpSettings_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub AllowOutboundDestinationUnreachable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetAllowOutboundDestinationUnreachable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub AllowRedirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetAllowRedirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub AllowInboundEchoRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetAllowInboundEchoRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub AllowOutboundTimeExceeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetAllowOutboundTimeExceeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub AllowOutboundParameterProblem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetAllowOutboundParameterProblem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub AllowOutboundSourceQuench: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetAllowOutboundSourceQuench: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub AllowInboundRouterRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetAllowInboundRouterRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub AllowInboundTimestampRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetAllowInboundTimestampRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub AllowInboundMaskRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetAllowInboundMaskRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub AllowOutboundPacketTooBig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetAllowOutboundPacketTooBig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub AllowOutboundDestinationUnreachable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetAllowOutboundDestinationUnreachable: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub AllowRedirect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetAllowRedirect: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub AllowInboundEchoRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetAllowInboundEchoRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub AllowOutboundTimeExceeded: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetAllowOutboundTimeExceeded: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub AllowOutboundParameterProblem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetAllowOutboundParameterProblem: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub AllowOutboundSourceQuench: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetAllowOutboundSourceQuench: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub AllowInboundRouterRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetAllowInboundRouterRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub AllowInboundTimestampRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetAllowInboundTimestampRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub AllowInboundMaskRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetAllowInboundMaskRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub AllowOutboundPacketTooBig: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetAllowOutboundPacketTooBig: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -914,13 +914,13 @@ impl INetFwMgr {
 pub struct INetFwMgr_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub LocalPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localpolicy: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LocalPolicy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     LocalPolicy: usize,
-    pub CurrentProfileType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: *mut NET_FW_PROFILE_TYPE) -> ::windows_core::HRESULT,
-    pub RestoreDefaults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub IsPortAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagefilename: ::std::mem::MaybeUninit<::windows_core::BSTR>, ipversion: NET_FW_IP_VERSION, portnumber: i32, localaddress: ::std::mem::MaybeUninit<::windows_core::BSTR>, ipprotocol: NET_FW_IP_PROTOCOL, allowed: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, restricted: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub IsIcmpTypeAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ipversion: NET_FW_IP_VERSION, localaddress: ::std::mem::MaybeUninit<::windows_core::BSTR>, r#type: u8, allowed: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, restricted: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub CurrentProfileType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NET_FW_PROFILE_TYPE) -> ::windows_core::HRESULT,
+    pub RestoreDefaults: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsPortAllowed: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, NET_FW_IP_VERSION, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, NET_FW_IP_PROTOCOL, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub IsIcmpTypeAllowed: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_IP_VERSION, ::std::mem::MaybeUninit<::windows_core::BSTR>, u8, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -1001,21 +1001,21 @@ impl INetFwOpenPort {
 #[doc(hidden)]
 pub struct INetFwOpenPort_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub IpVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ipversion: *mut NET_FW_IP_VERSION) -> ::windows_core::HRESULT,
-    pub SetIpVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ipversion: NET_FW_IP_VERSION) -> ::windows_core::HRESULT,
-    pub Protocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ipprotocol: *mut NET_FW_IP_PROTOCOL) -> ::windows_core::HRESULT,
-    pub SetProtocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ipprotocol: NET_FW_IP_PROTOCOL) -> ::windows_core::HRESULT,
-    pub Port: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, portnumber: *mut i32) -> ::windows_core::HRESULT,
-    pub SetPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, portnumber: i32) -> ::windows_core::HRESULT,
-    pub Scope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: *mut NET_FW_SCOPE) -> ::windows_core::HRESULT,
-    pub SetScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: NET_FW_SCOPE) -> ::windows_core::HRESULT,
-    pub RemoteAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remoteaddrs: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetRemoteAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remoteaddrs: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub BuiltIn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, builtin: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub IpVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NET_FW_IP_VERSION) -> ::windows_core::HRESULT,
+    pub SetIpVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_IP_VERSION) -> ::windows_core::HRESULT,
+    pub Protocol: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NET_FW_IP_PROTOCOL) -> ::windows_core::HRESULT,
+    pub SetProtocol: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_IP_PROTOCOL) -> ::windows_core::HRESULT,
+    pub Port: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub Scope: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NET_FW_SCOPE) -> ::windows_core::HRESULT,
+    pub SetScope: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_SCOPE) -> ::windows_core::HRESULT,
+    pub RemoteAddresses: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetRemoteAddresses: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub BuiltIn: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -1059,17 +1059,17 @@ impl INetFwOpenPorts {
 #[doc(hidden)]
 pub struct INetFwOpenPorts_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, port: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL) -> ::windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, NET_FW_IP_PROTOCOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL, openport: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, NET_FW_IP_PROTOCOL, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -1101,11 +1101,11 @@ impl INetFwPolicy {
 pub struct INetFwPolicy_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub CurrentProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profile: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CurrentProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CurrentProfile: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetProfileByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE, profile: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetProfileByType: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_PROFILE_TYPE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetProfileByType: usize,
 }
@@ -1234,34 +1234,34 @@ impl INetFwPolicy2 {
 #[doc(hidden)]
 pub struct INetFwPolicy2_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub CurrentProfileTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletypesbitmask: *mut i32) -> ::windows_core::HRESULT,
-    pub get_FirewallEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub put_FirewallEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub get_ExcludedInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, interfaces: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub put_ExcludedInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, interfaces: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub get_BlockAllInboundTraffic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, block: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub put_BlockAllInboundTraffic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, block: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub get_NotificationsDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, disabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub put_NotificationsDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, disabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub get_UnicastResponsesToMulticastBroadcastDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, disabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub put_UnicastResponsesToMulticastBroadcastDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, disabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub CurrentProfileTypes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub get_FirewallEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_PROFILE_TYPE2, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub put_FirewallEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_PROFILE_TYPE2, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub get_ExcludedInterfaces: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_PROFILE_TYPE2, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub put_ExcludedInterfaces: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_PROFILE_TYPE2, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub get_BlockAllInboundTraffic: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_PROFILE_TYPE2, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub put_BlockAllInboundTraffic: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_PROFILE_TYPE2, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub get_NotificationsDisabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_PROFILE_TYPE2, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub put_NotificationsDisabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_PROFILE_TYPE2, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub get_UnicastResponsesToMulticastBroadcastDisabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_PROFILE_TYPE2, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub put_UnicastResponsesToMulticastBroadcastDisabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_PROFILE_TYPE2, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Rules: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rules: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Rules: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Rules: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ServiceRestriction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servicerestriction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ServiceRestriction: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ServiceRestriction: usize,
-    pub EnableRuleGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletypesbitmask: i32, group: ::std::mem::MaybeUninit<::windows_core::BSTR>, enable: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub IsRuleGroupEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletypesbitmask: i32, group: ::std::mem::MaybeUninit<::windows_core::BSTR>, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub RestoreLocalFirewallDefaults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub get_DefaultInboundAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, action: *mut NET_FW_ACTION) -> ::windows_core::HRESULT,
-    pub put_DefaultInboundAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, action: NET_FW_ACTION) -> ::windows_core::HRESULT,
-    pub get_DefaultOutboundAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, action: *mut NET_FW_ACTION) -> ::windows_core::HRESULT,
-    pub put_DefaultOutboundAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE2, action: NET_FW_ACTION) -> ::windows_core::HRESULT,
-    pub get_IsRuleGroupCurrentlyEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, group: ::std::mem::MaybeUninit<::windows_core::BSTR>, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub LocalPolicyModifyState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modifystate: *mut NET_FW_MODIFY_STATE) -> ::windows_core::HRESULT,
+    pub EnableRuleGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub IsRuleGroupEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub RestoreLocalFirewallDefaults: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_DefaultInboundAction: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_PROFILE_TYPE2, *mut NET_FW_ACTION) -> ::windows_core::HRESULT,
+    pub put_DefaultInboundAction: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_PROFILE_TYPE2, NET_FW_ACTION) -> ::windows_core::HRESULT,
+    pub get_DefaultOutboundAction: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_PROFILE_TYPE2, *mut NET_FW_ACTION) -> ::windows_core::HRESULT,
+    pub put_DefaultOutboundAction: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_PROFILE_TYPE2, NET_FW_ACTION) -> ::windows_core::HRESULT,
+    pub get_IsRuleGroupCurrentlyEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub LocalPolicyModifyState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NET_FW_MODIFY_STATE) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -1304,11 +1304,11 @@ impl INetFwProduct {
 #[doc(hidden)]
 pub struct INetFwProduct_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub RuleCategories: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rulecategories: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetRuleCategories: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rulecategories: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub PathToSignedProductExe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub RuleCategories: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetRuleCategories: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetDisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub PathToSignedProductExe: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -1350,16 +1350,16 @@ impl INetFwProducts {
 #[doc(hidden)]
 pub struct INetFwProducts_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Register: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, product: *mut ::core::ffi::c_void, registration: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Register: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Register: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, product: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -1452,33 +1452,33 @@ impl INetFwProfile {
 #[doc(hidden)]
 pub struct INetFwProfile_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut NET_FW_PROFILE_TYPE) -> ::windows_core::HRESULT,
-    pub FirewallEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetFirewallEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub ExceptionsNotAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, notallowed: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetExceptionsNotAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, notallowed: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub NotificationsDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, disabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetNotificationsDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, disabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub UnicastResponsesToMulticastBroadcastDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, disabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetUnicastResponsesToMulticastBroadcastDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, disabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Type: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NET_FW_PROFILE_TYPE) -> ::windows_core::HRESULT,
+    pub FirewallEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetFirewallEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub ExceptionsNotAllowed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetExceptionsNotAllowed: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub NotificationsDisabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetNotificationsDisabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub UnicastResponsesToMulticastBroadcastDisabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetUnicastResponsesToMulticastBroadcastDisabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub RemoteAdminSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remoteadminsettings: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoteAdminSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     RemoteAdminSettings: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub IcmpSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, icmpsettings: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IcmpSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     IcmpSettings: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GloballyOpenPorts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, openports: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GloballyOpenPorts: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GloballyOpenPorts: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Services: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, services: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Services: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Services: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub AuthorizedApplications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, apps: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AuthorizedApplications: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AuthorizedApplications: usize,
 }
@@ -1533,14 +1533,14 @@ impl INetFwRemoteAdminSettings {
 #[doc(hidden)]
 pub struct INetFwRemoteAdminSettings_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub IpVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ipversion: *mut NET_FW_IP_VERSION) -> ::windows_core::HRESULT,
-    pub SetIpVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ipversion: NET_FW_IP_VERSION) -> ::windows_core::HRESULT,
-    pub Scope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: *mut NET_FW_SCOPE) -> ::windows_core::HRESULT,
-    pub SetScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: NET_FW_SCOPE) -> ::windows_core::HRESULT,
-    pub RemoteAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remoteaddrs: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetRemoteAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remoteaddrs: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub IpVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NET_FW_IP_VERSION) -> ::windows_core::HRESULT,
+    pub SetIpVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_IP_VERSION) -> ::windows_core::HRESULT,
+    pub Scope: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NET_FW_SCOPE) -> ::windows_core::HRESULT,
+    pub SetScope: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_SCOPE) -> ::windows_core::HRESULT,
+    pub RemoteAddresses: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetRemoteAddresses: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -1727,42 +1727,42 @@ impl INetFwRule {
 #[doc(hidden)]
 pub struct INetFwRule_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ApplicationName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagefilename: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetApplicationName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagefilename: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ServiceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servicename: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetServiceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servicename: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Protocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protocol: *mut i32) -> ::windows_core::HRESULT,
-    pub SetProtocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protocol: i32) -> ::windows_core::HRESULT,
-    pub LocalPorts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, portnumbers: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetLocalPorts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, portnumbers: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub RemotePorts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, portnumbers: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetRemotePorts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, portnumbers: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub LocalAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localaddrs: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetLocalAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localaddrs: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub RemoteAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remoteaddrs: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetRemoteAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remoteaddrs: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub IcmpTypesAndCodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, icmptypesandcodes: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetIcmpTypesAndCodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, icmptypesandcodes: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Direction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dir: *mut NET_FW_RULE_DIRECTION) -> ::windows_core::HRESULT,
-    pub SetDirection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dir: NET_FW_RULE_DIRECTION) -> ::windows_core::HRESULT,
-    pub Interfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaces: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaces: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub InterfaceTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfacetypes: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetInterfaceTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfacetypes: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub Grouping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetGrouping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Profiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletypesbitmask: *mut i32) -> ::windows_core::HRESULT,
-    pub SetProfiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletypesbitmask: i32) -> ::windows_core::HRESULT,
-    pub EdgeTraversal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetEdgeTraversal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub Action: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, action: *mut NET_FW_ACTION) -> ::windows_core::HRESULT,
-    pub SetAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, action: NET_FW_ACTION) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ApplicationName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetApplicationName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ServiceName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetServiceName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Protocol: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetProtocol: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub LocalPorts: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetLocalPorts: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub RemotePorts: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetRemotePorts: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub LocalAddresses: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetLocalAddresses: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub RemoteAddresses: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetRemoteAddresses: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub IcmpTypesAndCodes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetIcmpTypesAndCodes: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Direction: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NET_FW_RULE_DIRECTION) -> ::windows_core::HRESULT,
+    pub SetDirection: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_RULE_DIRECTION) -> ::windows_core::HRESULT,
+    pub Interfaces: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetInterfaces: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub InterfaceTypes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetInterfaceTypes: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Grouping: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetGrouping: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Profiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetProfiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub EdgeTraversal: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetEdgeTraversal: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Action: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NET_FW_ACTION) -> ::windows_core::HRESULT,
+    pub SetAction: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_ACTION) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -1956,8 +1956,8 @@ impl INetFwRule2 {
 #[doc(hidden)]
 pub struct INetFwRule2_Vtbl {
     pub base__: INetFwRule_Vtbl,
-    pub EdgeTraversalOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loptions: *mut i32) -> ::windows_core::HRESULT,
-    pub SetEdgeTraversalOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loptions: i32) -> ::windows_core::HRESULT,
+    pub EdgeTraversalOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetEdgeTraversalOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2208,18 +2208,18 @@ impl INetFwRule3 {
 #[doc(hidden)]
 pub struct INetFwRule3_Vtbl {
     pub base__: INetFwRule2_Vtbl,
-    pub LocalAppPackageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpackageid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetLocalAppPackageId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszpackageid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub LocalUserOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszuserowner: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetLocalUserOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszuserowner: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub LocalUserAuthorizedList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszuserauthlist: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetLocalUserAuthorizedList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszuserauthlist: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub RemoteUserAuthorizedList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszuserauthlist: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetRemoteUserAuthorizedList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszuserauthlist: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub RemoteMachineAuthorizedList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszuserauthlist: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetRemoteMachineAuthorizedList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszuserauthlist: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SecureFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loptions: *mut i32) -> ::windows_core::HRESULT,
-    pub SetSecureFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loptions: i32) -> ::windows_core::HRESULT,
+    pub LocalAppPackageId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetLocalAppPackageId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub LocalUserOwner: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetLocalUserOwner: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub LocalUserAuthorizedList: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetLocalUserAuthorizedList: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub RemoteUserAuthorizedList: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetRemoteUserAuthorizedList: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub RemoteMachineAuthorizedList: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetRemoteMachineAuthorizedList: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SecureFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetSecureFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2269,17 +2269,17 @@ impl INetFwRules {
 #[doc(hidden)]
 pub struct INetFwRules_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rule: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, rule: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2350,19 +2350,19 @@ impl INetFwService {
 #[doc(hidden)]
 pub struct INetFwService_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut NET_FW_SERVICE_TYPE) -> ::windows_core::HRESULT,
-    pub Customized: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customized: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub IpVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ipversion: *mut NET_FW_IP_VERSION) -> ::windows_core::HRESULT,
-    pub SetIpVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ipversion: NET_FW_IP_VERSION) -> ::windows_core::HRESULT,
-    pub Scope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: *mut NET_FW_SCOPE) -> ::windows_core::HRESULT,
-    pub SetScope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: NET_FW_SCOPE) -> ::windows_core::HRESULT,
-    pub RemoteAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remoteaddrs: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetRemoteAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remoteaddrs: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Type: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NET_FW_SERVICE_TYPE) -> ::windows_core::HRESULT,
+    pub Customized: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub IpVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NET_FW_IP_VERSION) -> ::windows_core::HRESULT,
+    pub SetIpVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_IP_VERSION) -> ::windows_core::HRESULT,
+    pub Scope: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut NET_FW_SCOPE) -> ::windows_core::HRESULT,
+    pub SetScope: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_SCOPE) -> ::windows_core::HRESULT,
+    pub RemoteAddresses: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetRemoteAddresses: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GloballyOpenPorts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, openports: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GloballyOpenPorts: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GloballyOpenPorts: usize,
 }
@@ -2406,10 +2406,10 @@ impl INetFwServiceRestriction {
 #[doc(hidden)]
 pub struct INetFwServiceRestriction_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub RestrictService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servicename: ::std::mem::MaybeUninit<::windows_core::BSTR>, appname: ::std::mem::MaybeUninit<::windows_core::BSTR>, restrictservice: super::super::Foundation::VARIANT_BOOL, servicesidrestricted: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub ServiceRestricted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, servicename: ::std::mem::MaybeUninit<::windows_core::BSTR>, appname: ::std::mem::MaybeUninit<::windows_core::BSTR>, servicerestricted: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub RestrictService: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, super::super::Foundation::VARIANT_BOOL, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub ServiceRestricted: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Rules: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rules: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Rules: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Rules: usize,
 }
@@ -2444,12 +2444,12 @@ impl INetFwServices {
 #[doc(hidden)]
 pub struct INetFwServices_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, svctype: NET_FW_SERVICE_TYPE, service: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, NET_FW_SERVICE_TYPE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2516,23 +2516,23 @@ impl INetSharingConfiguration {
 #[doc(hidden)]
 pub struct INetSharingConfiguration_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub SharingEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SharingConnectionType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut SHARINGCONNECTIONTYPE) -> ::windows_core::HRESULT,
-    pub DisableSharing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnableSharing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: SHARINGCONNECTIONTYPE) -> ::windows_core::HRESULT,
-    pub InternetFirewallEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub DisableInternetFirewall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnableInternetFirewall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SharingEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SharingConnectionType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SHARINGCONNECTIONTYPE) -> ::windows_core::HRESULT,
+    pub DisableSharing: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnableSharing: unsafe extern "system" fn(*mut ::core::ffi::c_void, SHARINGCONNECTIONTYPE) -> ::windows_core::HRESULT,
+    pub InternetFirewallEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub DisableInternetFirewall: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnableInternetFirewall: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_EnumPortMappings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: SHARINGCONNECTION_ENUM_FLAGS, ppcoll: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_EnumPortMappings: unsafe extern "system" fn(*mut ::core::ffi::c_void, SHARINGCONNECTION_ENUM_FLAGS, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_EnumPortMappings: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub AddPortMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>, ucipprotocol: u8, usexternalport: u16, usinternalport: u16, dwoptions: u32, bstrtargetnameoripaddress: ::std::mem::MaybeUninit<::windows_core::BSTR>, etargettype: ICS_TARGETTYPE, ppmapping: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddPortMapping: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, u8, u16, u16, u32, ::std::mem::MaybeUninit<::windows_core::BSTR>, ICS_TARGETTYPE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AddPortMapping: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub RemovePortMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmapping: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemovePortMapping: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     RemovePortMapping: usize,
 }
@@ -2561,8 +2561,8 @@ impl INetSharingEveryConnectionCollection {
 #[doc(hidden)]
 pub struct INetSharingEveryConnectionCollection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2621,25 +2621,25 @@ impl INetSharingManager {
 #[doc(hidden)]
 pub struct INetSharingManager_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub SharingInstalled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbinstalled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SharingInstalled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_EnumPublicConnections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: SHARINGCONNECTION_ENUM_FLAGS, ppcoll: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_EnumPublicConnections: unsafe extern "system" fn(*mut ::core::ffi::c_void, SHARINGCONNECTION_ENUM_FLAGS, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_EnumPublicConnections: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_EnumPrivateConnections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: SHARINGCONNECTION_ENUM_FLAGS, ppcoll: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_EnumPrivateConnections: unsafe extern "system" fn(*mut ::core::ffi::c_void, SHARINGCONNECTION_ENUM_FLAGS, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_EnumPrivateConnections: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_INetSharingConfigurationForINetConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnetconnection: *mut ::core::ffi::c_void, ppnetsharingconfiguration: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_INetSharingConfigurationForINetConnection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_INetSharingConfigurationForINetConnection: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub EnumEveryConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcoll: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumEveryConnection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     EnumEveryConnection: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_NetConnectionProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnetconnection: *mut ::core::ffi::c_void, ppprops: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_NetConnectionProps: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_NetConnectionProps: usize,
 }
@@ -2675,13 +2675,13 @@ impl INetSharingPortMapping {
 #[doc(hidden)]
 pub struct INetSharingPortMapping_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Disable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Disable: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Enable: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Properties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnspmp: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Properties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Delete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2708,8 +2708,8 @@ impl INetSharingPortMappingCollection {
 #[doc(hidden)]
 pub struct INetSharingPortMappingCollection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2760,14 +2760,14 @@ impl INetSharingPortMappingProps {
 #[doc(hidden)]
 pub struct INetSharingPortMappingProps_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub IPProtocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pucipprot: *mut u8) -> ::windows_core::HRESULT,
-    pub ExternalPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pusport: *mut i32) -> ::windows_core::HRESULT,
-    pub InternalPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pusport: *mut i32) -> ::windows_core::HRESULT,
-    pub Options: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwoptions: *mut i32) -> ::windows_core::HRESULT,
-    pub TargetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtargetname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub TargetIPAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtargetipaddress: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub IPProtocol: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8) -> ::windows_core::HRESULT,
+    pub ExternalPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub InternalPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Options: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub TargetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub TargetIPAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2794,8 +2794,8 @@ impl INetSharingPrivateConnectionCollection {
 #[doc(hidden)]
 pub struct INetSharingPrivateConnectionCollection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2822,8 +2822,8 @@ impl INetSharingPublicConnectionCollection {
 #[doc(hidden)]
 pub struct INetSharingPublicConnectionCollection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2891,17 +2891,17 @@ impl IStaticPortMapping {
 #[doc(hidden)]
 pub struct IStaticPortMapping_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub ExternalIPAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ExternalPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
-    pub InternalPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
-    pub Protocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub InternalClient: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub EditInternalClient: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinternalclient: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vb: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub EditDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdescription: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub EditInternalPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linternalport: i32) -> ::windows_core::HRESULT,
+    pub ExternalIPAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ExternalPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub InternalPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Protocol: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub InternalClient: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub EditInternalClient: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Enable: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub EditDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub EditInternalPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2955,15 +2955,15 @@ impl IStaticPortMappingCollection {
 #[doc(hidden)]
 pub struct IStaticPortMappingCollection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lexternalport: i32, bstrprotocol: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppspm: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lexternalport: i32, bstrprotocol: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lexternalport: i32, bstrprotocol: ::std::mem::MaybeUninit<::windows_core::BSTR>, linternalport: i32, bstrinternalclient: ::std::mem::MaybeUninit<::windows_core::BSTR>, benabled: super::super::Foundation::VARIANT_BOOL, bstrdescription: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppspm: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>, super::super::Foundation::VARIANT_BOOL, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
 }
@@ -3003,15 +3003,15 @@ impl IUPnPNAT {
 pub struct IUPnPNAT_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub StaticPortMappingCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppspms: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub StaticPortMappingCollection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     StaticPortMappingCollection: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub DynamicPortMappingCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdpms: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DynamicPortMappingCollection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DynamicPortMappingCollection: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub NATEventManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub NATEventManager: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     NATEventManager: usize,
 }

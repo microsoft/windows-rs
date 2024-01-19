@@ -3,35 +3,35 @@
 #[doc(hidden)]
 pub struct IClosedCaptionPropertiesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub FontColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionColor) -> ::windows_core::HRESULT,
+    pub FontColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ClosedCaptionColor) -> ::windows_core::HRESULT,
     #[cfg(feature = "UI")]
-    pub ComputedFontColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows_core::HRESULT,
+    pub ComputedFontColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::UI::Color) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "UI"))]
     ComputedFontColor: usize,
-    pub FontOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionOpacity) -> ::windows_core::HRESULT,
-    pub FontSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionSize) -> ::windows_core::HRESULT,
-    pub FontStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionStyle) -> ::windows_core::HRESULT,
-    pub FontEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionEdgeEffect) -> ::windows_core::HRESULT,
-    pub BackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionColor) -> ::windows_core::HRESULT,
+    pub FontOpacity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ClosedCaptionOpacity) -> ::windows_core::HRESULT,
+    pub FontSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ClosedCaptionSize) -> ::windows_core::HRESULT,
+    pub FontStyle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ClosedCaptionStyle) -> ::windows_core::HRESULT,
+    pub FontEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ClosedCaptionEdgeEffect) -> ::windows_core::HRESULT,
+    pub BackgroundColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ClosedCaptionColor) -> ::windows_core::HRESULT,
     #[cfg(feature = "UI")]
-    pub ComputedBackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows_core::HRESULT,
+    pub ComputedBackgroundColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::UI::Color) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "UI"))]
     ComputedBackgroundColor: usize,
-    pub BackgroundOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionOpacity) -> ::windows_core::HRESULT,
-    pub RegionColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionColor) -> ::windows_core::HRESULT,
+    pub BackgroundOpacity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ClosedCaptionOpacity) -> ::windows_core::HRESULT,
+    pub RegionColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ClosedCaptionColor) -> ::windows_core::HRESULT,
     #[cfg(feature = "UI")]
-    pub ComputedRegionColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::UI::Color) -> ::windows_core::HRESULT,
+    pub ComputedRegionColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::UI::Color) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "UI"))]
     ComputedRegionColor: usize,
-    pub RegionOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ClosedCaptionOpacity) -> ::windows_core::HRESULT,
+    pub RegionOpacity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ClosedCaptionOpacity) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IClosedCaptionPropertiesStatics2, IClosedCaptionPropertiesStatics2_Vtbl, 0x9de26870_37de_4197_8845_9a48dc5ac317);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IClosedCaptionPropertiesStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub PropertiesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemovePropertiesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub PropertiesChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemovePropertiesChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
 pub struct ClosedCaptionProperties;
 impl ClosedCaptionProperties {

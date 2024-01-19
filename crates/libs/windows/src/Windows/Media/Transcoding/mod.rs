@@ -3,31 +3,31 @@
 #[doc(hidden)]
 pub struct IMediaTranscoder_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub SetTrimStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub TrimStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub SetTrimStopTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub TrimStopTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub SetAlwaysReencode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub AlwaysReencode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetHardwareAccelerationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub HardwareAccelerationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub AddAudioEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetTrimStartTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub TrimStartTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub SetTrimStopTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub TrimStopTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub SetAlwaysReencode: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub AlwaysReencode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetHardwareAccelerationEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub HardwareAccelerationEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub AddAudioEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub AddAudioEffectWithSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, effectrequired: bool, configuration: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddAudioEffectWithSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, bool, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     AddAudioEffectWithSettings: usize,
-    pub AddVideoEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub AddVideoEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub AddVideoEffectWithSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, effectrequired: bool, configuration: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddVideoEffectWithSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, bool, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     AddVideoEffectWithSettings: usize,
-    pub ClearEffects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ClearEffects: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage"))]
-    pub PrepareFileTranscodeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: *mut ::core::ffi::c_void, destination: *mut ::core::ffi::c_void, profile: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PrepareFileTranscodeAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Media_MediaProperties", feature = "Storage")))]
     PrepareFileTranscodeAsync: usize,
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub PrepareStreamTranscodeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: *mut ::core::ffi::c_void, destination: *mut ::core::ffi::c_void, profile: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PrepareStreamTranscodeAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Media_MediaProperties", feature = "Storage_Streams")))]
     PrepareStreamTranscodeAsync: usize,
 }
@@ -37,20 +37,20 @@ pub struct IMediaTranscoder_Vtbl {
 pub struct IMediaTranscoder2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub PrepareMediaStreamSourceTranscodeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: *mut ::core::ffi::c_void, destination: *mut ::core::ffi::c_void, profile: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PrepareMediaStreamSourceTranscodeAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams")))]
     PrepareMediaStreamSourceTranscodeAsync: usize,
-    pub SetVideoProcessingAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MediaVideoProcessingAlgorithm) -> ::windows_core::HRESULT,
-    pub VideoProcessingAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaVideoProcessingAlgorithm) -> ::windows_core::HRESULT,
+    pub SetVideoProcessingAlgorithm: unsafe extern "system" fn(*mut ::core::ffi::c_void, MediaVideoProcessingAlgorithm) -> ::windows_core::HRESULT,
+    pub VideoProcessingAlgorithm: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MediaVideoProcessingAlgorithm) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPrepareTranscodeResult, IPrepareTranscodeResult_Vtbl, 0x05f25dce_994f_4a34_9d68_97ccce1730d6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrepareTranscodeResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CanTranscode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub FailureReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TranscodeFailureReason) -> ::windows_core::HRESULT,
-    pub TranscodeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CanTranscode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub FailureReason: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut TranscodeFailureReason) -> ::windows_core::HRESULT,
+    pub TranscodeAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

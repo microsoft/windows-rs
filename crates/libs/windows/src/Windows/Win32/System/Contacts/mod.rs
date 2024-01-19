@@ -15,9 +15,9 @@ impl IContact {
 #[doc(hidden)]
 pub struct IContact_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetContactID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcontactid: ::windows_core::PWSTR, cchcontactid: u32, pdwcchcontactidrequired: *mut u32) -> ::windows_core::HRESULT,
-    pub GetPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows_core::PWSTR, cchpath: u32, pdwcchpathrequired: *mut u32) -> ::windows_core::HRESULT,
-    pub CommitChanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcommitflags: u32) -> ::windows_core::HRESULT,
+    pub GetContactID: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub CommitChanges: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContactAggregationAggregate, IContactAggregationAggregate_Vtbl, 0x7ed1c814_cd30_43c8_9b8d_2e489e53d54b);
 ::windows_core::imp::interface_hierarchy!(IContactAggregationAggregate, ::windows_core::IUnknown);
@@ -65,15 +65,15 @@ impl IContactAggregationAggregate {
 #[doc(hidden)]
 pub struct IContactAggregationAggregate_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetComponentItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcomponentitems: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Link: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paggregateid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub get_Groups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppgroups: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AntiLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppantilink: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetAntiLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pantilink: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub FavoriteOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfavoriteorder: *mut u32) -> ::windows_core::HRESULT,
-    pub SetFavoriteOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, favoriteorder: u32) -> ::windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppitemid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub Save: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetComponentItems: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Link: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub get_Groups: unsafe extern "system" fn(*mut ::core::ffi::c_void, CONTACT_AGGREGATION_COLLECTION_OPTIONS, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AntiLink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetAntiLink: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub FavoriteOrder: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetFavoriteOrder: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContactAggregationAggregateCollection, IContactAggregationAggregateCollection_Vtbl, 0x2359f3a6_3a68_40af_98db_0f9eb143c3bb);
 ::windows_core::imp::interface_hierarchy!(IContactAggregationAggregateCollection, ::windows_core::IUnknown);
@@ -102,10 +102,10 @@ impl IContactAggregationAggregateCollection {
 #[doc(hidden)]
 pub struct IContactAggregationAggregateCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub FindFirst: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaggregate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FindFirstByAntiLinkId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pantilinkid: ::windows_core::PCWSTR, ppaggregate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FindNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaggregate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows_core::HRESULT,
+    pub FindFirst: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindFirstByAntiLinkId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindNext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContactAggregationContact, IContactAggregationContact_Vtbl, 0x1eb22e86_4c86_41f0_9f9f_c251e9fda6c3);
 ::windows_core::imp::interface_hierarchy!(IContactAggregationContact, ::windows_core::IUnknown);
@@ -187,24 +187,24 @@ impl IContactAggregationContact {
 #[doc(hidden)]
 pub struct IContactAggregationContact_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub MoveToAggregate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paggregateid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Unlink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaccountid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paccountid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub AggregateId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaggregateid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppitemid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub IsMe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisme: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub IsExternal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisexternal: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub NetworkSourceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnetworksourceid: *mut u32) -> ::windows_core::HRESULT,
-    pub SetNetworkSourceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networksourceid: u32) -> ::windows_core::HRESULT,
-    pub NetworkSourceIdString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnetworksourceid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetNetworkSourceIdString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnetworksourceid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub RemoteObjectId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppremoteobjectid: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
-    pub SetRemoteObjectId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
-    pub SyncIdentityHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsyncidentityhash: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
-    pub SetSyncIdentityHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
+    pub Delete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Save: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub MoveToAggregate: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Unlink: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AccountId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetAccountId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub AggregateId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub IsMe: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub IsExternal: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub NetworkSourceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetNetworkSourceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub NetworkSourceIdString: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetNetworkSourceIdString: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub RemoteObjectId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
+    pub SetRemoteObjectId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
+    pub SyncIdentityHash: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
+    pub SetSyncIdentityHash: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContactAggregationContactCollection, IContactAggregationContactCollection_Vtbl, 0x826e66fa_81de_43ca_a6fb_8c785cd996c6);
 ::windows_core::imp::interface_hierarchy!(IContactAggregationContactCollection, ::windows_core::IUnknown);
@@ -242,11 +242,11 @@ impl IContactAggregationContactCollection {
 #[doc(hidden)]
 pub struct IContactAggregationContactCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub FindFirst: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FindNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FindFirstByIdentityHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psourcetype: ::windows_core::PCWSTR, paccountid: ::windows_core::PCWSTR, pidentityhash: *const CONTACT_AGGREGATION_BLOB, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows_core::HRESULT,
-    pub FindFirstByRemoteId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psourcetype: ::windows_core::PCWSTR, paccountid: ::windows_core::PCWSTR, premoteobjectid: *const CONTACT_AGGREGATION_BLOB, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindFirst: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindNext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindFirstByIdentityHash: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *const CONTACT_AGGREGATION_BLOB, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub FindFirstByRemoteId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *const CONTACT_AGGREGATION_BLOB, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContactAggregationGroup, IContactAggregationGroup_Vtbl, 0xc93c545f_1284_499b_96af_07372af473e0);
 ::windows_core::imp::interface_hierarchy!(IContactAggregationGroup, ::windows_core::IUnknown);
@@ -299,16 +299,16 @@ impl IContactAggregationGroup {
 #[doc(hidden)]
 pub struct IContactAggregationGroup_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paggregateid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paggregateid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Members: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaggregatecontactcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GlobalObjectId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pglobalobjectid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub SetGlobalObjectId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pglobalobjectid: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppitemid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Delete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Save: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Members: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GlobalObjectId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub SetGlobalObjectId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContactAggregationGroupCollection, IContactAggregationGroupCollection_Vtbl, 0x20a19a9c_d2f3_4b83_9143_beffd2cc226d);
 ::windows_core::imp::interface_hierarchy!(IContactAggregationGroupCollection, ::windows_core::IUnknown);
@@ -334,10 +334,10 @@ impl IContactAggregationGroupCollection {
 #[doc(hidden)]
 pub struct IContactAggregationGroupCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub FindFirst: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FindFirstByGlobalObjectId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pglobalobjectid: *const ::windows_core::GUID, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FindNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows_core::HRESULT,
+    pub FindFirst: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindFirstByGlobalObjectId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindNext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContactAggregationLink, IContactAggregationLink_Vtbl, 0xb6813323_a183_4654_8627_79b30de3a0ec);
 ::windows_core::imp::interface_hierarchy!(IContactAggregationLink, ::windows_core::IUnknown);
@@ -421,23 +421,23 @@ impl IContactAggregationLink {
 #[doc(hidden)]
 pub struct IContactAggregationLink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaccountid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paccountid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppitemid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub IsLinkResolved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pislinkresolved: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetIsLinkResolved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, islinkresolved: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub NetworkSourceIdString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnetworksourceid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetNetworkSourceIdString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnetworksourceid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub RemoteObjectId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppremoteobjectid: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
-    pub SetRemoteObjectId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, premoteobjectid: *const CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
-    pub ServerPerson: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppserverpersonid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetServerPerson: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pserverpersonid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub ServerPersonBaseline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppserverpersonid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetServerPersonBaseline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pserverpersonid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub SyncIdentityHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsyncidentityhash: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
-    pub SetSyncIdentityHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
+    pub Delete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Save: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AccountId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetAccountId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub IsLinkResolved: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetIsLinkResolved: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub NetworkSourceIdString: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetNetworkSourceIdString: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub RemoteObjectId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
+    pub SetRemoteObjectId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
+    pub ServerPerson: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetServerPerson: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub ServerPersonBaseline: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetServerPersonBaseline: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub SyncIdentityHash: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
+    pub SetSyncIdentityHash: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContactAggregationLinkCollection, IContactAggregationLinkCollection_Vtbl, 0xf8bc0e93_fb55_4f28_b9fa_b1c274153292);
 ::windows_core::imp::interface_hierarchy!(IContactAggregationLinkCollection, ::windows_core::IUnknown);
@@ -467,10 +467,10 @@ impl IContactAggregationLinkCollection {
 #[doc(hidden)]
 pub struct IContactAggregationLinkCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub FindFirst: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppservercontactlink: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FindFirstByRemoteId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psourcetype: ::windows_core::PCWSTR, paccountid: ::windows_core::PCWSTR, premoteid: *const CONTACT_AGGREGATION_BLOB, ppservercontactlink: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FindNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppservercontactlink: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows_core::HRESULT,
+    pub FindFirst: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindFirstByRemoteId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *const CONTACT_AGGREGATION_BLOB, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindNext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContactAggregationManager, IContactAggregationManager_Vtbl, 0x1d865989_4b1f_4b60_8f34_c2ad468b2b50);
 ::windows_core::imp::interface_hierarchy!(IContactAggregationManager, ::windows_core::IUnknown);
@@ -556,21 +556,21 @@ impl IContactAggregationManager {
 #[doc(hidden)]
 pub struct IContactAggregationManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetVersionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmajorversion: *mut i32, plminorversion: *mut i32) -> ::windows_core::HRESULT,
-    pub CreateOrOpenGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgroupname: ::windows_core::PCWSTR, options: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS, pcreatedgroup: *mut super::super::Foundation::BOOL, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateExternalContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateServerPerson: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppserverperson: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateServerContactLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppservercontactlink: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Flush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OpenAggregateContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitemid: ::windows_core::PCWSTR, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OpenContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitemid: ::windows_core::PCWSTR, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OpenServerContactLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitemid: ::windows_core::PCWSTR, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OpenServerPerson: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitemid: ::windows_core::PCWSTR, ppitem: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub get_Contacts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppitems: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub get_AggregateContacts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppaggregates: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub get_Groups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: CONTACT_AGGREGATION_COLLECTION_OPTIONS, ppgroups: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ServerPersons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppserverpersoncollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub get_ServerContactLinks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppersonitemid: ::windows_core::PCWSTR, ppservercontactlinkcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetVersionInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32, *mut i32) -> ::windows_core::HRESULT,
+    pub CreateOrOpenGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS, *mut super::super::Foundation::BOOL, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateExternalContact: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateServerPerson: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateServerContactLink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Flush: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OpenAggregateContact: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OpenContact: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OpenServerContactLink: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OpenServerPerson: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_Contacts: unsafe extern "system" fn(*mut ::core::ffi::c_void, CONTACT_AGGREGATION_COLLECTION_OPTIONS, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_AggregateContacts: unsafe extern "system" fn(*mut ::core::ffi::c_void, CONTACT_AGGREGATION_COLLECTION_OPTIONS, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_Groups: unsafe extern "system" fn(*mut ::core::ffi::c_void, CONTACT_AGGREGATION_COLLECTION_OPTIONS, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ServerPersons: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_ServerContactLinks: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContactAggregationServerPerson, IContactAggregationServerPerson_Vtbl, 0x7fdc3d4b_1b82_4334_85c5_25184ee5a5f2);
 ::windows_core::imp::interface_hierarchy!(IContactAggregationServerPerson, ::windows_core::IUnknown);
@@ -678,29 +678,29 @@ impl IContactAggregationServerPerson {
 #[doc(hidden)]
 pub struct IContactAggregationServerPerson_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AggregateId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaggregateid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetAggregateId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paggregateid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub AntiLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppantilink: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetAntiLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pantilink: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub AntiLinkBaseline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppantilink: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetAntiLinkBaseline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pantilink: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub FavoriteOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfavoriteorder: *mut u32) -> ::windows_core::HRESULT,
-    pub SetFavoriteOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, favoriteorder: u32) -> ::windows_core::HRESULT,
-    pub FavoriteOrderBaseline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfavoriteorder: *mut u32) -> ::windows_core::HRESULT,
-    pub SetFavoriteOrderBaseline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, favoriteorder: u32) -> ::windows_core::HRESULT,
-    pub Groups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgroups: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
-    pub SetGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgroups: *const CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
-    pub GroupsBaseline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppgroups: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
-    pub SetGroupsBaseline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgroups: *const CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub IsTombstone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistombstone: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetIsTombstone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, istombstone: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub LinkedAggregateId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplinkedaggregateid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetLinkedAggregateId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plinkedaggregateid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub ObjectId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppobjectid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetObjectId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobjectid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Delete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Save: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AggregateId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetAggregateId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub AntiLink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetAntiLink: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub AntiLinkBaseline: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetAntiLinkBaseline: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub FavoriteOrder: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetFavoriteOrder: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub FavoriteOrderBaseline: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetFavoriteOrderBaseline: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Groups: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
+    pub SetGroups: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
+    pub GroupsBaseline: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
+    pub SetGroupsBaseline: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const CONTACT_AGGREGATION_BLOB) -> ::windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub IsTombstone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetIsTombstone: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub LinkedAggregateId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetLinkedAggregateId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub ObjectId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetObjectId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContactAggregationServerPersonCollection, IContactAggregationServerPersonCollection_Vtbl, 0x4f730a4a_6604_47b6_a987_669ecf1e5751);
 ::windows_core::imp::interface_hierarchy!(IContactAggregationServerPersonCollection, ::windows_core::IUnknown);
@@ -743,12 +743,12 @@ impl IContactAggregationServerPersonCollection {
 #[doc(hidden)]
 pub struct IContactAggregationServerPersonCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub FindFirst: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppserverperson: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FindFirstByServerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pserverid: ::windows_core::PCWSTR, ppserverperson: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FindFirstByAggregateId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paggregateid: ::windows_core::PCWSTR, ppserverperson: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FindFirstByLinkedAggregateId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paggregateid: ::windows_core::PCWSTR, ppserverperson: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FindNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppserverperson: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows_core::HRESULT,
+    pub FindFirst: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindFirstByServerId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindFirstByAggregateId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindFirstByLinkedAggregateId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindNext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContactCollection, IContactCollection_Vtbl, 0xb6afa338_d779_11d9_8bde_f66bad1e3f3a);
 ::windows_core::imp::interface_hierarchy!(IContactCollection, ::windows_core::IUnknown);
@@ -768,9 +768,9 @@ impl IContactCollection {
 #[doc(hidden)]
 pub struct IContactCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontact: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCurrent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContactManager, IContactManager_Vtbl, 0xad553d98_deb1_474a_8e17_fc0c2075b738);
 ::windows_core::imp::interface_hierarchy!(IContactManager, ::windows_core::IUnknown);
@@ -815,12 +815,12 @@ impl IContactManager {
 #[doc(hidden)]
 pub struct IContactManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszappname: ::windows_core::PCWSTR, pszappversion: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcontactid: ::windows_core::PCWSTR, ppcontact: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub MergeContactIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psznewcontactid: ::windows_core::PCWSTR, pszoldcontactid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetMeContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmecontact: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetMeContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmecontact: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetContactCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontactcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Load: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub MergeContactIDs: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetMeContact: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetMeContact: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetContactCollection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContactProperties, IContactProperties_Vtbl, 0x70dd27dd_5cbd_46e8_bef0_23b6b346288f);
 ::windows_core::imp::interface_hierarchy!(IContactProperties, ::windows_core::IUnknown);
@@ -917,25 +917,25 @@ impl IContactProperties {
 #[doc(hidden)]
 pub struct IContactProperties_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropertyname: ::windows_core::PCWSTR, dwflags: u32, pszvalue: ::windows_core::PWSTR, cchvalue: u32, pdwcchpropertyvaluerequired: *mut u32) -> ::windows_core::HRESULT,
-    pub GetDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropertyname: ::windows_core::PCWSTR, dwflags: u32, pftdatetime: *mut super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
+    pub GetString: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, ::windows_core::PWSTR, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetDate: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, *mut super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetBinary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropertyname: ::windows_core::PCWSTR, dwflags: u32, pszcontenttype: ::windows_core::PWSTR, cchcontenttype: u32, pdwcchcontenttyperequired: *mut u32, ppstream: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetBinary: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, ::windows_core::PWSTR, u32, *mut u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetBinary: usize,
-    pub GetLabels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszarrayelementname: ::windows_core::PCWSTR, dwflags: u32, pszlabels: ::windows_core::PWSTR, cchlabels: u32, pdwcchlabelsrequired: *mut u32) -> ::windows_core::HRESULT,
-    pub SetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropertyname: ::windows_core::PCWSTR, dwflags: u32, pszvalue: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub SetDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropertyname: ::windows_core::PCWSTR, dwflags: u32, ftdatetime: super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
+    pub GetLabels: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, ::windows_core::PWSTR, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub SetString: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub SetDate: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetBinary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropertyname: ::windows_core::PCWSTR, dwflags: u32, pszcontenttype: ::windows_core::PCWSTR, pstream: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetBinary: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, ::windows_core::PCWSTR, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetBinary: usize,
-    pub SetLabels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszarrayelementname: ::windows_core::PCWSTR, dwflags: u32, dwlabelcount: u32, ppszlabels: *const ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub CreateArrayNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszarrayname: ::windows_core::PCWSTR, dwflags: u32, fappend: super::super::Foundation::BOOL, psznewarrayelementname: ::windows_core::PWSTR, cchnewarrayelementname: u32, pdwcchnewarrayelementnamerequired: *mut u32) -> ::windows_core::HRESULT,
-    pub DeleteProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropertyname: ::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::HRESULT,
-    pub DeleteArrayNode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszarrayelementname: ::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::HRESULT,
-    pub DeleteLabels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszarrayelementname: ::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::HRESULT,
-    pub GetPropertyCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertycollection: *mut *mut ::core::ffi::c_void, dwflags: u32, pszmultivaluename: ::windows_core::PCWSTR, dwlabelcount: u32, ppszlabels: *const ::windows_core::PCWSTR, fanylabelmatches: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetLabels: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, u32, *const ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub CreateArrayNode: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, super::super::Foundation::BOOL, ::windows_core::PWSTR, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub DeleteProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub DeleteArrayNode: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub DeleteLabels: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub GetPropertyCollection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, u32, *const ::windows_core::PCWSTR, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContactPropertyCollection, IContactPropertyCollection_Vtbl, 0xffd3adf8_fa64_4328_b1b6_2e0db509cb3c);
 ::windows_core::imp::interface_hierarchy!(IContactPropertyCollection, ::windows_core::IUnknown);
@@ -966,13 +966,13 @@ impl IContactPropertyCollection {
 #[doc(hidden)]
 pub struct IContactPropertyCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetPropertyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropertyname: ::windows_core::PWSTR, cchpropertyname: u32, pdwcchpropertynamerequired: *mut u32) -> ::windows_core::HRESULT,
-    pub GetPropertyType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwtype: *mut u32) -> ::windows_core::HRESULT,
-    pub GetPropertyVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwversion: *mut u32) -> ::windows_core::HRESULT,
-    pub GetPropertyModificationDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pftmodificationdate: *mut super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
-    pub GetPropertyArrayElementID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszarrayelementid: ::windows_core::PWSTR, ccharrayelementid: u32, pdwccharrayelementidrequired: *mut u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPropertyName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetPropertyType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetPropertyVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetPropertyModificationDate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
+    pub GetPropertyArrayElementID: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, u32, *mut u32) -> ::windows_core::HRESULT,
 }
 pub const CACO_DEFAULT: CONTACT_AGGREGATION_COLLECTION_OPTIONS = CONTACT_AGGREGATION_COLLECTION_OPTIONS(0i32);
 pub const CACO_EXTERNAL_ONLY: CONTACT_AGGREGATION_COLLECTION_OPTIONS = CONTACT_AGGREGATION_COLLECTION_OPTIONS(2i32);

@@ -3,24 +3,24 @@
 #[doc(hidden)]
 pub struct ICompositionDebugHeatMaps_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Hide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtree: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ShowMemoryUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtree: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ShowOverdraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtree: *mut ::core::ffi::c_void, contentkinds: CompositionDebugOverdrawContentKinds) -> ::windows_core::HRESULT,
-    pub ShowRedraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtree: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Hide: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShowMemoryUsage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShowOverdraw: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, CompositionDebugOverdrawContentKinds) -> ::windows_core::HRESULT,
+    pub ShowRedraw: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICompositionDebugSettings, ICompositionDebugSettings_Vtbl, 0x2831987e_1d82_4d38_b7b7_efd11c7bc3d1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionDebugSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub HeatMaps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub HeatMaps: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICompositionDebugSettingsStatics, ICompositionDebugSettingsStatics_Vtbl, 0x64ec1f1e_6af8_4af8_b814_c870fd5a9505);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICompositionDebugSettingsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub TryGetSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TryGetSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

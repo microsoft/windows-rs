@@ -3,9 +3,9 @@
 #[doc(hidden)]
 pub struct ISoundLevelBrokerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub SoundLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::SoundLevel) -> ::windows_core::HRESULT,
-    pub SoundLevelChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveSoundLevelChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub SoundLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::SoundLevel) -> ::windows_core::HRESULT,
+    pub SoundLevelChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveSoundLevelChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
 pub struct SoundLevelBroker;
 impl SoundLevelBroker {

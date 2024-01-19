@@ -3,7 +3,7 @@
 #[doc(hidden)]
 pub struct IApplicationProfileStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Modes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ApplicationProfileModes) -> ::windows_core::HRESULT,
+    pub Modes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ApplicationProfileModes) -> ::windows_core::HRESULT,
 }
 pub struct ApplicationProfile;
 impl ApplicationProfile {

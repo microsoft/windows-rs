@@ -470,11 +470,11 @@ impl IABContainer {
 #[doc(hidden)]
 pub struct IABContainer_Vtbl {
     pub base__: IMAPIContainer_Vtbl,
-    pub CreateEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32, lppmapipropentry: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CopyEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: *mut ::core::ffi::c_void, ulflags: u32) -> ::windows_core::HRESULT,
-    pub DeleteEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpentries: *const SBinaryArray, ulflags: u32) -> ::windows_core::HRESULT,
+    pub CreateEntry: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ENTRYID, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CopyEntries: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const SBinaryArray, usize, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub DeleteEntries: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const SBinaryArray, u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub ResolveNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpproptagarray: *const SPropTagArray, ulflags: u32, lpadrlist: *const ADRLIST, lpflaglist: *mut FlagList) -> ::windows_core::HRESULT,
+    pub ResolveNames: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const SPropTagArray, u32, *const ADRLIST, *mut FlagList) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ResolveNames: usize,
 }
@@ -600,43 +600,43 @@ impl IAddrBook {
 #[doc(hidden)]
 pub struct IAddrBook_Vtbl {
     pub base__: IMAPIProp_Vtbl,
-    pub OpenEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *mut ENTRYID, lpinterface: *mut ::windows_core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CompareEntryIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid1: u32, lpentryid1: *mut ENTRYID, cbentryid2: u32, lpentryid2: *mut ENTRYID, ulflags: u32, lpulresult: *mut u32) -> ::windows_core::HRESULT,
-    pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *mut ENTRYID, uleventmask: u32, lpadvisesink: *mut ::core::ffi::c_void, lpulconnection: *mut u32) -> ::windows_core::HRESULT,
-    pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulconnection: u32) -> ::windows_core::HRESULT,
-    pub CreateOneOff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszname: *mut i8, lpszadrtype: *mut i8, lpszaddress: *mut i8, ulflags: u32, lpcbentryid: *mut u32, lppentryid: *mut *mut ENTRYID) -> ::windows_core::HRESULT,
-    pub NewEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uluiparam: u32, ulflags: u32, cbeidcontainer: u32, lpeidcontainer: *mut ENTRYID, cbeidnewentrytpl: u32, lpeidnewentrytpl: *mut ENTRYID, lpcbeidnewentry: *mut u32, lppeidnewentry: *mut *mut ENTRYID) -> ::windows_core::HRESULT,
+    pub OpenEntry: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ENTRYID, *mut ::windows_core::GUID, u32, *mut u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CompareEntryIDs: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ENTRYID, u32, *mut ENTRYID, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub Advise: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ENTRYID, u32, *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Unadvise: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub CreateOneOff: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i8, *mut i8, *mut i8, u32, *mut u32, *mut *mut ENTRYID) -> ::windows_core::HRESULT,
+    pub NewEntry: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32, *mut ENTRYID, u32, *mut ENTRYID, *mut u32, *mut *mut ENTRYID) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub ResolveName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uluiparam: usize, ulflags: u32, lpsznewentrytitle: *mut i8, lpadrlist: *mut ADRLIST) -> ::windows_core::HRESULT,
+    pub ResolveName: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *mut i8, *mut ADRLIST) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ResolveName: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Address: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpuluiparam: *mut u32, lpadrparms: *mut ADRPARM, lppadrlist: *mut *mut ADRLIST) -> ::windows_core::HRESULT,
+    pub Address: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut ADRPARM, *mut *mut ADRLIST) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Address: usize,
-    pub Details: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpuluiparam: *mut usize, lpfndismiss: LPFNDISMISS, lpvdismisscontext: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *mut ENTRYID, lpfbuttoncallback: LPFNBUTTON, lpvbuttoncontext: *mut ::core::ffi::c_void, lpszbuttontext: *mut i8, ulflags: u32) -> ::windows_core::HRESULT,
+    pub Details: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut usize, LPFNDISMISS, *mut ::core::ffi::c_void, u32, *mut ENTRYID, LPFNBUTTON, *mut ::core::ffi::c_void, *mut i8, u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub RecipOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uluiparam: u32, ulflags: u32, lprecip: *mut ADRENTRY) -> ::windows_core::HRESULT,
+    pub RecipOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut ADRENTRY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     RecipOptions: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub QueryDefaultRecipOpt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszadrtype: *mut i8, ulflags: u32, lpcvalues: *mut u32, lppoptions: *mut *mut SPropValue) -> ::windows_core::HRESULT,
+    pub QueryDefaultRecipOpt: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i8, u32, *mut u32, *mut *mut SPropValue) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     QueryDefaultRecipOpt: usize,
-    pub GetPAB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpcbentryid: *mut u32, lppentryid: *mut *mut ENTRYID) -> ::windows_core::HRESULT,
-    pub SetPAB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *mut ENTRYID) -> ::windows_core::HRESULT,
-    pub GetDefaultDir: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpcbentryid: *mut u32, lppentryid: *mut *mut ENTRYID) -> ::windows_core::HRESULT,
-    pub SetDefaultDir: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *mut ENTRYID) -> ::windows_core::HRESULT,
+    pub GetPAB: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut ENTRYID) -> ::windows_core::HRESULT,
+    pub SetPAB: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ENTRYID) -> ::windows_core::HRESULT,
+    pub GetDefaultDir: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut ENTRYID) -> ::windows_core::HRESULT,
+    pub SetDefaultDir: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ENTRYID) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetSearchPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lppsearchpath: *mut *mut SRowSet) -> ::windows_core::HRESULT,
+    pub GetSearchPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut SRowSet) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetSearchPath: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetSearchPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpsearchpath: *mut SRowSet) -> ::windows_core::HRESULT,
+    pub SetSearchPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut SRowSet) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetSearchPath: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub PrepareRecips: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpproptagarray: *mut SPropTagArray, lpreciplist: *mut ADRLIST) -> ::windows_core::HRESULT,
+    pub PrepareRecips: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut SPropTagArray, *mut ADRLIST) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     PrepareRecips: usize,
 }
@@ -783,11 +783,11 @@ impl IDistList {
 #[doc(hidden)]
 pub struct IDistList_Vtbl {
     pub base__: IMAPIContainer_Vtbl,
-    pub CreateEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32, lppmapipropentry: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CopyEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpentries: *const SBinaryArray, uluiparam: usize, lpprogress: *mut ::core::ffi::c_void, ulflags: u32) -> ::windows_core::HRESULT,
-    pub DeleteEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpentries: *const SBinaryArray, ulflags: u32) -> ::windows_core::HRESULT,
+    pub CreateEntry: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ENTRYID, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CopyEntries: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const SBinaryArray, usize, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub DeleteEntries: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const SBinaryArray, u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub ResolveNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpproptagarray: *const SPropTagArray, ulflags: u32, lpadrlist: *const ADRLIST, lpflaglist: *mut FlagList) -> ::windows_core::HRESULT,
+    pub ResolveNames: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const SPropTagArray, u32, *const ADRLIST, *mut FlagList) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ResolveNames: usize,
 }
@@ -805,7 +805,7 @@ impl IMAPIAdviseSink {
 pub struct IMAPIAdviseSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub OnNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnotif: u32, lpnotifications: *mut NOTIFICATION) -> u32,
+    pub OnNotify: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut NOTIFICATION) -> u32,
     #[cfg(not(feature = "Win32_System_Com"))]
     OnNotify: usize,
 }
@@ -881,15 +881,15 @@ impl IMAPIContainer {
 #[doc(hidden)]
 pub struct IMAPIContainer_Vtbl {
     pub base__: IMAPIProp_Vtbl,
-    pub GetContentsTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpptable: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetHierarchyTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpptable: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OpenEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *mut ::windows_core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetContentsTable: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetHierarchyTable: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OpenEntry: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ENTRYID, *mut ::windows_core::GUID, u32, *mut u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetSearchCriteria: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprestriction: *const SRestriction, lpcontainerlist: *const SBinaryArray, ulsearchflags: u32) -> ::windows_core::HRESULT,
+    pub SetSearchCriteria: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const SRestriction, *const SBinaryArray, u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetSearchCriteria: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetSearchCriteria: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpprestriction: *mut *mut SRestriction, lppcontainerlist: *mut *mut SBinaryArray, lpulsearchstate: *mut u32) -> ::windows_core::HRESULT,
+    pub GetSearchCriteria: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut SRestriction, *mut *mut SBinaryArray, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetSearchCriteria: usize,
 }
@@ -911,9 +911,9 @@ impl IMAPIControl {
 #[doc(hidden)]
 pub struct IMAPIControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetLastError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::HRESULT,
-    pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, uluiparam: usize) -> ::windows_core::HRESULT,
-    pub GetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpulstate: *mut u32) -> ::windows_core::HRESULT,
+    pub GetLastError: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, u32, *mut *mut MAPIERROR) -> ::windows_core::HRESULT,
+    pub Activate: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, usize) -> ::windows_core::HRESULT,
+    pub GetState: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMAPIFolder, IMAPIFolder_Vtbl, 0);
 ::windows_core::imp::interface_hierarchy!(IMAPIFolder, ::windows_core::IUnknown, IMAPIProp, IMAPIContainer);
@@ -1041,17 +1041,17 @@ impl IMAPIFolder {
 #[doc(hidden)]
 pub struct IMAPIFolder_Vtbl {
     pub base__: IMAPIContainer_Vtbl,
-    pub CreateMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpinterface: *mut ::windows_core::GUID, ulflags: u32, lppmessage: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CopyMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpmsglist: *const SBinaryArray, lpinterface: *const ::windows_core::GUID, lpdestfolder: *const ::core::ffi::c_void, uluiparam: usize, lpprogress: *mut ::core::ffi::c_void, ulflags: u32) -> ::windows_core::HRESULT,
-    pub DeleteMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpmsglist: *const SBinaryArray, uluiparam: usize, lpprogress: *mut ::core::ffi::c_void, ulflags: u32) -> ::windows_core::HRESULT,
-    pub CreateFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulfoldertype: u32, lpszfoldername: *const i8, lpszfoldercomment: *const i8, lpinterface: *const ::windows_core::GUID, ulflags: u32, lppfolder: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CopyFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *const ::windows_core::GUID, lpdestfolder: *const ::core::ffi::c_void, lpsznewfoldername: *const i8, uluiparam: usize, lpprogress: *mut ::core::ffi::c_void, ulflags: u32) -> ::windows_core::HRESULT,
-    pub DeleteFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *const ENTRYID, uluiparam: usize, lpprogress: *mut ::core::ffi::c_void, ulflags: u32) -> ::windows_core::HRESULT,
-    pub SetReadFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpmsglist: *const SBinaryArray, uluiparam: usize, lpprogress: *mut ::core::ffi::c_void, ulflags: u32) -> ::windows_core::HRESULT,
-    pub GetMessageStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *const ENTRYID, ulflags: u32, lpulmessagestatus: *mut u32) -> ::windows_core::HRESULT,
-    pub SetMessageStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *const ENTRYID, ulnewstatus: u32, ulnewstatusmask: u32, lpuloldstatus: *mut u32) -> ::windows_core::HRESULT,
-    pub SaveContentsSort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpsortcriteria: *const SSortOrderSet, ulflags: u32) -> ::windows_core::HRESULT,
-    pub EmptyFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uluiparam: usize, lpprogress: *mut ::core::ffi::c_void, ulflags: u32) -> ::windows_core::HRESULT,
+    pub CreateMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CopyMessages: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const SBinaryArray, *const ::windows_core::GUID, *const ::core::ffi::c_void, usize, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub DeleteMessages: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const SBinaryArray, usize, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub CreateFolder: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i8, *const i8, *const ::windows_core::GUID, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CopyFolder: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ENTRYID, *const ::windows_core::GUID, *const ::core::ffi::c_void, *const i8, usize, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub DeleteFolder: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ENTRYID, usize, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub SetReadFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const SBinaryArray, usize, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetMessageStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ENTRYID, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub SetMessageStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ENTRYID, u32, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub SaveContentsSort: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const SSortOrderSet, u32) -> ::windows_core::HRESULT,
+    pub EmptyFolder: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMAPIProgress, IMAPIProgress_Vtbl, 0);
 ::windows_core::imp::interface_hierarchy!(IMAPIProgress, ::windows_core::IUnknown);
@@ -1076,11 +1076,11 @@ impl IMAPIProgress {
 #[doc(hidden)]
 pub struct IMAPIProgress_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Progress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulvalue: u32, ulcount: u32, ultotal: u32) -> ::windows_core::HRESULT,
-    pub GetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpulflags: *mut u32) -> ::windows_core::HRESULT,
-    pub GetMax: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpulmax: *mut u32) -> ::windows_core::HRESULT,
-    pub GetMin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpulmin: *mut u32) -> ::windows_core::HRESULT,
-    pub SetLimits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpulmin: *mut u32, lpulmax: *mut u32, lpulflags: *mut u32) -> ::windows_core::HRESULT,
+    pub Progress: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32) -> ::windows_core::HRESULT,
+    pub GetFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetMax: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetMin: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetLimits: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMAPIProp, IMAPIProp_Vtbl, 0);
 ::windows_core::imp::interface_hierarchy!(IMAPIProp, ::windows_core::IUnknown);
@@ -1133,23 +1133,23 @@ impl IMAPIProp {
 #[doc(hidden)]
 pub struct IMAPIProp_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetLastError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::HRESULT,
-    pub SaveChanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32) -> ::windows_core::HRESULT,
+    pub GetLastError: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, u32, *mut *mut MAPIERROR) -> ::windows_core::HRESULT,
+    pub SaveChanges: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpproptagarray: *mut SPropTagArray, ulflags: u32, lpcvalues: *mut u32, lppproparray: *mut *mut SPropValue) -> ::windows_core::HRESULT,
+    pub GetProps: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SPropTagArray, u32, *mut u32, *mut *mut SPropValue) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetProps: usize,
-    pub GetPropList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lppproptagarray: *mut *mut SPropTagArray) -> ::windows_core::HRESULT,
-    pub OpenProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulproptag: u32, lpiid: *mut ::windows_core::GUID, ulinterfaceoptions: u32, ulflags: u32, lppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPropList: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut SPropTagArray) -> ::windows_core::HRESULT,
+    pub OpenProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::GUID, u32, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cvalues: u32, lpproparray: *mut SPropValue, lppproblems: *mut *mut SPropProblemArray) -> ::windows_core::HRESULT,
+    pub SetProps: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut SPropValue, *mut *mut SPropProblemArray) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetProps: usize,
-    pub DeleteProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpproptagarray: *mut SPropTagArray, lppproblems: *mut *mut SPropProblemArray) -> ::windows_core::HRESULT,
-    pub CopyTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ciidexclude: u32, rgiidexclude: *mut ::windows_core::GUID, lpexcludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: *mut ::core::ffi::c_void, lpinterface: *mut ::windows_core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows_core::HRESULT,
-    pub CopyProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpincludeprops: *mut SPropTagArray, uluiparam: usize, lpprogress: *mut ::core::ffi::c_void, lpinterface: *mut ::windows_core::GUID, lpdestobj: *mut ::core::ffi::c_void, ulflags: u32, lppproblems: *mut *mut SPropProblemArray) -> ::windows_core::HRESULT,
-    pub GetNamesFromIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lppproptags: *mut *mut SPropTagArray, lppropsetguid: *mut ::windows_core::GUID, ulflags: u32, lpcpropnames: *mut u32, lppppropnames: *mut *mut *mut MAPINAMEID) -> ::windows_core::HRESULT,
-    pub GetIDsFromNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropnames: u32, lpppropnames: *mut *mut MAPINAMEID, ulflags: u32, lppproptags: *mut *mut SPropTagArray) -> ::windows_core::HRESULT,
+    pub DeleteProps: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SPropTagArray, *mut *mut SPropProblemArray) -> ::windows_core::HRESULT,
+    pub CopyTo: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::GUID, *mut SPropTagArray, usize, *mut ::core::ffi::c_void, *mut ::windows_core::GUID, *mut ::core::ffi::c_void, u32, *mut *mut SPropProblemArray) -> ::windows_core::HRESULT,
+    pub CopyProps: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SPropTagArray, usize, *mut ::core::ffi::c_void, *mut ::windows_core::GUID, *mut ::core::ffi::c_void, u32, *mut *mut SPropProblemArray) -> ::windows_core::HRESULT,
+    pub GetNamesFromIDs: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut SPropTagArray, *mut ::windows_core::GUID, u32, *mut u32, *mut *mut *mut MAPINAMEID) -> ::windows_core::HRESULT,
+    pub GetIDsFromNames: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut MAPINAMEID, u32, *mut *mut SPropTagArray) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMAPIStatus, IMAPIStatus_Vtbl, 0);
 ::windows_core::imp::interface_hierarchy!(IMAPIStatus, ::windows_core::IUnknown, IMAPIProp);
@@ -1214,10 +1214,10 @@ impl IMAPIStatus {
 #[doc(hidden)]
 pub struct IMAPIStatus_Vtbl {
     pub base__: IMAPIProp_Vtbl,
-    pub ValidateState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uluiparam: usize, ulflags: u32) -> ::windows_core::HRESULT,
-    pub SettingsDialog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uluiparam: usize, ulflags: u32) -> ::windows_core::HRESULT,
-    pub ChangePassword: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpoldpass: *const i8, lpnewpass: *const i8, ulflags: u32) -> ::windows_core::HRESULT,
-    pub FlushQueues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uluiparam: usize, cbtargettransport: u32, lptargettransport: *const ENTRYID, ulflags: u32) -> ::windows_core::HRESULT,
+    pub ValidateState: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32) -> ::windows_core::HRESULT,
+    pub SettingsDialog: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32) -> ::windows_core::HRESULT,
+    pub ChangePassword: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const i8, *const i8, u32) -> ::windows_core::HRESULT,
+    pub FlushQueues: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *const ENTRYID, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMAPITable, IMAPITable_Vtbl, 0);
 ::windows_core::imp::interface_hierarchy!(IMAPITable, ::windows_core::IUnknown);
@@ -1307,41 +1307,41 @@ impl IMAPITable {
 #[doc(hidden)]
 pub struct IMAPITable_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetLastError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::HRESULT,
-    pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uleventmask: u32, lpadvisesink: *mut ::core::ffi::c_void, lpulconnection: *mut u32) -> ::windows_core::HRESULT,
-    pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulconnection: u32) -> ::windows_core::HRESULT,
-    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpultablestatus: *mut u32, lpultabletype: *mut u32) -> ::windows_core::HRESULT,
-    pub SetColumns: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpproptagarray: *mut SPropTagArray, ulflags: u32) -> ::windows_core::HRESULT,
-    pub QueryColumns: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpproptagarray: *mut *mut SPropTagArray) -> ::windows_core::HRESULT,
-    pub GetRowCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpulcount: *mut u32) -> ::windows_core::HRESULT,
-    pub SeekRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bkorigin: u32, lrowcount: i32, lplrowssought: *mut i32) -> ::windows_core::HRESULT,
-    pub SeekRowApprox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulnumerator: u32, uldenominator: u32) -> ::windows_core::HRESULT,
-    pub QueryPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpulrow: *mut u32, lpulnumerator: *mut u32, lpuldenominator: *mut u32) -> ::windows_core::HRESULT,
+    pub GetLastError: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, u32, *mut *mut MAPIERROR) -> ::windows_core::HRESULT,
+    pub Advise: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Unadvise: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub SetColumns: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SPropTagArray, u32) -> ::windows_core::HRESULT,
+    pub QueryColumns: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut SPropTagArray) -> ::windows_core::HRESULT,
+    pub GetRowCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub SeekRow: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, i32, *mut i32) -> ::windows_core::HRESULT,
+    pub SeekRowApprox: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub QueryPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub FindRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprestriction: *mut SRestriction, bkorigin: u32, ulflags: u32) -> ::windows_core::HRESULT,
+    pub FindRow: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SRestriction, u32, u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     FindRow: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Restrict: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprestriction: *mut SRestriction, ulflags: u32) -> ::windows_core::HRESULT,
+    pub Restrict: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SRestriction, u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Restrict: usize,
-    pub CreateBookmark: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpbkposition: *mut u32) -> ::windows_core::HRESULT,
-    pub FreeBookmark: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bkposition: u32) -> ::windows_core::HRESULT,
-    pub SortTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpsortcriteria: *mut SSortOrderSet, ulflags: u32) -> ::windows_core::HRESULT,
-    pub QuerySortOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lppsortcriteria: *mut *mut SSortOrderSet) -> ::windows_core::HRESULT,
+    pub CreateBookmark: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub FreeBookmark: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub SortTable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SSortOrderSet, u32) -> ::windows_core::HRESULT,
+    pub QuerySortOrder: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut SSortOrderSet) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub QueryRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lrowcount: i32, ulflags: u32, lpprows: *mut *mut SRowSet) -> ::windows_core::HRESULT,
+    pub QueryRows: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, u32, *mut *mut SRowSet) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     QueryRows: usize,
-    pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Abort: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub ExpandRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbinstancekey: u32, pbinstancekey: *mut u8, ulrowcount: u32, ulflags: u32, lpprows: *mut *mut SRowSet, lpulmorerows: *mut u32) -> ::windows_core::HRESULT,
+    pub ExpandRow: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u8, u32, u32, *mut *mut SRowSet, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ExpandRow: usize,
-    pub CollapseRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbinstancekey: u32, pbinstancekey: *mut u8, ulflags: u32, lpulrowcount: *mut u32) -> ::windows_core::HRESULT,
-    pub WaitForCompletion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, ultimeout: u32, lpultablestatus: *mut u32) -> ::windows_core::HRESULT,
-    pub GetCollapseState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, cbinstancekey: u32, lpbinstancekey: *mut u8, lpcbcollapsestate: *mut u32, lppbcollapsestate: *mut *mut u8) -> ::windows_core::HRESULT,
-    pub SetCollapseState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, cbcollapsestate: u32, pbcollapsestate: *mut u8, lpbklocation: *mut u32) -> ::windows_core::HRESULT,
+    pub CollapseRow: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u8, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub WaitForCompletion: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetCollapseState: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut u8, *mut u32, *mut *mut u8) -> ::windows_core::HRESULT,
+    pub SetCollapseState: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut u8, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMailUser, IMailUser_Vtbl, 0);
 ::windows_core::imp::interface_hierarchy!(IMailUser, ::windows_core::IUnknown, IMAPIProp);
@@ -1478,17 +1478,17 @@ impl IMessage {
 #[doc(hidden)]
 pub struct IMessage_Vtbl {
     pub base__: IMAPIProp_Vtbl,
-    pub GetAttachmentTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpptable: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OpenAttach: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulattachmentnum: u32, lpinterface: *const ::windows_core::GUID, ulflags: u32, lppattach: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateAttach: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpinterface: *const ::windows_core::GUID, ulflags: u32, lpulattachmentnum: *mut u32, lppattach: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DeleteAttach: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulattachmentnum: u32, uluiparam: usize, lpprogress: *mut ::core::ffi::c_void, ulflags: u32) -> ::windows_core::HRESULT,
-    pub GetRecipientTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpptable: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAttachmentTable: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OpenAttach: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAttach: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *mut u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeleteAttach: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, usize, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetRecipientTable: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub ModifyRecipients: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpmods: *const ADRLIST) -> ::windows_core::HRESULT,
+    pub ModifyRecipients: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ADRLIST) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ModifyRecipients: usize,
-    pub SubmitMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32) -> ::windows_core::HRESULT,
-    pub SetReadFlag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32) -> ::windows_core::HRESULT,
+    pub SubmitMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub SetReadFlag: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMsgStore, IMsgStore_Vtbl, 0);
 ::windows_core::imp::interface_hierarchy!(IMsgStore, ::windows_core::IUnknown, IMAPIProp);
@@ -1592,20 +1592,20 @@ impl IMsgStore {
 #[doc(hidden)]
 pub struct IMsgStore_Vtbl {
     pub base__: IMAPIProp_Vtbl,
-    pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *const ENTRYID, uleventmask: u32, lpadvisesink: *mut ::core::ffi::c_void, lpulconnection: *mut u32) -> ::windows_core::HRESULT,
-    pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulconnection: u32) -> ::windows_core::HRESULT,
-    pub CompareEntryIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid1: u32, lpentryid1: *const ENTRYID, cbentryid2: u32, lpentryid2: *const ENTRYID, ulflags: u32, lpulresult: *mut u32) -> ::windows_core::HRESULT,
-    pub OpenEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *const ENTRYID, lpinterface: *const ::windows_core::GUID, ulflags: u32, lpulobjtype: *mut u32, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetReceiveFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszmessageclass: *const i8, ulflags: u32, cbentryid: u32, lpentryid: *const ENTRYID) -> ::windows_core::HRESULT,
-    pub GetReceiveFolder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszmessageclass: *const i8, ulflags: u32, lpcbentryid: *mut u32, lppentryid: *mut *mut ENTRYID, lppszexplicitclass: *mut *mut i8) -> ::windows_core::HRESULT,
-    pub GetReceiveFolderTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpptable: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub StoreLogoff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpulflags: *mut u32) -> ::windows_core::HRESULT,
-    pub AbortSubmit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbentryid: u32, lpentryid: *const ENTRYID, ulflags: u32) -> ::windows_core::HRESULT,
-    pub GetOutgoingQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpptable: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetLockState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpmessage: *mut ::core::ffi::c_void, ullockstate: u32) -> ::windows_core::HRESULT,
-    pub FinishedMsg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, cbentryid: u32, lpentryid: *const ENTRYID) -> ::windows_core::HRESULT,
+    pub Advise: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ENTRYID, u32, *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Unadvise: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub CompareEntryIDs: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ENTRYID, u32, *const ENTRYID, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub OpenEntry: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ENTRYID, *const ::windows_core::GUID, u32, *mut u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetReceiveFolder: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const i8, u32, u32, *const ENTRYID) -> ::windows_core::HRESULT,
+    pub GetReceiveFolder: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const i8, u32, *mut u32, *mut *mut ENTRYID, *mut *mut i8) -> ::windows_core::HRESULT,
+    pub GetReceiveFolderTable: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub StoreLogoff: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub AbortSubmit: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ENTRYID, u32) -> ::windows_core::HRESULT,
+    pub GetOutgoingQueue: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetLockState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub FinishedMsg: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const ENTRYID) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub NotifyNewMail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpnotification: *const NOTIFICATION) -> ::windows_core::HRESULT,
+    pub NotifyNewMail: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const NOTIFICATION) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     NotifyNewMail: usize,
 }
@@ -1724,10 +1724,10 @@ impl IPropData {
 #[doc(hidden)]
 pub struct IPropData_Vtbl {
     pub base__: IMAPIProp_Vtbl,
-    pub HrSetObjAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulaccess: u32) -> ::windows_core::HRESULT,
-    pub HrSetPropAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpproptagarray: *mut SPropTagArray, rgulaccess: *mut u32) -> ::windows_core::HRESULT,
-    pub HrGetPropAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lppproptagarray: *mut *mut SPropTagArray, lprgulaccess: *mut *mut u32) -> ::windows_core::HRESULT,
-    pub HrAddObjProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lppproptagarray: *mut SPropTagArray, lprgulaccess: *mut *mut SPropProblemArray) -> ::windows_core::HRESULT,
+    pub HrSetObjAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub HrSetPropAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SPropTagArray, *mut u32) -> ::windows_core::HRESULT,
+    pub HrGetPropAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut SPropTagArray, *mut *mut u32) -> ::windows_core::HRESULT,
+    pub HrAddObjProps: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SPropTagArray, *mut *mut SPropProblemArray) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IProviderAdmin, IProviderAdmin_Vtbl, 0);
 ::windows_core::imp::interface_hierarchy!(IProviderAdmin, ::windows_core::IUnknown);
@@ -1758,14 +1758,14 @@ impl IProviderAdmin {
 #[doc(hidden)]
 pub struct IProviderAdmin_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetLastError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::HRESULT,
-    pub GetProviderTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpptable: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetLastError: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, u32, *mut *mut MAPIERROR) -> ::windows_core::HRESULT,
+    pub GetProviderTable: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreateProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszprovider: *const i8, cvalues: u32, lpprops: *const SPropValue, uluiparam: usize, ulflags: u32, lpuid: *mut MAPIUID) -> ::windows_core::HRESULT,
+    pub CreateProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const i8, u32, *const SPropValue, usize, u32, *mut MAPIUID) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateProvider: usize,
-    pub DeleteProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpuid: *const MAPIUID) -> ::windows_core::HRESULT,
-    pub OpenProfileSection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpuid: *const MAPIUID, lpinterface: *const ::windows_core::GUID, ulflags: u32, lppprofsect: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeleteProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const MAPIUID) -> ::windows_core::HRESULT,
+    pub OpenProfileSection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const MAPIUID, *const ::windows_core::GUID, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITableData, ITableData_Vtbl, 0);
 ::windows_core::imp::interface_hierarchy!(ITableData, ::windows_core::IUnknown);
@@ -1818,37 +1818,37 @@ impl ITableData {
 #[doc(hidden)]
 pub struct ITableData_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub HrGetView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpssortorderset: *mut SSortOrderSet, lpfcallerrelease: *mut CALLERRELEASE, ulcallerdata: u32, lppmapitable: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub HrGetView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SSortOrderSet, *mut CALLERRELEASE, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub HrModifyRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut SRow) -> ::windows_core::HRESULT,
+    pub HrModifyRow: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SRow) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     HrModifyRow: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub HrDeleteRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpspropvalue: *mut SPropValue) -> ::windows_core::HRESULT,
+    pub HrDeleteRow: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SPropValue) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     HrDeleteRow: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub HrQueryRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpspropvalue: *mut SPropValue, lppsrow: *mut *mut SRow, lpulirow: *mut u32) -> ::windows_core::HRESULT,
+    pub HrQueryRow: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SPropValue, *mut *mut SRow, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     HrQueryRow: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub HrEnumRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulrownumber: u32, lppsrow: *mut *mut SRow) -> ::windows_core::HRESULT,
+    pub HrEnumRow: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut SRow) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     HrEnumRow: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub HrNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, cvalues: u32, lpspropvalue: *mut SPropValue) -> ::windows_core::HRESULT,
+    pub HrNotify: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut SPropValue) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     HrNotify: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub HrInsertRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulirow: u32, lpsrow: *mut SRow) -> ::windows_core::HRESULT,
+    pub HrInsertRow: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut SRow) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     HrInsertRow: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub HrModifyRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lpsrowset: *mut SRowSet) -> ::windows_core::HRESULT,
+    pub HrModifyRows: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut SRowSet) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     HrModifyRows: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub HrDeleteRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulflags: u32, lprowsettodelete: *mut SRowSet, crowsdeleted: *mut u32) -> ::windows_core::HRESULT,
+    pub HrDeleteRows: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut SRowSet, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     HrDeleteRows: usize,
 }
@@ -1863,7 +1863,7 @@ impl IWABExtInit {
 #[doc(hidden)]
 pub struct IWABExtInit_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpwabextdisplay: *mut WABEXTDISPLAY) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WABEXTDISPLAY) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWABObject, IWABObject_Vtbl, 0);
 ::windows_core::imp::interface_hierarchy!(IWABObject, ::windows_core::IUnknown);
@@ -1951,19 +1951,19 @@ impl IWABObject {
 #[doc(hidden)]
 pub struct IWABObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetLastError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::HRESULT,
-    pub AllocateBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AllocateMore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbsize: u32, lpobject: *const ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FreeBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Backup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpfilename: ::windows_core::PCSTR) -> ::windows_core::HRESULT,
-    pub Import: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpwip: ::windows_core::PCSTR) -> ::windows_core::HRESULT,
-    pub Find: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpiab: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND) -> ::windows_core::HRESULT,
-    pub VCardDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpiab: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, lpszfilename: ::windows_core::PCSTR) -> ::windows_core::HRESULT,
-    pub LDAPUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpiab: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, ulflags: u32, lpszurl: ::windows_core::PCSTR, lppmailuser: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub VCardCreate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpiab: *mut ::core::ffi::c_void, ulflags: u32, lpszvcard: ::windows_core::PCSTR, lpmailuser: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub VCardRetrieve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpiab: *mut ::core::ffi::c_void, ulflags: u32, lpszvcard: ::windows_core::PCSTR, lppmailuser: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetMe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpiab: *mut ::core::ffi::c_void, ulflags: u32, lpdwaction: *mut u32, lpsbeid: *mut SBinary, hwnd: super::super::Foundation::HWND) -> ::windows_core::HRESULT,
-    pub SetMe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpiab: *mut ::core::ffi::c_void, ulflags: u32, sbeid: SBinary, hwnd: super::super::Foundation::HWND) -> ::windows_core::HRESULT,
+    pub GetLastError: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, u32, *mut *mut MAPIERROR) -> ::windows_core::HRESULT,
+    pub AllocateBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AllocateMore: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FreeBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Backup: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR) -> ::windows_core::HRESULT,
+    pub Import: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR) -> ::windows_core::HRESULT,
+    pub Find: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::HWND) -> ::windows_core::HRESULT,
+    pub VCardDisplay: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::HWND, ::windows_core::PCSTR) -> ::windows_core::HRESULT,
+    pub LDAPUrl: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::HWND, u32, ::windows_core::PCSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub VCardCreate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, ::windows_core::PCSTR, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub VCardRetrieve: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, ::windows_core::PCSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetMe: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut u32, *mut SBinary, super::super::Foundation::HWND) -> ::windows_core::HRESULT,
+    pub SetMe: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, SBinary, super::super::Foundation::HWND) -> ::windows_core::HRESULT,
 }
 pub const E_IMAPI_BURN_VERIFICATION_FAILED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1062600697i32);
 pub const E_IMAPI_DF2DATA_CLIENT_NAME_IS_NOT_VALID: ::windows_core::HRESULT = ::windows_core::HRESULT(-1062599672i32);

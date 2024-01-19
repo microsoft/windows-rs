@@ -48,13 +48,13 @@ impl ICivicAddressReport {
 #[doc(hidden)]
 pub struct ICivicAddressReport_Vtbl {
     pub base__: ILocationReport_Vtbl,
-    pub GetAddressLine1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstraddress1: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetAddressLine2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstraddress2: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetCity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcity: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetStateProvince: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstateprovince: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetPostalCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpostalcode: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetCountryRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcountryregion: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetDetailLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdetaillevel: *mut u32) -> ::windows_core::HRESULT,
+    pub GetAddressLine1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetAddressLine2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetCity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetStateProvince: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetPostalCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetCountryRegion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetDetailLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -107,7 +107,7 @@ impl ICivicAddressReportFactory {
 pub struct ICivicAddressReportFactory_Vtbl {
     pub base__: ILocationReportFactory_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub CivicAddressReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CivicAddressReport: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CivicAddressReport: usize,
 }
@@ -129,8 +129,8 @@ impl IDefaultLocation {
 #[doc(hidden)]
 pub struct IDefaultLocation_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows_core::GUID, plocationreport: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows_core::GUID, pplocationreport: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetReport: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetReport: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -181,14 +181,14 @@ impl IDispCivicAddressReport {
 #[doc(hidden)]
 pub struct IDispCivicAddressReport_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub AddressLine1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddress1: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub AddressLine2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddress2: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub City: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcity: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub StateProvince: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstateprovince: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub PostalCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppostalcode: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub CountryRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcountryregion: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub DetailLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdetaillevel: *mut u32) -> ::windows_core::HRESULT,
-    pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows_core::HRESULT,
+    pub AddressLine1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub AddressLine2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub City: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub StateProvince: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub PostalCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub CountryRegion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub DetailLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Timestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -231,12 +231,12 @@ impl IDispLatLongReport {
 #[doc(hidden)]
 pub struct IDispLatLongReport_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Latitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows_core::HRESULT,
-    pub Longitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows_core::HRESULT,
-    pub ErrorRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows_core::HRESULT,
-    pub Altitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows_core::HRESULT,
-    pub AltitudeError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows_core::HRESULT,
-    pub Timestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows_core::HRESULT,
+    pub Latitude: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub Longitude: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub ErrorRadius: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub Altitude: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub AltitudeError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub Timestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILatLongReport, ILatLongReport_Vtbl, 0x7fed806d_0ef8_4f07_80ac_36a0beae3134);
 ::windows_core::imp::interface_hierarchy!(ILatLongReport, ::windows_core::IUnknown, ILocationReport);
@@ -280,11 +280,11 @@ impl ILatLongReport {
 #[doc(hidden)]
 pub struct ILatLongReport_Vtbl {
     pub base__: ILocationReport_Vtbl,
-    pub GetLatitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, platitude: *mut f64) -> ::windows_core::HRESULT,
-    pub GetLongitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plongitude: *mut f64) -> ::windows_core::HRESULT,
-    pub GetErrorRadius: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorradius: *mut f64) -> ::windows_core::HRESULT,
-    pub GetAltitude: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paltitude: *mut f64) -> ::windows_core::HRESULT,
-    pub GetAltitudeError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paltitudeerror: *mut f64) -> ::windows_core::HRESULT,
+    pub GetLatitude: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub GetLongitude: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub GetErrorRadius: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub GetAltitude: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub GetAltitudeError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -337,7 +337,7 @@ impl ILatLongReportFactory {
 pub struct ILatLongReportFactory_Vtbl {
     pub base__: ILocationReportFactory_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub LatLongReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LatLongReport: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     LatLongReport: usize,
 }
@@ -391,21 +391,21 @@ impl ILocation {
 #[doc(hidden)]
 pub struct ILocation_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub RegisterForReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevents: *mut ::core::ffi::c_void, reporttype: *const ::windows_core::GUID, dwrequestedreportinterval: u32) -> ::windows_core::HRESULT,
-    pub UnregisterForReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows_core::GUID, pplocationreport: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetReportStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows_core::GUID, pstatus: *mut LOCATION_REPORT_STATUS) -> ::windows_core::HRESULT,
-    pub GetReportInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows_core::GUID, pmilliseconds: *mut u32) -> ::windows_core::HRESULT,
-    pub SetReportInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows_core::GUID, millisecondsrequested: u32) -> ::windows_core::HRESULT,
+    pub RegisterForReport: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, u32) -> ::windows_core::HRESULT,
+    pub UnregisterForReport: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetReport: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetReportStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut LOCATION_REPORT_STATUS) -> ::windows_core::HRESULT,
+    pub GetReportInterval: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut u32) -> ::windows_core::HRESULT,
+    pub SetReportInterval: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Devices_Sensors")]
-    pub GetDesiredAccuracy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows_core::GUID, pdesiredaccuracy: *mut super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows_core::HRESULT,
+    pub GetDesiredAccuracy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Devices_Sensors"))]
     GetDesiredAccuracy: usize,
     #[cfg(feature = "Win32_Devices_Sensors")]
-    pub SetDesiredAccuracy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows_core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows_core::HRESULT,
+    pub SetDesiredAccuracy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Devices_Sensors"))]
     SetDesiredAccuracy: usize,
-    pub RequestPermissions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hparent: super::super::Foundation::HWND, preporttypes: *const ::windows_core::GUID, count: u32, fmodal: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub RequestPermissions: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *const ::windows_core::GUID, u32, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILocationEvents, ILocationEvents_Vtbl, 0xcae02bbf_798b_4508_a207_35a7906dc73d);
 ::windows_core::imp::interface_hierarchy!(ILocationEvents, ::windows_core::IUnknown);
@@ -424,8 +424,8 @@ impl ILocationEvents {
 #[doc(hidden)]
 pub struct ILocationEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnLocationChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows_core::GUID, plocationreport: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows_core::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows_core::HRESULT,
+    pub OnLocationChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnStatusChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, LOCATION_REPORT_STATUS) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILocationPower, ILocationPower_Vtbl, 0x193e7729_ab6b_4b12_8617_7596e1bb191c);
 ::windows_core::imp::interface_hierarchy!(ILocationPower, ::windows_core::IUnknown);
@@ -441,8 +441,8 @@ impl ILocationPower {
 #[doc(hidden)]
 pub struct ILocationPower_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Connect: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Disconnect: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILocationReport, ILocationReport_Vtbl, 0xc8b7f7ee_75d0_4db9_b62d_7a0f369ca456);
 ::windows_core::imp::interface_hierarchy!(ILocationReport, ::windows_core::IUnknown);
@@ -466,10 +466,10 @@ impl ILocationReport {
 #[doc(hidden)]
 pub struct ILocationReport_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetSensorID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psensorid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcreationtime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows_core::HRESULT,
+    pub GetSensorID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetTimestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::SYSTEMTIME) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     GetValue: usize,
 }
@@ -517,14 +517,14 @@ impl ILocationReportFactory {
 #[doc(hidden)]
 pub struct ILocationReportFactory_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub ListenForReports: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedreportinterval: u32) -> ::windows_core::HRESULT,
-    pub StopListeningForReports: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut u32) -> ::windows_core::HRESULT,
-    pub ReportInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmilliseconds: *mut u32) -> ::windows_core::HRESULT,
-    pub SetReportInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, millisecondsrequested: u32) -> ::windows_core::HRESULT,
-    pub DesiredAccuracy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesiredaccuracy: *mut u32) -> ::windows_core::HRESULT,
-    pub SetDesiredAccuracy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desiredaccuracy: u32) -> ::windows_core::HRESULT,
-    pub RequestPermissions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: *const u32) -> ::windows_core::HRESULT,
+    pub ListenForReports: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub StopListeningForReports: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub ReportInterval: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetReportInterval: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub DesiredAccuracy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetDesiredAccuracy: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub RequestPermissions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(

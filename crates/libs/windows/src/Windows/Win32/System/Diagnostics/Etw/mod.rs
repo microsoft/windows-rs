@@ -593,18 +593,18 @@ impl ITraceEvent {
 #[doc(hidden)]
 pub struct ITraceEvent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newevent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetUserContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usercontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetEventRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventrecord: *mut *mut EVENT_RECORD) -> ::windows_core::HRESULT,
-    pub SetPayload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, payload: *const u8, payloadsize: u32) -> ::windows_core::HRESULT,
-    pub SetEventDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventdescriptor: *const EVENT_DESCRIPTOR) -> ::windows_core::HRESULT,
-    pub SetProcessId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, processid: u32) -> ::windows_core::HRESULT,
-    pub SetProcessorIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, processorindex: u32) -> ::windows_core::HRESULT,
-    pub SetThreadId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: u32) -> ::windows_core::HRESULT,
-    pub SetThreadTimes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kerneltime: u32, usertime: u32) -> ::windows_core::HRESULT,
-    pub SetActivityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activityid: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub SetTimeStamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timestamp: *const i64) -> ::windows_core::HRESULT,
-    pub SetProviderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, providerid: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetUserContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetEventRecord: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut EVENT_RECORD) -> ::windows_core::HRESULT,
+    pub SetPayload: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32) -> ::windows_core::HRESULT,
+    pub SetEventDescriptor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const EVENT_DESCRIPTOR) -> ::windows_core::HRESULT,
+    pub SetProcessId: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub SetProcessorIndex: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub SetThreadId: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub SetThreadTimes: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub SetActivityId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub SetTimeStamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const i64) -> ::windows_core::HRESULT,
+    pub SetProviderId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITraceEventCallback, ITraceEventCallback_Vtbl, 0x3ed25501_593f_43e9_8f38_3ab46f5a4a52);
 ::windows_core::imp::interface_hierarchy!(ITraceEventCallback, ::windows_core::IUnknown);
@@ -634,9 +634,9 @@ impl ITraceEventCallback {
 #[doc(hidden)]
 pub struct ITraceEventCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnBeginProcessTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, headerevent: *mut ::core::ffi::c_void, relogger: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnFinalizeProcessTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relogger: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void, relogger: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnBeginProcessTrace: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnFinalizeProcessTrace: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITraceRelogger, ITraceRelogger_Vtbl, 0xf754ad43_3bcc_4286_8009_9c5da214e84e);
 ::windows_core::imp::interface_hierarchy!(ITraceRelogger, ::windows_core::IUnknown);
@@ -694,15 +694,15 @@ impl ITraceRelogger {
 #[doc(hidden)]
 pub struct ITraceRelogger_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AddLogfileTraceStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logfilename: ::std::mem::MaybeUninit<::windows_core::BSTR>, usercontext: *const ::core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> ::windows_core::HRESULT,
-    pub AddRealtimeTraceStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loggername: ::std::mem::MaybeUninit<::windows_core::BSTR>, usercontext: *const ::core::ffi::c_void, tracehandle: *mut RELOGSTREAM_HANDLE) -> ::windows_core::HRESULT,
-    pub RegisterCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Inject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateEventInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tracehandle: RELOGSTREAM_HANDLE, flags: u32, event: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ProcessTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetOutputFilename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logfilename: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetCompressionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compressionmode: super::super::super::Foundation::BOOLEAN) -> ::windows_core::HRESULT,
-    pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddLogfileTraceStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::core::ffi::c_void, *mut RELOGSTREAM_HANDLE) -> ::windows_core::HRESULT,
+    pub AddRealtimeTraceStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::core::ffi::c_void, *mut RELOGSTREAM_HANDLE) -> ::windows_core::HRESULT,
+    pub RegisterCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Inject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateEventInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, RELOGSTREAM_HANDLE, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ProcessTrace: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetOutputFilename: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetCompressionMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::BOOLEAN) -> ::windows_core::HRESULT,
+    pub Cancel: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const ALPCGuid: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45d8cccd_539f_4b72_a8b7_5c683142609a);
 pub const CLSID_TraceRelogger: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);

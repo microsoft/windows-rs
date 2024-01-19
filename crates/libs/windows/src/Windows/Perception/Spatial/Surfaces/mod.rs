@@ -3,29 +3,29 @@
 #[doc(hidden)]
 pub struct ISpatialSurfaceInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub UpdateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub UpdateTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
-    pub TryGetBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TryGetBounds: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     TryGetBounds: usize,
-    pub TryComputeLatestMeshAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxtrianglespercubicmeter: f64, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub TryComputeLatestMeshWithOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxtrianglespercubicmeter: f64, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TryComputeLatestMeshAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TryComputeLatestMeshWithOptionsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialSurfaceMesh, ISpatialSurfaceMesh_Vtbl, 0x108f57d9_df0d_3950_a0fd_f972c77c27b4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceMesh_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub SurfaceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CoordinateSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub TriangleIndices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub VertexPositions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SurfaceInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CoordinateSystem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TriangleIndices: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub VertexPositions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
-    pub VertexPositionScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows_core::HRESULT,
+    pub VertexPositionScale: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     VertexPositionScale: usize,
-    pub VertexNormals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub VertexNormals: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialSurfaceMeshBuffer, ISpatialSurfaceMeshBuffer_Vtbl, 0x93cf59e0_871f_33f8_98b2_03d101458f6f);
 #[repr(C)]
@@ -33,13 +33,13 @@ pub struct ISpatialSurfaceMesh_Vtbl {
 pub struct ISpatialSurfaceMeshBuffer_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX")]
-    pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows_core::HRESULT,
+    pub Format: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))]
     Format: usize,
-    pub Stride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub ElementCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
+    pub Stride: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub ElementCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
-    pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Data: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     Data: usize,
 }
@@ -49,31 +49,31 @@ pub struct ISpatialSurfaceMeshBuffer_Vtbl {
 pub struct ISpatialSurfaceMeshOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX")]
-    pub VertexPositionFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows_core::HRESULT,
+    pub VertexPositionFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))]
     VertexPositionFormat: usize,
     #[cfg(feature = "Graphics_DirectX")]
-    pub SetVertexPositionFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows_core::HRESULT,
+    pub SetVertexPositionFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))]
     SetVertexPositionFormat: usize,
     #[cfg(feature = "Graphics_DirectX")]
-    pub TriangleIndexFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows_core::HRESULT,
+    pub TriangleIndexFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))]
     TriangleIndexFormat: usize,
     #[cfg(feature = "Graphics_DirectX")]
-    pub SetTriangleIndexFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows_core::HRESULT,
+    pub SetTriangleIndexFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))]
     SetTriangleIndexFormat: usize,
     #[cfg(feature = "Graphics_DirectX")]
-    pub VertexNormalFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows_core::HRESULT,
+    pub VertexNormalFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))]
     VertexNormalFormat: usize,
     #[cfg(feature = "Graphics_DirectX")]
-    pub SetVertexNormalFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows_core::HRESULT,
+    pub SetVertexNormalFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))]
     SetVertexNormalFormat: usize,
-    pub IncludeVertexNormals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetIncludeVertexNormals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+    pub IncludeVertexNormals: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetIncludeVertexNormals: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialSurfaceMeshOptionsStatics, ISpatialSurfaceMeshOptionsStatics_Vtbl, 0x9b340abf_9781_4505_8935_013575caae5e);
 #[repr(C)]
@@ -81,15 +81,15 @@ pub struct ISpatialSurfaceMeshOptions_Vtbl {
 pub struct ISpatialSurfaceMeshOptionsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
-    pub SupportedVertexPositionFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SupportedVertexPositionFormats: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_DirectX")))]
     SupportedVertexPositionFormats: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
-    pub SupportedTriangleIndexFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SupportedTriangleIndexFormats: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_DirectX")))]
     SupportedTriangleIndexFormats: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
-    pub SupportedVertexNormalFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SupportedVertexNormalFormats: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_DirectX")))]
     SupportedVertexNormalFormats: usize,
 }
@@ -99,30 +99,30 @@ pub struct ISpatialSurfaceMeshOptionsStatics_Vtbl {
 pub struct ISpatialSurfaceObserver_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetObservedSurfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetObservedSurfaces: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetObservedSurfaces: usize,
-    pub SetBoundingVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bounds: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetBoundingVolume: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub SetBoundingVolumes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bounds: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetBoundingVolumes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     SetBoundingVolumes: usize,
-    pub ObservedSurfacesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveObservedSurfacesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub ObservedSurfacesChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveObservedSurfacesChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialSurfaceObserverStatics, ISpatialSurfaceObserverStatics_Vtbl, 0x165951ed_2108_4168_9175_87e027bc9285);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceObserverStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub RequestAccessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RequestAccessAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpatialSurfaceObserverStatics2, ISpatialSurfaceObserverStatics2_Vtbl, 0x0f534261_c55d_4e6b_a895_a19de69a42e3);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpatialSurfaceObserverStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

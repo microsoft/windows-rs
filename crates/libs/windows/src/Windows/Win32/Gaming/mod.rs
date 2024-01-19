@@ -220,10 +220,10 @@ impl IGameExplorer {
 #[doc(hidden)]
 pub struct IGameExplorer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AddGame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgdfbinarypath: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrgameinstalldirectory: ::std::mem::MaybeUninit<::windows_core::BSTR>, installscope: GAME_INSTALL_SCOPE, pguidinstanceid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub RemoveGame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidinstanceid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub UpdateGame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidinstanceid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub VerifyAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrgdfbinarypath: ::std::mem::MaybeUninit<::windows_core::BSTR>, pfhasaccess: *mut super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub AddGame: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, GAME_INSTALL_SCOPE, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub RemoveGame: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub UpdateGame: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub VerifyAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGameExplorer2, IGameExplorer2_Vtbl, 0x86874aa7_a1ed_450d_a7eb_b89e20b2fff3);
 ::windows_core::imp::interface_hierarchy!(IGameExplorer2, ::windows_core::IUnknown);
@@ -253,9 +253,9 @@ impl IGameExplorer2 {
 #[doc(hidden)]
 pub struct IGameExplorer2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub InstallGame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binarygdfpath: ::windows_core::PCWSTR, installdirectory: ::windows_core::PCWSTR, installscope: GAME_INSTALL_SCOPE) -> ::windows_core::HRESULT,
-    pub UninstallGame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binarygdfpath: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub CheckAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binarygdfpath: ::windows_core::PCWSTR, phasaccess: *mut super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub InstallGame: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, GAME_INSTALL_SCOPE) -> ::windows_core::HRESULT,
+    pub UninstallGame: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub CheckAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGameStatistics, IGameStatistics_Vtbl, 0x3887c9ca_04a0_42ae_bc4c_5fa6c7721145);
 ::windows_core::imp::interface_hierarchy!(IGameStatistics, ::windows_core::IUnknown);
@@ -318,18 +318,18 @@ impl IGameStatistics {
 #[doc(hidden)]
 pub struct IGameStatistics_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetMaxCategoryLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cch: *mut u32) -> ::windows_core::HRESULT,
-    pub GetMaxNameLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cch: *mut u32) -> ::windows_core::HRESULT,
-    pub GetMaxValueLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cch: *mut u32) -> ::windows_core::HRESULT,
-    pub GetMaxCategories: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmax: *mut u16) -> ::windows_core::HRESULT,
-    pub GetMaxStatsPerCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmax: *mut u16) -> ::windows_core::HRESULT,
-    pub SetCategoryTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, categoryindex: u16, title: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetCategoryTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, categoryindex: u16, ptitle: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetStatistic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, categoryindex: u16, statindex: u16, pname: *mut ::windows_core::PWSTR, pvalue: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetStatistic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, categoryindex: u16, statindex: u16, name: ::windows_core::PCWSTR, value: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, trackchanges: super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetLastPlayedCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, categoryindex: u32) -> ::windows_core::HRESULT,
-    pub GetLastPlayedCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcategoryindex: *mut u32) -> ::windows_core::HRESULT,
+    pub GetMaxCategoryLength: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetMaxNameLength: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetMaxValueLength: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetMaxCategories: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
+    pub GetMaxStatsPerCategory: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
+    pub SetCategoryTitle: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetCategoryTitle: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetStatistic: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u16, *mut ::windows_core::PWSTR, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetStatistic: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u16, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Save: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetLastPlayedCategory: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetLastPlayedCategory: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGameStatisticsMgr, IGameStatisticsMgr_Vtbl, 0xaff3ea11_e70e_407d_95dd_35e612c41ce2);
 ::windows_core::imp::interface_hierarchy!(IGameStatisticsMgr, ::windows_core::IUnknown);
@@ -351,8 +351,8 @@ impl IGameStatisticsMgr {
 #[doc(hidden)]
 pub struct IGameStatisticsMgr_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetGameStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gdfbinarypath: ::windows_core::PCWSTR, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveGameStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gdfbinarypath: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetGameStatistics: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, GAMESTATS_OPEN_TYPE, *mut GAMESTATS_OPEN_RESULT, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveGameStatistics: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IXblIdpAuthManager, IXblIdpAuthManager_Vtbl, 0xeb5ddb08_8bbf_449b_ac21_b02ddeb3b136);
 ::windows_core::imp::interface_hierarchy!(IXblIdpAuthManager, ::windows_core::IUnknown);
@@ -401,12 +401,12 @@ impl IXblIdpAuthManager {
 #[doc(hidden)]
 pub struct IXblIdpAuthManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetGamerAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msaaccountid: ::windows_core::PCWSTR, xuid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetGamerAccount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msaaccountid: *mut ::windows_core::PWSTR, xuid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetAppViewInitialized: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appsid: ::windows_core::PCWSTR, msaaccountid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GetEnvironment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, environment: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetSandbox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sandbox: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetTokenAndSignatureWithTokenResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msaaccountid: ::windows_core::PCWSTR, appsid: ::windows_core::PCWSTR, msatarget: ::windows_core::PCWSTR, msapolicy: ::windows_core::PCWSTR, httpmethod: ::windows_core::PCWSTR, uri: ::windows_core::PCWSTR, headers: ::windows_core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL, result: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetGamerAccount: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetGamerAccount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetAppViewInitialized: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetEnvironment: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetSandbox: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetTokenAndSignatureWithTokenResult: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *const u8, u32, super::Foundation::BOOL, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IXblIdpAuthManager2, IXblIdpAuthManager2_Vtbl, 0xbf8c0950_8389_43dd_9a76_a19728ec5dc5);
 ::windows_core::imp::interface_hierarchy!(IXblIdpAuthManager2, ::windows_core::IUnknown);
@@ -429,7 +429,7 @@ impl IXblIdpAuthManager2 {
 #[doc(hidden)]
 pub struct IXblIdpAuthManager2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetUserlessTokenAndSignatureWithTokenResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appsid: ::windows_core::PCWSTR, msatarget: ::windows_core::PCWSTR, msapolicy: ::windows_core::PCWSTR, httpmethod: ::windows_core::PCWSTR, uri: ::windows_core::PCWSTR, headers: ::windows_core::PCWSTR, body: *const u8, bodysize: u32, forcerefresh: super::Foundation::BOOL, result: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetUserlessTokenAndSignatureWithTokenResult: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *const u8, u32, super::Foundation::BOOL, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IXblIdpAuthTokenResult, IXblIdpAuthTokenResult_Vtbl, 0x46ce0225_f267_4d68_b299_b2762552dec1);
 ::windows_core::imp::interface_hierarchy!(IXblIdpAuthTokenResult, ::windows_core::IUnknown);
@@ -519,26 +519,26 @@ impl IXblIdpAuthTokenResult {
 #[doc(hidden)]
 pub struct IXblIdpAuthTokenResult_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut XBL_IDP_AUTH_TOKEN_STATUS) -> ::windows_core::HRESULT,
-    pub GetErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errorcode: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub GetToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signature: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetSandbox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sandbox: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetEnvironment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, environment: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetMsaAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msaaccountid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetXuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xuid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetGamertag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gamertag: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetAgeGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, agegroup: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetPrivileges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, privileges: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetMsaTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msatarget: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetMsaPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msapolicy: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetMsaAppId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msaappid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetRedirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, redirect: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, message: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetHelpId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, helpid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetEnforcementBans: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enforcementbans: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetRestrictions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, restrictions: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetTitleRestrictions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, titlerestrictions: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut XBL_IDP_AUTH_TOKEN_STATUS) -> ::windows_core::HRESULT,
+    pub GetErrorCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub GetToken: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetSignature: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetSandbox: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetEnvironment: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetMsaAccountId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetXuid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetGamertag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetAgeGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetPrivileges: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetMsaTarget: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetMsaPolicy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetMsaAppId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetRedirect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetHelpId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetEnforcementBans: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetRestrictions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetTitleRestrictions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IXblIdpAuthTokenResult2, IXblIdpAuthTokenResult2_Vtbl, 0x75d760b0_60b9_412d_994f_26b2cd5f7812);
 ::windows_core::imp::interface_hierarchy!(IXblIdpAuthTokenResult2, ::windows_core::IUnknown);
@@ -560,9 +560,9 @@ impl IXblIdpAuthTokenResult2 {
 #[doc(hidden)]
 pub struct IXblIdpAuthTokenResult2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetModernGamertag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetModernGamertagSuffix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetUniqueModernGamertag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetModernGamertag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetModernGamertagSuffix: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetUniqueModernGamertag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 pub const GAMESTATS_OPEN_CREATED: GAMESTATS_OPEN_RESULT = GAMESTATS_OPEN_RESULT(0i32);
 pub const GAMESTATS_OPEN_OPENED: GAMESTATS_OPEN_RESULT = GAMESTATS_OPEN_RESULT(1i32);

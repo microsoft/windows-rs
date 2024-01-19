@@ -3,59 +3,59 @@
 #[doc(hidden)]
 pub struct IJsonArray_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetObjectAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetArrayAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetStringAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub GetNumberAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub GetBooleanAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub GetObjectAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetArrayAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStringAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub GetNumberAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut f64) -> ::windows_core::HRESULT,
+    pub GetBooleanAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IJsonArrayStatics, IJsonArrayStatics_Vtbl, 0xdb1434a9_e164_499f_93e2_8a8f49bb90ba);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsonArrayStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Parse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub TryParse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result: *mut *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub Parse: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TryParse: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IJsonErrorStatics2, IJsonErrorStatics2_Vtbl, 0x404030da_87d0_436c_83ab_fc7b12c0cc26);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsonErrorStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetJsonStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut JsonErrorStatus) -> ::windows_core::HRESULT,
+    pub GetJsonStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut JsonErrorStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IJsonObject, IJsonObject_Vtbl, 0x064e24dd_29c2_4f83_9ac1_9ee11578beb3);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsonObject_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetNamedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetNamedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetNamedObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetNamedArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetNamedString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub GetNamedNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub GetNamedBoolean: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub GetNamedValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetNamedValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNamedObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNamedArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNamedString: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub GetNamedNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut f64) -> ::windows_core::HRESULT,
+    pub GetNamedBoolean: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IJsonObjectStatics, IJsonObjectStatics_Vtbl, 0x2289f159_54de_45d8_abcc_22603fa066a0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsonObjectStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Parse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub TryParse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result: *mut *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub Parse: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TryParse: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IJsonObjectWithDefaultValues, IJsonObjectWithDefaultValues_Vtbl, 0xd960d2a2_b7f0_4f00_8e44_d82cf415ea13);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsonObjectWithDefaultValues_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetNamedValueOrDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, defaultvalue: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetNamedObjectOrDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, defaultvalue: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetNamedStringOrDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, defaultvalue: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub GetNamedArrayOrDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, defaultvalue: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetNamedNumberOrDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, defaultvalue: f64, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub GetNamedBooleanOrDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, defaultvalue: bool, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub GetNamedValueOrDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNamedObjectOrDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNamedStringOrDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub GetNamedArrayOrDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNamedNumberOrDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, f64, *mut f64) -> ::windows_core::HRESULT,
+    pub GetNamedBooleanOrDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, bool, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IJsonValue, IJsonValue_Vtbl, 0xa3219ecb_f0b3_4dcd_beee_19d48cd3ed1e);
 ::windows_core::imp::interface_hierarchy!(IJsonValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -117,31 +117,31 @@ impl ::windows_core::RuntimeType for IJsonValue {
 #[doc(hidden)]
 pub struct IJsonValue_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub ValueType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut JsonValueType) -> ::windows_core::HRESULT,
-    pub Stringify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub GetString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub GetNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub GetBoolean: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub GetArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ValueType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut JsonValueType) -> ::windows_core::HRESULT,
+    pub Stringify: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub GetString: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub GetNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub GetBoolean: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub GetArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IJsonValueStatics, IJsonValueStatics_Vtbl, 0x5f6b544a_2f53_48e1_91a3_f78b50a6345c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsonValueStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Parse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub TryParse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result: *mut *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub CreateBooleanValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateNumberValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: f64, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateStringValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Parse: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TryParse: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub CreateBooleanValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateNumberValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateStringValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IJsonValueStatics2, IJsonValueStatics2_Vtbl, 0x1d9ecbe4_3fe8_4335_8392_93d8e36865f0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsonValueStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateNullValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateNullValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

@@ -3,9 +3,9 @@
 #[doc(hidden)]
 pub struct IGameSaveBlobGetResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut GameSaveErrorStatus) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
     Value: usize,
 }
@@ -14,17 +14,17 @@ pub struct IGameSaveBlobGetResult_Vtbl {
 #[doc(hidden)]
 pub struct IGameSaveBlobInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Size: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGameSaveBlobInfoGetResult, IGameSaveBlobInfoGetResult_Vtbl, 0xc7578582_3697_42bf_989c_665d923b5231);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameSaveBlobInfoGetResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut GameSaveErrorStatus) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Value: usize,
 }
@@ -33,54 +33,54 @@ pub struct IGameSaveBlobInfoGetResult_Vtbl {
 #[doc(hidden)]
 pub struct IGameSaveBlobInfoQuery_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetBlobInfoAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetBlobInfoWithIndexAndMaxAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetItemCountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetBlobInfoAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetBlobInfoWithIndexAndMaxAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetItemCountAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGameSaveContainer, IGameSaveContainer_Vtbl, 0xc3c08f89_563f_4ecd_9c6f_33fd0e323d10);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameSaveContainer_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Provider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Provider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub SubmitUpdatesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blobstowrite: *mut ::core::ffi::c_void, blobstodelete: *mut ::core::ffi::c_void, displayname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SubmitUpdatesAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
     SubmitUpdatesAsync: usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub ReadAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blobstoread: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ReadAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))]
     ReadAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blobstoread: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub SubmitPropertySetUpdatesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blobstowrite: *mut ::core::ffi::c_void, blobstodelete: *mut ::core::ffi::c_void, displayname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SubmitPropertySetUpdatesAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     SubmitPropertySetUpdatesAsync: usize,
-    pub CreateBlobInfoQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blobnameprefix: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateBlobInfoQuery: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGameSaveContainerInfo, IGameSaveContainerInfo_Vtbl, 0xb7e27300_155d_4bb4_b2ba_930306f391b5);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameSaveContainerInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub TotalSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows_core::HRESULT,
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub LastModifiedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    pub NeedsSync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub TotalSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub LastModifiedTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
+    pub NeedsSync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGameSaveContainerInfoGetResult, IGameSaveContainerInfoGetResult_Vtbl, 0xffc50d74_c581_4f9d_9e39_30a10c1e4c50);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameSaveContainerInfoGetResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut GameSaveErrorStatus) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Value: usize,
 }
@@ -89,16 +89,16 @@ pub struct IGameSaveContainerInfoGetResult_Vtbl {
 #[doc(hidden)]
 pub struct IGameSaveContainerInfoQuery_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetContainerInfoAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetContainerInfoWithIndexAndMaxAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetItemCountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetContainerInfoAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetContainerInfoWithIndexAndMaxAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetItemCountAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGameSaveOperationResult, IGameSaveOperationResult_Vtbl, 0xcf0f1a05_24a0_4582_9a55_b1bbbb9388d8);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGameSaveOperationResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut GameSaveErrorStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGameSaveProvider, IGameSaveProvider_Vtbl, 0x90a60394_80fe_4211_97f8_a5de14dd95d2);
 #[repr(C)]
@@ -106,16 +106,16 @@ pub struct IGameSaveOperationResult_Vtbl {
 pub struct IGameSaveProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
-    pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub User: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     User: usize,
-    pub CreateContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DeleteContainerAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateContainerInfoQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateContainerInfoQueryWithName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, containernameprefix: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetRemainingBytesInQuotaAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateContainer: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeleteContainerAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateContainerInfoQuery: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateContainerInfoQueryWithName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetRemainingBytesInQuotaAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub ContainersChangedSinceLastSync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ContainersChangedSinceLastSync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     ContainersChangedSinceLastSync: usize,
 }
@@ -124,8 +124,8 @@ pub struct IGameSaveProvider_Vtbl {
 #[doc(hidden)]
 pub struct IGameSaveProviderGetResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GameSaveErrorStatus) -> ::windows_core::HRESULT,
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut GameSaveErrorStatus) -> ::windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGameSaveProviderStatics, IGameSaveProviderStatics_Vtbl, 0xd01d3ed0_7b03_449d_8cbd_3402842a1048);
 #[repr(C)]
@@ -133,11 +133,11 @@ pub struct IGameSaveProviderGetResult_Vtbl {
 pub struct IGameSaveProviderStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "System")]
-    pub GetForUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, serviceconfigid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetForUserAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     GetForUserAsync: usize,
     #[cfg(feature = "System")]
-    pub GetSyncOnDemandForUserAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, serviceconfigid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetSyncOnDemandForUserAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     GetSyncOnDemandForUserAsync: usize,
 }

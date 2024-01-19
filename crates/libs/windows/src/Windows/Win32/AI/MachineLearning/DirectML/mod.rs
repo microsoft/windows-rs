@@ -70,12 +70,12 @@ impl IDMLBindingTable {
 #[doc(hidden)]
 pub struct IDMLBindingTable_Vtbl {
     pub base__: IDMLDeviceChild_Vtbl,
-    pub BindInputs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindingcount: u32, bindings: *const DML_BINDING_DESC),
-    pub BindOutputs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindingcount: u32, bindings: *const DML_BINDING_DESC),
-    pub BindTemporaryResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binding: *const DML_BINDING_DESC),
-    pub BindPersistentResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binding: *const DML_BINDING_DESC),
+    pub BindInputs: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const DML_BINDING_DESC),
+    pub BindOutputs: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const DML_BINDING_DESC),
+    pub BindTemporaryResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DML_BINDING_DESC),
+    pub BindPersistentResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DML_BINDING_DESC),
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_BINDING_TABLE_DESC) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DML_BINDING_TABLE_DESC) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     Reset: usize,
 }
@@ -123,7 +123,7 @@ impl IDMLCommandRecorder {
 pub struct IDMLCommandRecorder_Vtbl {
     pub base__: IDMLDeviceChild_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub RecordDispatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commandlist: *mut ::core::ffi::c_void, dispatchable: *mut ::core::ffi::c_void, bindings: *mut ::core::ffi::c_void),
+    pub RecordDispatch: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     RecordDispatch: usize,
 }
@@ -180,7 +180,7 @@ impl IDMLDebugDevice {
 #[doc(hidden)]
 pub struct IDMLDebugDevice_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetMuteDebugOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mute: super::super::super::Foundation::BOOL),
+    pub SetMuteDebugOutput: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::BOOL),
 }
 ::windows_core::imp::com_interface!(IDMLDevice, IDMLDevice_Vtbl, 0x6dbd6437_96fd_423f_a98c_ae5e7c2a573f);
 ::windows_core::imp::interface_hierarchy!(IDMLDevice, ::windows_core::IUnknown, IDMLObject);
@@ -263,19 +263,19 @@ impl IDMLDevice {
 #[doc(hidden)]
 pub struct IDMLDevice_Vtbl {
     pub base__: IDMLObject_Vtbl,
-    pub CheckFeatureSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateOperator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_OPERATOR_DESC, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CompileOperator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, op: *mut ::core::ffi::c_void, flags: DML_EXECUTION_FLAGS, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateOperatorInitializer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateCommandRecorder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CheckFeatureSupport: unsafe extern "system" fn(*mut ::core::ffi::c_void, DML_FEATURE, u32, *const ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateOperator: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DML_OPERATOR_DESC, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CompileOperator: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, DML_EXECUTION_FLAGS, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateOperatorInitializer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateCommandRecorder: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub CreateBindingTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_BINDING_TABLE_DESC, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateBindingTable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DML_BINDING_TABLE_DESC, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     CreateBindingTable: usize,
-    pub Evict: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, ppobjects: *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub MakeResident: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, ppobjects: *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetDeviceRemovedReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetParentDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Evict: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub MakeResident: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceRemovedReason: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetParentDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDMLDevice1, IDMLDevice1_Vtbl, 0xa0884f9a_d2be_4355_aa5d_5901281ad1d2);
 ::windows_core::imp::interface_hierarchy!(IDMLDevice1, ::windows_core::IUnknown, IDMLObject, IDMLDevice);
@@ -364,7 +364,7 @@ impl IDMLDevice1 {
 #[doc(hidden)]
 pub struct IDMLDevice1_Vtbl {
     pub base__: IDMLDevice_Vtbl,
-    pub CompileGraph: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CompileGraph: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DML_GRAPH_DESC, DML_EXECUTION_FLAGS, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDMLDeviceChild, IDMLDeviceChild_Vtbl, 0x27e83142_8165_49e3_974e_2fd66e4cb69d);
 ::windows_core::imp::interface_hierarchy!(IDMLDeviceChild, ::windows_core::IUnknown, IDMLObject);
@@ -399,7 +399,7 @@ impl IDMLDeviceChild {
 #[doc(hidden)]
 pub struct IDMLDeviceChild_Vtbl {
     pub base__: IDMLObject_Vtbl,
-    pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDMLDispatchable, IDMLDispatchable_Vtbl, 0xdcb821a8_1039_441e_9f1c_b1759c2f3cec);
 ::windows_core::imp::interface_hierarchy!(IDMLDispatchable, ::windows_core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable);
@@ -439,7 +439,7 @@ impl IDMLDispatchable {
 #[doc(hidden)]
 pub struct IDMLDispatchable_Vtbl {
     pub base__: IDMLPageable_Vtbl,
-    pub GetBindingProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DML_BINDING_PROPERTIES),
+    pub GetBindingProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DML_BINDING_PROPERTIES),
 }
 ::windows_core::imp::com_interface!(IDMLObject, IDMLObject_Vtbl, 0xc8263aac_9e0c_4a2d_9b8e_007521a3317c);
 ::windows_core::imp::interface_hierarchy!(IDMLObject, ::windows_core::IUnknown);
@@ -467,10 +467,10 @@ impl IDMLObject {
 #[doc(hidden)]
 pub struct IDMLObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetPrivateDataInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, data: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetPrivateData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetPrivateData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetPrivateDataInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDMLOperator, IDMLOperator_Vtbl, 0x26caae7a_3081_4633_9581_226fbe57695d);
 ::windows_core::imp::interface_hierarchy!(IDMLOperator, ::windows_core::IUnknown, IDMLObject, IDMLDeviceChild);
@@ -547,7 +547,7 @@ impl IDMLOperatorInitializer {
 #[doc(hidden)]
 pub struct IDMLOperatorInitializer_Vtbl {
     pub base__: IDMLDispatchable_Vtbl,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operatorcount: u32, operators: *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDMLPageable, IDMLPageable_Vtbl, 0xb1ab0825_4542_4a4b_8617_6dde6e8f6201);
 ::windows_core::imp::interface_hierarchy!(IDMLPageable, ::windows_core::IUnknown, IDMLObject, IDMLDeviceChild);

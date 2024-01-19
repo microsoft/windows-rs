@@ -2690,10 +2690,10 @@ impl IDebugExtendedProperty {
 pub struct IDebugExtendedProperty_Vtbl {
     pub base__: IDebugProperty_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub GetExtendedPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> ::windows_core::HRESULT,
+    pub GetExtendedPropertyInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut ExtendedDebugPropertyInfo) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     GetExtendedPropertyInfo: usize,
-    pub EnumExtendedMembers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, ppeepi: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumExtendedMembers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDebugProperty, IDebugProperty_Vtbl, 0x51973c50_cb0c_11d0_b5c9_00a0244a0e7a);
 ::windows_core::imp::interface_hierarchy!(IDebugProperty, ::windows_core::IUnknown);
@@ -2723,11 +2723,11 @@ impl IDebugProperty {
 #[doc(hidden)]
 pub struct IDebugProperty_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetPropertyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> ::windows_core::HRESULT,
-    pub GetExtendedInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cinfos: u32, rgguidextendedinfo: *const ::windows_core::GUID, rgvar: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetValueAsString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszvalue: ::windows_core::PCWSTR, nradix: u32) -> ::windows_core::HRESULT,
-    pub EnumMembers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, refiid: *const ::windows_core::GUID, ppepi: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetParent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdebugprop: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPropertyInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut DebugPropertyInfo) -> ::windows_core::HRESULT,
+    pub GetExtendedInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetValueAsString: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub EnumMembers: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetParent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDebugPropertyEnumType_All, IDebugPropertyEnumType_All_Vtbl, 0x51973c55_cb0c_11d0_b5c9_00a0244a0e7a);
 ::windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_All, ::windows_core::IUnknown);
@@ -2741,7 +2741,7 @@ impl IDebugPropertyEnumType_All {
 #[doc(hidden)]
 pub struct IDebugPropertyEnumType_All_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__idebugpropertyenumtype_all0000: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDebugPropertyEnumType_Arguments, IDebugPropertyEnumType_Arguments_Vtbl, 0x51973c57_cb0c_11d0_b5c9_00a0244a0e7a);
 ::windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_Arguments, ::windows_core::IUnknown, IDebugPropertyEnumType_All);
@@ -2823,13 +2823,13 @@ impl IEnumDebugExtendedPropertyInfo {
 pub struct IEnumDebugExtendedPropertyInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ExtendedDebugPropertyInfo, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     Next: usize,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pedpe: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumDebugPropertyInfo, IEnumDebugPropertyInfo_Vtbl, 0x51973c51_cb0c_11d0_b5c9_00a0244a0e7a);
 ::windows_core::imp::interface_hierarchy!(IEnumDebugPropertyInfo, ::windows_core::IUnknown);
@@ -2856,11 +2856,11 @@ impl IEnumDebugPropertyInfo {
 #[doc(hidden)]
 pub struct IEnumDebugPropertyInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, pi: *mut DebugPropertyInfo, pceltsfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppepi: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DebugPropertyInfo, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IObjectSafety, IObjectSafety_Vtbl, 0xcb5bdc81_93c1_11cf_8f20_00805f2cd064);
 ::windows_core::imp::interface_hierarchy!(IObjectSafety, ::windows_core::IUnknown);
@@ -2876,8 +2876,8 @@ impl IObjectSafety {
 #[doc(hidden)]
 pub struct IObjectSafety_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetInterfaceSafetyOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, pdwsupportedoptions: *mut u32, pdwenabledoptions: *mut u32) -> ::windows_core::HRESULT,
-    pub SetInterfaceSafetyOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, dwoptionsetmask: u32, dwenabledoptions: u32) -> ::windows_core::HRESULT,
+    pub GetInterfaceSafetyOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub SetInterfaceSafetyOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPerPropertyBrowsing2, IPerPropertyBrowsing2_Vtbl, 0x51973c54_cb0c_11d0_b5c9_00a0244a0e7a);
 ::windows_core::imp::interface_hierarchy!(IPerPropertyBrowsing2, ::windows_core::IUnknown);
@@ -2903,13 +2903,13 @@ impl IPerPropertyBrowsing2 {
 #[doc(hidden)]
 pub struct IPerPropertyBrowsing2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetDisplayString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pbstr: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub MapPropertyToPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pclsidproppage: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetDisplayString: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub MapPropertyToPage: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Ole")]
-    pub GetPredefinedStrings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pcastrings: *mut super::super::Ole::CALPOLESTR, pcacookies: *mut super::super::Ole::CADWORD) -> ::windows_core::HRESULT,
+    pub GetPredefinedStrings: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut super::super::Ole::CALPOLESTR, *mut super::super::Ole::CADWORD) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
     GetPredefinedStrings: usize,
-    pub SetPredefinedValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, dwcookie: u32) -> ::windows_core::HRESULT,
+    pub SetPredefinedValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, u32) -> ::windows_core::HRESULT,
 }
 pub const ABNORMAL_RESET_DETECTED: BUGCHECK_ERROR = BUGCHECK_ERROR(327u32);
 pub const ACPI_BIOS_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(165u32);

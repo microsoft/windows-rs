@@ -3,23 +3,23 @@
 #[doc(hidden)]
 pub struct IProviderSpiConnectionSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub ChipSelectLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub SetChipSelectLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
-    pub Mode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ProviderSpiMode) -> ::windows_core::HRESULT,
-    pub SetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ProviderSpiMode) -> ::windows_core::HRESULT,
-    pub DataBitLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub SetDataBitLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
-    pub ClockFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub SetClockFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
-    pub SharingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ProviderSpiSharingMode) -> ::windows_core::HRESULT,
-    pub SetSharingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ProviderSpiSharingMode) -> ::windows_core::HRESULT,
+    pub ChipSelectLine: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetChipSelectLine: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub Mode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ProviderSpiMode) -> ::windows_core::HRESULT,
+    pub SetMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, ProviderSpiMode) -> ::windows_core::HRESULT,
+    pub DataBitLength: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetDataBitLength: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub ClockFrequency: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetClockFrequency: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub SharingMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ProviderSpiSharingMode) -> ::windows_core::HRESULT,
+    pub SetSharingMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, ProviderSpiSharingMode) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IProviderSpiConnectionSettingsFactory, IProviderSpiConnectionSettingsFactory_Vtbl, 0x66456b5a_0c79_43e3_9f3c_e59780ac18fa);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProviderSpiConnectionSettingsFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, chipselectline: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpiControllerProvider, ISpiControllerProvider_Vtbl, 0xc1686504_02ce_4226_a385_4f11fb04b41b);
 ::windows_core::imp::interface_hierarchy!(ISpiControllerProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -42,7 +42,7 @@ impl ::windows_core::RuntimeType for ISpiControllerProvider {
 #[doc(hidden)]
 pub struct ISpiControllerProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetDeviceProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpiDeviceProvider, ISpiDeviceProvider_Vtbl, 0x0d1c3443_304b_405c_b4f7_f5ab1074461e);
 ::windows_core::imp::interface_hierarchy!(ISpiDeviceProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -90,12 +90,12 @@ impl ::windows_core::RuntimeType for ISpiDeviceProvider {
 #[doc(hidden)]
 pub struct ISpiDeviceProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub ConnectionSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *const u8) -> ::windows_core::HRESULT,
-    pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8) -> ::windows_core::HRESULT,
-    pub TransferSequential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows_core::HRESULT,
-    pub TransferFullDuplex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows_core::HRESULT,
+    pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub ConnectionSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Write: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8) -> ::windows_core::HRESULT,
+    pub Read: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u8) -> ::windows_core::HRESULT,
+    pub TransferSequential: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, u32, *mut u8) -> ::windows_core::HRESULT,
+    pub TransferFullDuplex: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, u32, *mut u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISpiProvider, ISpiProvider_Vtbl, 0x96b461e2_77d4_48ce_aaa0_75715a8362cf);
 ::windows_core::imp::interface_hierarchy!(ISpiProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -118,7 +118,7 @@ impl ::windows_core::RuntimeType for ISpiProvider {
 pub struct ISpiProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetControllersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetControllersAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetControllersAsync: usize,
 }

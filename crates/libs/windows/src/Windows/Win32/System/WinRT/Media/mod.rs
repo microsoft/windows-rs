@@ -13,7 +13,7 @@ impl IAudioFrameNative {
 #[doc(hidden)]
 pub struct IAudioFrameNative_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAudioFrameNativeFactory, IAudioFrameNativeFactory_Vtbl, 0x7bd67cf8_bf7d_43e6_af8d_b170ee0c0110);
 ::windows_core::imp::interface_hierarchy!(IAudioFrameNativeFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -35,7 +35,7 @@ impl IAudioFrameNativeFactory {
 pub struct IAudioFrameNativeFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Win32_Media_MediaFoundation")]
-    pub CreateFromMFSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, forcereadonly: super::super::super::Foundation::BOOL, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromMFSample: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::super::Foundation::BOOL, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Media_MediaFoundation"))]
     CreateFromMFSample: usize,
 }
@@ -61,8 +61,8 @@ impl IVideoFrameNative {
 #[doc(hidden)]
 pub struct IVideoFrameNative_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVideoFrameNativeFactory, IVideoFrameNativeFactory_Vtbl, 0x69e3693e_8e1e_4e63_ac4c_7fdc21d9731d);
 ::windows_core::imp::interface_hierarchy!(IVideoFrameNativeFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -85,7 +85,7 @@ impl IVideoFrameNativeFactory {
 pub struct IVideoFrameNativeFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Win32_Media_MediaFoundation")]
-    pub CreateFromMFSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, subtype: *const ::windows_core::GUID, width: u32, height: u32, forcereadonly: super::super::super::Foundation::BOOL, mindisplayaperture: *const super::super::super::Media::MediaFoundation::MFVideoArea, device: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromMFSample: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, u32, super::super::super::Foundation::BOOL, *const super::super::super::Media::MediaFoundation::MFVideoArea, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Media_MediaFoundation"))]
     CreateFromMFSample: usize,
 }

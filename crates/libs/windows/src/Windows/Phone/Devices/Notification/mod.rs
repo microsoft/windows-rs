@@ -3,15 +3,15 @@
 #[doc(hidden)]
 pub struct IVibrationDevice_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Vibrate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Vibrate: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub Cancel: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVibrationDeviceStatics, IVibrationDeviceStatics_Vtbl, 0x332fd2f1_1c69_4c91_949e_4bb67a85bdc7);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVibrationDeviceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

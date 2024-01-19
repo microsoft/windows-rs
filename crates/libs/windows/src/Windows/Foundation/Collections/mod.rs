@@ -42,7 +42,7 @@ where
     T: ::windows_core::RuntimeType + 'static,
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub First: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub First: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
@@ -106,10 +106,10 @@ where
     T: ::windows_core::RuntimeType + 'static,
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
-    pub HasCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub GetMany: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, items_array_size: u32, items: *mut ::windows_core::AbiType<T>, result__: *mut u32) -> ::windows_core::HRESULT,
+    pub Current: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
+    pub HasCurrent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub MoveNext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub GetMany: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::AbiType<T>, *mut u32) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
@@ -151,8 +151,8 @@ where
     V: ::windows_core::RuntimeType + 'static,
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Key: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::AbiType<K>) -> ::windows_core::HRESULT,
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::AbiType<V>) -> ::windows_core::HRESULT,
+    pub Key: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::AbiType<K>) -> ::windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::AbiType<V>) -> ::windows_core::HRESULT,
     pub K: ::core::marker::PhantomData<K>,
     pub V: ::core::marker::PhantomData<V>,
 }
@@ -261,13 +261,13 @@ where
     V: ::windows_core::RuntimeType + 'static,
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Lookup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows_core::AbiType<K>, result__: *mut ::windows_core::AbiType<V>) -> ::windows_core::HRESULT,
-    pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub HasKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows_core::AbiType<K>, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub GetView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Insert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows_core::AbiType<K>, value: ::windows_core::AbiType<V>, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows_core::AbiType<K>) -> ::windows_core::HRESULT,
-    pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Lookup: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::AbiType<K>, *mut ::windows_core::AbiType<V>) -> ::windows_core::HRESULT,
+    pub Size: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub HasKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::AbiType<K>, *mut bool) -> ::windows_core::HRESULT,
+    pub GetView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Insert: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::AbiType<K>, ::windows_core::AbiType<V>, *mut bool) -> ::windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::AbiType<K>) -> ::windows_core::HRESULT,
+    pub Clear: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub K: ::core::marker::PhantomData<K>,
     pub V: ::core::marker::PhantomData<V>,
 }
@@ -308,8 +308,8 @@ where
     K: ::windows_core::RuntimeType + 'static,
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CollectionChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CollectionChange) -> ::windows_core::HRESULT,
-    pub Key: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::AbiType<K>) -> ::windows_core::HRESULT,
+    pub CollectionChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CollectionChange) -> ::windows_core::HRESULT,
+    pub Key: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::AbiType<K>) -> ::windows_core::HRESULT,
     pub K: ::core::marker::PhantomData<K>,
 }
 #[repr(transparent)]
@@ -392,10 +392,10 @@ where
     V: ::windows_core::RuntimeType + 'static,
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Lookup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows_core::AbiType<K>, result__: *mut ::windows_core::AbiType<V>) -> ::windows_core::HRESULT,
-    pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub HasKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows_core::AbiType<K>, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub Split: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, first: *mut *mut ::core::ffi::c_void, second: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Lookup: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::AbiType<K>, *mut ::windows_core::AbiType<V>) -> ::windows_core::HRESULT,
+    pub Size: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub HasKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::AbiType<K>, *mut bool) -> ::windows_core::HRESULT,
+    pub Split: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub K: ::core::marker::PhantomData<K>,
     pub V: ::core::marker::PhantomData<V>,
 }
@@ -521,8 +521,8 @@ where
     V: ::windows_core::RuntimeType + 'static,
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub MapChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vhnd: *mut ::core::ffi::c_void, result__: *mut super::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveMapChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub MapChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveMapChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub K: ::core::marker::PhantomData<K>,
     pub V: ::core::marker::PhantomData<V>,
 }
@@ -665,8 +665,8 @@ where
     T: ::windows_core::RuntimeType + 'static,
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub VectorChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vhnd: *mut ::core::ffi::c_void, result__: *mut super::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveVectorChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub VectorChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveVectorChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
 ::windows_core::imp::com_interface!(IPropertySet, IPropertySet_Vtbl, 0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
@@ -903,18 +903,18 @@ where
     T: ::windows_core::RuntimeType + 'static,
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, result__: *mut ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
-    pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub GetView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub IndexOf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows_core::AbiType<T>, index: *mut u32, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, value: ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
-    pub InsertAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, value: ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
-    pub RemoveAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows_core::HRESULT,
-    pub Append: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
-    pub RemoveAtEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetMany: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, items_array_size: u32, items: *mut ::windows_core::AbiType<T>, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub ReplaceAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, items_array_size: u32, items: *const ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
+    pub GetAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
+    pub Size: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IndexOf: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::AbiType<T>, *mut u32, *mut bool) -> ::windows_core::HRESULT,
+    pub SetAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
+    pub InsertAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
+    pub RemoveAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Append: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
+    pub RemoveAtEnd: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clear: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetMany: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut ::windows_core::AbiType<T>, *mut u32) -> ::windows_core::HRESULT,
+    pub ReplaceAll: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
 ::windows_core::imp::com_interface!(IVectorChangedEventArgs, IVectorChangedEventArgs_Vtbl, 0x575933df_34fe_4480_af15_07691f3d5d9b);
@@ -942,8 +942,8 @@ impl ::windows_core::RuntimeType for IVectorChangedEventArgs {
 #[doc(hidden)]
 pub struct IVectorChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CollectionChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CollectionChange) -> ::windows_core::HRESULT,
-    pub Index: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
+    pub CollectionChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CollectionChange) -> ::windows_core::HRESULT,
+    pub Index: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1041,10 +1041,10 @@ where
     T: ::windows_core::RuntimeType + 'static,
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, result__: *mut ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
-    pub Size: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub IndexOf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows_core::AbiType<T>, index: *mut u32, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub GetMany: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, items_array_size: u32, items: *mut ::windows_core::AbiType<T>, result__: *mut u32) -> ::windows_core::HRESULT,
+    pub GetAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
+    pub Size: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub IndexOf: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::AbiType<T>, *mut u32, *mut bool) -> ::windows_core::HRESULT,
+    pub GetMany: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut ::windows_core::AbiType<T>, *mut u32) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
@@ -1467,7 +1467,7 @@ where
     V: ::windows_core::RuntimeType + 'static,
 {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub K: ::core::marker::PhantomData<K>,
     pub V: ::core::marker::PhantomData<V>,
 }
@@ -1549,7 +1549,7 @@ where
     T: ::windows_core::RuntimeType + 'static,
 {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
 #[cfg(feature = "implement")]

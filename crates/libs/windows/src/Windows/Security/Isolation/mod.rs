@@ -3,20 +3,20 @@
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub StartProcessSilentlyAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hostexepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, arguments: ::std::mem::MaybeUninit<::windows_core::HSTRING>, activator: IsolatedWindowsEnvironmentActivator, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub StartProcessSilentlyWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hostexepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, arguments: ::std::mem::MaybeUninit<::windows_core::HSTRING>, activator: IsolatedWindowsEnvironmentActivator, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ShareFolderAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hostfolder: ::std::mem::MaybeUninit<::windows_core::HSTRING>, requestoptions: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ShareFolderWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hostfolder: ::std::mem::MaybeUninit<::windows_core::HSTRING>, requestoptions: *mut ::core::ffi::c_void, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub LaunchFileWithUIAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appexepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, argumentstemplate: ::std::mem::MaybeUninit<::windows_core::HSTRING>, filepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub LaunchFileWithUIAndTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appexepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, argumentstemplate: ::std::mem::MaybeUninit<::windows_core::HSTRING>, filepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub TerminateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub TerminateWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub StartProcessSilentlyAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, IsolatedWindowsEnvironmentActivator, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub StartProcessSilentlyWithTelemetryAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, IsolatedWindowsEnvironmentActivator, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShareFolderAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShareFolderWithTelemetryAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LaunchFileWithUIAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LaunchFileWithUIAndTelemetryAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TerminateAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TerminateWithTelemetryAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub RegisterMessageReceiver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiverid: ::windows_core::GUID, messagereceivedcallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RegisterMessageReceiver: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     RegisterMessageReceiver: usize,
-    pub UnregisterMessageReceiver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiverid: ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub UnregisterMessageReceiver: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironment2, IIsolatedWindowsEnvironment2_Vtbl, 0x2d365f39_88bd_4ab4_93cf_7e2bcef337c0);
 #[repr(C)]
@@ -24,11 +24,11 @@ pub struct IIsolatedWindowsEnvironment_Vtbl {
 pub struct IIsolatedWindowsEnvironment2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub PostMessageToReceiverAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiverid: ::windows_core::GUID, message: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PostMessageToReceiverAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     PostMessageToReceiverAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub PostMessageToReceiverWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiverid: ::windows_core::GUID, message: *mut ::core::ffi::c_void, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PostMessageToReceiverWithTelemetryAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     PostMessageToReceiverWithTelemetryAsync: usize,
 }
@@ -37,43 +37,43 @@ pub struct IIsolatedWindowsEnvironment2_Vtbl {
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetUserInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ShareFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ShareFileWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, options: *mut ::core::ffi::c_void, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetUserInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShareFileAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShareFileWithTelemetryAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironment4, IIsolatedWindowsEnvironment4_Vtbl, 0x11e3701a_dd9e_4f1b_812c_4020f307f93c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironment4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub ChangePriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, priority: IsolatedWindowsEnvironmentCreationPriority) -> ::windows_core::HRESULT,
+    pub ChangePriority: unsafe extern "system" fn(*mut ::core::ffi::c_void, IsolatedWindowsEnvironmentCreationPriority) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentCreateResult, IIsolatedWindowsEnvironmentCreateResult_Vtbl, 0xef9a5e58_dcd7_45c2_9c85_ab642a715e8e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentCreateResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentCreateStatus) -> ::windows_core::HRESULT,
-    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub Environment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut IsolatedWindowsEnvironmentCreateStatus) -> ::windows_core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub Environment: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentCreateResult2, IIsolatedWindowsEnvironmentCreateResult2_Vtbl, 0xa547dbc7_61d4_4fb8_ab5c_edefa3d388ad);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentCreateResult2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub ChangeCreationPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, priority: IsolatedWindowsEnvironmentCreationPriority) -> ::windows_core::HRESULT,
+    pub ChangeCreationPriority: unsafe extern "system" fn(*mut ::core::ffi::c_void, IsolatedWindowsEnvironmentCreationPriority) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentFactory, IIsolatedWindowsEnvironmentFactory_Vtbl, 0x1aca93e7_e804_454d_8466_f9897c20b0f6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateWithTelemetryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: *mut ::core::ffi::c_void, telemetryparameters: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetById: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, environmentid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateWithTelemetryAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetById: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub FindByOwnerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, environmentownerid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindByOwnerId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     FindByOwnerId: usize,
 }
@@ -82,26 +82,26 @@ pub struct IIsolatedWindowsEnvironmentFactory_Vtbl {
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentFile_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub HostPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub HostPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentFile2, IIsolatedWindowsEnvironmentFile2_Vtbl, 0x4eeb8dec_ad5d_4b0a_b754_f36c3d46d684);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentFile2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GuestPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub IsReadOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub GuestPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub IsReadOnly: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentHostStatics, IIsolatedWindowsEnvironmentHostStatics_Vtbl, 0x2c0e22c7_05a0_517a_b81c_6ee8790c381f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentHostStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub IsReady: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsReady: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub HostErrors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub HostErrors: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     HostErrors: usize,
 }
@@ -110,52 +110,52 @@ pub struct IIsolatedWindowsEnvironmentHostStatics_Vtbl {
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentLaunchFileResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentLaunchFileStatus) -> ::windows_core::HRESULT,
-    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub File: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut IsolatedWindowsEnvironmentLaunchFileStatus) -> ::windows_core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub File: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentOptions, IIsolatedWindowsEnvironmentOptions_Vtbl, 0xb71d98f7_61f0_4008_b207_0bf9eb2d76f2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub EnvironmentOwnerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub SetEnvironmentOwnerId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub AllowedClipboardFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows_core::HRESULT,
-    pub SetAllowedClipboardFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows_core::HRESULT,
-    pub ClipboardCopyPasteDirections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentClipboardCopyPasteDirections) -> ::windows_core::HRESULT,
-    pub SetClipboardCopyPasteDirections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: IsolatedWindowsEnvironmentClipboardCopyPasteDirections) -> ::windows_core::HRESULT,
-    pub AvailablePrinters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentAvailablePrinters) -> ::windows_core::HRESULT,
-    pub SetAvailablePrinters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: IsolatedWindowsEnvironmentAvailablePrinters) -> ::windows_core::HRESULT,
-    pub SharedHostFolderPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub SharedFolderNameInEnvironment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub ShareHostFolderForUntrustedItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sharedhostfolderpath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, sharefoldernameinenvironment: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub PersistUserProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetPersistUserProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub AllowGraphicsHardwareAcceleration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetAllowGraphicsHardwareAcceleration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub AllowCameraAndMicrophoneAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetAllowCameraAndMicrophoneAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+    pub EnvironmentOwnerId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetEnvironmentOwnerId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub AllowedClipboardFormats: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows_core::HRESULT,
+    pub SetAllowedClipboardFormats: unsafe extern "system" fn(*mut ::core::ffi::c_void, IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows_core::HRESULT,
+    pub ClipboardCopyPasteDirections: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut IsolatedWindowsEnvironmentClipboardCopyPasteDirections) -> ::windows_core::HRESULT,
+    pub SetClipboardCopyPasteDirections: unsafe extern "system" fn(*mut ::core::ffi::c_void, IsolatedWindowsEnvironmentClipboardCopyPasteDirections) -> ::windows_core::HRESULT,
+    pub AvailablePrinters: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut IsolatedWindowsEnvironmentAvailablePrinters) -> ::windows_core::HRESULT,
+    pub SetAvailablePrinters: unsafe extern "system" fn(*mut ::core::ffi::c_void, IsolatedWindowsEnvironmentAvailablePrinters) -> ::windows_core::HRESULT,
+    pub SharedHostFolderPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SharedFolderNameInEnvironment: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub ShareHostFolderForUntrustedItems: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub PersistUserProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetPersistUserProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub AllowGraphicsHardwareAcceleration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetAllowGraphicsHardwareAcceleration: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub AllowCameraAndMicrophoneAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetAllowCameraAndMicrophoneAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentOptions2, IIsolatedWindowsEnvironmentOptions2_Vtbl, 0x10d7cc31_8b8f_4b9d_b22c_617103b55b08);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOptions2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub WindowAnnotationOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub SetWindowAnnotationOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub WindowAnnotationOverride: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetWindowAnnotationOverride: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentOptions3, IIsolatedWindowsEnvironmentOptions3_Vtbl, 0x98d5aa23_161f_4cd9_8a9c_269b30122b0d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOptions3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub AllowedClipboardFormatsToEnvironment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows_core::HRESULT,
-    pub SetAllowedClipboardFormatsToEnvironment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows_core::HRESULT,
-    pub AllowedClipboardFormatsToHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows_core::HRESULT,
-    pub SetAllowedClipboardFormatsToHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows_core::HRESULT,
-    pub CreationPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentCreationPriority) -> ::windows_core::HRESULT,
-    pub SetCreationPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: IsolatedWindowsEnvironmentCreationPriority) -> ::windows_core::HRESULT,
+    pub AllowedClipboardFormatsToEnvironment: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows_core::HRESULT,
+    pub SetAllowedClipboardFormatsToEnvironment: unsafe extern "system" fn(*mut ::core::ffi::c_void, IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows_core::HRESULT,
+    pub AllowedClipboardFormatsToHost: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows_core::HRESULT,
+    pub SetAllowedClipboardFormatsToHost: unsafe extern "system" fn(*mut ::core::ffi::c_void, IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows_core::HRESULT,
+    pub CreationPriority: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut IsolatedWindowsEnvironmentCreationPriority) -> ::windows_core::HRESULT,
+    pub SetCreationPriority: unsafe extern "system" fn(*mut ::core::ffi::c_void, IsolatedWindowsEnvironmentCreationPriority) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentOwnerRegistrationData, IIsolatedWindowsEnvironmentOwnerRegistrationData_Vtbl, 0xf888ec22_e8cf_56c0_b1df_90af4ad80e84);
 #[repr(C)]
@@ -163,19 +163,19 @@ pub struct IIsolatedWindowsEnvironmentOptions3_Vtbl {
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationData_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub ShareableFolders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShareableFolders: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     ShareableFolders: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub ProcessesRunnableAsSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ProcessesRunnableAsSystem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     ProcessesRunnableAsSystem: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub ProcessesRunnableAsUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ProcessesRunnableAsUser: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     ProcessesRunnableAsUser: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub ActivationFileExtensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ActivationFileExtensions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     ActivationFileExtensions: usize,
 }
@@ -184,101 +184,101 @@ pub struct IIsolatedWindowsEnvironmentOwnerRegistrationData_Vtbl {
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentOwnerRegistrationStatus) -> ::windows_core::HRESULT,
-    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut IsolatedWindowsEnvironmentOwnerRegistrationStatus) -> ::windows_core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentOwnerRegistrationStatics, IIsolatedWindowsEnvironmentOwnerRegistrationStatics_Vtbl, 0x10951754_204b_5ec9_9de3_df792d074a61);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Register: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ownername: ::std::mem::MaybeUninit<::windows_core::HSTRING>, ownerregistrationdata: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Unregister: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ownername: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Register: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Unregister: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentPostMessageResult, IIsolatedWindowsEnvironmentPostMessageResult_Vtbl, 0x0dfa28fa_2ef0_4d8f_b341_3171b2df93b1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentPostMessageResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentPostMessageStatus) -> ::windows_core::HRESULT,
-    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut IsolatedWindowsEnvironmentPostMessageStatus) -> ::windows_core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentProcess, IIsolatedWindowsEnvironmentProcess_Vtbl, 0xa858c3ef_8172_4f10_af93_cbe60af88d09);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentProcess_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentProcessState) -> ::windows_core::HRESULT,
-    pub ExitCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub WaitForExit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub WaitForExitWithTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timeoutmilliseconds: u32) -> ::windows_core::HRESULT,
-    pub WaitForExitAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub State: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut IsolatedWindowsEnvironmentProcessState) -> ::windows_core::HRESULT,
+    pub ExitCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub WaitForExit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub WaitForExitWithTimeout: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub WaitForExitAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentShareFileRequestOptions, IIsolatedWindowsEnvironmentShareFileRequestOptions_Vtbl, 0xc9190ed8_0fd0_4946_bb88_117a60737b61);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFileRequestOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub AllowWrite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetAllowWrite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+    pub AllowWrite: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetAllowWrite: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentShareFileResult, IIsolatedWindowsEnvironmentShareFileResult_Vtbl, 0xaec7caa7_9ac6_4bf5_8b91_5c1adf0d7d00);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFileResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentShareFileStatus) -> ::windows_core::HRESULT,
-    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub File: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut IsolatedWindowsEnvironmentShareFileStatus) -> ::windows_core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub File: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentShareFolderRequestOptions, IIsolatedWindowsEnvironmentShareFolderRequestOptions_Vtbl, 0xc405eb7d_7053_4f6a_9b87_746846ed19b2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFolderRequestOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub AllowWrite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetAllowWrite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+    pub AllowWrite: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetAllowWrite: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentShareFolderResult, IIsolatedWindowsEnvironmentShareFolderResult_Vtbl, 0x556ba72e_ca9d_4211_b143_1cedc86eb2fe);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentShareFolderResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentShareFolderStatus) -> ::windows_core::HRESULT,
-    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut IsolatedWindowsEnvironmentShareFolderStatus) -> ::windows_core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentStartProcessResult, IIsolatedWindowsEnvironmentStartProcessResult_Vtbl, 0x8fa1dc2f_57da_4bb5_9c06_fa072d2032e2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentStartProcessResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IsolatedWindowsEnvironmentStartProcessStatus) -> ::windows_core::HRESULT,
-    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub Process: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut IsolatedWindowsEnvironmentStartProcessStatus) -> ::windows_core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub Process: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentTelemetryParameters, IIsolatedWindowsEnvironmentTelemetryParameters_Vtbl, 0xebdb3cab_7a3a_4524_a0f4_f96e284d33cd);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentTelemetryParameters_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub SetCorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub CorrelationId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub SetCorrelationId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentUserInfo, IIsolatedWindowsEnvironmentUserInfo_Vtbl, 0x8a9c75ae_69ba_4001_96fc_19a02703b340);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentUserInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub EnvironmentUserSid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub EnvironmentUserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub TryWaitForSignInAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnvironmentUserSid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub EnvironmentUserName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub TryWaitForSignInAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsEnvironmentUserInfo2, IIsolatedWindowsEnvironmentUserInfo2_Vtbl, 0xb0bdd5dd_91d7_481e_94f2_2a5a6bdf9383);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIsolatedWindowsEnvironmentUserInfo2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub TryWaitForSignInWithProgressAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TryWaitForSignInWithProgressAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsHostMessengerStatics, IIsolatedWindowsHostMessengerStatics_Vtbl, 0x06e444bb_53c0_4889_8fa3_53592e37cf21);
 #[repr(C)]
@@ -286,10 +286,10 @@ pub struct IIsolatedWindowsEnvironmentUserInfo2_Vtbl {
 pub struct IIsolatedWindowsHostMessengerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub PostMessageToReceiver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiverid: ::windows_core::GUID, message: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PostMessageToReceiver: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     PostMessageToReceiver: usize,
-    pub GetFileId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetFileId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIsolatedWindowsHostMessengerStatics2, IIsolatedWindowsHostMessengerStatics2_Vtbl, 0x55ef9ebc_0444_42ad_832d_1b89c089d1ca);
 #[repr(C)]
@@ -297,10 +297,10 @@ pub struct IIsolatedWindowsHostMessengerStatics_Vtbl {
 pub struct IIsolatedWindowsHostMessengerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub RegisterHostMessageReceiver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiverid: ::windows_core::GUID, hostmessagereceivedcallback: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RegisterHostMessageReceiver: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     RegisterHostMessageReceiver: usize,
-    pub UnregisterHostMessageReceiver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiverid: ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub UnregisterHostMessageReceiver: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1862,7 +1862,7 @@ impl ::windows_core::RuntimeType for HostMessageReceivedCallback {
 pub struct HostMessageReceivedCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiverid: ::windows_core::GUID, message: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Invoke: usize,
 }
@@ -1942,7 +1942,7 @@ impl ::windows_core::RuntimeType for MessageReceivedCallback {
 pub struct MessageReceivedCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiverid: ::windows_core::GUID, message: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Invoke: usize,
 }

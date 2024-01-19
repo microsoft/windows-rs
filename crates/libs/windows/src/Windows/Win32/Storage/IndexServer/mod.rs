@@ -65,16 +65,16 @@ impl IFilter {
 pub struct IFilter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfflags: u32, cattributes: u32, aattributes: *const FULLPROPSPEC, pflags: *mut u32) -> i32,
+    pub Init: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const FULLPROPSPEC, *mut u32) -> i32,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     Init: usize,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub GetChunk: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstat: *mut STAT_CHUNK) -> i32,
+    pub GetChunk: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut STAT_CHUNK) -> i32,
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     GetChunk: usize,
-    pub GetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcwcbuffer: *mut u32, awcbuffer: ::windows_core::PWSTR) -> i32,
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropvalue: *mut *mut ::windows_core::PROPVARIANT) -> i32,
-    pub BindRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, origpos: FILTERREGION, riid: *const ::windows_core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> i32,
+    pub GetText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, ::windows_core::PWSTR) -> i32,
+    pub GetValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::windows_core::PROPVARIANT) -> i32,
+    pub BindRegion: unsafe extern "system" fn(*mut ::core::ffi::c_void, FILTERREGION, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> i32,
 }
 ::windows_core::imp::com_interface!(IPhraseSink, IPhraseSink_Vtbl, 0xcc906ff0_c058_101a_b554_08002b33b0e6);
 ::windows_core::imp::interface_hierarchy!(IPhraseSink, ::windows_core::IUnknown);
@@ -97,8 +97,8 @@ impl IPhraseSink {
 #[doc(hidden)]
 pub struct IPhraseSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub PutSmallPhrase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcnoun: ::windows_core::PCWSTR, cwcnoun: u32, pwcmodifier: ::windows_core::PCWSTR, cwcmodifier: u32, ulattachmenttype: u32) -> ::windows_core::HRESULT,
-    pub PutPhrase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcphrase: ::windows_core::PCWSTR, cwcphrase: u32) -> ::windows_core::HRESULT,
+    pub PutSmallPhrase: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, ::windows_core::PCWSTR, u32, u32) -> ::windows_core::HRESULT,
+    pub PutPhrase: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
 }
 pub const CHUNK_EOC: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(4i32);
 pub const CHUNK_EOP: CHUNK_BREAKTYPE = CHUNK_BREAKTYPE(3i32);

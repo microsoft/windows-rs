@@ -3,18 +3,18 @@
 #[doc(hidden)]
 pub struct IRemoteTextConnection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetIsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub RegisterThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: u32) -> ::windows_core::HRESULT,
-    pub UnregisterThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: u32) -> ::windows_core::HRESULT,
-    pub ReportDataReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pduData_array_size: u32, pdudata: *const u8) -> ::windows_core::HRESULT,
+    pub IsEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetIsEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub RegisterThread: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub UnregisterThread: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub ReportDataReceived: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRemoteTextConnectionFactory, IRemoteTextConnectionFactory_Vtbl, 0x88e075c2_0cae_596c_850f_78d345cd728b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteTextConnectionFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: ::windows_core::GUID, pduforwarder: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -144,5 +144,5 @@ impl ::windows_core::RuntimeType for RemoteTextConnectionDataHandler {
 #[doc(hidden)]
 pub struct RemoteTextConnectionDataHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pduData_array_size: u32, pdudata: *const u8, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, *mut bool) -> ::windows_core::HRESULT,
 }

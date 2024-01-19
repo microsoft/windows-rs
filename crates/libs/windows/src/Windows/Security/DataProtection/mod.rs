@@ -3,16 +3,16 @@
 #[doc(hidden)]
 pub struct IUserDataAvailabilityStateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserDataBufferUnprotectResult, IUserDataBufferUnprotectResult_Vtbl, 0x8efd0e90_fa9a_46a4_a377_01cebf1e74d8);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataBufferUnprotectResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataBufferUnprotectStatus) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut UserDataBufferUnprotectStatus) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
-    pub UnprotectedBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UnprotectedBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     UnprotectedBuffer: usize,
 }
@@ -22,33 +22,33 @@ pub struct IUserDataBufferUnprotectResult_Vtbl {
 pub struct IUserDataProtectionManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]
-    pub ProtectStorageItemAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storageitem: *mut ::core::ffi::c_void, availability: UserDataAvailability, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ProtectStorageItemAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, UserDataAvailability, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage"))]
     ProtectStorageItemAsync: usize,
     #[cfg(feature = "Storage")]
-    pub GetStorageItemProtectionInfoAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storageitem: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStorageItemProtectionInfoAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage"))]
     GetStorageItemProtectionInfoAsync: usize,
     #[cfg(feature = "Storage_Streams")]
-    pub ProtectBufferAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unprotectedbuffer: *mut ::core::ffi::c_void, availability: UserDataAvailability, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ProtectBufferAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, UserDataAvailability, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     ProtectBufferAsync: usize,
     #[cfg(feature = "Storage_Streams")]
-    pub UnprotectBufferAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protectedbuffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UnprotectBufferAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     UnprotectBufferAsync: usize,
-    pub IsContinuedDataAvailabilityExpected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, availability: UserDataAvailability, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub DataAvailabilityStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveDataAvailabilityStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub IsContinuedDataAvailabilityExpected: unsafe extern "system" fn(*mut ::core::ffi::c_void, UserDataAvailability, *mut bool) -> ::windows_core::HRESULT,
+    pub DataAvailabilityStateChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveDataAvailabilityStateChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IUserDataProtectionManagerStatics, IUserDataProtectionManagerStatics_Vtbl, 0x977780e8_6dce_4fae_af85_782ac2cf4572);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUserDataProtectionManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub TryGetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TryGetDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "System")]
-    pub TryGetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TryGetForUser: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "System"))]
     TryGetForUser: usize,
 }
@@ -57,7 +57,7 @@ pub struct IUserDataProtectionManagerStatics_Vtbl {
 #[doc(hidden)]
 pub struct IUserDataStorageItemProtectionInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Availability: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataAvailability) -> ::windows_core::HRESULT,
+    pub Availability: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut UserDataAvailability) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

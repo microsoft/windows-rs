@@ -1356,407 +1356,294 @@ impl ::windows_core::RuntimeType for DayOfWeek {
 pub struct ICalendar_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Clone: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        *mut *mut ::core::ffi::c_void,
     ) -> ::windows_core::HRESULT,
-    pub SetToMin:
-        unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetToMax:
-        unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetToMin: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetToMax: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Languages: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        *mut *mut ::core::ffi::c_void,
     ) -> ::windows_core::HRESULT,
     pub NumeralSystem: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub SetNumeralSystem: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        value: ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub GetCalendarSystem: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub ChangeCalendarSystem: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        value: ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub GetClock: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub ChangeClock: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        value: ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub GetDateTime: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut DateTime,
+        *mut ::core::ffi::c_void,
+        *mut DateTime,
     ) -> ::windows_core::HRESULT,
-    pub SetDateTime: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        value: DateTime,
-    ) -> ::windows_core::HRESULT,
-    pub SetToNow:
-        unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FirstEra: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub LastEra: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub NumberOfEras: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub Era: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub SetEra: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        value: i32,
-    ) -> ::windows_core::HRESULT,
-    pub AddEras: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        eras: i32,
-    ) -> ::windows_core::HRESULT,
+    pub SetDateTime:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, DateTime) -> ::windows_core::HRESULT,
+    pub SetToNow: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FirstEra:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub LastEra:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub NumberOfEras:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Era:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetEra: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub AddEras:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
     pub EraAsFullString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub EraAsString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        ideallength: i32,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        i32,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
-    pub FirstYearInThisEra: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub LastYearInThisEra: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub NumberOfYearsInThisEra: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub Year: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub SetYear: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        value: i32,
-    ) -> ::windows_core::HRESULT,
-    pub AddYears: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        years: i32,
-    ) -> ::windows_core::HRESULT,
+    pub FirstYearInThisEra:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub LastYearInThisEra:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub NumberOfYearsInThisEra:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Year:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetYear:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub AddYears:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
     pub YearAsString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub YearAsTruncatedString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        remainingdigits: i32,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        i32,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub YearAsPaddedString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        mindigits: i32,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        i32,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
-    pub FirstMonthInThisYear: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub LastMonthInThisYear: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub NumberOfMonthsInThisYear: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub Month: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub SetMonth: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        value: i32,
-    ) -> ::windows_core::HRESULT,
-    pub AddMonths: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        months: i32,
-    ) -> ::windows_core::HRESULT,
+    pub FirstMonthInThisYear:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub LastMonthInThisYear:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub NumberOfMonthsInThisYear:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Month:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetMonth:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub AddMonths:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
     pub MonthAsFullString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub MonthAsString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        ideallength: i32,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        i32,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub MonthAsFullSoloString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub MonthAsSoloString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        ideallength: i32,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        i32,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub MonthAsNumericString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub MonthAsPaddedNumericString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        mindigits: i32,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        i32,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
-    pub AddWeeks: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        weeks: i32,
-    ) -> ::windows_core::HRESULT,
-    pub FirstDayInThisMonth: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub LastDayInThisMonth: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub NumberOfDaysInThisMonth: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub Day: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub SetDay: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        value: i32,
-    ) -> ::windows_core::HRESULT,
-    pub AddDays: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        days: i32,
-    ) -> ::windows_core::HRESULT,
+    pub AddWeeks:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub FirstDayInThisMonth:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub LastDayInThisMonth:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub NumberOfDaysInThisMonth:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Day:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetDay: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub AddDays:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
     pub DayAsString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub DayAsPaddedString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        mindigits: i32,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        i32,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub DayOfWeek: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut DayOfWeek,
+        *mut ::core::ffi::c_void,
+        *mut DayOfWeek,
     ) -> ::windows_core::HRESULT,
     pub DayOfWeekAsFullString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub DayOfWeekAsString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        ideallength: i32,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        i32,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub DayOfWeekAsFullSoloString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub DayOfWeekAsSoloString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        ideallength: i32,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        i32,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
-    pub FirstPeriodInThisDay: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub LastPeriodInThisDay: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub NumberOfPeriodsInThisDay: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub Period: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub SetPeriod: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        value: i32,
-    ) -> ::windows_core::HRESULT,
-    pub AddPeriods: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        periods: i32,
-    ) -> ::windows_core::HRESULT,
+    pub FirstPeriodInThisDay:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub LastPeriodInThisDay:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub NumberOfPeriodsInThisDay:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Period:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetPeriod:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub AddPeriods:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
     pub PeriodAsFullString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub PeriodAsString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        ideallength: i32,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        i32,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
-    pub FirstHourInThisPeriod: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub LastHourInThisPeriod: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub NumberOfHoursInThisPeriod: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub Hour: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub SetHour: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        value: i32,
-    ) -> ::windows_core::HRESULT,
-    pub AddHours: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        hours: i32,
-    ) -> ::windows_core::HRESULT,
+    pub FirstHourInThisPeriod:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub LastHourInThisPeriod:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub NumberOfHoursInThisPeriod:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Hour:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetHour:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub AddHours:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
     pub HourAsString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub HourAsPaddedString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        mindigits: i32,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        i32,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
-    pub Minute: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub SetMinute: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        value: i32,
-    ) -> ::windows_core::HRESULT,
-    pub AddMinutes: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        minutes: i32,
-    ) -> ::windows_core::HRESULT,
+    pub Minute:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetMinute:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub AddMinutes:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
     pub MinuteAsString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub MinuteAsPaddedString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        mindigits: i32,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        i32,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
-    pub Second: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub SetSecond: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        value: i32,
-    ) -> ::windows_core::HRESULT,
-    pub AddSeconds: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        seconds: i32,
-    ) -> ::windows_core::HRESULT,
+    pub Second:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetSecond:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub AddSeconds:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
     pub SecondAsString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub SecondAsPaddedString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        mindigits: i32,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        i32,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
-    pub Nanosecond: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub SetNanosecond: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        value: i32,
-    ) -> ::windows_core::HRESULT,
-    pub AddNanoseconds: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        nanoseconds: i32,
-    ) -> ::windows_core::HRESULT,
+    pub Nanosecond:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetNanosecond:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub AddNanoseconds:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
     pub NanosecondAsString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub NanosecondAsPaddedString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        mindigits: i32,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        i32,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub Compare: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        other: *mut ::core::ffi::c_void,
-        result__: *mut i32,
+        *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        *mut i32,
     ) -> ::windows_core::HRESULT,
     pub CompareDateTime: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        other: DateTime,
-        result__: *mut i32,
+        *mut ::core::ffi::c_void,
+        DateTime,
+        *mut i32,
     ) -> ::windows_core::HRESULT,
     pub CopyTo: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        other: *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
     ) -> ::windows_core::HRESULT,
-    pub FirstMinuteInThisHour: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub LastMinuteInThisHour: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub NumberOfMinutesInThisHour: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub FirstSecondInThisMinute: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub LastSecondInThisMinute: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub NumberOfSecondsInThisMinute: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
+    pub FirstMinuteInThisHour:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub LastMinuteInThisHour:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub NumberOfMinutesInThisHour:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub FirstSecondInThisMinute:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub LastSecondInThisMinute:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub NumberOfSecondsInThisMinute:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
     pub ResolvedLanguage: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
-    pub IsDaylightSavingTime: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut bool,
-    ) -> ::windows_core::HRESULT,
+    pub IsDaylightSavingTime:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(
     ICalendarFactory,
@@ -1768,17 +1655,17 @@ pub struct ICalendar_Vtbl {
 pub struct ICalendarFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateCalendarDefaultCalendarAndClock: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        languages: *mut ::core::ffi::c_void,
-        result__: *mut *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        *mut *mut ::core::ffi::c_void,
     )
         -> ::windows_core::HRESULT,
     pub CreateCalendar: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        languages: *mut ::core::ffi::c_void,
-        calendar: ::std::mem::MaybeUninit<::windows_core::HSTRING>,
-        clock: ::std::mem::MaybeUninit<::windows_core::HSTRING>,
-        result__: *mut *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut *mut ::core::ffi::c_void,
     ) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(
@@ -1791,12 +1678,12 @@ pub struct ICalendarFactory_Vtbl {
 pub struct ICalendarFactory2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateCalendarWithTimeZone: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        languages: *mut ::core::ffi::c_void,
-        calendar: ::std::mem::MaybeUninit<::windows_core::HSTRING>,
-        clock: ::std::mem::MaybeUninit<::windows_core::HSTRING>,
-        timezoneid: ::std::mem::MaybeUninit<::windows_core::HSTRING>,
-        result__: *mut *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut *mut ::core::ffi::c_void,
     ) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
@@ -1862,8 +1749,8 @@ where
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub First: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        *mut *mut ::core::ffi::c_void,
     ) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
@@ -1964,22 +1851,18 @@ where
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::windows_core::AbiType<T>,
+        *mut ::core::ffi::c_void,
+        *mut ::windows_core::AbiType<T>,
     ) -> ::windows_core::HRESULT,
-    pub HasCurrent: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut bool,
-    ) -> ::windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut bool,
-    ) -> ::windows_core::HRESULT,
+    pub HasCurrent:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub MoveNext:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     pub GetMany: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        items_array_size: u32,
-        items: *mut ::windows_core::AbiType<T>,
-        result__: *mut u32,
+        *mut ::core::ffi::c_void,
+        u32,
+        *mut ::windows_core::AbiType<T>,
+        *mut u32,
     ) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
@@ -1993,21 +1876,21 @@ where
 pub struct ITimeZoneOnCalendar_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetTimeZone: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub ChangeTimeZone: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        timezoneid: ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub TimeZoneAsFullString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub TimeZoneAsString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        ideallength: i32,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        i32,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
@@ -2158,26 +2041,24 @@ where
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetAt: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        index: u32,
-        result__: *mut ::windows_core::AbiType<T>,
+        *mut ::core::ffi::c_void,
+        u32,
+        *mut ::windows_core::AbiType<T>,
     ) -> ::windows_core::HRESULT,
-    pub Size: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut u32,
-    ) -> ::windows_core::HRESULT,
+    pub Size:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
     pub IndexOf: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        value: ::windows_core::AbiType<T>,
-        index: *mut u32,
-        result__: *mut bool,
+        *mut ::core::ffi::c_void,
+        ::windows_core::AbiType<T>,
+        *mut u32,
+        *mut bool,
     ) -> ::windows_core::HRESULT,
     pub GetMany: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        startindex: u32,
-        items_array_size: u32,
-        items: *mut ::windows_core::AbiType<T>,
-        result__: *mut u32,
+        *mut ::core::ffi::c_void,
+        u32,
+        u32,
+        *mut ::windows_core::AbiType<T>,
+        *mut u32,
     ) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }

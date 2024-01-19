@@ -3,17 +3,17 @@
 #[doc(hidden)]
 pub struct IInkAnalysisInkBullet_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub RecognizedText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub RecognizedText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInkAnalysisInkDrawing, IInkAnalysisInkDrawing_Vtbl, 0x6a85ed1f_1fe4_4e15_898c_8e112377e021);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkAnalysisInkDrawing_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub DrawingKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InkAnalysisDrawingKind) -> ::windows_core::HRESULT,
-    pub Center: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
+    pub DrawingKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkAnalysisDrawingKind) -> ::windows_core::HRESULT,
+    pub Center: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Points: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Points: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Points: usize,
 }
@@ -22,9 +22,9 @@ pub struct IInkAnalysisInkDrawing_Vtbl {
 #[doc(hidden)]
 pub struct IInkAnalysisInkWord_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub RecognizedText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub RecognizedText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub TextAlternates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TextAlternates: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     TextAlternates: usize,
 }
@@ -33,15 +33,15 @@ pub struct IInkAnalysisInkWord_Vtbl {
 #[doc(hidden)]
 pub struct IInkAnalysisLine_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub RecognizedText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub IndentLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub RecognizedText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub IndentLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInkAnalysisListItem, IInkAnalysisListItem_Vtbl, 0xb4e3c23f_c4c3_4c3a_a1a6_9d85547ee586);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkAnalysisListItem_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub RecognizedText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub RecognizedText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInkAnalysisNode, IInkAnalysisNode_Vtbl, 0x30831f05_5f64_4a2c_ba37_4f4887879574);
 ::windows_core::imp::interface_hierarchy!(IInkAnalysisNode, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -109,20 +109,20 @@ impl ::windows_core::RuntimeType for IInkAnalysisNode {
 #[doc(hidden)]
 pub struct IInkAnalysisNode_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InkAnalysisNodeKind) -> ::windows_core::HRESULT,
-    pub BoundingRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::Rect) -> ::windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkAnalysisNodeKind) -> ::windows_core::HRESULT,
+    pub BoundingRect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::super::Foundation::Rect) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub RotatedBoundingRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RotatedBoundingRect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     RotatedBoundingRect: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub Children: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Children: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Children: usize,
-    pub Parent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Parent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetStrokeIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStrokeIds: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetStrokeIds: usize,
 }
@@ -131,23 +131,23 @@ pub struct IInkAnalysisNode_Vtbl {
 #[doc(hidden)]
 pub struct IInkAnalysisParagraph_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub RecognizedText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub RecognizedText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInkAnalysisResult, IInkAnalysisResult_Vtbl, 0x8948ba79_a243_4aa3_a294_1f98bd0ff580);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkAnalysisResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut InkAnalysisStatus) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkAnalysisStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInkAnalysisRoot, IInkAnalysisRoot_Vtbl, 0x3fb6a3c4_2fde_4061_8502_a90f32545b84);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkAnalysisRoot_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub RecognizedText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub RecognizedText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub FindNodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodekind: InkAnalysisNodeKind, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindNodes: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkAnalysisNodeKind, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     FindNodes: usize,
 }
@@ -156,29 +156,29 @@ pub struct IInkAnalysisRoot_Vtbl {
 #[doc(hidden)]
 pub struct IInkAnalysisWritingRegion_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub RecognizedText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub RecognizedText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInkAnalyzer, IInkAnalyzer_Vtbl, 0xf12b8f95_0866_4dc5_8c77_f88614dfe38c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInkAnalyzer_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub AnalysisRoot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub IsAnalyzing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub AddDataForStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stroke: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AnalysisRoot: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsAnalyzing: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub AddDataForStroke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub AddDataForStrokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddDataForStrokes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     AddDataForStrokes: usize,
-    pub ClearDataForAllStrokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveDataForStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokeid: u32) -> ::windows_core::HRESULT,
+    pub ClearDataForAllStrokes: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveDataForStroke: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub RemoveDataForStrokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokeids: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveDataForStrokes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     RemoveDataForStrokes: usize,
-    pub ReplaceDataForStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stroke: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetStrokeDataKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokeid: u32, strokekind: InkAnalysisStrokeKind) -> ::windows_core::HRESULT,
-    pub AnalyzeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ReplaceDataForStroke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetStrokeDataKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, InkAnalysisStrokeKind) -> ::windows_core::HRESULT,
+    pub AnalyzeAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInkAnalyzerFactory, IInkAnalyzerFactory_Vtbl, 0x29138686_1963_49d8_9589_e14384c769e3);
 ::windows_core::imp::interface_hierarchy!(IInkAnalyzerFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -198,7 +198,7 @@ impl ::windows_core::RuntimeType for IInkAnalyzerFactory {
 #[doc(hidden)]
 pub struct IInkAnalyzerFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateAnalyzer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAnalyzer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

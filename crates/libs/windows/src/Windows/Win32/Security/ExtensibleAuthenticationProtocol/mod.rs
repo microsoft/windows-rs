@@ -227,11 +227,11 @@ impl IAccountingProviderConfig {
 #[doc(hidden)]
 pub struct IAccountingProviderConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmachinename: ::windows_core::PCWSTR, puconnectionparam: *mut usize) -> ::windows_core::HRESULT,
-    pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize) -> ::windows_core::HRESULT,
-    pub Configure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, dwflags: u32, ureserved1: usize, ureserved2: usize) -> ::windows_core::HRESULT,
-    pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows_core::HRESULT,
-    pub Deactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut usize) -> ::windows_core::HRESULT,
+    pub Uninitialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub Configure: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, super::super::Foundation::HWND, u32, usize, usize) -> ::windows_core::HRESULT,
+    pub Activate: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, usize) -> ::windows_core::HRESULT,
+    pub Deactivate: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, usize) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAuthenticationProviderConfig, IAuthenticationProviderConfig_Vtbl, 0x66a2db17_d706_11d0_a37b_00c04fc9da04);
 ::windows_core::imp::interface_hierarchy!(IAuthenticationProviderConfig, ::windows_core::IUnknown);
@@ -263,11 +263,11 @@ impl IAuthenticationProviderConfig {
 #[doc(hidden)]
 pub struct IAuthenticationProviderConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmachinename: ::windows_core::PCWSTR, puconnectionparam: *mut usize) -> ::windows_core::HRESULT,
-    pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize) -> ::windows_core::HRESULT,
-    pub Configure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, dwflags: u32, ureserved1: usize, ureserved2: usize) -> ::windows_core::HRESULT,
-    pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows_core::HRESULT,
-    pub Deactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uconnectionparam: usize, ureserved1: usize, ureserved2: usize) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut usize) -> ::windows_core::HRESULT,
+    pub Uninitialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub Configure: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, super::super::Foundation::HWND, u32, usize, usize) -> ::windows_core::HRESULT,
+    pub Activate: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, usize) -> ::windows_core::HRESULT,
+    pub Deactivate: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, usize) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEAPProviderConfig, IEAPProviderConfig_Vtbl, 0x66a2db19_d706_11d0_a37b_00c04fc9da04);
 ::windows_core::imp::interface_hierarchy!(IEAPProviderConfig, ::windows_core::IUnknown);
@@ -305,11 +305,11 @@ impl IEAPProviderConfig {
 #[doc(hidden)]
 pub struct IEAPProviderConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmachinename: ::windows_core::PCWSTR, dweaptypeid: u32, puconnectionparam: *mut usize) -> ::windows_core::HRESULT,
-    pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize) -> ::windows_core::HRESULT,
-    pub ServerInvokeConfigUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, ureserved1: usize, ureserved2: usize) -> ::windows_core::HRESULT,
-    pub RouterInvokeConfigUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwndparent: super::super::Foundation::HWND, dwflags: u32, pconnectiondatain: *const u8, dwsizeofconnectiondatain: u32, ppconnectiondataout: *mut *mut u8, pdwsizeofconnectiondataout: *mut u32) -> ::windows_core::HRESULT,
-    pub RouterInvokeCredentialsUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwndparent: super::super::Foundation::HWND, dwflags: u32, pconnectiondatain: *const u8, dwsizeofconnectiondatain: u32, puserdatain: *const u8, dwsizeofuserdatain: u32, ppuserdataout: *mut *mut u8, pdwsizeofuserdataout: *mut u32) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, *mut usize) -> ::windows_core::HRESULT,
+    pub Uninitialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, usize) -> ::windows_core::HRESULT,
+    pub ServerInvokeConfigUI: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, usize, super::super::Foundation::HWND, usize, usize) -> ::windows_core::HRESULT,
+    pub RouterInvokeConfigUI: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, usize, super::super::Foundation::HWND, u32, *const u8, u32, *mut *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub RouterInvokeCredentialsUI: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, usize, super::super::Foundation::HWND, u32, *const u8, u32, *const u8, u32, *mut *mut u8, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEAPProviderConfig2, IEAPProviderConfig2_Vtbl, 0xd565917a_85c4_4466_856e_671c3742ea9a);
 ::windows_core::imp::interface_hierarchy!(IEAPProviderConfig2, ::windows_core::IUnknown, IEAPProviderConfig);
@@ -356,8 +356,8 @@ impl IEAPProviderConfig2 {
 #[doc(hidden)]
 pub struct IEAPProviderConfig2_Vtbl {
     pub base__: IEAPProviderConfig_Vtbl,
-    pub ServerInvokeConfigUI2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows_core::HRESULT,
-    pub GetGlobalConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweaptypeid: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32) -> ::windows_core::HRESULT,
+    pub ServerInvokeConfigUI2: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, usize, super::super::Foundation::HWND, *const u8, u32, *mut *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub GetGlobalConfig: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut u8, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEAPProviderConfig3, IEAPProviderConfig3_Vtbl, 0xb78ecd12_68bb_4f86_9bf0_8438dd3be982);
 ::windows_core::imp::interface_hierarchy!(IEAPProviderConfig3, ::windows_core::IUnknown, IEAPProviderConfig, IEAPProviderConfig2);
@@ -410,7 +410,7 @@ impl IEAPProviderConfig3 {
 #[doc(hidden)]
 pub struct IEAPProviderConfig3_Vtbl {
     pub base__: IEAPProviderConfig2_Vtbl,
-    pub ServerInvokeCertificateConfigUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweaptypeid: u32, uconnectionparam: usize, hwnd: super::super::Foundation::HWND, pconfigdatain: *const u8, dwsizeofconfigdatain: u32, ppconfigdataout: *mut *mut u8, pdwsizeofconfigdataout: *mut u32, ureserved: usize) -> ::windows_core::HRESULT,
+    pub ServerInvokeCertificateConfigUI: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, usize, super::super::Foundation::HWND, *const u8, u32, *mut *mut u8, *mut u32, usize) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRouterProtocolConfig, IRouterProtocolConfig_Vtbl, 0x66a2db16_d706_11d0_a37b_00c04fc9da04);
 ::windows_core::imp::interface_hierarchy!(IRouterProtocolConfig, ::windows_core::IUnknown);
@@ -436,8 +436,8 @@ impl IRouterProtocolConfig {
 #[doc(hidden)]
 pub struct IRouterProtocolConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AddProtocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmachinename: ::windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: *mut ::core::ffi::c_void, ureserved1: usize) -> ::windows_core::HRESULT,
-    pub RemoveProtocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszmachinename: ::windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: *mut ::core::ffi::c_void, ureserved1: usize) -> ::windows_core::HRESULT,
+    pub AddProtocol: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, u32, super::super::Foundation::HWND, u32, *mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub RemoveProtocol: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, u32, super::super::Foundation::HWND, u32, *mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
 }
 pub const CERTIFICATE_HASH_LENGTH: u32 = 20u32;
 pub const EAPACTION_Authenticate: PPP_EAP_ACTION = PPP_EAP_ACTION(1i32);

@@ -135,21 +135,21 @@ impl IDCompositionAffineTransform2DEffect {
 pub struct IDCompositionAffineTransform2DEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetInterpolationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interpolationmode: super::Direct2D::Common::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows_core::HRESULT,
+    pub SetInterpolationMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Direct2D::Common::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetInterpolationMode: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetBorderMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bordermode: super::Direct2D::Common::D2D1_BORDER_MODE) -> ::windows_core::HRESULT,
+    pub SetBorderMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Direct2D::Common::D2D1_BORDER_MODE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetBorderMode: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub SetTransformMatrix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transformmatrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows_core::HRESULT,
+    pub SetTransformMatrix: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetTransformMatrix: usize,
-    pub SetTransformMatrixElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetTransformMatrixElement2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, value: f32) -> ::windows_core::HRESULT,
-    pub SetSharpness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetSharpness2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sharpness: f32) -> ::windows_core::HRESULT,
+    pub SetTransformMatrixElement: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetTransformMatrixElement2: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, f32) -> ::windows_core::HRESULT,
+    pub SetSharpness: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetSharpness2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionAnimation, IDCompositionAnimation_Vtbl, 0xcbfd91d9_51b2_45e4_b3de_d19ccfb863c5);
 ::windows_core::imp::interface_hierarchy!(IDCompositionAnimation, ::windows_core::IUnknown);
@@ -177,12 +177,12 @@ impl IDCompositionAnimation {
 #[doc(hidden)]
 pub struct IDCompositionAnimation_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetAbsoluteBeginTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, begintime: i64) -> ::windows_core::HRESULT,
-    pub AddCubic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, beginoffset: f64, constantcoefficient: f32, linearcoefficient: f32, quadraticcoefficient: f32, cubiccoefficient: f32) -> ::windows_core::HRESULT,
-    pub AddSinusoidal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, beginoffset: f64, bias: f32, amplitude: f32, frequency: f32, phase: f32) -> ::windows_core::HRESULT,
-    pub AddRepeat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, beginoffset: f64, durationtorepeat: f64) -> ::windows_core::HRESULT,
-    pub End: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endoffset: f64, endvalue: f32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAbsoluteBeginTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64) -> ::windows_core::HRESULT,
+    pub AddCubic: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f32, f32, f32, f32) -> ::windows_core::HRESULT,
+    pub AddSinusoidal: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f32, f32, f32, f32) -> ::windows_core::HRESULT,
+    pub AddRepeat: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f64) -> ::windows_core::HRESULT,
+    pub End: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64, f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionArithmeticCompositeEffect, IDCompositionArithmeticCompositeEffect_Vtbl, 0x3b67dfa8_e3dd_4e61_b640_46c2f3d739dc);
 ::windows_core::imp::interface_hierarchy!(IDCompositionArithmeticCompositeEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -246,18 +246,18 @@ impl IDCompositionArithmeticCompositeEffect {
 pub struct IDCompositionArithmeticCompositeEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetCoefficients: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coefficients: *const super::Direct2D::Common::D2D_VECTOR_4F) -> ::windows_core::HRESULT,
+    pub SetCoefficients: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::Direct2D::Common::D2D_VECTOR_4F) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetCoefficients: usize,
-    pub SetClampOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clampoutput: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetCoefficient1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCoefficient12: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coeffcient1: f32) -> ::windows_core::HRESULT,
-    pub SetCoefficient2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCoefficient22: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coefficient2: f32) -> ::windows_core::HRESULT,
-    pub SetCoefficient3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCoefficient32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coefficient3: f32) -> ::windows_core::HRESULT,
-    pub SetCoefficient4: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCoefficient42: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coefficient4: f32) -> ::windows_core::HRESULT,
+    pub SetClampOutput: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetCoefficient1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCoefficient12: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetCoefficient2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCoefficient22: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetCoefficient3: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCoefficient32: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetCoefficient4: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCoefficient42: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionBlendEffect, IDCompositionBlendEffect_Vtbl, 0x33ecdc0a_578a_4a11_9c14_0cb90517f9c5);
 ::windows_core::imp::interface_hierarchy!(IDCompositionBlendEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -279,7 +279,7 @@ impl IDCompositionBlendEffect {
 pub struct IDCompositionBlendEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: super::Direct2D::Common::D2D1_BLEND_MODE) -> ::windows_core::HRESULT,
+    pub SetMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Direct2D::Common::D2D1_BLEND_MODE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetMode: usize,
 }
@@ -344,21 +344,21 @@ impl IDCompositionBrightnessEffect {
 pub struct IDCompositionBrightnessEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetWhitePoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, whitepoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows_core::HRESULT,
+    pub SetWhitePoint: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetWhitePoint: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetBlackPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blackpoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows_core::HRESULT,
+    pub SetBlackPoint: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetBlackPoint: usize,
-    pub SetWhitePointX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetWhitePointX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, whitepointx: f32) -> ::windows_core::HRESULT,
-    pub SetWhitePointY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetWhitePointY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, whitepointy: f32) -> ::windows_core::HRESULT,
-    pub SetBlackPointX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetBlackPointX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blackpointx: f32) -> ::windows_core::HRESULT,
-    pub SetBlackPointY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetBlackPointY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blackpointy: f32) -> ::windows_core::HRESULT,
+    pub SetWhitePointX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetWhitePointX2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetWhitePointY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetWhitePointY2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetBlackPointX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetBlackPointX2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetBlackPointY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetBlackPointY2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionClip, IDCompositionClip_Vtbl, 0x64ac3703_9d3f_45ec_a109_7cac0e7a13a7);
 ::windows_core::imp::interface_hierarchy!(IDCompositionClip, ::windows_core::IUnknown);
@@ -408,16 +408,16 @@ impl IDCompositionColorMatrixEffect {
 pub struct IDCompositionColorMatrixEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetMatrix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const super::Direct2D::Common::D2D_MATRIX_5X4_F) -> ::windows_core::HRESULT,
+    pub SetMatrix: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::Direct2D::Common::D2D_MATRIX_5X4_F) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetMatrix: usize,
-    pub SetMatrixElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetMatrixElement2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, value: f32) -> ::windows_core::HRESULT,
+    pub SetMatrixElement: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetMatrixElement2: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, f32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetAlphaMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: super::Direct2D::Common::D2D1_COLORMATRIX_ALPHA_MODE) -> ::windows_core::HRESULT,
+    pub SetAlphaMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Direct2D::Common::D2D1_COLORMATRIX_ALPHA_MODE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetAlphaMode: usize,
-    pub SetClampOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clamp: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetClampOutput: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionCompositeEffect, IDCompositionCompositeEffect_Vtbl, 0x576616c0_a231_494d_a38d_00fd5ec4db46);
 ::windows_core::imp::interface_hierarchy!(IDCompositionCompositeEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -439,7 +439,7 @@ impl IDCompositionCompositeEffect {
 pub struct IDCompositionCompositeEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: super::Direct2D::Common::D2D1_COMPOSITE_MODE) -> ::windows_core::HRESULT,
+    pub SetMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Direct2D::Common::D2D1_COMPOSITE_MODE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetMode: usize,
 }
@@ -467,11 +467,11 @@ impl IDCompositionDelegatedInkTrail {
 #[doc(hidden)]
 pub struct IDCompositionDelegatedInkTrail_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AddTrailPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: u32, generationid: *mut u32) -> ::windows_core::HRESULT,
-    pub AddTrailPointsWithPrediction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: u32, predictedinkpoints: *const DCompositionInkTrailPoint, predictedinkpointscount: u32, generationid: *mut u32) -> ::windows_core::HRESULT,
-    pub RemoveTrailPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, generationid: u32) -> ::windows_core::HRESULT,
+    pub AddTrailPoints: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DCompositionInkTrailPoint, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub AddTrailPointsWithPrediction: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const DCompositionInkTrailPoint, u32, *const DCompositionInkTrailPoint, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub RemoveTrailPoints: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub StartNewTrail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows_core::HRESULT,
+    pub StartNewTrail: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     StartNewTrail: usize,
 }
@@ -595,9 +595,9 @@ impl IDCompositionDesktopDevice {
 #[doc(hidden)]
 pub struct IDCompositionDesktopDevice_Vtbl {
     pub base__: IDCompositionDevice2_Vtbl,
-    pub CreateTargetForHwnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, topmost: super::super::Foundation::BOOL, target: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateSurfaceFromHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: super::super::Foundation::HANDLE, surface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateSurfaceFromHwnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, surface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTargetForHwnd: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, super::super::Foundation::BOOL, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSurfaceFromHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSurfaceFromHwnd: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionDevice, IDCompositionDevice_Vtbl, 0xc37ea93a_e7aa_450d_b16f_9746cb0407f3);
 ::windows_core::imp::interface_hierarchy!(IDCompositionDevice, ::windows_core::IUnknown);
@@ -716,39 +716,39 @@ impl IDCompositionDevice {
 #[doc(hidden)]
 pub struct IDCompositionDevice_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub WaitForCommitCompletion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Commit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub WaitForCommitCompletion: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetFrameStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows_core::HRESULT,
+    pub GetFrameStatistics: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetFrameStatistics: usize,
-    pub CreateTargetForHwnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, topmost: super::super::Foundation::BOOL, target: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTargetForHwnd: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, super::super::Foundation::BOOL, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateVisual: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CreateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, surface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSurface: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, super::Dxgi::Common::DXGI_FORMAT, super::Dxgi::Common::DXGI_ALPHA_MODE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateSurface: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CreateVirtualSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, virtualsurface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateVirtualSurface: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, super::Dxgi::Common::DXGI_FORMAT, super::Dxgi::Common::DXGI_ALPHA_MODE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateVirtualSurface: usize,
-    pub CreateSurfaceFromHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: super::super::Foundation::HANDLE, surface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateSurfaceFromHwnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, surface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateTranslateTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, translatetransform: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateScaleTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scaletransform: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateRotateTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rotatetransform: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateSkewTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, skewtransform: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateMatrixTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrixtransform: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateTransformGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transforms: *const *mut ::core::ffi::c_void, elements: u32, transformgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateTranslateTransform3D: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, translatetransform3d: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateScaleTransform3D: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scaletransform3d: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateRotateTransform3D: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rotatetransform3d: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateMatrixTransform3D: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrixtransform3d: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateTransform3DGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transforms3d: *const *mut ::core::ffi::c_void, elements: u32, transform3dgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateEffectGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effectgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateRectangleClip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clip: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CheckDeviceState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfvalid: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub CreateSurfaceFromHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSurfaceFromHwnd: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTranslateTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateScaleTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateRotateTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSkewTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateMatrixTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTransformGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const *mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTranslateTransform3D: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateScaleTransform3D: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateRotateTransform3D: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateMatrixTransform3D: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTransform3DGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const *mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateEffectGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateRectangleClip: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAnimation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CheckDeviceState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionDevice2, IDCompositionDevice2_Vtbl, 0x75f6468d_1b8e_447c_9bc6_75fea80b5b25);
 ::windows_core::imp::interface_hierarchy!(IDCompositionDevice2, ::windows_core::IUnknown);
@@ -848,36 +848,36 @@ impl IDCompositionDevice2 {
 #[doc(hidden)]
 pub struct IDCompositionDevice2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub WaitForCommitCompletion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Commit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub WaitForCommitCompletion: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub GetFrameStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, statistics: *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows_core::HRESULT,
+    pub GetFrameStatistics: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DCOMPOSITION_FRAME_STATISTICS) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetFrameStatistics: usize,
-    pub CreateVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateSurfaceFactory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, renderingdevice: *mut ::core::ffi::c_void, surfacefactory: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateVisual: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSurfaceFactory: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CreateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, surface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSurface: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, super::Dxgi::Common::DXGI_FORMAT, super::Dxgi::Common::DXGI_ALPHA_MODE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateSurface: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CreateVirtualSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, virtualsurface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateVirtualSurface: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, super::Dxgi::Common::DXGI_FORMAT, super::Dxgi::Common::DXGI_ALPHA_MODE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateVirtualSurface: usize,
-    pub CreateTranslateTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, translatetransform: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateScaleTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scaletransform: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateRotateTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rotatetransform: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateSkewTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, skewtransform: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateMatrixTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrixtransform: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateTransformGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transforms: *const *mut ::core::ffi::c_void, elements: u32, transformgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateTranslateTransform3D: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, translatetransform3d: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateScaleTransform3D: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scaletransform3d: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateRotateTransform3D: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rotatetransform3d: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateMatrixTransform3D: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrixtransform3d: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateTransform3DGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transforms3d: *const *mut ::core::ffi::c_void, elements: u32, transform3dgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateEffectGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effectgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateRectangleClip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clip: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateAnimation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTranslateTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateScaleTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateRotateTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSkewTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateMatrixTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTransformGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const *mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTranslateTransform3D: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateScaleTransform3D: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateRotateTransform3D: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateMatrixTransform3D: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTransform3DGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const *mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateEffectGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateRectangleClip: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAnimation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionDevice3, IDCompositionDevice3_Vtbl, 0x0987cb06_f916_48bf_8d35_ce7641781bd9);
 ::windows_core::imp::interface_hierarchy!(IDCompositionDevice3, ::windows_core::IUnknown, IDCompositionDevice2);
@@ -1029,19 +1029,19 @@ impl IDCompositionDevice3 {
 #[doc(hidden)]
 pub struct IDCompositionDevice3_Vtbl {
     pub base__: IDCompositionDevice2_Vtbl,
-    pub CreateGaussianBlurEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gaussianblureffect: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateBrightnessEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brightnesseffect: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateColorMatrixEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, colormatrixeffect: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateShadowEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shadoweffect: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateHueRotationEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, huerotationeffect: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateSaturationEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, saturationeffect: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateTurbulenceEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, turbulenceeffect: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateLinearTransferEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lineartransfereffect: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateTableTransferEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tabletransfereffect: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateCompositeEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositeeffect: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateBlendEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blendeffect: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateArithmeticCompositeEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, arithmeticcompositeeffect: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateAffineTransform2DEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, affinetransform2deffect: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateGaussianBlurEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateBrightnessEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateColorMatrixEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateShadowEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateHueRotationEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSaturationEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTurbulenceEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateLinearTransferEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateTableTransferEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateCompositeEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateBlendEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateArithmeticCompositeEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAffineTransform2DEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionDeviceDebug, IDCompositionDeviceDebug_Vtbl, 0xa1a3c64a_224f_4a81_9773_4f03a89d3c6c);
 ::windows_core::imp::interface_hierarchy!(IDCompositionDeviceDebug, ::windows_core::IUnknown);
@@ -1057,8 +1057,8 @@ impl IDCompositionDeviceDebug {
 #[doc(hidden)]
 pub struct IDCompositionDeviceDebug_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub EnableDebugCounters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DisableDebugCounters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnableDebugCounters: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DisableDebugCounters: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionEffect, IDCompositionEffect_Vtbl, 0xec81b08f_bfcb_4e8d_b193_a915587999e8);
 ::windows_core::imp::interface_hierarchy!(IDCompositionEffect, ::windows_core::IUnknown);
@@ -1091,9 +1091,9 @@ impl IDCompositionEffectGroup {
 #[doc(hidden)]
 pub struct IDCompositionEffectGroup_Vtbl {
     pub base__: IDCompositionEffect_Vtbl,
-    pub SetOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetOpacity2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, opacity: f32) -> ::windows_core::HRESULT,
-    pub SetTransform3D: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transform3d: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetOpacity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetOpacity2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetTransform3D: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionFilterEffect, IDCompositionFilterEffect_Vtbl, 0x30c421d5_8cb2_4e9f_b133_37be270d4ac2);
 ::windows_core::imp::interface_hierarchy!(IDCompositionFilterEffect, ::windows_core::IUnknown, IDCompositionEffect);
@@ -1109,7 +1109,7 @@ impl IDCompositionFilterEffect {
 #[doc(hidden)]
 pub struct IDCompositionFilterEffect_Vtbl {
     pub base__: IDCompositionEffect_Vtbl,
-    pub SetInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, input: *mut ::core::ffi::c_void, flags: u32) -> ::windows_core::HRESULT,
+    pub SetInput: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionGaussianBlurEffect, IDCompositionGaussianBlurEffect_Vtbl, 0x45d4d0b7_1bd4_454e_8894_2bfa68443033);
 ::windows_core::imp::interface_hierarchy!(IDCompositionGaussianBlurEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -1139,10 +1139,10 @@ impl IDCompositionGaussianBlurEffect {
 #[doc(hidden)]
 pub struct IDCompositionGaussianBlurEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
-    pub SetStandardDeviation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetStandardDeviation2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows_core::HRESULT,
+    pub SetStandardDeviation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetStandardDeviation2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetBorderMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: super::Direct2D::Common::D2D1_BORDER_MODE) -> ::windows_core::HRESULT,
+    pub SetBorderMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Direct2D::Common::D2D1_BORDER_MODE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetBorderMode: usize,
 }
@@ -1169,8 +1169,8 @@ impl IDCompositionHueRotationEffect {
 #[doc(hidden)]
 pub struct IDCompositionHueRotationEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
-    pub SetAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetAngle2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amountdegrees: f32) -> ::windows_core::HRESULT,
+    pub SetAngle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAngle2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionInkTrailDevice, IDCompositionInkTrailDevice_Vtbl, 0xdf0c7cec_cdeb_4d4a_b91c_721bf22f4e6c);
 ::windows_core::imp::interface_hierarchy!(IDCompositionInkTrailDevice, ::windows_core::IUnknown);
@@ -1191,8 +1191,8 @@ impl IDCompositionInkTrailDevice {
 #[doc(hidden)]
 pub struct IDCompositionInkTrailDevice_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateDelegatedInkTrail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inktrail: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateDelegatedInkTrailForSwapChain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, swapchain: *mut ::core::ffi::c_void, inktrail: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDelegatedInkTrail: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDelegatedInkTrailForSwapChain: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionLinearTransferEffect, IDCompositionLinearTransferEffect_Vtbl, 0x4305ee5b_c4a0_4c88_9385_67124e017683);
 ::windows_core::imp::interface_hierarchy!(IDCompositionLinearTransferEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -1310,27 +1310,27 @@ impl IDCompositionLinearTransferEffect {
 #[doc(hidden)]
 pub struct IDCompositionLinearTransferEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
-    pub SetRedYIntercept: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetRedYIntercept2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, redyintercept: f32) -> ::windows_core::HRESULT,
-    pub SetRedSlope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetRedSlope2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, redslope: f32) -> ::windows_core::HRESULT,
-    pub SetRedDisable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reddisable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetGreenYIntercept: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetGreenYIntercept2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, greenyintercept: f32) -> ::windows_core::HRESULT,
-    pub SetGreenSlope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetGreenSlope2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, greenslope: f32) -> ::windows_core::HRESULT,
-    pub SetGreenDisable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, greendisable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetBlueYIntercept: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetBlueYIntercept2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blueyintercept: f32) -> ::windows_core::HRESULT,
-    pub SetBlueSlope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetBlueSlope2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blueslope: f32) -> ::windows_core::HRESULT,
-    pub SetBlueDisable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bluedisable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetAlphaYIntercept: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetAlphaYIntercept2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, alphayintercept: f32) -> ::windows_core::HRESULT,
-    pub SetAlphaSlope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetAlphaSlope2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, alphaslope: f32) -> ::windows_core::HRESULT,
-    pub SetAlphaDisable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, alphadisable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetClampOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clampoutput: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetRedYIntercept: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetRedYIntercept2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetRedSlope: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetRedSlope2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetRedDisable: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetGreenYIntercept: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetGreenYIntercept2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetGreenSlope: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetGreenSlope2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetGreenDisable: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetBlueYIntercept: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetBlueYIntercept2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetBlueSlope: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetBlueSlope2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetBlueDisable: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetAlphaYIntercept: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAlphaYIntercept2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetAlphaSlope: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAlphaSlope2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetAlphaDisable: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetClampOutput: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionMatrixTransform, IDCompositionMatrixTransform_Vtbl, 0x16cdff07_c503_419c_83f2_0965c7af1fa6);
 ::windows_core::imp::interface_hierarchy!(IDCompositionMatrixTransform, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
@@ -1355,11 +1355,11 @@ impl IDCompositionMatrixTransform {
 pub struct IDCompositionMatrixTransform_Vtbl {
     pub base__: IDCompositionTransform_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
-    pub SetMatrix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows_core::HRESULT,
+    pub SetMatrix: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetMatrix: usize,
-    pub SetMatrixElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetMatrixElement2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, value: f32) -> ::windows_core::HRESULT,
+    pub SetMatrixElement: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetMatrixElement2: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionMatrixTransform3D, IDCompositionMatrixTransform3D_Vtbl, 0x4b3363f0_643b_41b7_b6e0_ccf22d34467c);
 ::windows_core::imp::interface_hierarchy!(IDCompositionMatrixTransform3D, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
@@ -1384,11 +1384,11 @@ impl IDCompositionMatrixTransform3D {
 pub struct IDCompositionMatrixTransform3D_Vtbl {
     pub base__: IDCompositionTransform3D_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
-    pub SetMatrix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows_core::HRESULT,
+    pub SetMatrix: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetMatrix: usize,
-    pub SetMatrixElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetMatrixElement2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, value: f32) -> ::windows_core::HRESULT,
+    pub SetMatrixElement: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetMatrixElement2: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionRectangleClip, IDCompositionRectangleClip_Vtbl, 0x9842ad7d_d9cf_4908_aed7_48b51da5e7c2);
 ::windows_core::imp::interface_hierarchy!(IDCompositionRectangleClip, ::windows_core::IUnknown, IDCompositionClip);
@@ -1506,30 +1506,30 @@ impl IDCompositionRectangleClip {
 #[doc(hidden)]
 pub struct IDCompositionRectangleClip_Vtbl {
     pub base__: IDCompositionClip_Vtbl,
-    pub SetLeft: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetLeft2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: f32) -> ::windows_core::HRESULT,
-    pub SetTop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetTop2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, top: f32) -> ::windows_core::HRESULT,
-    pub SetRight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetRight2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, right: f32) -> ::windows_core::HRESULT,
-    pub SetBottom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetBottom2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bottom: f32) -> ::windows_core::HRESULT,
-    pub SetTopLeftRadiusX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetTopLeftRadiusX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows_core::HRESULT,
-    pub SetTopLeftRadiusY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetTopLeftRadiusY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows_core::HRESULT,
-    pub SetTopRightRadiusX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetTopRightRadiusX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows_core::HRESULT,
-    pub SetTopRightRadiusY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetTopRightRadiusY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows_core::HRESULT,
-    pub SetBottomLeftRadiusX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetBottomLeftRadiusX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows_core::HRESULT,
-    pub SetBottomLeftRadiusY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetBottomLeftRadiusY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows_core::HRESULT,
-    pub SetBottomRightRadiusX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetBottomRightRadiusX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows_core::HRESULT,
-    pub SetBottomRightRadiusY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetBottomRightRadiusY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows_core::HRESULT,
+    pub SetLeft: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetLeft2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetTop: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetTop2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetRight: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetRight2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetBottom: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetBottom2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetTopLeftRadiusX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetTopLeftRadiusX2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetTopLeftRadiusY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetTopLeftRadiusY2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetTopRightRadiusX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetTopRightRadiusX2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetTopRightRadiusY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetTopRightRadiusY2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetBottomLeftRadiusX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetBottomLeftRadiusX2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetBottomLeftRadiusY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetBottomLeftRadiusY2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetBottomRightRadiusX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetBottomRightRadiusX2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetBottomRightRadiusY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetBottomRightRadiusY2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionRotateTransform, IDCompositionRotateTransform_Vtbl, 0x641ed83c_ae96_46c5_90dc_32774cc5c6d5);
 ::windows_core::imp::interface_hierarchy!(IDCompositionRotateTransform, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
@@ -1566,12 +1566,12 @@ impl IDCompositionRotateTransform {
 #[doc(hidden)]
 pub struct IDCompositionRotateTransform_Vtbl {
     pub base__: IDCompositionTransform_Vtbl,
-    pub SetAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetAngle2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, angle: f32) -> ::windows_core::HRESULT,
-    pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCenterX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerx: f32) -> ::windows_core::HRESULT,
-    pub SetCenterY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCenterY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centery: f32) -> ::windows_core::HRESULT,
+    pub SetAngle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAngle2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetCenterX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCenterX2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetCenterY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCenterY2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionRotateTransform3D, IDCompositionRotateTransform3D_Vtbl, 0xd8f5b23f_d429_4a91_b55a_d2f45fd75b18);
 ::windows_core::imp::interface_hierarchy!(IDCompositionRotateTransform3D, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
@@ -1644,20 +1644,20 @@ impl IDCompositionRotateTransform3D {
 #[doc(hidden)]
 pub struct IDCompositionRotateTransform3D_Vtbl {
     pub base__: IDCompositionTransform3D_Vtbl,
-    pub SetAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetAngle2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, angle: f32) -> ::windows_core::HRESULT,
-    pub SetAxisX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetAxisX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, axisx: f32) -> ::windows_core::HRESULT,
-    pub SetAxisY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetAxisY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, axisy: f32) -> ::windows_core::HRESULT,
-    pub SetAxisZ: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetAxisZ2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, axisz: f32) -> ::windows_core::HRESULT,
-    pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCenterX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerx: f32) -> ::windows_core::HRESULT,
-    pub SetCenterY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCenterY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centery: f32) -> ::windows_core::HRESULT,
-    pub SetCenterZ: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCenterZ2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerz: f32) -> ::windows_core::HRESULT,
+    pub SetAngle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAngle2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetAxisX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAxisX2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetAxisY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAxisY2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetAxisZ: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAxisZ2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetCenterX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCenterX2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetCenterY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCenterY2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetCenterZ: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCenterZ2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionSaturationEffect, IDCompositionSaturationEffect_Vtbl, 0xa08debda_3258_4fa4_9f16_9174d3fe93b1);
 ::windows_core::imp::interface_hierarchy!(IDCompositionSaturationEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -1682,8 +1682,8 @@ impl IDCompositionSaturationEffect {
 #[doc(hidden)]
 pub struct IDCompositionSaturationEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
-    pub SetSaturation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetSaturation2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ratio: f32) -> ::windows_core::HRESULT,
+    pub SetSaturation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetSaturation2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionScaleTransform, IDCompositionScaleTransform_Vtbl, 0x71fde914_40ef_45ef_bd51_68b037c339f9);
 ::windows_core::imp::interface_hierarchy!(IDCompositionScaleTransform, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
@@ -1729,14 +1729,14 @@ impl IDCompositionScaleTransform {
 #[doc(hidden)]
 pub struct IDCompositionScaleTransform_Vtbl {
     pub base__: IDCompositionTransform_Vtbl,
-    pub SetScaleX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetScaleX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scalex: f32) -> ::windows_core::HRESULT,
-    pub SetScaleY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetScaleY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scaley: f32) -> ::windows_core::HRESULT,
-    pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCenterX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerx: f32) -> ::windows_core::HRESULT,
-    pub SetCenterY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCenterY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centery: f32) -> ::windows_core::HRESULT,
+    pub SetScaleX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetScaleX2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetScaleY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetScaleY2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetCenterX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCenterX2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetCenterY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCenterY2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionScaleTransform3D, IDCompositionScaleTransform3D_Vtbl, 0x2a9e9ead_364b_4b15_a7c4_a1997f78b389);
 ::windows_core::imp::interface_hierarchy!(IDCompositionScaleTransform3D, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
@@ -1800,18 +1800,18 @@ impl IDCompositionScaleTransform3D {
 #[doc(hidden)]
 pub struct IDCompositionScaleTransform3D_Vtbl {
     pub base__: IDCompositionTransform3D_Vtbl,
-    pub SetScaleX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetScaleX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scalex: f32) -> ::windows_core::HRESULT,
-    pub SetScaleY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetScaleY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scaley: f32) -> ::windows_core::HRESULT,
-    pub SetScaleZ: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetScaleZ2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scalez: f32) -> ::windows_core::HRESULT,
-    pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCenterX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerx: f32) -> ::windows_core::HRESULT,
-    pub SetCenterY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCenterY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centery: f32) -> ::windows_core::HRESULT,
-    pub SetCenterZ: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCenterZ2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerz: f32) -> ::windows_core::HRESULT,
+    pub SetScaleX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetScaleX2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetScaleY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetScaleY2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetScaleZ: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetScaleZ2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetCenterX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCenterX2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetCenterY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCenterY2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetCenterZ: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCenterZ2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionShadowEffect, IDCompositionShadowEffect_Vtbl, 0x4ad18ac0_cfd2_4c2f_bb62_96e54fdb6879);
 ::windows_core::imp::interface_hierarchy!(IDCompositionShadowEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -1877,20 +1877,20 @@ impl IDCompositionShadowEffect {
 #[doc(hidden)]
 pub struct IDCompositionShadowEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
-    pub SetStandardDeviation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetStandardDeviation2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows_core::HRESULT,
+    pub SetStandardDeviation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetStandardDeviation2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: *const super::Direct2D::Common::D2D_VECTOR_4F) -> ::windows_core::HRESULT,
+    pub SetColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::Direct2D::Common::D2D_VECTOR_4F) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetColor: usize,
-    pub SetRed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetRed2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows_core::HRESULT,
-    pub SetGreen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetGreen2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows_core::HRESULT,
-    pub SetBlue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetBlue2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows_core::HRESULT,
-    pub SetAlpha: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetAlpha2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows_core::HRESULT,
+    pub SetRed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetRed2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetGreen: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetGreen2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetBlue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetBlue2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetAlpha: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAlpha2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionSkewTransform, IDCompositionSkewTransform_Vtbl, 0xe57aa735_dcdb_4c72_9c61_0591f58889ee);
 ::windows_core::imp::interface_hierarchy!(IDCompositionSkewTransform, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
@@ -1936,14 +1936,14 @@ impl IDCompositionSkewTransform {
 #[doc(hidden)]
 pub struct IDCompositionSkewTransform_Vtbl {
     pub base__: IDCompositionTransform_Vtbl,
-    pub SetAngleX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetAngleX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, anglex: f32) -> ::windows_core::HRESULT,
-    pub SetAngleY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetAngleY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, angley: f32) -> ::windows_core::HRESULT,
-    pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCenterX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerx: f32) -> ::windows_core::HRESULT,
-    pub SetCenterY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCenterY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centery: f32) -> ::windows_core::HRESULT,
+    pub SetAngleX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAngleX2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetAngleY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAngleY2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetCenterX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCenterX2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetCenterY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCenterY2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionSurface, IDCompositionSurface_Vtbl, 0xbb8a4953_2c99_4f5a_96f5_4819027fa3ac);
 ::windows_core::imp::interface_hierarchy!(IDCompositionSurface, ::windows_core::IUnknown);
@@ -1972,11 +1972,11 @@ impl IDCompositionSurface {
 #[doc(hidden)]
 pub struct IDCompositionSurface_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub BeginDraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, updaterect: *const super::super::Foundation::RECT, iid: *const ::windows_core::GUID, updateobject: *mut *mut ::core::ffi::c_void, updateoffset: *mut super::super::Foundation::POINT) -> ::windows_core::HRESULT,
-    pub EndDraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SuspendDraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ResumeDraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Scroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scrollrect: *const super::super::Foundation::RECT, cliprect: *const super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> ::windows_core::HRESULT,
+    pub BeginDraw: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::Foundation::RECT, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void, *mut super::super::Foundation::POINT) -> ::windows_core::HRESULT,
+    pub EndDraw: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SuspendDraw: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ResumeDraw: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Scroll: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::Foundation::RECT, *const super::super::Foundation::RECT, i32, i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionSurfaceFactory, IDCompositionSurfaceFactory_Vtbl, 0xe334bc12_3937_4e02_85eb_fcf4eb30d2c8);
 ::windows_core::imp::interface_hierarchy!(IDCompositionSurfaceFactory, ::windows_core::IUnknown);
@@ -1999,11 +1999,11 @@ impl IDCompositionSurfaceFactory {
 pub struct IDCompositionSurfaceFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CreateSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, surface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateSurface: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, super::Dxgi::Common::DXGI_FORMAT, super::Dxgi::Common::DXGI_ALPHA_MODE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateSurface: usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub CreateVirtualSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initialwidth: u32, initialheight: u32, pixelformat: super::Dxgi::Common::DXGI_FORMAT, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE, virtualsurface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateVirtualSurface: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, super::Dxgi::Common::DXGI_FORMAT, super::Dxgi::Common::DXGI_ALPHA_MODE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateVirtualSurface: usize,
 }
@@ -2099,23 +2099,23 @@ impl IDCompositionTableTransferEffect {
 #[doc(hidden)]
 pub struct IDCompositionTableTransferEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
-    pub SetRedTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tablevalues: *const f32, count: u32) -> ::windows_core::HRESULT,
-    pub SetGreenTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tablevalues: *const f32, count: u32) -> ::windows_core::HRESULT,
-    pub SetBlueTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tablevalues: *const f32, count: u32) -> ::windows_core::HRESULT,
-    pub SetAlphaTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tablevalues: *const f32, count: u32) -> ::windows_core::HRESULT,
-    pub SetRedDisable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reddisable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetGreenDisable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, greendisable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetBlueDisable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bluedisable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetAlphaDisable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, alphadisable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetClampOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clampoutput: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetRedTableValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetRedTableValue2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, value: f32) -> ::windows_core::HRESULT,
-    pub SetGreenTableValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetGreenTableValue2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, value: f32) -> ::windows_core::HRESULT,
-    pub SetBlueTableValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetBlueTableValue2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, value: f32) -> ::windows_core::HRESULT,
-    pub SetAlphaTableValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetAlphaTableValue2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, value: f32) -> ::windows_core::HRESULT,
+    pub SetRedTable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const f32, u32) -> ::windows_core::HRESULT,
+    pub SetGreenTable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const f32, u32) -> ::windows_core::HRESULT,
+    pub SetBlueTable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const f32, u32) -> ::windows_core::HRESULT,
+    pub SetAlphaTable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const f32, u32) -> ::windows_core::HRESULT,
+    pub SetRedDisable: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetGreenDisable: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetBlueDisable: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetAlphaDisable: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetClampOutput: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetRedTableValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetRedTableValue2: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, f32) -> ::windows_core::HRESULT,
+    pub SetGreenTableValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetGreenTableValue2: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, f32) -> ::windows_core::HRESULT,
+    pub SetBlueTableValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetBlueTableValue2: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, f32) -> ::windows_core::HRESULT,
+    pub SetAlphaTableValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAlphaTableValue2: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionTarget, IDCompositionTarget_Vtbl, 0xeacdd04c_117e_4e17_88f4_d1b12b0e3d89);
 ::windows_core::imp::interface_hierarchy!(IDCompositionTarget, ::windows_core::IUnknown);
@@ -2131,7 +2131,7 @@ impl IDCompositionTarget {
 #[doc(hidden)]
 pub struct IDCompositionTarget_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetRoot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetRoot: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionTransform, IDCompositionTransform_Vtbl, 0xfd55faa7_37e0_4c20_95d2_9be45bc33f55);
 ::windows_core::imp::interface_hierarchy!(IDCompositionTransform, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
@@ -2175,10 +2175,10 @@ impl IDCompositionTranslateTransform {
 #[doc(hidden)]
 pub struct IDCompositionTranslateTransform_Vtbl {
     pub base__: IDCompositionTransform_Vtbl,
-    pub SetOffsetX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetOffsetX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetx: f32) -> ::windows_core::HRESULT,
-    pub SetOffsetY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetOffsetY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsety: f32) -> ::windows_core::HRESULT,
+    pub SetOffsetX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetOffsetX2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetOffsetY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetOffsetY2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionTranslateTransform3D, IDCompositionTranslateTransform3D_Vtbl, 0x91636d4b_9ba1_4532_aaf7_e3344994d788);
 ::windows_core::imp::interface_hierarchy!(IDCompositionTranslateTransform3D, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
@@ -2215,12 +2215,12 @@ impl IDCompositionTranslateTransform3D {
 #[doc(hidden)]
 pub struct IDCompositionTranslateTransform3D_Vtbl {
     pub base__: IDCompositionTransform3D_Vtbl,
-    pub SetOffsetX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetOffsetX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetx: f32) -> ::windows_core::HRESULT,
-    pub SetOffsetY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetOffsetY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsety: f32) -> ::windows_core::HRESULT,
-    pub SetOffsetZ: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetOffsetZ2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetz: f32) -> ::windows_core::HRESULT,
+    pub SetOffsetX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetOffsetX2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetOffsetY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetOffsetY2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetOffsetZ: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetOffsetZ2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionTurbulenceEffect, IDCompositionTurbulenceEffect_Vtbl, 0xa6a55bda_c09c_49f3_9193_a41922c89715);
 ::windows_core::imp::interface_hierarchy!(IDCompositionTurbulenceEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
@@ -2269,24 +2269,24 @@ impl IDCompositionTurbulenceEffect {
 pub struct IDCompositionTurbulenceEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows_core::HRESULT,
+    pub SetOffset: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetOffset: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetBaseFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frequency: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows_core::HRESULT,
+    pub SetBaseFrequency: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetBaseFrequency: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows_core::HRESULT,
+    pub SetSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetSize: usize,
-    pub SetNumOctaves: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numoctaves: u32) -> ::windows_core::HRESULT,
-    pub SetSeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, seed: u32) -> ::windows_core::HRESULT,
+    pub SetNumOctaves: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub SetSeed: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetNoise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, noise: super::Direct2D::Common::D2D1_TURBULENCE_NOISE) -> ::windows_core::HRESULT,
+    pub SetNoise: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Direct2D::Common::D2D1_TURBULENCE_NOISE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetNoise: usize,
-    pub SetStitchable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stitchable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetStitchable: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionVirtualSurface, IDCompositionVirtualSurface_Vtbl, 0xae471c51_5f53_4a24_8d3e_d0c39c30b3f0);
 ::windows_core::imp::interface_hierarchy!(IDCompositionVirtualSurface, ::windows_core::IUnknown, IDCompositionSurface);
@@ -2321,8 +2321,8 @@ impl IDCompositionVirtualSurface {
 #[doc(hidden)]
 pub struct IDCompositionVirtualSurface_Vtbl {
     pub base__: IDCompositionSurface_Vtbl,
-    pub Resize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32) -> ::windows_core::HRESULT,
-    pub Trim: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangles: *const super::super::Foundation::RECT, count: u32) -> ::windows_core::HRESULT,
+    pub Resize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub Trim: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::Foundation::RECT, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionVisual, IDCompositionVisual_Vtbl, 0x4d93059d_097b_4651_9a60_f0f25116e2f3);
 ::windows_core::imp::interface_hierarchy!(IDCompositionVisual, ::windows_core::IUnknown);
@@ -2416,29 +2416,29 @@ impl IDCompositionVisual {
 #[doc(hidden)]
 pub struct IDCompositionVisual_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetOffsetX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetOffsetX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetx: f32) -> ::windows_core::HRESULT,
-    pub SetOffsetY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetOffsetY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsety: f32) -> ::windows_core::HRESULT,
-    pub SetTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transform: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetOffsetX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetOffsetX2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetOffsetY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetOffsetY2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
-    pub SetTransform2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows_core::HRESULT,
+    pub SetTransform2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetTransform2: usize,
-    pub SetTransformParent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effect: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetBitmapInterpolationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interpolationmode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> ::windows_core::HRESULT,
-    pub SetBorderMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bordermode: DCOMPOSITION_BORDER_MODE) -> ::windows_core::HRESULT,
-    pub SetClip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clip: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetTransformParent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetEffect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetBitmapInterpolationMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> ::windows_core::HRESULT,
+    pub SetBorderMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, DCOMPOSITION_BORDER_MODE) -> ::windows_core::HRESULT,
+    pub SetClip: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetClip2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows_core::HRESULT,
+    pub SetClip2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::Direct2D::Common::D2D_RECT_F) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetClip2: usize,
-    pub SetContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AddVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: *mut ::core::ffi::c_void, insertabove: super::super::Foundation::BOOL, referencevisual: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveAllVisuals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCompositeMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositemode: DCOMPOSITION_COMPOSITE_MODE) -> ::windows_core::HRESULT,
+    pub SetContent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddVisual: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::BOOL, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveVisual: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveAllVisuals: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCompositeMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, DCOMPOSITION_COMPOSITE_MODE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionVisual2, IDCompositionVisual2_Vtbl, 0xe8de1639_4331_4b26_bc5f_6a321d347a85);
 ::windows_core::imp::interface_hierarchy!(IDCompositionVisual2, ::windows_core::IUnknown, IDCompositionVisual);
@@ -2538,8 +2538,8 @@ impl IDCompositionVisual2 {
 #[doc(hidden)]
 pub struct IDCompositionVisual2_Vtbl {
     pub base__: IDCompositionVisual_Vtbl,
-    pub SetOpacityMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: DCOMPOSITION_OPACITY_MODE) -> ::windows_core::HRESULT,
-    pub SetBackFaceVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows_core::HRESULT,
+    pub SetOpacityMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, DCOMPOSITION_OPACITY_MODE) -> ::windows_core::HRESULT,
+    pub SetBackFaceVisibility: unsafe extern "system" fn(*mut ::core::ffi::c_void, DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionVisual3, IDCompositionVisual3_Vtbl, 0x2775f462_b6c1_4015_b0be_b3e7d6a4976d);
 ::windows_core::imp::interface_hierarchy!(IDCompositionVisual3, ::windows_core::IUnknown, IDCompositionVisual, IDCompositionVisual2, IDCompositionVisualDebug);
@@ -2691,17 +2691,17 @@ impl IDCompositionVisual3 {
 #[doc(hidden)]
 pub struct IDCompositionVisual3_Vtbl {
     pub base__: IDCompositionVisualDebug_Vtbl,
-    pub SetDepthMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: DCOMPOSITION_DEPTH_MODE) -> ::windows_core::HRESULT,
-    pub SetOffsetZ: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetOffsetZ2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetz: f32) -> ::windows_core::HRESULT,
-    pub SetOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetOpacity2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, opacity: f32) -> ::windows_core::HRESULT,
-    pub SetTransform3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transform: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetDepthMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, DCOMPOSITION_DEPTH_MODE) -> ::windows_core::HRESULT,
+    pub SetOffsetZ: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetOffsetZ2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetOpacity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetOpacity2: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub SetTransform3: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetTransform4: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> ::windows_core::HRESULT,
+    pub SetTransform4: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetTransform4: usize,
-    pub SetVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visible: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetVisible: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDCompositionVisualDebug, IDCompositionVisualDebug_Vtbl, 0xfed2b808_5eb4_43a0_aea3_35f65280f91b);
 ::windows_core::imp::interface_hierarchy!(IDCompositionVisualDebug, ::windows_core::IUnknown, IDCompositionVisual, IDCompositionVisual2);
@@ -2816,12 +2816,12 @@ impl IDCompositionVisualDebug {
 pub struct IDCompositionVisualDebug_Vtbl {
     pub base__: IDCompositionVisual2_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub EnableHeatMap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows_core::HRESULT,
+    pub EnableHeatMap: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     EnableHeatMap: usize,
-    pub DisableHeatMap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnableRedrawRegions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DisableRedrawRegions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DisableHeatMap: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnableRedrawRegions: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DisableRedrawRegions: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const COMPOSITIONOBJECT_READ: i32 = 1i32;
 pub const COMPOSITIONOBJECT_WRITE: i32 = 2i32;

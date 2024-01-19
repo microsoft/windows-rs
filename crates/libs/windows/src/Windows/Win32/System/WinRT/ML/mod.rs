@@ -16,7 +16,7 @@ impl ILearningModelDeviceFactoryNative {
 pub struct ILearningModelDeviceFactoryNative_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub CreateFromD3D12CommandQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromD3D12CommandQueue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     CreateFromD3D12CommandQueue: usize,
 }
@@ -35,7 +35,7 @@ impl ILearningModelOperatorProviderNative {
 pub struct ILearningModelOperatorProviderNative_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
-    pub GetRegistry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppoperatorregistry: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetRegistry: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_AI_MachineLearning_WinML"))]
     GetRegistry: usize,
 }
@@ -50,7 +50,7 @@ impl ILearningModelSessionOptionsNative {
 #[doc(hidden)]
 pub struct ILearningModelSessionOptionsNative_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetIntraOpNumThreadsOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intraopnumthreads: u32) -> ::windows_core::HRESULT,
+    pub SetIntraOpNumThreadsOverride: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILearningModelSessionOptionsNative1, ILearningModelSessionOptionsNative1_Vtbl, 0x5da37a26_0526_414b_91e4_2a0fa3ddba40);
 ::windows_core::imp::interface_hierarchy!(ILearningModelSessionOptionsNative1, ::windows_core::IUnknown);
@@ -63,7 +63,7 @@ impl ILearningModelSessionOptionsNative1 {
 #[doc(hidden)]
 pub struct ILearningModelSessionOptionsNative1_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetIntraOpThreadSpinning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allowspinning: u8) -> ::windows_core::HRESULT,
+    pub SetIntraOpThreadSpinning: unsafe extern "system" fn(*mut ::core::ffi::c_void, u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITensorNative, ITensorNative_Vtbl, 0x52f547ef_5b03_49b5_82d6_565f1ee0dd49);
 ::windows_core::imp::interface_hierarchy!(ITensorNative, ::windows_core::IUnknown);
@@ -82,9 +82,9 @@ impl ITensorNative {
 #[doc(hidden)]
 pub struct ITensorNative_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut u8, capacity: *mut u32) -> ::windows_core::HRESULT,
+    pub GetBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut u8, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub GetD3D12Resource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetD3D12Resource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     GetD3D12Resource: usize,
 }
@@ -105,7 +105,7 @@ impl ITensorStaticsNative {
 pub struct ITensorStaticsNative_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub CreateFromD3D12Resource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, shape: *mut i64, shapecount: i32, result: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromD3D12Resource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut i64, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     CreateFromD3D12Resource: usize,
 }

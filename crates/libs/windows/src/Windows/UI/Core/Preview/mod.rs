@@ -10,7 +10,7 @@ pub struct ICoreAppWindowPreview_Vtbl {
 pub struct ICoreAppWindowPreviewStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_WindowManagement")]
-    pub GetIdFromWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub GetIdFromWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "UI_WindowManagement"))]
     GetIdFromWindow: usize,
 }
@@ -19,24 +19,24 @@ pub struct ICoreAppWindowPreviewStatics_Vtbl {
 #[doc(hidden)]
 pub struct ISystemNavigationCloseRequestedPreviewEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Handled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetHandled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISystemNavigationManagerPreview, ISystemNavigationManagerPreview_Vtbl, 0xec5f0488_6425_4777_a536_cb5634427f0d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemNavigationManagerPreview_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CloseRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveCloseRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub CloseRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveCloseRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISystemNavigationManagerPreviewStatics, ISystemNavigationManagerPreviewStatics_Vtbl, 0x0e971360_df74_4bce_84cb_bd1181ac0a71);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemNavigationManagerPreviewStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetForCurrentView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

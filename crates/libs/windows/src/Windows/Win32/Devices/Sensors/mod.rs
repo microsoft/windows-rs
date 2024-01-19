@@ -285,8 +285,8 @@ impl ILocationPermissions {
 #[doc(hidden)]
 pub struct ILocationPermissions_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetGlobalLocationPermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub CheckLocationCapability: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwclientthreadid: u32) -> ::windows_core::HRESULT,
+    pub GetGlobalLocationPermission: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub CheckLocationCapability: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISensor, ISensor_Vtbl, 0x5fa08f80_2657_458e_af75_46f73fa6ac5c);
 ::windows_core::imp::interface_hierarchy!(ISensor, ::windows_core::IUnknown);
@@ -372,36 +372,36 @@ impl ISensor {
 #[doc(hidden)]
 pub struct ISensor_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psensorcategory: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psensortype: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfriendlyname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetCategory: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetFriendlyName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pproperty: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     GetProperty: usize,
     #[cfg(feature = "Win32_Devices_PortableDevices")]
-    pub GetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkeys: *mut ::core::ffi::c_void, ppproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Devices_PortableDevices"))]
     GetProperties: usize,
     #[cfg(feature = "Win32_Devices_PortableDevices")]
-    pub GetSupportedDataFields: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdatafields: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetSupportedDataFields: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Devices_PortableDevices"))]
     GetSupportedDataFields: usize,
     #[cfg(feature = "Win32_Devices_PortableDevices")]
-    pub SetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pproperties: *mut ::core::ffi::c_void, ppresults: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Devices_PortableDevices"))]
     SetProperties: usize,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub SupportsDataField: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pissupported: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SupportsDataField: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     SupportsDataField: usize,
-    pub GetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut SensorState) -> ::windows_core::HRESULT,
-    pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdatareport: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SupportsEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventguid: *const ::windows_core::GUID, pissupported: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub GetEventInterest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppvalues: *mut *mut ::windows_core::GUID, pcount: *mut u32) -> ::windows_core::HRESULT,
-    pub SetEventInterest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalues: *const ::windows_core::GUID, count: u32) -> ::windows_core::HRESULT,
-    pub SetEventSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevents: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SensorState) -> ::windows_core::HRESULT,
+    pub GetData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SupportsEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub GetEventInterest: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::windows_core::GUID, *mut u32) -> ::windows_core::HRESULT,
+    pub SetEventInterest: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32) -> ::windows_core::HRESULT,
+    pub SetEventSink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISensorCollection, ISensorCollection_Vtbl, 0x23571e11_e545_4dd8_a337_b89bf44b10df);
 ::windows_core::imp::interface_hierarchy!(ISensorCollection, ::windows_core::IUnknown);
@@ -437,12 +437,12 @@ impl ISensorCollection {
 #[doc(hidden)]
 pub struct ISensorCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulindex: u32, ppsensor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows_core::HRESULT,
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psensor: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psensor: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveByID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sensorid: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveByID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub Clear: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISensorDataReport, ISensorDataReport_Vtbl, 0x0ab9df9b_c4b5_4796_8898_0470706a2e1d);
 ::windows_core::imp::interface_hierarchy!(ISensorDataReport, ::windows_core::IUnknown);
@@ -471,13 +471,13 @@ impl ISensorDataReport {
 #[doc(hidden)]
 pub struct ISensorDataReport_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimestamp: *mut super::super::Foundation::SYSTEMTIME) -> ::windows_core::HRESULT,
+    pub GetTimestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::SYSTEMTIME) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub GetSensorValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub GetSensorValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     GetSensorValue: usize,
     #[cfg(feature = "Win32_Devices_PortableDevices")]
-    pub GetSensorValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkeys: *mut ::core::ffi::c_void, ppvalues: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetSensorValues: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Devices_PortableDevices"))]
     GetSensorValues: usize,
 }
@@ -514,13 +514,13 @@ impl ISensorEvents {
 #[doc(hidden)]
 pub struct ISensorEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psensor: *mut ::core::ffi::c_void, state: SensorState) -> ::windows_core::HRESULT,
-    pub OnDataUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psensor: *mut ::core::ffi::c_void, pnewdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnStateChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, SensorState) -> ::windows_core::HRESULT,
+    pub OnDataUpdated: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Devices_PortableDevices")]
-    pub OnEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psensor: *mut ::core::ffi::c_void, eventid: *const ::windows_core::GUID, peventdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Devices_PortableDevices"))]
     OnEvent: usize,
-    pub OnLeave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnLeave: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISensorManager, ISensorManager_Vtbl, 0xbd77db67_45a8_42dc_8d00_6dcf15f8377a);
 ::windows_core::imp::interface_hierarchy!(ISensorManager, ::windows_core::IUnknown);
@@ -556,11 +556,11 @@ impl ISensorManager {
 #[doc(hidden)]
 pub struct ISensorManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetSensorsByCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sensorcategory: *const ::windows_core::GUID, ppsensorsfound: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetSensorsByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sensortype: *const ::windows_core::GUID, ppsensorsfound: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetSensorByID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sensorid: *const ::windows_core::GUID, ppsensor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetEventSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevents: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RequestPermissions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hparent: super::super::Foundation::HWND, psensors: *mut ::core::ffi::c_void, fmodal: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetSensorsByCategory: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetSensorsByType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetSensorByID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetEventSink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RequestPermissions: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISensorManagerEvents, ISensorManagerEvents_Vtbl, 0x9b3b0b86_266a_4aad_b21f_fde5501001b7);
 ::windows_core::imp::interface_hierarchy!(ISensorManagerEvents, ::windows_core::IUnknown);
@@ -576,7 +576,7 @@ impl ISensorManagerEvents {
 #[doc(hidden)]
 pub struct ISensorManagerEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnSensorEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psensor: *mut ::core::ffi::c_void, state: SensorState) -> ::windows_core::HRESULT,
+    pub OnSensorEnter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, SensorState) -> ::windows_core::HRESULT,
 }
 pub const AXIS_MAX: AXIS = AXIS(3i32);
 pub const AXIS_X: AXIS = AXIS(0i32);

@@ -294,27 +294,27 @@ impl IDynamicRenderer {
 #[doc(hidden)]
 pub struct IDynamicRenderer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benabled: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benabled: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub HWND: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: *mut super::super::Foundation::HANDLE_PTR) -> ::windows_core::HRESULT,
-    pub SetHWND: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HANDLE_PTR) -> ::windows_core::HRESULT,
-    pub ClipRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prccliprect: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
-    pub SetClipRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prccliprect: *const super::super::Foundation::RECT) -> ::windows_core::HRESULT,
-    pub ClipRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phcliprgn: *mut super::super::Foundation::HANDLE_PTR) -> ::windows_core::HRESULT,
-    pub SetClipRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hcliprgn: super::super::Foundation::HANDLE_PTR) -> ::windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub HWND: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HANDLE_PTR) -> ::windows_core::HRESULT,
+    pub SetHWND: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE_PTR) -> ::windows_core::HRESULT,
+    pub ClipRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
+    pub SetClipRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::Foundation::RECT) -> ::windows_core::HRESULT,
+    pub ClipRegion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HANDLE_PTR) -> ::windows_core::HRESULT,
+    pub SetClipRegion: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE_PTR) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub DrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppida: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DrawingAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DrawingAttributes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_DrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pida: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_DrawingAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_DrawingAttributes: usize,
-    pub DataCacheEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfcachedata: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetDataCacheEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fcachedata: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub ReleaseCachedData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokeid: u32) -> ::windows_core::HRESULT,
-    pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Draw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: super::super::Foundation::HANDLE_PTR) -> ::windows_core::HRESULT,
+    pub DataCacheEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetDataCacheEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub ReleaseCachedData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Refresh: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Draw: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE_PTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGestureRecognizer, IGestureRecognizer_Vtbl, 0xae9ef86b_7054_45e3_ae22_3174dc8811b7);
 ::windows_core::imp::interface_hierarchy!(IGestureRecognizer, ::windows_core::IUnknown);
@@ -347,12 +347,12 @@ impl IGestureRecognizer {
 #[doc(hidden)]
 pub struct IGestureRecognizer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenabled: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenabled: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub MaxStrokeCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcstrokes: *mut i32) -> ::windows_core::HRESULT,
-    pub SetMaxStrokeCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cstrokes: i32) -> ::windows_core::HRESULT,
-    pub EnableGestures: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cgestures: u32, pgestures: *const i32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub MaxStrokeCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetMaxStrokeCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub EnableGestures: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHandwrittenTextInsertion, IHandwrittenTextInsertion_Vtbl, 0x56fdea97_ecd6_43e7_aa3a_816be7785860);
 ::windows_core::imp::interface_hierarchy!(IHandwrittenTextInsertion, ::windows_core::IUnknown);
@@ -380,11 +380,11 @@ impl IHandwrittenTextInsertion {
 pub struct IHandwrittenTextInsertion_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub InsertRecognitionResultsArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psaalternates: *const super::super::System::Com::SAFEARRAY, locale: u32, falternatecontainsautospacinginformation: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub InsertRecognitionResultsArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::System::Com::SAFEARRAY, u32, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     InsertRecognitionResultsArray: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub InsertInkRecognitionResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piinkrecoresult: *mut ::core::ffi::c_void, locale: u32, falternatecontainsautospacinginformation: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub InsertInkRecognitionResult: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     InsertInkRecognitionResult: usize,
 }
@@ -634,88 +634,88 @@ impl IInkCollector {
 #[doc(hidden)]
 pub struct IInkCollector_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub hWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentwindow: *mut isize) -> ::windows_core::HRESULT,
-    pub SethWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newwindow: isize) -> ::windows_core::HRESULT,
-    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, collecting: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, collecting: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub hWnd: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut isize) -> ::windows_core::HRESULT,
+    pub SethWnd: unsafe extern "system" fn(*mut ::core::ffi::c_void, isize) -> ::windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub DefaultDrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentattributes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DefaultDrawingAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DefaultDrawingAttributes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_DefaultDrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newattributes: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_DefaultDrawingAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_DefaultDrawingAttributes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Renderer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentinkrenderer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Renderer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Renderer: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_Renderer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinkrenderer: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_Renderer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_Renderer: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Ink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ink: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Ink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Ink: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_Ink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_Ink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_Ink: usize,
-    pub AutoRedraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, autoredraw: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetAutoRedraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, autoredraw: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub CollectingInk: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, collecting: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub CollectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: *mut InkCollectionMode) -> ::windows_core::HRESULT,
-    pub SetCollectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: InkCollectionMode) -> ::windows_core::HRESULT,
-    pub DynamicRendering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetDynamicRendering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub DesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetguids: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetDesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetguids: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AutoRedraw: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetAutoRedraw: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub CollectingInk: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub CollectionMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkCollectionMode) -> ::windows_core::HRESULT,
+    pub SetCollectionMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkCollectionMode) -> ::windows_core::HRESULT,
+    pub DynamicRendering: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetDynamicRendering: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub DesiredPacketDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetDesiredPacketDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub MouseIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mouseicon: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub MouseIcon: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     MouseIcon: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetMouseIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mouseicon: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetMouseIcon: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetMouseIcon: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub putref_MouseIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mouseicon: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_MouseIcon: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     putref_MouseIcon: usize,
-    pub MousePointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mousepointer: *mut InkMousePointer) -> ::windows_core::HRESULT,
-    pub SetMousePointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mousepointer: InkMousePointer) -> ::windows_core::HRESULT,
+    pub MousePointer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkMousePointer) -> ::windows_core::HRESULT,
+    pub SetMousePointer: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkMousePointer) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Cursors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cursors: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Cursors: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Cursors: usize,
-    pub MarginX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, marginx: *mut i32) -> ::windows_core::HRESULT,
-    pub SetMarginX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, marginx: i32) -> ::windows_core::HRESULT,
-    pub MarginY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, marginy: *mut i32) -> ::windows_core::HRESULT,
-    pub SetMarginY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, marginy: i32) -> ::windows_core::HRESULT,
+    pub MarginX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetMarginX: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub MarginY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetMarginY: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Tablet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, singletablet: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Tablet: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Tablet: usize,
-    pub SupportHighContrastInk: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, support: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetSupportHighContrastInk: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, support: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetGestureStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub GetGestureStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gesture: InkApplicationGesture, listening: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SupportHighContrastInk: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetSupportHighContrastInk: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetGestureStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkApplicationGesture, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub GetGestureStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkApplicationGesture, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetWindowInputRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windowinputrectangle: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetWindowInputRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetWindowInputRectangle: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetWindowInputRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windowinputrectangle: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetWindowInputRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetWindowInputRectangle: usize,
-    pub SetAllTabletsMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetAllTabletsMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetSingleTabletIntegratedMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tablet: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetSingleTabletIntegratedMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetSingleTabletIntegratedMode: usize,
-    pub GetEventInterest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: InkCollectorEventInterest, listen: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetEventInterest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub GetEventInterest: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkCollectorEventInterest, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetEventInterest: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkCollectorEventInterest, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -772,23 +772,23 @@ impl IInkCursor {
 #[doc(hidden)]
 pub struct IInkCursor_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut i32) -> ::windows_core::HRESULT,
-    pub Inverted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Inverted: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub DrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DrawingAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DrawingAttributes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_DrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributes: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_DrawingAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_DrawingAttributes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Tablet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tablet: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Tablet: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Tablet: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Buttons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buttons: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Buttons: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Buttons: usize,
 }
@@ -821,9 +821,9 @@ impl IInkCursorButton {
 #[doc(hidden)]
 pub struct IInkCursorButton_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentstate: *mut InkCursorButtonState) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub State: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkCursorButtonState) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -859,10 +859,10 @@ impl IInkCursorButtons {
 #[doc(hidden)]
 pub struct IInkCursorButtons_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: ::std::mem::MaybeUninit<::windows_core::VARIANT>, button: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
 }
@@ -897,10 +897,10 @@ impl IInkCursors {
 #[doc(hidden)]
 pub struct IInkCursors_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, cursor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
 }
@@ -956,18 +956,18 @@ impl IInkCustomStrokes {
 #[doc(hidden)]
 pub struct IInkCustomStrokes_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: ::std::mem::MaybeUninit<::windows_core::VARIANT>, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, strokes: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Clear: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -1171,91 +1171,91 @@ impl IInkDisp {
 pub struct IInkDisp_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub Strokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Strokes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Strokes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ExtendedProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, properties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ExtendedProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ExtendedProperties: usize,
-    pub Dirty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dirty: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetDirty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dirty: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Dirty: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetDirty: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub CustomStrokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkinkcustomstrokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CustomStrokes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CustomStrokes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetBoundingBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, boundingboxmode: InkBoundingBoxMode, rectangle: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetBoundingBox: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkBoundingBoxMode, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetBoundingBox: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub DeleteStrokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeleteStrokes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DeleteStrokes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub DeleteStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stroke: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeleteStroke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DeleteStroke: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ExtractStrokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut ::core::ffi::c_void, extractflags: InkExtractFlags, extractedink: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ExtractStrokes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, InkExtractFlags, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ExtractStrokes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ExtractWithRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangle: *mut ::core::ffi::c_void, extractflags: InkExtractFlags, extractedink: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ExtractWithRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, InkExtractFlags, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ExtractWithRectangle: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Clip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangle: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clip: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Clip: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newink: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub HitTestCircle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: i32, y: i32, radius: f32, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub HitTestCircle: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, f32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     HitTestCircle: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub HitTestWithRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selectionrectangle: *mut ::core::ffi::c_void, intersectpercent: f32, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub HitTestWithRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, f32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     HitTestWithRectangle: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub HitTestWithLasso: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, points: ::std::mem::MaybeUninit<::windows_core::VARIANT>, intersectpercent: f32, lassopoints: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub HitTestWithLasso: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, f32, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     HitTestWithLasso: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub NearestPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: i32, y: i32, pointonstroke: *mut f32, distancefrompacket: *mut f32, stroke: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub NearestPoint: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, *mut f32, *mut f32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     NearestPoint: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreateStrokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokeids: ::std::mem::MaybeUninit<::windows_core::VARIANT>, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateStrokes: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateStrokes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub AddStrokesAtRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcestrokes: *mut ::core::ffi::c_void, targetrectangle: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddStrokesAtRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AddStrokesAtRectangle: usize,
-    pub Save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode, data: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub Load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Save: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkPersistenceFormat, InkPersistenceCompressionMode, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Load: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreateStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetdata: ::std::mem::MaybeUninit<::windows_core::VARIANT>, packetdescription: ::std::mem::MaybeUninit<::windows_core::VARIANT>, stroke: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateStroke: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateStroke: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ClipboardCopyWithRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangle: *mut ::core::ffi::c_void, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes, dataobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ClipboardCopyWithRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, InkClipboardFormats, InkClipboardModes, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ClipboardCopyWithRectangle: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ClipboardCopy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut ::core::ffi::c_void, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes, dataobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ClipboardCopy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, InkClipboardFormats, InkClipboardModes, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ClipboardCopy: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub CanPaste: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dataobject: *mut ::core::ffi::c_void, canpaste: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub CanPaste: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CanPaste: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ClipboardPaste: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: i32, y: i32, dataobject: *mut ::core::ffi::c_void, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ClipboardPaste: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ClipboardPaste: usize,
 }
@@ -1318,25 +1318,25 @@ impl IInkDivider {
 pub struct IInkDivider_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub Strokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Strokes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Strokes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_Strokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_Strokes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_Strokes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub RecognizerContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recognizercontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RecognizerContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     RecognizerContext: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_RecognizerContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recognizercontext: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_RecognizerContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_RecognizerContext: usize,
-    pub LineHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lineheight: *mut i32) -> ::windows_core::HRESULT,
-    pub SetLineHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lineheight: i32) -> ::windows_core::HRESULT,
+    pub LineHeight: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetLineHeight: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Divide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkdivisionresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Divide: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Divide: usize,
 }
@@ -1370,11 +1370,11 @@ impl IInkDivisionResult {
 pub struct IInkDivisionResult_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub Strokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Strokes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Strokes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ResultByType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, divisiontype: InkDivisionType, inkdivisionunits: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ResultByType: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkDivisionType, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ResultByType: usize,
 }
@@ -1416,13 +1416,13 @@ impl IInkDivisionUnit {
 pub struct IInkDivisionUnit_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub Strokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Strokes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Strokes: usize,
-    pub DivisionType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, divisiontype: *mut InkDivisionType) -> ::windows_core::HRESULT,
-    pub RecognizedString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recostring: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub DivisionType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkDivisionType) -> ::windows_core::HRESULT,
+    pub RecognizedString: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub RotationTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rotationtransform: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RotationTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     RotationTransform: usize,
 }
@@ -1457,10 +1457,10 @@ impl IInkDivisionUnits {
 #[doc(hidden)]
 pub struct IInkDivisionUnits_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, inkdivisionunit: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
 }
@@ -1565,30 +1565,30 @@ impl IInkDrawingAttributes {
 #[doc(hidden)]
 pub struct IInkDrawingAttributes_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Color: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentcolor: *mut i32) -> ::windows_core::HRESULT,
-    pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcolor: i32) -> ::windows_core::HRESULT,
-    pub Width: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentwidth: *mut f32) -> ::windows_core::HRESULT,
-    pub SetWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newwidth: f32) -> ::windows_core::HRESULT,
-    pub Height: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentheight: *mut f32) -> ::windows_core::HRESULT,
-    pub SetHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newheight: f32) -> ::windows_core::HRESULT,
-    pub FitToCurve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flag: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetFitToCurve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flag: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub IgnorePressure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flag: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetIgnorePressure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flag: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub AntiAliased: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flag: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetAntiAliased: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flag: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub Transparency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currenttransparency: *mut i32) -> ::windows_core::HRESULT,
-    pub SetTransparency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newtransparency: i32) -> ::windows_core::HRESULT,
-    pub RasterOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentrasteroperation: *mut InkRasterOperation) -> ::windows_core::HRESULT,
-    pub SetRasterOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newrasteroperation: InkRasterOperation) -> ::windows_core::HRESULT,
-    pub PenTip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentpentip: *mut InkPenTip) -> ::windows_core::HRESULT,
-    pub SetPenTip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newpentip: InkPenTip) -> ::windows_core::HRESULT,
+    pub Color: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub Width: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
+    pub SetWidth: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub Height: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
+    pub SetHeight: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub FitToCurve: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetFitToCurve: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub IgnorePressure: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetIgnorePressure: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub AntiAliased: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetAntiAliased: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Transparency: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetTransparency: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub RasterOperation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkRasterOperation) -> ::windows_core::HRESULT,
+    pub SetRasterOperation: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkRasterOperation) -> ::windows_core::HRESULT,
+    pub PenTip: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkPenTip) -> ::windows_core::HRESULT,
+    pub SetPenTip: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkPenTip) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub ExtendedProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, properties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ExtendedProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ExtendedProperties: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, drawingattributes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
@@ -1973,113 +1973,113 @@ impl IInkEdit {
 #[doc(hidden)]
 pub struct IInkEdit_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut InkEditStatus) -> ::windows_core::HRESULT,
-    pub UseMouseForInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetUseMouseForInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub InkMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut InkMode) -> ::windows_core::HRESULT,
-    pub SetInkMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: InkMode) -> ::windows_core::HRESULT,
-    pub InkInsertMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut InkInsertMode) -> ::windows_core::HRESULT,
-    pub SetInkInsertMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: InkInsertMode) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkEditStatus) -> ::windows_core::HRESULT,
+    pub UseMouseForInput: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetUseMouseForInput: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub InkMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkMode) -> ::windows_core::HRESULT,
+    pub SetInkMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkMode) -> ::windows_core::HRESULT,
+    pub InkInsertMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkInsertMode) -> ::windows_core::HRESULT,
+    pub SetInkInsertMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkInsertMode) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub DrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DrawingAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DrawingAttributes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_DrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_DrawingAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_DrawingAttributes: usize,
-    pub RecognitionTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
-    pub SetRecognitionTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: i32) -> ::windows_core::HRESULT,
+    pub RecognitionTimeout: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetRecognitionTimeout: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Recognizer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Recognizer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Recognizer: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_Recognizer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_Recognizer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_Recognizer: usize,
-    pub Factoid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetFactoid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SelInks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pselink: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetSelInks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selink: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SelInksDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinkdisplaymode: *mut InkDisplayMode) -> ::windows_core::HRESULT,
-    pub SetSelInksDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkdisplaymode: InkDisplayMode) -> ::windows_core::HRESULT,
-    pub Recognize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetGestureStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gesture: InkApplicationGesture, plisten: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetGestureStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetBackColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clr: u32) -> ::windows_core::HRESULT,
-    pub BackColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclr: *mut u32) -> ::windows_core::HRESULT,
-    pub Appearance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pappearance: *mut AppearanceConstants) -> ::windows_core::HRESULT,
-    pub SetAppearance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pappearance: AppearanceConstants) -> ::windows_core::HRESULT,
-    pub BorderStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pborderstyle: *mut BorderStyleConstants) -> ::windows_core::HRESULT,
-    pub SetBorderStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pborderstyle: BorderStyleConstants) -> ::windows_core::HRESULT,
+    pub Factoid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetFactoid: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SelInks: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetSelInks: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SelInksDisplayMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkDisplayMode) -> ::windows_core::HRESULT,
+    pub SetSelInksDisplayMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkDisplayMode) -> ::windows_core::HRESULT,
+    pub Recognize: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetGestureStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkApplicationGesture, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetGestureStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkApplicationGesture, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetBackColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub BackColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Appearance: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AppearanceConstants) -> ::windows_core::HRESULT,
+    pub SetAppearance: unsafe extern "system" fn(*mut ::core::ffi::c_void, AppearanceConstants) -> ::windows_core::HRESULT,
+    pub BorderStyle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BorderStyleConstants) -> ::windows_core::HRESULT,
+    pub SetBorderStyle: unsafe extern "system" fn(*mut ::core::ffi::c_void, BorderStyleConstants) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Ole")]
-    pub Hwnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pohhwnd: *mut super::super::System::Ole::OLE_HANDLE) -> ::windows_core::HRESULT,
+    pub Hwnd: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::System::Ole::OLE_HANDLE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))]
     Hwnd: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Font: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppfont: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Font: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Font: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub putref_Font: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppfont: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_Font: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     putref_Font: usize,
-    pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtext: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtext: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Text: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetText: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub MouseIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mouseicon: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub MouseIcon: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     MouseIcon: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetMouseIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mouseicon: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetMouseIcon: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetMouseIcon: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub putref_MouseIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mouseicon: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_MouseIcon: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     putref_MouseIcon: usize,
-    pub MousePointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mousepointer: *mut InkMousePointer) -> ::windows_core::HRESULT,
-    pub SetMousePointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mousepointer: InkMousePointer) -> ::windows_core::HRESULT,
-    pub Locked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetLocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub MaxLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmaxlength: *mut i32) -> ::windows_core::HRESULT,
-    pub SetMaxLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmaxlength: i32) -> ::windows_core::HRESULT,
-    pub MultiLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetMultiLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub ScrollBars: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ScrollBarsConstants) -> ::windows_core::HRESULT,
-    pub SetScrollBars: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ScrollBarsConstants) -> ::windows_core::HRESULT,
-    pub DisableNoScroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetDisableNoScroll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SelAlignment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselalignment: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetSelAlignment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselalignment: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SelBold: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselbold: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetSelBold: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselbold: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SelItalic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselitalic: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetSelItalic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselitalic: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SelUnderline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselunderline: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetSelUnderline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselunderline: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SelColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselcolor: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetSelColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselcolor: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SelFontName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselfontname: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetSelFontName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselfontname: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SelFontSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselfontsize: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetSelFontSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselfontsize: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SelCharOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselcharoffset: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetSelCharOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarselcharoffset: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub TextRTF: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtextrtf: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetTextRTF: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtextrtf: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SelStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plselstart: *mut i32) -> ::windows_core::HRESULT,
-    pub SetSelStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plselstart: i32) -> ::windows_core::HRESULT,
-    pub SelLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsellength: *mut i32) -> ::windows_core::HRESULT,
-    pub SetSelLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsellength: i32) -> ::windows_core::HRESULT,
-    pub SelText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrseltext: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetSelText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrseltext: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SelRTF: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrselrtf: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetSelRTF: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrselrtf: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub MousePointer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkMousePointer) -> ::windows_core::HRESULT,
+    pub SetMousePointer: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkMousePointer) -> ::windows_core::HRESULT,
+    pub Locked: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetLocked: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub MaxLength: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetMaxLength: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub MultiLine: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetMultiLine: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub ScrollBars: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ScrollBarsConstants) -> ::windows_core::HRESULT,
+    pub SetScrollBars: unsafe extern "system" fn(*mut ::core::ffi::c_void, ScrollBarsConstants) -> ::windows_core::HRESULT,
+    pub DisableNoScroll: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetDisableNoScroll: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SelAlignment: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetSelAlignment: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SelBold: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetSelBold: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SelItalic: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetSelItalic: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SelUnderline: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetSelUnderline: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SelColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetSelColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SelFontName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetSelFontName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SelFontSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetSelFontSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SelCharOffset: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetSelCharOffset: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub TextRTF: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetTextRTF: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SelStart: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetSelStart: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub SelLength: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetSelLength: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub SelText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetSelText: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SelRTF: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetSelRTF: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Refresh: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2141,19 +2141,19 @@ impl IInkExtendedProperties {
 #[doc(hidden)]
 pub struct IInkExtendedProperties_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: ::std::mem::MaybeUninit<::windows_core::VARIANT>, item: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: ::std::mem::MaybeUninit<::windows_core::BSTR>, data: ::std::mem::MaybeUninit<::windows_core::VARIANT>, inkextendedproperty: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DoesPropertyExist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: ::std::mem::MaybeUninit<::windows_core::BSTR>, doespropertyexist: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Clear: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DoesPropertyExist: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2186,9 +2186,9 @@ impl IInkExtendedProperty {
 #[doc(hidden)]
 pub struct IInkExtendedProperty_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Guid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Guid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Data: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetData: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2218,9 +2218,9 @@ impl IInkGesture {
 #[doc(hidden)]
 pub struct IInkGesture_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Confidence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, confidence: *mut InkRecognitionConfidence) -> ::windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut InkApplicationGesture) -> ::windows_core::HRESULT,
-    pub GetHotPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: *mut i32, y: *mut i32) -> ::windows_core::HRESULT,
+    pub Confidence: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkRecognitionConfidence) -> ::windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkApplicationGesture) -> ::windows_core::HRESULT,
+    pub GetHotPoint: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32, *mut i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInkLineInfo, IInkLineInfo_Vtbl, 0x9c1c5ad6_f22f_4de4_b453_a2cc482e7c33);
 ::windows_core::imp::interface_hierarchy!(IInkLineInfo, ::windows_core::IUnknown);
@@ -2254,12 +2254,12 @@ impl IInkLineInfo {
 #[doc(hidden)]
 pub struct IInkLineInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pim: *const INKMETRIC) -> ::windows_core::HRESULT,
-    pub GetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pim: *const INKMETRIC) -> ::windows_core::HRESULT,
-    pub GetInkExtent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pim: *const INKMETRIC, pnwidth: *const u32) -> ::windows_core::HRESULT,
-    pub GetCandidate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncandidatenum: u32, pwcrecogword: ::windows_core::PCWSTR, pcwcrecogword: *const u32, dwflags: u32) -> ::windows_core::HRESULT,
-    pub SetCandidate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncandidatenum: u32, strrecogword: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Recognize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const INKMETRIC) -> ::windows_core::HRESULT,
+    pub GetFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const INKMETRIC) -> ::windows_core::HRESULT,
+    pub GetInkExtent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const INKMETRIC, *const u32) -> ::windows_core::HRESULT,
+    pub GetCandidate: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR, *const u32, u32) -> ::windows_core::HRESULT,
+    pub SetCandidate: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Recognize: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2554,111 +2554,111 @@ impl IInkOverlay {
 #[doc(hidden)]
 pub struct IInkOverlay_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub hWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentwindow: *mut isize) -> ::windows_core::HRESULT,
-    pub SethWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newwindow: isize) -> ::windows_core::HRESULT,
-    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, collecting: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, collecting: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub hWnd: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut isize) -> ::windows_core::HRESULT,
+    pub SethWnd: unsafe extern "system" fn(*mut ::core::ffi::c_void, isize) -> ::windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub DefaultDrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentattributes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DefaultDrawingAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DefaultDrawingAttributes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_DefaultDrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newattributes: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_DefaultDrawingAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_DefaultDrawingAttributes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Renderer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentinkrenderer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Renderer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Renderer: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_Renderer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinkrenderer: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_Renderer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_Renderer: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Ink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ink: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Ink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Ink: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_Ink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_Ink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_Ink: usize,
-    pub AutoRedraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, autoredraw: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetAutoRedraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, autoredraw: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub CollectingInk: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, collecting: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub CollectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: *mut InkCollectionMode) -> ::windows_core::HRESULT,
-    pub SetCollectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: InkCollectionMode) -> ::windows_core::HRESULT,
-    pub DynamicRendering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetDynamicRendering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub DesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetguids: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetDesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetguids: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AutoRedraw: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetAutoRedraw: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub CollectingInk: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub CollectionMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkCollectionMode) -> ::windows_core::HRESULT,
+    pub SetCollectionMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkCollectionMode) -> ::windows_core::HRESULT,
+    pub DynamicRendering: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetDynamicRendering: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub DesiredPacketDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetDesiredPacketDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub MouseIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mouseicon: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub MouseIcon: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     MouseIcon: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetMouseIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mouseicon: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetMouseIcon: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetMouseIcon: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub putref_MouseIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mouseicon: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_MouseIcon: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     putref_MouseIcon: usize,
-    pub MousePointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mousepointer: *mut InkMousePointer) -> ::windows_core::HRESULT,
-    pub SetMousePointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mousepointer: InkMousePointer) -> ::windows_core::HRESULT,
-    pub EditingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, editingmode: *mut InkOverlayEditingMode) -> ::windows_core::HRESULT,
-    pub SetEditingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, editingmode: InkOverlayEditingMode) -> ::windows_core::HRESULT,
+    pub MousePointer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkMousePointer) -> ::windows_core::HRESULT,
+    pub SetMousePointer: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkMousePointer) -> ::windows_core::HRESULT,
+    pub EditingMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkOverlayEditingMode) -> ::windows_core::HRESULT,
+    pub SetEditingMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkOverlayEditingMode) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Selection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Selection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Selection: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetSelection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetSelection: usize,
-    pub EraserMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, erasermode: *mut InkOverlayEraserMode) -> ::windows_core::HRESULT,
-    pub SetEraserMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, erasermode: InkOverlayEraserMode) -> ::windows_core::HRESULT,
-    pub EraserWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eraserwidth: *mut i32) -> ::windows_core::HRESULT,
-    pub SetEraserWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, neweraserwidth: i32) -> ::windows_core::HRESULT,
-    pub AttachMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachmode: *mut InkOverlayAttachMode) -> ::windows_core::HRESULT,
-    pub SetAttachMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachmode: InkOverlayAttachMode) -> ::windows_core::HRESULT,
+    pub EraserMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkOverlayEraserMode) -> ::windows_core::HRESULT,
+    pub SetEraserMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkOverlayEraserMode) -> ::windows_core::HRESULT,
+    pub EraserWidth: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetEraserWidth: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub AttachMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkOverlayAttachMode) -> ::windows_core::HRESULT,
+    pub SetAttachMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkOverlayAttachMode) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Cursors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cursors: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Cursors: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Cursors: usize,
-    pub MarginX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, marginx: *mut i32) -> ::windows_core::HRESULT,
-    pub SetMarginX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, marginx: i32) -> ::windows_core::HRESULT,
-    pub MarginY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, marginy: *mut i32) -> ::windows_core::HRESULT,
-    pub SetMarginY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, marginy: i32) -> ::windows_core::HRESULT,
+    pub MarginX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetMarginX: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub MarginY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetMarginY: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Tablet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, singletablet: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Tablet: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Tablet: usize,
-    pub SupportHighContrastInk: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, support: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetSupportHighContrastInk: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, support: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SupportHighContrastSelectionUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, support: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetSupportHighContrastSelectionUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, support: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub HitTestSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: i32, y: i32, selarea: *mut SelectionHitResult) -> ::windows_core::HRESULT,
+    pub SupportHighContrastInk: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetSupportHighContrastInk: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SupportHighContrastSelectionUI: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetSupportHighContrastSelectionUI: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub HitTestSelection: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, *mut SelectionHitResult) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Draw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rect: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Draw: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Draw: usize,
-    pub SetGestureStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub GetGestureStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gesture: InkApplicationGesture, listening: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetGestureStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkApplicationGesture, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub GetGestureStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkApplicationGesture, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetWindowInputRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windowinputrectangle: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetWindowInputRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetWindowInputRectangle: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetWindowInputRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windowinputrectangle: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetWindowInputRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetWindowInputRectangle: usize,
-    pub SetAllTabletsMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetAllTabletsMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetSingleTabletIntegratedMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tablet: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetSingleTabletIntegratedMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetSingleTabletIntegratedMode: usize,
-    pub GetEventInterest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: InkCollectorEventInterest, listen: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetEventInterest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub GetEventInterest: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkCollectorEventInterest, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetEventInterest: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkCollectorEventInterest, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2981,122 +2981,122 @@ impl IInkPicture {
 #[doc(hidden)]
 pub struct IInkPicture_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub hWnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentwindow: *mut isize) -> ::windows_core::HRESULT,
+    pub hWnd: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut isize) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub DefaultDrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentattributes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DefaultDrawingAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DefaultDrawingAttributes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_DefaultDrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newattributes: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_DefaultDrawingAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_DefaultDrawingAttributes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Renderer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentinkrenderer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Renderer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Renderer: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_Renderer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinkrenderer: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_Renderer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_Renderer: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Ink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ink: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Ink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Ink: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_Ink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_Ink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_Ink: usize,
-    pub AutoRedraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, autoredraw: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetAutoRedraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, autoredraw: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub CollectingInk: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, collecting: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub CollectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: *mut InkCollectionMode) -> ::windows_core::HRESULT,
-    pub SetCollectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: InkCollectionMode) -> ::windows_core::HRESULT,
-    pub DynamicRendering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetDynamicRendering: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub DesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetguids: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetDesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetguids: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AutoRedraw: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetAutoRedraw: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub CollectingInk: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub CollectionMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkCollectionMode) -> ::windows_core::HRESULT,
+    pub SetCollectionMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkCollectionMode) -> ::windows_core::HRESULT,
+    pub DynamicRendering: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetDynamicRendering: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub DesiredPacketDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetDesiredPacketDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub MouseIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mouseicon: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub MouseIcon: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     MouseIcon: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetMouseIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mouseicon: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetMouseIcon: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetMouseIcon: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub putref_MouseIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mouseicon: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_MouseIcon: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     putref_MouseIcon: usize,
-    pub MousePointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mousepointer: *mut InkMousePointer) -> ::windows_core::HRESULT,
-    pub SetMousePointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mousepointer: InkMousePointer) -> ::windows_core::HRESULT,
-    pub EditingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, editingmode: *mut InkOverlayEditingMode) -> ::windows_core::HRESULT,
-    pub SetEditingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, editingmode: InkOverlayEditingMode) -> ::windows_core::HRESULT,
+    pub MousePointer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkMousePointer) -> ::windows_core::HRESULT,
+    pub SetMousePointer: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkMousePointer) -> ::windows_core::HRESULT,
+    pub EditingMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkOverlayEditingMode) -> ::windows_core::HRESULT,
+    pub SetEditingMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkOverlayEditingMode) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Selection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Selection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Selection: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetSelection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetSelection: usize,
-    pub EraserMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, erasermode: *mut InkOverlayEraserMode) -> ::windows_core::HRESULT,
-    pub SetEraserMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, erasermode: InkOverlayEraserMode) -> ::windows_core::HRESULT,
-    pub EraserWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eraserwidth: *mut i32) -> ::windows_core::HRESULT,
-    pub SetEraserWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, neweraserwidth: i32) -> ::windows_core::HRESULT,
+    pub EraserMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkOverlayEraserMode) -> ::windows_core::HRESULT,
+    pub SetEraserMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkOverlayEraserMode) -> ::windows_core::HRESULT,
+    pub EraserWidth: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetEraserWidth: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub putref_Picture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppicture: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_Picture: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     putref_Picture: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetPicture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppicture: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetPicture: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetPicture: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Picture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppicture: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Picture: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Picture: usize,
-    pub SetSizeMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, smnewsizemode: InkPictureSizeMode) -> ::windows_core::HRESULT,
-    pub SizeMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, smsizemode: *mut InkPictureSizeMode) -> ::windows_core::HRESULT,
-    pub SetBackColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcolor: u32) -> ::windows_core::HRESULT,
-    pub BackColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcolor: *mut u32) -> ::windows_core::HRESULT,
+    pub SetSizeMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkPictureSizeMode) -> ::windows_core::HRESULT,
+    pub SizeMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkPictureSizeMode) -> ::windows_core::HRESULT,
+    pub SetBackColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub BackColor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Cursors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cursors: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Cursors: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Cursors: usize,
-    pub MarginX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, marginx: *mut i32) -> ::windows_core::HRESULT,
-    pub SetMarginX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, marginx: i32) -> ::windows_core::HRESULT,
-    pub MarginY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, marginy: *mut i32) -> ::windows_core::HRESULT,
-    pub SetMarginY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, marginy: i32) -> ::windows_core::HRESULT,
+    pub MarginX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetMarginX: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub MarginY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetMarginY: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Tablet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, singletablet: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Tablet: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Tablet: usize,
-    pub SupportHighContrastInk: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, support: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetSupportHighContrastInk: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, support: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SupportHighContrastSelectionUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, support: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetSupportHighContrastSelectionUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, support: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub HitTestSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: i32, y: i32, selarea: *mut SelectionHitResult) -> ::windows_core::HRESULT,
-    pub SetGestureStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub GetGestureStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gesture: InkApplicationGesture, listening: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SupportHighContrastInk: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetSupportHighContrastInk: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SupportHighContrastSelectionUI: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetSupportHighContrastSelectionUI: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub HitTestSelection: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, *mut SelectionHitResult) -> ::windows_core::HRESULT,
+    pub SetGestureStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkApplicationGesture, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub GetGestureStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkApplicationGesture, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetWindowInputRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windowinputrectangle: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetWindowInputRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetWindowInputRectangle: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetWindowInputRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windowinputrectangle: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetWindowInputRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetWindowInputRectangle: usize,
-    pub SetAllTabletsMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetAllTabletsMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetSingleTabletIntegratedMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tablet: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetSingleTabletIntegratedMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetSingleTabletIntegratedMode: usize,
-    pub GetEventInterest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: InkCollectorEventInterest, listen: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetEventInterest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub InkEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, collecting: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetInkEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, collecting: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vbool: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub GetEventInterest: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkCollectorEventInterest, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetEventInterest: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkCollectorEventInterest, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub InkEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetInkEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -3199,42 +3199,42 @@ impl IInkRecognitionAlternate {
 #[doc(hidden)]
 pub struct IInkRecognitionAlternate_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub String: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recostring: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Confidence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, confidence: *mut InkRecognitionConfidence) -> ::windows_core::HRESULT,
-    pub Baseline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseline: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub Midline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, midline: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub Ascender: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ascender: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub Descender: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, descender: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub LineNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linenumber: *mut i32) -> ::windows_core::HRESULT,
+    pub String: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Confidence: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkRecognitionConfidence) -> ::windows_core::HRESULT,
+    pub Baseline: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Midline: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Ascender: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Descender: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub LineNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Strokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Strokes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Strokes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub LineAlternates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linealternates: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LineAlternates: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     LineAlternates: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ConfidenceAlternates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, confidencealternates: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ConfidenceAlternates: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ConfidenceAlternates: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetStrokesFromStrokeRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut ::core::ffi::c_void, getstrokesfromstrokeranges: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStrokesFromStrokeRanges: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetStrokesFromStrokeRanges: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetStrokesFromTextRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selectionstart: *mut i32, selectionlength: *mut i32, getstrokesfromtextrange: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStrokesFromTextRange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32, *mut i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetStrokesFromTextRange: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetTextRangeFromStrokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut ::core::ffi::c_void, selectionstart: *mut i32, selectionlength: *mut i32) -> ::windows_core::HRESULT,
+    pub GetTextRangeFromStrokes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut i32, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetTextRangeFromStrokes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub AlternatesWithConstantPropertyValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertytype: ::std::mem::MaybeUninit<::windows_core::BSTR>, alternateswithconstantpropertyvalues: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AlternatesWithConstantPropertyValues: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AlternatesWithConstantPropertyValues: usize,
-    pub GetPropertyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertytype: ::std::mem::MaybeUninit<::windows_core::BSTR>, propertyvalue: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub GetPropertyValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -3273,14 +3273,14 @@ impl IInkRecognitionAlternates {
 #[doc(hidden)]
 pub struct IInkRecognitionAlternates_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Strokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Strokes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Strokes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, inkrecoalternate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
 }
@@ -3338,25 +3338,25 @@ impl IInkRecognitionResult {
 #[doc(hidden)]
 pub struct IInkRecognitionResult_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub TopString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, topstring: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub TopString: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub TopAlternate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, topalternate: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TopAlternate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     TopAlternate: usize,
-    pub TopConfidence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, topconfidence: *mut InkRecognitionConfidence) -> ::windows_core::HRESULT,
+    pub TopConfidence: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkRecognitionConfidence) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Strokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Strokes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Strokes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub AlternatesFromSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selectionstart: i32, selectionlength: i32, maximumalternates: i32, alternatesfromselection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AlternatesFromSelection: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AlternatesFromSelection: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ModifyTopAlternate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, alternate: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ModifyTopAlternate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ModifyTopAlternate: usize,
-    pub SetResultOnStrokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetResultOnStrokes: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -3405,14 +3405,14 @@ impl IInkRecognizer {
 #[doc(hidden)]
 pub struct IInkRecognizer_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Vendor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vendor: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Capabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilitiesflags: *mut InkRecognizerCapabilities) -> ::windows_core::HRESULT,
-    pub Languages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languages: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SupportedProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, supportedproperties: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub PreferredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preferredpacketdescription: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Vendor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Capabilities: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkRecognizerCapabilities) -> ::windows_core::HRESULT,
+    pub Languages: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SupportedProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub PreferredPacketDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreateRecognizerContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateRecognizerContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateRecognizerContext: usize,
 }
@@ -3441,8 +3441,8 @@ impl IInkRecognizer2 {
 #[doc(hidden)]
 pub struct IInkRecognizer2_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub UnicodeRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unicoderanges: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub UnicodeRanges: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -3590,56 +3590,56 @@ impl IInkRecognizerContext {
 pub struct IInkRecognizerContext_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub Strokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Strokes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Strokes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_Strokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_Strokes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_Strokes: usize,
-    pub CharacterAutoCompletionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: *mut InkRecognizerCharacterAutoCompletionMode) -> ::windows_core::HRESULT,
-    pub SetCharacterAutoCompletionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: InkRecognizerCharacterAutoCompletionMode) -> ::windows_core::HRESULT,
-    pub Factoid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factoid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetFactoid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factoid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub CharacterAutoCompletionMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkRecognizerCharacterAutoCompletionMode) -> ::windows_core::HRESULT,
+    pub SetCharacterAutoCompletionMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkRecognizerCharacterAutoCompletionMode) -> ::windows_core::HRESULT,
+    pub Factoid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetFactoid: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Guide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recognizerguide: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Guide: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Guide: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_Guide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recognizerguide: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_Guide: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_Guide: usize,
-    pub PrefixText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prefix: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetPrefixText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prefix: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SuffixText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, suffix: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetSuffixText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, suffix: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub RecognitionFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modes: *mut InkRecognitionModes) -> ::windows_core::HRESULT,
-    pub SetRecognitionFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modes: InkRecognitionModes) -> ::windows_core::HRESULT,
+    pub PrefixText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetPrefixText: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SuffixText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetSuffixText: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub RecognitionFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkRecognitionModes) -> ::windows_core::HRESULT,
+    pub SetRecognitionFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkRecognitionModes) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub WordList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wordlist: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub WordList: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     WordList: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_WordList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wordlist: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_WordList: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_WordList: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Recognizer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recognizer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Recognizer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Recognizer: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Recognize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recognitionstatus: *mut InkRecognitionStatus, recognitionresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Recognize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkRecognitionStatus, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Recognize: usize,
-    pub StopBackgroundRecognition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EndInkInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub BackgroundRecognize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customdata: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub BackgroundRecognizeWithAlternates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customdata: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub StopBackgroundRecognition: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EndInkInput: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BackgroundRecognize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub BackgroundRecognizeWithAlternates: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recocontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
-    pub IsStringSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, string: ::std::mem::MaybeUninit<::windows_core::BSTR>, supported: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub IsStringSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -3668,8 +3668,8 @@ impl IInkRecognizerContext2 {
 #[doc(hidden)]
 pub struct IInkRecognizerContext2_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub EnabledUnicodeRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unicoderanges: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetEnabledUnicodeRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unicoderanges: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub EnabledUnicodeRanges: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetEnabledUnicodeRanges: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -3744,29 +3744,29 @@ impl IInkRecognizerGuide {
 pub struct IInkRecognizerGuide_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub WritingBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangle: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub WritingBox: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     WritingBox: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetWritingBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangle: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetWritingBox: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetWritingBox: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub DrawnBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangle: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DrawnBox: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DrawnBox: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetDrawnBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangle: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetDrawnBox: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetDrawnBox: usize,
-    pub Rows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, units: *mut i32) -> ::windows_core::HRESULT,
-    pub SetRows: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, units: i32) -> ::windows_core::HRESULT,
-    pub Columns: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, units: *mut i32) -> ::windows_core::HRESULT,
-    pub SetColumns: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, units: i32) -> ::windows_core::HRESULT,
-    pub Midline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, units: *mut i32) -> ::windows_core::HRESULT,
-    pub SetMidline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, units: i32) -> ::windows_core::HRESULT,
-    pub GuideData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precoguide: *mut InkRecoGuide) -> ::windows_core::HRESULT,
-    pub SetGuideData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recoguide: InkRecoGuide) -> ::windows_core::HRESULT,
+    pub Rows: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetRows: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub Columns: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetColumns: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub Midline: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetMidline: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub GuideData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InkRecoGuide) -> ::windows_core::HRESULT,
+    pub SetGuideData: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkRecoGuide) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -3805,14 +3805,14 @@ impl IInkRecognizers {
 #[doc(hidden)]
 pub struct IInkRecognizers_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetDefaultRecognizer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcid: i32, defaultrecognizer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDefaultRecognizer: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetDefaultRecognizer: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, inkrecognizer: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
 }
@@ -3874,18 +3874,18 @@ impl IInkRectangle {
 #[doc(hidden)]
 pub struct IInkRectangle_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Top: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, units: *mut i32) -> ::windows_core::HRESULT,
-    pub SetTop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, units: i32) -> ::windows_core::HRESULT,
-    pub Left: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, units: *mut i32) -> ::windows_core::HRESULT,
-    pub SetLeft: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, units: i32) -> ::windows_core::HRESULT,
-    pub Bottom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, units: *mut i32) -> ::windows_core::HRESULT,
-    pub SetBottom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, units: i32) -> ::windows_core::HRESULT,
-    pub Right: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, units: *mut i32) -> ::windows_core::HRESULT,
-    pub SetRight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, units: i32) -> ::windows_core::HRESULT,
-    pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rect: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
-    pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rect: super::super::Foundation::RECT) -> ::windows_core::HRESULT,
-    pub GetRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, top: *mut i32, left: *mut i32, bottom: *mut i32, right: *mut i32) -> ::windows_core::HRESULT,
-    pub SetRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, top: i32, left: i32, bottom: i32, right: i32) -> ::windows_core::HRESULT,
+    pub Top: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetTop: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub Left: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetLeft: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub Bottom: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetBottom: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub Right: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetRight: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub Data: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
+    pub SetData: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::RECT) -> ::windows_core::HRESULT,
+    pub GetRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32, *mut i32, *mut i32, *mut i32) -> ::windows_core::HRESULT,
+    pub SetRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, i32, i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -3997,44 +3997,44 @@ impl IInkRenderer {
 pub struct IInkRenderer_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetViewTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewtransform: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetViewTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetViewTransform: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetViewTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewtransform: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetViewTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetViewTransform: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetObjectTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objecttransform: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetObjectTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetObjectTransform: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetObjectTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objecttransform: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetObjectTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetObjectTransform: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Draw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: isize, strokes: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Draw: unsafe extern "system" fn(*mut ::core::ffi::c_void, isize, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Draw: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub DrawStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: isize, stroke: *mut ::core::ffi::c_void, drawingattributes: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DrawStroke: unsafe extern "system" fn(*mut ::core::ffi::c_void, isize, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DrawStroke: usize,
-    pub PixelToInkSpace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: isize, x: *mut i32, y: *mut i32) -> ::windows_core::HRESULT,
-    pub InkSpaceToPixel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdcdisplay: isize, x: *mut i32, y: *mut i32) -> ::windows_core::HRESULT,
-    pub PixelToInkSpaceFromPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: isize, points: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub InkSpaceToPixelFromPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: isize, points: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub PixelToInkSpace: unsafe extern "system" fn(*mut ::core::ffi::c_void, isize, *mut i32, *mut i32) -> ::windows_core::HRESULT,
+    pub InkSpaceToPixel: unsafe extern "system" fn(*mut ::core::ffi::c_void, isize, *mut i32, *mut i32) -> ::windows_core::HRESULT,
+    pub PixelToInkSpaceFromPoints: unsafe extern "system" fn(*mut ::core::ffi::c_void, isize, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub InkSpaceToPixelFromPoints: unsafe extern "system" fn(*mut ::core::ffi::c_void, isize, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Measure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut ::core::ffi::c_void, rectangle: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Measure: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Measure: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub MeasureStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stroke: *mut ::core::ffi::c_void, drawingattributes: *mut ::core::ffi::c_void, rectangle: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub MeasureStroke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     MeasureStroke: usize,
-    pub Move: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalcomponent: f32, verticalcomponent: f32) -> ::windows_core::HRESULT,
-    pub Rotate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, degrees: f32, x: f32, y: f32) -> ::windows_core::HRESULT,
-    pub ScaleTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalmultiplier: f32, verticalmultiplier: f32, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Move: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, f32) -> ::windows_core::HRESULT,
+    pub Rotate: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, f32, f32) -> ::windows_core::HRESULT,
+    pub ScaleTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, f32, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -4229,72 +4229,72 @@ impl IInkStrokeDisp {
 #[doc(hidden)]
 pub struct IInkStrokeDisp_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub ID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut i32) -> ::windows_core::HRESULT,
-    pub BezierPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, points: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub ID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub BezierPoints: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub DrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, drawattrs: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DrawingAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DrawingAttributes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_DrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, drawattrs: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_DrawingAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_DrawingAttributes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Ink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ink: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Ink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Ink: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ExtendedProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, properties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ExtendedProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ExtendedProperties: usize,
-    pub PolylineCusps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cusps: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub BezierCusps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cusps: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SelfIntersections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intersections: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub PacketCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT,
-    pub PacketSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsize: *mut i32) -> ::windows_core::HRESULT,
-    pub PacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetdescription: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub Deleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deleted: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub PolylineCusps: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub BezierCusps: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SelfIntersections: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub PacketCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub PacketSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub PacketDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Deleted: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetBoundingBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, boundingboxmode: InkBoundingBoxMode, rectangle: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetBoundingBox: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkBoundingBoxMode, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetBoundingBox: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub FindIntersections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokes: *mut ::core::ffi::c_void, intersections: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub FindIntersections: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     FindIntersections: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetRectangleIntersections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangle: *mut ::core::ffi::c_void, intersections: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub GetRectangleIntersections: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetRectangleIntersections: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Clip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangle: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clip: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Clip: usize,
-    pub HitTestCircle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: i32, y: i32, radius: f32, intersects: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub NearestPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: i32, y: i32, distance: *mut f32, point: *mut f32) -> ::windows_core::HRESULT,
+    pub HitTestCircle: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, f32, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub NearestPoint: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, *mut f32, *mut f32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Split: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, splitat: f32, newstroke: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Split: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Split: usize,
-    pub GetPacketDescriptionPropertyMetrics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> ::windows_core::HRESULT,
-    pub GetPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, count: i32, points: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, points: ::std::mem::MaybeUninit<::windows_core::VARIANT>, index: i32, count: i32, numberofpointsset: *mut i32) -> ::windows_core::HRESULT,
-    pub GetPacketData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, count: i32, packetdata: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub GetPacketValuesByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, index: i32, count: i32, packetvalues: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetPacketValuesByProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, packetvalues: ::std::mem::MaybeUninit<::windows_core::VARIANT>, index: i32, count: i32, numberofpacketsset: *mut i32) -> ::windows_core::HRESULT,
-    pub GetFlattenedBezierPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fittingerror: i32, flattenedbezierpoints: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub GetPacketDescriptionPropertyMetrics: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut i32, *mut i32, *mut TabletPropertyMetricUnit, *mut f32) -> ::windows_core::HRESULT,
+    pub GetPoints: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetPoints: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, i32, i32, *mut i32) -> ::windows_core::HRESULT,
+    pub GetPacketData: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub GetPacketValuesByProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32, i32, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetPacketValuesByProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::VARIANT>, i32, i32, *mut i32) -> ::windows_core::HRESULT,
+    pub GetFlattenedBezierPoints: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Transform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transform: *mut ::core::ffi::c_void, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Transform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Transform: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ScaleToRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangle: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ScaleToRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ScaleToRectangle: usize,
-    pub Move: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalcomponent: f32, verticalcomponent: f32) -> ::windows_core::HRESULT,
-    pub Rotate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, degrees: f32, x: f32, y: f32) -> ::windows_core::HRESULT,
-    pub Shear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalmultiplier: f32, verticalmultiplier: f32) -> ::windows_core::HRESULT,
-    pub ScaleTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalmultiplier: f32, verticalmultiplier: f32) -> ::windows_core::HRESULT,
+    pub Move: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, f32) -> ::windows_core::HRESULT,
+    pub Rotate: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, f32, f32) -> ::windows_core::HRESULT,
+    pub Shear: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, f32) -> ::windows_core::HRESULT,
+    pub ScaleTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, f32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -4429,62 +4429,62 @@ impl IInkStrokes {
 #[doc(hidden)]
 pub struct IInkStrokes_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Ink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ink: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Ink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Ink: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub RecognitionResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recognitionresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RecognitionResult: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     RecognitionResult: usize,
-    pub ToString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tostring: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ToString: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, stroke: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkstroke: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub AddStrokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkstrokes: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddStrokes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AddStrokes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkstroke: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Remove: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub RemoveStrokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkstrokes: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveStrokes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     RemoveStrokes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ModifyDrawingAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, drawattrs: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ModifyDrawingAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ModifyDrawingAttributes: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetBoundingBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, boundingboxmode: InkBoundingBoxMode, boundingbox: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetBoundingBox: unsafe extern "system" fn(*mut ::core::ffi::c_void, InkBoundingBoxMode, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetBoundingBox: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Transform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transform: *mut ::core::ffi::c_void, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Transform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Transform: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ScaleToRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangle: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ScaleToRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ScaleToRectangle: usize,
-    pub Move: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalcomponent: f32, verticalcomponent: f32) -> ::windows_core::HRESULT,
-    pub Rotate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, degrees: f32, x: f32, y: f32) -> ::windows_core::HRESULT,
-    pub Shear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalmultiplier: f32, verticalmultiplier: f32) -> ::windows_core::HRESULT,
-    pub ScaleTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalmultiplier: f32, verticalmultiplier: f32) -> ::windows_core::HRESULT,
+    pub Move: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, f32) -> ::windows_core::HRESULT,
+    pub Rotate: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, f32, f32) -> ::windows_core::HRESULT,
+    pub Shear: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, f32) -> ::windows_core::HRESULT,
+    pub ScaleTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, f32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Clip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangle: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clip: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Clip: usize,
-    pub RemoveRecognitionResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveRecognitionResult: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -4534,15 +4534,15 @@ impl IInkTablet {
 #[doc(hidden)]
 pub struct IInkTablet_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub PlugAndPlayId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub PlugAndPlayId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub MaximumInputRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rectangle: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub MaximumInputRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     MaximumInputRectangle: usize,
-    pub HardwareCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilities: *mut TabletHardwareCapabilities) -> ::windows_core::HRESULT,
-    pub IsPacketPropertySupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetpropertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, supported: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub GetPropertyMetrics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> ::windows_core::HRESULT,
+    pub HardwareCapabilities: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut TabletHardwareCapabilities) -> ::windows_core::HRESULT,
+    pub IsPacketPropertySupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub GetPropertyMetrics: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut i32, *mut i32, *mut TabletPropertyMetricUnit, *mut f32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -4565,7 +4565,7 @@ impl IInkTablet2 {
 #[doc(hidden)]
 pub struct IInkTablet2_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub DeviceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: *mut TabletDeviceKind) -> ::windows_core::HRESULT,
+    pub DeviceKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut TabletDeviceKind) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -4592,8 +4592,8 @@ impl IInkTablet3 {
 #[doc(hidden)]
 pub struct IInkTablet3_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub IsMultiTouch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pismultitouch: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub MaximumCursors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmaximumcursors: *mut u32) -> ::windows_core::HRESULT,
+    pub IsMultiTouch: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub MaximumCursors: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -4639,17 +4639,17 @@ impl IInkTablets {
 #[doc(hidden)]
 pub struct IInkTablets_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, _newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub DefaultTablet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, defaulttablet: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DefaultTablet: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     DefaultTablet: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, tablet: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
-    pub IsPacketPropertySupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetpropertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, supported: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub IsPacketPropertySupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -4748,32 +4748,32 @@ impl IInkTransform {
 #[doc(hidden)]
 pub struct IInkTransform_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Translate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalcomponent: f32, verticalcomponent: f32) -> ::windows_core::HRESULT,
-    pub Rotate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, degrees: f32, x: f32, y: f32) -> ::windows_core::HRESULT,
-    pub Reflect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontally: super::super::Foundation::VARIANT_BOOL, vertically: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub Shear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalcomponent: f32, verticalcomponent: f32) -> ::windows_core::HRESULT,
-    pub ScaleTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalmultiplier: f32, verticalmultiplier: f32) -> ::windows_core::HRESULT,
-    pub GetTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, em11: *mut f32, em12: *mut f32, em21: *mut f32, em22: *mut f32, edx: *mut f32, edy: *mut f32) -> ::windows_core::HRESULT,
-    pub SetTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, em11: f32, em12: f32, em21: f32, em22: f32, edx: f32, edy: f32) -> ::windows_core::HRESULT,
-    pub eM11: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut f32) -> ::windows_core::HRESULT,
-    pub SeteM11: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows_core::HRESULT,
-    pub eM12: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut f32) -> ::windows_core::HRESULT,
-    pub SeteM12: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows_core::HRESULT,
-    pub eM21: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut f32) -> ::windows_core::HRESULT,
-    pub SeteM21: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows_core::HRESULT,
-    pub eM22: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut f32) -> ::windows_core::HRESULT,
-    pub SeteM22: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows_core::HRESULT,
-    pub eDx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut f32) -> ::windows_core::HRESULT,
-    pub SeteDx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows_core::HRESULT,
-    pub eDy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut f32) -> ::windows_core::HRESULT,
-    pub SeteDy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Translate: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, f32) -> ::windows_core::HRESULT,
+    pub Rotate: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, f32, f32) -> ::windows_core::HRESULT,
+    pub Reflect: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Shear: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, f32) -> ::windows_core::HRESULT,
+    pub ScaleTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, f32) -> ::windows_core::HRESULT,
+    pub GetTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32, *mut f32, *mut f32, *mut f32, *mut f32, *mut f32) -> ::windows_core::HRESULT,
+    pub SetTransform: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32, f32, f32, f32, f32, f32) -> ::windows_core::HRESULT,
+    pub eM11: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
+    pub SeteM11: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub eM12: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
+    pub SeteM12: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub eM21: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
+    pub SeteM21: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub eM22: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
+    pub SeteM22: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub eDx: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
+    pub SeteDx: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
+    pub eDy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
+    pub SeteDy: unsafe extern "system" fn(*mut ::core::ffi::c_void, f32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub Data: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xform: *mut super::super::Graphics::Gdi::XFORM) -> ::windows_core::HRESULT,
+    pub Data: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Graphics::Gdi::XFORM) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     Data: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub SetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xform: super::super::Graphics::Gdi::XFORM) -> ::windows_core::HRESULT,
+    pub SetData: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Graphics::Gdi::XFORM) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     SetData: usize,
 }
@@ -4814,10 +4814,10 @@ impl IInkWordList {
 #[doc(hidden)]
 pub struct IInkWordList_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub AddWord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newword: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub RemoveWord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, removeword: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub AddWord: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub RemoveWord: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Merge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mergewordlist: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Merge: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Merge: usize,
 }
@@ -4844,7 +4844,7 @@ impl IInkWordList2 {
 #[doc(hidden)]
 pub struct IInkWordList2_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub AddWords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newwords: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub AddWords: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInputPanelWindowHandle, IInputPanelWindowHandle_Vtbl, 0x4af81847_fdc4_4fc3_ad0b_422479c1b935);
 ::windows_core::imp::interface_hierarchy!(IInputPanelWindowHandle, ::windows_core::IUnknown);
@@ -4868,10 +4868,10 @@ impl IInputPanelWindowHandle {
 #[doc(hidden)]
 pub struct IInputPanelWindowHandle_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AttachedEditWindow32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachededitwindow: *mut i32) -> ::windows_core::HRESULT,
-    pub SetAttachedEditWindow32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachededitwindow: i32) -> ::windows_core::HRESULT,
-    pub AttachedEditWindow64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachededitwindow: *mut i64) -> ::windows_core::HRESULT,
-    pub SetAttachedEditWindow64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachededitwindow: i64) -> ::windows_core::HRESULT,
+    pub AttachedEditWindow32: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetAttachedEditWindow32: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub AttachedEditWindow64: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
+    pub SetAttachedEditWindow64: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -4969,27 +4969,27 @@ impl IMathInputControl {
 #[doc(hidden)]
 pub struct IMathInputControl_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Hide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub IsVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbshown: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub GetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: *mut i32, top: *mut i32, right: *mut i32, bottom: *mut i32) -> ::windows_core::HRESULT,
-    pub SetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: i32, top: i32, right: i32, bottom: i32) -> ::windows_core::HRESULT,
-    pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetCustomPaint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: i32, paint: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetCaptionText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, captiontext: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Show: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Hide: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsVisible: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub GetPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32, *mut i32, *mut i32, *mut i32) -> ::windows_core::HRESULT,
+    pub SetPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, i32, i32) -> ::windows_core::HRESULT,
+    pub Clear: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetCustomPaint: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetCaptionText: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub LoadInk: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LoadInk: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     LoadInk: usize,
-    pub SetOwnerWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ownerwindow: isize) -> ::windows_core::HRESULT,
-    pub EnableExtendedButtons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extended: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub GetPreviewHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, height: *mut i32) -> ::windows_core::HRESULT,
-    pub SetPreviewHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, height: i32) -> ::windows_core::HRESULT,
-    pub EnableAutoGrow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, autogrow: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub AddFunctionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub RemoveFunctionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetOwnerWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, isize) -> ::windows_core::HRESULT,
+    pub EnableExtendedButtons: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub GetPreviewHeight: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetPreviewHeight: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub EnableAutoGrow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub AddFunctionName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub RemoveFunctionName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetHoverIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hoverimage: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetHoverIcon: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetHoverIcon: usize,
 }
@@ -5110,31 +5110,31 @@ impl IPenInputPanel {
 #[doc(hidden)]
 pub struct IPenInputPanel_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub Busy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, busy: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub Factoid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factoid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetFactoid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factoid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub AttachedEditWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachededitwindow: *mut i32) -> ::windows_core::HRESULT,
-    pub SetAttachedEditWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachededitwindow: i32) -> ::windows_core::HRESULT,
-    pub CurrentPanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentpanel: *mut PanelType) -> ::windows_core::HRESULT,
-    pub SetCurrentPanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentpanel: PanelType) -> ::windows_core::HRESULT,
-    pub DefaultPanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdefaultpanel: *mut PanelType) -> ::windows_core::HRESULT,
-    pub SetDefaultPanel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, defaultpanel: PanelType) -> ::windows_core::HRESULT,
-    pub Visible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visible: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visible: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub Top: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, top: *mut i32) -> ::windows_core::HRESULT,
-    pub Left: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: *mut i32) -> ::windows_core::HRESULT,
-    pub Width: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: *mut i32) -> ::windows_core::HRESULT,
-    pub Height: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, height: *mut i32) -> ::windows_core::HRESULT,
-    pub VerticalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, verticaloffset: *mut i32) -> ::windows_core::HRESULT,
-    pub SetVerticalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, verticaloffset: i32) -> ::windows_core::HRESULT,
-    pub HorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontaloffset: *mut i32) -> ::windows_core::HRESULT,
-    pub SetHorizontalOffset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontaloffset: i32) -> ::windows_core::HRESULT,
-    pub AutoShow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pautoshow: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetAutoShow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, autoshow: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub MoveTo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: i32, top: i32) -> ::windows_core::HRESULT,
-    pub CommitPendingInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnableTsf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enable: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Busy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Factoid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetFactoid: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub AttachedEditWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetAttachedEditWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub CurrentPanel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PanelType) -> ::windows_core::HRESULT,
+    pub SetCurrentPanel: unsafe extern "system" fn(*mut ::core::ffi::c_void, PanelType) -> ::windows_core::HRESULT,
+    pub DefaultPanel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PanelType) -> ::windows_core::HRESULT,
+    pub SetDefaultPanel: unsafe extern "system" fn(*mut ::core::ffi::c_void, PanelType) -> ::windows_core::HRESULT,
+    pub Visible: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetVisible: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Top: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Left: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Width: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Height: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub VerticalOffset: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetVerticalOffset: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub HorizontalOffset: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetHorizontalOffset: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub AutoShow: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetAutoShow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub MoveTo: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32) -> ::windows_core::HRESULT,
+    pub CommitPendingInput: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Refresh: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnableTsf: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRealTimeStylus, IRealTimeStylus_Vtbl, 0xa8bb5d22_3144_4a7b_93cd_f34a16be513a);
 ::windows_core::imp::interface_hierarchy!(IRealTimeStylus, ::windows_core::IUnknown);
@@ -5286,55 +5286,55 @@ impl IRealTimeStylus {
 #[doc(hidden)]
 pub struct IRealTimeStylus_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenable: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub HWND: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HANDLE_PTR) -> ::windows_core::HRESULT,
-    pub SetHWND: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HANDLE_PTR) -> ::windows_core::HRESULT,
-    pub WindowInputRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prcwndinputrect: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
-    pub SetWindowInputRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prcwndinputrect: *const super::super::Foundation::RECT) -> ::windows_core::HRESULT,
-    pub AddStylusSyncPlugin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iindex: u32, piplugin: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveStylusSyncPlugin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iindex: u32, ppiplugin: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveAllStylusSyncPlugins: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetStylusSyncPlugin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iindex: u32, ppiplugin: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetStylusSyncPluginCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcplugins: *mut u32) -> ::windows_core::HRESULT,
-    pub AddStylusAsyncPlugin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iindex: u32, piplugin: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveStylusAsyncPlugin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iindex: u32, ppiplugin: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveAllStylusAsyncPlugins: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetStylusAsyncPlugin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iindex: u32, ppiplugin: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetStylusAsyncPluginCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcplugins: *mut u32) -> ::windows_core::HRESULT,
-    pub ChildRealTimeStylusPlugin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppirts: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub putref_ChildRealTimeStylusPlugin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirts: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AddCustomStylusDataToQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sq: StylusQueue, pguidid: *const ::windows_core::GUID, cbdata: u32, pbdata: *const u8) -> ::windows_core::HRESULT,
-    pub ClearStylusQueues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetAllTabletsMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fusemouseforinput: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub HWND: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HANDLE_PTR) -> ::windows_core::HRESULT,
+    pub SetHWND: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HANDLE_PTR) -> ::windows_core::HRESULT,
+    pub WindowInputRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
+    pub SetWindowInputRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::Foundation::RECT) -> ::windows_core::HRESULT,
+    pub AddStylusSyncPlugin: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveStylusSyncPlugin: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveAllStylusSyncPlugins: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStylusSyncPlugin: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStylusSyncPluginCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub AddStylusAsyncPlugin: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveStylusAsyncPlugin: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveAllStylusAsyncPlugins: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStylusAsyncPlugin: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStylusAsyncPluginCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub ChildRealTimeStylusPlugin: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_ChildRealTimeStylusPlugin: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddCustomStylusDataToQueue: unsafe extern "system" fn(*mut ::core::ffi::c_void, StylusQueue, *const ::windows_core::GUID, u32, *const u8) -> ::windows_core::HRESULT,
+    pub ClearStylusQueues: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAllTabletsMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetSingleTabletMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitablet: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetSingleTabletMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetSingleTabletMode: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetTablet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppisingletablet: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetTablet: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetTablet: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetTabletContextIdFromTablet: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitablet: *mut ::core::ffi::c_void, ptcid: *mut u32) -> ::windows_core::HRESULT,
+    pub GetTabletContextIdFromTablet: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetTabletContextIdFromTablet: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetTabletFromTabletContextId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tcid: u32, ppitablet: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetTabletFromTabletContextId: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetTabletFromTabletContextId: usize,
-    pub GetAllTabletContextIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pctcidcount: *mut u32, pptcids: *mut *mut u32) -> ::windows_core::HRESULT,
+    pub GetAllTabletContextIds: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetStyluses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiinkcursors: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStyluses: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetStyluses: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetStylusForId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sid: u32, ppiinkcursor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStylusForId: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetStylusForId: usize,
-    pub SetDesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cproperties: u32, ppropertyguids: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetDesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcproperties: *mut u32, pppropertyguids: *mut *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetPacketDescriptionData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tcid: u32, pfinktodevicescalex: *mut f32, pfinktodevicescaley: *mut f32, pcpacketproperties: *mut u32, pppacketproperties: *mut *mut PACKET_PROPERTY) -> ::windows_core::HRESULT,
+    pub SetDesiredPacketDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetDesiredPacketDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetPacketDescriptionData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut f32, *mut f32, *mut u32, *mut *mut PACKET_PROPERTY) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRealTimeStylus2, IRealTimeStylus2_Vtbl, 0xb5f2a6cd_3179_4a3e_b9c4_bb5865962be2);
 ::windows_core::imp::interface_hierarchy!(IRealTimeStylus2, ::windows_core::IUnknown);
@@ -5354,8 +5354,8 @@ impl IRealTimeStylus2 {
 #[doc(hidden)]
 pub struct IRealTimeStylus2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub FlicksEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenable: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetFlicksEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub FlicksEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetFlicksEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRealTimeStylus3, IRealTimeStylus3_Vtbl, 0xd70230a3_6986_4051_b57a_1cf69f4d9db5);
 ::windows_core::imp::interface_hierarchy!(IRealTimeStylus3, ::windows_core::IUnknown);
@@ -5375,8 +5375,8 @@ impl IRealTimeStylus3 {
 #[doc(hidden)]
 pub struct IRealTimeStylus3_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub MultiTouchEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenable: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetMultiTouchEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub MultiTouchEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetMultiTouchEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRealTimeStylusSynchronization, IRealTimeStylusSynchronization_Vtbl, 0xaa87eab8_ab4a_4cea_b5cb_46d84c6a2509);
 ::windows_core::imp::interface_hierarchy!(IRealTimeStylusSynchronization, ::windows_core::IUnknown);
@@ -5392,8 +5392,8 @@ impl IRealTimeStylusSynchronization {
 #[doc(hidden)]
 pub struct IRealTimeStylusSynchronization_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AcquireLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lock: RealTimeStylusLockType) -> ::windows_core::HRESULT,
-    pub ReleaseLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lock: RealTimeStylusLockType) -> ::windows_core::HRESULT,
+    pub AcquireLock: unsafe extern "system" fn(*mut ::core::ffi::c_void, RealTimeStylusLockType) -> ::windows_core::HRESULT,
+    pub ReleaseLock: unsafe extern "system" fn(*mut ::core::ffi::c_void, RealTimeStylusLockType) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -5453,24 +5453,24 @@ impl IStrokeBuilder {
 pub struct IStrokeBuilder_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreateStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpktbufflength: u32, ppackets: *const i32, cpacketproperties: u32, ppacketproperties: *const PACKET_PROPERTY, finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateStroke: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i32, u32, *const PACKET_PROPERTY, f32, f32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateStroke: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub BeginStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tcid: u32, sid: u32, ppacket: *const i32, cpacketproperties: u32, ppacketproperties: *const PACKET_PROPERTY, finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BeginStroke: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const i32, u32, *const PACKET_PROPERTY, f32, f32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     BeginStroke: usize,
-    pub AppendPackets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tcid: u32, sid: u32, cpktbufflength: u32, ppackets: *const i32) -> ::windows_core::HRESULT,
+    pub AppendPackets: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32, *const i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub EndStroke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tcid: u32, sid: u32, ppiinkstroke: *mut *mut ::core::ffi::c_void, pdirtyrect: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
+    pub EndStroke: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut *mut ::core::ffi::c_void, *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     EndStroke: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Ink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiinkobj: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Ink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Ink: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub putref_Ink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piinkobj: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub putref_Ink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_Ink: usize,
 }
@@ -5699,26 +5699,26 @@ impl IStylusPlugin {
 #[doc(hidden)]
 pub struct IStylusPlugin_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub RealTimeStylusEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void, ctcidcount: u32, ptcids: *const u32) -> ::windows_core::HRESULT,
-    pub RealTimeStylusDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void, ctcidcount: u32, ptcids: *const u32) -> ::windows_core::HRESULT,
-    pub StylusInRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void, tcid: u32, sid: u32) -> ::windows_core::HRESULT,
-    pub StylusOutOfRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void, tcid: u32, sid: u32) -> ::windows_core::HRESULT,
-    pub StylusDown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void, pstylusinfo: *const StylusInfo, cpropcountperpkt: u32, ppacket: *const i32, ppinoutpkt: *mut *mut i32) -> ::windows_core::HRESULT,
-    pub StylusUp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void, pstylusinfo: *const StylusInfo, cpropcountperpkt: u32, ppacket: *const i32, ppinoutpkt: *mut *mut i32) -> ::windows_core::HRESULT,
-    pub StylusButtonDown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void, sid: u32, pguidstylusbutton: *const ::windows_core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows_core::HRESULT,
-    pub StylusButtonUp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void, sid: u32, pguidstylusbutton: *const ::windows_core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows_core::HRESULT,
-    pub InAirPackets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void, pstylusinfo: *const StylusInfo, cpktcount: u32, cpktbufflength: u32, ppackets: *const i32, pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> ::windows_core::HRESULT,
-    pub Packets: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void, pstylusinfo: *const StylusInfo, cpktcount: u32, cpktbufflength: u32, ppackets: *const i32, pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> ::windows_core::HRESULT,
-    pub CustomStylusDataAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void, pguidid: *const ::windows_core::GUID, cbdata: u32, pbdata: *const u8) -> ::windows_core::HRESULT,
-    pub SystemEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void, tcid: u32, sid: u32, event: u16, eventdata: SYSTEM_EVENT_DATA) -> ::windows_core::HRESULT,
+    pub RealTimeStylusEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const u32) -> ::windows_core::HRESULT,
+    pub RealTimeStylusDisabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const u32) -> ::windows_core::HRESULT,
+    pub StylusInRange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub StylusOutOfRange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub StylusDown: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const StylusInfo, u32, *const i32, *mut *mut i32) -> ::windows_core::HRESULT,
+    pub StylusUp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const StylusInfo, u32, *const i32, *mut *mut i32) -> ::windows_core::HRESULT,
+    pub StylusButtonDown: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, *mut super::super::Foundation::POINT) -> ::windows_core::HRESULT,
+    pub StylusButtonUp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, *mut super::super::Foundation::POINT) -> ::windows_core::HRESULT,
+    pub InAirPackets: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const StylusInfo, u32, u32, *const i32, *mut u32, *mut *mut i32) -> ::windows_core::HRESULT,
+    pub Packets: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const StylusInfo, u32, u32, *const i32, *mut u32, *mut *mut i32) -> ::windows_core::HRESULT,
+    pub CustomStylusDataAdded: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *const u8) -> ::windows_core::HRESULT,
+    pub SystemEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32, u16, SYSTEM_EVENT_DATA) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub TabletAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void, pitablet: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TabletAdded: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     TabletAdded: usize,
-    pub TabletRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void, itabletindex: i32) -> ::windows_core::HRESULT,
-    pub Error: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void, piplugin: *mut ::core::ffi::c_void, datainterest: RealTimeStylusDataInterest, hrerrorcode: ::windows_core::HRESULT, lptrkey: *mut isize) -> ::windows_core::HRESULT,
-    pub UpdateMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DataInterest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdatainterest: *mut RealTimeStylusDataInterest) -> ::windows_core::HRESULT,
+    pub TabletRemoved: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub Error: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, RealTimeStylusDataInterest, ::windows_core::HRESULT, *mut isize) -> ::windows_core::HRESULT,
+    pub UpdateMapping: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DataInterest: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut RealTimeStylusDataInterest) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IStylusSyncPlugin, IStylusSyncPlugin_Vtbl, 0xa157b174_482f_4d71_a3f6_3a41ddd11be9);
 ::windows_core::imp::interface_hierarchy!(IStylusSyncPlugin, ::windows_core::IUnknown, IStylusPlugin);
@@ -5947,31 +5947,31 @@ impl ITextInputPanel {
 #[doc(hidden)]
 pub struct ITextInputPanel_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AttachedEditWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachededitwindow: *mut super::super::Foundation::HWND) -> ::windows_core::HRESULT,
-    pub SetAttachedEditWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachededitwindow: super::super::Foundation::HWND) -> ::windows_core::HRESULT,
-    pub CurrentInteractionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentinteractionmode: *mut InteractionMode) -> ::windows_core::HRESULT,
-    pub DefaultInPlaceState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: *mut InPlaceState) -> ::windows_core::HRESULT,
-    pub SetDefaultInPlaceState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: InPlaceState) -> ::windows_core::HRESULT,
-    pub CurrentInPlaceState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: *mut InPlaceState) -> ::windows_core::HRESULT,
-    pub DefaultInputArea: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, area: *mut PanelInputArea) -> ::windows_core::HRESULT,
-    pub SetDefaultInputArea: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, area: PanelInputArea) -> ::windows_core::HRESULT,
-    pub CurrentInputArea: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, area: *mut PanelInputArea) -> ::windows_core::HRESULT,
-    pub CurrentCorrectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: *mut CorrectionMode) -> ::windows_core::HRESULT,
-    pub PreferredInPlaceDirection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, direction: *mut InPlaceDirection) -> ::windows_core::HRESULT,
-    pub SetPreferredInPlaceDirection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, direction: InPlaceDirection) -> ::windows_core::HRESULT,
-    pub ExpandPostInsertionCorrection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expand: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetExpandPostInsertionCorrection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expand: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub InPlaceVisibleOnFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visible: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetInPlaceVisibleOnFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visible: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub InPlaceBoundingRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, boundingrectangle: *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
-    pub PopUpCorrectionHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, height: *mut i32) -> ::windows_core::HRESULT,
-    pub PopDownCorrectionHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, height: *mut i32) -> ::windows_core::HRESULT,
-    pub CommitPendingInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetInPlaceVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visible: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetInPlacePosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xposition: i32, yposition: i32, position: CorrectionPosition) -> ::windows_core::HRESULT,
-    pub SetInPlaceHoverTargetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xposition: i32, yposition: i32) -> ::windows_core::HRESULT,
-    pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventsink: *mut ::core::ffi::c_void, eventmask: u32) -> ::windows_core::HRESULT,
-    pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventsink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AttachedEditWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HWND) -> ::windows_core::HRESULT,
+    pub SetAttachedEditWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND) -> ::windows_core::HRESULT,
+    pub CurrentInteractionMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InteractionMode) -> ::windows_core::HRESULT,
+    pub DefaultInPlaceState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InPlaceState) -> ::windows_core::HRESULT,
+    pub SetDefaultInPlaceState: unsafe extern "system" fn(*mut ::core::ffi::c_void, InPlaceState) -> ::windows_core::HRESULT,
+    pub CurrentInPlaceState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InPlaceState) -> ::windows_core::HRESULT,
+    pub DefaultInputArea: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PanelInputArea) -> ::windows_core::HRESULT,
+    pub SetDefaultInputArea: unsafe extern "system" fn(*mut ::core::ffi::c_void, PanelInputArea) -> ::windows_core::HRESULT,
+    pub CurrentInputArea: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PanelInputArea) -> ::windows_core::HRESULT,
+    pub CurrentCorrectionMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CorrectionMode) -> ::windows_core::HRESULT,
+    pub PreferredInPlaceDirection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut InPlaceDirection) -> ::windows_core::HRESULT,
+    pub SetPreferredInPlaceDirection: unsafe extern "system" fn(*mut ::core::ffi::c_void, InPlaceDirection) -> ::windows_core::HRESULT,
+    pub ExpandPostInsertionCorrection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetExpandPostInsertionCorrection: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub InPlaceVisibleOnFocus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetInPlaceVisibleOnFocus: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub InPlaceBoundingRectangle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::RECT) -> ::windows_core::HRESULT,
+    pub PopUpCorrectionHeight: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub PopDownCorrectionHeight: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub CommitPendingInput: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetInPlaceVisibility: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetInPlacePosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, CorrectionPosition) -> ::windows_core::HRESULT,
+    pub SetInPlaceHoverTargetPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32) -> ::windows_core::HRESULT,
+    pub Advise: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Unadvise: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITextInputPanelEventSink, ITextInputPanelEventSink_Vtbl, 0x27560408_8e64_4fe1_804e_421201584b31);
 ::windows_core::imp::interface_hierarchy!(ITextInputPanelEventSink, ::windows_core::IUnknown);
@@ -6029,22 +6029,22 @@ impl ITextInputPanelEventSink {
 #[doc(hidden)]
 pub struct ITextInputPanelEventSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub InPlaceStateChanging: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> ::windows_core::HRESULT,
-    pub InPlaceStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> ::windows_core::HRESULT,
-    pub InPlaceSizeChanging: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldboundingrectangle: super::super::Foundation::RECT, newboundingrectangle: super::super::Foundation::RECT) -> ::windows_core::HRESULT,
-    pub InPlaceSizeChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldboundingrectangle: super::super::Foundation::RECT, newboundingrectangle: super::super::Foundation::RECT) -> ::windows_core::HRESULT,
-    pub InputAreaChanging: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldinputarea: PanelInputArea, newinputarea: PanelInputArea) -> ::windows_core::HRESULT,
-    pub InputAreaChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldinputarea: PanelInputArea, newinputarea: PanelInputArea) -> ::windows_core::HRESULT,
-    pub CorrectionModeChanging: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldcorrectionmode: CorrectionMode, newcorrectionmode: CorrectionMode) -> ::windows_core::HRESULT,
-    pub CorrectionModeChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldcorrectionmode: CorrectionMode, newcorrectionmode: CorrectionMode) -> ::windows_core::HRESULT,
-    pub InPlaceVisibilityChanging: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldvisible: super::super::Foundation::BOOL, newvisible: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub InPlaceVisibilityChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldvisible: super::super::Foundation::BOOL, newvisible: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub InPlaceStateChanging: unsafe extern "system" fn(*mut ::core::ffi::c_void, InPlaceState, InPlaceState) -> ::windows_core::HRESULT,
+    pub InPlaceStateChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, InPlaceState, InPlaceState) -> ::windows_core::HRESULT,
+    pub InPlaceSizeChanging: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::RECT, super::super::Foundation::RECT) -> ::windows_core::HRESULT,
+    pub InPlaceSizeChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::RECT, super::super::Foundation::RECT) -> ::windows_core::HRESULT,
+    pub InputAreaChanging: unsafe extern "system" fn(*mut ::core::ffi::c_void, PanelInputArea, PanelInputArea) -> ::windows_core::HRESULT,
+    pub InputAreaChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, PanelInputArea, PanelInputArea) -> ::windows_core::HRESULT,
+    pub CorrectionModeChanging: unsafe extern "system" fn(*mut ::core::ffi::c_void, CorrectionMode, CorrectionMode) -> ::windows_core::HRESULT,
+    pub CorrectionModeChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, CorrectionMode, CorrectionMode) -> ::windows_core::HRESULT,
+    pub InPlaceVisibilityChanging: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub InPlaceVisibilityChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub TextInserting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ink: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub TextInserting: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     TextInserting: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub TextInserted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ink: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub TextInserted: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::System::Com::SAFEARRAY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     TextInserted: usize,
 }
@@ -6060,7 +6060,7 @@ impl ITextInputPanelRunInfo {
 #[doc(hidden)]
 pub struct ITextInputPanelRunInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub IsTipRunning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfrunning: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub IsTipRunning: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITipAutoCompleteClient, ITipAutoCompleteClient_Vtbl, 0x5e078e03_8265_4bbe_9487_d242edbef910);
 ::windows_core::imp::interface_hierarchy!(ITipAutoCompleteClient, ::windows_core::IUnknown);
@@ -6097,11 +6097,11 @@ impl ITipAutoCompleteClient {
 #[doc(hidden)]
 pub struct ITipAutoCompleteClient_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AdviseProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndfield: super::super::Foundation::HWND, piprovider: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub UnadviseProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndfield: super::super::Foundation::HWND, piprovider: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub UserSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub PreferredRects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prcaclist: *const super::super::Foundation::RECT, prcfield: *const super::super::Foundation::RECT, prcmodifiedaclist: *mut super::super::Foundation::RECT, pfshownabovetip: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub RequestShowUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndlist: super::super::Foundation::HWND, pfallowshowing: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub AdviseProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UnadviseProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UserSelection: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PreferredRects: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::Foundation::RECT, *const super::super::Foundation::RECT, *mut super::super::Foundation::RECT, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub RequestShowUI: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITipAutoCompleteProvider, ITipAutoCompleteProvider_Vtbl, 0x7c6cf46d_8404_46b9_ad33_f5b6036d4007);
 ::windows_core::imp::interface_hierarchy!(ITipAutoCompleteProvider, ::windows_core::IUnknown);
@@ -6123,8 +6123,8 @@ impl ITipAutoCompleteProvider {
 #[doc(hidden)]
 pub struct ITipAutoCompleteProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub UpdatePendingText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpendingtext: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fshow: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub UpdatePendingText: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Show: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(

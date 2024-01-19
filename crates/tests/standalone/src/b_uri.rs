@@ -70,8 +70,8 @@ where
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub First: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        *mut *mut ::core::ffi::c_void,
     ) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
@@ -172,22 +172,18 @@ where
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::windows_core::AbiType<T>,
+        *mut ::core::ffi::c_void,
+        *mut ::windows_core::AbiType<T>,
     ) -> ::windows_core::HRESULT,
-    pub HasCurrent: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut bool,
-    ) -> ::windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut bool,
-    ) -> ::windows_core::HRESULT,
+    pub HasCurrent:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub MoveNext:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     pub GetMany: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        items_array_size: u32,
-        items: *mut ::windows_core::AbiType<T>,
-        result__: *mut u32,
+        *mut ::core::ffi::c_void,
+        u32,
+        *mut ::windows_core::AbiType<T>,
+        *mut u32,
     ) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
@@ -223,8 +219,8 @@ impl ::windows_core::RuntimeType for IStringable {
 pub struct IStringable_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ToString: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(
@@ -237,14 +233,14 @@ pub struct IStringable_Vtbl {
 pub struct IUriEscapeStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UnescapeComponent: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        tounescape: ::std::mem::MaybeUninit<::windows_core::HSTRING>,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub EscapeComponent: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        toescape: ::std::mem::MaybeUninit<::windows_core::HSTRING>,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(
@@ -257,74 +253,70 @@ pub struct IUriEscapeStatics_Vtbl {
 pub struct IUriRuntimeClass_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AbsoluteUri: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub DisplayUri: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub Domain: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub Extension: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub Fragment: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub Host: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub Password: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub Path: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub Query: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub QueryParsed: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        *mut *mut ::core::ffi::c_void,
     ) -> ::windows_core::HRESULT,
     pub RawUri: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub SchemeName: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub UserName: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
-    pub Port: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub Suspicious: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut bool,
-    ) -> ::windows_core::HRESULT,
+    pub Port:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Suspicious:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     pub Equals: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        puri: *mut ::core::ffi::c_void,
-        result__: *mut bool,
+        *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        *mut bool,
     ) -> ::windows_core::HRESULT,
     pub CombineUri: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        relativeuri: ::std::mem::MaybeUninit<::windows_core::HSTRING>,
-        result__: *mut *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut *mut ::core::ffi::c_void,
     ) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(
@@ -337,15 +329,15 @@ pub struct IUriRuntimeClass_Vtbl {
 pub struct IUriRuntimeClassFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateUri: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        uri: ::std::mem::MaybeUninit<::windows_core::HSTRING>,
-        result__: *mut *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut *mut ::core::ffi::c_void,
     ) -> ::windows_core::HRESULT,
     pub CreateWithRelativeUri: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        baseuri: ::std::mem::MaybeUninit<::windows_core::HSTRING>,
-        relativeuri: ::std::mem::MaybeUninit<::windows_core::HSTRING>,
-        result__: *mut *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut *mut ::core::ffi::c_void,
     ) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(
@@ -358,12 +350,12 @@ pub struct IUriRuntimeClassFactory_Vtbl {
 pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AbsoluteCanonicalUri: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub DisplayIri: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
@@ -514,26 +506,24 @@ where
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetAt: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        index: u32,
-        result__: *mut ::windows_core::AbiType<T>,
+        *mut ::core::ffi::c_void,
+        u32,
+        *mut ::windows_core::AbiType<T>,
     ) -> ::windows_core::HRESULT,
-    pub Size: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut u32,
-    ) -> ::windows_core::HRESULT,
+    pub Size:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
     pub IndexOf: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        value: ::windows_core::AbiType<T>,
-        index: *mut u32,
-        result__: *mut bool,
+        *mut ::core::ffi::c_void,
+        ::windows_core::AbiType<T>,
+        *mut u32,
+        *mut bool,
     ) -> ::windows_core::HRESULT,
     pub GetMany: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        startindex: u32,
-        items_array_size: u32,
-        items: *mut ::windows_core::AbiType<T>,
-        result__: *mut u32,
+        *mut ::core::ffi::c_void,
+        u32,
+        u32,
+        *mut ::windows_core::AbiType<T>,
+        *mut u32,
     ) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
@@ -580,12 +570,12 @@ impl ::windows_core::RuntimeType for IWwwFormUrlDecoderEntry {
 pub struct IWwwFormUrlDecoderEntry_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub Value: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(
@@ -598,9 +588,9 @@ pub struct IWwwFormUrlDecoderEntry_Vtbl {
 pub struct IWwwFormUrlDecoderRuntimeClass_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetFirstValueByName: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        name: ::std::mem::MaybeUninit<::windows_core::HSTRING>,
-        result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(
@@ -613,9 +603,9 @@ pub struct IWwwFormUrlDecoderRuntimeClass_Vtbl {
 pub struct IWwwFormUrlDecoderRuntimeClassFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWwwFormUrlDecoder: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        query: ::std::mem::MaybeUninit<::windows_core::HSTRING>,
-        result__: *mut *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut *mut ::core::ffi::c_void,
     ) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]

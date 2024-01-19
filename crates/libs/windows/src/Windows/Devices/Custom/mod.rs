@@ -4,19 +4,19 @@
 pub struct ICustomDevice_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
-    pub InputStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InputStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     InputStream: usize,
     #[cfg(feature = "Storage_Streams")]
-    pub OutputStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OutputStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     OutputStream: usize,
     #[cfg(feature = "Storage_Streams")]
-    pub SendIOControlAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iocontrolcode: *mut ::core::ffi::c_void, inputbuffer: *mut ::core::ffi::c_void, outputbuffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SendIOControlAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     SendIOControlAsync: usize,
     #[cfg(feature = "Storage_Streams")]
-    pub TrySendIOControlAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iocontrolcode: *mut ::core::ffi::c_void, inputbuffer: *mut ::core::ffi::c_void, outputbuffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TrySendIOControlAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     TrySendIOControlAsync: usize,
 }
@@ -25,8 +25,8 @@ pub struct ICustomDevice_Vtbl {
 #[doc(hidden)]
 pub struct ICustomDeviceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classguid: ::windows_core::GUID, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, desiredaccess: DeviceAccessMode, sharingmode: DeviceSharingMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceSelector: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub FromIdAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, DeviceAccessMode, DeviceSharingMode, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIOControlCode, IIOControlCode_Vtbl, 0x0e9559e7_60c8_4375_a761_7f8808066c60);
 ::windows_core::imp::interface_hierarchy!(IIOControlCode, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -74,25 +74,25 @@ impl ::windows_core::RuntimeType for IIOControlCode {
 #[doc(hidden)]
 pub struct IIOControlCode_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub AccessMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IOControlAccessMode) -> ::windows_core::HRESULT,
-    pub BufferingMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut IOControlBufferingMethod) -> ::windows_core::HRESULT,
-    pub Function: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT,
-    pub DeviceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT,
-    pub ControlCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
+    pub AccessMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut IOControlAccessMode) -> ::windows_core::HRESULT,
+    pub BufferingMethod: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut IOControlBufferingMethod) -> ::windows_core::HRESULT,
+    pub Function: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
+    pub DeviceType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
+    pub ControlCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIOControlCodeFactory, IIOControlCodeFactory_Vtbl, 0x856a7cf0_4c11_44ae_afc6_b8d4a212788f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIOControlCodeFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateIOControlCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, devicetype: u16, function: u16, accessmode: IOControlAccessMode, bufferingmethod: IOControlBufferingMethod, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateIOControlCode: unsafe extern "system" fn(*mut ::core::ffi::c_void, u16, u16, IOControlAccessMode, IOControlBufferingMethod, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKnownDeviceTypesStatics, IKnownDeviceTypesStatics_Vtbl, 0xee5479c2_5448_45da_ad1b_24948c239094);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IKnownDeviceTypesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Unknown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows_core::HRESULT,
+    pub Unknown: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

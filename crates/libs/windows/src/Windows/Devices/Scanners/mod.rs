@@ -3,19 +3,19 @@
 #[doc(hidden)]
 pub struct IImageScanner_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub DefaultScanSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerScanSource) -> ::windows_core::HRESULT,
-    pub IsScanSourceSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ImageScannerScanSource, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub FlatbedConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FeederConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AutoConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub IsPreviewSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scansource: ImageScannerScanSource, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub DefaultScanSource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ImageScannerScanSource) -> ::windows_core::HRESULT,
+    pub IsScanSourceSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, ImageScannerScanSource, *mut bool) -> ::windows_core::HRESULT,
+    pub FlatbedConfiguration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FeederConfiguration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AutoConfiguration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsPreviewSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, ImageScannerScanSource, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
-    pub ScanPreviewToStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scansource: ImageScannerScanSource, targetstream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ScanPreviewToStreamAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ImageScannerScanSource, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     ScanPreviewToStreamAsync: usize,
     #[cfg(feature = "Storage")]
-    pub ScanFilesToFolderAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scansource: ImageScannerScanSource, storagefolder: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ScanFilesToFolderAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ImageScannerScanSource, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage"))]
     ScanFilesToFolderAsync: usize,
 }
@@ -24,38 +24,38 @@ pub struct IImageScanner_Vtbl {
 #[doc(hidden)]
 pub struct IImageScannerFeederConfiguration_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CanAutoDetectPageSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub AutoDetectPageSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetAutoDetectPageSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+    pub CanAutoDetectPageSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub AutoDetectPageSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetAutoDetectPageSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
     #[cfg(feature = "Graphics_Printing")]
-    pub PageSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Printing::PrintMediaSize) -> ::windows_core::HRESULT,
+    pub PageSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Graphics::Printing::PrintMediaSize) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Printing"))]
     PageSize: usize,
     #[cfg(feature = "Graphics_Printing")]
-    pub SetPageSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Printing::PrintMediaSize) -> ::windows_core::HRESULT,
+    pub SetPageSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Graphics::Printing::PrintMediaSize) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Printing"))]
     SetPageSize: usize,
     #[cfg(feature = "Graphics_Printing")]
-    pub PageOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Printing::PrintOrientation) -> ::windows_core::HRESULT,
+    pub PageOrientation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Graphics::Printing::PrintOrientation) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Printing"))]
     PageOrientation: usize,
     #[cfg(feature = "Graphics_Printing")]
-    pub SetPageOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Printing::PrintOrientation) -> ::windows_core::HRESULT,
+    pub SetPageOrientation: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Graphics::Printing::PrintOrientation) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Printing"))]
     SetPageOrientation: usize,
-    pub PageSizeDimensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
+    pub PageSizeDimensions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
     #[cfg(feature = "Graphics_Printing")]
-    pub IsPageSizeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pagesize: super::super::Graphics::Printing::PrintMediaSize, pageorientation: super::super::Graphics::Printing::PrintOrientation, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsPageSizeSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Graphics::Printing::PrintMediaSize, super::super::Graphics::Printing::PrintOrientation, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Printing"))]
     IsPageSizeSupported: usize,
-    pub MaxNumberOfPages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub SetMaxNumberOfPages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
-    pub CanScanDuplex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub Duplex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetDuplex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub CanScanAhead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub ScanAhead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetScanAhead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+    pub MaxNumberOfPages: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetMaxNumberOfPages: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub CanScanDuplex: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub Duplex: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetDuplex: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub CanScanAhead: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub ScanAhead: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetScanAhead: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IImageScannerFormatConfiguration, IImageScannerFormatConfiguration_Vtbl, 0xae275d11_dadf_4010_bf10_cca5c83dcbb0);
 ::windows_core::imp::interface_hierarchy!(IImageScannerFormatConfiguration, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -93,18 +93,18 @@ impl ::windows_core::RuntimeType for IImageScannerFormatConfiguration {
 #[doc(hidden)]
 pub struct IImageScannerFormatConfiguration_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub DefaultFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerFormat) -> ::windows_core::HRESULT,
-    pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerFormat) -> ::windows_core::HRESULT,
-    pub SetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ImageScannerFormat) -> ::windows_core::HRESULT,
-    pub IsFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ImageScannerFormat, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub DefaultFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ImageScannerFormat) -> ::windows_core::HRESULT,
+    pub Format: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ImageScannerFormat) -> ::windows_core::HRESULT,
+    pub SetFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, ImageScannerFormat) -> ::windows_core::HRESULT,
+    pub IsFormatSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, ImageScannerFormat, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IImageScannerPreviewResult, IImageScannerPreviewResult_Vtbl, 0x08b7fe8e_8891_441d_be9c_176fa109c8bb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageScannerPreviewResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Succeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerFormat) -> ::windows_core::HRESULT,
+    pub Succeeded: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub Format: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ImageScannerFormat) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IImageScannerScanResult, IImageScannerScanResult_Vtbl, 0xc91624cd_9037_4e48_84c1_ac0975076bc5);
 #[repr(C)]
@@ -112,7 +112,7 @@ pub struct IImageScannerPreviewResult_Vtbl {
 pub struct IImageScannerScanResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub ScannedFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ScannedFiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
     ScannedFiles: usize,
 }
@@ -338,43 +338,43 @@ impl ::windows_core::RuntimeType for IImageScannerSourceConfiguration {
 #[doc(hidden)]
 pub struct IImageScannerSourceConfiguration_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub MinScanArea: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
-    pub MaxScanArea: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
-    pub SelectedScanRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows_core::HRESULT,
-    pub SetSelectedScanRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows_core::HRESULT,
-    pub AutoCroppingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerAutoCroppingMode) -> ::windows_core::HRESULT,
-    pub SetAutoCroppingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ImageScannerAutoCroppingMode) -> ::windows_core::HRESULT,
-    pub IsAutoCroppingModeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ImageScannerAutoCroppingMode, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub MinResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerResolution) -> ::windows_core::HRESULT,
-    pub MaxResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerResolution) -> ::windows_core::HRESULT,
-    pub OpticalResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerResolution) -> ::windows_core::HRESULT,
-    pub DesiredResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerResolution) -> ::windows_core::HRESULT,
-    pub SetDesiredResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ImageScannerResolution) -> ::windows_core::HRESULT,
-    pub ActualResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerResolution) -> ::windows_core::HRESULT,
-    pub DefaultColorMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerColorMode) -> ::windows_core::HRESULT,
-    pub ColorMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ImageScannerColorMode) -> ::windows_core::HRESULT,
-    pub SetColorMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ImageScannerColorMode) -> ::windows_core::HRESULT,
-    pub IsColorModeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ImageScannerColorMode, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub MinBrightness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub MaxBrightness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub BrightnessStep: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub DefaultBrightness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub Brightness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub SetBrightness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
-    pub MinContrast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub MaxContrast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub ContrastStep: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub DefaultContrast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub Contrast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub SetContrast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
+    pub MinScanArea: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
+    pub MaxScanArea: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Size) -> ::windows_core::HRESULT,
+    pub SelectedScanRegion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Rect) -> ::windows_core::HRESULT,
+    pub SetSelectedScanRegion: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::Rect) -> ::windows_core::HRESULT,
+    pub AutoCroppingMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ImageScannerAutoCroppingMode) -> ::windows_core::HRESULT,
+    pub SetAutoCroppingMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, ImageScannerAutoCroppingMode) -> ::windows_core::HRESULT,
+    pub IsAutoCroppingModeSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, ImageScannerAutoCroppingMode, *mut bool) -> ::windows_core::HRESULT,
+    pub MinResolution: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ImageScannerResolution) -> ::windows_core::HRESULT,
+    pub MaxResolution: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ImageScannerResolution) -> ::windows_core::HRESULT,
+    pub OpticalResolution: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ImageScannerResolution) -> ::windows_core::HRESULT,
+    pub DesiredResolution: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ImageScannerResolution) -> ::windows_core::HRESULT,
+    pub SetDesiredResolution: unsafe extern "system" fn(*mut ::core::ffi::c_void, ImageScannerResolution) -> ::windows_core::HRESULT,
+    pub ActualResolution: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ImageScannerResolution) -> ::windows_core::HRESULT,
+    pub DefaultColorMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ImageScannerColorMode) -> ::windows_core::HRESULT,
+    pub ColorMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ImageScannerColorMode) -> ::windows_core::HRESULT,
+    pub SetColorMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, ImageScannerColorMode) -> ::windows_core::HRESULT,
+    pub IsColorModeSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, ImageScannerColorMode, *mut bool) -> ::windows_core::HRESULT,
+    pub MinBrightness: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub MaxBrightness: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub BrightnessStep: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub DefaultBrightness: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Brightness: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetBrightness: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub MinContrast: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub MaxContrast: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub ContrastStep: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub DefaultContrast: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Contrast: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetContrast: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IImageScannerStatics, IImageScannerStatics_Vtbl, 0xbc57e70e_d804_4477_9fb5_b911b5473897);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageScannerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub FromIdAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceSelector: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

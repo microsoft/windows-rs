@@ -3,17 +3,17 @@
 #[doc(hidden)]
 pub struct IDevicePortalConnection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Closed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RequestReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveRequestReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub Closed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveClosed: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RequestReceived: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveRequestReceived: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDevicePortalConnectionClosedEventArgs, IDevicePortalConnectionClosedEventArgs_Vtbl, 0xfcf70e38_7032_428c_9f50_945c15a9f0cb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDevicePortalConnectionClosedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Reason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DevicePortalConnectionClosedReason) -> ::windows_core::HRESULT,
+    pub Reason: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DevicePortalConnectionClosedReason) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDevicePortalConnectionRequestReceivedEventArgs, IDevicePortalConnectionRequestReceivedEventArgs_Vtbl, 0x64dae045_6fda_4459_9ebd_ecce22e38559);
 #[repr(C)]
@@ -21,11 +21,11 @@ pub struct IDevicePortalConnectionClosedEventArgs_Vtbl {
 pub struct IDevicePortalConnectionRequestReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Web_Http")]
-    pub RequestMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RequestMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Web_Http"))]
     RequestMessage: usize,
     #[cfg(feature = "Web_Http")]
-    pub ResponseMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ResponseMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Web_Http"))]
     ResponseMessage: usize,
 }
@@ -35,7 +35,7 @@ pub struct IDevicePortalConnectionRequestReceivedEventArgs_Vtbl {
 pub struct IDevicePortalConnectionStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_AppService")]
-    pub GetForAppServiceConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appserviceconnection: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetForAppServiceConnection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_AppService"))]
     GetForAppServiceConnection: usize,
 }
@@ -45,23 +45,23 @@ pub struct IDevicePortalConnectionStatics_Vtbl {
 pub struct IDevicePortalWebSocketConnection_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    pub GetServerMessageWebSocketForRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetServerMessageWebSocketForRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Networking_Sockets", feature = "Web_Http")))]
     GetServerMessageWebSocketForRequest: usize,
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    pub GetServerMessageWebSocketForRequest2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetServerMessageWebSocketForRequest2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::super::Networking::Sockets::SocketMessageType, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Networking_Sockets", feature = "Web_Http")))]
     GetServerMessageWebSocketForRequest2: usize,
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    pub GetServerMessageWebSocketForRequest3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: ::std::mem::MaybeUninit<::windows_core::HSTRING>, outboundbuffersizeinbytes: u32, maxmessagesize: u32, receivemode: super::super::super::Networking::Sockets::MessageWebSocketReceiveMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetServerMessageWebSocketForRequest3: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::super::Networking::Sockets::SocketMessageType, ::std::mem::MaybeUninit<::windows_core::HSTRING>, u32, u32, super::super::super::Networking::Sockets::MessageWebSocketReceiveMode, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Networking_Sockets", feature = "Web_Http")))]
     GetServerMessageWebSocketForRequest3: usize,
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    pub GetServerStreamWebSocketForRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetServerStreamWebSocketForRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Networking_Sockets", feature = "Web_Http")))]
     GetServerStreamWebSocketForRequest: usize,
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    pub GetServerStreamWebSocketForRequest2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void, protocol: ::std::mem::MaybeUninit<::windows_core::HSTRING>, outboundbuffersizeinbytes: u32, nodelay: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetServerStreamWebSocketForRequest2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, u32, bool, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Networking_Sockets", feature = "Web_Http")))]
     GetServerStreamWebSocketForRequest2: usize,
 }
@@ -70,12 +70,12 @@ pub struct IDevicePortalWebSocketConnection_Vtbl {
 #[doc(hidden)]
 pub struct IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub IsWebSocketUpgradeRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsWebSocketUpgradeRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub WebSocketProtocolsRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub WebSocketProtocolsRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     WebSocketProtocolsRequested: usize,
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

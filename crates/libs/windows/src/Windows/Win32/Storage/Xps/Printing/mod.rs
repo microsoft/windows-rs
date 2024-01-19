@@ -44,7 +44,7 @@ impl IPrintDocumentPackageStatusEvent {
 #[doc(hidden)]
 pub struct IPrintDocumentPackageStatusEvent_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    pub PackageStatusUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagestatus: *const PrintDocumentPackageStatus) -> ::windows_core::HRESULT,
+    pub PackageStatusUpdated: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const PrintDocumentPackageStatus) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPrintDocumentPackageTarget, IPrintDocumentPackageTarget_Vtbl, 0x1b8efec4_3019_4c27_964e_367202156906);
 ::windows_core::imp::interface_hierarchy!(IPrintDocumentPackageTarget, ::windows_core::IUnknown);
@@ -67,9 +67,9 @@ impl IPrintDocumentPackageTarget {
 #[doc(hidden)]
 pub struct IPrintDocumentPackageTarget_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetPackageTargetTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetcount: *mut u32, targettypes: *mut *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetPackageTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtargettype: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppvtarget: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPackageTargetTypes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetPackageTarget: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Cancel: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPrintDocumentPackageTarget2, IPrintDocumentPackageTarget2_Vtbl, 0xc560298a_535c_48f9_866a_632540660cb4);
 ::windows_core::imp::interface_hierarchy!(IPrintDocumentPackageTarget2, ::windows_core::IUnknown);
@@ -90,8 +90,8 @@ impl IPrintDocumentPackageTarget2 {
 #[doc(hidden)]
 pub struct IPrintDocumentPackageTarget2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetIsTargetIppPrinter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isippprinter: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetTargetIppPrintDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppvtarget: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetIsTargetIppPrinter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetTargetIppPrintDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPrintDocumentPackageTargetFactory, IPrintDocumentPackageTargetFactory_Vtbl, 0xd2959bf7_b31b_4a3d_9600_712eb1335ba4);
 ::windows_core::imp::interface_hierarchy!(IPrintDocumentPackageTargetFactory, ::windows_core::IUnknown);
@@ -114,7 +114,7 @@ impl IPrintDocumentPackageTargetFactory {
 pub struct IPrintDocumentPackageTargetFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreateDocumentPackageTargetForPrintJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printername: ::windows_core::PCWSTR, jobname: ::windows_core::PCWSTR, joboutputstream: *mut ::core::ffi::c_void, jobprintticketstream: *mut ::core::ffi::c_void, docpackagetarget: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateDocumentPackageTargetForPrintJob: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateDocumentPackageTargetForPrintJob: usize,
 }
@@ -132,8 +132,8 @@ impl IXpsPrintJob {
 #[doc(hidden)]
 pub struct IXpsPrintJob_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetJobStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, jobstatus: *mut XPS_JOB_STATUS) -> ::windows_core::HRESULT,
+    pub Cancel: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetJobStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut XPS_JOB_STATUS) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -165,7 +165,7 @@ impl IXpsPrintJobStream {
 #[doc(hidden)]
 pub struct IXpsPrintJobStream_Vtbl {
     pub base__: super::super::super::System::Com::ISequentialStream_Vtbl,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const ID_DOCUMENTPACKAGETARGET_MSXPS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9cae40a8_ded1_41c9_a9fd_d735ef33aeda);
 pub const ID_DOCUMENTPACKAGETARGET_OPENXPS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0056bb72_8c9c_4612_bd0f_93012a87099d);

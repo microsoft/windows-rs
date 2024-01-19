@@ -3,21 +3,21 @@
 #[doc(hidden)]
 pub struct IEyesPose_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub IsCalibrationValid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsCalibrationValid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub Gaze: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Gaze: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
     Gaze: usize,
-    pub UpdateTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UpdateTimestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEyesPoseStatics, IEyesPoseStatics_Vtbl, 0x1cff7413_b21f_54c0_80c1_e60d994ca58c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEyesPoseStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(feature = "UI_Input")]
-    pub RequestAccessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RequestAccessAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "UI_Input"))]
     RequestAccessAsync: usize,
 }
@@ -27,16 +27,16 @@ pub struct IEyesPoseStatics_Vtbl {
 pub struct IHandMeshObserver_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "UI_Input_Spatial")]
-    pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Source: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "UI_Input_Spatial"))]
     Source: usize,
-    pub TriangleIndexCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub VertexCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub GetTriangleIndices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indices_array_size: u32, indices: *mut u16) -> ::windows_core::HRESULT,
-    pub GetVertexStateForPose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handpose: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub NeutralPose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub NeutralPoseVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub ModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub TriangleIndexCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub VertexCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetTriangleIndices: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u16) -> ::windows_core::HRESULT,
+    pub GetVertexStateForPose: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub NeutralPose: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub NeutralPoseVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub ModelId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHandMeshVertexState, IHandMeshVertexState_Vtbl, 0x046c5fef_1d8b_55de_ab2c_1cd424886d8f);
 #[repr(C)]
@@ -44,14 +44,14 @@ pub struct IHandMeshObserver_Vtbl {
 pub struct IHandMeshVertexState_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Perception_Spatial")]
-    pub CoordinateSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CoordinateSystem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Perception_Spatial"))]
     CoordinateSystem: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub GetVertices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vertices_array_size: u32, vertices: *mut HandMeshVertex) -> ::windows_core::HRESULT,
+    pub GetVertices: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut HandMeshVertex) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     GetVertices: usize,
-    pub UpdateTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UpdateTimestamp: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IHandPose, IHandPose_Vtbl, 0x4d98e79a_bb08_5d09_91de_df0dd3fae46c);
 #[repr(C)]
@@ -59,19 +59,19 @@ pub struct IHandMeshVertexState_Vtbl {
 pub struct IHandPose_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub TryGetJoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: *mut ::core::ffi::c_void, joint: HandJointKind, jointpose: *mut JointPose, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub TryGetJoint: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, HandJointKind, *mut JointPose, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
     TryGetJoint: usize,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub TryGetJoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: *mut ::core::ffi::c_void, joints_array_size: u32, joints: *const HandJointKind, jointPoses_array_size: u32, jointposes: *mut JointPose, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub TryGetJoints: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const HandJointKind, u32, *mut JointPose, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
     TryGetJoints: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub GetRelativeJoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, joint: HandJointKind, referencejoint: HandJointKind, result__: *mut JointPose) -> ::windows_core::HRESULT,
+    pub GetRelativeJoint: unsafe extern "system" fn(*mut ::core::ffi::c_void, HandJointKind, HandJointKind, *mut JointPose) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     GetRelativeJoint: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub GetRelativeJoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, joints_array_size: u32, joints: *const HandJointKind, referenceJoints_array_size: u32, referencejoints: *const HandJointKind, jointPoses_array_size: u32, jointposes: *mut JointPose) -> ::windows_core::HRESULT,
+    pub GetRelativeJoints: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const HandJointKind, u32, *const HandJointKind, u32, *mut JointPose) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     GetRelativeJoints: usize,
 }
@@ -81,15 +81,15 @@ pub struct IHandPose_Vtbl {
 pub struct IHeadPose_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
-    pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows_core::HRESULT,
+    pub Position: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     Position: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub ForwardDirection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows_core::HRESULT,
+    pub ForwardDirection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     ForwardDirection: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub UpDirection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows_core::HRESULT,
+    pub UpDirection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Numerics::Vector3) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
     UpDirection: usize,
 }

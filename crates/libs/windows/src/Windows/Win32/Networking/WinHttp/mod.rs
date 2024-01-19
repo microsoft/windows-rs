@@ -437,25 +437,25 @@ impl IWinHttpRequest {
 #[doc(hidden)]
 pub struct IWinHttpRequest_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    pub SetProxy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, proxysetting: i32, proxyserver: ::std::mem::MaybeUninit<::windows_core::VARIANT>, bypasslist: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, username: ::std::mem::MaybeUninit<::windows_core::BSTR>, password: ::std::mem::MaybeUninit<::windows_core::BSTR>, flags: i32) -> ::windows_core::HRESULT,
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: ::std::mem::MaybeUninit<::windows_core::BSTR>, url: ::std::mem::MaybeUninit<::windows_core::BSTR>, r#async: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetRequestHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, header: ::std::mem::MaybeUninit<::windows_core::BSTR>, value: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetResponseHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, header: ::std::mem::MaybeUninit<::windows_core::BSTR>, value: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetAllResponseHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, headers: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Send: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, body: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut i32) -> ::windows_core::HRESULT,
-    pub StatusText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ResponseText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, body: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ResponseBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, body: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub ResponseStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, body: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub get_Option: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, option: WinHttpRequestOption, value: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub put_Option: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, option: WinHttpRequestOption, value: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub WaitForResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timeout: ::std::mem::MaybeUninit<::windows_core::VARIANT>, succeeded: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetTimeouts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> ::windows_core::HRESULT,
-    pub SetClientCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clientcertificate: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetAutoLogonPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, autologonpolicy: WinHttpRequestAutoLogonPolicy) -> ::windows_core::HRESULT,
+    pub SetProxy: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::VARIANT>, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetCredentials: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32) -> ::windows_core::HRESULT,
+    pub Open: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetRequestHeader: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetResponseHeader: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetAllResponseHeaders: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Send: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub StatusText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ResponseText: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ResponseBody: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub ResponseStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub get_Option: unsafe extern "system" fn(*mut ::core::ffi::c_void, WinHttpRequestOption, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub put_Option: unsafe extern "system" fn(*mut ::core::ffi::c_void, WinHttpRequestOption, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub WaitForResponse: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Abort: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetTimeouts: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32, i32, i32) -> ::windows_core::HRESULT,
+    pub SetClientCertificate: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetAutoLogonPolicy: unsafe extern "system" fn(*mut ::core::ffi::c_void, WinHttpRequestAutoLogonPolicy) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWinHttpRequestEvents, IWinHttpRequestEvents_Vtbl, 0xf97f4e15_b787_4212_80d1_d380cbbf982e);
 ::windows_core::imp::interface_hierarchy!(IWinHttpRequestEvents, ::windows_core::IUnknown);
@@ -485,13 +485,13 @@ impl IWinHttpRequestEvents {
 #[doc(hidden)]
 pub struct IWinHttpRequestEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnResponseStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: i32, contenttype: ::std::mem::MaybeUninit<::windows_core::BSTR>),
+    pub OnResponseStart: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>),
     #[cfg(feature = "Win32_System_Com")]
-    pub OnResponseDataAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *const *const super::super::System::Com::SAFEARRAY),
+    pub OnResponseDataAvailable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const *const super::super::System::Com::SAFEARRAY),
     #[cfg(not(feature = "Win32_System_Com"))]
     OnResponseDataAvailable: usize,
-    pub OnResponseFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub OnError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errornumber: i32, errordescription: ::std::mem::MaybeUninit<::windows_core::BSTR>),
+    pub OnResponseFinished: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub OnError: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ::std::mem::MaybeUninit<::windows_core::BSTR>),
 }
 pub const API_GET_PROXY_FOR_URL: u32 = 6u32;
 pub const API_GET_PROXY_SETTINGS: u32 = 7u32;

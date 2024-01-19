@@ -143,9 +143,9 @@ impl IPrintDialogCallback {
 #[doc(hidden)]
 pub struct IPrintDialogCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub InitDone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SelectionChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub HandleMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows_core::HRESULT,
+    pub InitDone: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SelectionChange: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub HandleMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::HWND, u32, super::super::super::Foundation::WPARAM, super::super::super::Foundation::LPARAM, *mut super::super::super::Foundation::LRESULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPrintDialogServices, IPrintDialogServices_Vtbl, 0x509aaeda_5639_11d1_b6a1_0000f8757bf9);
 ::windows_core::imp::interface_hierarchy!(IPrintDialogServices, ::windows_core::IUnknown);
@@ -167,11 +167,11 @@ impl IPrintDialogServices {
 pub struct IPrintDialogServices_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub GetCurrentDevMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows_core::HRESULT,
+    pub GetCurrentDevMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Graphics::Gdi::DEVMODEA, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetCurrentDevMode: usize,
-    pub GetCurrentPrinterName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprintername: ::windows_core::PWSTR, pcchsize: *mut u32) -> ::windows_core::HRESULT,
-    pub GetCurrentPortName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pportname: ::windows_core::PWSTR, pcchsize: *mut u32) -> ::windows_core::HRESULT,
+    pub GetCurrentPrinterName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub GetCurrentPortName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PWSTR, *mut u32) -> ::windows_core::HRESULT,
 }
 pub const BOLD_FONTTYPE: CHOOSEFONT_FONT_TYPE = CHOOSEFONT_FONT_TYPE(256u16);
 pub const CCERR_CHOOSECOLORCODES: COMMON_DLG_ERRORS = COMMON_DLG_ERRORS(20480u32);

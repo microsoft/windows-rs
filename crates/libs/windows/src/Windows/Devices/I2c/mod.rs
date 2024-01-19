@@ -6,26 +6,26 @@ pub mod Provider;
 #[doc(hidden)]
 pub struct II2cConnectionSettings_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub SlaveAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub SetSlaveAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows_core::HRESULT,
-    pub BusSpeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut I2cBusSpeed) -> ::windows_core::HRESULT,
-    pub SetBusSpeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: I2cBusSpeed) -> ::windows_core::HRESULT,
-    pub SharingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut I2cSharingMode) -> ::windows_core::HRESULT,
-    pub SetSharingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: I2cSharingMode) -> ::windows_core::HRESULT,
+    pub SlaveAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetSlaveAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub BusSpeed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut I2cBusSpeed) -> ::windows_core::HRESULT,
+    pub SetBusSpeed: unsafe extern "system" fn(*mut ::core::ffi::c_void, I2cBusSpeed) -> ::windows_core::HRESULT,
+    pub SharingMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut I2cSharingMode) -> ::windows_core::HRESULT,
+    pub SetSharingMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, I2cSharingMode) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(II2cConnectionSettingsFactory, II2cConnectionSettingsFactory_Vtbl, 0x81b586b3_9693_41b1_a243_ded4f6e66926);
 #[repr(C)]
 #[doc(hidden)]
 pub struct II2cConnectionSettingsFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, slaveaddress: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(II2cController, II2cController_Vtbl, 0xc48ab1b2_87a0_4166_8e3e_b4b8f97cd729);
 #[repr(C)]
 #[doc(hidden)]
 pub struct II2cController_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(II2cControllerStatics, II2cControllerStatics_Vtbl, 0x40fc0365_5f05_4e7e_84bd_100db8e0aec5);
 #[repr(C)]
@@ -33,24 +33,24 @@ pub struct II2cController_Vtbl {
 pub struct II2cControllerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Devices_I2c_Provider", feature = "Foundation_Collections"))]
-    pub GetControllersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetControllersAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Devices_I2c_Provider", feature = "Foundation_Collections")))]
     GetControllersAsync: usize,
-    pub GetDefaultAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDefaultAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(II2cDevice, II2cDevice_Vtbl, 0x8636c136_b9c5_4f70_9449_cc46dc6f57eb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct II2cDevice_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub ConnectionSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *const u8) -> ::windows_core::HRESULT,
-    pub WritePartial: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *const u8, result__: *mut I2cTransferResult) -> ::windows_core::HRESULT,
-    pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8) -> ::windows_core::HRESULT,
-    pub ReadPartial: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer_array_size: u32, buffer: *mut u8, result__: *mut I2cTransferResult) -> ::windows_core::HRESULT,
-    pub WriteRead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows_core::HRESULT,
-    pub WriteReadPartial: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8, result__: *mut I2cTransferResult) -> ::windows_core::HRESULT,
+    pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub ConnectionSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Write: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8) -> ::windows_core::HRESULT,
+    pub WritePartial: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, *mut I2cTransferResult) -> ::windows_core::HRESULT,
+    pub Read: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u8) -> ::windows_core::HRESULT,
+    pub ReadPartial: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u8, *mut I2cTransferResult) -> ::windows_core::HRESULT,
+    pub WriteRead: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, u32, *mut u8) -> ::windows_core::HRESULT,
+    pub WriteReadPartial: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, u32, *mut u8, *mut I2cTransferResult) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(II2cDeviceStatics, II2cDeviceStatics_Vtbl, 0x91a33be3_7334_4512_96bc_fbae9459f5f6);
 ::windows_core::imp::interface_hierarchy!(II2cDeviceStatics, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -87,9 +87,9 @@ impl ::windows_core::RuntimeType for II2cDeviceStatics {
 #[doc(hidden)]
 pub struct II2cDeviceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub GetDeviceSelectorFromFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, friendlyname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, settings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceSelector: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub GetDeviceSelectorFromFriendlyName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub FromIdAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

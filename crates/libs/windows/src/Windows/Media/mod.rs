@@ -84,40 +84,40 @@ pub mod Transcoding;
 #[doc(hidden)]
 pub struct IAudioBuffer_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Capacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub SetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
+    pub Capacity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Length: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetLength: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAudioFrame, IAudioFrame_Vtbl, 0xe36ac304_aab2_4277_9ed0_43cedf8e29c6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioFrame_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub LockBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: AudioBufferAccessMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LockBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, AudioBufferAccessMode, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAudioFrameFactory, IAudioFrameFactory_Vtbl, 0x91a90ade_2422_40a6_b9ad_30d02404317d);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioFrameFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capacity: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAutoRepeatModeChangeRequestedEventArgs, IAutoRepeatModeChangeRequestedEventArgs_Vtbl, 0xea137efa_d852_438e_882b_c990109a78f4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAutoRepeatModeChangeRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub RequestedAutoRepeatMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackAutoRepeatMode) -> ::windows_core::HRESULT,
+    pub RequestedAutoRepeatMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MediaPlaybackAutoRepeatMode) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IImageDisplayProperties, IImageDisplayProperties_Vtbl, 0xcd0bc7ef_54e7_411f_9933_f0e98b0a96d2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageDisplayProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Subtitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub SetSubtitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Title: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetTitle: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Subtitle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetSubtitle: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "deprecated")]
 ::windows_core::imp::com_interface!(
@@ -132,135 +132,135 @@ pub struct IImageDisplayProperties_Vtbl {
 pub struct IMediaControl_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "deprecated")]
-    pub SoundLevelChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub SoundLevelChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SoundLevelChanged: usize,
     #[cfg(feature = "deprecated")]
-    pub RemoveSoundLevelChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveSoundLevelChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RemoveSoundLevelChanged: usize,
     #[cfg(feature = "deprecated")]
-    pub PlayPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub PlayPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     PlayPressed: usize,
     #[cfg(feature = "deprecated")]
-    pub RemovePlayPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemovePlayPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RemovePlayPressed: usize,
     #[cfg(feature = "deprecated")]
-    pub PausePressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub PausePressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     PausePressed: usize,
     #[cfg(feature = "deprecated")]
-    pub RemovePausePressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemovePausePressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RemovePausePressed: usize,
     #[cfg(feature = "deprecated")]
-    pub StopPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub StopPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     StopPressed: usize,
     #[cfg(feature = "deprecated")]
-    pub RemoveStopPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveStopPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RemoveStopPressed: usize,
     #[cfg(feature = "deprecated")]
-    pub PlayPauseTogglePressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub PlayPauseTogglePressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     PlayPauseTogglePressed: usize,
     #[cfg(feature = "deprecated")]
-    pub RemovePlayPauseTogglePressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemovePlayPauseTogglePressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RemovePlayPauseTogglePressed: usize,
     #[cfg(feature = "deprecated")]
-    pub RecordPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RecordPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RecordPressed: usize,
     #[cfg(feature = "deprecated")]
-    pub RemoveRecordPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveRecordPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RemoveRecordPressed: usize,
     #[cfg(feature = "deprecated")]
-    pub NextTrackPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub NextTrackPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     NextTrackPressed: usize,
     #[cfg(feature = "deprecated")]
-    pub RemoveNextTrackPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveNextTrackPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RemoveNextTrackPressed: usize,
     #[cfg(feature = "deprecated")]
-    pub PreviousTrackPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub PreviousTrackPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     PreviousTrackPressed: usize,
     #[cfg(feature = "deprecated")]
-    pub RemovePreviousTrackPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemovePreviousTrackPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RemovePreviousTrackPressed: usize,
     #[cfg(feature = "deprecated")]
-    pub FastForwardPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub FastForwardPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     FastForwardPressed: usize,
     #[cfg(feature = "deprecated")]
-    pub RemoveFastForwardPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveFastForwardPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RemoveFastForwardPressed: usize,
     #[cfg(feature = "deprecated")]
-    pub RewindPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RewindPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RewindPressed: usize,
     #[cfg(feature = "deprecated")]
-    pub RemoveRewindPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveRewindPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RemoveRewindPressed: usize,
     #[cfg(feature = "deprecated")]
-    pub ChannelUpPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub ChannelUpPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     ChannelUpPressed: usize,
     #[cfg(feature = "deprecated")]
-    pub RemoveChannelUpPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveChannelUpPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RemoveChannelUpPressed: usize,
     #[cfg(feature = "deprecated")]
-    pub ChannelDownPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub ChannelDownPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     ChannelDownPressed: usize,
     #[cfg(feature = "deprecated")]
-    pub RemoveChannelDownPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveChannelDownPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     RemoveChannelDownPressed: usize,
     #[cfg(feature = "deprecated")]
-    pub SoundLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SoundLevel) -> ::windows_core::HRESULT,
+    pub SoundLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SoundLevel) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SoundLevel: usize,
     #[cfg(feature = "deprecated")]
-    pub SetTrackName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetTrackName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetTrackName: usize,
     #[cfg(feature = "deprecated")]
-    pub TrackName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub TrackName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     TrackName: usize,
     #[cfg(feature = "deprecated")]
-    pub SetArtistName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetArtistName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetArtistName: usize,
     #[cfg(feature = "deprecated")]
-    pub ArtistName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub ArtistName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     ArtistName: usize,
     #[cfg(feature = "deprecated")]
-    pub SetIsPlaying: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+    pub SetIsPlaying: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetIsPlaying: usize,
     #[cfg(feature = "deprecated")]
-    pub IsPlaying: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsPlaying: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     IsPlaying: usize,
     #[cfg(feature = "deprecated")]
-    pub SetAlbumArt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAlbumArt: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     SetAlbumArt: usize,
     #[cfg(feature = "deprecated")]
-    pub AlbumArt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AlbumArt: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     AlbumArt: usize,
 }
@@ -285,7 +285,7 @@ impl ::windows_core::RuntimeType for IMediaExtension {
 pub struct IMediaExtension_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub SetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, configuration: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     SetProperties: usize,
 }
@@ -294,34 +294,34 @@ pub struct IMediaExtension_Vtbl {
 #[doc(hidden)]
 pub struct IMediaExtensionManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub RegisterSchemeHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, scheme: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub RegisterSchemeHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub RegisterSchemeHandlerWithSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, scheme: ::std::mem::MaybeUninit<::windows_core::HSTRING>, configuration: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RegisterSchemeHandlerWithSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     RegisterSchemeHandlerWithSettings: usize,
-    pub RegisterByteStreamHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, fileextension: ::std::mem::MaybeUninit<::windows_core::HSTRING>, mimetype: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub RegisterByteStreamHandler: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub RegisterByteStreamHandlerWithSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, fileextension: ::std::mem::MaybeUninit<::windows_core::HSTRING>, mimetype: ::std::mem::MaybeUninit<::windows_core::HSTRING>, configuration: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RegisterByteStreamHandlerWithSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     RegisterByteStreamHandlerWithSettings: usize,
-    pub RegisterAudioDecoder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, inputsubtype: ::windows_core::GUID, outputsubtype: ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub RegisterAudioDecoder: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::windows_core::GUID, ::windows_core::GUID) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub RegisterAudioDecoderWithSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, inputsubtype: ::windows_core::GUID, outputsubtype: ::windows_core::GUID, configuration: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RegisterAudioDecoderWithSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::windows_core::GUID, ::windows_core::GUID, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     RegisterAudioDecoderWithSettings: usize,
-    pub RegisterAudioEncoder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, inputsubtype: ::windows_core::GUID, outputsubtype: ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub RegisterAudioEncoder: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::windows_core::GUID, ::windows_core::GUID) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub RegisterAudioEncoderWithSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, inputsubtype: ::windows_core::GUID, outputsubtype: ::windows_core::GUID, configuration: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RegisterAudioEncoderWithSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::windows_core::GUID, ::windows_core::GUID, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     RegisterAudioEncoderWithSettings: usize,
-    pub RegisterVideoDecoder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, inputsubtype: ::windows_core::GUID, outputsubtype: ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub RegisterVideoDecoder: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::windows_core::GUID, ::windows_core::GUID) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub RegisterVideoDecoderWithSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, inputsubtype: ::windows_core::GUID, outputsubtype: ::windows_core::GUID, configuration: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RegisterVideoDecoderWithSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::windows_core::GUID, ::windows_core::GUID, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     RegisterVideoDecoderWithSettings: usize,
-    pub RegisterVideoEncoder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, inputsubtype: ::windows_core::GUID, outputsubtype: ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub RegisterVideoEncoder: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::windows_core::GUID, ::windows_core::GUID) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub RegisterVideoEncoderWithSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, inputsubtype: ::windows_core::GUID, outputsubtype: ::windows_core::GUID, configuration: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RegisterVideoEncoderWithSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::windows_core::GUID, ::windows_core::GUID, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     RegisterVideoEncoderWithSettings: usize,
 }
@@ -331,7 +331,7 @@ pub struct IMediaExtensionManager_Vtbl {
 pub struct IMediaExtensionManager2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "ApplicationModel_AppService")]
-    pub RegisterMediaExtensionForAppService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extension: *mut ::core::ffi::c_void, connection: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RegisterMediaExtensionForAppService: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_AppService"))]
     RegisterMediaExtensionForAppService: usize,
 }
@@ -427,18 +427,18 @@ impl ::windows_core::RuntimeType for IMediaFrame {
 #[doc(hidden)]
 pub struct IMediaFrame_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub IsReadOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetRelativeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RelativeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetSystemRelativeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SystemRelativeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetIsDiscontinuous: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub IsDiscontinuous: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub Type: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub IsReadOnly: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetRelativeTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RelativeTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetSystemRelativeTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SystemRelativeTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Duration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetIsDiscontinuous: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub IsDiscontinuous: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub ExtendedProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ExtendedProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     ExtendedProperties: usize,
 }
@@ -474,16 +474,16 @@ impl ::windows_core::RuntimeType for IMediaMarker {
 #[doc(hidden)]
 pub struct IMediaMarker_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Time: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub MediaMarkerType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Time: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub MediaMarkerType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Text: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMediaMarkerTypesStatics, IMediaMarkerTypesStatics_Vtbl, 0xbb198040_482f_4743_8832_45853821ece0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaMarkerTypesStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Bookmark: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Bookmark: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMediaMarkers, IMediaMarkers_Vtbl, 0xafeab189_f8dd_466e_aa10_920b52353fdf);
 ::windows_core::imp::interface_hierarchy!(IMediaMarkers, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -506,7 +506,7 @@ impl ::windows_core::RuntimeType for IMediaMarkers {
 pub struct IMediaMarkers_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub Markers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Markers: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Markers: usize,
 }
@@ -516,7 +516,7 @@ pub struct IMediaMarkers_Vtbl {
 pub struct IMediaProcessingTriggerDetails_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub Arguments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Arguments: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Arguments: usize,
 }
@@ -525,63 +525,63 @@ pub struct IMediaProcessingTriggerDetails_Vtbl {
 #[doc(hidden)]
 pub struct IMediaTimelineController_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub SetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub ClockRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub SetClockRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
-    pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaTimelineControllerState) -> ::windows_core::HRESULT,
-    pub PositionChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, positionchangedeventhandler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemovePositionChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcookie: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub StateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, statechangedeventhandler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcookie: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub Start: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Resume: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Pause: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Position: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub SetPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub ClockRate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub SetClockRate: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub State: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MediaTimelineControllerState) -> ::windows_core::HRESULT,
+    pub PositionChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemovePositionChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub StateChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveStateChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMediaTimelineController2, IMediaTimelineController2_Vtbl, 0xef74ea38_9e72_4df9_8355_6e90c81bbadd);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaTimelineController2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub IsLoopingEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetIsLoopingEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub Failed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventhandler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveFailed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub Ended: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventhandler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveEnded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub Duration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetDuration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsLoopingEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetIsLoopingEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub Failed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveFailed: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub Ended: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveEnded: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMediaTimelineControllerFailedEventArgs, IMediaTimelineControllerFailedEventArgs_Vtbl, 0x8821f81d_3e77_43fb_be26_4fc87a044834);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaTimelineControllerFailedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMusicDisplayProperties, IMusicDisplayProperties_Vtbl, 0x6bbf0c59_d0a0_4d26_92a0_f978e1d18e7b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMusicDisplayProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub AlbumArtist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub SetAlbumArtist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Artist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub SetArtist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Title: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetTitle: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub AlbumArtist: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetAlbumArtist: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Artist: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetArtist: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMusicDisplayProperties2, IMusicDisplayProperties2_Vtbl, 0x00368462_97d3_44b9_b00f_008afcefaf18);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMusicDisplayProperties2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub AlbumTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub SetAlbumTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub TrackNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub SetTrackNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
+    pub AlbumTitle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetAlbumTitle: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub TrackNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetTrackNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Genres: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Genres: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Genres: usize,
 }
@@ -590,160 +590,160 @@ pub struct IMusicDisplayProperties2_Vtbl {
 #[doc(hidden)]
 pub struct IMusicDisplayProperties3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub AlbumTrackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub SetAlbumTrackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
+    pub AlbumTrackCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetAlbumTrackCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPlaybackPositionChangeRequestedEventArgs, IPlaybackPositionChangeRequestedEventArgs_Vtbl, 0xb4493f88_eb28_4961_9c14_335e44f3e125);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaybackPositionChangeRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub RequestedPlaybackPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub RequestedPlaybackPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPlaybackRateChangeRequestedEventArgs, IPlaybackRateChangeRequestedEventArgs_Vtbl, 0x2ce2c41f_3cd6_4f77_9ba7_eb27c26a2140);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlaybackRateChangeRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub RequestedPlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
+    pub RequestedPlaybackRate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IShuffleEnabledChangeRequestedEventArgs, IShuffleEnabledChangeRequestedEventArgs_Vtbl, 0x49b593fe_4fd0_4666_a314_c0e01940d302);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IShuffleEnabledChangeRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub RequestedShuffleEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub RequestedShuffleEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISystemMediaTransportControls, ISystemMediaTransportControls_Vtbl, 0x99fa3ff4_1742_42a6_902e_087d41f965ec);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMediaTransportControls_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub PlaybackStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackStatus) -> ::windows_core::HRESULT,
-    pub SetPlaybackStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MediaPlaybackStatus) -> ::windows_core::HRESULT,
-    pub DisplayUpdater: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SoundLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SoundLevel) -> ::windows_core::HRESULT,
-    pub IsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetIsEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub IsPlayEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetIsPlayEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub IsStopEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetIsStopEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub IsPauseEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetIsPauseEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub IsRecordEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetIsRecordEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub IsFastForwardEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetIsFastForwardEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub IsRewindEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetIsRewindEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub IsPreviousEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetIsPreviousEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub IsNextEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetIsNextEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub IsChannelUpEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetIsChannelUpEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub IsChannelDownEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetIsChannelDownEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub ButtonPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveButtonPressed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub PropertyChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemovePropertyChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub PlaybackStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MediaPlaybackStatus) -> ::windows_core::HRESULT,
+    pub SetPlaybackStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, MediaPlaybackStatus) -> ::windows_core::HRESULT,
+    pub DisplayUpdater: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SoundLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SoundLevel) -> ::windows_core::HRESULT,
+    pub IsEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetIsEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub IsPlayEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetIsPlayEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub IsStopEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetIsStopEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub IsPauseEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetIsPauseEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub IsRecordEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetIsRecordEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub IsFastForwardEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetIsFastForwardEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub IsRewindEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetIsRewindEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub IsPreviousEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetIsPreviousEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub IsNextEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetIsNextEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub IsChannelUpEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetIsChannelUpEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub IsChannelDownEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetIsChannelDownEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub ButtonPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveButtonPressed: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub PropertyChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemovePropertyChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISystemMediaTransportControls2, ISystemMediaTransportControls2_Vtbl, 0xea98d2f6_7f3c_4af2_a586_72889808efb1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMediaTransportControls2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub AutoRepeatMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackAutoRepeatMode) -> ::windows_core::HRESULT,
-    pub SetAutoRepeatMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MediaPlaybackAutoRepeatMode) -> ::windows_core::HRESULT,
-    pub ShuffleEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetShuffleEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
-    pub PlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
-    pub SetPlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows_core::HRESULT,
-    pub UpdateTimelineProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timelineproperties: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub PlaybackPositionChangeRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemovePlaybackPositionChangeRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub PlaybackRateChangeRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemovePlaybackRateChangeRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub ShuffleEnabledChangeRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveShuffleEnabledChangeRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub AutoRepeatModeChangeRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveAutoRepeatModeChangeRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub AutoRepeatMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MediaPlaybackAutoRepeatMode) -> ::windows_core::HRESULT,
+    pub SetAutoRepeatMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, MediaPlaybackAutoRepeatMode) -> ::windows_core::HRESULT,
+    pub ShuffleEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetShuffleEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
+    pub PlaybackRate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub SetPlaybackRate: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub UpdateTimelineProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PlaybackPositionChangeRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemovePlaybackPositionChangeRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub PlaybackRateChangeRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemovePlaybackRateChangeRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub ShuffleEnabledChangeRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveShuffleEnabledChangeRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub AutoRepeatModeChangeRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveAutoRepeatModeChangeRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISystemMediaTransportControlsButtonPressedEventArgs, ISystemMediaTransportControlsButtonPressedEventArgs_Vtbl, 0xb7f47116_a56f_4dc8_9e11_92031f4a87c2);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMediaTransportControlsButtonPressedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Button: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SystemMediaTransportControlsButton) -> ::windows_core::HRESULT,
+    pub Button: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SystemMediaTransportControlsButton) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISystemMediaTransportControlsDisplayUpdater, ISystemMediaTransportControlsDisplayUpdater_Vtbl, 0x8abbc53e_fa55_4ecf_ad8e_c984e5dd1550);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMediaTransportControlsDisplayUpdater_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackType) -> ::windows_core::HRESULT,
-    pub SetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MediaPlaybackType) -> ::windows_core::HRESULT,
-    pub AppMediaId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub SetAppMediaId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Type: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MediaPlaybackType) -> ::windows_core::HRESULT,
+    pub SetType: unsafe extern "system" fn(*mut ::core::ffi::c_void, MediaPlaybackType) -> ::windows_core::HRESULT,
+    pub AppMediaId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetAppMediaId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
-    pub Thumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Thumbnail: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     Thumbnail: usize,
     #[cfg(feature = "Storage_Streams")]
-    pub SetThumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetThumbnail: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     SetThumbnail: usize,
-    pub MusicProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub VideoProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ImageProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub MusicProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub VideoProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ImageProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage")]
-    pub CopyFromFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: MediaPlaybackType, source: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CopyFromFileAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, MediaPlaybackType, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage"))]
     CopyFromFileAsync: usize,
-    pub ClearAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ClearAll: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Update: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISystemMediaTransportControlsPropertyChangedEventArgs, ISystemMediaTransportControlsPropertyChangedEventArgs_Vtbl, 0xd0ca0936_339b_4cb3_8eeb_737607f56e08);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMediaTransportControlsPropertyChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SystemMediaTransportControlsProperty) -> ::windows_core::HRESULT,
+    pub Property: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SystemMediaTransportControlsProperty) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISystemMediaTransportControlsStatics, ISystemMediaTransportControlsStatics_Vtbl, 0x43ba380a_eca4_4832_91ab_d415fae484c6);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMediaTransportControlsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetForCurrentView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISystemMediaTransportControlsTimelineProperties, ISystemMediaTransportControlsTimelineProperties_Vtbl, 0x5125316a_c3a2_475b_8507_93534dc88f15);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISystemMediaTransportControlsTimelineProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub SetStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub EndTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub SetEndTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub MinSeekTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub SetMinSeekTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub MaxSeekTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub SetMaxSeekTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub SetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub StartTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub SetStartTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub EndTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub SetEndTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub MinSeekTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub SetMinSeekTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub MaxSeekTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub SetMaxSeekTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub Position: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub SetPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVideoDisplayProperties, IVideoDisplayProperties_Vtbl, 0x5609fdb1_5d2d_4872_8170_45dee5bc2f5c);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVideoDisplayProperties_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Subtitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub SetSubtitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Title: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetTitle: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Subtitle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SetSubtitle: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVideoDisplayProperties2, IVideoDisplayProperties2_Vtbl, 0xb410e1ce_ab52_41ab_a486_cc10fab152f9);
 #[repr(C)]
@@ -751,7 +751,7 @@ pub struct IVideoDisplayProperties_Vtbl {
 pub struct IVideoDisplayProperties2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub Genres: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Genres: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Genres: usize,
 }
@@ -760,7 +760,7 @@ pub struct IVideoDisplayProperties2_Vtbl {
 #[doc(hidden)]
 pub struct IVideoEffectsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub VideoStabilization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub VideoStabilization: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IVideoFrame, IVideoFrame_Vtbl, 0x0cc06625_90fc_4c92_bd95_7ded21819d1c);
 #[repr(C)]
@@ -768,12 +768,12 @@ pub struct IVideoEffectsStatics_Vtbl {
 pub struct IVideoFrame_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Imaging")]
-    pub SoftwareBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SoftwareBitmap: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     SoftwareBitmap: usize,
-    pub CopyToAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frame: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CopyToAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub Direct3DSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Direct3DSurface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
     Direct3DSurface: usize,
 }
@@ -783,7 +783,7 @@ pub struct IVideoFrame_Vtbl {
 pub struct IVideoFrame2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Imaging")]
-    pub CopyToWithBoundsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frame: *mut ::core::ffi::c_void, sourcebounds: *mut ::core::ffi::c_void, destinationbounds: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CopyToWithBoundsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     CopyToWithBoundsAsync: usize,
 }
@@ -793,11 +793,11 @@ pub struct IVideoFrame2_Vtbl {
 pub struct IVideoFrameFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Imaging")]
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Graphics::Imaging::BitmapPixelFormat, i32, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     Create: usize,
     #[cfg(feature = "Graphics_Imaging")]
-    pub CreateWithAlpha: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32, alpha: super::Graphics::Imaging::BitmapAlphaMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateWithAlpha: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Graphics::Imaging::BitmapPixelFormat, i32, i32, super::Graphics::Imaging::BitmapAlphaMode, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     CreateWithAlpha: usize,
 }
@@ -807,19 +807,19 @@ pub struct IVideoFrameFactory_Vtbl {
 pub struct IVideoFrameStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX")]
-    pub CreateAsDirect3D11SurfaceBacked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAsDirect3D11SurfaceBacked: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Graphics::DirectX::DirectXPixelFormat, i32, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))]
     CreateAsDirect3D11SurfaceBacked: usize,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub CreateAsDirect3D11SurfaceBackedWithDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32, device: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateAsDirect3D11SurfaceBackedWithDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::Graphics::DirectX::DirectXPixelFormat, i32, i32, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
     CreateAsDirect3D11SurfaceBackedWithDevice: usize,
     #[cfg(feature = "Graphics_Imaging")]
-    pub CreateWithSoftwareBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmap: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateWithSoftwareBitmap: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     CreateWithSoftwareBitmap: usize,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub CreateWithDirect3D11Surface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, surface: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateWithDirect3D11Surface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
     CreateWithDirect3D11Surface: usize,
 }

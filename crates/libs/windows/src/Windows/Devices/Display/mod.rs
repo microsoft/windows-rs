@@ -6,48 +6,48 @@ pub mod Core;
 #[doc(hidden)]
 pub struct IDisplayMonitor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub ConnectionKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayMonitorConnectionKind) -> ::windows_core::HRESULT,
-    pub PhysicalConnector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayMonitorPhysicalConnectorKind) -> ::windows_core::HRESULT,
-    pub DisplayAdapterDeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub DeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub ConnectionKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DisplayMonitorConnectionKind) -> ::windows_core::HRESULT,
+    pub PhysicalConnector: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DisplayMonitorPhysicalConnectorKind) -> ::windows_core::HRESULT,
+    pub DisplayAdapterDeviceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Graphics")]
-    pub DisplayAdapterId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::DisplayAdapterId) -> ::windows_core::HRESULT,
+    pub DisplayAdapterId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Graphics::DisplayAdapterId) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics"))]
     DisplayAdapterId: usize,
-    pub DisplayAdapterTargetId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub UsageKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayMonitorUsageKind) -> ::windows_core::HRESULT,
+    pub DisplayAdapterTargetId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub UsageKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DisplayMonitorUsageKind) -> ::windows_core::HRESULT,
     #[cfg(feature = "Graphics")]
-    pub NativeResolutionInRawPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::SizeInt32) -> ::windows_core::HRESULT,
+    pub NativeResolutionInRawPixels: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Graphics::SizeInt32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics"))]
     NativeResolutionInRawPixels: usize,
-    pub PhysicalSizeInInches: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RawDpiX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
-    pub RawDpiY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
-    pub RedPrimary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows_core::HRESULT,
-    pub GreenPrimary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows_core::HRESULT,
-    pub BluePrimary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows_core::HRESULT,
-    pub WhitePoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows_core::HRESULT,
-    pub MaxLuminanceInNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
-    pub MinLuminanceInNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
-    pub MaxAverageFullFrameLuminanceInNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
-    pub GetDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, descriptorkind: DisplayMonitorDescriptorKind, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows_core::HRESULT,
+    pub PhysicalSizeInInches: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RawDpiX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
+    pub RawDpiY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
+    pub RedPrimary: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Point) -> ::windows_core::HRESULT,
+    pub GreenPrimary: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Point) -> ::windows_core::HRESULT,
+    pub BluePrimary: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Point) -> ::windows_core::HRESULT,
+    pub WhitePoint: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::Point) -> ::windows_core::HRESULT,
+    pub MaxLuminanceInNits: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
+    pub MinLuminanceInNits: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
+    pub MaxAverageFullFrameLuminanceInNits: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
+    pub GetDescriptor: unsafe extern "system" fn(*mut ::core::ffi::c_void, DisplayMonitorDescriptorKind, *mut u32, *mut *mut u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDisplayMonitor2, IDisplayMonitor2_Vtbl, 0x023018e6_cb23_5830_96df_a7bf6e602577);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayMonitor2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub IsDolbyVisionSupportedInHdrMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsDolbyVisionSupportedInHdrMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDisplayMonitorStatics, IDisplayMonitorStatics_Vtbl, 0x6eae698f_a228_4c05_821d_b695d667de8e);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDisplayMonitorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FromInterfaceIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceinterfaceid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceSelector: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub FromIdAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FromInterfaceIdAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

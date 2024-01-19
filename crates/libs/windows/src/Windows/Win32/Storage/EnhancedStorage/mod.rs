@@ -27,12 +27,12 @@ impl IEnhancedStorageACT {
 #[doc(hidden)]
 pub struct IEnhancedStorageACT_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Authorize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: u32, dwflags: u32) -> ::windows_core::HRESULT,
-    pub Unauthorize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetAuthorizationState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut ACT_AUTHORIZATION_STATE) -> ::windows_core::HRESULT,
-    pub GetMatchingVolume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszvolume: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetUniqueIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszidentity: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetSilos: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstoragesilos: *mut *mut ::core::option::Option<IEnhancedStorageSilo>, pcenhancedstoragesilos: *mut u32) -> ::windows_core::HRESULT,
+    pub Authorize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
+    pub Unauthorize: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAuthorizationState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ACT_AUTHORIZATION_STATE) -> ::windows_core::HRESULT,
+    pub GetMatchingVolume: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetUniqueIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetSilos: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::option::Option<IEnhancedStorageSilo>, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnhancedStorageACT2, IEnhancedStorageACT2_Vtbl, 0x4da57d2e_8eb3_41f6_a07e_98b52b88242b);
 ::windows_core::imp::interface_hierarchy!(IEnhancedStorageACT2, ::windows_core::IUnknown, IEnhancedStorageACT);
@@ -71,8 +71,8 @@ impl IEnhancedStorageACT2 {
 #[doc(hidden)]
 pub struct IEnhancedStorageACT2_Vtbl {
     pub base__: IEnhancedStorageACT_Vtbl,
-    pub GetDeviceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszdevicename: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub IsDeviceRemovable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisdeviceremovable: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetDeviceName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub IsDeviceRemovable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnhancedStorageACT3, IEnhancedStorageACT3_Vtbl, 0x022150a1_113d_11df_bb61_001aa01bbc58);
 ::windows_core::imp::interface_hierarchy!(IEnhancedStorageACT3, ::windows_core::IUnknown, IEnhancedStorageACT, IEnhancedStorageACT2);
@@ -122,9 +122,9 @@ impl IEnhancedStorageACT3 {
 #[doc(hidden)]
 pub struct IEnhancedStorageACT3_Vtbl {
     pub base__: IEnhancedStorageACT2_Vtbl,
-    pub UnauthorizeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
-    pub IsQueueFrozen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisqueuefrozen: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetShellExtSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshellextsupport: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub UnauthorizeEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub IsQueueFrozen: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetShellExtSupport: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnhancedStorageSilo, IEnhancedStorageSilo_Vtbl, 0x5aef78c6_2242_4703_bf49_44b29357a359);
 ::windows_core::imp::interface_hierarchy!(IEnhancedStorageSilo, ::windows_core::IUnknown);
@@ -154,14 +154,14 @@ impl IEnhancedStorageSilo {
 #[doc(hidden)]
 pub struct IEnhancedStorageSilo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psiloinfo: *mut SILO_INFO) -> ::windows_core::HRESULT,
-    pub GetActions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstoragesiloactions: *mut *mut ::core::option::Option<IEnhancedStorageSiloAction>, pcenhancedstoragesiloactions: *mut u32) -> ::windows_core::HRESULT,
-    pub SendCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: u8, pbcommandbuffer: *const u8, cbcommandbuffer: u32, pbresponsebuffer: *mut u8, pcbresponsebuffer: *mut u32) -> ::windows_core::HRESULT,
+    pub GetInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SILO_INFO) -> ::windows_core::HRESULT,
+    pub GetActions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::option::Option<IEnhancedStorageSiloAction>, *mut u32) -> ::windows_core::HRESULT,
+    pub SendCommand: unsafe extern "system" fn(*mut ::core::ffi::c_void, u8, *const u8, u32, *mut u8, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Devices_PortableDevices")]
-    pub GetPortableDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiportabledevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPortableDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Devices_PortableDevices"))]
     GetPortableDevice: usize,
-    pub GetDevicePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszsilodevicepath: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetDevicePath: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnhancedStorageSiloAction, IEnhancedStorageSiloAction_Vtbl, 0xb6f7f311_206f_4ff8_9c4b_27efee77a86f);
 ::windows_core::imp::interface_hierarchy!(IEnhancedStorageSiloAction, ::windows_core::IUnknown);
@@ -182,9 +182,9 @@ impl IEnhancedStorageSiloAction {
 #[doc(hidden)]
 pub struct IEnhancedStorageSiloAction_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszactionname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszactiondescription: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumEnhancedStorageACT, IEnumEnhancedStorageACT_Vtbl, 0x09b224bd_1335_4631_a7ff_cfd3a92646d7);
 ::windows_core::imp::interface_hierarchy!(IEnumEnhancedStorageACT, ::windows_core::IUnknown);
@@ -204,8 +204,8 @@ impl IEnumEnhancedStorageACT {
 #[doc(hidden)]
 pub struct IEnumEnhancedStorageACT_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetACTs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppienhancedstorageacts: *mut *mut ::core::option::Option<IEnhancedStorageACT>, pcenhancedstorageacts: *mut u32) -> ::windows_core::HRESULT,
-    pub GetMatchingACT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szvolume: ::windows_core::PCWSTR, ppienhancedstorageact: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetACTs: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::option::Option<IEnhancedStorageACT>, *mut u32) -> ::windows_core::HRESULT,
+    pub GetMatchingACT: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const ACT_AUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(1i32);
 pub const ACT_AUTHORIZE_ON_RESUME: u32 = 1u32;

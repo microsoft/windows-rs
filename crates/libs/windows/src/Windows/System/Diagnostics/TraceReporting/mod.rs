@@ -3,21 +3,21 @@
 #[doc(hidden)]
 pub struct IPlatformDiagnosticActionsStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub IsScenarioEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scenarioid: ::windows_core::GUID, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsScenarioEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub TryEscalateScenario: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scenarioid: ::windows_core::GUID, escalationtype: PlatformDiagnosticEscalationType, outputdirectory: ::std::mem::MaybeUninit<::windows_core::HSTRING>, timestampoutputdirectory: bool, forceescalationupload: bool, triggers: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub TryEscalateScenario: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, PlatformDiagnosticEscalationType, ::std::mem::MaybeUninit<::windows_core::HSTRING>, bool, bool, *mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     TryEscalateScenario: usize,
-    pub DownloadLatestSettingsForNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partner: ::std::mem::MaybeUninit<::windows_core::HSTRING>, feature: ::std::mem::MaybeUninit<::windows_core::HSTRING>, isscenarionamespace: bool, downloadovercostednetwork: bool, downloadoverbattery: bool, result__: *mut PlatformDiagnosticActionState) -> ::windows_core::HRESULT,
+    pub DownloadLatestSettingsForNamespace: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, bool, bool, bool, *mut PlatformDiagnosticActionState) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetActiveScenarioList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetActiveScenarioList: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetActiveScenarioList: usize,
-    pub ForceUpload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, latency: PlatformDiagnosticEventBufferLatencies, uploadovercostednetwork: bool, uploadoverbattery: bool, result__: *mut PlatformDiagnosticActionState) -> ::windows_core::HRESULT,
-    pub IsTraceRunning: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, slottype: PlatformDiagnosticTraceSlotType, scenarioid: ::windows_core::GUID, traceprofilehash: u64, result__: *mut PlatformDiagnosticTraceSlotState) -> ::windows_core::HRESULT,
-    pub GetActiveTraceRuntime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, slottype: PlatformDiagnosticTraceSlotType, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ForceUpload: unsafe extern "system" fn(*mut ::core::ffi::c_void, PlatformDiagnosticEventBufferLatencies, bool, bool, *mut PlatformDiagnosticActionState) -> ::windows_core::HRESULT,
+    pub IsTraceRunning: unsafe extern "system" fn(*mut ::core::ffi::c_void, PlatformDiagnosticTraceSlotType, ::windows_core::GUID, u64, *mut PlatformDiagnosticTraceSlotState) -> ::windows_core::HRESULT,
+    pub GetActiveTraceRuntime: unsafe extern "system" fn(*mut ::core::ffi::c_void, PlatformDiagnosticTraceSlotType, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetKnownTraceList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, slottype: PlatformDiagnosticTraceSlotType, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetKnownTraceList: unsafe extern "system" fn(*mut ::core::ffi::c_void, PlatformDiagnosticTraceSlotType, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetKnownTraceList: usize,
 }
@@ -26,20 +26,20 @@ pub struct IPlatformDiagnosticActionsStatics_Vtbl {
 #[doc(hidden)]
 pub struct IPlatformDiagnosticTraceInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub ScenarioId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub ProfileHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows_core::HRESULT,
-    pub IsExclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub IsAutoLogger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub MaxTraceDurationFileTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows_core::HRESULT,
-    pub Priority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PlatformDiagnosticTracePriority) -> ::windows_core::HRESULT,
+    pub ScenarioId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub ProfileHash: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u64) -> ::windows_core::HRESULT,
+    pub IsExclusive: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub IsAutoLogger: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub MaxTraceDurationFileTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
+    pub Priority: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PlatformDiagnosticTracePriority) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPlatformDiagnosticTraceRuntimeInfo, IPlatformDiagnosticTraceRuntimeInfo_Vtbl, 0x3d4d5e2d_01d8_4768_8554_1eb1ca610986);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPlatformDiagnosticTraceRuntimeInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub RuntimeFileTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows_core::HRESULT,
-    pub EtwRuntimeFileTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows_core::HRESULT,
+    pub RuntimeFileTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
+    pub EtwRuntimeFileTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
 }
 pub struct PlatformDiagnosticActions;
 impl PlatformDiagnosticActions {

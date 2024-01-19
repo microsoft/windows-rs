@@ -43,7 +43,7 @@ impl IEffectivePermission {
 #[doc(hidden)]
 pub struct IEffectivePermission_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetEffectivePermission: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidobjecttype: *const ::windows_core::GUID, pusersid: super::super::super::Foundation::PSID, pszservername: ::windows_core::PCWSTR, psd: super::super::PSECURITY_DESCRIPTOR, ppobjecttypelist: *mut *mut super::super::OBJECT_TYPE_LIST, pcobjecttypelistlength: *mut u32, ppgrantedaccesslist: *mut *mut u32, pcgrantedaccesslistlength: *mut u32) -> ::windows_core::HRESULT,
+    pub GetEffectivePermission: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, super::super::super::Foundation::PSID, ::windows_core::PCWSTR, super::super::PSECURITY_DESCRIPTOR, *mut *mut super::super::OBJECT_TYPE_LIST, *mut u32, *mut *mut u32, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEffectivePermission2, IEffectivePermission2_Vtbl, 0x941fabca_dd47_4fca_90bb_b0e10255f20d);
 ::windows_core::imp::interface_hierarchy!(IEffectivePermission2, ::windows_core::IUnknown);
@@ -94,23 +94,7 @@ impl IEffectivePermission2 {
 #[doc(hidden)]
 pub struct IEffectivePermission2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ComputeEffectivePermissionWithSecondarySecurity: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        psid: super::super::super::Foundation::PSID,
-        pdevicesid: super::super::super::Foundation::PSID,
-        pszservername: ::windows_core::PCWSTR,
-        psecurityobjects: *mut SECURITY_OBJECT,
-        dwsecurityobjectcount: u32,
-        pusergroups: *const super::super::TOKEN_GROUPS,
-        pauthzusergroupsoperations: *const super::AUTHZ_SID_OPERATION,
-        pdevicegroups: *const super::super::TOKEN_GROUPS,
-        pauthzdevicegroupsoperations: *const super::AUTHZ_SID_OPERATION,
-        pauthzuserclaims: *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION,
-        pauthzuserclaimsoperations: *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION,
-        pauthzdeviceclaims: *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION,
-        pauthzdeviceclaimsoperations: *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION,
-        peffpermresultlists: *mut EFFPERM_RESULT_LIST,
-    ) -> ::windows_core::HRESULT,
+    pub ComputeEffectivePermissionWithSecondarySecurity: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::PSID, super::super::super::Foundation::PSID, ::windows_core::PCWSTR, *mut SECURITY_OBJECT, u32, *const super::super::TOKEN_GROUPS, *const super::AUTHZ_SID_OPERATION, *const super::super::TOKEN_GROUPS, *const super::AUTHZ_SID_OPERATION, *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION, *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION, *const super::AUTHZ_SECURITY_ATTRIBUTES_INFORMATION, *const super::AUTHZ_SECURITY_ATTRIBUTE_OPERATION, *mut EFFPERM_RESULT_LIST) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISecurityInformation, ISecurityInformation_Vtbl, 0x965fc360_16ff_11d0_91cb_00aa00bbb723);
 ::windows_core::imp::interface_hierarchy!(ISecurityInformation, ::windows_core::IUnknown);
@@ -152,14 +136,14 @@ impl ISecurityInformation {
 #[doc(hidden)]
 pub struct ISecurityInformation_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetObjectInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobjectinfo: *mut SI_OBJECT_INFO) -> ::windows_core::HRESULT,
-    pub GetSecurity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR, fdefault: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetSecurity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::PSECURITY_DESCRIPTOR) -> ::windows_core::HRESULT,
-    pub GetAccessRights: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidobjecttype: *const ::windows_core::GUID, dwflags: SECURITY_INFO_PAGE_FLAGS, ppaccess: *mut *mut SI_ACCESS, pcaccesses: *mut u32, pidefaultaccess: *mut u32) -> ::windows_core::HRESULT,
-    pub MapGeneric: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidobjecttype: *const ::windows_core::GUID, paceflags: *mut u8, pmask: *mut u32) -> ::windows_core::HRESULT,
-    pub GetInheritTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppinherittypes: *mut *mut SI_INHERIT_TYPE, pcinherittypes: *mut u32) -> ::windows_core::HRESULT,
+    pub GetObjectInformation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut SI_OBJECT_INFO) -> ::windows_core::HRESULT,
+    pub GetSecurity: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::OBJECT_SECURITY_INFORMATION, *mut super::super::PSECURITY_DESCRIPTOR, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetSecurity: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::OBJECT_SECURITY_INFORMATION, super::super::PSECURITY_DESCRIPTOR) -> ::windows_core::HRESULT,
+    pub GetAccessRights: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, SECURITY_INFO_PAGE_FLAGS, *mut *mut SI_ACCESS, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub MapGeneric: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub GetInheritTypes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut SI_INHERIT_TYPE, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Controls")]
-    pub PropertySheetPageCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> ::windows_core::HRESULT,
+    pub PropertySheetPageCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::HWND, super::super::super::UI::Controls::PSPCB_MESSAGE, SI_PAGE_TYPE) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Controls"))]
     PropertySheetPageCallback: usize,
 }
@@ -180,9 +164,9 @@ impl ISecurityInformation2 {
 #[doc(hidden)]
 pub struct ISecurityInformation2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub IsDaclCanonical: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdacl: *const super::super::ACL) -> super::super::super::Foundation::BOOL,
+    pub IsDaclCanonical: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::ACL) -> super::super::super::Foundation::BOOL,
     #[cfg(feature = "Win32_System_Com")]
-    pub LookupSids: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, csids: u32, rgpsids: *const super::super::super::Foundation::PSID, ppdo: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LookupSids: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const super::super::super::Foundation::PSID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     LookupSids: usize,
 }
@@ -204,8 +188,8 @@ impl ISecurityInformation3 {
 #[doc(hidden)]
 pub struct ISecurityInformation3_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetFullResourceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszresourcename: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub OpenElevatedEditor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::super::Foundation::HWND, upage: SI_PAGE_TYPE) -> ::windows_core::HRESULT,
+    pub GetFullResourceName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub OpenElevatedEditor: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::HWND, SI_PAGE_TYPE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISecurityInformation4, ISecurityInformation4_Vtbl, 0xea961070_cd14_4621_ace4_f63c03e583e4);
 ::windows_core::imp::interface_hierarchy!(ISecurityInformation4, ::windows_core::IUnknown);
@@ -218,7 +202,7 @@ impl ISecurityInformation4 {
 #[doc(hidden)]
 pub struct ISecurityInformation4_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetSecondarySecurity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psecurityobjects: *mut *mut SECURITY_OBJECT, psecurityobjectcount: *mut u32) -> ::windows_core::HRESULT,
+    pub GetSecondarySecurity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut SECURITY_OBJECT, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISecurityObjectTypeInfo, ISecurityObjectTypeInfo_Vtbl, 0xfc3066eb_79ef_444b_9111_d18a75ebf2fa);
 ::windows_core::imp::interface_hierarchy!(ISecurityObjectTypeInfo, ::windows_core::IUnknown);
@@ -231,7 +215,7 @@ impl ISecurityObjectTypeInfo {
 #[doc(hidden)]
 pub struct ISecurityObjectTypeInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetInheritSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows_core::HRESULT,
+    pub GetInheritSource: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut super::super::ACL, *mut *mut super::INHERITED_FROMA) -> ::windows_core::HRESULT,
 }
 pub const CFSTR_ACLUI_SID_INFO_LIST: ::windows_core::PCWSTR = ::windows_core::w!("CFSTR_ACLUI_SID_INFO_LIST");
 pub const DOBJ_COND_NTACLS: i32 = 8i32;

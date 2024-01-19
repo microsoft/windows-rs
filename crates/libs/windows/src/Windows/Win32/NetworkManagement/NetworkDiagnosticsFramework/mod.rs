@@ -132,7 +132,7 @@ impl INetDiagExtensibleHelper {
 #[doc(hidden)]
 pub struct INetDiagExtensibleHelper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ResolveAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> ::windows_core::HRESULT,
+    pub ResolveAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const HELPER_ATTRIBUTE, *mut u32, *mut *mut HELPER_ATTRIBUTE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INetDiagHelper, INetDiagHelper_Vtbl, 0xc0b35746_ebf5_11d8_bbe9_505054503030);
 ::windows_core::imp::interface_hierarchy!(INetDiagHelper, ::windows_core::IUnknown);
@@ -205,24 +205,24 @@ impl INetDiagHelper {
 #[doc(hidden)]
 pub struct INetDiagHelper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgattributes: *const HELPER_ATTRIBUTE) -> ::windows_core::HRESULT,
-    pub GetDiagnosticsInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppinfo: *mut *mut DiagnosticsInfo) -> ::windows_core::HRESULT,
-    pub GetKeyAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows_core::HRESULT,
-    pub LowHealth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszinstancedescription: ::windows_core::PCWSTR, ppwszdescription: *mut ::windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows_core::HRESULT,
-    pub HighUtilization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszinstancedescription: ::windows_core::PCWSTR, ppwszdescription: *mut ::windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows_core::HRESULT,
-    pub GetLowerHypotheses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows_core::HRESULT,
-    pub GetDownStreamHypotheses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows_core::HRESULT,
-    pub GetHigherHypotheses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows_core::HRESULT,
-    pub GetUpStreamHypotheses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> ::windows_core::HRESULT,
-    pub Repair: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const RepairInfo, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> ::windows_core::HRESULT,
-    pub Validate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, problem: PROBLEM_TYPE, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> ::windows_core::HRESULT,
-    pub GetRepairInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> ::windows_core::HRESULT,
-    pub GetLifeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plifetime: *mut LIFE_TIME) -> ::windows_core::HRESULT,
-    pub SetLifeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lifetime: LIFE_TIME) -> ::windows_core::HRESULT,
-    pub GetCacheTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcachetime: *mut super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
-    pub GetAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows_core::HRESULT,
-    pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Cleanup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const HELPER_ATTRIBUTE) -> ::windows_core::HRESULT,
+    pub GetDiagnosticsInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut DiagnosticsInfo) -> ::windows_core::HRESULT,
+    pub GetKeyAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut HELPER_ATTRIBUTE) -> ::windows_core::HRESULT,
+    pub LowHealth: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::windows_core::PWSTR, *mut i32, *mut DIAGNOSIS_STATUS) -> ::windows_core::HRESULT,
+    pub HighUtilization: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::windows_core::PWSTR, *mut i32, *mut DIAGNOSIS_STATUS) -> ::windows_core::HRESULT,
+    pub GetLowerHypotheses: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut HYPOTHESIS) -> ::windows_core::HRESULT,
+    pub GetDownStreamHypotheses: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut HYPOTHESIS) -> ::windows_core::HRESULT,
+    pub GetHigherHypotheses: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut HYPOTHESIS) -> ::windows_core::HRESULT,
+    pub GetUpStreamHypotheses: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut HYPOTHESIS) -> ::windows_core::HRESULT,
+    pub Repair: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const RepairInfo, *mut i32, *mut REPAIR_STATUS) -> ::windows_core::HRESULT,
+    pub Validate: unsafe extern "system" fn(*mut ::core::ffi::c_void, PROBLEM_TYPE, *mut i32, *mut REPAIR_STATUS) -> ::windows_core::HRESULT,
+    pub GetRepairInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, PROBLEM_TYPE, *mut u32, *mut *mut RepairInfo) -> ::windows_core::HRESULT,
+    pub GetLifeTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut LIFE_TIME) -> ::windows_core::HRESULT,
+    pub SetLifeTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, LIFE_TIME) -> ::windows_core::HRESULT,
+    pub GetCacheTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::FILETIME) -> ::windows_core::HRESULT,
+    pub GetAttributes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut HELPER_ATTRIBUTE) -> ::windows_core::HRESULT,
+    pub Cancel: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Cleanup: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INetDiagHelperEx, INetDiagHelperEx_Vtbl, 0x972dab4d_e4e3_4fc6_ae54_5f65ccde4a15);
 ::windows_core::imp::interface_hierarchy!(INetDiagHelperEx, ::windows_core::IUnknown);
@@ -244,9 +244,9 @@ impl INetDiagHelperEx {
 #[doc(hidden)]
 pub struct INetDiagHelperEx_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ReconfirmLowHealth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut ::windows_core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows_core::HRESULT,
-    pub SetUtilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, putilities: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ReproduceFailure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ReconfirmLowHealth: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const HypothesisResult, *mut ::windows_core::PWSTR, *mut DIAGNOSIS_STATUS) -> ::windows_core::HRESULT,
+    pub SetUtilities: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ReproduceFailure: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INetDiagHelperInfo, INetDiagHelperInfo_Vtbl, 0xc0b35747_ebf5_11d8_bbe9_505054503030);
 ::windows_core::imp::interface_hierarchy!(INetDiagHelperInfo, ::windows_core::IUnknown);
@@ -259,7 +259,7 @@ impl INetDiagHelperInfo {
 #[doc(hidden)]
 pub struct INetDiagHelperInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetAttributeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> ::windows_core::HRESULT,
+    pub GetAttributeInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut *mut HelperAttributeInfo) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(INetDiagHelperUtilFactory, INetDiagHelperUtilFactory_Vtbl, 0x104613fb_bc57_4178_95ba_88809698354a);
 ::windows_core::imp::interface_hierarchy!(INetDiagHelperUtilFactory, ::windows_core::IUnknown);
@@ -276,7 +276,7 @@ impl INetDiagHelperUtilFactory {
 #[doc(hidden)]
 pub struct INetDiagHelperUtilFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateUtilityInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateUtilityInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const AT_BOOLEAN: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(1i32);
 pub const AT_GUID: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(11i32);

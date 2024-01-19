@@ -22,7 +22,7 @@ impl IWPCGamesSettings {
 #[doc(hidden)]
 pub struct IWPCGamesSettings_Vtbl {
     pub base__: IWPCSettings_Vtbl,
-    pub IsBlocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidappid: ::windows_core::GUID, pdwreasons: *mut u32) -> ::windows_core::HRESULT,
+    pub IsBlocked: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWPCProviderConfig, IWPCProviderConfig_Vtbl, 0xbef54196_2d02_4a26_b6e5_d65af295d0f1);
 ::windows_core::imp::interface_hierarchy!(IWPCProviderConfig, ::windows_core::IUnknown);
@@ -53,9 +53,9 @@ impl IWPCProviderConfig {
 #[doc(hidden)]
 pub struct IWPCProviderConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetUserSummary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsid: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrusersummary: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Configure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrsid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub RequestOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, dwflags: u32) -> ::windows_core::HRESULT,
+    pub GetUserSummary: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Configure: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub RequestOverride: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, ::std::mem::MaybeUninit<::windows_core::BSTR>, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWPCProviderState, IWPCProviderState_Vtbl, 0x50b6a267_c4bd_450b_adb5_759073837c9e);
 ::windows_core::imp::interface_hierarchy!(IWPCProviderState, ::windows_core::IUnknown);
@@ -71,8 +71,8 @@ impl IWPCProviderState {
 #[doc(hidden)]
 pub struct IWPCProviderState_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Disable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Enable: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Disable: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWPCProviderSupport, IWPCProviderSupport_Vtbl, 0x41eba572_23ed_4779_bec1_8df96206c44c);
 ::windows_core::imp::interface_hierarchy!(IWPCProviderSupport, ::windows_core::IUnknown);
@@ -86,7 +86,7 @@ impl IWPCProviderSupport {
 #[doc(hidden)]
 pub struct IWPCProviderSupport_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidprovider: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetCurrent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWPCSettings, IWPCSettings_Vtbl, 0x8fdf6ca1_0189_47e4_b670_1a8a4636e340);
 ::windows_core::imp::interface_hierarchy!(IWPCSettings, ::windows_core::IUnknown);
@@ -108,9 +108,9 @@ impl IWPCSettings {
 #[doc(hidden)]
 pub struct IWPCSettings_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub IsLoggingRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfrequired: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetLastSettingsChangeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows_core::HRESULT,
-    pub GetRestrictions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwrestrictions: *mut WPCFLAG_RESTRICTION) -> ::windows_core::HRESULT,
+    pub IsLoggingRequired: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetLastSettingsChangeTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::SYSTEMTIME) -> ::windows_core::HRESULT,
+    pub GetRestrictions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WPCFLAG_RESTRICTION) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWPCWebSettings, IWPCWebSettings_Vtbl, 0xffccbdb8_0992_4c30_b0f1_1cbb09c240aa);
 ::windows_core::imp::interface_hierarchy!(IWPCWebSettings, ::windows_core::IUnknown, IWPCSettings);
@@ -144,8 +144,8 @@ impl IWPCWebSettings {
 #[doc(hidden)]
 pub struct IWPCWebSettings_Vtbl {
     pub base__: IWPCSettings_Vtbl,
-    pub GetSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsettings: *mut WPCFLAG_WEB_SETTING) -> ::windows_core::HRESULT,
-    pub RequestURLOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pcszurl: ::windows_core::PCWSTR, curls: u32, ppcszsuburls: *const ::windows_core::PCWSTR, pfchanged: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WPCFLAG_WEB_SETTING) -> ::windows_core::HRESULT,
+    pub RequestURLOverride: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::HWND, ::windows_core::PCWSTR, u32, *const ::windows_core::PCWSTR, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWindowsParentalControls, IWindowsParentalControls_Vtbl, 0x28b4d88b_e072_49e6_804d_26edbe21a7b9);
 ::windows_core::imp::interface_hierarchy!(IWindowsParentalControls, ::windows_core::IUnknown, IWindowsParentalControlsCore);
@@ -183,7 +183,7 @@ impl IWindowsParentalControls {
 #[doc(hidden)]
 pub struct IWindowsParentalControls_Vtbl {
     pub base__: IWindowsParentalControlsCore_Vtbl,
-    pub GetGamesSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcszsid: ::windows_core::PCWSTR, ppsettings: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetGamesSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IWindowsParentalControlsCore, IWindowsParentalControlsCore_Vtbl, 0x4ff40a0f_3f3b_4d7c_a41b_4f39d7b44d05);
 ::windows_core::imp::interface_hierarchy!(IWindowsParentalControlsCore, ::windows_core::IUnknown);
@@ -214,10 +214,10 @@ impl IWindowsParentalControlsCore {
 #[doc(hidden)]
 pub struct IWindowsParentalControlsCore_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevisibility: *mut WPCFLAG_VISIBILITY) -> ::windows_core::HRESULT,
-    pub GetUserSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcszsid: ::windows_core::PCWSTR, ppsettings: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetWebSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcszsid: ::windows_core::PCWSTR, ppsettings: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetWebFilterInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidid: *mut ::windows_core::GUID, ppszname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetVisibility: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WPCFLAG_VISIBILITY) -> ::windows_core::HRESULT,
+    pub GetUserSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetWebSettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetWebFilterInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 pub const ARRAY_SEP_CHAR: u32 = 9u32;
 pub const FACILITY_WPC: u32 = 2457u32;

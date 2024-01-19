@@ -50,16 +50,16 @@ impl IDXCoreAdapter {
 #[doc(hidden)]
 pub struct IDXCoreAdapter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub IsValid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> bool,
-    pub IsAttributeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributeguid: *const ::windows_core::GUID) -> bool,
-    pub IsPropertySupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: DXCoreAdapterProperty) -> bool,
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: DXCoreAdapterProperty, buffersize: usize, propertydata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetPropertySize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: DXCoreAdapterProperty, buffersize: *mut usize) -> ::windows_core::HRESULT,
-    pub IsQueryStateSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: DXCoreAdapterState) -> bool,
-    pub QueryState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: *const ::core::ffi::c_void, outputbuffersize: usize, outputbuffer: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub IsSetStateSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, property: DXCoreAdapterState) -> bool,
-    pub SetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: *const ::core::ffi::c_void, inputdatasize: usize, inputdata: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetFactory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppvfactory: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsValid: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> bool,
+    pub IsAttributeSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> bool,
+    pub IsPropertySupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, DXCoreAdapterProperty) -> bool,
+    pub GetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, DXCoreAdapterProperty, usize, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPropertySize: unsafe extern "system" fn(*mut ::core::ffi::c_void, DXCoreAdapterProperty, *mut usize) -> ::windows_core::HRESULT,
+    pub IsQueryStateSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, DXCoreAdapterState) -> bool,
+    pub QueryState: unsafe extern "system" fn(*mut ::core::ffi::c_void, DXCoreAdapterState, usize, *const ::core::ffi::c_void, usize, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsSetStateSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, DXCoreAdapterState) -> bool,
+    pub SetState: unsafe extern "system" fn(*mut ::core::ffi::c_void, DXCoreAdapterState, usize, *const ::core::ffi::c_void, usize, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetFactory: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDXCoreAdapterFactory, IDXCoreAdapterFactory_Vtbl, 0x78ee5945_c36e_4b13_a669_005dd11c0f06);
 ::windows_core::imp::interface_hierarchy!(IDXCoreAdapterFactory, ::windows_core::IUnknown);
@@ -96,11 +96,11 @@ impl IDXCoreAdapterFactory {
 #[doc(hidden)]
 pub struct IDXCoreAdapterFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateAdapterList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numattributes: u32, filterattributes: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppvadapterlist: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetAdapterByLuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adapterluid: *const super::super::Foundation::LUID, riid: *const ::windows_core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub IsNotificationTypeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, notificationtype: DXCoreNotificationType) -> bool,
-    pub RegisterEventNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxcoreobject: *mut ::core::ffi::c_void, notificationtype: DXCoreNotificationType, callbackfunction: PFN_DXCORE_NOTIFICATION_CALLBACK, callbackcontext: *const ::core::ffi::c_void, eventcookie: *mut u32) -> ::windows_core::HRESULT,
-    pub UnregisterEventNotification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcookie: u32) -> ::windows_core::HRESULT,
+    pub CreateAdapterList: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAdapterByLuid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::Foundation::LUID, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsNotificationTypeSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, DXCoreNotificationType) -> bool,
+    pub RegisterEventNotification: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, DXCoreNotificationType, PFN_DXCORE_NOTIFICATION_CALLBACK, *const ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub UnregisterEventNotification: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDXCoreAdapterList, IDXCoreAdapterList_Vtbl, 0x526c7776_40e9_459b_b711_f32ad76dfc28);
 ::windows_core::imp::interface_hierarchy!(IDXCoreAdapterList, ::windows_core::IUnknown);
@@ -136,12 +136,12 @@ impl IDXCoreAdapterList {
 #[doc(hidden)]
 pub struct IDXCoreAdapterList_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, riid: *const ::windows_core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetAdapterCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub IsStale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> bool,
-    pub GetFactory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppvfactory: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Sort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numpreferences: u32, preferences: *const DXCoreAdapterPreference) -> ::windows_core::HRESULT,
-    pub IsAdapterPreferenceSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preference: DXCoreAdapterPreference) -> bool,
+    pub GetAdapter: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAdapterCount: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
+    pub IsStale: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> bool,
+    pub GetFactory: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Sort: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const DXCoreAdapterPreference) -> ::windows_core::HRESULT,
+    pub IsAdapterPreferenceSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, DXCoreAdapterPreference) -> bool,
 }
 pub const AcgCompatible: DXCoreAdapterProperty = DXCoreAdapterProperty(10u32);
 pub const AdapterBudgetChange: DXCoreNotificationType = DXCoreNotificationType(2u32);

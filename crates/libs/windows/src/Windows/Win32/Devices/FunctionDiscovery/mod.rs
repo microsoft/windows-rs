@@ -61,18 +61,18 @@ impl IFunctionDiscovery {
 #[doc(hidden)]
 pub struct IFunctionDiscovery_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetInstanceCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcategory: ::windows_core::PCWSTR, pszsubcategory: ::windows_core::PCWSTR, fincludeallsubcategories: super::super::Foundation::BOOL, ppifunctioninstancecollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetInstanceCollection: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, super::super::Foundation::BOOL, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfunctioninstanceidentity: ::windows_core::PCWSTR, ppifunctioninstance: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetInstance: usize,
-    pub CreateInstanceCollectionQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcategory: ::windows_core::PCWSTR, pszsubcategory: ::windows_core::PCWSTR, fincludeallsubcategories: super::super::Foundation::BOOL, pifunctiondiscoverynotification: *mut ::core::ffi::c_void, pfdqcquerycontext: *mut u64, ppifunctioninstancecollectionquery: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateInstanceQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfunctioninstanceidentity: ::windows_core::PCWSTR, pifunctiondiscoverynotification: *mut ::core::ffi::c_void, pfdqcquerycontext: *mut u64, ppifunctioninstancequery: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstanceCollectionQuery: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, super::super::Foundation::BOOL, *mut ::core::ffi::c_void, *mut u64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstanceQuery: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void, *mut u64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub AddInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumsystemvisibility: SystemVisibilityFlags, pszcategory: ::windows_core::PCWSTR, pszsubcategory: ::windows_core::PCWSTR, pszcategoryidentity: ::windows_core::PCWSTR, ppifunctioninstance: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, SystemVisibilityFlags, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AddInstance: usize,
-    pub RemoveInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumsystemvisibility: SystemVisibilityFlags, pszcategory: ::windows_core::PCWSTR, pszsubcategory: ::windows_core::PCWSTR, pszcategoryidentity: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub RemoveInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, SystemVisibilityFlags, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFunctionDiscoveryNotification, IFunctionDiscoveryNotification_Vtbl, 0x5f6c1ba8_5330_422e_a368_572b244d3f87);
 ::windows_core::imp::interface_hierarchy!(IFunctionDiscoveryNotification, ::windows_core::IUnknown);
@@ -103,11 +103,11 @@ impl IFunctionDiscoveryNotification {
 pub struct IFunctionDiscoveryNotification_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub OnUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumqueryupdateaction: QueryUpdateAction, fdqcquerycontext: u64, pifunctioninstance: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnUpdate: unsafe extern "system" fn(*mut ::core::ffi::c_void, QueryUpdateAction, u64, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     OnUpdate: usize,
-    pub OnError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows_core::HRESULT, fdqcquerycontext: u64, pszprovider: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub OnEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweventid: u32, fdqcquerycontext: u64, pszprovider: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub OnError: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, u64, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub OnEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u64, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFunctionDiscoveryProvider, IFunctionDiscoveryProvider_Vtbl, 0xdcde394f_1478_4813_a402_f6fb10657222);
 ::windows_core::imp::interface_hierarchy!(IFunctionDiscoveryProvider, ::windows_core::IUnknown);
@@ -177,27 +177,27 @@ impl IFunctionDiscoveryProvider {
 #[doc(hidden)]
 pub struct IFunctionDiscoveryProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pifunctiondiscoveryproviderfactory: *mut ::core::ffi::c_void, pifunctiondiscoverynotification: *mut ::core::ffi::c_void, lciduserdefault: u32, pdwstgaccesscapabilities: *mut u32) -> ::windows_core::HRESULT,
-    pub Query: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pifunctiondiscoveryproviderquery: *mut ::core::ffi::c_void, ppifunctioninstancecollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EndQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub Query: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EndQuery: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub InstancePropertyStoreValidateAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pifunctioninstance: *mut ::core::ffi::c_void, iproviderinstancecontext: isize, dwstgaccess: u32) -> ::windows_core::HRESULT,
+    pub InstancePropertyStoreValidateAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, isize, u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     InstancePropertyStoreValidateAccess: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub InstancePropertyStoreOpen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pifunctioninstance: *mut ::core::ffi::c_void, iproviderinstancecontext: isize, dwstgaccess: u32, ppipropertystore: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InstancePropertyStoreOpen: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, isize, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem")))]
     InstancePropertyStoreOpen: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub InstancePropertyStoreFlush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pifunctioninstance: *mut ::core::ffi::c_void, iproviderinstancecontext: isize) -> ::windows_core::HRESULT,
+    pub InstancePropertyStoreFlush: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, isize) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     InstancePropertyStoreFlush: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub InstanceQueryService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pifunctioninstance: *mut ::core::ffi::c_void, iproviderinstancecontext: isize, guidservice: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppiunknown: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InstanceQueryService: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, isize, *const ::windows_core::GUID, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     InstanceQueryService: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub InstanceReleased: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pifunctioninstance: *mut ::core::ffi::c_void, iproviderinstancecontext: isize) -> ::windows_core::HRESULT,
+    pub InstanceReleased: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, isize) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     InstanceReleased: usize,
 }
@@ -232,14 +232,14 @@ impl IFunctionDiscoveryProviderFactory {
 pub struct IFunctionDiscoveryProviderFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub CreatePropertyStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppipropertystore: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreatePropertyStore: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     CreatePropertyStore: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsubcategory: ::windows_core::PCWSTR, pszproviderinstanceidentity: ::windows_core::PCWSTR, iproviderinstancecontext: isize, pipropertystore: *mut ::core::ffi::c_void, pifunctiondiscoveryprovider: *mut ::core::ffi::c_void, ppifunctioninstance: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, isize, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem")))]
     CreateInstance: usize,
-    pub CreateFunctionInstanceCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppifunctioninstancecollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFunctionInstanceCollection: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFunctionDiscoveryProviderQuery, IFunctionDiscoveryProviderQuery_Vtbl, 0x6876ea98_baec_46db_bc20_75a76e267a3a);
 ::windows_core::imp::interface_hierarchy!(IFunctionDiscoveryProviderQuery, ::windows_core::IUnknown);
@@ -263,10 +263,10 @@ impl IFunctionDiscoveryProviderQuery {
 #[doc(hidden)]
 pub struct IFunctionDiscoveryProviderQuery_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub IsInstanceQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisinstancequery: *mut super::super::Foundation::BOOL, ppszconstraintvalue: *mut *mut u16) -> ::windows_core::HRESULT,
-    pub IsSubcategoryQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pissubcategoryquery: *mut super::super::Foundation::BOOL, ppszconstraintvalue: *mut *mut u16) -> ::windows_core::HRESULT,
-    pub GetQueryConstraints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiproviderqueryconstraints: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetPropertyConstraints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiproviderpropertyconstraints: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsInstanceQuery: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut *mut u16) -> ::windows_core::HRESULT,
+    pub IsSubcategoryQuery: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL, *mut *mut u16) -> ::windows_core::HRESULT,
+    pub GetQueryConstraints: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPropertyConstraints: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFunctionDiscoveryServiceProvider, IFunctionDiscoveryServiceProvider_Vtbl, 0x4c81ed02_1b04_43f2_a451_69966cbcd1c2);
 ::windows_core::imp::interface_hierarchy!(IFunctionDiscoveryServiceProvider, ::windows_core::IUnknown);
@@ -287,7 +287,7 @@ impl IFunctionDiscoveryServiceProvider {
 pub struct IFunctionDiscoveryServiceProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pifunctioninstance: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Initialize: usize,
 }
@@ -334,13 +334,13 @@ impl IFunctionInstance {
 #[doc(hidden)]
 pub struct IFunctionInstance_Vtbl {
     pub base__: super::super::System::Com::IServiceProvider_Vtbl,
-    pub GetID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszcomemidentity: *mut *mut u16) -> ::windows_core::HRESULT,
-    pub GetProviderInstanceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszcomemproviderinstanceidentity: *mut *mut u16) -> ::windows_core::HRESULT,
+    pub GetID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut u16) -> ::windows_core::HRESULT,
+    pub GetProviderInstanceID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut u16) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub OpenPropertyStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstgaccess: super::super::System::Com::STGM, ppipropertystore: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OpenPropertyStore: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::System::Com::STGM, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem")))]
     OpenPropertyStore: usize,
-    pub GetCategory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszcomemcategory: *mut *mut u16, ppszcomemsubcategory: *mut *mut u16) -> ::windows_core::HRESULT,
+    pub GetCategory: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut u16, *mut *mut u16) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFunctionInstanceCollection, IFunctionInstanceCollection_Vtbl, 0xf0a3d895_855c_42a2_948d_2f97d450ecb1);
 ::windows_core::imp::interface_hierarchy!(IFunctionInstanceCollection, ::windows_core::IUnknown);
@@ -389,25 +389,25 @@ impl IFunctionInstanceCollection {
 #[doc(hidden)]
 pub struct IFunctionInstanceCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszinstanceidentity: ::windows_core::PCWSTR, pdwindex: *mut u32, ppifunctioninstance: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Get: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Get: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppifunctioninstance: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pifunctioninstance: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppifunctioninstance: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Remove: usize,
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32) -> ::windows_core::HRESULT,
-    pub DeleteAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Delete: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub DeleteAll: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFunctionInstanceCollectionQuery, IFunctionInstanceCollectionQuery_Vtbl, 0x57cc6fd2_c09a_4289_bb72_25f04142058e);
 ::windows_core::imp::interface_hierarchy!(IFunctionInstanceCollectionQuery, ::windows_core::IUnknown);
@@ -433,12 +433,12 @@ impl IFunctionInstanceCollectionQuery {
 #[doc(hidden)]
 pub struct IFunctionInstanceCollectionQuery_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AddQueryConstraint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszconstraintname: ::windows_core::PCWSTR, pszconstraintvalue: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub AddQueryConstraint: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub AddPropertyConstraint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pv: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, enumpropertyconstraint: PropertyConstraint) -> ::windows_core::HRESULT,
+    pub AddPropertyConstraint: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, PropertyConstraint) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     AddPropertyConstraint: usize,
-    pub Execute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppifunctioninstancecollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Execute: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IFunctionInstanceQuery, IFunctionInstanceQuery_Vtbl, 0x6242bc6b_90ec_4b37_bb46_e229fd84ed95);
 ::windows_core::imp::interface_hierarchy!(IFunctionInstanceQuery, ::windows_core::IUnknown);
@@ -455,7 +455,7 @@ impl IFunctionInstanceQuery {
 pub struct IFunctionInstanceQuery_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub Execute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppifunctioninstance: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Execute: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Execute: usize,
 }
@@ -485,9 +485,9 @@ impl IPNPXAssociation {
 #[doc(hidden)]
 pub struct IPNPXAssociation_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Associate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsubcategory: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Unassociate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsubcategory: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsubcategory: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Associate: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Unassociate: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Delete: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPNPXDeviceAssociation, IPNPXDeviceAssociation_Vtbl, 0xeed366d0_35b8_4fc5_8d20_7e5bd31f6ded);
 ::windows_core::imp::interface_hierarchy!(IPNPXDeviceAssociation, ::windows_core::IUnknown);
@@ -518,9 +518,9 @@ impl IPNPXDeviceAssociation {
 #[doc(hidden)]
 pub struct IPNPXDeviceAssociation_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Associate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsubcategory: ::windows_core::PCWSTR, pifunctiondiscoverynotification: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Unassociate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsubcategory: ::windows_core::PCWSTR, pifunctiondiscoverynotification: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsubcategory: ::windows_core::PCWSTR, pifunctiondiscoverynotification: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Associate: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Unassociate: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Delete: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyStoreCollection, IPropertyStoreCollection_Vtbl, 0xd14d9c30_12d2_42d8_bce4_c60c2bb226fa);
 ::windows_core::imp::interface_hierarchy!(IPropertyStoreCollection, ::windows_core::IUnknown);
@@ -569,25 +569,25 @@ impl IPropertyStoreCollection {
 #[doc(hidden)]
 pub struct IPropertyStoreCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszinstanceidentity: ::windows_core::PCWSTR, pdwindex: *mut u32, ppipropertystore: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Get: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Get: usize,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppipropertystore: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Item: usize,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pipropertystore: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Add: usize,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pipropertystore: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Remove: usize,
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32) -> ::windows_core::HRESULT,
-    pub DeleteAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Delete: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub DeleteAll: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IProviderProperties, IProviderProperties_Vtbl, 0xcf986ea6_3b5f_4c5f_b88a_2f8b20ceef17);
 ::windows_core::imp::interface_hierarchy!(IProviderProperties, ::windows_core::IUnknown);
@@ -632,19 +632,19 @@ impl IProviderProperties {
 pub struct IProviderProperties_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pifunctioninstance: *mut ::core::ffi::c_void, iproviderinstancecontext: isize, pdwcount: *mut u32) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, isize, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetCount: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pifunctioninstance: *mut ::core::ffi::c_void, iproviderinstancecontext: isize, dwindex: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::HRESULT,
+    pub GetAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, isize, u32, *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem")))]
     GetAt: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pifunctioninstance: *mut ::core::ffi::c_void, iproviderinstancecontext: isize, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, isize, *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem")))]
     GetValue: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pifunctioninstance: *mut ::core::ffi::c_void, iproviderinstancecontext: isize, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub SetValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, isize, *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem")))]
     SetValue: usize,
 }
@@ -681,21 +681,21 @@ impl IProviderPropertyConstraintCollection {
 #[doc(hidden)]
 pub struct IProviderPropertyConstraintCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> ::windows_core::HRESULT,
+    pub Get: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Get: usize,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Item: usize,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, ppropvar: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, pdwpropertyconstraint: *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Next: usize,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IProviderPublishing, IProviderPublishing_Vtbl, 0xcd1b9a04_206c_4a05_a0c8_1635a21a2b7c);
 ::windows_core::imp::interface_hierarchy!(IProviderPublishing, ::windows_core::IUnknown);
@@ -723,10 +723,10 @@ impl IProviderPublishing {
 pub struct IProviderPublishing_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumvisibilityflags: SystemVisibilityFlags, pszsubcategory: ::windows_core::PCWSTR, pszproviderinstanceidentity: ::windows_core::PCWSTR, ppifunctioninstance: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, SystemVisibilityFlags, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateInstance: usize,
-    pub RemoveInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumvisibilityflags: SystemVisibilityFlags, pszsubcategory: ::windows_core::PCWSTR, pszproviderinstanceidentity: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub RemoveInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, SystemVisibilityFlags, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IProviderQueryConstraintCollection, IProviderQueryConstraintCollection_Vtbl, 0x9c243e11_3261_4bcd_b922_84a873d460ae);
 ::windows_core::imp::interface_hierarchy!(IProviderQueryConstraintCollection, ::windows_core::IUnknown);
@@ -759,12 +759,12 @@ impl IProviderQueryConstraintCollection {
 #[doc(hidden)]
 pub struct IProviderQueryConstraintCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows_core::HRESULT,
-    pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszconstraintname: ::windows_core::PCWSTR, ppszconstraintvalue: *mut *mut u16) -> ::windows_core::HRESULT,
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppszconstraintname: *mut *mut u16, ppszconstraintvalue: *mut *mut u16) -> ::windows_core::HRESULT,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszconstraintname: *mut *mut u16, ppszconstraintvalue: *mut *mut u16) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Get: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut u16) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut u16, *mut *mut u16) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut u16, *mut *mut u16) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const DEVICEDISPLAY_DISCOVERYMETHOD_AD_PRINTER: ::windows_core::PCWSTR = ::windows_core::w!("Published Printer");
 pub const DEVICEDISPLAY_DISCOVERYMETHOD_ASP_INFRA: ::windows_core::PCWSTR = ::windows_core::w!("AspInfra");

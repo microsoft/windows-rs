@@ -4,22 +4,22 @@
 pub struct IImageFeatureDescriptor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_Imaging")]
-    pub BitmapPixelFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows_core::HRESULT,
+    pub BitmapPixelFormat: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     BitmapPixelFormat: usize,
     #[cfg(feature = "Graphics_Imaging")]
-    pub BitmapAlphaMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapAlphaMode) -> ::windows_core::HRESULT,
+    pub BitmapAlphaMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Graphics::Imaging::BitmapAlphaMode) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))]
     BitmapAlphaMode: usize,
-    pub Width: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub Height: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
+    pub Width: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Height: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IImageFeatureDescriptor2, IImageFeatureDescriptor2_Vtbl, 0x2b27cca7_d533_5862_bb98_1611b155b0e1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImageFeatureDescriptor2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub PixelRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LearningModelPixelRange) -> ::windows_core::HRESULT,
+    pub PixelRange: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut LearningModelPixelRange) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IImageFeatureValue, IImageFeatureValue_Vtbl, 0xf0414fd9_c9aa_4405_b7fb_94f87c8a3037);
 #[repr(C)]
@@ -27,7 +27,7 @@ pub struct IImageFeatureDescriptor2_Vtbl {
 pub struct IImageFeatureValue_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media")]
-    pub VideoFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub VideoFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media"))]
     VideoFrame: usize,
 }
@@ -37,7 +37,7 @@ pub struct IImageFeatureValue_Vtbl {
 pub struct IImageFeatureValueStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Media")]
-    pub CreateFromVideoFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, image: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromVideoFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Media"))]
     CreateFromVideoFrame: usize,
 }
@@ -46,21 +46,21 @@ pub struct IImageFeatureValueStatics_Vtbl {
 #[doc(hidden)]
 pub struct ILearningModel_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Author: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Domain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Version: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows_core::HRESULT,
+    pub Author: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Domain: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Version: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Metadata: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Metadata: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Metadata: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub InputFeatures: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InputFeatures: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     InputFeatures: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub OutputFeatures: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OutputFeatures: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     OutputFeatures: usize,
 }
@@ -69,19 +69,19 @@ pub struct ILearningModel_Vtbl {
 #[doc(hidden)]
 pub struct ILearningModelBinding_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Bind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Bind: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub BindWithProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, value: *mut ::core::ffi::c_void, props: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BindWithProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     BindWithProperties: usize,
-    pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clear: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILearningModelBindingFactory, ILearningModelBindingFactory_Vtbl, 0xc95f7a7a_e788_475e_8917_23aa381faf0b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelBindingFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateFromSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, session: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromSession: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILearningModelDevice, ILearningModelDevice_Vtbl, 0xf5c2c8fe_3f56_4a8c_ac5f_fdb92d8b8252);
 #[repr(C)]
@@ -89,11 +89,11 @@ pub struct ILearningModelBindingFactory_Vtbl {
 pub struct ILearningModelDevice_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics")]
-    pub AdapterId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::DisplayAdapterId) -> ::windows_core::HRESULT,
+    pub AdapterId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Graphics::DisplayAdapterId) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics"))]
     AdapterId: usize,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub Direct3D11Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Direct3D11Device: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
     Direct3D11Device: usize,
 }
@@ -102,7 +102,7 @@ pub struct ILearningModelDevice_Vtbl {
 #[doc(hidden)]
 pub struct ILearningModelDeviceFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, devicekind: LearningModelDeviceKind, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, LearningModelDeviceKind, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILearningModelDeviceStatics, ILearningModelDeviceStatics_Vtbl, 0x49f32107_a8bf_42bb_92c7_10b12dc5d21f);
 #[repr(C)]
@@ -110,7 +110,7 @@ pub struct ILearningModelDeviceFactory_Vtbl {
 pub struct ILearningModelDeviceStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub CreateFromDirect3D11Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromDirect3D11Device: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))]
     CreateFromDirect3D11Device: usize,
 }
@@ -119,11 +119,11 @@ pub struct ILearningModelDeviceStatics_Vtbl {
 #[doc(hidden)]
 pub struct ILearningModelEvaluationResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CorrelationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub ErrorStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub Succeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub CorrelationId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub ErrorStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Succeeded: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Outputs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Outputs: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Outputs: usize,
 }
@@ -166,10 +166,10 @@ impl ::windows_core::RuntimeType for ILearningModelFeatureDescriptor {
 #[doc(hidden)]
 pub struct ILearningModelFeatureDescriptor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LearningModelFeatureKind) -> ::windows_core::HRESULT,
-    pub IsRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut LearningModelFeatureKind) -> ::windows_core::HRESULT,
+    pub IsRequired: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILearningModelFeatureValue, ILearningModelFeatureValue_Vtbl, 0xf51005db_4085_4dfe_9fed_95eb0c0cf75c);
 ::windows_core::imp::interface_hierarchy!(ILearningModelFeatureValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -189,7 +189,7 @@ impl ::windows_core::RuntimeType for ILearningModelFeatureValue {
 #[doc(hidden)]
 pub struct ILearningModelFeatureValue_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Kind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LearningModelFeatureKind) -> ::windows_core::HRESULT,
+    pub Kind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut LearningModelFeatureKind) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILearningModelOperatorProvider, ILearningModelOperatorProvider_Vtbl, 0x2a222e5d_afb1_47ed_bfad_b5b3a459ec04);
 ::windows_core::imp::interface_hierarchy!(ILearningModelOperatorProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -207,20 +207,20 @@ pub struct ILearningModelOperatorProvider_Vtbl {
 #[doc(hidden)]
 pub struct ILearningModelSession_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Model: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Device: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Model: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Device: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub EvaluationProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EvaluationProperties: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     EvaluationProperties: usize,
-    pub EvaluateAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindings: *mut ::core::ffi::c_void, correlationid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EvaluateAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub EvaluateFeaturesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, features: *mut ::core::ffi::c_void, correlationid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EvaluateFeaturesAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     EvaluateFeaturesAsync: usize,
-    pub Evaluate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindings: *mut ::core::ffi::c_void, correlationid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Evaluate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub EvaluateFeatures: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, features: *mut ::core::ffi::c_void, correlationid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EvaluateFeatures: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     EvaluateFeatures: usize,
 }
@@ -229,38 +229,38 @@ pub struct ILearningModelSession_Vtbl {
 #[doc(hidden)]
 pub struct ILearningModelSessionFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateFromModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, model: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateFromModelOnDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, model: *mut ::core::ffi::c_void, devicetorunon: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromModel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromModelOnDevice: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILearningModelSessionFactory2, ILearningModelSessionFactory2_Vtbl, 0x4e5c88bf_0a1f_5fec_ade0_2fd91e4ef29b);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelSessionFactory2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateFromModelOnDeviceWithSessionOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, model: *mut ::core::ffi::c_void, devicetorunon: *mut ::core::ffi::c_void, learningmodelsessionoptions: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromModelOnDeviceWithSessionOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILearningModelSessionOptions, ILearningModelSessionOptions_Vtbl, 0xb8f63fa1_134d_5133_8cff_3a5c3c263beb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelSessionOptions_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub BatchSizeOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
-    pub SetBatchSizeOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
+    pub BatchSizeOverride: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetBatchSizeOverride: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILearningModelSessionOptions2, ILearningModelSessionOptions2_Vtbl, 0x6fcd1dc4_175f_5bd2_8de5_2f2006a25adf);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelSessionOptions2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CloseModelOnSessionCreation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub SetCloseModelOnSessionCreation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows_core::HRESULT,
+    pub CloseModelOnSessionCreation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub SetCloseModelOnSessionCreation: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILearningModelSessionOptions3, ILearningModelSessionOptions3_Vtbl, 0x58e15cee_d8c2_56fc_92e8_76d751081086);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelSessionOptions3_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub OverrideNamedDimension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, dimension: u32) -> ::windows_core::HRESULT,
+    pub OverrideNamedDimension: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILearningModelStatics, ILearningModelStatics_Vtbl, 0xe3b977e8_6952_4e47_8ef4_1f7f07897c6d);
 #[repr(C)]
@@ -268,29 +268,29 @@ pub struct ILearningModelSessionOptions3_Vtbl {
 pub struct ILearningModelStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage")]
-    pub LoadFromStorageFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelfile: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LoadFromStorageFileAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage"))]
     LoadFromStorageFileAsync: usize,
     #[cfg(feature = "Storage_Streams")]
-    pub LoadFromStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelstream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LoadFromStreamAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     LoadFromStreamAsync: usize,
-    pub LoadFromFilePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LoadFromFilePath: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
-    pub LoadFromStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelstream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LoadFromStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     LoadFromStream: usize,
     #[cfg(feature = "Storage")]
-    pub LoadFromStorageFileWithOperatorProviderAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelfile: *mut ::core::ffi::c_void, operatorprovider: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LoadFromStorageFileWithOperatorProviderAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage"))]
     LoadFromStorageFileWithOperatorProviderAsync: usize,
     #[cfg(feature = "Storage_Streams")]
-    pub LoadFromStreamWithOperatorProviderAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelstream: *mut ::core::ffi::c_void, operatorprovider: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LoadFromStreamWithOperatorProviderAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     LoadFromStreamWithOperatorProviderAsync: usize,
-    pub LoadFromFilePathWithOperatorProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::std::mem::MaybeUninit<::windows_core::HSTRING>, operatorprovider: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LoadFromFilePathWithOperatorProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
-    pub LoadFromStreamWithOperatorProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelstream: *mut ::core::ffi::c_void, operatorprovider: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LoadFromStreamWithOperatorProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     LoadFromStreamWithOperatorProvider: usize,
 }
@@ -299,15 +299,15 @@ pub struct ILearningModelStatics_Vtbl {
 #[doc(hidden)]
 pub struct IMapFeatureDescriptor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub KeyKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TensorKind) -> ::windows_core::HRESULT,
-    pub ValueDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub KeyKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut TensorKind) -> ::windows_core::HRESULT,
+    pub ValueDescriptor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISequenceFeatureDescriptor, ISequenceFeatureDescriptor_Vtbl, 0x84f6945a_562b_4d62_a851_739aced96668);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISequenceFeatureDescriptor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub ElementDescriptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ElementDescriptor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITensor, ITensor_Vtbl, 0x05489593_a305_4a25_ad09_440119b4b7f6);
 ::windows_core::imp::interface_hierarchy!(ITensor, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -344,9 +344,9 @@ impl ::windows_core::RuntimeType for ITensor {
 #[doc(hidden)]
 pub struct ITensor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub TensorKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TensorKind) -> ::windows_core::HRESULT,
+    pub TensorKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut TensorKind) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Shape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Shape: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Shape: usize,
 }
@@ -356,7 +356,7 @@ pub struct ITensor_Vtbl {
 pub struct ITensorBoolean_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetAsVectorView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAsVectorView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetAsVectorView: usize,
 }
@@ -365,17 +365,17 @@ pub struct ITensorBoolean_Vtbl {
 #[doc(hidden)]
 pub struct ITensorBooleanStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Create2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Create2: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data_array_size: u32, data: *const bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const bool, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromArray: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromIterable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromIterable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromIterable: usize,
 }
@@ -384,9 +384,9 @@ pub struct ITensorBooleanStatics_Vtbl {
 #[doc(hidden)]
 pub struct ITensorBooleanStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, data_array_size: u32, data: *const bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const bool, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
-    pub CreateFromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, buffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
@@ -396,7 +396,7 @@ pub struct ITensorBooleanStatics2_Vtbl {
 pub struct ITensorDouble_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetAsVectorView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAsVectorView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetAsVectorView: usize,
 }
@@ -405,17 +405,17 @@ pub struct ITensorDouble_Vtbl {
 #[doc(hidden)]
 pub struct ITensorDoubleStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Create2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Create2: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data_array_size: u32, data: *const f64, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromArray: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromIterable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromIterable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromIterable: usize,
 }
@@ -424,9 +424,9 @@ pub struct ITensorDoubleStatics_Vtbl {
 #[doc(hidden)]
 pub struct ITensorDoubleStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, data_array_size: u32, data: *const f64, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const f64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
-    pub CreateFromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, buffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
@@ -435,9 +435,9 @@ pub struct ITensorDoubleStatics2_Vtbl {
 #[doc(hidden)]
 pub struct ITensorFeatureDescriptor_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub TensorKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TensorKind) -> ::windows_core::HRESULT,
+    pub TensorKind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut TensorKind) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Shape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Shape: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Shape: usize,
 }
@@ -447,7 +447,7 @@ pub struct ITensorFeatureDescriptor_Vtbl {
 pub struct ITensorFloat_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetAsVectorView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAsVectorView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetAsVectorView: usize,
 }
@@ -457,7 +457,7 @@ pub struct ITensorFloat_Vtbl {
 pub struct ITensorFloat16Bit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetAsVectorView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAsVectorView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetAsVectorView: usize,
 }
@@ -466,17 +466,17 @@ pub struct ITensorFloat16Bit_Vtbl {
 #[doc(hidden)]
 pub struct ITensorFloat16BitStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Create2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Create2: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data_array_size: u32, data: *const f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const f32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromArray: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromIterable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromIterable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromIterable: usize,
 }
@@ -485,9 +485,9 @@ pub struct ITensorFloat16BitStatics_Vtbl {
 #[doc(hidden)]
 pub struct ITensorFloat16BitStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, data_array_size: u32, data: *const f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const f32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
-    pub CreateFromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, buffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
@@ -496,17 +496,17 @@ pub struct ITensorFloat16BitStatics2_Vtbl {
 #[doc(hidden)]
 pub struct ITensorFloatStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Create2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Create2: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data_array_size: u32, data: *const f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const f32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromArray: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromIterable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromIterable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromIterable: usize,
 }
@@ -515,9 +515,9 @@ pub struct ITensorFloatStatics_Vtbl {
 #[doc(hidden)]
 pub struct ITensorFloatStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, data_array_size: u32, data: *const f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const f32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
-    pub CreateFromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, buffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
@@ -527,7 +527,7 @@ pub struct ITensorFloatStatics2_Vtbl {
 pub struct ITensorInt16Bit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetAsVectorView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAsVectorView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetAsVectorView: usize,
 }
@@ -536,17 +536,17 @@ pub struct ITensorInt16Bit_Vtbl {
 #[doc(hidden)]
 pub struct ITensorInt16BitStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Create2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Create2: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data_array_size: u32, data: *const i16, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const i16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromArray: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromIterable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromIterable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromIterable: usize,
 }
@@ -555,9 +555,9 @@ pub struct ITensorInt16BitStatics_Vtbl {
 #[doc(hidden)]
 pub struct ITensorInt16BitStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, data_array_size: u32, data: *const i16, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const i16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
-    pub CreateFromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, buffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
@@ -567,7 +567,7 @@ pub struct ITensorInt16BitStatics2_Vtbl {
 pub struct ITensorInt32Bit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetAsVectorView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAsVectorView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetAsVectorView: usize,
 }
@@ -576,17 +576,17 @@ pub struct ITensorInt32Bit_Vtbl {
 #[doc(hidden)]
 pub struct ITensorInt32BitStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Create2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Create2: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data_array_size: u32, data: *const i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromArray: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromIterable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromIterable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromIterable: usize,
 }
@@ -595,9 +595,9 @@ pub struct ITensorInt32BitStatics_Vtbl {
 #[doc(hidden)]
 pub struct ITensorInt32BitStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, data_array_size: u32, data: *const i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
-    pub CreateFromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, buffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
@@ -607,7 +607,7 @@ pub struct ITensorInt32BitStatics2_Vtbl {
 pub struct ITensorInt64Bit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetAsVectorView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAsVectorView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetAsVectorView: usize,
 }
@@ -616,17 +616,17 @@ pub struct ITensorInt64Bit_Vtbl {
 #[doc(hidden)]
 pub struct ITensorInt64BitStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Create2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Create2: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data_array_size: u32, data: *const i64, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const i64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromArray: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromIterable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromIterable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromIterable: usize,
 }
@@ -635,9 +635,9 @@ pub struct ITensorInt64BitStatics_Vtbl {
 #[doc(hidden)]
 pub struct ITensorInt64BitStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, data_array_size: u32, data: *const i64, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const i64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
-    pub CreateFromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, buffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
@@ -647,7 +647,7 @@ pub struct ITensorInt64BitStatics2_Vtbl {
 pub struct ITensorInt8Bit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetAsVectorView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAsVectorView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetAsVectorView: usize,
 }
@@ -656,17 +656,17 @@ pub struct ITensorInt8Bit_Vtbl {
 #[doc(hidden)]
 pub struct ITensorInt8BitStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Create2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Create2: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data_array_size: u32, data: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const u8, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromArray: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromIterable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromIterable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromIterable: usize,
 }
@@ -675,9 +675,9 @@ pub struct ITensorInt8BitStatics_Vtbl {
 #[doc(hidden)]
 pub struct ITensorInt8BitStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, data_array_size: u32, data: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const u8, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
-    pub CreateFromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, buffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
@@ -687,7 +687,7 @@ pub struct ITensorInt8BitStatics2_Vtbl {
 pub struct ITensorString_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetAsVectorView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAsVectorView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetAsVectorView: usize,
 }
@@ -696,17 +696,17 @@ pub struct ITensorString_Vtbl {
 #[doc(hidden)]
 pub struct ITensorStringStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Create2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Create2: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data_array_size: u32, data: *const ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromArray: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromIterable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromIterable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromIterable: usize,
 }
@@ -715,7 +715,7 @@ pub struct ITensorStringStatics_Vtbl {
 #[doc(hidden)]
 pub struct ITensorStringStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, data_array_size: u32, data: *const ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITensorUInt16Bit, ITensorUInt16Bit_Vtbl, 0x68140f4b_23c0_42f3_81f6_a891c011bc3f);
 #[repr(C)]
@@ -723,7 +723,7 @@ pub struct ITensorStringStatics2_Vtbl {
 pub struct ITensorUInt16Bit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetAsVectorView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAsVectorView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetAsVectorView: usize,
 }
@@ -732,17 +732,17 @@ pub struct ITensorUInt16Bit_Vtbl {
 #[doc(hidden)]
 pub struct ITensorUInt16BitStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Create2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Create2: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data_array_size: u32, data: *const u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const u16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromArray: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromIterable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromIterable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromIterable: usize,
 }
@@ -751,9 +751,9 @@ pub struct ITensorUInt16BitStatics_Vtbl {
 #[doc(hidden)]
 pub struct ITensorUInt16BitStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, data_array_size: u32, data: *const u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const u16, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
-    pub CreateFromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, buffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
@@ -763,7 +763,7 @@ pub struct ITensorUInt16BitStatics2_Vtbl {
 pub struct ITensorUInt32Bit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetAsVectorView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAsVectorView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetAsVectorView: usize,
 }
@@ -772,17 +772,17 @@ pub struct ITensorUInt32Bit_Vtbl {
 #[doc(hidden)]
 pub struct ITensorUInt32BitStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Create2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Create2: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data_array_size: u32, data: *const u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromArray: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromIterable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromIterable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromIterable: usize,
 }
@@ -791,9 +791,9 @@ pub struct ITensorUInt32BitStatics_Vtbl {
 #[doc(hidden)]
 pub struct ITensorUInt32BitStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, data_array_size: u32, data: *const u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
-    pub CreateFromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, buffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
@@ -803,7 +803,7 @@ pub struct ITensorUInt32BitStatics2_Vtbl {
 pub struct ITensorUInt64Bit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetAsVectorView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAsVectorView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetAsVectorView: usize,
 }
@@ -812,17 +812,17 @@ pub struct ITensorUInt64Bit_Vtbl {
 #[doc(hidden)]
 pub struct ITensorUInt64BitStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Create2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Create2: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data_array_size: u32, data: *const u64, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const u64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromArray: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromIterable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromIterable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromIterable: usize,
 }
@@ -831,9 +831,9 @@ pub struct ITensorUInt64BitStatics_Vtbl {
 #[doc(hidden)]
 pub struct ITensorUInt64BitStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, data_array_size: u32, data: *const u64, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const u64, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
-    pub CreateFromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, buffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }
@@ -843,7 +843,7 @@ pub struct ITensorUInt64BitStatics2_Vtbl {
 pub struct ITensorUInt8Bit_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetAsVectorView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAsVectorView: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetAsVectorView: usize,
 }
@@ -852,17 +852,17 @@ pub struct ITensorUInt8Bit_Vtbl {
 #[doc(hidden)]
 pub struct ITensorUInt8BitStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub Create2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Create2: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data_array_size: u32, data: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *const u8, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromArray: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub CreateFromIterable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape: *mut ::core::ffi::c_void, data: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromIterable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateFromIterable: usize,
 }
@@ -871,9 +871,9 @@ pub struct ITensorUInt8BitStatics_Vtbl {
 #[doc(hidden)]
 pub struct ITensorUInt8BitStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, data_array_size: u32, data: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromShapeArrayAndDataArray: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, u32, *const u8, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
-    pub CreateFromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, buffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateFromBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const i64, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     CreateFromBuffer: usize,
 }

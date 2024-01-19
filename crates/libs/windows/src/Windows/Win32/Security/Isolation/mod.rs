@@ -101,7 +101,7 @@ impl IIsolatedAppLauncher {
 #[doc(hidden)]
 pub struct IIsolatedAppLauncher_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Launch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appusermodelid: ::windows_core::PCWSTR, arguments: ::windows_core::PCWSTR, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows_core::HRESULT,
+    pub Launch: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *const IsolatedAppLauncherTelemetryParameters) -> ::windows_core::HRESULT,
 }
 pub const IsolatedAppLauncher: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc812430_e75e_4fd1_9641_1f9f1e2d9a1f);
 pub const WDAG_CLIPBOARD_TAG: ::windows_core::PCWSTR = ::windows_core::w!("CrossIsolatedEnvironmentContent");

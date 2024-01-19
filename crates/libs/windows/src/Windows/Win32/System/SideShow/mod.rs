@@ -17,7 +17,7 @@ impl ISideShowBulkCapabilities {
 #[doc(hidden)]
 pub struct ISideShowBulkCapabilities_Vtbl {
     pub base__: ISideShowCapabilities_Vtbl,
-    pub GetCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_keycollection: *mut ::core::ffi::c_void, inout_pvalues: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCapabilities: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISideShowCapabilities, ISideShowCapabilities_Vtbl, 0x535e1379_c09e_4a54_a511_597bab3a72b8);
 ::windows_core::imp::interface_hierarchy!(ISideShowCapabilities, ::windows_core::IUnknown);
@@ -33,7 +33,7 @@ impl ISideShowCapabilities {
 pub struct ISideShowCapabilities_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub GetCapability: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub GetCapability: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     GetCapability: usize,
 }
@@ -53,8 +53,8 @@ impl ISideShowCapabilitiesCollection {
 #[doc(hidden)]
 pub struct ISideShowCapabilitiesCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, out_pdwcount: *mut u32) -> ::windows_core::HRESULT,
-    pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_dwindex: u32, out_ppcapabilities: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISideShowContent, ISideShowContent_Vtbl, 0xc18552ed_74ff_4fec_be07_4cfed29d4887);
 ::windows_core::imp::interface_hierarchy!(ISideShowContent, ::windows_core::IUnknown);
@@ -78,9 +78,9 @@ impl ISideShowContent {
 #[doc(hidden)]
 pub struct ISideShowContent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_picapabilities: *mut ::core::ffi::c_void, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows_core::HRESULT,
-    pub ContentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, out_pcontentid: *mut u32) -> ::windows_core::HRESULT,
-    pub DifferentiateContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, out_pfdifferentiatecontent: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetContent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut u32, *mut *mut u8) -> ::windows_core::HRESULT,
+    pub ContentId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub DifferentiateContent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISideShowContentManager, ISideShowContentManager_Vtbl, 0xa5d5b66b_eef9_41db_8d7e_e17c33ab10b0);
 ::windows_core::imp::interface_hierarchy!(ISideShowContentManager, ::windows_core::IUnknown);
@@ -112,11 +112,11 @@ impl ISideShowContentManager {
 #[doc(hidden)]
 pub struct ISideShowContentManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_picontent: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_contentid: u32) -> ::windows_core::HRESULT,
-    pub RemoveAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetEventSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_pievents: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetDeviceCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, out_ppcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub RemoveAll: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetEventSink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDeviceCapabilities: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISideShowEvents, ISideShowEvents_Vtbl, 0x61feca4c_deb4_4a7e_8d75_51f1132d615b);
 ::windows_core::imp::interface_hierarchy!(ISideShowEvents, ::windows_core::IUnknown);
@@ -148,10 +148,10 @@ impl ISideShowEvents {
 #[doc(hidden)]
 pub struct ISideShowEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ContentMissing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_contentid: u32, out_ppicontent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ApplicationEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_picapabilities: *mut ::core::ffi::c_void, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *const u8) -> ::windows_core::HRESULT,
-    pub DeviceAdded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_pidevice: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DeviceRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_pidevice: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ContentMissing: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ApplicationEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, u32, *const u8) -> ::windows_core::HRESULT,
+    pub DeviceAdded: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeviceRemoved: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISideShowKeyCollection, ISideShowKeyCollection_Vtbl, 0x045473bc_a37b_4957_b144_68105411ed8e);
 ::windows_core::imp::interface_hierarchy!(ISideShowKeyCollection, ::windows_core::IUnknown);
@@ -181,16 +181,16 @@ impl ISideShowKeyCollection {
 pub struct ISideShowKeyCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Add: usize,
-    pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clear: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::HRESULT,
+    pub GetAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     GetAt: usize,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelems: *const u32) -> ::windows_core::HRESULT,
-    pub RemoveAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u32) -> ::windows_core::HRESULT,
+    pub RemoveAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISideShowNotification, ISideShowNotification_Vtbl, 0x03c93300_8ab2_41c5_9b79_46127a30e148);
 ::windows_core::imp::interface_hierarchy!(ISideShowNotification, ::windows_core::IUnknown);
@@ -248,22 +248,22 @@ impl ISideShowNotification {
 #[doc(hidden)]
 pub struct ISideShowNotification_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub NotificationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, out_pnotificationid: *mut u32) -> ::windows_core::HRESULT,
-    pub SetNotificationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_notificationid: u32) -> ::windows_core::HRESULT,
-    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, out_ppwsztitle: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_pwsztitle: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, out_ppwszmessage: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_pwszmessage: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub NotificationId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetNotificationId: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Title: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetTitle: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Message: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub Image: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, out_phicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> ::windows_core::HRESULT,
+    pub Image: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::UI::WindowsAndMessaging::HICON) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     Image: usize,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub SetImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_hicon: super::super::UI::WindowsAndMessaging::HICON) -> ::windows_core::HRESULT,
+    pub SetImage: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::UI::WindowsAndMessaging::HICON) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     SetImage: usize,
-    pub ExpirationTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, out_ptime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows_core::HRESULT,
-    pub SetExpirationTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_ptime: *const super::super::Foundation::SYSTEMTIME) -> ::windows_core::HRESULT,
+    pub ExpirationTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::SYSTEMTIME) -> ::windows_core::HRESULT,
+    pub SetExpirationTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::super::Foundation::SYSTEMTIME) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISideShowNotificationManager, ISideShowNotificationManager_Vtbl, 0x63cea909_f2b9_4302_b5e1_c68e6d9ab833);
 ::windows_core::imp::interface_hierarchy!(ISideShowNotificationManager, ::windows_core::IUnknown);
@@ -285,9 +285,9 @@ impl ISideShowNotificationManager {
 #[doc(hidden)]
 pub struct ISideShowNotificationManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Show: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_pinotification: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Revoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_notificationid: u32) -> ::windows_core::HRESULT,
-    pub RevokeAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Show: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Revoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub RevokeAll: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISideShowPropVariantCollection, ISideShowPropVariantCollection_Vtbl, 0x2ea7a549_7bff_4aae_bab0_22d43111de49);
 ::windows_core::imp::interface_hierarchy!(ISideShowPropVariantCollection, ::windows_core::IUnknown);
@@ -312,11 +312,11 @@ impl ISideShowPropVariantCollection {
 #[doc(hidden)]
 pub struct ISideShowPropVariantCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
-    pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pvalue: *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelems: *const u32) -> ::windows_core::HRESULT,
-    pub RemoveAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub Clear: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u32) -> ::windows_core::HRESULT,
+    pub RemoveAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISideShowSession, ISideShowSession_Vtbl, 0xe22331ee_9e7d_4922_9fc2_ab7aa41ce491);
 ::windows_core::imp::interface_hierarchy!(ISideShowSession, ::windows_core::IUnknown);
@@ -334,8 +334,8 @@ impl ISideShowSession {
 #[doc(hidden)]
 pub struct ISideShowSession_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub RegisterContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_applicationid: *const ::windows_core::GUID, in_endpointid: *const ::windows_core::GUID, out_ppicontent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RegisterNotifications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, in_applicationid: *const ::windows_core::GUID, out_ppinotification: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RegisterContent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RegisterNotifications: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const CONTENT_ID_GLANCE: u32 = 0u32;
 pub const CONTENT_ID_HOME: u32 = 1u32;

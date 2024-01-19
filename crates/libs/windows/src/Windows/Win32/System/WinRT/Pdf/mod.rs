@@ -36,11 +36,11 @@ impl IPdfRendererNative {
 pub struct IPdfRendererNative_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi"))]
-    pub RenderPageToSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdfpage: *mut ::core::ffi::c_void, psurface: *mut ::core::ffi::c_void, offset: super::super::super::Foundation::POINT, prenderparams: *const PDF_RENDER_PARAMS) -> ::windows_core::HRESULT,
+    pub RenderPageToSurface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::super::Foundation::POINT, *const PDF_RENDER_PARAMS) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi")))]
     RenderPageToSurface: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub RenderPageToDeviceContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdfpage: *mut ::core::ffi::c_void, pd2ddevicecontext: *mut ::core::ffi::c_void, prenderparams: *const PDF_RENDER_PARAMS) -> ::windows_core::HRESULT,
+    pub RenderPageToDeviceContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const PDF_RENDER_PARAMS) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     RenderPageToDeviceContext: usize,
 }

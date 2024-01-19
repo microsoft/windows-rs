@@ -14,7 +14,7 @@ impl ICoreFrameworkInputViewInterop {
 #[doc(hidden)]
 pub struct ICoreFrameworkInputViewInterop_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetForWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows_core::GUID, coreframeworkinputview: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetForWindow: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::HWND, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

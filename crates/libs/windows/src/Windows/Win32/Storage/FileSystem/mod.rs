@@ -3517,27 +3517,27 @@ impl IDiskQuotaControl {
 #[doc(hidden)]
 pub struct IDiskQuotaControl_Vtbl {
     pub base__: super::super::System::Com::IConnectionPointContainer_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows_core::PCWSTR, breadwrite: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetQuotaState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstate: u32) -> ::windows_core::HRESULT,
-    pub GetQuotaState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows_core::HRESULT,
-    pub SetQuotaLogFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
-    pub GetQuotaLogFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows_core::HRESULT,
-    pub SetDefaultQuotaThreshold: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, llthreshold: i64) -> ::windows_core::HRESULT,
-    pub GetDefaultQuotaThreshold: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pllthreshold: *mut i64) -> ::windows_core::HRESULT,
-    pub GetDefaultQuotaThresholdText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztext: ::windows_core::PCWSTR, cchtext: u32) -> ::windows_core::HRESULT,
-    pub SetDefaultQuotaLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lllimit: i64) -> ::windows_core::HRESULT,
-    pub GetDefaultQuotaLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plllimit: *mut i64) -> ::windows_core::HRESULT,
-    pub GetDefaultQuotaLimitText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztext: ::windows_core::PCWSTR, cchtext: u32) -> ::windows_core::HRESULT,
-    pub AddUserSid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AddUserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszlogonname: ::windows_core::PCWSTR, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DeleteUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FindUserSid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pusersid: super::super::Foundation::PSID, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppuser: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FindUserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszlogonname: ::windows_core::PCWSTR, ppuser: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateEnumUsers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateUserBatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbatch: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub InvalidateSidNameCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GiveUserNameResolutionPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ShutdownNameResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetQuotaState: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetQuotaState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetQuotaLogFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetQuotaLogFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetDefaultQuotaThreshold: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64) -> ::windows_core::HRESULT,
+    pub GetDefaultQuotaThreshold: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
+    pub GetDefaultQuotaThresholdText: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub SetDefaultQuotaLimit: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64) -> ::windows_core::HRESULT,
+    pub GetDefaultQuotaLimit: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
+    pub GetDefaultQuotaLimitText: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub AddUserSid: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::PSID, DISKQUOTA_USERNAME_RESOLVE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddUserName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, DISKQUOTA_USERNAME_RESOLVE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeleteUser: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindUserSid: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::PSID, DISKQUOTA_USERNAME_RESOLVE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindUserName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateEnumUsers: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::PSID, u32, DISKQUOTA_USERNAME_RESOLVE, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateUserBatch: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InvalidateSidNameCache: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GiveUserNameResolutionPriority: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ShutdownNameResolution: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDiskQuotaEvents, IDiskQuotaEvents_Vtbl, 0x7988b579_ec89_11cf_9c00_00aa00a14f56);
 ::windows_core::imp::interface_hierarchy!(IDiskQuotaEvents, ::windows_core::IUnknown);
@@ -3553,7 +3553,7 @@ impl IDiskQuotaEvents {
 #[doc(hidden)]
 pub struct IDiskQuotaEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnUserNameChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnUserNameChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDiskQuotaUser, IDiskQuotaUser_Vtbl, 0x7988b574_ec89_11cf_9c00_00aa00a14f56);
 ::windows_core::imp::interface_hierarchy!(IDiskQuotaUser, ::windows_core::IUnknown);
@@ -3628,21 +3628,21 @@ impl IDiskQuotaUser {
 #[doc(hidden)]
 pub struct IDiskQuotaUser_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulid: *mut u32) -> ::windows_core::HRESULT,
-    pub GetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszaccountcontainer: ::windows_core::PCWSTR, cchaccountcontainer: u32, pszlogonname: ::windows_core::PCWSTR, cchlogonname: u32, pszdisplayname: ::windows_core::PCWSTR, cchdisplayname: u32) -> ::windows_core::HRESULT,
-    pub GetSidLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlength: *mut u32) -> ::windows_core::HRESULT,
-    pub GetSid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsidbuffer: *mut u8, cbsidbuffer: u32) -> ::windows_core::HRESULT,
-    pub GetQuotaThreshold: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pllthreshold: *mut i64) -> ::windows_core::HRESULT,
-    pub GetQuotaThresholdText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztext: ::windows_core::PCWSTR, cchtext: u32) -> ::windows_core::HRESULT,
-    pub GetQuotaLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plllimit: *mut i64) -> ::windows_core::HRESULT,
-    pub GetQuotaLimitText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztext: ::windows_core::PCWSTR, cchtext: u32) -> ::windows_core::HRESULT,
-    pub GetQuotaUsed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pllused: *mut i64) -> ::windows_core::HRESULT,
-    pub GetQuotaUsedText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztext: ::windows_core::PCWSTR, cchtext: u32) -> ::windows_core::HRESULT,
-    pub GetQuotaInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbquotainfo: *mut ::core::ffi::c_void, cbquotainfo: u32) -> ::windows_core::HRESULT,
-    pub SetQuotaThreshold: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, llthreshold: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetQuotaLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lllimit: i64, fwritethrough: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub Invalidate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetAccountStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows_core::HRESULT,
+    pub GetID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, ::windows_core::PCWSTR, u32, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub GetSidLength: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetSid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, u32) -> ::windows_core::HRESULT,
+    pub GetQuotaThreshold: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
+    pub GetQuotaThresholdText: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub GetQuotaLimit: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
+    pub GetQuotaLimitText: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub GetQuotaUsed: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i64) -> ::windows_core::HRESULT,
+    pub GetQuotaUsedText: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32) -> ::windows_core::HRESULT,
+    pub GetQuotaInformation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub SetQuotaThreshold: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetQuotaLimit: unsafe extern "system" fn(*mut ::core::ffi::c_void, i64, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub Invalidate: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAccountStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDiskQuotaUserBatch, IDiskQuotaUserBatch_Vtbl, 0x7988b576_ec89_11cf_9c00_00aa00a14f56);
 ::windows_core::imp::interface_hierarchy!(IDiskQuotaUserBatch, ::windows_core::IUnknown);
@@ -3670,10 +3670,10 @@ impl IDiskQuotaUserBatch {
 #[doc(hidden)]
 pub struct IDiskQuotaUserBatch_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FlushToDisk: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveAll: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FlushToDisk: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumDiskQuotaUsers, IEnumDiskQuotaUsers_Vtbl, 0x7988b577_ec89_11cf_9c00_00aa00a14f56);
 ::windows_core::imp::interface_hierarchy!(IEnumDiskQuotaUsers, ::windows_core::IUnknown);
@@ -3696,10 +3696,10 @@ impl IEnumDiskQuotaUsers {
 #[doc(hidden)]
 pub struct IEnumDiskQuotaUsers_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cusers: u32, rgusers: *mut *mut ::core::ffi::c_void, pcusersfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cusers: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const ACCESS_ALL: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32768u32);
 pub const ACCESS_ATRIB: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32u32);

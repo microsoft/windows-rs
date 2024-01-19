@@ -38,15 +38,15 @@ impl AsyncIAssociatedIdentityProvider {
 #[doc(hidden)]
 pub struct AsyncIAssociatedIdentityProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Begin_AssociateIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND) -> ::windows_core::HRESULT,
+    pub Begin_AssociateIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::super::Foundation::HWND) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Finish_AssociateIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertystore: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Finish_AssociateIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Finish_AssociateIdentity: usize,
-    pub Begin_DisassociateIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Finish_DisassociateIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Begin_ChangeCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Finish_ChangeCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_DisassociateIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::super::Foundation::HWND, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Finish_DisassociateIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_ChangeCredential: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::super::Foundation::HWND, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Finish_ChangeCredential: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(AsyncIConnectedIdentityProvider, AsyncIConnectedIdentityProvider_Vtbl, 0x9ce55141_bce9_4e15_824d_43d79f512f93);
 ::windows_core::imp::interface_hierarchy!(AsyncIConnectedIdentityProvider, ::windows_core::IUnknown);
@@ -93,19 +93,19 @@ impl AsyncIConnectedIdentityProvider {
 #[doc(hidden)]
 pub struct AsyncIConnectedIdentityProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Begin_ConnectIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, authbuffer: *const u8, authbuffersize: u32) -> ::windows_core::HRESULT,
-    pub Finish_ConnectIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Begin_DisconnectIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Finish_DisconnectIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Begin_IsConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Finish_IsConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connected: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub Begin_ConnectIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32) -> ::windows_core::HRESULT,
+    pub Finish_ConnectIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_DisconnectIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Finish_DisconnectIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_IsConnected: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Finish_IsConnected: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Begin_GetUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: IDENTITY_URL, context: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_GetUrl: unsafe extern "system" fn(*mut ::core::ffi::c_void, IDENTITY_URL, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Begin_GetUrl: usize,
-    pub Finish_GetUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, postdata: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, url: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub Begin_GetAccountState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Finish_GetAccountState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut ACCOUNT_STATE) -> ::windows_core::HRESULT,
+    pub Finish_GetUrl: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub Begin_GetAccountState: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Finish_GetAccountState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ACCOUNT_STATE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(AsyncIIdentityAdvise, AsyncIIdentityAdvise_Vtbl, 0x3ab4c8da_d038_4830_8dd9_3253c55a127f);
 ::windows_core::imp::interface_hierarchy!(AsyncIIdentityAdvise, ::windows_core::IUnknown);
@@ -124,8 +124,8 @@ impl AsyncIIdentityAdvise {
 #[doc(hidden)]
 pub struct AsyncIIdentityAdvise_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Begin_IdentityUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwidentityupdateevents: u32, lpszuniqueid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub Finish_IdentityUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_IdentityUpdated: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Finish_IdentityUpdated: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(AsyncIIdentityAuthentication, AsyncIIdentityAuthentication_Vtbl, 0xf9a2f918_feca_4e9c_9633_61cbf13ed34d);
 ::windows_core::imp::interface_hierarchy!(AsyncIIdentityAuthentication, ::windows_core::IUnknown);
@@ -151,14 +151,14 @@ impl AsyncIIdentityAuthentication {
 #[doc(hidden)]
 pub struct AsyncIIdentityAuthentication_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Begin_SetIdentityCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credbuffer: *const u8, credbufferlength: u32) -> ::windows_core::HRESULT,
-    pub Finish_SetIdentityCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_SetIdentityCredential: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32) -> ::windows_core::HRESULT,
+    pub Finish_SetIdentityCredential: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Begin_ValidateIdentityCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_ValidateIdentityCredential: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Begin_ValidateIdentityCredential: usize,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Finish_ValidateIdentityCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppidentityproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Finish_ValidateIdentityCredential: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Finish_ValidateIdentityCredential: usize,
 }
@@ -251,39 +251,39 @@ impl AsyncIIdentityProvider {
 pub struct AsyncIIdentityProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Begin_GetIdentityEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub Begin_GetIdentityEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, IDENTITY_TYPE, *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Begin_GetIdentityEnum: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Finish_GetIdentityEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppidentityenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Finish_GetIdentityEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Finish_GetIdentityEnum: usize,
-    pub Begin_Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszusername: ::windows_core::PCWSTR, pkeywordstoadd: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub Begin_Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Finish_Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertystore: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Finish_Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Finish_Create: usize,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Begin_Import: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropertystore: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_Import: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Begin_Import: usize,
-    pub Finish_Import: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Begin_Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszuniqueid: ::windows_core::PCWSTR, pkeywordstodelete: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
-    pub Finish_Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Begin_FindByUniqueID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszuniqueid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Finish_Import: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_Delete: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub Finish_Delete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_FindByUniqueID: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Finish_FindByUniqueID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertystore: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Finish_FindByUniqueID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Finish_FindByUniqueID: usize,
-    pub Begin_GetProviderPropertyStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_GetProviderPropertyStore: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Finish_GetProviderPropertyStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertystore: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Finish_GetProviderPropertyStore: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Finish_GetProviderPropertyStore: usize,
-    pub Begin_Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidentityadvise: *mut ::core::ffi::c_void, dwidentityupdateevents: u32) -> ::windows_core::HRESULT,
-    pub Finish_Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcookie: *mut u32) -> ::windows_core::HRESULT,
-    pub Begin_UnAdvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32) -> ::windows_core::HRESULT,
-    pub Finish_UnAdvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_Advise: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Finish_Advise: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Begin_UnAdvise: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Finish_UnAdvise: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(AsyncIIdentityStore, AsyncIIdentityStore_Vtbl, 0xeefa1616_48de_4872_aa64_6e6206535a51);
 ::windows_core::imp::interface_hierarchy!(AsyncIIdentityStore, ::windows_core::IUnknown);
@@ -341,24 +341,24 @@ impl AsyncIIdentityStore {
 #[doc(hidden)]
 pub struct AsyncIIdentityStore_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Begin_GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Finish_GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwproviders: *mut u32) -> ::windows_core::HRESULT,
-    pub Begin_GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwprovider: u32, pprovguid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub Finish_GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprovguid: *mut ::windows_core::GUID, ppidentityprovider: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Begin_AddToCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszuniqueid: ::windows_core::PCWSTR, providerguid: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub Finish_AddToCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Begin_ConvertToSid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszuniqueid: ::windows_core::PCWSTR, providerguid: *const ::windows_core::GUID, cbsid: u16, psid: *mut u8) -> ::windows_core::HRESULT,
-    pub Finish_ConvertToSid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psid: *mut u8, pcbrequiredsid: *mut u16) -> ::windows_core::HRESULT,
+    pub Begin_GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Finish_GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Begin_GetAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub Finish_GetAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_AddToCache: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub Finish_AddToCache: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_ConvertToSid: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const ::windows_core::GUID, u16, *mut u8) -> ::windows_core::HRESULT,
+    pub Finish_ConvertToSid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, *mut u16) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Begin_EnumerateIdentities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub Begin_EnumerateIdentities: unsafe extern "system" fn(*mut ::core::ffi::c_void, IDENTITY_TYPE, *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Begin_EnumerateIdentities: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Finish_EnumerateIdentities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppidentityenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Finish_EnumerateIdentities: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Finish_EnumerateIdentities: usize,
-    pub Begin_Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Finish_Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Finish_Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(AsyncIIdentityStoreEx, AsyncIIdentityStoreEx_Vtbl, 0xfca3af9a_8a07_4eae_8632_ec3de658a36a);
 ::windows_core::imp::interface_hierarchy!(AsyncIIdentityStoreEx, ::windows_core::IUnknown);
@@ -387,10 +387,10 @@ impl AsyncIIdentityStoreEx {
 #[doc(hidden)]
 pub struct AsyncIIdentityStoreEx_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Begin_CreateConnectedIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localname: ::windows_core::PCWSTR, connectedname: ::windows_core::PCWSTR, providerguid: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub Finish_CreateConnectedIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Begin_DeleteConnectedIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectedname: ::windows_core::PCWSTR, providerguid: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub Finish_DeleteConnectedIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_CreateConnectedIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub Finish_CreateConnectedIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Begin_DeleteConnectedIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub Finish_DeleteConnectedIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAssociatedIdentityProvider, IAssociatedIdentityProvider_Vtbl, 0x2af066b3_4cbb_4cba_a798_204b6af68cc0);
 ::windows_core::imp::interface_hierarchy!(IAssociatedIdentityProvider, ::windows_core::IUnknown);
@@ -424,11 +424,11 @@ impl IAssociatedIdentityProvider {
 pub struct IAssociatedIdentityProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub AssociateIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND, pppropertystore: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AssociateIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::super::Foundation::HWND, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     AssociateIdentity: usize,
-    pub DisassociateIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub ChangeCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub DisassociateIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::super::Foundation::HWND, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub ChangeCredential: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::super::Foundation::HWND, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IConnectedIdentityProvider, IConnectedIdentityProvider_Vtbl, 0xb7417b54_e08c_429b_96c8_678d1369ecb1);
 ::windows_core::imp::interface_hierarchy!(IConnectedIdentityProvider, ::windows_core::IUnknown);
@@ -460,14 +460,14 @@ impl IConnectedIdentityProvider {
 #[doc(hidden)]
 pub struct IConnectedIdentityProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ConnectIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, authbuffer: *const u8, authbuffersize: u32) -> ::windows_core::HRESULT,
-    pub DisconnectIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub IsConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connected: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub ConnectIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32) -> ::windows_core::HRESULT,
+    pub DisconnectIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsConnected: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: IDENTITY_URL, context: *mut ::core::ffi::c_void, postdata: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, url: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetUrl: unsafe extern "system" fn(*mut ::core::ffi::c_void, IDENTITY_URL, *mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetUrl: usize,
-    pub GetAccountState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut ACCOUNT_STATE) -> ::windows_core::HRESULT,
+    pub GetAccountState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ACCOUNT_STATE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIdentityAdvise, IIdentityAdvise_Vtbl, 0x4e982fed_d14b_440c_b8d6_bb386453d386);
 ::windows_core::imp::interface_hierarchy!(IIdentityAdvise, ::windows_core::IUnknown);
@@ -483,7 +483,7 @@ impl IIdentityAdvise {
 #[doc(hidden)]
 pub struct IIdentityAdvise_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub IdentityUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwidentityupdateevents: u32, lpszuniqueid: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub IdentityUpdated: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIdentityAuthentication, IIdentityAuthentication_Vtbl, 0x5e7ef254_979f_43b5_b74e_06e4eb7df0f9);
 ::windows_core::imp::interface_hierarchy!(IIdentityAuthentication, ::windows_core::IUnknown);
@@ -501,9 +501,9 @@ impl IIdentityAuthentication {
 #[doc(hidden)]
 pub struct IIdentityAuthentication_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetIdentityCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credbuffer: *const u8, credbufferlength: u32) -> ::windows_core::HRESULT,
+    pub SetIdentityCredential: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub ValidateIdentityCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ValidateIdentityCredential: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     ValidateIdentityCredential: usize,
 }
@@ -569,28 +569,28 @@ impl IIdentityProvider {
 pub struct IIdentityProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub GetIdentityEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, ppidentityenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetIdentityEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, IDENTITY_TYPE, *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem")))]
     GetIdentityEnum: usize,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszusername: ::windows_core::PCWSTR, pppropertystore: *mut *mut ::core::ffi::c_void, pkeywordstoadd: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Create: usize,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub Import: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropertystore: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Import: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Import: usize,
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszuniqueid: ::windows_core::PCWSTR, pkeywordstodelete: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
+    pub Delete: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub FindByUniqueID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszuniqueid: ::windows_core::PCWSTR, pppropertystore: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FindByUniqueID: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     FindByUniqueID: usize,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub GetProviderPropertyStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertystore: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetProviderPropertyStore: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     GetProviderPropertyStore: usize,
-    pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidentityadvise: *mut ::core::ffi::c_void, dwidentityupdateevents: u32, pdwcookie: *mut u32) -> ::windows_core::HRESULT,
-    pub UnAdvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32) -> ::windows_core::HRESULT,
+    pub Advise: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub UnAdvise: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIdentityStore, IIdentityStore_Vtbl, 0xdf586fa5_6f35_44f1_b209_b38e169772eb);
 ::windows_core::imp::interface_hierarchy!(IIdentityStore, ::windows_core::IUnknown);
@@ -628,15 +628,15 @@ impl IIdentityStore {
 #[doc(hidden)]
 pub struct IIdentityStore_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwproviders: *mut u32) -> ::windows_core::HRESULT,
-    pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwprovider: u32, pprovguid: *mut ::windows_core::GUID, ppidentityprovider: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AddToCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszuniqueid: ::windows_core::PCWSTR, providerguid: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub ConvertToSid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpszuniqueid: ::windows_core::PCWSTR, providerguid: *const ::windows_core::GUID, cbsid: u16, psid: *mut u8, pcbrequiredsid: *mut u16) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetAt: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddToCache: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub ConvertToSid: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const ::windows_core::GUID, u16, *mut u8, *mut u16) -> ::windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub EnumerateIdentities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfilterpropvarvalue: *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, ppidentityenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumerateIdentities: unsafe extern "system" fn(*mut ::core::ffi::c_void, IDENTITY_TYPE, *const super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, *const ::std::mem::MaybeUninit<::windows_core::PROPVARIANT>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem")))]
     EnumerateIdentities: usize,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IIdentityStoreEx, IIdentityStoreEx_Vtbl, 0xf9f9eb98_8f7f_4e38_9577_6980114ce32b);
 ::windows_core::imp::interface_hierarchy!(IIdentityStoreEx, ::windows_core::IUnknown);
@@ -659,8 +659,8 @@ impl IIdentityStoreEx {
 #[doc(hidden)]
 pub struct IIdentityStoreEx_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateConnectedIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localname: ::windows_core::PCWSTR, connectedname: ::windows_core::PCWSTR, providerguid: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub DeleteConnectedIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectedname: ::windows_core::PCWSTR, providerguid: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub CreateConnectedIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub DeleteConnectedIdentity: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 pub const CIdentityProfileHandler: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecf5bf46_e3b6_449a_b56b_43f58f867814);
 pub const CONNECTING: ACCOUNT_STATE = ACCOUNT_STATE(1i32);

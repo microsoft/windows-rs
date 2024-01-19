@@ -37,8 +37,7 @@ pub mod Nested {
     #[doc(hidden)]
     pub struct IThing_Vtbl {
         pub base__: ::windows_core::IInspectable_Vtbl,
-        pub Method:
-            unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+        pub Method: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     }
 }
 ::windows_core::imp::com_interface!(IClass, IClass_Vtbl, 0x97540591_1323_59c0_9ae0_f510cae62e54);
@@ -46,46 +45,40 @@ pub mod Nested {
 #[doc(hidden)]
 pub struct IClass_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Property: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut i32,
-    ) -> ::windows_core::HRESULT,
-    pub SetProperty: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        value: i32,
-    ) -> ::windows_core::HRESULT,
-    pub Flags: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut Flags,
-    ) -> ::windows_core::HRESULT,
+    pub Property:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetProperty:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub Flags:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut Flags) -> ::windows_core::HRESULT,
     pub Int32Array: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        a_array_size: u32,
-        a: *const i32,
-        b_array_size: u32,
-        b: *mut i32,
-        c_array_size: *mut u32,
-        c: *mut *mut i32,
-        result_size__: *mut u32,
-        result__: *mut *mut i32,
+        *mut ::core::ffi::c_void,
+        u32,
+        *const i32,
+        u32,
+        *mut i32,
+        *mut u32,
+        *mut *mut i32,
+        *mut u32,
+        *mut *mut i32,
     ) -> ::windows_core::HRESULT,
     pub StringArray: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        a_array_size: u32,
-        a: *const ::std::mem::MaybeUninit<::windows_core::HSTRING>,
-        b_array_size: u32,
-        b: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
-        c_array_size: *mut u32,
-        c: *mut *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
-        result_size__: *mut u32,
-        result__: *mut *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut ::core::ffi::c_void,
+        u32,
+        *const ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        u32,
+        *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut u32,
+        *mut *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
+        *mut u32,
+        *mut *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>,
     ) -> ::windows_core::HRESULT,
     pub Input: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        a: *mut ::core::ffi::c_void,
-        b: *mut ::core::ffi::c_void,
-        c: *mut ::core::ffi::c_void,
-        d: *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
     ) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
@@ -386,8 +379,8 @@ impl ::windows_core::RuntimeType for Callback {
 pub struct Callback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        a: i32,
-        result__: *mut i32,
+        *mut ::core::ffi::c_void,
+        i32,
+        *mut i32,
     ) -> ::windows_core::HRESULT,
 }

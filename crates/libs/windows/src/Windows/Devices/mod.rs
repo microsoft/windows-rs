@@ -142,23 +142,23 @@ impl ::windows_core::RuntimeType for ILowLevelDevicesAggregateProvider {
 pub struct ILowLevelDevicesAggregateProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Devices_Adc_Provider")]
-    pub AdcControllerProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AdcControllerProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Adc_Provider"))]
     AdcControllerProvider: usize,
     #[cfg(feature = "Devices_Pwm_Provider")]
-    pub PwmControllerProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PwmControllerProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Pwm_Provider"))]
     PwmControllerProvider: usize,
     #[cfg(feature = "Devices_Gpio_Provider")]
-    pub GpioControllerProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GpioControllerProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Gpio_Provider"))]
     GpioControllerProvider: usize,
     #[cfg(feature = "Devices_I2c_Provider")]
-    pub I2cControllerProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub I2cControllerProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_I2c_Provider"))]
     I2cControllerProvider: usize,
     #[cfg(feature = "Devices_Spi_Provider")]
-    pub SpiControllerProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SpiControllerProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Devices_Spi_Provider"))]
     SpiControllerProvider: usize,
 }
@@ -168,7 +168,7 @@ pub struct ILowLevelDevicesAggregateProvider_Vtbl {
 pub struct ILowLevelDevicesAggregateProviderFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adc: *mut ::core::ffi::c_void, pwm: *mut ::core::ffi::c_void, gpio: *mut ::core::ffi::c_void, i2c: *mut ::core::ffi::c_void, spi: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider")))]
     Create: usize,
 }
@@ -183,8 +183,8 @@ pub struct ILowLevelDevicesController_Vtbl {
 #[doc(hidden)]
 pub struct ILowLevelDevicesControllerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub DefaultProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetDefaultProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DefaultProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetDefaultProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

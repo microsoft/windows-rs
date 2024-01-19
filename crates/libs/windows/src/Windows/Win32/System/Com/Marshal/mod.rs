@@ -746,12 +746,12 @@ impl IMarshal {
 #[doc(hidden)]
 pub struct IMarshal_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetUnmarshalClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32, pcid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetMarshalSizeMax: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32, psize: *mut u32) -> ::windows_core::HRESULT,
-    pub MarshalInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstm: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, pv: *const ::core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32) -> ::windows_core::HRESULT,
-    pub UnmarshalInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstm: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ReleaseMarshalData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstm: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DisconnectObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows_core::HRESULT,
+    pub GetUnmarshalClass: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::core::ffi::c_void, u32, *const ::core::ffi::c_void, u32, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetMarshalSizeMax: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::core::ffi::c_void, u32, *const ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub MarshalInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::core::ffi::c_void, u32, *const ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub UnmarshalInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ReleaseMarshalData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DisconnectObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMarshal2, IMarshal2_Vtbl, 0x000001cf_0000_0000_c000_000000000046);
 ::windows_core::imp::interface_hierarchy!(IMarshal2, ::windows_core::IUnknown, IMarshal);
@@ -840,7 +840,7 @@ impl IMarshalingStream {
 #[doc(hidden)]
 pub struct IMarshalingStream_Vtbl {
     pub base__: super::IStream_Vtbl,
-    pub GetMarshalingContextAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES, pattributevalue: *mut usize) -> ::windows_core::HRESULT,
+    pub GetMarshalingContextAttribute: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::CO_MARSHALING_CONTEXT_ATTRIBUTES, *mut usize) -> ::windows_core::HRESULT,
 }
 pub const SMEXF_HANDLER: STDMSHLFLAGS = STDMSHLFLAGS(2i32);
 pub const SMEXF_SERVER: STDMSHLFLAGS = STDMSHLFLAGS(1i32);

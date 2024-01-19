@@ -13,7 +13,7 @@ impl IIsolatedEnvironmentInterop {
 #[doc(hidden)]
 pub struct IIsolatedEnvironmentInterop_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetHostHwndInterop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, containerhwnd: super::super::super::Foundation::HWND, hosthwnd: *mut super::super::super::Foundation::HWND) -> ::windows_core::HRESULT,
+    pub GetHostHwndInterop: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::HWND, *mut super::super::super::Foundation::HWND) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

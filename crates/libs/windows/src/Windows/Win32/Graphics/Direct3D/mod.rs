@@ -20,8 +20,8 @@ unsafe impl ::core::marker::Sync for ID3DBlob {}
 #[doc(hidden)]
 pub struct ID3DBlob_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetBufferPointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void,
-    pub GetBufferSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize,
+    pub GetBufferPointer: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void,
+    pub GetBufferSize: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> usize,
 }
 ::windows_core::imp::com_interface!(ID3DDestructionNotifier, ID3DDestructionNotifier_Vtbl, 0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
 ::windows_core::imp::interface_hierarchy!(ID3DDestructionNotifier, ::windows_core::IUnknown);
@@ -40,8 +40,8 @@ unsafe impl ::core::marker::Sync for ID3DDestructionNotifier {}
 #[doc(hidden)]
 pub struct ID3DDestructionNotifier_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub RegisterDestructionCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void, pcallbackid: *mut u32) -> ::windows_core::HRESULT,
-    pub UnregisterDestructionCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbackid: u32) -> ::windows_core::HRESULT,
+    pub RegisterDestructionCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, PFN_DESTRUCTION_CALLBACK, *const ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub UnregisterDestructionCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::interface!(ID3DInclude, ID3DInclude_Vtbl);
 impl ID3DInclude {
@@ -60,8 +60,8 @@ unsafe impl ::core::marker::Sync for ID3DInclude {}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3DInclude_Vtbl {
-    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, includetype: D3D_INCLUDE_TYPE, pfilename: ::windows_core::PCSTR, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Open: unsafe extern "system" fn(*mut ::core::ffi::c_void, D3D_INCLUDE_TYPE, ::windows_core::PCSTR, *const ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const D3D10_1_SRV_DIMENSION_BUFFER: D3D_SRV_DIMENSION = D3D_SRV_DIMENSION(1i32);
 pub const D3D10_1_SRV_DIMENSION_TEXTURE1D: D3D_SRV_DIMENSION = D3D_SRV_DIMENSION(2i32);

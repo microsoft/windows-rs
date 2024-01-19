@@ -34,7 +34,7 @@ impl ::windows_core::RuntimeType for IUriToStreamResolver {
 pub struct IUriToStreamResolver_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Storage_Streams")]
-    pub UriToStreamAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UriToStreamAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     UriToStreamAsync: usize,
 }
@@ -43,7 +43,7 @@ pub struct IUriToStreamResolver_Vtbl {
 #[doc(hidden)]
 pub struct IWebErrorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut WebErrorStatus) -> ::windows_core::HRESULT,
+    pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut WebErrorStatus) -> ::windows_core::HRESULT,
 }
 pub struct WebError;
 impl WebError {

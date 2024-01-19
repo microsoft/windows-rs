@@ -56,8 +56,8 @@ where
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub First: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        *mut *mut ::core::ffi::c_void,
     ) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
@@ -132,17 +132,13 @@ where
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub get_Current: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::windows_core::AbiType<T>,
+        *mut ::core::ffi::c_void,
+        *mut ::windows_core::AbiType<T>,
     ) -> ::windows_core::HRESULT,
-    pub get_HasCurrent: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut bool,
-    ) -> ::windows_core::HRESULT,
-    pub MoveNext: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut bool,
-    ) -> ::windows_core::HRESULT,
+    pub get_HasCurrent:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
+    pub MoveNext:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
@@ -219,12 +215,12 @@ where
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub get_Key: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::windows_core::AbiType<K>,
+        *mut ::core::ffi::c_void,
+        *mut ::windows_core::AbiType<K>,
     ) -> ::windows_core::HRESULT,
     pub get_Value: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut ::windows_core::AbiType<V>,
+        *mut ::core::ffi::c_void,
+        *mut ::windows_core::AbiType<V>,
     ) -> ::windows_core::HRESULT,
     pub K: ::core::marker::PhantomData<K>,
     pub V: ::core::marker::PhantomData<V>,
@@ -344,18 +340,16 @@ where
 {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Lookup: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        key: *mut ::windows_core::AbiType<K>,
-        result__: *mut ::windows_core::AbiType<V>,
+        *mut ::core::ffi::c_void,
+        *mut ::windows_core::AbiType<K>,
+        *mut ::windows_core::AbiType<V>,
     ) -> ::windows_core::HRESULT,
-    pub get_Size: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        result__: *mut u32,
-    ) -> ::windows_core::HRESULT,
+    pub get_Size:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
     pub HasKey: unsafe extern "system" fn(
-        this: *mut ::core::ffi::c_void,
-        key: *mut ::windows_core::AbiType<K>,
-        result__: *mut bool,
+        *mut ::core::ffi::c_void,
+        *mut ::windows_core::AbiType<K>,
+        *mut bool,
     ) -> ::windows_core::HRESULT,
     pub K: ::core::marker::PhantomData<K>,
     pub V: ::core::marker::PhantomData<V>,

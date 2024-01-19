@@ -9,7 +9,7 @@ pub struct IWindowManagementPreview_Vtbl {
 #[doc(hidden)]
 pub struct IWindowManagementPreviewStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub SetPreferredMinSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: *mut ::core::ffi::c_void, preferredframeminsize: super::super::super::Foundation::Size) -> ::windows_core::HRESULT,
+    pub SetPreferredMinSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::super::Foundation::Size) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

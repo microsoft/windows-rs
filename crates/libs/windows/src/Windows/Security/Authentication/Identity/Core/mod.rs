@@ -3,29 +3,29 @@
 #[doc(hidden)]
 pub struct IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetOneTimePassCodeAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, useraccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, codelength: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AddDeviceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, useraccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, authenticationtoken: ::std::mem::MaybeUninit<::windows_core::HSTRING>, wnschannelid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemoveDeviceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, useraccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub UpdateWnsChannelAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, useraccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, channeluri: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetOneTimePassCodeAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddDeviceAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemoveDeviceAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UpdateWnsChannelAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetSessionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, useraccountidlist: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetSessionsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetSessionsAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetSessionsAndUnregisteredAccountsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, useraccountidlist: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetSessionsAndUnregisteredAccountsAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetSessionsAndUnregisteredAccountsAsync: usize,
-    pub ApproveSessionUsingAuthSessionInfoAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, authenticationsessioninfo: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ApproveSessionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, useraccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, sessionid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DenySessionUsingAuthSessionInfoAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, authenticationsessioninfo: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DenySessionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, useraccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, sessionid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, sessionauthenticationtype: MicrosoftAccountMultiFactorAuthenticationType, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ApproveSessionUsingAuthSessionInfoAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, MicrosoftAccountMultiFactorSessionAuthenticationStatus, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ApproveSessionAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, MicrosoftAccountMultiFactorSessionAuthenticationStatus, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, MicrosoftAccountMultiFactorAuthenticationType, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DenySessionUsingAuthSessionInfoAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DenySessionAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, MicrosoftAccountMultiFactorAuthenticationType, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMicrosoftAccountMultiFactorAuthenticatorStatics, IMicrosoftAccountMultiFactorAuthenticatorStatics_Vtbl, 0xd964c2e6_f446_4c71_8b79_6ea4024aa9b8);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMicrosoftAccountMultiFactorAuthenticatorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Current: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMicrosoftAccountMultiFactorGetSessionsResult, IMicrosoftAccountMultiFactorGetSessionsResult_Vtbl, 0x4e23a9a0_e9fa_497a_95de_6d5747bf974c);
 #[repr(C)]
@@ -33,33 +33,33 @@ pub struct IMicrosoftAccountMultiFactorAuthenticatorStatics_Vtbl {
 pub struct IMicrosoftAccountMultiFactorGetSessionsResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub Sessions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Sessions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Sessions: usize,
-    pub ServiceResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MicrosoftAccountMultiFactorServiceResponse) -> ::windows_core::HRESULT,
+    pub ServiceResponse: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MicrosoftAccountMultiFactorServiceResponse) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMicrosoftAccountMultiFactorOneTimeCodedInfo, IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl, 0x82ba264b_d87c_4668_a976_40cfae547d08);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Code: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub TimeInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub TimeToLive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub ServiceResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MicrosoftAccountMultiFactorServiceResponse) -> ::windows_core::HRESULT,
+    pub Code: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub TimeInterval: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub TimeToLive: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub ServiceResponse: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MicrosoftAccountMultiFactorServiceResponse) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMicrosoftAccountMultiFactorSessionInfo, IMicrosoftAccountMultiFactorSessionInfo_Vtbl, 0x5f7eabb4_a278_4635_b765_b494eb260af4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMicrosoftAccountMultiFactorSessionInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub UserAccountId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub SessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub DisplaySessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub ApprovalStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MicrosoftAccountMultiFactorSessionApprovalStatus) -> ::windows_core::HRESULT,
-    pub AuthenticationType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MicrosoftAccountMultiFactorAuthenticationType) -> ::windows_core::HRESULT,
-    pub RequestTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
-    pub ExpirationTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
+    pub UserAccountId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub SessionId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub DisplaySessionId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub ApprovalStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MicrosoftAccountMultiFactorSessionApprovalStatus) -> ::windows_core::HRESULT,
+    pub AuthenticationType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MicrosoftAccountMultiFactorAuthenticationType) -> ::windows_core::HRESULT,
+    pub RequestTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
+    pub ExpirationTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::super::Foundation::DateTime) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo, IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl, 0xaa7ec5fb_da3f_4088_a20d_5618afadb2e5);
 #[repr(C)]
@@ -67,14 +67,14 @@ pub struct IMicrosoftAccountMultiFactorSessionInfo_Vtbl {
 pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub Sessions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Sessions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Sessions: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub UnregisteredAccounts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UnregisteredAccounts: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     UnregisteredAccounts: usize,
-    pub ServiceResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MicrosoftAccountMultiFactorServiceResponse) -> ::windows_core::HRESULT,
+    pub ServiceResponse: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut MicrosoftAccountMultiFactorServiceResponse) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

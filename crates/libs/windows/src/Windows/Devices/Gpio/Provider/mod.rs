@@ -23,8 +23,8 @@ impl ::windows_core::RuntimeType for IGpioControllerProvider {
 #[doc(hidden)]
 pub struct IGpioControllerProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub PinCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub OpenPinProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: i32, sharingmode: ProviderGpioSharingMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PinCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub OpenPinProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, ProviderGpioSharingMode, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGpioPinProvider, IGpioPinProvider_Vtbl, 0x42344cb7_6abc_40ff_9ce7_73b85301b900);
 ::windows_core::imp::interface_hierarchy!(IGpioPinProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -105,31 +105,31 @@ impl ::windows_core::RuntimeType for IGpioPinProvider {
 #[doc(hidden)]
 pub struct IGpioPinProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub ValueChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveValueChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub DebounceTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub SetDebounceTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub PinNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub SharingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ProviderGpioSharingMode) -> ::windows_core::HRESULT,
-    pub IsDriveModeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, drivemode: ProviderGpioPinDriveMode, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub GetDriveMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ProviderGpioPinDriveMode) -> ::windows_core::HRESULT,
-    pub SetDriveMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ProviderGpioPinDriveMode) -> ::windows_core::HRESULT,
-    pub Write: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ProviderGpioPinValue) -> ::windows_core::HRESULT,
-    pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ProviderGpioPinValue) -> ::windows_core::HRESULT,
+    pub ValueChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveValueChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub DebounceTimeout: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub SetDebounceTimeout: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub PinNumber: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SharingMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ProviderGpioSharingMode) -> ::windows_core::HRESULT,
+    pub IsDriveModeSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, ProviderGpioPinDriveMode, *mut bool) -> ::windows_core::HRESULT,
+    pub GetDriveMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ProviderGpioPinDriveMode) -> ::windows_core::HRESULT,
+    pub SetDriveMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, ProviderGpioPinDriveMode) -> ::windows_core::HRESULT,
+    pub Write: unsafe extern "system" fn(*mut ::core::ffi::c_void, ProviderGpioPinValue) -> ::windows_core::HRESULT,
+    pub Read: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ProviderGpioPinValue) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGpioPinProviderValueChangedEventArgs, IGpioPinProviderValueChangedEventArgs_Vtbl, 0x32a6d6f2_3d5b_44cd_8fbe_13a69f2edb24);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioPinProviderValueChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Edge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ProviderGpioPinEdge) -> ::windows_core::HRESULT,
+    pub Edge: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ProviderGpioPinEdge) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGpioPinProviderValueChangedEventArgsFactory, IGpioPinProviderValueChangedEventArgsFactory_Vtbl, 0x3ecb0b59_568c_4392_b24a_8a59a902b1f1);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGpioPinProviderValueChangedEventArgsFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, edge: ProviderGpioPinEdge, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ProviderGpioPinEdge, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGpioProvider, IGpioProvider_Vtbl, 0x44e82707_08ca_434a_afe0_d61580446f7e);
 ::windows_core::imp::interface_hierarchy!(IGpioProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -152,7 +152,7 @@ impl ::windows_core::RuntimeType for IGpioProvider {
 pub struct IGpioProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub GetControllers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetControllers: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetControllers: usize,
 }

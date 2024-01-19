@@ -12,7 +12,7 @@ impl ICorProfilerAssemblyReferenceProvider {
 pub struct ICorProfilerAssemblyReferenceProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
-    pub AddAssemblyReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, passemblyrefinfo: *const COR_PRF_ASSEMBLY_REFERENCE_INFO) -> ::windows_core::HRESULT,
+    pub AddAssemblyReference: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COR_PRF_ASSEMBLY_REFERENCE_INFO) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_WinRT_Metadata"))]
     AddAssemblyReference: usize,
 }
@@ -254,75 +254,75 @@ impl ICorProfilerCallback {
 #[doc(hidden)]
 pub struct ICorProfilerCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, picorprofilerinfounk: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AppDomainCreationStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appdomainid: usize) -> ::windows_core::HRESULT,
-    pub AppDomainCreationFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appdomainid: usize, hrstatus: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub AppDomainShutdownStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appdomainid: usize) -> ::windows_core::HRESULT,
-    pub AppDomainShutdownFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appdomainid: usize, hrstatus: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub AssemblyLoadStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, assemblyid: usize) -> ::windows_core::HRESULT,
-    pub AssemblyLoadFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, assemblyid: usize, hrstatus: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub AssemblyUnloadStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, assemblyid: usize) -> ::windows_core::HRESULT,
-    pub AssemblyUnloadFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, assemblyid: usize, hrstatus: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub ModuleLoadStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize) -> ::windows_core::HRESULT,
-    pub ModuleLoadFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize, hrstatus: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub ModuleUnloadStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize) -> ::windows_core::HRESULT,
-    pub ModuleUnloadFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize, hrstatus: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub ModuleAttachedToAssembly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize, assemblyid: usize) -> ::windows_core::HRESULT,
-    pub ClassLoadStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classid: usize) -> ::windows_core::HRESULT,
-    pub ClassLoadFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classid: usize, hrstatus: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub ClassUnloadStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classid: usize) -> ::windows_core::HRESULT,
-    pub ClassUnloadFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classid: usize, hrstatus: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub FunctionUnloadStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize) -> ::windows_core::HRESULT,
-    pub JITCompilationStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, fissafetoblock: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub JITCompilationFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub JITCachedFunctionSearchStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, pbusecachedfunction: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub JITCachedFunctionSearchFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, result: COR_PRF_JIT_CACHE) -> ::windows_core::HRESULT,
-    pub JITFunctionPitched: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize) -> ::windows_core::HRESULT,
-    pub JITInlining: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callerid: usize, calleeid: usize, pfshouldinline: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub ThreadCreated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: usize) -> ::windows_core::HRESULT,
-    pub ThreadDestroyed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: usize) -> ::windows_core::HRESULT,
-    pub ThreadAssignedToOSThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, managedthreadid: usize, osthreadid: u32) -> ::windows_core::HRESULT,
-    pub RemotingClientInvocationStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemotingClientSendingMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcookie: *const ::windows_core::GUID, fisasync: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub RemotingClientReceivingReply: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcookie: *const ::windows_core::GUID, fisasync: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub RemotingClientInvocationFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemotingServerReceivingMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcookie: *const ::windows_core::GUID, fisasync: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub RemotingServerInvocationStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemotingServerInvocationReturned: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RemotingServerSendingReply: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcookie: *const ::windows_core::GUID, fisasync: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub UnmanagedToManagedTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> ::windows_core::HRESULT,
-    pub ManagedToUnmanagedTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, reason: COR_PRF_TRANSITION_REASON) -> ::windows_core::HRESULT,
-    pub RuntimeSuspendStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, suspendreason: COR_PRF_SUSPEND_REASON) -> ::windows_core::HRESULT,
-    pub RuntimeSuspendFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RuntimeSuspendAborted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RuntimeResumeStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RuntimeResumeFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RuntimeThreadSuspended: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: usize) -> ::windows_core::HRESULT,
-    pub RuntimeThreadResumed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: usize) -> ::windows_core::HRESULT,
-    pub MovedReferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cmovedobjectidranges: u32, oldobjectidrangestart: *const usize, newobjectidrangestart: *const usize, cobjectidrangelength: *const u32) -> ::windows_core::HRESULT,
-    pub ObjectAllocated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectid: usize, classid: usize) -> ::windows_core::HRESULT,
-    pub ObjectsAllocatedByClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cclasscount: u32, classids: *const usize, cobjects: *const u32) -> ::windows_core::HRESULT,
-    pub ObjectReferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectid: usize, classid: usize, cobjectrefs: u32, objectrefids: *const usize) -> ::windows_core::HRESULT,
-    pub RootReferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crootrefs: u32, rootrefids: *const usize) -> ::windows_core::HRESULT,
-    pub ExceptionThrown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, thrownobjectid: usize) -> ::windows_core::HRESULT,
-    pub ExceptionSearchFunctionEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize) -> ::windows_core::HRESULT,
-    pub ExceptionSearchFunctionLeave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ExceptionSearchFilterEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize) -> ::windows_core::HRESULT,
-    pub ExceptionSearchFilterLeave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ExceptionSearchCatcherFound: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize) -> ::windows_core::HRESULT,
-    pub ExceptionOSHandlerEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __unused: usize) -> ::windows_core::HRESULT,
-    pub ExceptionOSHandlerLeave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __unused: usize) -> ::windows_core::HRESULT,
-    pub ExceptionUnwindFunctionEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize) -> ::windows_core::HRESULT,
-    pub ExceptionUnwindFunctionLeave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ExceptionUnwindFinallyEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize) -> ::windows_core::HRESULT,
-    pub ExceptionUnwindFinallyLeave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ExceptionCatcherEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, objectid: usize) -> ::windows_core::HRESULT,
-    pub ExceptionCatcherLeave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub COMClassicVTableCreated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wrappedclassid: usize, implementediid: *const ::windows_core::GUID, pvtable: *const ::core::ffi::c_void, cslots: u32) -> ::windows_core::HRESULT,
-    pub COMClassicVTableDestroyed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wrappedclassid: usize, implementediid: *const ::windows_core::GUID, pvtable: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ExceptionCLRCatcherFound: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ExceptionCLRCatcherExecute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Shutdown: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AppDomainCreationStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub AppDomainCreationFinished: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub AppDomainShutdownStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub AppDomainShutdownFinished: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub AssemblyLoadStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub AssemblyLoadFinished: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub AssemblyUnloadStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub AssemblyUnloadFinished: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub ModuleLoadStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub ModuleLoadFinished: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub ModuleUnloadStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub ModuleUnloadFinished: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub ModuleAttachedToAssembly: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize) -> ::windows_core::HRESULT,
+    pub ClassLoadStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub ClassLoadFinished: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub ClassUnloadStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub ClassUnloadFinished: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub FunctionUnloadStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub JITCompilationStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub JITCompilationFinished: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, ::windows_core::HRESULT, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub JITCachedFunctionSearchStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub JITCachedFunctionSearchFinished: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, COR_PRF_JIT_CACHE) -> ::windows_core::HRESULT,
+    pub JITFunctionPitched: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub JITInlining: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub ThreadCreated: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub ThreadDestroyed: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub ThreadAssignedToOSThread: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32) -> ::windows_core::HRESULT,
+    pub RemotingClientInvocationStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemotingClientSendingMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub RemotingClientReceivingReply: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub RemotingClientInvocationFinished: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemotingServerReceivingMessage: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub RemotingServerInvocationStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemotingServerInvocationReturned: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RemotingServerSendingReply: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub UnmanagedToManagedTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, COR_PRF_TRANSITION_REASON) -> ::windows_core::HRESULT,
+    pub ManagedToUnmanagedTransition: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, COR_PRF_TRANSITION_REASON) -> ::windows_core::HRESULT,
+    pub RuntimeSuspendStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, COR_PRF_SUSPEND_REASON) -> ::windows_core::HRESULT,
+    pub RuntimeSuspendFinished: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RuntimeSuspendAborted: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RuntimeResumeStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RuntimeResumeFinished: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RuntimeThreadSuspended: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub RuntimeThreadResumed: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub MovedReferences: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const usize, *const usize, *const u32) -> ::windows_core::HRESULT,
+    pub ObjectAllocated: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize) -> ::windows_core::HRESULT,
+    pub ObjectsAllocatedByClass: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const usize, *const u32) -> ::windows_core::HRESULT,
+    pub ObjectReferences: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, u32, *const usize) -> ::windows_core::HRESULT,
+    pub RootReferences: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const usize) -> ::windows_core::HRESULT,
+    pub ExceptionThrown: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub ExceptionSearchFunctionEnter: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub ExceptionSearchFunctionLeave: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ExceptionSearchFilterEnter: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub ExceptionSearchFilterLeave: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ExceptionSearchCatcherFound: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub ExceptionOSHandlerEnter: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub ExceptionOSHandlerLeave: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub ExceptionUnwindFunctionEnter: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub ExceptionUnwindFunctionLeave: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ExceptionUnwindFinallyEnter: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub ExceptionUnwindFinallyLeave: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ExceptionCatcherEnter: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize) -> ::windows_core::HRESULT,
+    pub ExceptionCatcherLeave: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub COMClassicVTableCreated: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *const ::windows_core::GUID, *const ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub COMClassicVTableDestroyed: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *const ::windows_core::GUID, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ExceptionCLRCatcherFound: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ExceptionCLRCatcherExecute: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerCallback10, ICorProfilerCallback10_Vtbl, 0xcec5b60e_c69c_495f_87f6_84d28ee16ffb);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback10, ::windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7, ICorProfilerCallback8, ICorProfilerCallback9);
@@ -659,8 +659,8 @@ impl ICorProfilerCallback10 {
 #[doc(hidden)]
 pub struct ICorProfilerCallback10_Vtbl {
     pub base__: ICorProfilerCallback9_Vtbl,
-    pub EventPipeEventDelivered: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: usize, eventid: u32, eventversion: u32, cbmetadatablob: u32, metadatablob: *const u8, cbeventdata: u32, eventdata: *const u8, pactivityid: *const ::windows_core::GUID, prelatedactivityid: *const ::windows_core::GUID, eventthread: usize, numstackframes: u32, stackframes: *const usize) -> ::windows_core::HRESULT,
-    pub EventPipeProviderCreated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: usize) -> ::windows_core::HRESULT,
+    pub EventPipeEventDelivered: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, u32, u32, *const u8, u32, *const u8, *const ::windows_core::GUID, *const ::windows_core::GUID, usize, u32, *const usize) -> ::windows_core::HRESULT,
+    pub EventPipeProviderCreated: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerCallback11, ICorProfilerCallback11_Vtbl, 0x42350846_aaed_47f7_b128_fd0c98881cde);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback11, ::windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7, ICorProfilerCallback8, ICorProfilerCallback9, ICorProfilerCallback10);
@@ -1000,7 +1000,7 @@ impl ICorProfilerCallback11 {
 #[doc(hidden)]
 pub struct ICorProfilerCallback11_Vtbl {
     pub base__: ICorProfilerCallback10_Vtbl,
-    pub LoadAsNotificationOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbnotificationonly: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub LoadAsNotificationOnly: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerCallback2, ICorProfilerCallback2_Vtbl, 0x8a8cc829_ccf2_49fe_bbae_0f022228071a);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback2, ::windows_core::IUnknown, ICorProfilerCallback);
@@ -1264,14 +1264,14 @@ impl ICorProfilerCallback2 {
 #[doc(hidden)]
 pub struct ICorProfilerCallback2_Vtbl {
     pub base__: ICorProfilerCallback_Vtbl,
-    pub ThreadNameChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: usize, cchname: u32, name: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub GarbageCollectionStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cgenerations: i32, generationcollected: *const super::super::super::Foundation::BOOL, reason: COR_PRF_GC_REASON) -> ::windows_core::HRESULT,
-    pub SurvivingReferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, csurvivingobjectidranges: u32, objectidrangestart: *const usize, cobjectidrangelength: *const u32) -> ::windows_core::HRESULT,
-    pub GarbageCollectionFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FinalizeableObjectQueued: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, finalizerflags: u32, objectid: usize) -> ::windows_core::HRESULT,
-    pub RootReferences2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crootrefs: u32, rootrefids: *const usize, rootkinds: *const COR_PRF_GC_ROOT_KIND, rootflags: *const COR_PRF_GC_ROOT_FLAGS, rootids: *const usize) -> ::windows_core::HRESULT,
-    pub HandleCreated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handleid: usize, initialobjectid: usize) -> ::windows_core::HRESULT,
-    pub HandleDestroyed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handleid: usize) -> ::windows_core::HRESULT,
+    pub ThreadNameChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GarbageCollectionStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *const super::super::super::Foundation::BOOL, COR_PRF_GC_REASON) -> ::windows_core::HRESULT,
+    pub SurvivingReferences: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const usize, *const u32) -> ::windows_core::HRESULT,
+    pub GarbageCollectionFinished: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FinalizeableObjectQueued: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, usize) -> ::windows_core::HRESULT,
+    pub RootReferences2: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const usize, *const COR_PRF_GC_ROOT_KIND, *const COR_PRF_GC_ROOT_FLAGS, *const usize) -> ::windows_core::HRESULT,
+    pub HandleCreated: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize) -> ::windows_core::HRESULT,
+    pub HandleDestroyed: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerCallback3, ICorProfilerCallback3_Vtbl, 0x4fd2ed52_7731_4b8d_9469_03d2cc3086c5);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback3, ::windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2);
@@ -1547,9 +1547,9 @@ impl ICorProfilerCallback3 {
 #[doc(hidden)]
 pub struct ICorProfilerCallback3_Vtbl {
     pub base__: ICorProfilerCallback2_Vtbl,
-    pub InitializeForAttach: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcorprofilerinfounk: *mut ::core::ffi::c_void, pvclientdata: *const ::core::ffi::c_void, cbclientdata: u32) -> ::windows_core::HRESULT,
-    pub ProfilerAttachComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ProfilerDetachSucceeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InitializeForAttach: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub ProfilerAttachComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ProfilerDetachSucceeded: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerCallback4, ICorProfilerCallback4_Vtbl, 0x7b63b2e3_107d_4d48_b2f6_f61e229470d2);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback4, ::windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3);
@@ -1852,12 +1852,12 @@ impl ICorProfilerCallback4 {
 #[doc(hidden)]
 pub struct ICorProfilerCallback4_Vtbl {
     pub base__: ICorProfilerCallback3_Vtbl,
-    pub ReJITCompilationStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, rejitid: usize, fissafetoblock: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetReJITParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize, methodid: u32, pfunctioncontrol: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ReJITCompilationFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, rejitid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub ReJITError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize, methodid: u32, functionid: usize, hrstatus: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub MovedReferences2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cmovedobjectidranges: u32, oldobjectidrangestart: *const usize, newobjectidrangestart: *const usize, cobjectidrangelength: *const usize) -> ::windows_core::HRESULT,
-    pub SurvivingReferences2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, csurvivingobjectidranges: u32, objectidrangestart: *const usize, cobjectidrangelength: *const usize) -> ::windows_core::HRESULT,
+    pub ReJITCompilationStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetReJITParameters: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ReJITCompilationFinished: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, ::windows_core::HRESULT, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub ReJITError: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, usize, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub MovedReferences2: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const usize, *const usize, *const usize) -> ::windows_core::HRESULT,
+    pub SurvivingReferences2: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const usize, *const usize) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerCallback5, ICorProfilerCallback5_Vtbl, 0x8dfba405_8c9f_45f8_bffa_83b14cef78b5);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback5, ::windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4);
@@ -2163,7 +2163,7 @@ impl ICorProfilerCallback5 {
 #[doc(hidden)]
 pub struct ICorProfilerCallback5_Vtbl {
     pub base__: ICorProfilerCallback4_Vtbl,
-    pub ConditionalWeakTableElementReferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crootrefs: u32, keyrefids: *const usize, valuerefids: *const usize, rootids: *const usize) -> ::windows_core::HRESULT,
+    pub ConditionalWeakTableElementReferences: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const usize, *const usize, *const usize) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerCallback6, ICorProfilerCallback6_Vtbl, 0xfc13df4b_4448_4f4f_950c_ba8d19d00c36);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback6, ::windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5);
@@ -2476,7 +2476,7 @@ impl ICorProfilerCallback6 {
 #[doc(hidden)]
 pub struct ICorProfilerCallback6_Vtbl {
     pub base__: ICorProfilerCallback5_Vtbl,
-    pub GetAssemblyReferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszassemblypath: ::windows_core::PCWSTR, pasmrefprovider: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAssemblyReferences: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerCallback7, ICorProfilerCallback7_Vtbl, 0xf76a2dba_1d52_4539_866c_2aa518f9efc3);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback7, ::windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6);
@@ -2792,7 +2792,7 @@ impl ICorProfilerCallback7 {
 #[doc(hidden)]
 pub struct ICorProfilerCallback7_Vtbl {
     pub base__: ICorProfilerCallback6_Vtbl,
-    pub ModuleInMemorySymbolsUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize) -> ::windows_core::HRESULT,
+    pub ModuleInMemorySymbolsUpdated: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerCallback8, ICorProfilerCallback8_Vtbl, 0x5bed9b15_c079_4d47_bfe2_215a140c07e0);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback8, ::windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7);
@@ -3120,8 +3120,8 @@ impl ICorProfilerCallback8 {
 #[doc(hidden)]
 pub struct ICorProfilerCallback8_Vtbl {
     pub base__: ICorProfilerCallback7_Vtbl,
-    pub DynamicMethodJITCompilationStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, fissafetoblock: super::super::super::Foundation::BOOL, pilheader: *const u8, cbilheader: u32) -> ::windows_core::HRESULT,
-    pub DynamicMethodJITCompilationFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub DynamicMethodJITCompilationStarted: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, super::super::super::Foundation::BOOL, *const u8, u32) -> ::windows_core::HRESULT,
+    pub DynamicMethodJITCompilationFinished: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, ::windows_core::HRESULT, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerCallback9, ICorProfilerCallback9_Vtbl, 0x27583ec3_c8f5_482f_8052_194b8ce4705a);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback9, ::windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7, ICorProfilerCallback8);
@@ -3452,7 +3452,7 @@ impl ICorProfilerCallback9 {
 #[doc(hidden)]
 pub struct ICorProfilerCallback9_Vtbl {
     pub base__: ICorProfilerCallback8_Vtbl,
-    pub DynamicMethodUnloaded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize) -> ::windows_core::HRESULT,
+    pub DynamicMethodUnloaded: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerFunctionControl, ICorProfilerFunctionControl_Vtbl, 0xf0963021_e1ea_4732_8581_e01b0bd3c0c6);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerFunctionControl, ::windows_core::IUnknown);
@@ -3471,9 +3471,9 @@ impl ICorProfilerFunctionControl {
 #[doc(hidden)]
 pub struct ICorProfilerFunctionControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetCodegenFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows_core::HRESULT,
-    pub SetILFunctionBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbnewilmethodheader: u32, pbnewilmethodheader: *const u8) -> ::windows_core::HRESULT,
-    pub SetILInstrumentedCodeMap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cilmapentries: u32, rgilmapentries: *const COR_IL_MAP) -> ::windows_core::HRESULT,
+    pub SetCodegenFlags: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub SetILFunctionBody: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8) -> ::windows_core::HRESULT,
+    pub SetILInstrumentedCodeMap: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const COR_IL_MAP) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerFunctionEnum, ICorProfilerFunctionEnum_Vtbl, 0xff71301a_b994_429d_a10b_b345a65280ef);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerFunctionEnum, ::windows_core::IUnknown);
@@ -3500,11 +3500,11 @@ impl ICorProfilerFunctionEnum {
 #[doc(hidden)]
 pub struct ICorProfilerFunctionEnum_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32) -> ::windows_core::HRESULT,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ids: *mut COR_PRF_FUNCTION, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut COR_PRF_FUNCTION, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerInfo, ICorProfilerInfo_Vtbl, 0x28b5557d_3f3f_48b4_90b2_5f9eea2f6c48);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo, ::windows_core::IUnknown);
@@ -3636,42 +3636,42 @@ impl ICorProfilerInfo {
 #[doc(hidden)]
 pub struct ICorProfilerInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetClassFromObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectid: usize, pclassid: *mut usize) -> ::windows_core::HRESULT,
-    pub GetClassFromToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize, typedef: u32, pclassid: *mut usize) -> ::windows_core::HRESULT,
-    pub GetCodeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, pstart: *mut *mut u8, pcsize: *mut u32) -> ::windows_core::HRESULT,
-    pub GetEventMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwevents: *mut u32) -> ::windows_core::HRESULT,
-    pub GetFunctionFromIP: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ip: *const u8, pfunctionid: *mut usize) -> ::windows_core::HRESULT,
-    pub GetFunctionFromToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize, token: u32, pfunctionid: *mut usize) -> ::windows_core::HRESULT,
-    pub GetHandleFromThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: usize, phthread: *mut super::super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
-    pub GetObjectSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectid: usize, pcsize: *mut u32) -> ::windows_core::HRESULT,
+    pub GetClassFromObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut usize) -> ::windows_core::HRESULT,
+    pub GetClassFromToken: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *mut usize) -> ::windows_core::HRESULT,
+    pub GetCodeInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub GetEventMask: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetFunctionFromIP: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, *mut usize) -> ::windows_core::HRESULT,
+    pub GetFunctionFromToken: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *mut usize) -> ::windows_core::HRESULT,
+    pub GetHandleFromThread: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut super::super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
+    pub GetObjectSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
-    pub IsArrayClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::HRESULT,
+    pub IsArrayClass: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut super::super::WinRT::Metadata::CorElementType, *mut usize, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_WinRT_Metadata"))]
     IsArrayClass: usize,
-    pub GetThreadInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: usize, pdwwin32threadid: *mut u32) -> ::windows_core::HRESULT,
-    pub GetCurrentThreadID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pthreadid: *mut usize) -> ::windows_core::HRESULT,
-    pub GetClassIDInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32) -> ::windows_core::HRESULT,
-    pub GetFunctionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, pclassid: *mut usize, pmoduleid: *mut usize, ptoken: *mut u32) -> ::windows_core::HRESULT,
-    pub SetEventMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwevents: u32) -> ::windows_core::HRESULT,
-    pub SetEnterLeaveFunctionHooks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> ::windows_core::HRESULT,
-    pub SetFunctionIDMapper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfunc: *const FunctionIDMapper) -> ::windows_core::HRESULT,
-    pub GetTokenAndMetaDataFromFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, riid: *const ::windows_core::GUID, ppimport: *mut *mut ::core::ffi::c_void, ptoken: *mut u32) -> ::windows_core::HRESULT,
-    pub GetModuleInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize, ppbaseloadaddress: *mut *mut u8, cchname: u32, pcchname: *mut u32, szname: ::windows_core::PWSTR, passemblyid: *mut usize) -> ::windows_core::HRESULT,
-    pub GetModuleMetaData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize, dwopenflags: u32, riid: *const ::windows_core::GUID, ppout: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetILFunctionBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> ::windows_core::HRESULT,
-    pub GetILFunctionBodyAllocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize, ppmalloc: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetILFunctionBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> ::windows_core::HRESULT,
-    pub GetAppDomainInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appdomainid: usize, cchname: u32, pcchname: *mut u32, szname: ::windows_core::PWSTR, pprocessid: *mut usize) -> ::windows_core::HRESULT,
-    pub GetAssemblyInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, assemblyid: usize, cchname: u32, pcchname: *mut u32, szname: ::windows_core::PWSTR, pappdomainid: *mut usize, pmoduleid: *mut usize) -> ::windows_core::HRESULT,
-    pub SetFunctionReJIT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize) -> ::windows_core::HRESULT,
-    pub ForceGC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetILInstrumentedCodeMap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, fstartjit: super::super::super::Foundation::BOOL, cilmapentries: u32, rgilmapentries: *const COR_IL_MAP) -> ::windows_core::HRESULT,
-    pub GetInprocInspectionInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppicd: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetInprocInspectionIThisThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppicd: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetThreadContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: usize, pcontextid: *mut usize) -> ::windows_core::HRESULT,
-    pub BeginInprocDebugging: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fthisthreadonly: super::super::super::Foundation::BOOL, pdwprofilercontext: *mut u32) -> ::windows_core::HRESULT,
-    pub EndInprocDebugging: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwprofilercontext: u32) -> ::windows_core::HRESULT,
-    pub GetILToNativeMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, cmap: u32, pcmap: *mut u32, map: *mut COR_DEBUG_IL_TO_NATIVE_MAP) -> ::windows_core::HRESULT,
+    pub GetThreadInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut u32) -> ::windows_core::HRESULT,
+    pub GetCurrentThreadID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut usize) -> ::windows_core::HRESULT,
+    pub GetClassIDInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut usize, *mut u32) -> ::windows_core::HRESULT,
+    pub GetFunctionInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut usize, *mut usize, *mut u32) -> ::windows_core::HRESULT,
+    pub SetEventMask: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub SetEnterLeaveFunctionHooks: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const FunctionEnter, *const FunctionLeave, *const FunctionTailcall) -> ::windows_core::HRESULT,
+    pub SetFunctionIDMapper: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const FunctionIDMapper) -> ::windows_core::HRESULT,
+    pub GetTokenAndMetaDataFromFunction: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetModuleInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut *mut u8, u32, *mut u32, ::windows_core::PWSTR, *mut usize) -> ::windows_core::HRESULT,
+    pub GetModuleMetaData: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetILFunctionBody: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *mut *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub GetILFunctionBodyAllocator: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetILFunctionBody: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *const u8) -> ::windows_core::HRESULT,
+    pub GetAppDomainInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *mut u32, ::windows_core::PWSTR, *mut usize) -> ::windows_core::HRESULT,
+    pub GetAssemblyInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *mut u32, ::windows_core::PWSTR, *mut usize, *mut usize) -> ::windows_core::HRESULT,
+    pub SetFunctionReJIT: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub ForceGC: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetILInstrumentedCodeMap: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, super::super::super::Foundation::BOOL, u32, *const COR_IL_MAP) -> ::windows_core::HRESULT,
+    pub GetInprocInspectionInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetInprocInspectionIThisThread: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetThreadContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut usize) -> ::windows_core::HRESULT,
+    pub BeginInprocDebugging: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::BOOL, *mut u32) -> ::windows_core::HRESULT,
+    pub EndInprocDebugging: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetILToNativeMapping: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *mut u32, *mut COR_DEBUG_IL_TO_NATIVE_MAP) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerInfo10, ICorProfilerInfo10_Vtbl, 0x2f1b5152_c869_40c9_aa5f_3abe026bd720);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo10, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9);
@@ -4010,12 +4010,12 @@ impl ICorProfilerInfo10 {
 #[doc(hidden)]
 pub struct ICorProfilerInfo10_Vtbl {
     pub base__: ICorProfilerInfo9_Vtbl,
-    pub EnumerateObjectReferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectid: usize, callback: ObjectReferenceCallback, clientdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub IsFrozenObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectid: usize, pbfrozen: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetLOHObjectSizeThreshold: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pthreshold: *mut u32) -> ::windows_core::HRESULT,
-    pub RequestReJITWithInliners: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrejitflags: u32, cfunctions: u32, moduleids: *const usize, methodids: *const u32) -> ::windows_core::HRESULT,
-    pub SuspendRuntime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ResumeRuntime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumerateObjectReferences: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, ObjectReferenceCallback, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsFrozenObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetLOHObjectSizeThreshold: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub RequestReJITWithInliners: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *const usize, *const u32) -> ::windows_core::HRESULT,
+    pub SuspendRuntime: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ResumeRuntime: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerInfo11, ICorProfilerInfo11_Vtbl, 0x06398876_8987_4154_b621_40a00d6e4d04);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo11, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9, ICorProfilerInfo10);
@@ -4367,8 +4367,8 @@ impl ICorProfilerInfo11 {
 #[doc(hidden)]
 pub struct ICorProfilerInfo11_Vtbl {
     pub base__: ICorProfilerInfo10_Vtbl,
-    pub GetEnvironmentVariableA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: ::windows_core::PCWSTR, cchvalue: u32, pcchvalue: *mut u32, szvalue: ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetEnvironmentVariable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szname: ::windows_core::PCWSTR, szvalue: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetEnvironmentVariableA: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, *mut u32, ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetEnvironmentVariable: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerInfo12, ICorProfilerInfo12_Vtbl, 0x27b24ccd_1cb1_47c5_96ee_98190dc30959);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo12, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9, ICorProfilerInfo10, ICorProfilerInfo11);
@@ -4754,13 +4754,13 @@ impl ICorProfilerInfo12 {
 #[doc(hidden)]
 pub struct ICorProfilerInfo12_Vtbl {
     pub base__: ICorProfilerInfo11_Vtbl,
-    pub EventPipeStartSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cproviderconfigs: u32, pproviderconfigs: *const COR_PRF_EVENTPIPE_PROVIDER_CONFIG, requestrundown: super::super::super::Foundation::BOOL, psession: *mut u64) -> ::windows_core::HRESULT,
-    pub EventPipeAddProviderToSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, session: u64, providerconfig: COR_PRF_EVENTPIPE_PROVIDER_CONFIG) -> ::windows_core::HRESULT,
-    pub EventPipeStopSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, session: u64) -> ::windows_core::HRESULT,
-    pub EventPipeCreateProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, providername: ::windows_core::PCWSTR, pprovider: *mut usize) -> ::windows_core::HRESULT,
-    pub EventPipeGetProviderInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: usize, cchname: u32, pcchname: *mut u32, providername: ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub EventPipeDefineEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: usize, eventname: ::windows_core::PCWSTR, eventid: u32, keywords: u64, eventversion: u32, level: u32, opcode: u8, needstack: super::super::super::Foundation::BOOL, cparamdescs: u32, pparamdescs: *const COR_PRF_EVENTPIPE_PARAM_DESC, pevent: *mut usize) -> ::windows_core::HRESULT,
-    pub EventPipeWriteEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: usize, cdata: u32, data: *const COR_PRF_EVENT_DATA, pactivityid: *const ::windows_core::GUID, prelatedactivityid: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub EventPipeStartSession: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const COR_PRF_EVENTPIPE_PROVIDER_CONFIG, super::super::super::Foundation::BOOL, *mut u64) -> ::windows_core::HRESULT,
+    pub EventPipeAddProviderToSession: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, COR_PRF_EVENTPIPE_PROVIDER_CONFIG) -> ::windows_core::HRESULT,
+    pub EventPipeStopSession: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64) -> ::windows_core::HRESULT,
+    pub EventPipeCreateProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut usize) -> ::windows_core::HRESULT,
+    pub EventPipeGetProviderInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *mut u32, ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub EventPipeDefineEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, ::windows_core::PCWSTR, u32, u64, u32, u32, u8, super::super::super::Foundation::BOOL, u32, *const COR_PRF_EVENTPIPE_PARAM_DESC, *mut usize) -> ::windows_core::HRESULT,
+    pub EventPipeWriteEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *const COR_PRF_EVENT_DATA, *const ::windows_core::GUID, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerInfo13, ICorProfilerInfo13_Vtbl, 0x6e6c7ee2_0701_4ec2_9d29_2e8733b66934);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo13, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9, ICorProfilerInfo10, ICorProfilerInfo11, ICorProfilerInfo12);
@@ -5156,9 +5156,9 @@ impl ICorProfilerInfo13 {
 #[doc(hidden)]
 pub struct ICorProfilerInfo13_Vtbl {
     pub base__: ICorProfilerInfo12_Vtbl,
-    pub CreateHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: usize, r#type: COR_PRF_HANDLE_TYPE, phandle: *mut *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DestroyHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: *const *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetObjectIDFromHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: *const *const ::core::ffi::c_void, pobject: *mut usize) -> ::windows_core::HRESULT,
+    pub CreateHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, COR_PRF_HANDLE_TYPE, *mut *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DestroyHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetObjectIDFromHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const *const ::core::ffi::c_void, *mut usize) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerInfo14, ICorProfilerInfo14_Vtbl, 0xf460e352_d76d_4fe9_835f_f6af9d6e862d);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo14, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9, ICorProfilerInfo10, ICorProfilerInfo11, ICorProfilerInfo12, ICorProfilerInfo13);
@@ -5568,9 +5568,9 @@ impl ICorProfilerInfo14 {
 #[doc(hidden)]
 pub struct ICorProfilerInfo14_Vtbl {
     pub base__: ICorProfilerInfo13_Vtbl,
-    pub EnumerateNonGCObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetNonGCHeapBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cobjectranges: u32, pcobjectranges: *mut u32, ranges: *mut COR_PRF_NONGC_HEAP_RANGE) -> ::windows_core::HRESULT,
-    pub EventPipeCreateProvider2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, providername: ::windows_core::PCWSTR, pcallback: *const EventPipeProviderCallback, pprovider: *mut usize) -> ::windows_core::HRESULT,
+    pub EnumerateNonGCObjects: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNonGCHeapBounds: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u32, *mut COR_PRF_NONGC_HEAP_RANGE) -> ::windows_core::HRESULT,
+    pub EventPipeCreateProvider2: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *const EventPipeProviderCallback, *mut usize) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerInfo2, ICorProfilerInfo2_Vtbl, 0xcc0935cd_a518_487d_b0bb_a93214e65478);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo2, ::windows_core::IUnknown, ICorProfilerInfo);
@@ -5775,30 +5775,30 @@ impl ICorProfilerInfo2 {
 #[doc(hidden)]
 pub struct ICorProfilerInfo2_Vtbl {
     pub base__: ICorProfilerInfo_Vtbl,
-    pub DoStackSnapshot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, thread: usize, callback: *const StackSnapshotCallback, infoflags: u32, clientdata: *const ::core::ffi::c_void, context: *const u8, contextsize: u32) -> ::windows_core::HRESULT,
-    pub SetEnterLeaveFunctionHooks2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfuncenter: *const FunctionEnter2, pfuncleave: *const FunctionLeave2, pfunctailcall: *const FunctionTailcall2) -> ::windows_core::HRESULT,
-    pub GetFunctionInfo2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, funcid: usize, frameinfo: usize, pclassid: *mut usize, pmoduleid: *mut usize, ptoken: *mut u32, ctypeargs: u32, pctypeargs: *mut u32, typeargs: *mut usize) -> ::windows_core::HRESULT,
-    pub GetStringLayout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::HRESULT,
+    pub DoStackSnapshot: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *const StackSnapshotCallback, u32, *const ::core::ffi::c_void, *const u8, u32) -> ::windows_core::HRESULT,
+    pub SetEnterLeaveFunctionHooks2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const FunctionEnter2, *const FunctionLeave2, *const FunctionTailcall2) -> ::windows_core::HRESULT,
+    pub GetFunctionInfo2: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, *mut usize, *mut usize, *mut u32, u32, *mut u32, *mut usize) -> ::windows_core::HRESULT,
+    pub GetStringLayout: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
-    pub GetClassLayout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::HRESULT,
+    pub GetClassLayout: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, u32, *mut u32, *mut u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_WinRT_Metadata"))]
     GetClassLayout: usize,
-    pub GetClassIDInfo2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32, pparentclassid: *mut usize, cnumtypeargs: u32, pcnumtypeargs: *mut u32, typeargs: *mut usize) -> ::windows_core::HRESULT,
-    pub GetCodeInfo2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, ccodeinfos: u32, pccodeinfos: *mut u32, codeinfos: *mut COR_PRF_CODE_INFO) -> ::windows_core::HRESULT,
-    pub GetClassFromTokenAndTypeArgs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize, typedef: u32, ctypeargs: u32, typeargs: *const usize, pclassid: *mut usize) -> ::windows_core::HRESULT,
-    pub GetFunctionFromTokenAndTypeArgs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize, funcdef: u32, classid: usize, ctypeargs: u32, typeargs: *const usize, pfunctionid: *mut usize) -> ::windows_core::HRESULT,
-    pub EnumModuleFrozenObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetArrayObjectInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectid: usize, cdimensions: u32, pdimensionsizes: *mut u32, pdimensionlowerbounds: *mut i32, ppdata: *mut *mut u8) -> ::windows_core::HRESULT,
-    pub GetBoxClassLayout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classid: usize, pbufferoffset: *mut u32) -> ::windows_core::HRESULT,
-    pub GetThreadAppDomain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: usize, pappdomainid: *mut usize) -> ::windows_core::HRESULT,
-    pub GetRVAStaticAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classid: usize, fieldtoken: u32, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetAppDomainStaticAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classid: usize, fieldtoken: u32, appdomainid: usize, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetThreadStaticAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classid: usize, fieldtoken: u32, threadid: usize, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetContextStaticAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classid: usize, fieldtoken: u32, contextid: usize, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetStaticFieldInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classid: usize, fieldtoken: u32, pfieldinfo: *mut COR_PRF_STATIC_TYPE) -> ::windows_core::HRESULT,
-    pub GetGenerationBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cobjectranges: u32, pcobjectranges: *mut u32, ranges: *mut COR_PRF_GC_GENERATION_RANGE) -> ::windows_core::HRESULT,
-    pub GetObjectGeneration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectid: usize, range: *mut COR_PRF_GC_GENERATION_RANGE) -> ::windows_core::HRESULT,
-    pub GetNotifiedExceptionClauseInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *mut COR_PRF_EX_CLAUSE_INFO) -> ::windows_core::HRESULT,
+    pub GetClassIDInfo2: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut usize, *mut u32, *mut usize, u32, *mut u32, *mut usize) -> ::windows_core::HRESULT,
+    pub GetCodeInfo2: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *mut u32, *mut COR_PRF_CODE_INFO) -> ::windows_core::HRESULT,
+    pub GetClassFromTokenAndTypeArgs: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, u32, *const usize, *mut usize) -> ::windows_core::HRESULT,
+    pub GetFunctionFromTokenAndTypeArgs: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, usize, u32, *const usize, *mut usize) -> ::windows_core::HRESULT,
+    pub EnumModuleFrozenObjects: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetArrayObjectInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *mut u32, *mut i32, *mut *mut u8) -> ::windows_core::HRESULT,
+    pub GetBoxClassLayout: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut u32) -> ::windows_core::HRESULT,
+    pub GetThreadAppDomain: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut usize) -> ::windows_core::HRESULT,
+    pub GetRVAStaticAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAppDomainStaticAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, usize, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetThreadStaticAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, usize, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetContextStaticAddress: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, usize, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStaticFieldInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *mut COR_PRF_STATIC_TYPE) -> ::windows_core::HRESULT,
+    pub GetGenerationBounds: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u32, *mut COR_PRF_GC_GENERATION_RANGE) -> ::windows_core::HRESULT,
+    pub GetObjectGeneration: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut COR_PRF_GC_GENERATION_RANGE) -> ::windows_core::HRESULT,
+    pub GetNotifiedExceptionClauseInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut COR_PRF_EX_CLAUSE_INFO) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerInfo3, ICorProfilerInfo3_Vtbl, 0xb555ed4f_452a_4e54_8b39_b5360bad32a0);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo3, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2);
@@ -6048,20 +6048,20 @@ impl ICorProfilerInfo3 {
 #[doc(hidden)]
 pub struct ICorProfilerInfo3_Vtbl {
     pub base__: ICorProfilerInfo2_Vtbl,
-    pub EnumJITedFunctions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RequestProfilerDetach: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::HRESULT,
-    pub SetFunctionIDMapper2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfunc: *const FunctionIDMapper2, clientdata: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetStringLayout2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::HRESULT,
-    pub SetEnterLeaveFunctionHooks3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfuncenter3: *const FunctionEnter3, pfuncleave3: *const FunctionLeave3, pfunctailcall3: *const FunctionTailcall3) -> ::windows_core::HRESULT,
-    pub SetEnterLeaveFunctionHooks3WithInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfuncenter3withinfo: *const FunctionEnter3WithInfo, pfuncleave3withinfo: *const FunctionLeave3WithInfo, pfunctailcall3withinfo: *const FunctionTailcall3WithInfo) -> ::windows_core::HRESULT,
-    pub GetFunctionEnter3Info: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, eltinfo: usize, pframeinfo: *mut usize, pcbargumentinfo: *mut u32, pargumentinfo: *mut COR_PRF_FUNCTION_ARGUMENT_INFO) -> ::windows_core::HRESULT,
-    pub GetFunctionLeave3Info: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, eltinfo: usize, pframeinfo: *mut usize, pretvalrange: *mut COR_PRF_FUNCTION_ARGUMENT_RANGE) -> ::windows_core::HRESULT,
-    pub GetFunctionTailcall3Info: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, eltinfo: usize, pframeinfo: *mut usize) -> ::windows_core::HRESULT,
-    pub EnumModules: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetRuntimeInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclrinstanceid: *mut u16, pruntimetype: *mut COR_PRF_RUNTIME_TYPE, pmajorversion: *mut u16, pminorversion: *mut u16, pbuildnumber: *mut u16, pqfeversion: *mut u16, cchversionstring: u32, pcchversionstring: *mut u32, szversionstring: ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetThreadStaticAddress2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, classid: usize, fieldtoken: u32, appdomainid: usize, threadid: usize, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetAppDomainsContainingModule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize, cappdomainids: u32, pcappdomainids: *mut u32, appdomainids: *mut usize) -> ::windows_core::HRESULT,
-    pub GetModuleInfo2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize, ppbaseloadaddress: *mut *mut u8, cchname: u32, pcchname: *mut u32, szname: ::windows_core::PWSTR, passemblyid: *mut usize, pdwmoduleflags: *mut u32) -> ::windows_core::HRESULT,
+    pub EnumJITedFunctions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RequestProfilerDetach: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub SetFunctionIDMapper2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const FunctionIDMapper2, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStringLayout2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub SetEnterLeaveFunctionHooks3: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const FunctionEnter3, *const FunctionLeave3, *const FunctionTailcall3) -> ::windows_core::HRESULT,
+    pub SetEnterLeaveFunctionHooks3WithInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const FunctionEnter3WithInfo, *const FunctionLeave3WithInfo, *const FunctionTailcall3WithInfo) -> ::windows_core::HRESULT,
+    pub GetFunctionEnter3Info: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, *mut usize, *mut u32, *mut COR_PRF_FUNCTION_ARGUMENT_INFO) -> ::windows_core::HRESULT,
+    pub GetFunctionLeave3Info: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, *mut usize, *mut COR_PRF_FUNCTION_ARGUMENT_RANGE) -> ::windows_core::HRESULT,
+    pub GetFunctionTailcall3Info: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, *mut usize) -> ::windows_core::HRESULT,
+    pub EnumModules: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetRuntimeInformation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16, *mut COR_PRF_RUNTIME_TYPE, *mut u16, *mut u16, *mut u16, *mut u16, u32, *mut u32, ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetThreadStaticAddress2: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, usize, usize, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAppDomainsContainingModule: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *mut u32, *mut usize) -> ::windows_core::HRESULT,
+    pub GetModuleInfo2: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut *mut u8, u32, *mut u32, ::windows_core::PWSTR, *mut usize, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerInfo4, ICorProfilerInfo4_Vtbl, 0x0d8fdcaa_6257_47bf_b1bf_94dac88466ee);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo4, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3);
@@ -6344,16 +6344,16 @@ impl ICorProfilerInfo4 {
 #[doc(hidden)]
 pub struct ICorProfilerInfo4_Vtbl {
     pub base__: ICorProfilerInfo3_Vtbl,
-    pub EnumThreads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub InitializeCurrentThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RequestReJIT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cfunctions: u32, moduleids: *const usize, methodids: *const u32) -> ::windows_core::HRESULT,
-    pub RequestRevert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cfunctions: u32, moduleids: *const usize, methodids: *const u32, status: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub GetCodeInfo3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, rejitid: usize, ccodeinfos: u32, pccodeinfos: *mut u32, codeinfos: *mut COR_PRF_CODE_INFO) -> ::windows_core::HRESULT,
-    pub GetFunctionFromIP2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ip: *const u8, pfunctionid: *mut usize, prejitid: *mut usize) -> ::windows_core::HRESULT,
-    pub GetReJITIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, crejitids: u32, pcrejitids: *mut u32, rejitids: *mut usize) -> ::windows_core::HRESULT,
-    pub GetILToNativeMapping2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, rejitid: usize, cmap: u32, pcmap: *mut u32, map: *mut COR_DEBUG_IL_TO_NATIVE_MAP) -> ::windows_core::HRESULT,
-    pub EnumJITedFunctions2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetObjectSize2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectid: usize, pcsize: *mut usize) -> ::windows_core::HRESULT,
+    pub EnumThreads: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InitializeCurrentThread: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RequestReJIT: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const usize, *const u32) -> ::windows_core::HRESULT,
+    pub RequestRevert: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const usize, *const u32, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub GetCodeInfo3: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, u32, *mut u32, *mut COR_PRF_CODE_INFO) -> ::windows_core::HRESULT,
+    pub GetFunctionFromIP2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, *mut usize, *mut usize) -> ::windows_core::HRESULT,
+    pub GetReJITIDs: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *mut u32, *mut usize) -> ::windows_core::HRESULT,
+    pub GetILToNativeMapping2: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, u32, *mut u32, *mut COR_DEBUG_IL_TO_NATIVE_MAP) -> ::windows_core::HRESULT,
+    pub EnumJITedFunctions2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetObjectSize2: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut usize) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerInfo5, ICorProfilerInfo5_Vtbl, 0x07602928_ce38_4b83_81e7_74adaf781214);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo5, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4);
@@ -6642,8 +6642,8 @@ impl ICorProfilerInfo5 {
 #[doc(hidden)]
 pub struct ICorProfilerInfo5_Vtbl {
     pub base__: ICorProfilerInfo4_Vtbl,
-    pub GetEventMask2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdweventslow: *mut u32, pdweventshigh: *mut u32) -> ::windows_core::HRESULT,
-    pub SetEventMask2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweventslow: u32, dweventshigh: u32) -> ::windows_core::HRESULT,
+    pub GetEventMask2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub SetEventMask2: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerInfo6, ICorProfilerInfo6_Vtbl, 0xf30a070d_bffb_46a7_b1d8_8781ef7b698a);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo6, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5);
@@ -6935,7 +6935,7 @@ impl ICorProfilerInfo6 {
 #[doc(hidden)]
 pub struct ICorProfilerInfo6_Vtbl {
     pub base__: ICorProfilerInfo5_Vtbl,
-    pub EnumNgenModuleMethodsInliningThisMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inlinersmoduleid: usize, inlineemoduleid: usize, inlineemethodid: u32, incompletedata: *mut super::super::super::Foundation::BOOL, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnumNgenModuleMethodsInliningThisMethod: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, u32, *mut super::super::super::Foundation::BOOL, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerInfo7, ICorProfilerInfo7_Vtbl, 0x9aeecc0d_63e0_4187_8c00_e312f503f663);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo7, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6);
@@ -7237,9 +7237,9 @@ impl ICorProfilerInfo7 {
 #[doc(hidden)]
 pub struct ICorProfilerInfo7_Vtbl {
     pub base__: ICorProfilerInfo6_Vtbl,
-    pub ApplyMetaData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize) -> ::windows_core::HRESULT,
-    pub GetInMemorySymbolsLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize, pcountsymbolbytes: *mut u32) -> ::windows_core::HRESULT,
-    pub ReadInMemorySymbols: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, moduleid: usize, symbolsreadoffset: u32, psymbolbytes: *mut u8, countsymbolbytes: u32, pcountsymbolbytesread: *mut u32) -> ::windows_core::HRESULT,
+    pub ApplyMetaData: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub GetInMemorySymbolsLength: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut u32) -> ::windows_core::HRESULT,
+    pub ReadInMemorySymbols: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *mut u8, u32, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerInfo8, ICorProfilerInfo8_Vtbl, 0xc5ac80a6_782e_4716_8044_39598c60cfbf);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo8, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7);
@@ -7551,9 +7551,9 @@ impl ICorProfilerInfo8 {
 #[doc(hidden)]
 pub struct ICorProfilerInfo8_Vtbl {
     pub base__: ICorProfilerInfo7_Vtbl,
-    pub IsFunctionDynamic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, isdynamic: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetFunctionFromIP3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ip: *const u8, functionid: *mut usize, prejitid: *mut usize) -> ::windows_core::HRESULT,
-    pub GetDynamicFunctionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, moduleid: *mut usize, ppvsig: *mut *mut u8, pbsig: *mut u32, cchname: u32, pcchname: *mut u32, wszname: ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub IsFunctionDynamic: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetFunctionFromIP3: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, *mut usize, *mut usize) -> ::windows_core::HRESULT,
+    pub GetDynamicFunctionInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut usize, *mut *mut u8, *mut u32, u32, *mut u32, ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerInfo9, ICorProfilerInfo9_Vtbl, 0x008170db_f8cc_4796_9a51_dc8aa0b47012);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo9, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8);
@@ -7874,9 +7874,9 @@ impl ICorProfilerInfo9 {
 #[doc(hidden)]
 pub struct ICorProfilerInfo9_Vtbl {
     pub base__: ICorProfilerInfo8_Vtbl,
-    pub GetNativeCodeStartAddresses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: usize, rejitid: usize, ccodestartaddresses: u32, pccodestartaddresses: *mut u32, codestartaddresses: *mut usize) -> ::windows_core::HRESULT,
-    pub GetILToNativeMapping3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnativecodestartaddress: usize, cmap: u32, pcmap: *mut u32, map: *mut COR_DEBUG_IL_TO_NATIVE_MAP) -> ::windows_core::HRESULT,
-    pub GetCodeInfo4: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnativecodestartaddress: usize, ccodeinfos: u32, pccodeinfos: *mut u32, codeinfos: *mut COR_PRF_CODE_INFO) -> ::windows_core::HRESULT,
+    pub GetNativeCodeStartAddresses: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, u32, *mut u32, *mut usize) -> ::windows_core::HRESULT,
+    pub GetILToNativeMapping3: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *mut u32, *mut COR_DEBUG_IL_TO_NATIVE_MAP) -> ::windows_core::HRESULT,
+    pub GetCodeInfo4: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, u32, *mut u32, *mut COR_PRF_CODE_INFO) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerMethodEnum, ICorProfilerMethodEnum_Vtbl, 0xfccee788_0088_454b_a811_c99f298d1942);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerMethodEnum, ::windows_core::IUnknown);
@@ -7903,11 +7903,11 @@ impl ICorProfilerMethodEnum {
 #[doc(hidden)]
 pub struct ICorProfilerMethodEnum_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32) -> ::windows_core::HRESULT,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, elements: *mut COR_PRF_METHOD, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut COR_PRF_METHOD, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerModuleEnum, ICorProfilerModuleEnum_Vtbl, 0xb0266d75_2081_4493_af7f_028ba34db891);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerModuleEnum, ::windows_core::IUnknown);
@@ -7934,11 +7934,11 @@ impl ICorProfilerModuleEnum {
 #[doc(hidden)]
 pub struct ICorProfilerModuleEnum_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32) -> ::windows_core::HRESULT,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ids: *mut usize, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut usize, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerObjectEnum, ICorProfilerObjectEnum_Vtbl, 0x2c6269bd_2d13_4321_ae12_6686365fd6af);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerObjectEnum, ::windows_core::IUnknown);
@@ -7965,11 +7965,11 @@ impl ICorProfilerObjectEnum {
 #[doc(hidden)]
 pub struct ICorProfilerObjectEnum_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32) -> ::windows_core::HRESULT,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, objects: *mut usize, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut usize, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICorProfilerThreadEnum, ICorProfilerThreadEnum_Vtbl, 0x571194f7_25ed_419f_aa8b_7016b3159701);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerThreadEnum, ::windows_core::IUnknown);
@@ -7996,11 +7996,11 @@ impl ICorProfilerThreadEnum {
 #[doc(hidden)]
 pub struct ICorProfilerThreadEnum_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32) -> ::windows_core::HRESULT,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, ids: *mut usize, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut usize, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMethodMalloc, IMethodMalloc_Vtbl, 0xa0efb28b_6ee2_4d7b_b983_a75ef7beedb8);
 ::windows_core::imp::interface_hierarchy!(IMethodMalloc, ::windows_core::IUnknown);
@@ -8013,7 +8013,7 @@ impl IMethodMalloc {
 #[doc(hidden)]
 pub struct IMethodMalloc_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Alloc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cb: u32) -> *mut ::core::ffi::c_void,
+    pub Alloc: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> *mut ::core::ffi::c_void,
 }
 pub const COR_PRF_ALL: COR_PRF_MONITOR = COR_PRF_MONITOR(-1879048193i32);
 pub const COR_PRF_ALLOWABLE_AFTER_ATTACH: COR_PRF_MONITOR = COR_PRF_MONITOR(268763902i32);

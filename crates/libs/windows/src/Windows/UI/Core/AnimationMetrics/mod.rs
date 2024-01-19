@@ -4,28 +4,28 @@
 pub struct IAnimationDescription_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub Animations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Animations: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     Animations: usize,
-    pub StaggerDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub StaggerDelayFactor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
-    pub DelayLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub ZOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
+    pub StaggerDelay: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub StaggerDelayFactor: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
+    pub DelayLimit: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub ZOrder: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IAnimationDescriptionFactory, IAnimationDescriptionFactory_Vtbl, 0xc6e27abe_c1fb_48b5_9271_ecc70ac86ef0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnimationDescriptionFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effect: AnimationEffect, target: AnimationEffectTarget, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, AnimationEffect, AnimationEffectTarget, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IOpacityAnimation, IOpacityAnimation_Vtbl, 0x803aabe5_ee7e_455f_84e9_2506afb8d2b4);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpacityAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub InitialOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FinalOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
+    pub InitialOpacity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FinalOpacity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyAnimation, IPropertyAnimation_Vtbl, 0x3a01b4da_4d8c_411e_b615_1ade683a9903);
 ::windows_core::imp::interface_hierarchy!(IPropertyAnimation, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -73,22 +73,22 @@ impl ::windows_core::RuntimeType for IPropertyAnimation {
 #[doc(hidden)]
 pub struct IPropertyAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut PropertyAnimationType) -> ::windows_core::HRESULT,
-    pub Delay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
-    pub Control1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
-    pub Control2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
+    pub Type: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PropertyAnimationType) -> ::windows_core::HRESULT,
+    pub Delay: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub Duration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::TimeSpan) -> ::windows_core::HRESULT,
+    pub Control1: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
+    pub Control2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IScaleAnimation, IScaleAnimation_Vtbl, 0x023552c7_71ab_428c_9c9f_d31780964995);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScaleAnimation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub InitialScaleX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub InitialScaleY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FinalScaleX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
-    pub FinalScaleY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
-    pub NormalizedOrigin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
+    pub InitialScaleX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InitialScaleY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FinalScaleX: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
+    pub FinalScaleY: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f32) -> ::windows_core::HRESULT,
+    pub NormalizedOrigin: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::super::Foundation::Point) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

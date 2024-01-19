@@ -538,15 +538,15 @@ impl IDot11AdHocInterface {
 #[doc(hidden)]
 pub struct IDot11AdHocInterface_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetDeviceSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psignature: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetFriendlyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub IsDot11d: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pf11d: *mut u8) -> ::windows_core::HRESULT,
-    pub IsAdHocCapable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfadhoccapable: *mut u8) -> ::windows_core::HRESULT,
-    pub IsRadioOn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisradioon: *mut u8) -> ::windows_core::HRESULT,
-    pub GetActiveNetwork: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnetwork: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetIEnumSecuritySettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetIEnumDot11AdHocNetworks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilterguid: *const ::windows_core::GUID, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows_core::HRESULT,
+    pub GetDeviceSignature: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetFriendlyName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub IsDot11d: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8) -> ::windows_core::HRESULT,
+    pub IsAdHocCapable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8) -> ::windows_core::HRESULT,
+    pub IsRadioOn: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8) -> ::windows_core::HRESULT,
+    pub GetActiveNetwork: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetIEnumSecuritySettings: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetIEnumDot11AdHocNetworks: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDot11AdHocInterfaceNotificationSink, IDot11AdHocInterfaceNotificationSink_Vtbl, 0x8f10cc2f_cf0d_42a0_acbe_e2de7007384d);
 ::windows_core::imp::interface_hierarchy!(IDot11AdHocInterfaceNotificationSink, ::windows_core::IUnknown);
@@ -559,7 +559,7 @@ impl IDot11AdHocInterfaceNotificationSink {
 #[doc(hidden)]
 pub struct IDot11AdHocInterfaceNotificationSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnConnectionStatusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows_core::HRESULT,
+    pub OnConnectionStatusChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDot11AdHocManager, IDot11AdHocManager_Vtbl, 0x8f10cc26_cf0d_42a0_acbe_e2de7007384d);
 ::windows_core::imp::interface_hierarchy!(IDot11AdHocManager, ::windows_core::IUnknown);
@@ -599,11 +599,11 @@ impl IDot11AdHocManager {
 #[doc(hidden)]
 pub struct IDot11AdHocManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateNetwork: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows_core::PCWSTR, password: ::windows_core::PCWSTR, geographicalid: i32, pinterface: *mut ::core::ffi::c_void, psecurity: *mut ::core::ffi::c_void, pcontextguid: *const ::windows_core::GUID, piadhoc: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CommitCreatedNetwork: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piadhoc: *mut ::core::ffi::c_void, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows_core::HRESULT,
-    pub GetIEnumDot11AdHocNetworks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontextguid: *const ::windows_core::GUID, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetIEnumDot11AdHocInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetNetwork: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networksignature: *const ::windows_core::GUID, pnetwork: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateNetwork: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, i32, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CommitCreatedNetwork: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::BOOLEAN, super::super::Foundation::BOOLEAN) -> ::windows_core::HRESULT,
+    pub GetIEnumDot11AdHocNetworks: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetIEnumDot11AdHocInterfaces: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetNetwork: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDot11AdHocManagerNotificationSink, IDot11AdHocManagerNotificationSink_Vtbl, 0x8f10cc27_cf0d_42a0_acbe_e2de7007384d);
 ::windows_core::imp::interface_hierarchy!(IDot11AdHocManagerNotificationSink, ::windows_core::IUnknown);
@@ -631,10 +631,10 @@ impl IDot11AdHocManagerNotificationSink {
 #[doc(hidden)]
 pub struct IDot11AdHocManagerNotificationSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnNetworkAdd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piadhocnetwork: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnNetworkRemove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signature: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnInterfaceAdd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piadhocinterface: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnInterfaceRemove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signature: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnNetworkAdd: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnNetworkRemove: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnInterfaceAdd: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnInterfaceRemove: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDot11AdHocNetwork, IDot11AdHocNetwork_Vtbl, 0x8f10cc29_cf0d_42a0_acbe_e2de7007384d);
 ::windows_core::imp::interface_hierarchy!(IDot11AdHocNetwork, ::windows_core::IUnknown);
@@ -689,18 +689,18 @@ impl IDot11AdHocNetwork {
 #[doc(hidden)]
 pub struct IDot11AdHocNetwork_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows_core::HRESULT,
-    pub GetSSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszwssid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub HasProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pf11d: *mut u8) -> ::windows_core::HRESULT,
-    pub GetProfileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszwprofilename: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub DeleteProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetSignalQuality: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pustrengthvalue: *mut u32, pustrengthmax: *mut u32) -> ::windows_core::HRESULT,
-    pub GetSecuritySetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padhocsecuritysetting: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetContextGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontextguid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psignature: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padhocinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, passphrase: ::windows_core::PCWSTR, geographicalid: i32, fsaveprofile: super::super::Foundation::BOOLEAN, fmakesavedprofileuserspecific: super::super::Foundation::BOOLEAN) -> ::windows_core::HRESULT,
-    pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows_core::HRESULT,
+    pub GetSSID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub HasProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8) -> ::windows_core::HRESULT,
+    pub GetProfileName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub DeleteProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetSignalQuality: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetSecuritySetting: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetContextGuid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetSignature: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Connect: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, i32, super::super::Foundation::BOOLEAN, super::super::Foundation::BOOLEAN) -> ::windows_core::HRESULT,
+    pub Disconnect: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDot11AdHocNetworkNotificationSink, IDot11AdHocNetworkNotificationSink_Vtbl, 0x8f10cc2a_cf0d_42a0_acbe_e2de7007384d);
 ::windows_core::imp::interface_hierarchy!(IDot11AdHocNetworkNotificationSink, ::windows_core::IUnknown);
@@ -716,8 +716,8 @@ impl IDot11AdHocNetworkNotificationSink {
 #[doc(hidden)]
 pub struct IDot11AdHocNetworkNotificationSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnStatusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows_core::HRESULT,
-    pub OnConnectFail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, efailreason: DOT11_ADHOC_CONNECT_FAIL_REASON) -> ::windows_core::HRESULT,
+    pub OnStatusChange: unsafe extern "system" fn(*mut ::core::ffi::c_void, DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows_core::HRESULT,
+    pub OnConnectFail: unsafe extern "system" fn(*mut ::core::ffi::c_void, DOT11_ADHOC_CONNECT_FAIL_REASON) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDot11AdHocSecuritySettings, IDot11AdHocSecuritySettings_Vtbl, 0x8f10cc2e_cf0d_42a0_acbe_e2de7007384d);
 ::windows_core::imp::interface_hierarchy!(IDot11AdHocSecuritySettings, ::windows_core::IUnknown);
@@ -733,8 +733,8 @@ impl IDot11AdHocSecuritySettings {
 #[doc(hidden)]
 pub struct IDot11AdHocSecuritySettings_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetDot11AuthAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> ::windows_core::HRESULT,
-    pub GetDot11CipherAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcipher: *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> ::windows_core::HRESULT,
+    pub GetDot11AuthAlgorithm: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DOT11_ADHOC_AUTH_ALGORITHM) -> ::windows_core::HRESULT,
+    pub GetDot11CipherAlgorithm: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumDot11AdHocInterfaces, IEnumDot11AdHocInterfaces_Vtbl, 0x8f10cc2c_cf0d_42a0_acbe_e2de7007384d);
 ::windows_core::imp::interface_hierarchy!(IEnumDot11AdHocInterfaces, ::windows_core::IUnknown);
@@ -757,10 +757,10 @@ impl IEnumDot11AdHocInterfaces {
 #[doc(hidden)]
 pub struct IEnumDot11AdHocInterfaces_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumDot11AdHocNetworks, IEnumDot11AdHocNetworks_Vtbl, 0x8f10cc28_cf0d_42a0_acbe_e2de7007384d);
 ::windows_core::imp::interface_hierarchy!(IEnumDot11AdHocNetworks, ::windows_core::IUnknown);
@@ -783,10 +783,10 @@ impl IEnumDot11AdHocNetworks {
 #[doc(hidden)]
 pub struct IEnumDot11AdHocNetworks_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumDot11AdHocSecuritySettings, IEnumDot11AdHocSecuritySettings_Vtbl, 0x8f10cc2d_cf0d_42a0_acbe_e2de7007384d);
 ::windows_core::imp::interface_hierarchy!(IEnumDot11AdHocSecuritySettings, ::windows_core::IUnknown);
@@ -809,10 +809,10 @@ impl IEnumDot11AdHocSecuritySettings {
 #[doc(hidden)]
 pub struct IEnumDot11AdHocSecuritySettings_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut ::core::ffi::c_void, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]

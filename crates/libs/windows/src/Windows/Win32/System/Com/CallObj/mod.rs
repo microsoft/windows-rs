@@ -100,25 +100,25 @@ impl ICallFrame {
 #[doc(hidden)]
 pub struct ICallFrame_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *mut CALLFRAMEINFO) -> ::windows_core::HRESULT,
-    pub GetIIDAndMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piid: *mut ::windows_core::GUID, pimethod: *mut u32) -> ::windows_core::HRESULT,
-    pub GetNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszinterface: *mut ::windows_core::PWSTR, pwszmethod: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetStackLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void,
-    pub SetStackLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvstack: *const ::core::ffi::c_void),
-    pub SetReturnValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows_core::HRESULT),
-    pub GetReturnValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetParamInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iparam: u32, pinfo: *mut CALLFRAMEPARAMINFO) -> ::windows_core::HRESULT,
-    pub SetParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iparam: u32, pvar: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub GetParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iparam: u32, pvar: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub Copy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copycontrol: CALLFRAME_COPY, pwalker: *mut ::core::ffi::c_void, ppframe: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Free: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pframeargsdest: *mut ::core::ffi::c_void, pwalkerdestfree: *mut ::core::ffi::c_void, pwalkercopy: *mut ::core::ffi::c_void, freeflags: u32, pwalkerfree: *mut ::core::ffi::c_void, nullflags: u32) -> ::windows_core::HRESULT,
-    pub FreeParam: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iparam: u32, freeflags: u32, pwalkerfree: *mut ::core::ffi::c_void, nullflags: u32) -> ::windows_core::HRESULT,
-    pub WalkFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, walkwhat: u32, pwalker: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetMarshalSizeMax: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS, pcbbufferneeded: *mut u32) -> ::windows_core::HRESULT,
-    pub Marshal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, pcbbufferused: *mut u32, pdatarep: *mut u32, prpcflags: *mut u32) -> ::windows_core::HRESULT,
-    pub Unmarshal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT, pcbunmarshalled: *mut u32) -> ::windows_core::HRESULT,
-    pub ReleaseMarshalData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, ibfirstrelease: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows_core::HRESULT,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvreceiver: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CALLFRAMEINFO) -> ::windows_core::HRESULT,
+    pub GetIIDAndMethod: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID, *mut u32) -> ::windows_core::HRESULT,
+    pub GetNames: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PWSTR, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetStackLocation: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void,
+    pub SetStackLocation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void),
+    pub SetReturnValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT),
+    pub GetReturnValue: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetParamInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut CALLFRAMEPARAMINFO) -> ::windows_core::HRESULT,
+    pub SetParam: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub GetParam: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Copy: unsafe extern "system" fn(*mut ::core::ffi::c_void, CALLFRAME_COPY, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Free: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub FreeParam: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, *mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub WalkFrame: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetMarshalSizeMax: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const CALLFRAME_MARSHALCONTEXT, super::MSHLFLAGS, *mut u32) -> ::windows_core::HRESULT,
+    pub Marshal: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const CALLFRAME_MARSHALCONTEXT, super::MSHLFLAGS, *const ::core::ffi::c_void, u32, *mut u32, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub Unmarshal: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, u32, u32, *const CALLFRAME_MARSHALCONTEXT, *mut u32) -> ::windows_core::HRESULT,
+    pub ReleaseMarshalData: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, u32, u32, u32, *const CALLFRAME_MARSHALCONTEXT) -> ::windows_core::HRESULT,
+    pub Invoke: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICallFrameEvents, ICallFrameEvents_Vtbl, 0xfd5e0843_fc91_11d0_97d7_00c04fb9618a);
 ::windows_core::imp::interface_hierarchy!(ICallFrameEvents, ::windows_core::IUnknown);
@@ -134,7 +134,7 @@ impl ICallFrameEvents {
 #[doc(hidden)]
 pub struct ICallFrameEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pframe: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnCall: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICallFrameWalker, ICallFrameWalker_Vtbl, 0x08b23919_392d_11d2_b8a4_00c04fb9618a);
 ::windows_core::imp::interface_hierarchy!(ICallFrameWalker, ::windows_core::IUnknown);
@@ -151,7 +151,7 @@ impl ICallFrameWalker {
 #[doc(hidden)]
 pub struct ICallFrameWalker_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnWalkInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, ppvinterface: *const *const ::core::ffi::c_void, fin: super::super::super::Foundation::BOOL, fout: super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub OnWalkInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const *const ::core::ffi::c_void, super::super::super::Foundation::BOOL, super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICallIndirect, ICallIndirect_Vtbl, 0xd573b4b1_894e_11d2_b8b6_00c04fb9618a);
 ::windows_core::imp::interface_hierarchy!(ICallIndirect, ::windows_core::IUnknown);
@@ -174,10 +174,10 @@ impl ICallIndirect {
 #[doc(hidden)]
 pub struct ICallIndirect_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CallIndirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrreturn: *mut ::windows_core::HRESULT, imethod: u32, pvargs: *const ::core::ffi::c_void, cbargs: *mut u32) -> ::windows_core::HRESULT,
-    pub GetMethodInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imethod: u32, pinfo: *mut CALLFRAMEINFO, pwszmethod: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub GetStackSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imethod: u32, cbargs: *mut u32) -> ::windows_core::HRESULT,
-    pub GetIID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piid: *mut ::windows_core::GUID, pfderivesfromidispatch: *mut super::super::super::Foundation::BOOL, pcmethod: *mut u32, pwszinterface: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub CallIndirect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT, u32, *const ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetMethodInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut CALLFRAMEINFO, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetStackSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetIID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID, *mut super::super::super::Foundation::BOOL, *mut u32, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICallInterceptor, ICallInterceptor_Vtbl, 0x60c7ca75_896d_11d2_b8b6_00c04fb9618a);
 ::windows_core::imp::interface_hierarchy!(ICallInterceptor, ::windows_core::IUnknown, ICallIndirect);
@@ -210,8 +210,8 @@ impl ICallInterceptor {
 #[doc(hidden)]
 pub struct ICallInterceptor_Vtbl {
     pub base__: ICallIndirect_Vtbl,
-    pub RegisterSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetRegisteredSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsink: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RegisterSink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetRegisteredSink: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICallUnmarshal, ICallUnmarshal_Vtbl, 0x5333b003_2e42_11d2_b89d_00c04fb9618a);
 ::windows_core::imp::interface_hierarchy!(ICallUnmarshal, ::windows_core::IUnknown);
@@ -230,8 +230,8 @@ impl ICallUnmarshal {
 #[doc(hidden)]
 pub struct ICallUnmarshal_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Unmarshal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imethod: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, fforcebuffercopy: super::super::super::Foundation::BOOL, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT, pcbunmarshalled: *mut u32, ppframe: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ReleaseMarshalData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imethod: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, ibfirstrelease: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows_core::HRESULT,
+    pub Unmarshal: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::core::ffi::c_void, u32, super::super::super::Foundation::BOOL, u32, *const CALLFRAME_MARSHALCONTEXT, *mut u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ReleaseMarshalData: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::core::ffi::c_void, u32, u32, u32, *const CALLFRAME_MARSHALCONTEXT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IInterfaceRelated, IInterfaceRelated_Vtbl, 0xd1fb5a79_7706_11d1_adba_00c04fc2adc0);
 ::windows_core::imp::interface_hierarchy!(IInterfaceRelated, ::windows_core::IUnknown);
@@ -248,8 +248,8 @@ impl IInterfaceRelated {
 #[doc(hidden)]
 pub struct IInterfaceRelated_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetIID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetIID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub SetIID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetIID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 pub const CALLFRAME_COPY_INDEPENDENT: CALLFRAME_COPY = CALLFRAME_COPY(2i32);
 pub const CALLFRAME_COPY_NESTED: CALLFRAME_COPY = CALLFRAME_COPY(1i32);

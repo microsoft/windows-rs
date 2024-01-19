@@ -10,7 +10,7 @@ impl IWaaSAssessor {
 #[doc(hidden)]
 pub struct IWaaSAssessor_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetOSUpdateAssessment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result: *mut OSUpdateAssessment) -> ::windows_core::HRESULT,
+    pub GetOSUpdateAssessment: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut OSUpdateAssessment) -> ::windows_core::HRESULT,
 }
 pub const UpdateAssessmentStatus_Latest: UpdateAssessmentStatus = UpdateAssessmentStatus(0i32);
 pub const UpdateAssessmentStatus_NotLatestDeferredFeature: UpdateAssessmentStatus = UpdateAssessmentStatus(5i32);

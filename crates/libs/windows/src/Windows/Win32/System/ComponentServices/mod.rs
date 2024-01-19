@@ -95,11 +95,11 @@ impl ContextInfo {
 #[doc(hidden)]
 pub struct ContextInfo_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub IsInTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbisintx: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub GetTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptx: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetTransactionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtxid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetActivityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstractivityid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetContextId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrctxid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub IsInTransaction: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub GetTransaction: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetTransactionId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetActivityId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetContextId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -150,9 +150,9 @@ impl ContextInfo2 {
 #[doc(hidden)]
 pub struct ContextInfo2_Vtbl {
     pub base__: ContextInfo_Vtbl,
-    pub GetPartitionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__contextinfo20000: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetApplicationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__contextinfo20001: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetApplicationInstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__contextinfo20002: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetPartitionId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetApplicationId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetApplicationInstanceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -183,8 +183,8 @@ impl IAppDomainHelper {
 #[doc(hidden)]
 pub struct IAppDomainHelper_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkad: *mut ::core::ffi::c_void, __midl__iappdomainhelper0000: isize, ppool: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DoCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkad: *mut ::core::ffi::c_void, __midl__iappdomainhelper0001: isize, ppool: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, isize, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DoCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, isize, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -215,7 +215,7 @@ impl IAssemblyLocator {
 pub struct IAssemblyLocator_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetModules: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, applicationdir: ::std::mem::MaybeUninit<::windows_core::BSTR>, applicationname: ::std::mem::MaybeUninit<::windows_core::BSTR>, assemblyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pmodules: *mut *mut super::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub GetModules: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut super::Com::SAFEARRAY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetModules: usize,
 }
@@ -230,7 +230,7 @@ impl IAsyncErrorNotify {
 #[doc(hidden)]
 pub struct IAsyncErrorNotify_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub OnError: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -413,53 +413,53 @@ impl ICOMAdminCatalog {
 pub struct ICOMAdminCatalog_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcollname: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppcatalogcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCollection: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetCollection: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub Connect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcatalogservername: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppcatalogcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Connect: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Connect: usize,
-    pub MajorVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmajorversion: *mut i32) -> ::windows_core::HRESULT,
-    pub MinorVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plminorversion: *mut i32) -> ::windows_core::HRESULT,
+    pub MajorVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub MinorVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetCollectionByQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcollname: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppsavarquery: *const *const super::Com::SAFEARRAY, ppcatalogcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCollectionByQuery: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const *const super::Com::SAFEARRAY, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetCollectionByQuery: usize,
-    pub ImportComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrclsidorprogid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub InstallComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrdll: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrtlb: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrpsdll: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ShutdownApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ExportApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrapplicationfile: ::std::mem::MaybeUninit<::windows_core::BSTR>, loptions: COMAdminApplicationExportOptions) -> ::windows_core::HRESULT,
-    pub InstallApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationfile: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrdestinationdirectory: ::std::mem::MaybeUninit<::windows_core::BSTR>, loptions: COMAdminApplicationInstallOptions, bstruserid: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrpassword: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrrsn: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub StopRouter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RefreshRouter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub StartRouter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Reserved1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Reserved2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ImportComponent: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub InstallComponent: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ShutdownApplication: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ExportApplication: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, COMAdminApplicationExportOptions) -> ::windows_core::HRESULT,
+    pub InstallApplication: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, COMAdminApplicationInstallOptions, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub StopRouter: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RefreshRouter: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub StartRouter: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Reserved1: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Reserved2: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub InstallMultipleComponents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *const *const super::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub InstallMultipleComponents: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const *const super::Com::SAFEARRAY, *const *const super::Com::SAFEARRAY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     InstallMultipleComponents: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetMultipleComponentsInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *mut *mut super::Com::SAFEARRAY, ppsavarclassnames: *mut *mut super::Com::SAFEARRAY, ppsavarfileflags: *mut *mut super::Com::SAFEARRAY, ppsavarcomponentflags: *mut *mut super::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub GetMultipleComponentsInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const *const super::Com::SAFEARRAY, *mut *mut super::Com::SAFEARRAY, *mut *mut super::Com::SAFEARRAY, *mut *mut super::Com::SAFEARRAY, *mut *mut super::Com::SAFEARRAY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetMultipleComponentsInfo: usize,
-    pub RefreshComponents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub BackupREGDB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrbackupfilepath: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub RestoreREGDB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrbackupfilepath: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub RefreshComponents: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BackupREGDB: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub RestoreREGDB: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub QueryApplicationFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationfile: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrapplicationname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrapplicationdescription: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbhasusers: *mut super::super::Foundation::VARIANT_BOOL, pbisproxy: *mut super::super::Foundation::VARIANT_BOOL, ppsavarfilenames: *mut *mut super::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub QueryApplicationFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL, *mut super::super::Foundation::VARIANT_BOOL, *mut *mut super::Com::SAFEARRAY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     QueryApplicationFile: usize,
-    pub StartApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ServiceCheck: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lservice: i32, plstatus: *mut i32) -> ::windows_core::HRESULT,
+    pub StartApplication: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ServiceCheck: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub InstallMultipleEventClasses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *const *const super::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub InstallMultipleEventClasses: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const *const super::Com::SAFEARRAY, *const *const super::Com::SAFEARRAY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     InstallMultipleEventClasses: usize,
-    pub InstallEventClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrdll: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrtlb: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrpsdll: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub InstallEventClass: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetEventClassesForIID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstriid: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppsavarclsids: *mut *mut super::Com::SAFEARRAY, ppsavarprogids: *mut *mut super::Com::SAFEARRAY, ppsavardescriptions: *mut *mut super::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub GetEventClassesForIID: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut super::Com::SAFEARRAY, *mut *mut super::Com::SAFEARRAY, *mut *mut super::Com::SAFEARRAY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetEventClassesForIID: usize,
 }
@@ -832,42 +832,42 @@ impl ICOMAdminCatalog2 {
 pub struct ICOMAdminCatalog2_Vtbl {
     pub base__: ICOMAdminCatalog_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetCollectionByQuery2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcollectionname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarquerystrings: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppcatalogcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCollectionByQuery2: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetCollectionByQuery2: usize,
-    pub GetApplicationInstanceIDFromProcessID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprocessid: i32, pbstrapplicationinstanceid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub ShutdownApplicationInstances: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarapplicationinstanceid: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub PauseApplicationInstances: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarapplicationinstanceid: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub ResumeApplicationInstances: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarapplicationinstanceid: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub RecycleApplicationInstances: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarapplicationinstanceid: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, lreasoncode: i32) -> ::windows_core::HRESULT,
-    pub AreApplicationInstancesPaused: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarapplicationinstanceid: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarboolpaused: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub DumpApplicationInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationinstanceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrdirectory: ::std::mem::MaybeUninit<::windows_core::BSTR>, lmaximages: i32, pbstrdumpfile: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub IsApplicationInstanceDumpSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbooldumpsupported: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub CreateServiceForApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrservicename: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrstarttype: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrerrorcontrol: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrdependencies: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrrunas: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrpassword: ::std::mem::MaybeUninit<::windows_core::BSTR>, bdesktopok: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub DeleteServiceForApplication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetPartitionID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrpartitionid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetPartitionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrpartitionname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetCurrentPartition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpartitionidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub CurrentPartitionID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpartitionid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub CurrentPartitionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrpartitionname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GlobalPartitionID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrglobalpartitionid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub FlushPartitionCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CopyApplications: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsourcepartitionidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarapplicationid: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, bstrdestinationpartitionidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub CopyComponents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsourceapplicationidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarclsidorprogid: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, bstrdestinationapplicationidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub MoveComponents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsourceapplicationidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarclsidorprogid: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, bstrdestinationapplicationidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub AliasComponent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsrcapplicationidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrclsidorprogid: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrdestapplicationidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrnewprogid: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrnewclsid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub IsSafeToDelete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdllname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pcomadmininuse: *mut COMAdminInUse) -> ::windows_core::HRESULT,
-    pub ImportUnconfiguredComponents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarclsidorprogid: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarcomponenttype: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub PromoteUnconfiguredComponents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarclsidorprogid: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarcomponenttype: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub ImportComponents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarclsidorprogid: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pvarcomponenttype: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub Is64BitCatalogServer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbis64bit: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub ExportPartition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpartitionidorname: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrpartitionfilename: ::std::mem::MaybeUninit<::windows_core::BSTR>, loptions: COMAdminApplicationExportOptions) -> ::windows_core::HRESULT,
-    pub InstallPartition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrfilename: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrdestdirectory: ::std::mem::MaybeUninit<::windows_core::BSTR>, loptions: COMAdminApplicationInstallOptions, bstruserid: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrpassword: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrrsn: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetApplicationInstanceIDFromProcessID: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ShutdownApplicationInstances: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub PauseApplicationInstances: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub ResumeApplicationInstances: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub RecycleApplicationInstances: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, i32) -> ::windows_core::HRESULT,
+    pub AreApplicationInstancesPaused: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub DumpApplicationInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub IsApplicationInstanceDumpSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub CreateServiceForApplication: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub DeleteServiceForApplication: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetPartitionID: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetPartitionName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetCurrentPartition: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub CurrentPartitionID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub CurrentPartitionName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GlobalPartitionID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub FlushPartitionCache: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CopyApplications: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub CopyComponents: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub MoveComponents: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub AliasComponent: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub IsSafeToDelete: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut COMAdminInUse) -> ::windows_core::HRESULT,
+    pub ImportUnconfiguredComponents: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub PromoteUnconfiguredComponents: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub ImportComponents: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Is64BitCatalogServer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub ExportPartition: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, COMAdminApplicationExportOptions) -> ::windows_core::HRESULT,
+    pub InstallPartition: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, COMAdminApplicationInstallOptions, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub QueryApplicationFile2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrapplicationfile: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppfilesforimport: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub QueryApplicationFile2: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     QueryApplicationFile2: usize,
-    pub GetComponentVersionCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrclsidorprogid: ::std::mem::MaybeUninit<::windows_core::BSTR>, plversioncount: *mut i32) -> ::windows_core::HRESULT,
+    pub GetComponentVersionCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICOMLBArguments, ICOMLBArguments_Vtbl, 0x3a0f150f_8ee5_4b94_b40e_aef2f9e42ed2);
 ::windows_core::imp::interface_hierarchy!(ICOMLBArguments, ::windows_core::IUnknown);
@@ -889,10 +889,10 @@ impl ICOMLBArguments {
 #[doc(hidden)]
 pub struct ICOMLBArguments_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub SetCLSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetMachineName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchsvr: u32, szservername: ::windows_core::PWSTR) -> ::windows_core::HRESULT,
-    pub SetMachineName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchsvr: u32, szservername: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub GetCLSID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub SetCLSID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetMachineName: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub SetMachineName: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -988,37 +988,37 @@ impl ICatalogCollection {
 #[doc(hidden)]
 pub struct ICatalogCollection_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumvariant: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, ppcatalogobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plobjectcount: *mut i32) -> ::windows_core::HRESULT,
-    pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcatalogobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Add: usize,
-    pub Populate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SaveChanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcchanges: *mut i32) -> ::windows_core::HRESULT,
+    pub Populate: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SaveChanges: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcollname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varobjectkey: ::std::mem::MaybeUninit<::windows_core::VARIANT>, ppcatalogcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetCollection: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetCollection: usize,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarnamel: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub AddEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub RemoveEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub AddEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub RemoveEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetUtilInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppidispatch: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetUtilInterface: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetUtilInterface: usize,
-    pub DataStoreMajorVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmajorversion: *mut i32) -> ::windows_core::HRESULT,
-    pub DataStoreMinorVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plminorversionl: *mut i32) -> ::windows_core::HRESULT,
+    pub DataStoreMajorVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub DataStoreMinorVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub PopulateByKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psakeys: *const super::Com::SAFEARRAY) -> ::windows_core::HRESULT,
+    pub PopulateByKey: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::Com::SAFEARRAY) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     PopulateByKey: usize,
-    pub PopulateByQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrquerystring: ::std::mem::MaybeUninit<::windows_core::BSTR>, lquerytype: i32) -> ::windows_core::HRESULT,
+    pub PopulateByQuery: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -1077,13 +1077,13 @@ impl ICatalogObject {
 #[doc(hidden)]
 pub struct ICatalogObject_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub get_Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvarretval: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub put_Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropname: ::std::mem::MaybeUninit<::windows_core::BSTR>, val: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub Key: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarretval: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarretval: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub IsPropertyReadOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbretval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub Valid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbretval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub IsPropertyWriteOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropname: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbretval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub get_Value: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub put_Value: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Key: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Name: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub IsPropertyReadOnly: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Valid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub IsPropertyWriteOnly: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICheckSxsConfig, ICheckSxsConfig_Vtbl, 0x0ff5a96f_11fc_47d1_baa6_25dd347e7242);
 ::windows_core::imp::interface_hierarchy!(ICheckSxsConfig, ::windows_core::IUnknown);
@@ -1101,7 +1101,7 @@ impl ICheckSxsConfig {
 #[doc(hidden)]
 pub struct ICheckSxsConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub IsSameSxsConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszsxsname: ::windows_core::PCWSTR, wszsxsdirectory: ::windows_core::PCWSTR, wszsxsappname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub IsSameSxsConfig: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComActivityEvents, IComActivityEvents_Vtbl, 0x683130b0_2e50_11d2_98a5_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IComActivityEvents, ::windows_core::IUnknown);
@@ -1132,13 +1132,13 @@ impl IComActivityEvents {
 #[doc(hidden)]
 pub struct IComActivityEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnActivityCreate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnActivityDestroy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnActivityEnter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows_core::GUID, guidentered: *const ::windows_core::GUID, dwthread: u32) -> ::windows_core::HRESULT,
-    pub OnActivityTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows_core::GUID, guidentered: *const ::windows_core::GUID, dwthread: u32, dwtimeout: u32) -> ::windows_core::HRESULT,
-    pub OnActivityReenter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows_core::GUID, dwthread: u32, dwcalldepth: u32) -> ::windows_core::HRESULT,
-    pub OnActivityLeave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows_core::GUID, guidleft: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnActivityLeaveSame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows_core::GUID, dwcalldepth: u32) -> ::windows_core::HRESULT,
+    pub OnActivityCreate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnActivityDestroy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnActivityEnter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, *const ::windows_core::GUID, u32) -> ::windows_core::HRESULT,
+    pub OnActivityTimeout: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, *const ::windows_core::GUID, u32, u32) -> ::windows_core::HRESULT,
+    pub OnActivityReenter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, u32, u32) -> ::windows_core::HRESULT,
+    pub OnActivityLeave: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnActivityLeaveSame: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComApp2Events, IComApp2Events_Vtbl, 0x1290bc1a_b219_418d_b078_5934ded08242);
 ::windows_core::imp::interface_hierarchy!(IComApp2Events, ::windows_core::IUnknown);
@@ -1166,11 +1166,11 @@ impl IComApp2Events {
 #[doc(hidden)]
 pub struct IComApp2Events_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnAppActivation2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows_core::GUID, guidprocess: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnAppShutdown2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnAppForceShutdown2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnAppPaused2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows_core::GUID, bpaused: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub OnAppRecycle2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows_core::GUID, guidprocess: ::windows_core::GUID, lreason: i32) -> ::windows_core::HRESULT,
+    pub OnAppActivation2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnAppShutdown2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnAppForceShutdown2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnAppPaused2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub OnAppRecycle2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID, ::windows_core::GUID, i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComAppEvents, IComAppEvents_Vtbl, 0x683130a6_2e50_11d2_98a5_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IComAppEvents, ::windows_core::IUnknown);
@@ -1189,9 +1189,9 @@ impl IComAppEvents {
 #[doc(hidden)]
 pub struct IComAppEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnAppActivation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnAppShutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnAppForceShutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnAppActivation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnAppShutdown: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnAppForceShutdown: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComCRMEvents, IComCRMEvents_Vtbl, 0x683130b5_2e50_11d2_98a5_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IComCRMEvents, ::windows_core::IUnknown);
@@ -1252,21 +1252,21 @@ impl IComCRMEvents {
 #[doc(hidden)]
 pub struct IComCRMEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnCRMRecoveryStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnCRMRecoveryDone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnCRMCheckpoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnCRMBegin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows_core::GUID, guidactivity: ::windows_core::GUID, guidtx: ::windows_core::GUID, szprogidcompensator: ::windows_core::PCWSTR, szdescription: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub OnCRMPrepare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnCRMCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnCRMAbort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnCRMIndoubt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnCRMDone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnCRMRelease: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnCRMAnalyze: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows_core::GUID, dwcrmrecordtype: u32, dwrecordsize: u32) -> ::windows_core::HRESULT,
-    pub OnCRMWrite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows_core::GUID, fvariants: super::super::Foundation::BOOL, dwrecordsize: u32) -> ::windows_core::HRESULT,
-    pub OnCRMForget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnCRMForce: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnCRMDeliver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows_core::GUID, fvariants: super::super::Foundation::BOOL, dwrecordsize: u32) -> ::windows_core::HRESULT,
+    pub OnCRMRecoveryStart: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnCRMRecoveryDone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnCRMCheckpoint: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnCRMBegin: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID, ::windows_core::GUID, ::windows_core::GUID, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub OnCRMPrepare: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnCRMCommit: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnCRMAbort: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnCRMIndoubt: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnCRMDone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnCRMRelease: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnCRMAnalyze: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID, u32, u32) -> ::windows_core::HRESULT,
+    pub OnCRMWrite: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID, super::super::Foundation::BOOL, u32) -> ::windows_core::HRESULT,
+    pub OnCRMForget: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnCRMForce: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnCRMDeliver: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID, super::super::Foundation::BOOL, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComExceptionEvents, IComExceptionEvents_Vtbl, 0x683130b3_2e50_11d2_98a5_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IComExceptionEvents, ::windows_core::IUnknown);
@@ -1282,7 +1282,7 @@ impl IComExceptionEvents {
 #[doc(hidden)]
 pub struct IComExceptionEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnExceptionUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, code: u32, address: u64, pszstacktrace: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub OnExceptionUser: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u32, u64, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComIdentityEvents, IComIdentityEvents_Vtbl, 0x683130b1_2e50_11d2_98a5_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IComIdentityEvents, ::windows_core::IUnknown);
@@ -1300,7 +1300,7 @@ impl IComIdentityEvents {
 #[doc(hidden)]
 pub struct IComIdentityEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnIISRequestInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objid: u64, pszclientip: ::windows_core::PCWSTR, pszserverip: ::windows_core::PCWSTR, pszurl: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub OnIISRequestInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComInstance2Events, IComInstance2Events_Vtbl, 0x20e3bf07_b506_4ad5_a50c_d2ca5b9c158e);
 ::windows_core::imp::interface_hierarchy!(IComInstance2Events, ::windows_core::IUnknown);
@@ -1316,8 +1316,8 @@ impl IComInstance2Events {
 #[doc(hidden)]
 pub struct IComInstance2Events_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnObjectCreate2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows_core::GUID, clsid: *const ::windows_core::GUID, tsid: *const ::windows_core::GUID, ctxtid: u64, objectid: u64, guidpartition: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnObjectDestroy2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows_core::HRESULT,
+    pub OnObjectCreate2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, *const ::windows_core::GUID, *const ::windows_core::GUID, u64, u64, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnObjectDestroy2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComInstanceEvents, IComInstanceEvents_Vtbl, 0x683130a7_2e50_11d2_98a5_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IComInstanceEvents, ::windows_core::IUnknown);
@@ -1333,8 +1333,8 @@ impl IComInstanceEvents {
 #[doc(hidden)]
 pub struct IComInstanceEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnObjectCreate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows_core::GUID, clsid: *const ::windows_core::GUID, tsid: *const ::windows_core::GUID, ctxtid: u64, objectid: u64) -> ::windows_core::HRESULT,
-    pub OnObjectDestroy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows_core::HRESULT,
+    pub OnObjectCreate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, *const ::windows_core::GUID, *const ::windows_core::GUID, u64, u64) -> ::windows_core::HRESULT,
+    pub OnObjectDestroy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComLTxEvents, IComLTxEvents_Vtbl, 0x605cf82c_578e_4298_975d_82babcd9e053);
 ::windows_core::imp::interface_hierarchy!(IComLTxEvents, ::windows_core::IUnknown);
@@ -1365,11 +1365,11 @@ impl IComLTxEvents {
 #[doc(hidden)]
 pub struct IComLTxEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnLtxTransactionStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows_core::GUID, tsid: ::windows_core::GUID, froot: super::super::Foundation::BOOL, nisolationlevel: i32) -> ::windows_core::HRESULT,
-    pub OnLtxTransactionPrepare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows_core::GUID, fvote: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub OnLtxTransactionAbort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnLtxTransactionCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnLtxTransactionPromote: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows_core::GUID, txnid: ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnLtxTransactionStart: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID, ::windows_core::GUID, super::super::Foundation::BOOL, i32) -> ::windows_core::HRESULT,
+    pub OnLtxTransactionPrepare: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub OnLtxTransactionAbort: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnLtxTransactionCommit: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnLtxTransactionPromote: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::GUID, ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComMethod2Events, IComMethod2Events_Vtbl, 0xfb388aaa_567d_4024_af8e_6e93ee748573);
 ::windows_core::imp::interface_hierarchy!(IComMethod2Events, ::windows_core::IUnknown);
@@ -1388,9 +1388,9 @@ impl IComMethod2Events {
 #[doc(hidden)]
 pub struct IComMethod2Events_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnMethodCall2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows_core::GUID, guidrid: *const ::windows_core::GUID, dwthread: u32, imeth: u32) -> ::windows_core::HRESULT,
-    pub OnMethodReturn2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows_core::GUID, guidrid: *const ::windows_core::GUID, dwthread: u32, imeth: u32, hresult: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub OnMethodException2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows_core::GUID, guidrid: *const ::windows_core::GUID, dwthread: u32, imeth: u32) -> ::windows_core::HRESULT,
+    pub OnMethodCall2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, *const ::windows_core::GUID, *const ::windows_core::GUID, u32, u32) -> ::windows_core::HRESULT,
+    pub OnMethodReturn2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, *const ::windows_core::GUID, *const ::windows_core::GUID, u32, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub OnMethodException2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, *const ::windows_core::GUID, *const ::windows_core::GUID, u32, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComMethodEvents, IComMethodEvents_Vtbl, 0x683130a9_2e50_11d2_98a5_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IComMethodEvents, ::windows_core::IUnknown);
@@ -1409,9 +1409,9 @@ impl IComMethodEvents {
 #[doc(hidden)]
 pub struct IComMethodEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnMethodCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows_core::GUID, guidrid: *const ::windows_core::GUID, imeth: u32) -> ::windows_core::HRESULT,
-    pub OnMethodReturn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows_core::GUID, guidrid: *const ::windows_core::GUID, imeth: u32, hresult: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub OnMethodException: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows_core::GUID, guidrid: *const ::windows_core::GUID, imeth: u32) -> ::windows_core::HRESULT,
+    pub OnMethodCall: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, *const ::windows_core::GUID, *const ::windows_core::GUID, u32) -> ::windows_core::HRESULT,
+    pub OnMethodReturn: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, *const ::windows_core::GUID, *const ::windows_core::GUID, u32, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub OnMethodException: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, *const ::windows_core::GUID, *const ::windows_core::GUID, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComMtaThreadPoolKnobs, IComMtaThreadPoolKnobs_Vtbl, 0xf9a76d2e_76a5_43eb_a0c4_49bec8e48480);
 ::windows_core::imp::interface_hierarchy!(IComMtaThreadPoolKnobs, ::windows_core::IUnknown);
@@ -1435,10 +1435,10 @@ impl IComMtaThreadPoolKnobs {
 #[doc(hidden)]
 pub struct IComMtaThreadPoolKnobs_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub MTASetMaxThreadCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxthreads: u32) -> ::windows_core::HRESULT,
-    pub MTAGetMaxThreadCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmaxthreads: *mut u32) -> ::windows_core::HRESULT,
-    pub MTASetThrottleValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwthrottle: u32) -> ::windows_core::HRESULT,
-    pub MTAGetThrottleValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwthrottle: *mut u32) -> ::windows_core::HRESULT,
+    pub MTASetMaxThreadCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub MTAGetMaxThreadCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub MTASetThrottleValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub MTAGetThrottleValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComObjectConstruction2Events, IComObjectConstruction2Events_Vtbl, 0x4b5a7827_8df2_45c0_8f6f_57ea1f856a9f);
 ::windows_core::imp::interface_hierarchy!(IComObjectConstruction2Events, ::windows_core::IUnknown);
@@ -1454,7 +1454,7 @@ impl IComObjectConstruction2Events {
 #[doc(hidden)]
 pub struct IComObjectConstruction2Events_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnObjectConstruct2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows_core::GUID, sconstructstring: ::windows_core::PCWSTR, oid: u64, guidpartition: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnObjectConstruct2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, ::windows_core::PCWSTR, u64, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComObjectConstructionEvents, IComObjectConstructionEvents_Vtbl, 0x683130af_2e50_11d2_98a5_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IComObjectConstructionEvents, ::windows_core::IUnknown);
@@ -1470,7 +1470,7 @@ impl IComObjectConstructionEvents {
 #[doc(hidden)]
 pub struct IComObjectConstructionEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnObjectConstruct: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows_core::GUID, sconstructstring: ::windows_core::PCWSTR, oid: u64) -> ::windows_core::HRESULT,
+    pub OnObjectConstruct: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, ::windows_core::PCWSTR, u64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComObjectEvents, IComObjectEvents_Vtbl, 0x683130aa_2e50_11d2_98a5_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IComObjectEvents, ::windows_core::IUnknown);
@@ -1498,12 +1498,12 @@ impl IComObjectEvents {
 #[doc(hidden)]
 pub struct IComObjectEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnObjectActivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64, objectid: u64) -> ::windows_core::HRESULT,
-    pub OnObjectDeactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64, objectid: u64) -> ::windows_core::HRESULT,
-    pub OnDisableCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows_core::HRESULT,
-    pub OnEnableCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows_core::HRESULT,
-    pub OnSetComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows_core::HRESULT,
-    pub OnSetAbort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows_core::HRESULT,
+    pub OnObjectActivate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, u64) -> ::windows_core::HRESULT,
+    pub OnObjectDeactivate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, u64) -> ::windows_core::HRESULT,
+    pub OnDisableCommit: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64) -> ::windows_core::HRESULT,
+    pub OnEnableCommit: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64) -> ::windows_core::HRESULT,
+    pub OnSetComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64) -> ::windows_core::HRESULT,
+    pub OnSetAbort: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComObjectPool2Events, IComObjectPool2Events_Vtbl, 0x65bf6534_85ea_4f64_8cf4_3d974b2ab1cf);
 ::windows_core::imp::interface_hierarchy!(IComObjectPool2Events, ::windows_core::IUnknown);
@@ -1525,10 +1525,10 @@ impl IComObjectPool2Events {
 #[doc(hidden)]
 pub struct IComObjectPool2Events_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnObjPoolPutObject2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows_core::GUID, nreason: i32, dwavailable: u32, oid: u64) -> ::windows_core::HRESULT,
-    pub OnObjPoolGetObject2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows_core::GUID, guidobject: *const ::windows_core::GUID, dwavailable: u32, oid: u64, guidpartition: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnObjPoolRecycleToTx2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows_core::GUID, guidobject: *const ::windows_core::GUID, guidtx: *const ::windows_core::GUID, objid: u64) -> ::windows_core::HRESULT,
-    pub OnObjPoolGetFromTx2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows_core::GUID, guidobject: *const ::windows_core::GUID, guidtx: *const ::windows_core::GUID, objid: u64, guidpartition: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnObjPoolPutObject2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, i32, u32, u64) -> ::windows_core::HRESULT,
+    pub OnObjPoolGetObject2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, *const ::windows_core::GUID, u32, u64, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnObjPoolRecycleToTx2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, *const ::windows_core::GUID, *const ::windows_core::GUID, u64) -> ::windows_core::HRESULT,
+    pub OnObjPoolGetFromTx2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, *const ::windows_core::GUID, *const ::windows_core::GUID, u64, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComObjectPoolEvents, IComObjectPoolEvents_Vtbl, 0x683130ad_2e50_11d2_98a5_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IComObjectPoolEvents, ::windows_core::IUnknown);
@@ -1550,10 +1550,10 @@ impl IComObjectPoolEvents {
 #[doc(hidden)]
 pub struct IComObjectPoolEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnObjPoolPutObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows_core::GUID, nreason: i32, dwavailable: u32, oid: u64) -> ::windows_core::HRESULT,
-    pub OnObjPoolGetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows_core::GUID, guidobject: *const ::windows_core::GUID, dwavailable: u32, oid: u64) -> ::windows_core::HRESULT,
-    pub OnObjPoolRecycleToTx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows_core::GUID, guidobject: *const ::windows_core::GUID, guidtx: *const ::windows_core::GUID, objid: u64) -> ::windows_core::HRESULT,
-    pub OnObjPoolGetFromTx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows_core::GUID, guidobject: *const ::windows_core::GUID, guidtx: *const ::windows_core::GUID, objid: u64) -> ::windows_core::HRESULT,
+    pub OnObjPoolPutObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, i32, u32, u64) -> ::windows_core::HRESULT,
+    pub OnObjPoolGetObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, *const ::windows_core::GUID, u32, u64) -> ::windows_core::HRESULT,
+    pub OnObjPoolRecycleToTx: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, *const ::windows_core::GUID, *const ::windows_core::GUID, u64) -> ::windows_core::HRESULT,
+    pub OnObjPoolGetFromTx: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, *const ::windows_core::GUID, *const ::windows_core::GUID, u64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComObjectPoolEvents2, IComObjectPoolEvents2_Vtbl, 0x683130ae_2e50_11d2_98a5_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IComObjectPoolEvents2, ::windows_core::IUnknown);
@@ -1578,11 +1578,11 @@ impl IComObjectPoolEvents2 {
 #[doc(hidden)]
 pub struct IComObjectPoolEvents2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnObjPoolCreateObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows_core::GUID, dwobjscreated: u32, oid: u64) -> ::windows_core::HRESULT,
-    pub OnObjPoolDestroyObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows_core::GUID, dwobjscreated: u32, oid: u64) -> ::windows_core::HRESULT,
-    pub OnObjPoolCreateDecision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, dwthreadswaiting: u32, dwavail: u32, dwcreated: u32, dwmin: u32, dwmax: u32) -> ::windows_core::HRESULT,
-    pub OnObjPoolTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows_core::GUID, guidactivity: *const ::windows_core::GUID, dwtimeout: u32) -> ::windows_core::HRESULT,
-    pub OnObjPoolCreatePool: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows_core::GUID, dwmin: u32, dwmax: u32, dwtimeout: u32) -> ::windows_core::HRESULT,
+    pub OnObjPoolCreateObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, u32, u64) -> ::windows_core::HRESULT,
+    pub OnObjPoolDestroyObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, u32, u64) -> ::windows_core::HRESULT,
+    pub OnObjPoolCreateDecision: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u32, u32, u32, u32, u32) -> ::windows_core::HRESULT,
+    pub OnObjPoolTimeout: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, *const ::windows_core::GUID, u32) -> ::windows_core::HRESULT,
+    pub OnObjPoolCreatePool: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, u32, u32, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComQCEvents, IComQCEvents_Vtbl, 0x683130b2_2e50_11d2_98a5_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IComQCEvents, ::windows_core::IUnknown);
@@ -1613,13 +1613,13 @@ impl IComQCEvents {
 #[doc(hidden)]
 pub struct IComQCEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnQCRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objid: u64, szqueue: ::windows_core::PCWSTR, guidmsgid: *const ::windows_core::GUID, guidworkflowid: *const ::windows_core::GUID, msmqhr: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub OnQCQueueOpen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, szqueue: ::windows_core::PCWSTR, queueid: u64, hr: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub OnQCReceive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, queueid: u64, guidmsgid: *const ::windows_core::GUID, guidworkflowid: *const ::windows_core::GUID, hr: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub OnQCReceiveFail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, queueid: u64, msmqhr: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub OnQCMoveToReTryQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidmsgid: *const ::windows_core::GUID, guidworkflowid: *const ::windows_core::GUID, retryindex: u32) -> ::windows_core::HRESULT,
-    pub OnQCMoveToDeadQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidmsgid: *const ::windows_core::GUID, guidworkflowid: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnQCPlayback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objid: u64, guidmsgid: *const ::windows_core::GUID, guidworkflowid: *const ::windows_core::GUID, hr: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub OnQCRecord: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, ::windows_core::PCWSTR, *const ::windows_core::GUID, *const ::windows_core::GUID, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub OnQCQueueOpen: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, ::windows_core::PCWSTR, u64, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub OnQCReceive: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, *const ::windows_core::GUID, *const ::windows_core::GUID, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub OnQCReceiveFail: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub OnQCMoveToReTryQueue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, *const ::windows_core::GUID, u32) -> ::windows_core::HRESULT,
+    pub OnQCMoveToDeadQueue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnQCPlayback: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, *const ::windows_core::GUID, *const ::windows_core::GUID, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComResourceEvents, IComResourceEvents_Vtbl, 0x683130ab_2e50_11d2_98a5_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IComResourceEvents, ::windows_core::IUnknown);
@@ -1662,11 +1662,11 @@ impl IComResourceEvents {
 #[doc(hidden)]
 pub struct IComResourceEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnResourceCreate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: ::windows_core::PCWSTR, resid: u64, enlisted: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub OnResourceAllocate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: ::windows_core::PCWSTR, resid: u64, enlisted: super::super::Foundation::BOOL, numrated: u32, rating: u32) -> ::windows_core::HRESULT,
-    pub OnResourceRecycle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: ::windows_core::PCWSTR, resid: u64) -> ::windows_core::HRESULT,
-    pub OnResourceDestroy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objectid: u64, hr: ::windows_core::HRESULT, psztype: ::windows_core::PCWSTR, resid: u64) -> ::windows_core::HRESULT,
-    pub OnResourceTrack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: ::windows_core::PCWSTR, resid: u64, enlisted: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub OnResourceCreate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, ::windows_core::PCWSTR, u64, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub OnResourceAllocate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, ::windows_core::PCWSTR, u64, super::super::Foundation::BOOL, u32, u32) -> ::windows_core::HRESULT,
+    pub OnResourceRecycle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, ::windows_core::PCWSTR, u64) -> ::windows_core::HRESULT,
+    pub OnResourceDestroy: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, ::windows_core::HRESULT, ::windows_core::PCWSTR, u64) -> ::windows_core::HRESULT,
+    pub OnResourceTrack: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, ::windows_core::PCWSTR, u64, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComSecurityEvents, IComSecurityEvents_Vtbl, 0x683130ac_2e50_11d2_98a5_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IComSecurityEvents, ::windows_core::IUnknown);
@@ -1688,8 +1688,8 @@ impl IComSecurityEvents {
 #[doc(hidden)]
 pub struct IComSecurityEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnAuthenticate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows_core::GUID, objectid: u64, guidiid: *const ::windows_core::GUID, imeth: u32, cbbyteorig: u32, psidoriginaluser: *const u8, cbbytecur: u32, psidcurrentuser: *const u8, bcurrentuserinpersonatinginproc: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub OnAuthenticateFail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows_core::GUID, objectid: u64, guidiid: *const ::windows_core::GUID, imeth: u32, cbbyteorig: u32, psidoriginaluser: *const u8, cbbytecur: u32, psidcurrentuser: *const u8, bcurrentuserinpersonatinginproc: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub OnAuthenticate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, u64, *const ::windows_core::GUID, u32, u32, *const u8, u32, *const u8, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub OnAuthenticateFail: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, u64, *const ::windows_core::GUID, u32, u32, *const u8, u32, *const u8, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComStaThreadPoolKnobs, IComStaThreadPoolKnobs_Vtbl, 0x324b64fa_33b6_11d2_98b7_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IComStaThreadPoolKnobs, ::windows_core::IUnknown);
@@ -1738,17 +1738,17 @@ impl IComStaThreadPoolKnobs {
 #[doc(hidden)]
 pub struct IComStaThreadPoolKnobs_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetMinThreadCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minthreads: u32) -> ::windows_core::HRESULT,
-    pub GetMinThreadCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minthreads: *mut u32) -> ::windows_core::HRESULT,
-    pub SetMaxThreadCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxthreads: u32) -> ::windows_core::HRESULT,
-    pub GetMaxThreadCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxthreads: *mut u32) -> ::windows_core::HRESULT,
-    pub SetActivityPerThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activitiesperthread: u32) -> ::windows_core::HRESULT,
-    pub GetActivityPerThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activitiesperthread: *mut u32) -> ::windows_core::HRESULT,
-    pub SetActivityRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activityratio: f64) -> ::windows_core::HRESULT,
-    pub GetActivityRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activityratio: *mut f64) -> ::windows_core::HRESULT,
-    pub GetThreadCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwthreads: *mut u32) -> ::windows_core::HRESULT,
-    pub GetQueueDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwqdepth: *mut u32) -> ::windows_core::HRESULT,
-    pub SetQueueDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwqdepth: i32) -> ::windows_core::HRESULT,
+    pub SetMinThreadCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetMinThreadCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetMaxThreadCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetMaxThreadCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetActivityPerThread: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub GetActivityPerThread: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetActivityRatio: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
+    pub GetActivityRatio: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut f64) -> ::windows_core::HRESULT,
+    pub GetThreadCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetQueueDepth: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetQueueDepth: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComStaThreadPoolKnobs2, IComStaThreadPoolKnobs2_Vtbl, 0x73707523_ff9a_4974_bf84_2108dc213740);
 ::windows_core::imp::interface_hierarchy!(IComStaThreadPoolKnobs2, ::windows_core::IUnknown, IComStaThreadPoolKnobs);
@@ -1838,16 +1838,16 @@ impl IComStaThreadPoolKnobs2 {
 #[doc(hidden)]
 pub struct IComStaThreadPoolKnobs2_Vtbl {
     pub base__: IComStaThreadPoolKnobs_Vtbl,
-    pub GetMaxCPULoad: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwload: *mut u32) -> ::windows_core::HRESULT,
-    pub SetMaxCPULoad: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwload: i32) -> ::windows_core::HRESULT,
-    pub GetCPUMetricEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbmetricenabled: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetCPUMetricEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bmetricenabled: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetCreateThreadsAggressively: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbmetricenabled: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetCreateThreadsAggressively: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bmetricenabled: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetMaxCSR: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcsr: *mut u32) -> ::windows_core::HRESULT,
-    pub SetMaxCSR: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcsr: i32) -> ::windows_core::HRESULT,
-    pub GetWaitTimeForThreadCleanup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwthreadcleanupwaittime: *mut u32) -> ::windows_core::HRESULT,
-    pub SetWaitTimeForThreadCleanup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwthreadcleanupwaittime: i32) -> ::windows_core::HRESULT,
+    pub GetMaxCPULoad: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetMaxCPULoad: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub GetCPUMetricEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetCPUMetricEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetCreateThreadsAggressively: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetCreateThreadsAggressively: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetMaxCSR: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetMaxCSR: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub GetWaitTimeForThreadCleanup: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetWaitTimeForThreadCleanup: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComThreadEvents, IComThreadEvents_Vtbl, 0x683130a5_2e50_11d2_98a5_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IComThreadEvents, ::windows_core::IUnknown);
@@ -1890,17 +1890,17 @@ impl IComThreadEvents {
 #[doc(hidden)]
 pub struct IComThreadEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnThreadStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, threadid: u64, dwthread: u32, dwtheadcnt: u32) -> ::windows_core::HRESULT,
-    pub OnThreadTerminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, threadid: u64, dwthread: u32, dwtheadcnt: u32) -> ::windows_core::HRESULT,
-    pub OnThreadBindToApartment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, threadid: u64, aptid: u64, dwactcnt: u32, dwlowcnt: u32) -> ::windows_core::HRESULT,
-    pub OnThreadUnBind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, threadid: u64, aptid: u64, dwactcnt: u32) -> ::windows_core::HRESULT,
-    pub OnThreadWorkEnque: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64, queuelen: u32) -> ::windows_core::HRESULT,
-    pub OnThreadWorkPrivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64) -> ::windows_core::HRESULT,
-    pub OnThreadWorkPublic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64, queuelen: u32) -> ::windows_core::HRESULT,
-    pub OnThreadWorkRedirect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64, queuelen: u32, threadnum: u64) -> ::windows_core::HRESULT,
-    pub OnThreadWorkReject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, threadid: u64, msgworkid: u64, queuelen: u32) -> ::windows_core::HRESULT,
-    pub OnThreadAssignApartment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows_core::GUID, aptid: u64) -> ::windows_core::HRESULT,
-    pub OnThreadUnassignApartment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, aptid: u64) -> ::windows_core::HRESULT,
+    pub OnThreadStart: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, u32, u32) -> ::windows_core::HRESULT,
+    pub OnThreadTerminate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, u32, u32) -> ::windows_core::HRESULT,
+    pub OnThreadBindToApartment: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, u64, u32, u32) -> ::windows_core::HRESULT,
+    pub OnThreadUnBind: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, u64, u32) -> ::windows_core::HRESULT,
+    pub OnThreadWorkEnque: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, u64, u32) -> ::windows_core::HRESULT,
+    pub OnThreadWorkPrivate: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, u64) -> ::windows_core::HRESULT,
+    pub OnThreadWorkPublic: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, u64, u32) -> ::windows_core::HRESULT,
+    pub OnThreadWorkRedirect: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, u64, u32, u64) -> ::windows_core::HRESULT,
+    pub OnThreadWorkReject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64, u64, u32) -> ::windows_core::HRESULT,
+    pub OnThreadAssignApartment: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, u64) -> ::windows_core::HRESULT,
+    pub OnThreadUnassignApartment: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, u64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComTrackingInfoCollection, IComTrackingInfoCollection_Vtbl, 0xc266c677_c9ad_49ab_9fd9_d9661078588a);
 ::windows_core::imp::interface_hierarchy!(IComTrackingInfoCollection, ::windows_core::IUnknown);
@@ -1921,9 +1921,9 @@ impl IComTrackingInfoCollection {
 #[doc(hidden)]
 pub struct IComTrackingInfoCollection_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut TRACKING_COLL_TYPE) -> ::windows_core::HRESULT,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows_core::HRESULT,
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulindex: u32, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Type: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut TRACKING_COLL_TYPE) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComTrackingInfoEvents, IComTrackingInfoEvents_Vtbl, 0x4e6cdcc9_fb25_4fd5_9cc5_c9f4b6559cec);
 ::windows_core::imp::interface_hierarchy!(IComTrackingInfoEvents, ::windows_core::IUnknown);
@@ -1939,7 +1939,7 @@ impl IComTrackingInfoEvents {
 #[doc(hidden)]
 pub struct IComTrackingInfoEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnNewTrackingInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptoplevelcollection: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnNewTrackingInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComTrackingInfoObject, IComTrackingInfoObject_Vtbl, 0x116e42c5_d8b1_47bf_ab1e_c895ed3e2372);
 ::windows_core::imp::interface_hierarchy!(IComTrackingInfoObject, ::windows_core::IUnknown);
@@ -1956,7 +1956,7 @@ impl IComTrackingInfoObject {
 #[doc(hidden)]
 pub struct IComTrackingInfoObject_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szpropertyname: ::windows_core::PCWSTR, pvarout: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub GetValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComTrackingInfoProperties, IComTrackingInfoProperties_Vtbl, 0x789b42be_6f6b_443a_898e_67abf390aa14);
 ::windows_core::imp::interface_hierarchy!(IComTrackingInfoProperties, ::windows_core::IUnknown);
@@ -1974,8 +1974,8 @@ impl IComTrackingInfoProperties {
 #[doc(hidden)]
 pub struct IComTrackingInfoProperties_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub PropCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows_core::HRESULT,
-    pub GetPropName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulindex: u32, ppszpropname: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub PropCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetPropName: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComTransaction2Events, IComTransaction2Events_Vtbl, 0xa136f62a_2f94_4288_86e0_d8a1fa4c0299);
 ::windows_core::imp::interface_hierarchy!(IComTransaction2Events, ::windows_core::IUnknown);
@@ -2003,10 +2003,10 @@ impl IComTransaction2Events {
 #[doc(hidden)]
 pub struct IComTransaction2Events_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnTransactionStart2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows_core::GUID, tsid: *const ::windows_core::GUID, froot: super::super::Foundation::BOOL, nisolationlevel: i32) -> ::windows_core::HRESULT,
-    pub OnTransactionPrepare2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows_core::GUID, fvoteyes: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub OnTransactionAbort2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnTransactionCommit2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnTransactionStart2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, *const ::windows_core::GUID, super::super::Foundation::BOOL, i32) -> ::windows_core::HRESULT,
+    pub OnTransactionPrepare2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub OnTransactionAbort2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnTransactionCommit2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComTransactionEvents, IComTransactionEvents_Vtbl, 0x683130a8_2e50_11d2_98a5_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IComTransactionEvents, ::windows_core::IUnknown);
@@ -2034,10 +2034,10 @@ impl IComTransactionEvents {
 #[doc(hidden)]
 pub struct IComTransactionEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnTransactionStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows_core::GUID, tsid: *const ::windows_core::GUID, froot: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub OnTransactionPrepare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows_core::GUID, fvoteyes: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub OnTransactionAbort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub OnTransactionCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnTransactionStart: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, *const ::windows_core::GUID, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub OnTransactionPrepare: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub OnTransactionAbort: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub OnTransactionCommit: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IComUserEvent, IComUserEvent_Vtbl, 0x683130a4_2e50_11d2_98a5_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IComUserEvent, ::windows_core::IUnknown);
@@ -2050,7 +2050,7 @@ impl IComUserEvent {
 #[doc(hidden)]
 pub struct IComUserEvent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnUserEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, pvarevent: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub OnUserEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const COMSVCSEVENTINFO, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContextProperties, IContextProperties_Vtbl, 0xd396da85_bf8f_11d1_bbae_00c04fc2fa5f);
 ::windows_core::imp::interface_hierarchy!(IContextProperties, ::windows_core::IUnknown);
@@ -2086,11 +2086,11 @@ impl IContextProperties {
 #[doc(hidden)]
 pub struct IContextProperties_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT,
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, pproperty: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub EnumNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, property: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub RemoveProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub EnumNames: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub RemoveProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContextSecurityPerimeter, IContextSecurityPerimeter_Vtbl, 0xa7549a29_a7c4_42e1_8dc1_7e3d748dc24a);
 ::windows_core::imp::interface_hierarchy!(IContextSecurityPerimeter, ::windows_core::IUnknown);
@@ -2109,8 +2109,8 @@ impl IContextSecurityPerimeter {
 #[doc(hidden)]
 pub struct IContextSecurityPerimeter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetPerimeterFlag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflag: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetPerimeterFlag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fflag: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetPerimeterFlag: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetPerimeterFlag: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IContextState, IContextState_Vtbl, 0x3c05e54b_a42a_11d2_afc4_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IContextState, ::windows_core::IUnknown);
@@ -2135,10 +2135,10 @@ impl IContextState {
 #[doc(hidden)]
 pub struct IContextState_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetDeactivateOnReturn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bdeactivate: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub GetDeactivateOnReturn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdeactivate: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub SetMyTransactionVote: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, txvote: TransactionVote) -> ::windows_core::HRESULT,
-    pub GetMyTransactionVote: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptxvote: *mut TransactionVote) -> ::windows_core::HRESULT,
+    pub SetDeactivateOnReturn: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub GetDeactivateOnReturn: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub SetMyTransactionVote: unsafe extern "system" fn(*mut ::core::ffi::c_void, TransactionVote) -> ::windows_core::HRESULT,
+    pub GetMyTransactionVote: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut TransactionVote) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICreateWithLocalTransaction, ICreateWithLocalTransaction_Vtbl, 0x227ac7a8_8423_42ce_b7cf_03061ec9aaa3);
 ::windows_core::imp::interface_hierarchy!(ICreateWithLocalTransaction, ::windows_core::IUnknown);
@@ -2154,7 +2154,7 @@ impl ICreateWithLocalTransaction {
 #[doc(hidden)]
 pub struct ICreateWithLocalTransaction_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateInstanceWithSysTx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut ::core::ffi::c_void, rclsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstanceWithSysTx: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICreateWithTipTransactionEx, ICreateWithTipTransactionEx_Vtbl, 0x455acf59_5345_11d2_99cf_00c04f797bc9);
 ::windows_core::imp::interface_hierarchy!(ICreateWithTipTransactionEx, ::windows_core::IUnknown);
@@ -2172,7 +2172,7 @@ impl ICreateWithTipTransactionEx {
 #[doc(hidden)]
 pub struct ICreateWithTipTransactionEx_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtipurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, rclsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::windows_core::GUID, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICreateWithTransactionEx, ICreateWithTransactionEx_Vtbl, 0x455acf57_5345_11d2_99cf_00c04f797bc9);
 ::windows_core::imp::interface_hierarchy!(ICreateWithTransactionEx, ::windows_core::IUnknown);
@@ -2193,7 +2193,7 @@ impl ICreateWithTransactionEx {
 pub struct ICreateWithTransactionEx_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut ::core::ffi::c_void, rclsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_DistributedTransactionCoordinator"))]
     CreateInstance: usize,
 }
@@ -2254,25 +2254,25 @@ impl ICrmCompensator {
 #[doc(hidden)]
 pub struct ICrmCompensator_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetLogControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plogcontrol: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub BeginPrepare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetLogControl: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BeginPrepare: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub PrepareRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crmlogrec: CrmLogRecordRead, pfforget: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub PrepareRecord: unsafe extern "system" fn(*mut ::core::ffi::c_void, CrmLogRecordRead, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     PrepareRecord: usize,
-    pub EndPrepare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfoktoprepare: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub BeginCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frecovery: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub EndPrepare: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub BeginCommit: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub CommitRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crmlogrec: CrmLogRecordRead, pfforget: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub CommitRecord: unsafe extern "system" fn(*mut ::core::ffi::c_void, CrmLogRecordRead, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CommitRecord: usize,
-    pub EndCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub BeginAbort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frecovery: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub EndCommit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BeginAbort: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub AbortRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crmlogrec: CrmLogRecordRead, pfforget: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub AbortRecord: unsafe extern "system" fn(*mut ::core::ffi::c_void, CrmLogRecordRead, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     AbortRecord: usize,
-    pub EndAbort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EndAbort: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICrmCompensatorVariants, ICrmCompensatorVariants_Vtbl, 0xf0baf8e4_7804_11d1_82e9_00a0c91eede9);
 ::windows_core::imp::interface_hierarchy!(ICrmCompensatorVariants, ::windows_core::IUnknown);
@@ -2325,16 +2325,16 @@ impl ICrmCompensatorVariants {
 #[doc(hidden)]
 pub struct ICrmCompensatorVariants_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetLogControlVariants: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plogcontrol: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub BeginPrepareVariants: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub PrepareRecordVariants: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plogrecord: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pbforget: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub EndPrepareVariants: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pboktoprepare: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub BeginCommitVariants: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecovery: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub CommitRecordVariants: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plogrecord: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pbforget: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub EndCommitVariants: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub BeginAbortVariants: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecovery: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub AbortRecordVariants: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plogrecord: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, pbforget: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub EndAbortVariants: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetLogControlVariants: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BeginPrepareVariants: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PrepareRecordVariants: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub EndPrepareVariants: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub BeginCommitVariants: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub CommitRecordVariants: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub EndCommitVariants: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BeginAbortVariants: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub AbortRecordVariants: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub EndAbortVariants: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICrmFormatLogRecords, ICrmFormatLogRecords_Vtbl, 0x9c51d821_c98b_11d1_82fb_00a0c91eede9);
 ::windows_core::imp::interface_hierarchy!(ICrmFormatLogRecords, ::windows_core::IUnknown);
@@ -2365,13 +2365,13 @@ impl ICrmFormatLogRecords {
 #[doc(hidden)]
 pub struct ICrmFormatLogRecords_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetColumnCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcolumncount: *mut i32) -> ::windows_core::HRESULT,
-    pub GetColumnHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pheaders: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub GetColumnCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub GetColumnHeaders: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crmlogrec: CrmLogRecordRead, pformattedlogrecord: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub GetColumn: unsafe extern "system" fn(*mut ::core::ffi::c_void, CrmLogRecordRead, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetColumn: usize,
-    pub GetColumnVariants: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logrecord: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pformattedlogrecord: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub GetColumnVariants: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICrmLogControl, ICrmLogControl_Vtbl, 0xa0e174b3_d26e_11d2_8f84_00805fc7bcd9);
 ::windows_core::imp::interface_hierarchy!(ICrmLogControl, ::windows_core::IUnknown);
@@ -2409,14 +2409,14 @@ impl ICrmLogControl {
 #[doc(hidden)]
 pub struct ICrmLogControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub TransactionUOW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub RegisterCompensator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpcwstrprogidcompensator: ::windows_core::PCWSTR, lpcwstrdescription: ::windows_core::PCWSTR, lcrmregflags: i32) -> ::windows_core::HRESULT,
-    pub WriteLogRecordVariants: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plogrecord: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub ForceLog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ForgetLogRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ForceTransactionToAbort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TransactionUOW: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub RegisterCompensator: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, i32) -> ::windows_core::HRESULT,
+    pub WriteLogRecordVariants: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub ForceLog: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ForgetLogRecord: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ForceTransactionToAbort: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub WriteLogRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rgblob: *const super::Com::BLOB, cblob: u32) -> ::windows_core::HRESULT,
+    pub WriteLogRecord: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const super::Com::BLOB, u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     WriteLogRecord: usize,
 }
@@ -2442,10 +2442,10 @@ impl ICrmMonitor {
 pub struct ICrmMonitor_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetClerks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclerks: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetClerks: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetClerks: usize,
-    pub HoldClerk: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pitem: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub HoldClerk: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2507,13 +2507,13 @@ impl ICrmMonitorClerks {
 #[doc(hidden)]
 pub struct ICrmMonitorClerks_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pitem: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
-    pub ProgIdCompensator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pitem: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pitem: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub TransactionUOW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pitem: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub ActivityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::std::mem::MaybeUninit<::windows_core::VARIANT>, pitem: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub ProgIdCompensator: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub TransactionUOW: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub ActivityId: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICrmMonitorLogRecords, ICrmMonitorLogRecords_Vtbl, 0x70c8e441_c7ed_11d1_82fb_00a0c91eede9);
 ::windows_core::imp::interface_hierarchy!(ICrmMonitorLogRecords, ::windows_core::IUnknown);
@@ -2547,14 +2547,14 @@ impl ICrmMonitorLogRecords {
 #[doc(hidden)]
 pub struct ICrmMonitorLogRecords_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
-    pub TransactionState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut CrmTransactionState) -> ::windows_core::HRESULT,
-    pub StructuredRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub TransactionState: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut CrmTransactionState) -> ::windows_core::HRESULT,
+    pub StructuredRecords: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetLogRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pcrmlogrec: *mut CrmLogRecordRead) -> ::windows_core::HRESULT,
+    pub GetLogRecord: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut CrmLogRecordRead) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetLogRecord: usize,
-    pub GetLogRecordVariants: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexnumber: ::std::mem::MaybeUninit<::windows_core::VARIANT>, plogrecord: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub GetLogRecordVariants: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDispenserDriver, IDispenserDriver_Vtbl, 0x208b3651_2b48_11cf_be10_00aa00a2fa25);
 ::windows_core::imp::interface_hierarchy!(IDispenserDriver, ::windows_core::IUnknown);
@@ -2585,12 +2585,12 @@ impl IDispenserDriver {
 #[doc(hidden)]
 pub struct IDispenserDriver_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, restypid: usize, presid: *mut usize, psecsfreebeforedestroy: *mut i32) -> ::windows_core::HRESULT,
-    pub RateResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, restypid: usize, resid: usize, frequirestransactionenlistment: super::super::Foundation::BOOL, prating: *mut u32) -> ::windows_core::HRESULT,
-    pub EnlistResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resid: usize, transid: usize) -> ::windows_core::HRESULT,
-    pub ResetResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resid: usize) -> ::windows_core::HRESULT,
-    pub DestroyResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resid: usize) -> ::windows_core::HRESULT,
-    pub DestroyResourceS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resid: *mut u16) -> ::windows_core::HRESULT,
+    pub CreateResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut usize, *mut i32) -> ::windows_core::HRESULT,
+    pub RateResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize, super::super::Foundation::BOOL, *mut u32) -> ::windows_core::HRESULT,
+    pub EnlistResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, usize) -> ::windows_core::HRESULT,
+    pub ResetResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub DestroyResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub DestroyResourceS: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDispenserManager, IDispenserManager_Vtbl, 0x5cb31e10_2b5f_11cf_be10_00aa00a2fa25);
 ::windows_core::imp::interface_hierarchy!(IDispenserManager, ::windows_core::IUnknown);
@@ -2611,8 +2611,8 @@ impl IDispenserManager {
 #[doc(hidden)]
 pub struct IDispenserManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub RegisterDispenser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__idispensermanager0000: *mut ::core::ffi::c_void, szdispensername: ::windows_core::PCWSTR, __midl__idispensermanager0001: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__idispensermanager0002: *mut usize, __midl__idispensermanager0003: *mut usize) -> ::windows_core::HRESULT,
+    pub RegisterDispenser: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut usize, *mut usize) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IEnumNames, IEnumNames_Vtbl, 0x51372af2_cae7_11cf_be81_00aa00a2fa25);
 ::windows_core::imp::interface_hierarchy!(IEnumNames, ::windows_core::IUnknown);
@@ -2635,10 +2635,10 @@ impl IEnumNames {
 #[doc(hidden)]
 pub struct IEnumNames_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut u32) -> ::windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2674,9 +2674,9 @@ impl IEventServerTrace {
 #[doc(hidden)]
 pub struct IEventServerTrace_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub StartTraceGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguidevent: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrguidfilter: ::std::mem::MaybeUninit<::windows_core::BSTR>, lpidfilter: i32) -> ::windows_core::HRESULT,
-    pub StopTraceGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrguidevent: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrguidfilter: ::std::mem::MaybeUninit<::windows_core::BSTR>, lpidfilter: i32) -> ::windows_core::HRESULT,
-    pub EnumTraceGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcntguids: *mut i32, pbstrguidlist: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub StartTraceGuid: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32) -> ::windows_core::HRESULT,
+    pub StopTraceGuid: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32) -> ::windows_core::HRESULT,
+    pub EnumTraceGuid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGetAppTrackerData, IGetAppTrackerData_Vtbl, 0x507c3ac8_3e12_4cb0_9366_653d3e050638);
 ::windows_core::imp::interface_hierarchy!(IGetAppTrackerData, ::windows_core::IUnknown);
@@ -2709,13 +2709,13 @@ impl IGetAppTrackerData {
 #[doc(hidden)]
 pub struct IGetAppTrackerData_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetApplicationProcesses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partitionid: *const ::windows_core::GUID, applicationid: *const ::windows_core::GUID, flags: u32, numapplicationprocesses: *mut u32, applicationprocesses: *mut *mut ApplicationProcessSummary) -> ::windows_core::HRESULT,
-    pub GetApplicationProcessDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, applicationinstanceid: *const ::windows_core::GUID, processid: u32, flags: u32, summary: *mut ApplicationProcessSummary, statistics: *mut ApplicationProcessStatistics, recycleinfo: *mut ApplicationProcessRecycleInfo, anycomponentshangmonitored: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetApplicationsInProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, applicationinstanceid: *const ::windows_core::GUID, processid: u32, partitionid: *const ::windows_core::GUID, flags: u32, numapplicationsinprocess: *mut u32, applications: *mut *mut ApplicationSummary) -> ::windows_core::HRESULT,
-    pub GetComponentsInProcess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, applicationinstanceid: *const ::windows_core::GUID, processid: u32, partitionid: *const ::windows_core::GUID, applicationid: *const ::windows_core::GUID, flags: u32, numcomponentsinprocess: *mut u32, components: *mut *mut ComponentSummary) -> ::windows_core::HRESULT,
-    pub GetComponentDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, applicationinstanceid: *const ::windows_core::GUID, processid: u32, clsid: *const ::windows_core::GUID, flags: u32, summary: *mut ComponentSummary, statistics: *mut ComponentStatistics, hangmonitorinfo: *mut ComponentHangMonitorInfo) -> ::windows_core::HRESULT,
-    pub GetTrackerDataAsCollectionObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, toplevelcollection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetSuggestedPollingInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pollingintervalinseconds: *mut u32) -> ::windows_core::HRESULT,
+    pub GetApplicationProcesses: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::windows_core::GUID, u32, *mut u32, *mut *mut ApplicationProcessSummary) -> ::windows_core::HRESULT,
+    pub GetApplicationProcessDetails: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, u32, *mut ApplicationProcessSummary, *mut ApplicationProcessStatistics, *mut ApplicationProcessRecycleInfo, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetApplicationsInProcess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *const ::windows_core::GUID, u32, *mut u32, *mut *mut ApplicationSummary) -> ::windows_core::HRESULT,
+    pub GetComponentsInProcess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *const ::windows_core::GUID, *const ::windows_core::GUID, u32, *mut u32, *mut *mut ComponentSummary) -> ::windows_core::HRESULT,
+    pub GetComponentDetails: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, u32, *const ::windows_core::GUID, u32, *mut ComponentSummary, *mut ComponentStatistics, *mut ComponentHangMonitorInfo) -> ::windows_core::HRESULT,
+    pub GetTrackerDataAsCollectionObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetSuggestedPollingInterval: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGetContextProperties, IGetContextProperties_Vtbl, 0x51372af4_cae7_11cf_be81_00aa00a2fa25);
 ::windows_core::imp::interface_hierarchy!(IGetContextProperties, ::windows_core::IUnknown);
@@ -2738,9 +2738,9 @@ impl IGetContextProperties {
 #[doc(hidden)]
 pub struct IGetContextProperties_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT,
-    pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, pproperty: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub EnumNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub EnumNames: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2766,7 +2766,7 @@ impl IGetSecurityCallContext {
 pub struct IGetSecurityCallContext_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub GetSecurityCallContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetSecurityCallContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     GetSecurityCallContext: usize,
 }
@@ -2808,14 +2808,14 @@ impl IHolder {
 #[doc(hidden)]
 pub struct IHolder_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AllocResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iholder0000: usize, __midl__iholder0001: *mut usize) -> ::windows_core::HRESULT,
-    pub FreeResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iholder0002: usize) -> ::windows_core::HRESULT,
-    pub TrackResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iholder0003: usize) -> ::windows_core::HRESULT,
-    pub TrackResourceS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iholder0004: *mut u16) -> ::windows_core::HRESULT,
-    pub UntrackResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iholder0005: usize, __midl__iholder0006: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub UntrackResourceS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iholder0007: *mut u16, __midl__iholder0008: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RequestDestroyResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iholder0009: usize) -> ::windows_core::HRESULT,
+    pub AllocResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, *mut usize) -> ::windows_core::HRESULT,
+    pub FreeResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub TrackResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
+    pub TrackResourceS: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16) -> ::windows_core::HRESULT,
+    pub UntrackResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub UntrackResourceS: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u16, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RequestDestroyResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, usize) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILBEvents, ILBEvents_Vtbl, 0x683130b4_2e50_11d2_98a5_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(ILBEvents, ::windows_core::IUnknown);
@@ -2846,9 +2846,9 @@ impl ILBEvents {
 #[doc(hidden)]
 pub struct ILBEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub TargetUp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrservername: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrclsideng: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub TargetDown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrservername: ::std::mem::MaybeUninit<::windows_core::BSTR>, bstrclsideng: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub EngineDefined: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropname: ::std::mem::MaybeUninit<::windows_core::BSTR>, varpropvalue: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, bstrclsideng: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub TargetUp: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub TargetDown: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub EngineDefined: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMTSActivity, IMTSActivity_Vtbl, 0x51372af0_cae7_11cf_be81_00aa00a2fa25);
 ::windows_core::imp::interface_hierarchy!(IMTSActivity, ::windows_core::IUnknown);
@@ -2879,11 +2879,11 @@ impl IMTSActivity {
 #[doc(hidden)]
 pub struct IMTSActivity_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SynchronousCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcall: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AsyncCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcall: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Reserved1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub BindToCurrentThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub UnbindFromThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SynchronousCall: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AsyncCall: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Reserved1: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub BindToCurrentThread: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UnbindFromThread: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMTSCall, IMTSCall_Vtbl, 0x51372aef_cae7_11cf_be81_00aa00a2fa25);
 ::windows_core::imp::interface_hierarchy!(IMTSCall, ::windows_core::IUnknown);
@@ -2896,7 +2896,7 @@ impl IMTSCall {
 #[doc(hidden)]
 pub struct IMTSCall_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnCall: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -2919,7 +2919,7 @@ impl IMTSLocator {
 #[doc(hidden)]
 pub struct IMTSLocator_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub GetEventDispatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetEventDispatcher: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IManagedActivationEvents, IManagedActivationEvents_Vtbl, 0xa5f325af_572f_46da_b8ab_827c3d95d99e);
 ::windows_core::imp::interface_hierarchy!(IManagedActivationEvents, ::windows_core::IUnknown);
@@ -2942,8 +2942,8 @@ impl IManagedActivationEvents {
 #[doc(hidden)]
 pub struct IManagedActivationEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateManagedStub: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *mut ::core::ffi::c_void, fdist: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub DestroyManagedStub: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateManagedStub: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub DestroyManagedStub: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IManagedObjectInfo, IManagedObjectInfo_Vtbl, 0x1427c51a_4584_49d8_90a0_c50d8086cbe9);
 ::windows_core::imp::interface_hierarchy!(IManagedObjectInfo, ::windows_core::IUnknown);
@@ -2974,10 +2974,10 @@ impl IManagedObjectInfo {
 #[doc(hidden)]
 pub struct IManagedObjectInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetIUnknown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetIObjectControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pctrl: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetInPool: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binpool: super::super::Foundation::BOOL, ppooledobj: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetWrapperStrength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrong: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetIUnknown: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetIObjectControl: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetInPool: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetWrapperStrength: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IManagedPoolAction, IManagedPoolAction_Vtbl, 0xda91b74e_5388_4783_949d_c1cd5fb00506);
 ::windows_core::imp::interface_hierarchy!(IManagedPoolAction, ::windows_core::IUnknown);
@@ -2990,7 +2990,7 @@ impl IManagedPoolAction {
 #[doc(hidden)]
 pub struct IManagedPoolAction_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub LastRelease: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub LastRelease: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IManagedPooledObj, IManagedPooledObj_Vtbl, 0xc5da4bea_1b42_4437_8926_b6a38860a770);
 ::windows_core::imp::interface_hierarchy!(IManagedPooledObj, ::windows_core::IUnknown);
@@ -3006,7 +3006,7 @@ impl IManagedPooledObj {
 #[doc(hidden)]
 pub struct IManagedPooledObj_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetHeld: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, m_bheld: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetHeld: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -3056,13 +3056,13 @@ impl IMessageMover {
 #[doc(hidden)]
 pub struct IMessageMover_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub SourcePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetSourcePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub DestPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub SetDestPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub CommitBatchSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
-    pub SetCommitBatchSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: i32) -> ::windows_core::HRESULT,
-    pub MoveMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmessagesmoved: *mut i32) -> ::windows_core::HRESULT,
+    pub SourcePath: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetSourcePath: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub DestPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetDestPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub CommitBatchSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetCommitBatchSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub MoveMessages: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -3104,11 +3104,11 @@ impl IMtsEventInfo {
 #[doc(hidden)]
 pub struct IMtsEventInfo_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Names: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sdisplayname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub EventID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sguideventid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcount: *mut i32) -> ::windows_core::HRESULT,
-    pub get_Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, skey: ::std::mem::MaybeUninit<::windows_core::BSTR>, pval: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Names: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DisplayName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub EventID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub get_Value: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -3146,11 +3146,11 @@ impl IMtsEvents {
 #[doc(hidden)]
 pub struct IMtsEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub PackageName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub PackageGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub PostEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vevent: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub FireEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub GetProcessID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut i32) -> ::windows_core::HRESULT,
+    pub PackageName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub PackageGuid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub PostEvent: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub FireEvents: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub GetProcessID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -3180,9 +3180,9 @@ impl IMtsGrp {
 #[doc(hidden)]
 pub struct IMtsGrp_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
-    pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, ppunkdispatcher: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Refresh: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IObjPool, IObjPool_Vtbl, 0x7d8805a0_2ea7_11d1_b1cc_00aa00ba3258);
 ::windows_core::imp::interface_hierarchy!(IObjPool, ::windows_core::IUnknown);
@@ -3216,13 +3216,13 @@ impl IObjPool {
 #[doc(hidden)]
 pub struct IObjPool_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Reserved1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Reserved2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Reserved3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Reserved4: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub PutEndTx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobj: *mut ::core::ffi::c_void),
-    pub Reserved5: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Reserved6: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
+    pub Reserved1: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Reserved2: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Reserved3: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Reserved4: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub PutEndTx: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void),
+    pub Reserved5: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Reserved6: unsafe extern "system" fn(*mut ::core::ffi::c_void),
 }
 ::windows_core::imp::com_interface!(IObjectConstruct, IObjectConstruct_Vtbl, 0x41c4f8b3_7439_11d2_98cb_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IObjectConstruct, ::windows_core::IUnknown);
@@ -3241,7 +3241,7 @@ impl IObjectConstruct {
 pub struct IObjectConstruct_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub Construct: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pctorobj: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Construct: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Construct: usize,
 }
@@ -3265,7 +3265,7 @@ impl IObjectConstructString {
 #[doc(hidden)]
 pub struct IObjectConstructString_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub ConstructString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ConstructString: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IObjectContext, IObjectContext_Vtbl, 0x51372ae0_cae7_11cf_be81_00aa00a2fa25);
 ::windows_core::imp::interface_hierarchy!(IObjectContext, ::windows_core::IUnknown);
@@ -3302,14 +3302,14 @@ impl IObjectContext {
 #[doc(hidden)]
 pub struct IObjectContext_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetAbort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnableCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DisableCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub IsInTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
-    pub IsSecurityEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
-    pub IsCallerInRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrole: ::std::mem::MaybeUninit<::windows_core::BSTR>, pfisinrole: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAbort: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnableCommit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DisableCommit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsInTransaction: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub IsSecurityEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub IsCallerInRole: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IObjectContextActivity, IObjectContextActivity_Vtbl, 0x51372afc_cae7_11cf_be81_00aa00a2fa25);
 ::windows_core::imp::interface_hierarchy!(IObjectContextActivity, ::windows_core::IUnknown);
@@ -3322,7 +3322,7 @@ impl IObjectContextActivity {
 #[doc(hidden)]
 pub struct IObjectContextActivity_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetActivityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetActivityId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IObjectContextInfo, IObjectContextInfo_Vtbl, 0x75b52ddb_e8ed_11d1_93ad_00aa00ba3258);
 ::windows_core::imp::interface_hierarchy!(IObjectContextInfo, ::windows_core::IUnknown);
@@ -3348,11 +3348,11 @@ impl IObjectContextInfo {
 #[doc(hidden)]
 pub struct IObjectContextInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub IsInTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
-    pub GetTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptrans: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetTransactionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetActivityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetContextId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub IsInTransaction: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub GetTransaction: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetTransactionId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetActivityId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetContextId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IObjectContextInfo2, IObjectContextInfo2_Vtbl, 0x594be71a_4bc4_438b_9197_cfd176248b09);
 ::windows_core::imp::interface_hierarchy!(IObjectContextInfo2, ::windows_core::IUnknown, IObjectContextInfo);
@@ -3387,9 +3387,9 @@ impl IObjectContextInfo2 {
 #[doc(hidden)]
 pub struct IObjectContextInfo2_Vtbl {
     pub base__: IObjectContextInfo_Vtbl,
-    pub GetPartitionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetApplicationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetApplicationInstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetPartitionId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetApplicationId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetApplicationInstanceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IObjectContextTip, IObjectContextTip_Vtbl, 0x92fd41ca_bad9_11d2_9a2d_00c04f797bc9);
 ::windows_core::imp::interface_hierarchy!(IObjectContextTip, ::windows_core::IUnknown);
@@ -3402,7 +3402,7 @@ impl IObjectContextTip {
 #[doc(hidden)]
 pub struct IObjectContextTip_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetTipUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptipurl: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetTipUrl: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IObjectControl, IObjectControl_Vtbl, 0x51372aec_cae7_11cf_be81_00aa00a2fa25);
 ::windows_core::imp::interface_hierarchy!(IObjectControl, ::windows_core::IUnknown);
@@ -3421,9 +3421,9 @@ impl IObjectControl {
 #[doc(hidden)]
 pub struct IObjectControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Deactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub CanBePooled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
+    pub Activate: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Deactivate: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub CanBePooled: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
 }
 ::windows_core::imp::com_interface!(IPlaybackControl, IPlaybackControl_Vtbl, 0x51372afd_cae7_11cf_be81_00aa00a2fa25);
 ::windows_core::imp::interface_hierarchy!(IPlaybackControl, ::windows_core::IUnknown);
@@ -3439,8 +3439,8 @@ impl IPlaybackControl {
 #[doc(hidden)]
 pub struct IPlaybackControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub FinalClientRetry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub FinalServerRetry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FinalClientRetry: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub FinalServerRetry: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -3465,7 +3465,7 @@ impl IPoolManager {
 #[doc(hidden)]
 pub struct IPoolManager_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub ShutdownPool: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsidorprogid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ShutdownPool: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IProcessInitializer, IProcessInitializer_Vtbl, 0x1113f52d_dc7f_4943_aed6_88d04027e32a);
 ::windows_core::imp::interface_hierarchy!(IProcessInitializer, ::windows_core::IUnknown);
@@ -3484,8 +3484,8 @@ impl IProcessInitializer {
 #[doc(hidden)]
 pub struct IProcessInitializer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Startup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkprocesscontrol: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Startup: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Shutdown: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -3537,12 +3537,12 @@ impl ISecurityCallContext {
 #[doc(hidden)]
 pub struct ISecurityCallContext_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT,
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, pitem: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub IsCallerInRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrole: ::std::mem::MaybeUninit<::windows_core::BSTR>, pfinrole: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub IsSecurityEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub IsUserInRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, bstrrole: ::std::mem::MaybeUninit<::windows_core::BSTR>, pfinrole: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsCallerInRole: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub IsSecurityEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub IsUserInRole: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -3575,12 +3575,12 @@ impl ISecurityCallersColl {
 #[doc(hidden)]
 pub struct ISecurityCallersColl_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pobj: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Item: usize,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -3614,9 +3614,9 @@ impl ISecurityIdentityColl {
 #[doc(hidden)]
 pub struct ISecurityIdentityColl_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT,
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, pitem: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISecurityProperty, ISecurityProperty_Vtbl, 0x51372aea_cae7_11cf_be81_00aa00a2fa25);
 ::windows_core::imp::interface_hierarchy!(ISecurityProperty, ::windows_core::IUnknown);
@@ -3644,11 +3644,11 @@ impl ISecurityProperty {
 #[doc(hidden)]
 pub struct ISecurityProperty_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetDirectCreatorSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psid: *mut super::super::Foundation::PSID) -> ::windows_core::HRESULT,
-    pub GetOriginalCreatorSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psid: *mut super::super::Foundation::PSID) -> ::windows_core::HRESULT,
-    pub GetDirectCallerSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psid: *mut super::super::Foundation::PSID) -> ::windows_core::HRESULT,
-    pub GetOriginalCallerSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psid: *mut super::super::Foundation::PSID) -> ::windows_core::HRESULT,
-    pub ReleaseSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psid: super::super::Foundation::PSID) -> ::windows_core::HRESULT,
+    pub GetDirectCreatorSID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::PSID) -> ::windows_core::HRESULT,
+    pub GetOriginalCreatorSID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::PSID) -> ::windows_core::HRESULT,
+    pub GetDirectCallerSID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::PSID) -> ::windows_core::HRESULT,
+    pub GetOriginalCallerSID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::PSID) -> ::windows_core::HRESULT,
+    pub ReleaseSID: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::PSID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISelectCOMLBServer, ISelectCOMLBServer_Vtbl, 0xdcf443f4_3f8a_4872_b9f0_369a796d12d6);
 ::windows_core::imp::interface_hierarchy!(ISelectCOMLBServer, ::windows_core::IUnknown);
@@ -3667,8 +3667,8 @@ impl ISelectCOMLBServer {
 #[doc(hidden)]
 pub struct ISelectCOMLBServer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetLBServer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Init: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetLBServer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISendMethodEvents, ISendMethodEvents_Vtbl, 0x2732fd59_b2b4_4d44_878c_8b8f09626008);
 ::windows_core::imp::interface_hierarchy!(ISendMethodEvents, ::windows_core::IUnknown);
@@ -3684,8 +3684,8 @@ impl ISendMethodEvents {
 #[doc(hidden)]
 pub struct ISendMethodEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SendMethodCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidentity: *const ::core::ffi::c_void, riid: *const ::windows_core::GUID, dwmeth: u32) -> ::windows_core::HRESULT,
-    pub SendMethodReturn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidentity: *const ::core::ffi::c_void, riid: *const ::windows_core::GUID, dwmeth: u32, hrcall: ::windows_core::HRESULT, hrserver: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub SendMethodCall: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, *const ::windows_core::GUID, u32) -> ::windows_core::HRESULT,
+    pub SendMethodReturn: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void, *const ::windows_core::GUID, u32, ::windows_core::HRESULT, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IServiceActivity, IServiceActivity_Vtbl, 0x67532e0c_9e2f_4450_a354_035633944e17);
 ::windows_core::imp::interface_hierarchy!(IServiceActivity, ::windows_core::IUnknown);
@@ -3713,10 +3713,10 @@ impl IServiceActivity {
 #[doc(hidden)]
 pub struct IServiceActivity_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SynchronousCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piservicecall: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AsynchronousCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piservicecall: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub BindToCurrentThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub UnbindFromThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SynchronousCall: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AsynchronousCall: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BindToCurrentThread: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UnbindFromThread: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IServiceCall, IServiceCall_Vtbl, 0xbd3e2e12_42dd_40f4_a09a_95a50c58304b);
 ::windows_core::imp::interface_hierarchy!(IServiceCall, ::windows_core::IUnknown);
@@ -3729,7 +3729,7 @@ impl IServiceCall {
 #[doc(hidden)]
 pub struct IServiceCall_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OnCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnCall: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IServiceComTIIntrinsicsConfig, IServiceComTIIntrinsicsConfig_Vtbl, 0x09e6831e_04e1_4ed4_9d0f_e8b168bafeaf);
 ::windows_core::imp::interface_hierarchy!(IServiceComTIIntrinsicsConfig, ::windows_core::IUnknown);
@@ -3742,7 +3742,7 @@ impl IServiceComTIIntrinsicsConfig {
 #[doc(hidden)]
 pub struct IServiceComTIIntrinsicsConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ComTIIntrinsicsConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, comtiintrinsicsconfig: CSC_COMTIIntrinsicsConfig) -> ::windows_core::HRESULT,
+    pub ComTIIntrinsicsConfig: unsafe extern "system" fn(*mut ::core::ffi::c_void, CSC_COMTIIntrinsicsConfig) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IServiceIISIntrinsicsConfig, IServiceIISIntrinsicsConfig_Vtbl, 0x1a0cf920_d452_46f4_bc36_48118d54ea52);
 ::windows_core::imp::interface_hierarchy!(IServiceIISIntrinsicsConfig, ::windows_core::IUnknown);
@@ -3755,7 +3755,7 @@ impl IServiceIISIntrinsicsConfig {
 #[doc(hidden)]
 pub struct IServiceIISIntrinsicsConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub IISIntrinsicsConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iisintrinsicsconfig: CSC_IISIntrinsicsConfig) -> ::windows_core::HRESULT,
+    pub IISIntrinsicsConfig: unsafe extern "system" fn(*mut ::core::ffi::c_void, CSC_IISIntrinsicsConfig) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IServiceInheritanceConfig, IServiceInheritanceConfig_Vtbl, 0x92186771_d3b4_4d77_a8ea_ee842d586f35);
 ::windows_core::imp::interface_hierarchy!(IServiceInheritanceConfig, ::windows_core::IUnknown);
@@ -3768,7 +3768,7 @@ impl IServiceInheritanceConfig {
 #[doc(hidden)]
 pub struct IServiceInheritanceConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ContainingContextTreatment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inheritanceconfig: CSC_InheritanceConfig) -> ::windows_core::HRESULT,
+    pub ContainingContextTreatment: unsafe extern "system" fn(*mut ::core::ffi::c_void, CSC_InheritanceConfig) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IServicePartitionConfig, IServicePartitionConfig_Vtbl, 0x80182d03_5ea4_4831_ae97_55beffc2e590);
 ::windows_core::imp::interface_hierarchy!(IServicePartitionConfig, ::windows_core::IUnknown);
@@ -3784,8 +3784,8 @@ impl IServicePartitionConfig {
 #[doc(hidden)]
 pub struct IServicePartitionConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub PartitionConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partitionconfig: CSC_PartitionConfig) -> ::windows_core::HRESULT,
-    pub PartitionID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpartitionid: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub PartitionConfig: unsafe extern "system" fn(*mut ::core::ffi::c_void, CSC_PartitionConfig) -> ::windows_core::HRESULT,
+    pub PartitionID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IServicePool, IServicePool_Vtbl, 0xb302df81_ea45_451e_99a2_09f9fd1b1e13);
 ::windows_core::imp::interface_hierarchy!(IServicePool, ::windows_core::IUnknown);
@@ -3807,9 +3807,9 @@ impl IServicePool {
 #[doc(hidden)]
 pub struct IServicePool_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppoolconfig: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Shutdown: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IServicePoolConfig, IServicePoolConfig_Vtbl, 0xa9690656_5bca_470c_8451_250c1f43a33e);
 ::windows_core::imp::interface_hierarchy!(IServicePoolConfig, ::windows_core::IUnknown);
@@ -3860,20 +3860,20 @@ impl IServicePoolConfig {
 #[doc(hidden)]
 pub struct IServicePoolConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetMaxPoolSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxpool: u32) -> ::windows_core::HRESULT,
-    pub MaxPoolSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmaxpool: *mut u32) -> ::windows_core::HRESULT,
-    pub SetMinPoolSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwminpool: u32) -> ::windows_core::HRESULT,
-    pub MinPoolSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwminpool: *mut u32) -> ::windows_core::HRESULT,
-    pub SetCreationTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcreationtimeout: u32) -> ::windows_core::HRESULT,
-    pub CreationTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcreationtimeout: *mut u32) -> ::windows_core::HRESULT,
-    pub SetTransactionAffinity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ftxaffinity: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub TransactionAffinity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pftxaffinity: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetMaxPoolSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub MaxPoolSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetMinPoolSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub MinPoolSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetCreationTimeout: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub CreationTimeout: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub SetTransactionAffinity: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub TransactionAffinity: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub SetClassFactory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfactory: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetClassFactory: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     SetClassFactory: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ClassFactory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfactory: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ClassFactory: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ClassFactory: usize,
 }
@@ -3900,9 +3900,9 @@ impl IServiceSxsConfig {
 #[doc(hidden)]
 pub struct IServiceSxsConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SxsConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scsconfig: CSC_SxsConfig) -> ::windows_core::HRESULT,
-    pub SxsName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szsxsname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub SxsDirectory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szsxsdirectory: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub SxsConfig: unsafe extern "system" fn(*mut ::core::ffi::c_void, CSC_SxsConfig) -> ::windows_core::HRESULT,
+    pub SxsName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub SxsDirectory: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IServiceSynchronizationConfig, IServiceSynchronizationConfig_Vtbl, 0xfd880e81_6dce_4c58_af83_a208846c0030);
 ::windows_core::imp::interface_hierarchy!(IServiceSynchronizationConfig, ::windows_core::IUnknown);
@@ -3915,7 +3915,7 @@ impl IServiceSynchronizationConfig {
 #[doc(hidden)]
 pub struct IServiceSynchronizationConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ConfigureSynchronization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, synchconfig: CSC_SynchronizationConfig) -> ::windows_core::HRESULT,
+    pub ConfigureSynchronization: unsafe extern "system" fn(*mut ::core::ffi::c_void, CSC_SynchronizationConfig) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IServiceSysTxnConfig, IServiceSysTxnConfig_Vtbl, 0x33caf1a1_fcb8_472b_b45e_967448ded6d8);
 ::windows_core::imp::interface_hierarchy!(IServiceSysTxnConfig, ::windows_core::IUnknown, IServiceTransactionConfigBase, IServiceTransactionConfig);
@@ -3960,7 +3960,7 @@ impl IServiceSysTxnConfig {
 #[doc(hidden)]
 pub struct IServiceSysTxnConfig_Vtbl {
     pub base__: IServiceTransactionConfig_Vtbl,
-    pub ConfigureBYOTSysTxn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptxproxy: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ConfigureBYOTSysTxn: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IServiceThreadPoolConfig, IServiceThreadPoolConfig_Vtbl, 0x186d89bc_f277_4bcc_80d5_4df7b836ef4a);
 ::windows_core::imp::interface_hierarchy!(IServiceThreadPoolConfig, ::windows_core::IUnknown);
@@ -3976,8 +3976,8 @@ impl IServiceThreadPoolConfig {
 #[doc(hidden)]
 pub struct IServiceThreadPoolConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SelectThreadPool: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadpool: CSC_ThreadPool) -> ::windows_core::HRESULT,
-    pub SetBindingInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binding: CSC_Binding) -> ::windows_core::HRESULT,
+    pub SelectThreadPool: unsafe extern "system" fn(*mut ::core::ffi::c_void, CSC_ThreadPool) -> ::windows_core::HRESULT,
+    pub SetBindingInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, CSC_Binding) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IServiceTrackerConfig, IServiceTrackerConfig_Vtbl, 0x6c3a3e1d_0ba6_4036_b76f_d0404db816c9);
 ::windows_core::imp::interface_hierarchy!(IServiceTrackerConfig, ::windows_core::IUnknown);
@@ -3994,7 +3994,7 @@ impl IServiceTrackerConfig {
 #[doc(hidden)]
 pub struct IServiceTrackerConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub TrackerConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, trackerconfig: CSC_TrackerConfig, sztrackerappname: ::windows_core::PCWSTR, sztrackerctxname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub TrackerConfig: unsafe extern "system" fn(*mut ::core::ffi::c_void, CSC_TrackerConfig, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IServiceTransactionConfig, IServiceTransactionConfig_Vtbl, 0x59f4c2a3_d3d7_4a31_b6e4_6ab3177c50b9);
 ::windows_core::imp::interface_hierarchy!(IServiceTransactionConfig, ::windows_core::IUnknown, IServiceTransactionConfigBase);
@@ -4034,7 +4034,7 @@ impl IServiceTransactionConfig {
 pub struct IServiceTransactionConfig_Vtbl {
     pub base__: IServiceTransactionConfigBase_Vtbl,
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
-    pub ConfigureBYOT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitxbyot: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ConfigureBYOT: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_DistributedTransactionCoordinator"))]
     ConfigureBYOT: usize,
 }
@@ -4067,11 +4067,11 @@ impl IServiceTransactionConfigBase {
 #[doc(hidden)]
 pub struct IServiceTransactionConfigBase_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ConfigureTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transactionconfig: CSC_TransactionConfig) -> ::windows_core::HRESULT,
-    pub IsolationLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, option: COMAdminTxIsolationLevelOptions) -> ::windows_core::HRESULT,
-    pub TransactionTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ultimeoutsec: u32) -> ::windows_core::HRESULT,
-    pub BringYourOwnTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sztipurl: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
-    pub NewTransactionDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sztxdesc: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub ConfigureTransaction: unsafe extern "system" fn(*mut ::core::ffi::c_void, CSC_TransactionConfig) -> ::windows_core::HRESULT,
+    pub IsolationLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, COMAdminTxIsolationLevelOptions) -> ::windows_core::HRESULT,
+    pub TransactionTimeout: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub BringYourOwnTransaction: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub NewTransactionDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -4100,8 +4100,8 @@ impl ISharedProperty {
 #[doc(hidden)]
 pub struct ISharedProperty_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, val: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -4149,19 +4149,19 @@ impl ISharedPropertyGroup {
 pub struct ISharedPropertyGroup_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreatePropertyByPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, fexists: *mut super::super::Foundation::VARIANT_BOOL, ppprop: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreatePropertyByPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut super::super::Foundation::VARIANT_BOOL, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreatePropertyByPosition: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_PropertyByPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, ppproperty: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_PropertyByPosition: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_PropertyByPosition: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreateProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, fexists: *mut super::super::Foundation::VARIANT_BOOL, ppprop: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateProperty: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateProperty: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Property: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppproperty: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_Property: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Property: usize,
 }
@@ -4204,14 +4204,14 @@ impl ISharedPropertyGroupManager {
 pub struct ISharedPropertyGroupManager_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub CreatePropertyGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, dwisomode: *mut i32, dwrelmode: *mut i32, fexists: *mut super::super::Foundation::VARIANT_BOOL, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreatePropertyGroup: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut i32, *mut i32, *mut super::super::Foundation::VARIANT_BOOL, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CreatePropertyGroup: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub get_Group: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub get_Group: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     get_Group: usize,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ISystemAppEventData, ISystemAppEventData_Vtbl, 0xd6d48a3c_d5c5_49e7_8c74_99e4889ed52f);
 ::windows_core::imp::interface_hierarchy!(ISystemAppEventData, ::windows_core::IUnknown);
@@ -4230,8 +4230,8 @@ impl ISystemAppEventData {
 #[doc(hidden)]
 pub struct ISystemAppEventData_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Startup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub OnDataChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwpid: u32, dwmask: u32, dwnumbersinks: u32, bstrdwmethodmask: ::std::mem::MaybeUninit<::windows_core::BSTR>, dwreason: u32, u64tracehandle: u64) -> ::windows_core::HRESULT,
+    pub Startup: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OnDataChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, u32, u32, ::std::mem::MaybeUninit<::windows_core::BSTR>, u32, u64) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IThreadPoolKnobs, IThreadPoolKnobs_Vtbl, 0x51372af7_cae7_11cf_be81_00aa00a2fa25);
 ::windows_core::imp::interface_hierarchy!(IThreadPoolKnobs, ::windows_core::IUnknown);
@@ -4271,16 +4271,16 @@ impl IThreadPoolKnobs {
 #[doc(hidden)]
 pub struct IThreadPoolKnobs_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetMaxThreads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcmaxthreads: *mut i32) -> ::windows_core::HRESULT,
-    pub GetCurrentThreads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plccurrentthreads: *mut i32) -> ::windows_core::HRESULT,
-    pub SetMaxThreads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcmaxthreads: i32) -> ::windows_core::HRESULT,
-    pub GetDeleteDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmsecdeletedelay: *mut i32) -> ::windows_core::HRESULT,
-    pub SetDeleteDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msecdeletedelay: i32) -> ::windows_core::HRESULT,
-    pub GetMaxQueuedRequests: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcmaxqueuedrequests: *mut i32) -> ::windows_core::HRESULT,
-    pub GetCurrentQueuedRequests: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plccurrentqueuedrequests: *mut i32) -> ::windows_core::HRESULT,
-    pub SetMaxQueuedRequests: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcmaxqueuedrequests: i32) -> ::windows_core::HRESULT,
-    pub SetMinThreads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcminthreads: i32) -> ::windows_core::HRESULT,
-    pub SetQueueDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcqueuedepth: i32) -> ::windows_core::HRESULT,
+    pub GetMaxThreads: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub GetCurrentThreads: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetMaxThreads: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub GetDeleteDelay: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetDeleteDelay: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub GetMaxQueuedRequests: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub GetCurrentQueuedRequests: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub SetMaxQueuedRequests: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub SetMinThreads: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
+    pub SetQueueDepth: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -4312,9 +4312,9 @@ impl ITransactionContext {
 #[doc(hidden)]
 pub struct ITransactionContext_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszprogid: ::std::mem::MaybeUninit<::windows_core::BSTR>, pobject: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub Commit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Abort: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionContextEx, ITransactionContextEx_Vtbl, 0x7999fc22_d3c6_11cf_acab_00a024a55aef);
 ::windows_core::imp::interface_hierarchy!(ITransactionContextEx, ::windows_core::IUnknown);
@@ -4337,9 +4337,9 @@ impl ITransactionContextEx {
 #[doc(hidden)]
 pub struct ITransactionContextEx_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Commit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Abort: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionProperty, ITransactionProperty_Vtbl, 0x788ea814_87b1_11d1_bba6_00c04fc2fa5f);
 ::windows_core::imp::interface_hierarchy!(ITransactionProperty, ::windows_core::IUnknown);
@@ -4404,24 +4404,24 @@ impl ITransactionProperty {
 #[doc(hidden)]
 pub struct ITransactionProperty_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Reserved1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Reserved2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Reserved3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Reserved4: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Reserved5: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Reserved6: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Reserved7: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Reserved8: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Reserved9: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub GetTransactionResourcePool: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptxpool: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Reserved10: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Reserved11: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Reserved12: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Reserved13: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Reserved14: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Reserved15: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Reserved16: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Reserved17: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
+    pub Reserved1: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Reserved2: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Reserved3: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Reserved4: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Reserved5: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Reserved6: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Reserved7: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Reserved8: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Reserved9: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub GetTransactionResourcePool: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Reserved10: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Reserved11: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Reserved12: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Reserved13: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Reserved14: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Reserved15: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Reserved16: unsafe extern "system" fn(*mut ::core::ffi::c_void),
+    pub Reserved17: unsafe extern "system" fn(*mut ::core::ffi::c_void),
 }
 ::windows_core::imp::com_interface!(ITransactionProxy, ITransactionProxy_Vtbl, 0x02558374_df2e_4dae_bd6b_1d5c994f9bdc);
 ::windows_core::imp::interface_hierarchy!(ITransactionProxy, ::windows_core::IUnknown);
@@ -4461,19 +4461,19 @@ impl ITransactionProxy {
 #[doc(hidden)]
 pub struct ITransactionProxy_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Commit: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub Abort: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
-    pub Promote: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Promote: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_DistributedTransactionCoordinator"))]
     Promote: usize,
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
-    pub CreateVoter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptxasync: *mut ::core::ffi::c_void, ppballot: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateVoter: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_DistributedTransactionCoordinator"))]
     CreateVoter: usize,
-    pub GetIsolationLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__itransactionproxy0000: *mut i32) -> ::windows_core::HRESULT,
-    pub GetIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstridentifier: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub IsReusable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisreusable: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetIsolationLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub GetIdentifier: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub IsReusable: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionResourcePool, ITransactionResourcePool_Vtbl, 0xc5feb7c1_346a_11d1_b1cc_00aa00ba3258);
 ::windows_core::imp::interface_hierarchy!(ITransactionResourcePool, ::windows_core::IUnknown);
@@ -4497,8 +4497,8 @@ impl ITransactionResourcePool {
 #[doc(hidden)]
 pub struct ITransactionResourcePool_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub PutResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppool: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppool: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PutResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetResource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionStatus, ITransactionStatus_Vtbl, 0x61f589e8_3724_4898_a0a4_664ae9e1d1b4);
 ::windows_core::imp::interface_hierarchy!(ITransactionStatus, ::windows_core::IUnknown);
@@ -4514,8 +4514,8 @@ impl ITransactionStatus {
 #[doc(hidden)]
 pub struct ITransactionStatus_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetTransactionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrstatus: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub GetTransactionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrstatus: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub SetTransactionStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub GetTransactionStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITxProxyHolder, ITxProxyHolder_Vtbl, 0x13d86f31_0139_41af_bcad_c7d50435fe9f);
 ::windows_core::imp::interface_hierarchy!(ITxProxyHolder, ::windows_core::IUnknown);
@@ -4528,7 +4528,7 @@ impl ITxProxyHolder {
 #[doc(hidden)]
 pub struct ITxProxyHolder_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidltx: *mut ::windows_core::GUID),
+    pub GetIdentifier: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID),
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -4608,23 +4608,23 @@ impl ObjectContext {
 #[doc(hidden)]
 pub struct ObjectContext_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrprogid: ::std::mem::MaybeUninit<::windows_core::BSTR>, pobject: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub SetComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetAbort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub EnableCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DisableCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub IsInTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbisintx: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub IsSecurityEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbisenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub IsCallerInRole: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrole: ::std::mem::MaybeUninit<::windows_core::BSTR>, pbinrole: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
-    pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows_core::HRESULT,
-    pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, pitem: *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub SetComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetAbort: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub EnableCommit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DisableCommit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsInTransaction: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub IsSecurityEnabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub IsCallerInRole: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub Security: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsecurityproperty: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Security: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     Security: usize,
     #[cfg(feature = "Win32_System_Com")]
-    pub ContextInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontextinfo: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ContextInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     ContextInfo: usize,
 }
@@ -4645,9 +4645,9 @@ impl ObjectControl {
 #[doc(hidden)]
 pub struct ObjectControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Deactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CanBePooled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbpoolable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    pub Activate: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Deactivate: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CanBePooled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(
@@ -4682,10 +4682,10 @@ impl SecurityProperty {
 #[doc(hidden)]
 pub struct SecurityProperty_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub GetDirectCallerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetDirectCreatorName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetOriginalCallerName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetOriginalCreatorName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetDirectCallerName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetDirectCreatorName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetOriginalCallerName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetOriginalCreatorName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 pub const APPTYPE_LIBRARY: COMPLUS_APPTYPE = COMPLUS_APPTYPE(0i32);
 pub const APPTYPE_SERVER: COMPLUS_APPTYPE = COMPLUS_APPTYPE(1i32);

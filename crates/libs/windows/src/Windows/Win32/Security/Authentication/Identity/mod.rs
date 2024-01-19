@@ -1594,7 +1594,7 @@ impl ICcgDomainAuthCredentials {
 #[doc(hidden)]
 pub struct ICcgDomainAuthCredentials_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetPasswordCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugininput: ::windows_core::PCWSTR, domainname: *mut ::windows_core::PWSTR, username: *mut ::windows_core::PWSTR, password: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetPasswordCredentials: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, *mut ::windows_core::PWSTR, *mut ::windows_core::PWSTR, *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 pub const ACCOUNT_ADJUST_PRIVILEGES: i32 = 2i32;
 pub const ACCOUNT_ADJUST_QUOTAS: i32 = 4i32;

@@ -12,7 +12,7 @@ impl IDedupBackupSupport {
 #[doc(hidden)]
 pub struct IDedupBackupSupport_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub RestoreFiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numberoffiles: u32, filefullpaths: *const ::std::mem::MaybeUninit<::windows_core::BSTR>, store: *mut ::core::ffi::c_void, flags: u32, fileresults: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub RestoreFiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::core::ffi::c_void, u32, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDedupChunkLibrary, IDedupChunkLibrary_Vtbl, 0xbb5144d7_2720_4dcc_8777_78597416ec23);
 ::windows_core::imp::interface_hierarchy!(IDedupChunkLibrary, ::windows_core::IUnknown);
@@ -38,10 +38,10 @@ impl IDedupChunkLibrary {
 #[doc(hidden)]
 pub struct IDedupChunkLibrary_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub InitializeForPushBuffers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Uninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwparamtype: u32, vparamvalue: ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
-    pub StartChunking: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iiditeratorinterfaceid: ::windows_core::GUID, ppchunksenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub InitializeForPushBuffers: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Uninitialize: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetParameter: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
+    pub StartChunking: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDedupDataPort, IDedupDataPort_Vtbl, 0x7963d734_40a9_4ea3_bbf6_5a89d26f7ae8);
 ::windows_core::imp::interface_hierarchy!(IDedupDataPort, ::windows_core::IUnknown);
@@ -105,24 +105,24 @@ impl IDedupDataPort {
 #[doc(hidden)]
 pub struct IDedupDataPort_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut DedupDataPortVolumeStatus, pdataheadroommb: *mut u32) -> ::windows_core::HRESULT,
-    pub LookupChunks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, phashes: *const DedupHash, prequestid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub InsertChunks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, chunkcount: u32, pchunkmetadata: *const DedupChunk, databytecount: u32, pchunkdata: *const u8, prequestid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DedupDataPortVolumeStatus, *mut u32) -> ::windows_core::HRESULT,
+    pub LookupChunks: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const DedupHash, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub InsertChunks: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const DedupChunk, u32, *const u8, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub InsertChunksWithStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, chunkcount: u32, pchunkmetadata: *const DedupChunk, databytecount: u32, pchunkdatastream: *mut ::core::ffi::c_void, prequestid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub InsertChunksWithStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const DedupChunk, u32, *mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     InsertChunksWithStream: usize,
-    pub CommitStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentries: *const DedupStreamEntry, prequestid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub CommitStreams: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const DedupStream, u32, *const DedupStreamEntry, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
-    pub CommitStreamsWithStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentriesstream: *mut ::core::ffi::c_void, prequestid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub CommitStreamsWithStream: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const DedupStream, u32, *mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     CommitStreamsWithStream: usize,
-    pub GetStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamcount: u32, pstreampaths: *const ::std::mem::MaybeUninit<::windows_core::BSTR>, prequestid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetStreamsResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: ::windows_core::GUID, maxwaitms: u32, streamentryindex: u32, pstreamcount: *mut u32, ppstreams: *mut *mut DedupStream, pentrycount: *mut u32, ppentries: *mut *mut DedupStreamEntry, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub GetChunks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, phashes: *const DedupHash, prequestid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetChunksResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: ::windows_core::GUID, maxwaitms: u32, chunkindex: u32, pchunkcount: *mut u32, ppchunkmetadata: *mut *mut DedupChunk, pdatabytecount: *mut u32, ppchunkdata: *mut *mut u8, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub GetRequestStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: ::windows_core::GUID, pstatus: *mut DedupDataPortRequestStatus) -> ::windows_core::HRESULT,
-    pub GetRequestResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: ::windows_core::GUID, maxwaitms: u32, pbatchresult: *mut ::windows_core::HRESULT, pbatchcount: *mut u32, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub GetStreams: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetStreamsResults: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, u32, u32, *mut u32, *mut *mut DedupStream, *mut u32, *mut *mut DedupStreamEntry, *mut DedupDataPortRequestStatus, *mut *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub GetChunks: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const DedupHash, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetChunksResults: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, u32, u32, *mut u32, *mut *mut DedupChunk, *mut u32, *mut *mut u8, *mut DedupDataPortRequestStatus, *mut *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub GetRequestStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut DedupDataPortRequestStatus) -> ::windows_core::HRESULT,
+    pub GetRequestResults: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, u32, *mut ::windows_core::HRESULT, *mut u32, *mut DedupDataPortRequestStatus, *mut *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDedupDataPortManager, IDedupDataPortManager_Vtbl, 0x44677452_b90a_445e_8192_cdcfe81511fb);
 ::windows_core::imp::interface_hierarchy!(IDedupDataPortManager, ::windows_core::IUnknown);
@@ -149,9 +149,9 @@ impl IDedupDataPortManager {
 #[doc(hidden)]
 pub struct IDedupDataPortManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pminchunksize: *mut u32, pmaxchunksize: *mut u32, pchunkingalgorithm: *mut DedupChunkingAlgorithm, phashingalgorithm: *mut DedupHashingAlgorithm, pcompressionalgorithm: *mut DedupCompressionAlgorithm) -> ::windows_core::HRESULT,
-    pub GetVolumeStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32, path: ::std::mem::MaybeUninit<::windows_core::BSTR>, pstatus: *mut DedupDataPortVolumeStatus) -> ::windows_core::HRESULT,
-    pub GetVolumeDataPort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32, path: ::std::mem::MaybeUninit<::windows_core::BSTR>, ppdataport: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetConfiguration: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32, *mut DedupChunkingAlgorithm, *mut DedupHashingAlgorithm, *mut DedupCompressionAlgorithm) -> ::windows_core::HRESULT,
+    pub GetVolumeStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut DedupDataPortVolumeStatus) -> ::windows_core::HRESULT,
+    pub GetVolumeDataPort: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDedupIterateChunksHash32, IDedupIterateChunksHash32_Vtbl, 0x90b584d3_72aa_400f_9767_cad866a5a2d8);
 ::windows_core::imp::interface_hierarchy!(IDedupIterateChunksHash32, ::windows_core::IUnknown);
@@ -173,10 +173,10 @@ impl IDedupIterateChunksHash32 {
 #[doc(hidden)]
 pub struct IDedupIterateChunksHash32_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub PushBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: *const u8, ulbufferlength: u32) -> ::windows_core::HRESULT,
-    pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulmaxchunks: u32, parrchunks: *mut DEDUP_CHUNK_INFO_HASH32, pulfetched: *mut u32) -> ::windows_core::HRESULT,
-    pub Drain: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PushBuffer: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32) -> ::windows_core::HRESULT,
+    pub Next: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut DEDUP_CHUNK_INFO_HASH32, *mut u32) -> ::windows_core::HRESULT,
+    pub Drain: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDedupReadFileCallback, IDedupReadFileCallback_Vtbl, 0x7bacc67a_2f1d_42d0_897e_6ff62dd533bb);
 ::windows_core::imp::interface_hierarchy!(IDedupReadFileCallback, ::windows_core::IUnknown);
@@ -201,9 +201,9 @@ impl IDedupReadFileCallback {
 #[doc(hidden)]
 pub struct IDedupReadFileCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ReadBackupFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filefullpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, fileoffset: i64, sizetoread: u32, filebuffer: *mut u8, returnedsize: *mut u32, flags: u32) -> ::windows_core::HRESULT,
-    pub OrderContainersRestore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numberofcontainers: u32, containerpaths: *const ::std::mem::MaybeUninit<::windows_core::BSTR>, readplanentries: *mut u32, readplan: *mut *mut DEDUP_CONTAINER_EXTENT) -> ::windows_core::HRESULT,
-    pub PreviewContainerRead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filefullpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, numberofreads: u32, readoffsets: *const DDP_FILE_EXTENT) -> ::windows_core::HRESULT,
+    pub ReadBackupFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, i64, u32, *mut u8, *mut u32, u32) -> ::windows_core::HRESULT,
+    pub OrderContainersRestore: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut u32, *mut *mut DEDUP_CONTAINER_EXTENT) -> ::windows_core::HRESULT,
+    pub PreviewContainerRead: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, u32, *const DDP_FILE_EXTENT) -> ::windows_core::HRESULT,
 }
 pub const DEDUP_CHUNKLIB_MAX_CHUNKS_ENUM: u32 = 1024u32;
 pub const DEDUP_PT_AvgChunkSizeBytes: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(3i32);

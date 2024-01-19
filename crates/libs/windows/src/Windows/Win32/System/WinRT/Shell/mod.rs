@@ -22,7 +22,7 @@ impl IDDEInitializer {
 pub struct IDDEInitializer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_UI_Shell")]
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileextensionorprotocol: ::windows_core::PCWSTR, method: CreateProcessMethod, currentdirectory: ::windows_core::PCWSTR, exectarget: *mut ::core::ffi::c_void, site: *mut ::core::ffi::c_void, application: ::windows_core::PCWSTR, targetfile: ::windows_core::PCWSTR, arguments: ::windows_core::PCWSTR, verb: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, CreateProcessMethod, ::windows_core::PCWSTR, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell"))]
     Initialize: usize,
 }

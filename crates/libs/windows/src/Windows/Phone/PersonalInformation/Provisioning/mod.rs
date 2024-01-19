@@ -3,9 +3,9 @@
 #[doc(hidden)]
 pub struct IContactPartnerProvisioningManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub AssociateNetworkAccountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, store: *mut ::core::ffi::c_void, networkname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, networkaccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AssociateNetworkAccountAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
-    pub ImportVcardToSystemAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ImportVcardToSystemAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     ImportVcardToSystemAsync: usize,
 }
@@ -14,7 +14,7 @@ pub struct IContactPartnerProvisioningManagerStatics_Vtbl {
 #[doc(hidden)]
 pub struct IContactPartnerProvisioningManagerStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub AssociateSocialNetworkAccountAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, store: *mut ::core::ffi::c_void, networkname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, networkaccountid: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AssociateSocialNetworkAccountAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IMessagePartnerProvisioningManagerStatics, IMessagePartnerProvisioningManagerStatics_Vtbl, 0x8a1b0850_73c5_457c_bc59_ed7d615c05a4);
 #[repr(C)]
@@ -22,11 +22,11 @@ pub struct IContactPartnerProvisioningManagerStatics2_Vtbl {
 pub struct IMessagePartnerProvisioningManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     #[cfg(feature = "Foundation_Collections")]
-    pub ImportSmsToSystemAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, incoming: bool, read: bool, body: ::std::mem::MaybeUninit<::windows_core::HSTRING>, sender: ::std::mem::MaybeUninit<::windows_core::HSTRING>, recipients: *mut ::core::ffi::c_void, deliverytime: super::super::super::Foundation::DateTime, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ImportSmsToSystemAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool, bool, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, super::super::super::Foundation::DateTime, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     ImportSmsToSystemAsync: usize,
     #[cfg(feature = "Foundation_Collections")]
-    pub ImportMmsToSystemAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, incoming: bool, read: bool, subject: ::std::mem::MaybeUninit<::windows_core::HSTRING>, sender: ::std::mem::MaybeUninit<::windows_core::HSTRING>, recipients: *mut ::core::ffi::c_void, deliverytime: super::super::super::Foundation::DateTime, attachments: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ImportMmsToSystemAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool, bool, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut ::core::ffi::c_void, super::super::super::Foundation::DateTime, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     ImportMmsToSystemAsync: usize,
 }

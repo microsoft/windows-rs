@@ -13,7 +13,7 @@ impl INotificationActivationCallback {
 #[doc(hidden)]
 pub struct INotificationActivationCallback_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appusermodelid: ::windows_core::PCWSTR, invokedargs: ::windows_core::PCWSTR, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> ::windows_core::HRESULT,
+    pub Activate: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, ::windows_core::PCWSTR, *const NOTIFICATION_USER_INPUT_DATA, u32) -> ::windows_core::HRESULT,
 }
 #[repr(C)]
 pub struct NOTIFICATION_USER_INPUT_DATA {

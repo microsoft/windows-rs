@@ -48,8 +48,8 @@ impl IDtcLuConfigure {
 #[doc(hidden)]
 pub struct IDtcLuConfigure_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Add: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puclupair: *const u8, cblupair: u32) -> ::windows_core::HRESULT,
-    pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puclupair: *const u8, cblupair: u32) -> ::windows_core::HRESULT,
+    pub Add: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32) -> ::windows_core::HRESULT,
+    pub Delete: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDtcLuRecovery, IDtcLuRecovery_Vtbl, 0xac2b8ad2_d6f0_11d0_b386_00a0c9083365);
 ::windows_core::imp::interface_hierarchy!(IDtcLuRecovery, ::windows_core::IUnknown);
@@ -71,7 +71,7 @@ impl IDtcLuRecoveryFactory {
 #[doc(hidden)]
 pub struct IDtcLuRecoveryFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puclupair: *const u8, cblupair: u32, pprecovery: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDtcLuRecoveryInitiatedByDtc, IDtcLuRecoveryInitiatedByDtc_Vtbl, 0x4131e764_1aea_11d0_944b_00a0c905416e);
 ::windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtc, ::windows_core::IUnknown);
@@ -84,7 +84,7 @@ impl IDtcLuRecoveryInitiatedByDtc {
 #[doc(hidden)]
 pub struct IDtcLuRecoveryInitiatedByDtc_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetWork: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwork: *mut DTCINITIATEDRECOVERYWORK, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetWork: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DTCINITIATEDRECOVERYWORK, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDtcLuRecoveryInitiatedByDtcStatusWork, IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl, 0x4131e766_1aea_11d0_944b_00a0c905416e);
 ::windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtcStatusWork, ::windows_core::IUnknown);
@@ -97,7 +97,7 @@ impl IDtcLuRecoveryInitiatedByDtcStatusWork {
 #[doc(hidden)]
 pub struct IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub HandleCheckLuStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lrecoveryseqnum: i32) -> ::windows_core::HRESULT,
+    pub HandleCheckLuStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDtcLuRecoveryInitiatedByDtcTransWork, IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl, 0x4131e765_1aea_11d0_944b_00a0c905416e);
 ::windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtcTransWork, ::windows_core::IUnknown);
@@ -146,19 +146,19 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork {
 #[doc(hidden)]
 pub struct IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetLogNameSizes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbourlogname: *mut u32, pcbremotelogname: *mut u32) -> ::windows_core::HRESULT,
-    pub GetOurXln: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxln: *mut DTCLUXLN, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut u32) -> ::windows_core::HRESULT,
-    pub HandleConfirmationFromOurXln: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, confirmation: DTCLUXLNCONFIRMATION) -> ::windows_core::HRESULT,
-    pub HandleTheirXlnResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xln: DTCLUXLN, premotelogname: *mut u8, cbremotelogname: u32, dwprotocol: u32, pconfirmation: *mut DTCLUXLNCONFIRMATION) -> ::windows_core::HRESULT,
-    pub HandleErrorFromOurXln: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: DTCLUXLNERROR) -> ::windows_core::HRESULT,
-    pub CheckForCompareStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fcomparestates: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetOurTransIdSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbourtransid: *mut u32) -> ::windows_core::HRESULT,
-    pub GetOurCompareStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pourtransid: *mut u8, pcomparestate: *mut DTCLUCOMPARESTATE) -> ::windows_core::HRESULT,
-    pub HandleTheirCompareStatesResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, comparestate: DTCLUCOMPARESTATE, pconfirmation: *mut DTCLUCOMPARESTATESCONFIRMATION) -> ::windows_core::HRESULT,
-    pub HandleErrorFromOurCompareStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: DTCLUCOMPARESTATESERROR) -> ::windows_core::HRESULT,
-    pub ConversationLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetRecoverySeqNum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plrecoveryseqnum: *mut i32) -> ::windows_core::HRESULT,
-    pub ObsoleteRecoverySeqNum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnewrecoveryseqnum: i32) -> ::windows_core::HRESULT,
+    pub GetLogNameSizes: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut u32) -> ::windows_core::HRESULT,
+    pub GetOurXln: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DTCLUXLN, *mut u8, *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub HandleConfirmationFromOurXln: unsafe extern "system" fn(*mut ::core::ffi::c_void, DTCLUXLNCONFIRMATION) -> ::windows_core::HRESULT,
+    pub HandleTheirXlnResponse: unsafe extern "system" fn(*mut ::core::ffi::c_void, DTCLUXLN, *mut u8, u32, u32, *mut DTCLUXLNCONFIRMATION) -> ::windows_core::HRESULT,
+    pub HandleErrorFromOurXln: unsafe extern "system" fn(*mut ::core::ffi::c_void, DTCLUXLNERROR) -> ::windows_core::HRESULT,
+    pub CheckForCompareStates: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetOurTransIdSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetOurCompareStates: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, *mut DTCLUCOMPARESTATE) -> ::windows_core::HRESULT,
+    pub HandleTheirCompareStatesResponse: unsafe extern "system" fn(*mut ::core::ffi::c_void, DTCLUCOMPARESTATE, *mut DTCLUCOMPARESTATESCONFIRMATION) -> ::windows_core::HRESULT,
+    pub HandleErrorFromOurCompareStates: unsafe extern "system" fn(*mut ::core::ffi::c_void, DTCLUCOMPARESTATESERROR) -> ::windows_core::HRESULT,
+    pub ConversationLost: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetRecoverySeqNum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub ObsoleteRecoverySeqNum: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDtcLuRecoveryInitiatedByLu, IDtcLuRecoveryInitiatedByLu_Vtbl, 0x4131e768_1aea_11d0_944b_00a0c905416e);
 ::windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByLu, ::windows_core::IUnknown);
@@ -172,7 +172,7 @@ impl IDtcLuRecoveryInitiatedByLu {
 #[doc(hidden)]
 pub struct IDtcLuRecoveryInitiatedByLu_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetObjectToHandleWorkFromLu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwork: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetObjectToHandleWorkFromLu: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDtcLuRecoveryInitiatedByLuWork, IDtcLuRecoveryInitiatedByLuWork_Vtbl, 0xac2b8ad1_d6f0_11d0_b386_00a0c9083365);
 ::windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByLuWork, ::windows_core::IUnknown);
@@ -206,14 +206,14 @@ impl IDtcLuRecoveryInitiatedByLuWork {
 #[doc(hidden)]
 pub struct IDtcLuRecoveryInitiatedByLuWork_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub HandleTheirXln: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lrecoveryseqnum: i32, xln: DTCLUXLN, premotelogname: *mut u8, cbremotelogname: u32, pourlogname: *mut u8, cbourlogname: u32, dwprotocol: u32, presponse: *mut DTCLUXLNRESPONSE) -> ::windows_core::HRESULT,
-    pub GetOurLogNameSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbourlogname: *mut u32) -> ::windows_core::HRESULT,
-    pub GetOurXln: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxln: *mut DTCLUXLN, pourlogname: *mut u8, pdwprotocol: *mut u32) -> ::windows_core::HRESULT,
-    pub HandleConfirmationOfOurXln: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, confirmation: DTCLUXLNCONFIRMATION) -> ::windows_core::HRESULT,
-    pub HandleTheirCompareStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, premotetransid: *mut u8, cbremotetransid: u32, comparestate: DTCLUCOMPARESTATE, presponse: *mut DTCLUCOMPARESTATESRESPONSE, pcomparestate: *mut DTCLUCOMPARESTATE) -> ::windows_core::HRESULT,
-    pub HandleConfirmationOfOurCompareStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, confirmation: DTCLUCOMPARESTATESCONFIRMATION) -> ::windows_core::HRESULT,
-    pub HandleErrorFromOurCompareStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: DTCLUCOMPARESTATESERROR) -> ::windows_core::HRESULT,
-    pub ConversationLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub HandleTheirXln: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, DTCLUXLN, *mut u8, u32, *mut u8, u32, u32, *mut DTCLUXLNRESPONSE) -> ::windows_core::HRESULT,
+    pub GetOurLogNameSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetOurXln: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut DTCLUXLN, *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub HandleConfirmationOfOurXln: unsafe extern "system" fn(*mut ::core::ffi::c_void, DTCLUXLNCONFIRMATION) -> ::windows_core::HRESULT,
+    pub HandleTheirCompareStates: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, u32, DTCLUCOMPARESTATE, *mut DTCLUCOMPARESTATESRESPONSE, *mut DTCLUCOMPARESTATE) -> ::windows_core::HRESULT,
+    pub HandleConfirmationOfOurCompareStates: unsafe extern "system" fn(*mut ::core::ffi::c_void, DTCLUCOMPARESTATESCONFIRMATION) -> ::windows_core::HRESULT,
+    pub HandleErrorFromOurCompareStates: unsafe extern "system" fn(*mut ::core::ffi::c_void, DTCLUCOMPARESTATESERROR) -> ::windows_core::HRESULT,
+    pub ConversationLost: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDtcLuRmEnlistment, IDtcLuRmEnlistment_Vtbl, 0x4131e769_1aea_11d0_944b_00a0c905416e);
 ::windows_core::imp::interface_hierarchy!(IDtcLuRmEnlistment, ::windows_core::IUnknown);
@@ -244,12 +244,12 @@ impl IDtcLuRmEnlistment {
 #[doc(hidden)]
 pub struct IDtcLuRmEnlistment_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Unplug: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fconversationlost: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub BackedOut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub BackOut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Committed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Forget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RequestCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Unplug: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub BackedOut: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BackOut: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Committed: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Forget: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RequestCommit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDtcLuRmEnlistmentFactory, IDtcLuRmEnlistmentFactory_Vtbl, 0x4131e771_1aea_11d0_944b_00a0c905416e);
 ::windows_core::imp::interface_hierarchy!(IDtcLuRmEnlistmentFactory, ::windows_core::IUnknown);
@@ -266,7 +266,7 @@ impl IDtcLuRmEnlistmentFactory {
 #[doc(hidden)]
 pub struct IDtcLuRmEnlistmentFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puclupair: *mut u8, cblupair: u32, pitransaction: *mut ::core::ffi::c_void, ptransid: *mut u8, cbtransid: u32, prmenlistmentsink: *mut ::core::ffi::c_void, pprmenlistment: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, u32, *mut ::core::ffi::c_void, *mut u8, u32, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDtcLuRmEnlistmentSink, IDtcLuRmEnlistmentSink_Vtbl, 0x4131e770_1aea_11d0_944b_00a0c905416e);
 ::windows_core::imp::interface_hierarchy!(IDtcLuRmEnlistmentSink, ::windows_core::IUnknown);
@@ -303,15 +303,15 @@ impl IDtcLuRmEnlistmentSink {
 #[doc(hidden)]
 pub struct IDtcLuRmEnlistmentSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AckUnplug: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub TmDown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SessionLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub BackedOut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub BackOut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Committed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Forget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Prepare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RequestCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AckUnplug: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TmDown: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SessionLost: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BackedOut: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BackOut: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Committed: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Forget: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Prepare: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RequestCommit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDtcLuSubordinateDtc, IDtcLuSubordinateDtc_Vtbl, 0x4131e773_1aea_11d0_944b_00a0c905416e);
 ::windows_core::imp::interface_hierarchy!(IDtcLuSubordinateDtc, ::windows_core::IUnknown);
@@ -345,13 +345,13 @@ impl IDtcLuSubordinateDtc {
 #[doc(hidden)]
 pub struct IDtcLuSubordinateDtc_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Unplug: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fconversationlost: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub BackedOut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub BackOut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Committed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Forget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Prepare: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RequestCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Unplug: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub BackedOut: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BackOut: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Committed: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Forget: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Prepare: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RequestCommit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDtcLuSubordinateDtcFactory, IDtcLuSubordinateDtcFactory_Vtbl, 0x4131e775_1aea_11d0_944b_00a0c905416e);
 ::windows_core::imp::interface_hierarchy!(IDtcLuSubordinateDtcFactory, ::windows_core::IUnknown);
@@ -369,7 +369,7 @@ impl IDtcLuSubordinateDtcFactory {
 #[doc(hidden)]
 pub struct IDtcLuSubordinateDtcFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puclupair: *mut u8, cblupair: u32, punktransactionouter: *mut ::core::ffi::c_void, isolevel: i32, isoflags: u32, poptions: *mut ::core::ffi::c_void, pptransaction: *mut *mut ::core::ffi::c_void, ptransid: *mut u8, cbtransid: u32, psubordinatedtcsink: *mut ::core::ffi::c_void, ppsubordinatedtc: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8, u32, *mut ::core::ffi::c_void, i32, u32, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void, *mut u8, u32, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDtcLuSubordinateDtcSink, IDtcLuSubordinateDtcSink_Vtbl, 0x4131e774_1aea_11d0_944b_00a0c905416e);
 ::windows_core::imp::interface_hierarchy!(IDtcLuSubordinateDtcSink, ::windows_core::IUnknown);
@@ -403,14 +403,14 @@ impl IDtcLuSubordinateDtcSink {
 #[doc(hidden)]
 pub struct IDtcLuSubordinateDtcSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub AckUnplug: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub TmDown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SessionLost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub BackedOut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub BackOut: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Committed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Forget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub RequestCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AckUnplug: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TmDown: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SessionLost: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BackedOut: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BackOut: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Committed: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Forget: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub RequestCommit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDtcNetworkAccessConfig, IDtcNetworkAccessConfig_Vtbl, 0x9797c15d_a428_4291_87b6_0995031a678d);
 ::windows_core::imp::interface_hierarchy!(IDtcNetworkAccessConfig, ::windows_core::IUnknown);
@@ -483,19 +483,19 @@ impl IDtcNetworkAccessConfig {
 #[doc(hidden)]
 pub struct IDtcNetworkAccessConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetAnyNetworkAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbanynetworkaccess: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetAnyNetworkAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, banynetworkaccess: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetNetworkAdministrationAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbnetworkadministrationaccess: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetNetworkAdministrationAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bnetworkadministrationaccess: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetNetworkTransactionAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbnetworktransactionaccess: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetNetworkTransactionAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bnetworktransactionaccess: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetNetworkClientAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbnetworkclientaccess: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetNetworkClientAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bnetworkclientaccess: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetNetworkTIPAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbnetworktipaccess: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetNetworkTIPAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bnetworktipaccess: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetXAAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbxaaccess: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetXAAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bxaaccess: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub RestartDtcService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetAnyNetworkAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetAnyNetworkAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetNetworkAdministrationAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetNetworkAdministrationAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetNetworkTransactionAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetNetworkTransactionAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetNetworkClientAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetNetworkClientAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetNetworkTIPAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetNetworkTIPAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetXAAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetXAAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub RestartDtcService: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDtcNetworkAccessConfig2, IDtcNetworkAccessConfig2_Vtbl, 0xa7aa013b_eb7d_4f42_b41c_b2dec09ae034);
 ::windows_core::imp::interface_hierarchy!(IDtcNetworkAccessConfig2, ::windows_core::IUnknown, IDtcNetworkAccessConfig);
@@ -595,12 +595,12 @@ impl IDtcNetworkAccessConfig2 {
 #[doc(hidden)]
 pub struct IDtcNetworkAccessConfig2_Vtbl {
     pub base__: IDtcNetworkAccessConfig_Vtbl,
-    pub GetNetworkInboundAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbinbound: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetNetworkOutboundAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pboutbound: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetNetworkInboundAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binbound: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetNetworkOutboundAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, boutbound: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetAuthenticationLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pauthlevel: *mut AUTHENTICATION_LEVEL) -> ::windows_core::HRESULT,
-    pub SetAuthenticationLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, authlevel: AUTHENTICATION_LEVEL) -> ::windows_core::HRESULT,
+    pub GetNetworkInboundAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetNetworkOutboundAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetNetworkInboundAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetNetworkOutboundAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetAuthenticationLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AUTHENTICATION_LEVEL) -> ::windows_core::HRESULT,
+    pub SetAuthenticationLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, AUTHENTICATION_LEVEL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDtcNetworkAccessConfig3, IDtcNetworkAccessConfig3_Vtbl, 0x76e4b4f3_2ca5_466b_89d5_fd218ee75b49);
 ::windows_core::imp::interface_hierarchy!(IDtcNetworkAccessConfig3, ::windows_core::IUnknown, IDtcNetworkAccessConfig, IDtcNetworkAccessConfig2);
@@ -710,8 +710,8 @@ impl IDtcNetworkAccessConfig3 {
 #[doc(hidden)]
 pub struct IDtcNetworkAccessConfig3_Vtbl {
     pub base__: IDtcNetworkAccessConfig2_Vtbl,
-    pub GetLUAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbluaccess: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub SetLUAccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bluaccess: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetLUAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub SetLUAccess: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDtcToXaHelper, IDtcToXaHelper_Vtbl, 0xa9861611_304a_11d1_9813_00a0c905416e);
 ::windows_core::imp::interface_hierarchy!(IDtcToXaHelper, ::windows_core::IUnknown);
@@ -733,8 +733,8 @@ impl IDtcToXaHelper {
 #[doc(hidden)]
 pub struct IDtcToXaHelper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i_fdorecovery: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub TranslateTridToXid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitransaction: *mut ::core::ffi::c_void, pguidbqual: *const ::windows_core::GUID, pxid: *mut XID) -> ::windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub TranslateTridToXid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut XID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDtcToXaHelperFactory, IDtcToXaHelperFactory_Vtbl, 0xa9861610_304a_11d1_9813_00a0c905416e);
 ::windows_core::imp::interface_hierarchy!(IDtcToXaHelperFactory, ::windows_core::IUnknown);
@@ -751,7 +751,7 @@ impl IDtcToXaHelperFactory {
 #[doc(hidden)]
 pub struct IDtcToXaHelperFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdsn: ::windows_core::PCSTR, pszclientdllname: ::windows_core::PCSTR, pguidrm: *mut ::windows_core::GUID, ppxahelper: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, ::windows_core::PCSTR, *mut ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IDtcToXaHelperSinglePipe, IDtcToXaHelperSinglePipe_Vtbl, 0x47ed4971_53b3_11d1_bbb9_00c04fd658f6);
 ::windows_core::imp::interface_hierarchy!(IDtcToXaHelperSinglePipe, ::windows_core::IUnknown);
@@ -785,10 +785,10 @@ impl IDtcToXaHelperSinglePipe {
 #[doc(hidden)]
 pub struct IDtcToXaHelperSinglePipe_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub XARMCreate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdsn: ::windows_core::PCSTR, pszclientdll: ::windows_core::PCSTR, pdwrmcookie: *mut u32) -> ::windows_core::HRESULT,
-    pub ConvertTridToXID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwitrans: *mut u32, dwrmcookie: u32, pxid: *mut XID) -> ::windows_core::HRESULT,
-    pub EnlistWithRM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrmcookie: u32, i_pitransaction: *mut ::core::ffi::c_void, i_pitransres: *mut ::core::ffi::c_void, o_ppitransenslitment: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ReleaseRMCookie: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i_dwrmcookie: u32, i_fnormal: super::super::Foundation::BOOL),
+    pub XARMCreate: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, ::windows_core::PCSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub ConvertTridToXID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, u32, *mut XID) -> ::windows_core::HRESULT,
+    pub EnlistWithRM: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ReleaseRMCookie: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, super::super::Foundation::BOOL),
 }
 ::windows_core::imp::com_interface!(IDtcToXaMapper, IDtcToXaMapper_Vtbl, 0x64ffabe0_7ce9_11d0_8ce6_00c04fdc877e);
 ::windows_core::imp::interface_hierarchy!(IDtcToXaMapper, ::windows_core::IUnknown);
@@ -814,10 +814,10 @@ impl IDtcToXaMapper {
 #[doc(hidden)]
 pub struct IDtcToXaMapper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub RequestNewResourceManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdsn: ::windows_core::PCSTR, pszclientdllname: ::windows_core::PCSTR, pdwrmcookie: *mut u32) -> ::windows_core::HRESULT,
-    pub TranslateTridToXid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwitransaction: *const u32, dwrmcookie: u32, pxid: *mut XID) -> ::windows_core::HRESULT,
-    pub EnlistResourceManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrmcookie: u32, pdwitransaction: *const u32) -> ::windows_core::HRESULT,
-    pub ReleaseResourceManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrmcookie: u32) -> ::windows_core::HRESULT,
+    pub RequestNewResourceManager: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCSTR, ::windows_core::PCSTR, *mut u32) -> ::windows_core::HRESULT,
+    pub TranslateTridToXid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u32, u32, *mut XID) -> ::windows_core::HRESULT,
+    pub EnlistResourceManager: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u32) -> ::windows_core::HRESULT,
+    pub ReleaseResourceManager: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IGetDispenser, IGetDispenser_Vtbl, 0xc23cc370_87ef_11ce_8081_0080c758527e);
 ::windows_core::imp::interface_hierarchy!(IGetDispenser, ::windows_core::IUnknown);
@@ -830,7 +830,7 @@ impl IGetDispenser {
 #[doc(hidden)]
 pub struct IGetDispenser_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetDispenser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDispenser: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IKernelTransaction, IKernelTransaction_Vtbl, 0x79427a2b_f895_40e0_be79_b57dc82ed231);
 ::windows_core::imp::interface_hierarchy!(IKernelTransaction, ::windows_core::IUnknown);
@@ -844,7 +844,7 @@ impl IKernelTransaction {
 #[doc(hidden)]
 pub struct IKernelTransaction_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
+    pub GetHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ILastResourceManager, ILastResourceManager_Vtbl, 0x4d964ad4_5b33_11d3_8a91_00c04f79eb6d);
 ::windows_core::imp::interface_hierarchy!(ILastResourceManager, ::windows_core::IUnknown);
@@ -860,8 +860,8 @@ impl ILastResourceManager {
 #[doc(hidden)]
 pub struct ILastResourceManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub TransactionCommitted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprepinfo: *const u8, cbprepinfo: u32) -> ::windows_core::HRESULT,
-    pub RecoveryDone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TransactionCommitted: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32) -> ::windows_core::HRESULT,
+    pub RecoveryDone: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPrepareInfo, IPrepareInfo_Vtbl, 0x80c7bfd0_87ee_11ce_8081_0080c758527e);
 ::windows_core::imp::interface_hierarchy!(IPrepareInfo, ::windows_core::IUnknown);
@@ -877,8 +877,8 @@ impl IPrepareInfo {
 #[doc(hidden)]
 pub struct IPrepareInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetPrepareInfoSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbprepinfo: *mut u32) -> ::windows_core::HRESULT,
-    pub GetPrepareInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprepinfo: *mut u8) -> ::windows_core::HRESULT,
+    pub GetPrepareInfoSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetPrepareInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPrepareInfo2, IPrepareInfo2_Vtbl, 0x5fab2547_9779_11d1_b886_00c04fb9618a);
 ::windows_core::imp::interface_hierarchy!(IPrepareInfo2, ::windows_core::IUnknown);
@@ -895,8 +895,8 @@ impl IPrepareInfo2 {
 #[doc(hidden)]
 pub struct IPrepareInfo2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetPrepareInfoSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbprepinfo: *mut u32) -> ::windows_core::HRESULT,
-    pub GetPrepareInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbprepareinfo: u32, pprepinfo: *mut u8) -> ::windows_core::HRESULT,
+    pub GetPrepareInfoSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetPrepareInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRMHelper, IRMHelper_Vtbl, 0xe793f6d1_f53d_11cf_a60d_00a0c905416e);
 ::windows_core::imp::interface_hierarchy!(IRMHelper, ::windows_core::IUnknown);
@@ -917,8 +917,8 @@ impl IRMHelper {
 #[doc(hidden)]
 pub struct IRMHelper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub RMCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwctotalnumberofrms: u32) -> ::windows_core::HRESULT,
-    pub RMInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxa_switch: *mut xa_switch_t, fcdeclcallingconv: super::super::Foundation::BOOL, pszopenstring: ::windows_core::PCSTR, pszclosestring: ::windows_core::PCSTR, guidrmrecovery: ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub RMCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub RMInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut xa_switch_t, super::super::Foundation::BOOL, ::windows_core::PCSTR, ::windows_core::PCSTR, ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IResourceManager, IResourceManager_Vtbl, 0x13741d21_87eb_11ce_8081_0080c758527e);
 ::windows_core::imp::interface_hierarchy!(IResourceManager, ::windows_core::IUnknown);
@@ -945,10 +945,10 @@ impl IResourceManager {
 #[doc(hidden)]
 pub struct IResourceManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Enlist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut ::core::ffi::c_void, pres: *mut ::core::ffi::c_void, puow: *mut BOID, pisolevel: *mut i32, ppenlist: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Reenlist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32, pxactstat: *mut XACTSTAT) -> ::windows_core::HRESULT,
-    pub ReenlistmentComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetDistributedTransactionManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Enlist: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut BOID, *mut i32, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Reenlist: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32, u32, *mut XACTSTAT) -> ::windows_core::HRESULT,
+    pub ReenlistmentComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetDistributedTransactionManager: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IResourceManager2, IResourceManager2_Vtbl, 0xd136c69a_f749_11d1_8f47_00c04f8ee57d);
 ::windows_core::imp::interface_hierarchy!(IResourceManager2, ::windows_core::IUnknown, IResourceManager);
@@ -986,8 +986,8 @@ impl IResourceManager2 {
 #[doc(hidden)]
 pub struct IResourceManager2_Vtbl {
     pub base__: IResourceManager_Vtbl,
-    pub Enlist2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut ::core::ffi::c_void, presasync: *mut ::core::ffi::c_void, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut XID, ppenlist: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Reenlist2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxid: *const XID, dwtimeout: u32, pxactstat: *mut XACTSTAT) -> ::windows_core::HRESULT,
+    pub Enlist2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut BOID, *mut i32, *mut XID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Reenlist2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const XID, u32, *mut XACTSTAT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IResourceManagerFactory, IResourceManagerFactory_Vtbl, 0x13741d20_87eb_11ce_8081_0080c758527e);
 ::windows_core::imp::interface_hierarchy!(IResourceManagerFactory, ::windows_core::IUnknown);
@@ -1005,7 +1005,7 @@ impl IResourceManagerFactory {
 #[doc(hidden)]
 pub struct IResourceManagerFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidrm: *const ::windows_core::GUID, pszrmname: ::windows_core::PCSTR, piresmgrsink: *mut ::core::ffi::c_void, ppresmgr: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, ::windows_core::PCSTR, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IResourceManagerFactory2, IResourceManagerFactory2_Vtbl, 0x6b369c21_fbd2_11d1_8f47_00c04f8ee57d);
 ::windows_core::imp::interface_hierarchy!(IResourceManagerFactory2, ::windows_core::IUnknown, IResourceManagerFactory);
@@ -1030,7 +1030,7 @@ impl IResourceManagerFactory2 {
 #[doc(hidden)]
 pub struct IResourceManagerFactory2_Vtbl {
     pub base__: IResourceManagerFactory_Vtbl,
-    pub CreateEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidrm: *const ::windows_core::GUID, pszrmname: ::windows_core::PCSTR, piresmgrsink: *mut ::core::ffi::c_void, riidrequested: *const ::windows_core::GUID, ppvresmgr: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateEx: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, ::windows_core::PCSTR, *mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IResourceManagerRejoinable, IResourceManagerRejoinable_Vtbl, 0x6f6de620_b5df_4f3e_9cfa_c8aebd05172b);
 ::windows_core::imp::interface_hierarchy!(IResourceManagerRejoinable, ::windows_core::IUnknown, IResourceManager, IResourceManager2);
@@ -1072,7 +1072,7 @@ impl IResourceManagerRejoinable {
 #[doc(hidden)]
 pub struct IResourceManagerRejoinable_Vtbl {
     pub base__: IResourceManager2_Vtbl,
-    pub Rejoin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32, pxactstat: *mut XACTSTAT) -> ::windows_core::HRESULT,
+    pub Rejoin: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, u32, u32, *mut XACTSTAT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IResourceManagerSink, IResourceManagerSink_Vtbl, 0x0d563181_defb_11ce_aed1_00aa0051e2c4);
 ::windows_core::imp::interface_hierarchy!(IResourceManagerSink, ::windows_core::IUnknown);
@@ -1085,7 +1085,7 @@ impl IResourceManagerSink {
 #[doc(hidden)]
 pub struct IResourceManagerSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub TMDown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub TMDown: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITipHelper, ITipHelper_Vtbl, 0x17cf72d1_bac5_11d1_b1bf_00c04fc2f3ef);
 ::windows_core::imp::interface_hierarchy!(ITipHelper, ::windows_core::IUnknown);
@@ -1110,9 +1110,9 @@ impl ITipHelper {
 #[doc(hidden)]
 pub struct ITipHelper_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Pull: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i_psztxurl: *const u8, o_ppitransaction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub PullAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i_psztxurl: *const u8, i_ptippullsink: *mut ::core::ffi::c_void, o_ppitransaction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetLocalTmUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, o_ppszlocaltmurl: *mut *mut u8) -> ::windows_core::HRESULT,
+    pub Pull: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PullAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetLocalTmUrl: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut u8) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITipPullSink, ITipPullSink_Vtbl, 0x17cf72d2_bac5_11d1_b1bf_00c04fc2f3ef);
 ::windows_core::imp::interface_hierarchy!(ITipPullSink, ::windows_core::IUnknown);
@@ -1125,7 +1125,7 @@ impl ITipPullSink {
 #[doc(hidden)]
 pub struct ITipPullSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub PullComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i_hrpull: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub PullComplete: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITipTransaction, ITipTransaction_Vtbl, 0x17cf72d0_bac5_11d1_b1bf_00c04fc2f3ef);
 ::windows_core::imp::interface_hierarchy!(ITipTransaction, ::windows_core::IUnknown);
@@ -1143,8 +1143,8 @@ impl ITipTransaction {
 #[doc(hidden)]
 pub struct ITipTransaction_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Push: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i_pszremotetmurl: *const u8, o_ppszremotetxurl: *mut ::windows_core::PSTR) -> ::windows_core::HRESULT,
-    pub GetTransactionUrl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, o_ppszlocaltxurl: *mut ::windows_core::PSTR) -> ::windows_core::HRESULT,
+    pub Push: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const u8, *mut ::windows_core::PSTR) -> ::windows_core::HRESULT,
+    pub GetTransactionUrl: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::PSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITmNodeName, ITmNodeName_Vtbl, 0x30274f88_6ee4_474e_9b95_7807bc9ef8cf);
 ::windows_core::imp::interface_hierarchy!(ITmNodeName, ::windows_core::IUnknown);
@@ -1161,8 +1161,8 @@ impl ITmNodeName {
 #[doc(hidden)]
 pub struct ITmNodeName_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetNodeNameSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbnodenamesize: *mut u32) -> ::windows_core::HRESULT,
-    pub GetNodeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbnodenamebuffersize: u32, pnodenamebuffer: ::windows_core::PWSTR) -> ::windows_core::HRESULT,
+    pub GetNodeNameSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetNodeName: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransaction, ITransaction_Vtbl, 0x0fb15084_af41_11ce_bd2b_204c4f4f5020);
 ::windows_core::imp::interface_hierarchy!(ITransaction, ::windows_core::IUnknown);
@@ -1188,9 +1188,9 @@ impl ITransaction {
 #[doc(hidden)]
 pub struct ITransaction_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fretaining: super::super::Foundation::BOOL, grftc: u32, grfrm: u32) -> ::windows_core::HRESULT,
-    pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, fasync: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub GetTransactionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *mut XACTTRANSINFO) -> ::windows_core::HRESULT,
+    pub Commit: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL, u32, u32) -> ::windows_core::HRESULT,
+    pub Abort: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const BOID, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub GetTransactionInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut XACTTRANSINFO) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransaction2, ITransaction2_Vtbl, 0x34021548_0065_11d3_bac1_00c04f797be2);
 ::windows_core::imp::interface_hierarchy!(ITransaction2, ::windows_core::IUnknown, ITransaction, ITransactionCloner);
@@ -1223,7 +1223,7 @@ impl ITransaction2 {
 #[doc(hidden)]
 pub struct ITransaction2_Vtbl {
     pub base__: ITransactionCloner_Vtbl,
-    pub GetTransactionInfo2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *mut XACTTRANSINFO) -> ::windows_core::HRESULT,
+    pub GetTransactionInfo2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut XACTTRANSINFO) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionCloner, ITransactionCloner_Vtbl, 0x02656950_2152_11d0_944c_00a0c905416e);
 ::windows_core::imp::interface_hierarchy!(ITransactionCloner, ::windows_core::IUnknown, ITransaction);
@@ -1253,7 +1253,7 @@ impl ITransactionCloner {
 #[doc(hidden)]
 pub struct ITransactionCloner_Vtbl {
     pub base__: ITransaction_Vtbl,
-    pub CloneWithCommitDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppitransaction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CloneWithCommitDisabled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionDispenser, ITransactionDispenser_Vtbl, 0x3a6ad9e1_23b9_11cf_ad60_00aa00a74ccd);
 ::windows_core::imp::interface_hierarchy!(ITransactionDispenser, ::windows_core::IUnknown);
@@ -1275,8 +1275,8 @@ impl ITransactionDispenser {
 #[doc(hidden)]
 pub struct ITransactionDispenser_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetOptionsObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppoptions: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub BeginTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, isolevel: i32, isoflags: u32, poptions: *mut ::core::ffi::c_void, pptransaction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetOptionsObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub BeginTransaction: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, i32, u32, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionEnlistmentAsync, ITransactionEnlistmentAsync_Vtbl, 0x0fb15081_af41_11ce_bd2b_204c4f4f5020);
 ::windows_core::imp::interface_hierarchy!(ITransactionEnlistmentAsync, ::windows_core::IUnknown);
@@ -1301,11 +1301,11 @@ impl ITransactionEnlistmentAsync {
 pub struct ITransactionEnlistmentAsync_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     #[cfg(feature = "Win32_System_Com")]
-    pub PrepareRequestDone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows_core::HRESULT, pmk: *mut ::core::ffi::c_void, pboidreason: *const BOID) -> ::windows_core::HRESULT,
+    pub PrepareRequestDone: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, *mut ::core::ffi::c_void, *const BOID) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     PrepareRequestDone: usize,
-    pub CommitRequestDone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub AbortRequestDone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub CommitRequestDone: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub AbortRequestDone: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionExport, ITransactionExport_Vtbl, 0x0141fda5_8fc0_11ce_bd18_204c4f4f5020);
 ::windows_core::imp::interface_hierarchy!(ITransactionExport, ::windows_core::IUnknown);
@@ -1328,8 +1328,8 @@ impl ITransactionExport {
 #[doc(hidden)]
 pub struct ITransactionExport_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Export: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punktransaction: *mut ::core::ffi::c_void, pcbtransactioncookie: *mut u32) -> ::windows_core::HRESULT,
-    pub GetTransactionCookie: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punktransaction: *mut ::core::ffi::c_void, cbtransactioncookie: u32, rgbtransactioncookie: *mut u8, pcbused: *mut u32) -> ::windows_core::HRESULT,
+    pub Export: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetTransactionCookie: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, u32, *mut u8, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionExportFactory, ITransactionExportFactory_Vtbl, 0xe1cf9b53_8745_11ce_a9ba_00aa006c3706);
 ::windows_core::imp::interface_hierarchy!(ITransactionExportFactory, ::windows_core::IUnknown);
@@ -1347,8 +1347,8 @@ impl ITransactionExportFactory {
 #[doc(hidden)]
 pub struct ITransactionExportFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetRemoteClassId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbwhereabouts: u32, rgbwhereabouts: *const u8, ppexport: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetRemoteClassId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionImport, ITransactionImport_Vtbl, 0xe1cf9b5a_8745_11ce_a9ba_00aa006c3706);
 ::windows_core::imp::interface_hierarchy!(ITransactionImport, ::windows_core::IUnknown);
@@ -1365,7 +1365,7 @@ impl ITransactionImport {
 #[doc(hidden)]
 pub struct ITransactionImport_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Import: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbtransactioncookie: u32, rgbtransactioncookie: *const u8, piid: *const ::windows_core::GUID, ppvtransaction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Import: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionImportWhereabouts, ITransactionImportWhereabouts_Vtbl, 0x0141fda4_8fc0_11ce_bd18_204c4f4f5020);
 ::windows_core::imp::interface_hierarchy!(ITransactionImportWhereabouts, ::windows_core::IUnknown);
@@ -1382,8 +1382,8 @@ impl ITransactionImportWhereabouts {
 #[doc(hidden)]
 pub struct ITransactionImportWhereabouts_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetWhereaboutsSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbwhereabouts: *mut u32) -> ::windows_core::HRESULT,
-    pub GetWhereabouts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbwhereabouts: u32, rgbwhereabouts: *mut u8, pcbused: *mut u32) -> ::windows_core::HRESULT,
+    pub GetWhereaboutsSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub GetWhereabouts: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u8, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionLastEnlistmentAsync, ITransactionLastEnlistmentAsync_Vtbl, 0xc82bd533_5b30_11d3_8a91_00c04f79eb6d);
 ::windows_core::imp::interface_hierarchy!(ITransactionLastEnlistmentAsync, ::windows_core::IUnknown);
@@ -1396,7 +1396,7 @@ impl ITransactionLastEnlistmentAsync {
 #[doc(hidden)]
 pub struct ITransactionLastEnlistmentAsync_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub TransactionOutcome: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xactstat: XACTSTAT, pboidreason: *const BOID) -> ::windows_core::HRESULT,
+    pub TransactionOutcome: unsafe extern "system" fn(*mut ::core::ffi::c_void, XACTSTAT, *const BOID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionLastResourceAsync, ITransactionLastResourceAsync_Vtbl, 0xc82bd532_5b30_11d3_8a91_00c04f79eb6d);
 ::windows_core::imp::interface_hierarchy!(ITransactionLastResourceAsync, ::windows_core::IUnknown);
@@ -1412,8 +1412,8 @@ impl ITransactionLastResourceAsync {
 #[doc(hidden)]
 pub struct ITransactionLastResourceAsync_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub DelegateCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfrm: u32) -> ::windows_core::HRESULT,
-    pub ForgetRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnewuow: *const BOID) -> ::windows_core::HRESULT,
+    pub DelegateCommit: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
+    pub ForgetRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const BOID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionOptions, ITransactionOptions_Vtbl, 0x3a6ad9e0_23b9_11cf_ad60_00aa00a74ccd);
 ::windows_core::imp::interface_hierarchy!(ITransactionOptions, ::windows_core::IUnknown);
@@ -1429,8 +1429,8 @@ impl ITransactionOptions {
 #[doc(hidden)]
 pub struct ITransactionOptions_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub SetOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poptions: *const XACTOPT) -> ::windows_core::HRESULT,
-    pub GetOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poptions: *mut XACTOPT) -> ::windows_core::HRESULT,
+    pub SetOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const XACTOPT) -> ::windows_core::HRESULT,
+    pub GetOptions: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut XACTOPT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionOutcomeEvents, ITransactionOutcomeEvents_Vtbl, 0x3a6ad9e2_23b9_11cf_ad60_00aa00a74ccd);
 ::windows_core::imp::interface_hierarchy!(ITransactionOutcomeEvents, ::windows_core::IUnknown);
@@ -1458,10 +1458,10 @@ impl ITransactionOutcomeEvents {
 #[doc(hidden)]
 pub struct ITransactionOutcomeEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Committed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID, hr: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub Aborted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID, hr: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub HeuristicDecision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdecision: u32, pboidreason: *const BOID, hr: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub Indoubt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Committed: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL, *const BOID, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub Aborted: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const BOID, super::super::Foundation::BOOL, *const BOID, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub HeuristicDecision: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const BOID, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub Indoubt: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionPhase0EnlistmentAsync, ITransactionPhase0EnlistmentAsync_Vtbl, 0x82dc88e1_a954_11d1_8f88_00600895e7d5);
 ::windows_core::imp::interface_hierarchy!(ITransactionPhase0EnlistmentAsync, ::windows_core::IUnknown);
@@ -1487,11 +1487,11 @@ impl ITransactionPhase0EnlistmentAsync {
 #[doc(hidden)]
 pub struct ITransactionPhase0EnlistmentAsync_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Enable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub WaitForEnlistment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Phase0Done: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Unenlist: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppitransaction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Enable: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub WaitForEnlistment: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Phase0Done: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Unenlist: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetTransaction: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionPhase0Factory, ITransactionPhase0Factory_Vtbl, 0x82dc88e0_a954_11d1_8f88_00600895e7d5);
 ::windows_core::imp::interface_hierarchy!(ITransactionPhase0Factory, ::windows_core::IUnknown);
@@ -1508,7 +1508,7 @@ impl ITransactionPhase0Factory {
 #[doc(hidden)]
 pub struct ITransactionPhase0Factory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pphase0notify: *mut ::core::ffi::c_void, ppphase0enlistment: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionPhase0NotifyAsync, ITransactionPhase0NotifyAsync_Vtbl, 0xef081809_0c76_11d2_87a6_00c04f990f34);
 ::windows_core::imp::interface_hierarchy!(ITransactionPhase0NotifyAsync, ::windows_core::IUnknown);
@@ -1527,8 +1527,8 @@ impl ITransactionPhase0NotifyAsync {
 #[doc(hidden)]
 pub struct ITransactionPhase0NotifyAsync_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Phase0Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fabortinghint: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub EnlistCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub Phase0Request: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub EnlistCompleted: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionReceiver, ITransactionReceiver_Vtbl, 0x59313e03_b36c_11cf_a539_00aa006887c3);
 ::windows_core::imp::interface_hierarchy!(ITransactionReceiver, ::windows_core::IUnknown);
@@ -1552,10 +1552,10 @@ impl ITransactionReceiver {
 #[doc(hidden)]
 pub struct ITransactionReceiver_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub UnmarshalPropagationToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbtoken: u32, rgbtoken: *const u8, pptransaction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetReturnTokenSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbreturntoken: *mut u32) -> ::windows_core::HRESULT,
-    pub MarshalReturnToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbreturntoken: u32, rgbreturntoken: *mut u8, pcbused: *mut u32) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UnmarshalPropagationToken: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetReturnTokenSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub MarshalReturnToken: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionReceiverFactory, ITransactionReceiverFactory_Vtbl, 0x59313e02_b36c_11cf_a539_00aa006887c3);
 ::windows_core::imp::interface_hierarchy!(ITransactionReceiverFactory, ::windows_core::IUnknown);
@@ -1569,7 +1569,7 @@ impl ITransactionReceiverFactory {
 #[doc(hidden)]
 pub struct ITransactionReceiverFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppreceiver: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionResource, ITransactionResource_Vtbl, 0xee5ff7b3_4572_11d0_9452_00a0c905416e);
 ::windows_core::imp::interface_hierarchy!(ITransactionResource, ::windows_core::IUnknown);
@@ -1599,10 +1599,10 @@ impl ITransactionResource {
 #[doc(hidden)]
 pub struct ITransactionResource_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub PrepareRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fretaining: super::super::Foundation::BOOL, grfrm: u32, fwantmoniker: super::super::Foundation::BOOL, fsinglephase: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub CommitRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfrm: u32, pnewuow: *const BOID) -> ::windows_core::HRESULT,
-    pub AbortRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID) -> ::windows_core::HRESULT,
-    pub TMDown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PrepareRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL, u32, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub CommitRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const BOID) -> ::windows_core::HRESULT,
+    pub AbortRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const BOID, super::super::Foundation::BOOL, *const BOID) -> ::windows_core::HRESULT,
+    pub TMDown: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionResourceAsync, ITransactionResourceAsync_Vtbl, 0x69e971f0_23ce_11cf_ad60_00aa00a74ccd);
 ::windows_core::imp::interface_hierarchy!(ITransactionResourceAsync, ::windows_core::IUnknown);
@@ -1632,10 +1632,10 @@ impl ITransactionResourceAsync {
 #[doc(hidden)]
 pub struct ITransactionResourceAsync_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub PrepareRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fretaining: super::super::Foundation::BOOL, grfrm: u32, fwantmoniker: super::super::Foundation::BOOL, fsinglephase: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
-    pub CommitRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfrm: u32, pnewuow: *const BOID) -> ::windows_core::HRESULT,
-    pub AbortRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pboidreason: *const BOID, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID) -> ::windows_core::HRESULT,
-    pub TMDown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PrepareRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL, u32, super::super::Foundation::BOOL, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    pub CommitRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const BOID) -> ::windows_core::HRESULT,
+    pub AbortRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const BOID, super::super::Foundation::BOOL, *const BOID) -> ::windows_core::HRESULT,
+    pub TMDown: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionTransmitter, ITransactionTransmitter_Vtbl, 0x59313e01_b36c_11cf_a539_00aa006887c3);
 ::windows_core::imp::interface_hierarchy!(ITransactionTransmitter, ::windows_core::IUnknown);
@@ -1664,11 +1664,11 @@ impl ITransactionTransmitter {
 #[doc(hidden)]
 pub struct ITransactionTransmitter_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Set: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetPropagationTokenSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbtoken: *mut u32) -> ::windows_core::HRESULT,
-    pub MarshalPropagationToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbtoken: u32, rgbtoken: *mut u8, pcbused: *mut u32) -> ::windows_core::HRESULT,
-    pub UnmarshalReturnToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbreturntoken: u32, rgbreturntoken: *const u8) -> ::windows_core::HRESULT,
-    pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Set: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetPropagationTokenSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
+    pub MarshalPropagationToken: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u8, *mut u32) -> ::windows_core::HRESULT,
+    pub UnmarshalReturnToken: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8) -> ::windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionTransmitterFactory, ITransactionTransmitterFactory_Vtbl, 0x59313e00_b36c_11cf_a539_00aa006887c3);
 ::windows_core::imp::interface_hierarchy!(ITransactionTransmitterFactory, ::windows_core::IUnknown);
@@ -1682,7 +1682,7 @@ impl ITransactionTransmitterFactory {
 #[doc(hidden)]
 pub struct ITransactionTransmitterFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptransmitter: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionVoterBallotAsync2, ITransactionVoterBallotAsync2_Vtbl, 0x5433376c_414d_11d3_b206_00c04fc2f3ef);
 ::windows_core::imp::interface_hierarchy!(ITransactionVoterBallotAsync2, ::windows_core::IUnknown);
@@ -1695,7 +1695,7 @@ impl ITransactionVoterBallotAsync2 {
 #[doc(hidden)]
 pub struct ITransactionVoterBallotAsync2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub VoteRequestDone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows_core::HRESULT, pboidreason: *const BOID) -> ::windows_core::HRESULT,
+    pub VoteRequestDone: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT, *const BOID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionVoterFactory2, ITransactionVoterFactory2_Vtbl, 0x5433376a_414d_11d3_b206_00c04fc2f3ef);
 ::windows_core::imp::interface_hierarchy!(ITransactionVoterFactory2, ::windows_core::IUnknown);
@@ -1713,7 +1713,7 @@ impl ITransactionVoterFactory2 {
 #[doc(hidden)]
 pub struct ITransactionVoterFactory2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut ::core::ffi::c_void, pvoternotify: *mut ::core::ffi::c_void, ppvoterballot: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Create: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ITransactionVoterNotifyAsync2, ITransactionVoterNotifyAsync2_Vtbl, 0x5433376b_414d_11d3_b206_00c04fc2f3ef);
 ::windows_core::imp::interface_hierarchy!(ITransactionVoterNotifyAsync2, ::windows_core::IUnknown, ITransactionOutcomeEvents);
@@ -1744,7 +1744,7 @@ impl ITransactionVoterNotifyAsync2 {
 #[doc(hidden)]
 pub struct ITransactionVoterNotifyAsync2_Vtbl {
     pub base__: ITransactionOutcomeEvents_Vtbl,
-    pub VoteRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub VoteRequest: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IXAConfig, IXAConfig_Vtbl, 0xc8a6e3a1_9a8c_11cf_a308_00a0c905416e);
 ::windows_core::imp::interface_hierarchy!(IXAConfig, ::windows_core::IUnknown);
@@ -1760,8 +1760,8 @@ impl IXAConfig {
 #[doc(hidden)]
 pub struct IXAConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsidhelperdll: ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub Terminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub Terminate: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IXAObtainRMInfo, IXAObtainRMInfo_Vtbl, 0xe793f6d2_f53d_11cf_a60d_00a0c905416e);
 ::windows_core::imp::interface_hierarchy!(IXAObtainRMInfo, ::windows_core::IUnknown);
@@ -1777,7 +1777,7 @@ impl IXAObtainRMInfo {
 #[doc(hidden)]
 pub struct IXAObtainRMInfo_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub ObtainRMInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirmhelper: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ObtainRMInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IXATransLookup, IXATransLookup_Vtbl, 0xf3b1f131_eeda_11ce_aed4_00aa0051e2c4);
 ::windows_core::imp::interface_hierarchy!(IXATransLookup, ::windows_core::IUnknown);
@@ -1791,7 +1791,7 @@ impl IXATransLookup {
 #[doc(hidden)]
 pub struct IXATransLookup_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Lookup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptransaction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Lookup: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IXATransLookup2, IXATransLookup2_Vtbl, 0xbf193c85_0d1a_4290_b88f_d2cb8873d1e7);
 ::windows_core::imp::interface_hierarchy!(IXATransLookup2, ::windows_core::IUnknown);
@@ -1805,7 +1805,7 @@ impl IXATransLookup2 {
 #[doc(hidden)]
 pub struct IXATransLookup2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Lookup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxid: *const XID, pptransaction: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Lookup: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const XID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 pub const CLSID_MSDtcTransaction: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x39f8d76b_0928_11d1_97df_00c04fb9618a);
 pub const CLSID_MSDtcTransactionManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b18ab61_091d_11d1_97df_00c04fb9618a);

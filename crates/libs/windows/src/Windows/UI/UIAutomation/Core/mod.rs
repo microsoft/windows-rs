@@ -3,11 +3,11 @@
 #[doc(hidden)]
 pub struct IAutomationRemoteOperationResult_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AutomationRemoteOperationStatus) -> ::windows_core::HRESULT,
-    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
-    pub ErrorLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows_core::HRESULT,
-    pub HasOperand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub GetOperand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Status: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut AutomationRemoteOperationStatus) -> ::windows_core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
+    pub ErrorLocation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
+    pub HasOperand: unsafe extern "system" fn(*mut ::core::ffi::c_void, AutomationRemoteOperationOperandId, *mut bool) -> ::windows_core::HRESULT,
+    pub GetOperand: unsafe extern "system" fn(*mut ::core::ffi::c_void, AutomationRemoteOperationOperandId, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreAutomationConnectionBoundObjectProvider, ICoreAutomationConnectionBoundObjectProvider_Vtbl, 0x0620bb64_9616_5593_be3a_eb8e6daeb3fa);
 ::windows_core::imp::interface_hierarchy!(ICoreAutomationConnectionBoundObjectProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -27,42 +27,42 @@ impl ::windows_core::RuntimeType for ICoreAutomationConnectionBoundObjectProvide
 #[doc(hidden)]
 pub struct ICoreAutomationConnectionBoundObjectProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub IsComThreadingRequired: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub IsComThreadingRequired: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreAutomationRegistrarStatics, ICoreAutomationRegistrarStatics_Vtbl, 0x3e50129b_d6dc_5680_b580_ffff78300304);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreAutomationRegistrarStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub RegisterAnnotationType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: ::windows_core::GUID, result__: *mut AutomationAnnotationTypeRegistration) -> ::windows_core::HRESULT,
-    pub UnregisterAnnotationType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, registration: AutomationAnnotationTypeRegistration) -> ::windows_core::HRESULT,
+    pub RegisterAnnotationType: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut AutomationAnnotationTypeRegistration) -> ::windows_core::HRESULT,
+    pub UnregisterAnnotationType: unsafe extern "system" fn(*mut ::core::ffi::c_void, AutomationAnnotationTypeRegistration) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreAutomationRemoteOperation, ICoreAutomationRemoteOperation_Vtbl, 0x3ac656f4_e2bc_5c6e_b8e7_b224fb74b060);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreAutomationRemoteOperation_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub IsOpcodeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, opcode: u32, result__: *mut bool) -> ::windows_core::HRESULT,
-    pub ImportElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId, element: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ImportTextRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId, textrange: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub AddToResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId) -> ::windows_core::HRESULT,
-    pub Execute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bytecodeBuffer_array_size: u32, bytecodebuffer: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub IsOpcodeSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut bool) -> ::windows_core::HRESULT,
+    pub ImportElement: unsafe extern "system" fn(*mut ::core::ffi::c_void, AutomationRemoteOperationOperandId, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ImportTextRange: unsafe extern "system" fn(*mut ::core::ffi::c_void, AutomationRemoteOperationOperandId, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AddToResults: unsafe extern "system" fn(*mut ::core::ffi::c_void, AutomationRemoteOperationOperandId) -> ::windows_core::HRESULT,
+    pub Execute: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *const u8, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreAutomationRemoteOperation2, ICoreAutomationRemoteOperation2_Vtbl, 0xeefaf86f_e953_5099_8ce9_dca813482ba0);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreAutomationRemoteOperation2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub ImportConnectionBoundObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operandid: AutomationRemoteOperationOperandId, connectionboundobject: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ImportConnectionBoundObject: unsafe extern "system" fn(*mut ::core::ffi::c_void, AutomationRemoteOperationOperandId, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreAutomationRemoteOperationContext, ICoreAutomationRemoteOperationContext_Vtbl, 0xb9af9cbb_3d3e_5918_a16b_7861626a3aeb);
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreAutomationRemoteOperationContext_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub GetOperand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: AutomationRemoteOperationOperandId, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetOperand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: AutomationRemoteOperationOperandId, operand: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SetOperand2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: AutomationRemoteOperationOperandId, operand: *mut ::core::ffi::c_void, operandinterfaceid: ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub GetOperand: unsafe extern "system" fn(*mut ::core::ffi::c_void, AutomationRemoteOperationOperandId, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetOperand: unsafe extern "system" fn(*mut ::core::ffi::c_void, AutomationRemoteOperationOperandId, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetOperand2: unsafe extern "system" fn(*mut ::core::ffi::c_void, AutomationRemoteOperationOperandId, *mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(ICoreAutomationRemoteOperationExtensionProvider, ICoreAutomationRemoteOperationExtensionProvider_Vtbl, 0x88f53e67_dc69_553b_a0aa_70477e724da8);
 ::windows_core::imp::interface_hierarchy!(ICoreAutomationRemoteOperationExtensionProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -89,60 +89,60 @@ impl ::windows_core::RuntimeType for ICoreAutomationRemoteOperationExtensionProv
 #[doc(hidden)]
 pub struct ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CallExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extensionid: ::windows_core::GUID, context: *mut ::core::ffi::c_void, operandIds_array_size: u32, operandids: *const AutomationRemoteOperationOperandId) -> ::windows_core::HRESULT,
-    pub IsExtensionSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extensionid: ::windows_core::GUID, result__: *mut bool) -> ::windows_core::HRESULT,
+    pub CallExtension: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut ::core::ffi::c_void, u32, *const AutomationRemoteOperationOperandId) -> ::windows_core::HRESULT,
+    pub IsExtensionSupported: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID, *mut bool) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRemoteAutomationClientSession, IRemoteAutomationClientSession_Vtbl, 0x5c8a091d_94cc_5b33_afdb_678cded2bd54);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteAutomationClientSession_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateWindowAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remotewindowid: u64, remoteprocessid: u32, parentautomationelement: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub SessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub ConnectionRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveConnectionRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub Disconnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
-    pub RemoveDisconnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub Start: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub Stop: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateWindowAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, u64, u32, *mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SessionId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub ConnectionRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveConnectionRequested: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub Disconnected: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
+    pub RemoveDisconnected: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRemoteAutomationClientSessionFactory, IRemoteAutomationClientSessionFactory_Vtbl, 0xf250263d_6057_5373_a5a5_ed7265fe0376);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteAutomationClientSessionFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateInstance2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::HSTRING>, sessionid: ::windows_core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstance2: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRemoteAutomationConnectionRequestedEventArgs, IRemoteAutomationConnectionRequestedEventArgs_Vtbl, 0xea3319a8_e3a8_5dc6_adf8_044e46b14af5);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteAutomationConnectionRequestedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub LocalPipeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
-    pub RemoteProcessId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
+    pub LocalPipeName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub RemoteProcessId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRemoteAutomationDisconnectedEventArgs, IRemoteAutomationDisconnectedEventArgs_Vtbl, 0xbbb33a3d_5d90_5c38_9eb2_dd9dcc1b2e3f);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteAutomationDisconnectedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub LocalPipeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
+    pub LocalPipeName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRemoteAutomationServerStatics, IRemoteAutomationServerStatics_Vtbl, 0xe6e8945e_0c11_5028_9ae3_c2771288b6b7);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteAutomationServerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub ReportSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionid: ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub ReportSession: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IRemoteAutomationWindow, IRemoteAutomationWindow_Vtbl, 0x7c607689_496d_512a_9bd5_c050cfaf1428);
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRemoteAutomationWindow_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
-    pub AutomationProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub UnregisterAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub AutomationProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub UnregisterAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
