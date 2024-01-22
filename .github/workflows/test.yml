@@ -44,6 +44,7 @@ jobs:
           cargo test -p riddle &&
           cargo test -p sample_bits &&
           cargo test -p sample_com_uri &&
+          cargo test -p sample_component_hello_world &&
           cargo test -p sample_consent &&
           cargo test -p sample_core_app &&
           cargo test -p sample_counter &&
