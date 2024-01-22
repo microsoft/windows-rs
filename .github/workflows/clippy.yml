@@ -37,6 +37,7 @@ jobs:
           cargo clippy -p riddle &&
           cargo clippy -p sample_bits &&
           cargo clippy -p sample_com_uri &&
+          cargo clippy -p sample_component_hello_world &&
           cargo clippy -p sample_consent &&
           cargo clippy -p sample_core_app &&
           cargo clippy -p sample_counter &&
