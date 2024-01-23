@@ -32,21 +32,19 @@ extern "system" fn CloseJsonValidator(handle: usize) {
 fn create_validator(schema: *const u8, schema_len: usize, handle: *mut usize) -> Result<()> {
     let schema = json_from_raw_parts(schema, schema_len)?;
 
-    match JSONSchema::compile(&schema) {
-        Ok(compiled) => {
-            if handle.is_null() {
-                return Err(E_POINTER.into());
-            }
+    let compiled = JSONSchema::compile(&schema)
+        .map_err(|error| Error::new(E_INVALIDARG, error.to_string().into()))?;
 
-            // The handle is not null so we can safely dereference it here.
-            unsafe {
-                *handle = Box::into_raw(Box::new(compiled)) as usize;
-            }
-
-            Ok(())
-        }
-        Err(error) => Err(Error::new(E_INVALIDARG, error.to_string().into())),
+    if handle.is_null() {
+        return Err(E_POINTER.into());
     }
+
+    // The handle is not null so we can safely dereference it here.
+    unsafe {
+        *handle = Box::into_raw(Box::new(compiled)) as usize;
+    }
+
+    Ok(())
 }
 
 // Implementation of the `ValidateJson` function so we can use `Result` for simplicity.
@@ -84,14 +82,10 @@ fn json_from_raw_parts(value: *const u8, value_len: usize) -> Result<serde_json:
 
     let value = unsafe { std::slice::from_raw_parts(value, value_len) };
 
-    let Ok(value) = std::str::from_utf8(value) else {
-        return Err(ERROR_NO_UNICODE_TRANSLATION.into());
-    };
+    let value =
+        std::str::from_utf8(value).map_err(|_| Error::from(ERROR_NO_UNICODE_TRANSLATION))?;
 
-    match serde_json::from_str(value) {
-        Ok(value) => Ok(value),
-        Err(error) => Err(Error::new(E_INVALIDARG, format!("{error}").into())),
-    }
+    serde_json::from_str(value).map_err(|error| Error::new(E_INVALIDARG, format!("{error}").into()))
 }
 
 #[test]
