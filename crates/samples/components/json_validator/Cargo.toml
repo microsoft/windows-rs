@@ -15,4 +15,5 @@ serde_json = "1.0"
 path = "../../../libs/windows"
 features = [
     "Win32_Foundation",
+    "Win32_System_Com",
 ]

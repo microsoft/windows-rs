@@ -1,5 +1,5 @@
 use jsonschema::JSONSchema;
-use windows::{core::*, Win32::Foundation::*};
+use windows::{core::*, Win32::Foundation::*, Win32::System::Com::*};
 
 // Creates a JSON validator object with the given schema. The returned handle must be freed
 // by calling `CloseJsonValidator`.
@@ -18,8 +18,17 @@ unsafe extern "system" fn ValidateJson(
     handle: usize,
     value: *const u8,
     value_len: usize,
+    sanitized_value: *mut *mut u8,
+    sanitized_value_len: *mut usize,
 ) -> HRESULT {
-    validate(handle, value, value_len).into()
+    validate(
+        handle,
+        value,
+        value_len,
+        sanitized_value,
+        sanitized_value_len,
+    )
+    .into()
 }
 
 // Closes a JSON validator object.
@@ -48,7 +57,13 @@ unsafe fn create_validator(schema: *const u8, schema_len: usize, handle: *mut us
 }
 
 // Implementation of the `ValidateJson` function so we can use `Result` for simplicity.
-unsafe fn validate(handle: usize, value: *const u8, value_len: usize) -> Result<()> {
+unsafe fn validate(
+    handle: usize,
+    value: *const u8,
+    value_len: usize,
+    sanitized_value: *mut *mut u8,
+    sanitized_value_len: *mut usize,
+) -> Result<()> {
     if handle == 0 {
         return Err(E_HANDLE.into());
     }
@@ -60,6 +75,19 @@ unsafe fn validate(handle: usize, value: *const u8, value_len: usize) -> Result<
     let schema = &*(handle as *const JSONSchema);
 
     if schema.is_valid(&value) {
+        if !sanitized_value.is_null() && !sanitized_value_len.is_null() {
+            let value = value.to_string();
+
+            *sanitized_value = CoTaskMemAlloc(value.len()) as _;
+
+            if (*sanitized_value).is_null() {
+                return Err(E_OUTOFMEMORY.into());
+            }
+
+            (*sanitized_value).copy_from(value.as_ptr(), value.len());
+            *sanitized_value_len = value.len();
+        }
+
         Ok(())
     } else {
         let mut message = String::new();
@@ -101,11 +129,26 @@ fn simple() {
 
         // Validate the json against the schema.
         let value = r#""Hello""#;
-        assert_eq!(S_OK, ValidateJson(handle, value.as_ptr(), value.len()));
+        assert_eq!(
+            S_OK,
+            ValidateJson(
+                handle,
+                value.as_ptr(),
+                value.len(),
+                std::ptr::null_mut(),
+                std::ptr::null_mut()
+            )
+        );
 
         // Check check validation failure provides reasonable error information.
         let value = r#""Hello World""#;
-        let code = ValidateJson(handle, value.as_ptr(), value.len());
+        let code = ValidateJson(
+            handle,
+            value.as_ptr(),
+            value.len(),
+            std::ptr::null_mut(),
+            std::ptr::null_mut(),
+        );
         assert_eq!(E_INVALIDARG, code);
         assert_eq!(
             r#""Hello World" is longer than 5 characters"#,
@@ -114,7 +157,16 @@ fn simple() {
 
         // The schema validator is reusable.
         let value = r#""World""#;
-        assert_eq!(S_OK, ValidateJson(handle, value.as_ptr(), value.len()));
+        assert_eq!(
+            S_OK,
+            ValidateJson(
+                handle,
+                value.as_ptr(),
+                value.len(),
+                std::ptr::null_mut(),
+                std::ptr::null_mut()
+            )
+        );
 
         // Close the validator with the given handle.
         CloseJsonValidator(handle);
@@ -166,22 +218,96 @@ fn invalid_validate_params() {
 
         // Check that a zero handle is caught.
         let value = r#""Hello""#;
-        assert_eq!(E_HANDLE, ValidateJson(0, value.as_ptr(), value.len()));
+        assert_eq!(
+            E_HANDLE,
+            ValidateJson(
+                0,
+                value.as_ptr(),
+                value.len(),
+                std::ptr::null_mut(),
+                std::ptr::null_mut()
+            )
+        );
 
         // Check that a value null pointer is caught.
         assert_eq!(
             E_POINTER,
-            ValidateJson(handle, std::ptr::null(), value.len())
+            ValidateJson(
+                handle,
+                std::ptr::null(),
+                value.len(),
+                std::ptr::null_mut(),
+                std::ptr::null_mut()
+            )
         );
 
         // Check that JSON parsing failure provides reasonable error information.
         let value = r#""Hello"#;
-        let code = ValidateJson(handle, value.as_ptr(), value.len());
+        let code = ValidateJson(
+            handle,
+            value.as_ptr(),
+            value.len(),
+            std::ptr::null_mut(),
+            std::ptr::null_mut(),
+        );
         assert_eq!(E_INVALIDARG, code);
         assert_eq!(
             "EOF while parsing a string at line 1 column 6",
             Error::from(code).message()
         );
+
+        // Close the validator with the given handle.
+        CloseJsonValidator(handle);
+    }
+}
+
+#[test]
+fn sanitized_value() {
+    unsafe {
+        // Create a validator with the given schema.
+        let schema = r#"
+        {
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "age": {
+                    "type": "integer"
+                }
+            }
+        }
+        "#;
+
+        let mut handle = 0;
+        assert_eq!(
+            S_OK,
+            CreateJsonValidator(schema.as_ptr(), schema.len(), &mut handle)
+        );
+
+        // Validate and check the sanitized return value.
+        let value = r#"
+        {
+            "name": "Kenny",
+            "age": 21 
+        }
+        "#;
+        let mut sanitized_alloc = std::ptr::null_mut();
+        let mut sanitized_len = 0;
+
+        assert_eq!(
+            S_OK,
+            ValidateJson(
+                handle,
+                value.as_ptr(),
+                value.len(),
+                &mut sanitized_alloc,
+                &mut sanitized_len
+            )
+        );
+        let sanitized = std::slice::from_raw_parts(sanitized_alloc, sanitized_len);
+        let sanitized = String::from_utf8_lossy(sanitized);
+        CoTaskMemFree(Some(sanitized_alloc as _));
+        assert_eq!(sanitized, r#"{"age":21,"name":"Kenny"}"#);
 
         // Close the validator with the given handle.
         CloseJsonValidator(handle);
