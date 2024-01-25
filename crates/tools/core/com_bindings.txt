@@ -20,7 +20,6 @@
     Windows.Win32.System.Com.GetErrorInfo
     Windows.Win32.System.Com.IAgileObject
     Windows.Win32.System.Com.IErrorInfo
-    Windows.Win32.System.Com.SetErrorInfo
     Windows.Win32.System.WinRT.AGILEREFERENCE_DEFAULT
     Windows.Win32.System.WinRT.IAgileReference
     Windows.Win32.System.WinRT.ILanguageExceptionErrorInfo2
