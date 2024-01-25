@@ -11,6 +11,7 @@
     Windows.Win32.Foundation.SysAllocStringLen
     Windows.Win32.Foundation.SysFreeString
     Windows.Win32.Foundation.SysStringLen
+    Windows.Win32.System.Com.CoIncrementMTAUsage
     Windows.Win32.System.Com.CoTaskMemAlloc
     Windows.Win32.System.Com.CoTaskMemFree
     Windows.Win32.System.Com.StructuredStorage.PROPVARIANT
@@ -67,3 +68,5 @@
     Windows.Win32.System.Variant.VT_UI4
     Windows.Win32.System.Variant.VT_UI8
     Windows.Win32.System.Variant.VT_UNKNOWN
+    Windows.Win32.System.WinRT.RoGetActivationFactory
+    Windows.Win32.System.WinRT.RoOriginateError

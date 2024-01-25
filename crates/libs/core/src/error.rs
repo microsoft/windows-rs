@@ -15,9 +15,7 @@ impl Error {
     /// point of failure.
     pub fn new(code: HRESULT, message: HSTRING) -> Self {
         unsafe {
-            if let Some(function) = crate::imp::delay_load::<RoOriginateError>(s!("combase.dll"), s!("RoOriginateError")) {
-                function(code, std::mem::transmute_copy(&message));
-            }
+            crate::imp::RoOriginateError(code.0, std::mem::transmute_copy(&message));
             let info = GetErrorInfo().and_then(|e| e.cast()).ok();
             Self { code, info }
         }
@@ -152,8 +150,6 @@ impl std::fmt::Display for Error {
 }
 
 impl std::error::Error for Error {}
-
-type RoOriginateError = extern "system" fn(code: HRESULT, message: *mut std::ffi::c_void) -> i32;
 
 fn GetErrorInfo() -> Result<crate::imp::IErrorInfo> {
     unsafe { crate::imp::GetErrorInfo(0) }
