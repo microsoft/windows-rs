@@ -53,26 +53,21 @@ pub fn factory<C: crate::RuntimeName, I: Interface>() -> crate::Result<I> {
     let mut factory: Option<I> = None;
     let name = crate::HSTRING::from(C::NAME);
 
-    let code = if let Some(function) = unsafe { delay_load::<RoGetActivationFactory>(crate::s!("combase.dll"), crate::s!("RoGetActivationFactory")) } {
-        unsafe {
-            let mut code = function(std::mem::transmute_copy(&name), &I::IID, &mut factory as *mut _ as *mut _);
+    let code = unsafe {
+        let mut get_com_factory = || crate::HRESULT(RoGetActivationFactory(std::mem::transmute_copy(&name), &I::IID as *const _ as _, &mut factory as *mut _ as *mut _));
+        let mut code = get_com_factory();
 
-            // If RoGetActivationFactory fails because combase hasn't been loaded yet then load combase
-            // automatically so that it "just works" for apartment-agnostic code.
-            if code == CO_E_NOTINITIALIZED {
-                if let Some(mta) = delay_load::<CoIncrementMTAUsage>(crate::s!("ole32.dll"), crate::s!("CoIncrementMTAUsage")) {
-                    let mut cookie = std::ptr::null_mut();
-                    let _ = mta(&mut cookie);
-                }
+        // If RoGetActivationFactory fails because combase hasn't been loaded yet then load combase
+        // automatically so that it "just works" for apartment-agnostic code.
+        if code == CO_E_NOTINITIALIZED {
+            let mut cookie = 0;
+            CoIncrementMTAUsage(&mut cookie);
 
-                // Now try a second time to get the activation factory via the OS.
-                code = function(std::mem::transmute_copy(&name), &I::IID, &mut factory as *mut _ as *mut _);
-            }
-
-            code
+            // Now try a second time to get the activation factory via the OS.
+            code = get_com_factory();
         }
-    } else {
-        CLASS_E_CLASSNOTAVAILABLE
+
+        code
     };
 
     // If this succeeded then return the resulting factory interface.
@@ -124,8 +119,6 @@ unsafe fn get_activation_factory(library: crate::PCSTR, name: &crate::HSTRING) -
     function(std::mem::transmute_copy(name), &mut abi).from_abi(abi)
 }
 
-type CoIncrementMTAUsage = extern "system" fn(cookie: *mut *mut std::ffi::c_void) -> crate::HRESULT;
-type RoGetActivationFactory = extern "system" fn(hstring: *mut std::ffi::c_void, interface: &crate::GUID, result: *mut *mut std::ffi::c_void) -> crate::HRESULT;
 type DllGetActivationFactory = extern "system" fn(name: *mut std::ffi::c_void, factory: *mut *mut std::ffi::c_void) -> crate::HRESULT;
 
 #[cfg(test)]
