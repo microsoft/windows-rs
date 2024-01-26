@@ -175,31 +175,6 @@
 ::windows_targets::link!("rtutils.dll" "system" fn TraceRegisterExW(lpszcallername : ::windows_sys::core::PCWSTR, dwflags : u32) -> u32);
 ::windows_targets::link!("rtutils.dll" "system" fn TraceVprintfExA(dwtraceid : u32, dwflags : u32, lpszformat : ::windows_sys::core::PCSTR, arglist : *mut i8) -> u32);
 ::windows_targets::link!("rtutils.dll" "system" fn TraceVprintfExW(dwtraceid : u32, dwflags : u32, lpszformat : ::windows_sys::core::PCWSTR, arglist : *mut i8) -> u32);
-pub type IEnumNetCfgBindingInterface = *mut ::core::ffi::c_void;
-pub type IEnumNetCfgBindingPath = *mut ::core::ffi::c_void;
-pub type IEnumNetCfgComponent = *mut ::core::ffi::c_void;
-pub type INetCfg = *mut ::core::ffi::c_void;
-pub type INetCfgBindingInterface = *mut ::core::ffi::c_void;
-pub type INetCfgBindingPath = *mut ::core::ffi::c_void;
-pub type INetCfgClass = *mut ::core::ffi::c_void;
-pub type INetCfgClassSetup = *mut ::core::ffi::c_void;
-pub type INetCfgClassSetup2 = *mut ::core::ffi::c_void;
-pub type INetCfgComponent = *mut ::core::ffi::c_void;
-pub type INetCfgComponentBindings = *mut ::core::ffi::c_void;
-pub type INetCfgComponentControl = *mut ::core::ffi::c_void;
-pub type INetCfgComponentNotifyBinding = *mut ::core::ffi::c_void;
-pub type INetCfgComponentNotifyGlobal = *mut ::core::ffi::c_void;
-pub type INetCfgComponentPropertyUi = *mut ::core::ffi::c_void;
-pub type INetCfgComponentSetup = *mut ::core::ffi::c_void;
-pub type INetCfgComponentSysPrep = *mut ::core::ffi::c_void;
-pub type INetCfgComponentUpperEdge = *mut ::core::ffi::c_void;
-pub type INetCfgLock = *mut ::core::ffi::c_void;
-pub type INetCfgPnpReconfigCallback = *mut ::core::ffi::c_void;
-pub type INetCfgSysPrep = *mut ::core::ffi::c_void;
-pub type INetLanConnectionUiInfo = *mut ::core::ffi::c_void;
-pub type INetRasConnectionIpUiInfo = *mut ::core::ffi::c_void;
-pub type IProvisioningDomain = *mut ::core::ffi::c_void;
-pub type IProvisioningProfileWireless = *mut ::core::ffi::c_void;
 pub const AA_AUDIT_ALL: u32 = 1u32;
 pub const AA_A_ACL: u32 = 32768u32;
 pub const AA_A_CREATE: u32 = 8192u32;
@@ -3404,7 +3379,7 @@ impl ::core::clone::Clone for NET_VALIDATE_PERSISTED_FIELDS {
 #[repr(C)]
 pub struct OBO_TOKEN {
     pub Type: OBO_TOKEN_TYPE,
-    pub pncc: INetCfgComponent,
+    pub pncc: *mut ::core::ffi::c_void,
     pub pszwManufacturer: ::windows_sys::core::PCWSTR,
     pub pszwProduct: ::windows_sys::core::PCWSTR,
     pub pszwDisplayName: ::windows_sys::core::PCWSTR,

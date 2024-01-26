@@ -25,8 +25,6 @@
 ::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn PrintDlgW(ppd : *mut PRINTDLGW) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("comdlg32.dll" "system" fn ReplaceTextA(param0 : *mut FINDREPLACEA) -> super::super::super::Foundation:: HWND);
 ::windows_targets::link!("comdlg32.dll" "system" fn ReplaceTextW(param0 : *mut FINDREPLACEW) -> super::super::super::Foundation:: HWND);
-pub type IPrintDialogCallback = *mut ::core::ffi::c_void;
-pub type IPrintDialogServices = *mut ::core::ffi::c_void;
 pub const BOLD_FONTTYPE: CHOOSEFONT_FONT_TYPE = 256u16;
 pub const CCERR_CHOOSECOLORCODES: COMMON_DLG_ERRORS = 20480u32;
 pub const CC_ANYCOLOR: CHOOSECOLOR_FLAGS = 256u32;

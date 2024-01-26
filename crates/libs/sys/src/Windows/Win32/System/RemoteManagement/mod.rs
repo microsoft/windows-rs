@@ -31,18 +31,6 @@
 ::windows_targets::link!("wsmsvc.dll" "system" fn WSManSendShellInput(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, streamid : ::windows_sys::core::PCWSTR, streamdata : *const WSMAN_DATA, endofstream : super::super::Foundation:: BOOL, r#async : *const WSMAN_SHELL_ASYNC, sendoperation : *mut WSMAN_OPERATION_HANDLE));
 ::windows_targets::link!("wsmsvc.dll" "system" fn WSManSetSessionOption(session : WSMAN_SESSION_HANDLE, option : WSManSessionOption, data : *const WSMAN_DATA) -> u32);
 ::windows_targets::link!("wsmsvc.dll" "system" fn WSManSignalShell(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, code : ::windows_sys::core::PCWSTR, r#async : *const WSMAN_SHELL_ASYNC, signaloperation : *mut WSMAN_OPERATION_HANDLE));
-pub type IWSMan = *mut ::core::ffi::c_void;
-pub type IWSManConnectionOptions = *mut ::core::ffi::c_void;
-pub type IWSManConnectionOptionsEx = *mut ::core::ffi::c_void;
-pub type IWSManConnectionOptionsEx2 = *mut ::core::ffi::c_void;
-pub type IWSManEnumerator = *mut ::core::ffi::c_void;
-pub type IWSManEx = *mut ::core::ffi::c_void;
-pub type IWSManEx2 = *mut ::core::ffi::c_void;
-pub type IWSManEx3 = *mut ::core::ffi::c_void;
-pub type IWSManInternal = *mut ::core::ffi::c_void;
-pub type IWSManResourceLocator = *mut ::core::ffi::c_void;
-pub type IWSManResourceLocatorInternal = *mut ::core::ffi::c_void;
-pub type IWSManSession = *mut ::core::ffi::c_void;
 pub const ERROR_REDIRECT_LOCATION_INVALID: u32 = 2150859191u32;
 pub const ERROR_REDIRECT_LOCATION_TOO_LONG: u32 = 2150859190u32;
 pub const ERROR_SERVICE_CBT_HARDENING_INVALID: u32 = 2150859192u32;

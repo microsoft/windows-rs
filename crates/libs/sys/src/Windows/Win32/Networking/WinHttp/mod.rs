@@ -54,8 +54,6 @@
 ::windows_targets::link!("winhttp.dll" "system" fn WinHttpWebSocketShutdown(hwebsocket : *const ::core::ffi::c_void, usstatus : u16, pvreason : *const ::core::ffi::c_void, dwreasonlength : u32) -> u32);
 ::windows_targets::link!("winhttp.dll" "system" fn WinHttpWriteData(hrequest : *mut ::core::ffi::c_void, lpbuffer : *const ::core::ffi::c_void, dwnumberofbytestowrite : u32, lpdwnumberofbyteswritten : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("winhttp.dll" "system" fn WinHttpWriteProxySettings(hsession : *const ::core::ffi::c_void, fforceupdate : super::super::Foundation:: BOOL, pwinhttpproxysettings : *const WINHTTP_PROXY_SETTINGS) -> u32);
-pub type IWinHttpRequest = *mut ::core::ffi::c_void;
-pub type IWinHttpRequestEvents = *mut ::core::ffi::c_void;
 pub const API_GET_PROXY_FOR_URL: u32 = 6u32;
 pub const API_GET_PROXY_SETTINGS: u32 = 7u32;
 pub const API_QUERY_DATA_AVAILABLE: u32 = 2u32;

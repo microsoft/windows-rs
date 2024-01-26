@@ -15,7 +15,7 @@ fn gen_callback(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let signature = metadata::method_def_signature(def.namespace(), method, &[]);
 
     let return_type = writer.return_sig(&signature);
-    let cfg = cfg::type_def_cfg(def, &[]);
+    let cfg = cfg::type_def_cfg(writer, def, &[]);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 
@@ -60,7 +60,7 @@ fn gen_win_delegate(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let signature = metadata::method_def_signature(def.namespace(), method, generics);
 
     let fn_constraint = gen_fn_constraint(writer, def, &signature);
-    let cfg = cfg::type_def_cfg(def, generics);
+    let cfg = cfg::type_def_cfg(writer, def, generics);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 

@@ -91,12 +91,10 @@
 ::windows_targets::link!("dxva2.dll" "system" fn GetMonitorTechnologyType(hmonitor : super::super::Foundation:: HANDLE, pdtydisplaytechnologytype : *mut MC_DISPLAY_TECHNOLOGY_TYPE) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("dxva2.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor : super::super::Graphics::Gdi:: HMONITOR, pdwnumberofphysicalmonitors : *mut u32) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-::windows_targets::link!("dxva2.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"] fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9 : super::super::Graphics::Direct3D9:: IDirect3DDevice9, pdwnumberofphysicalmonitors : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("dxva2.dll" "system" fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9 : * mut::core::ffi::c_void, pdwnumberofphysicalmonitors : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("dxva2.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GetPhysicalMonitorsFromHMONITOR(hmonitor : super::super::Graphics::Gdi:: HMONITOR, dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *mut PHYSICAL_MONITOR) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
-::windows_targets::link!("dxva2.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"] fn GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9 : super::super::Graphics::Direct3D9:: IDirect3DDevice9, dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *mut PHYSICAL_MONITOR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("dxva2.dll" "system" fn GetPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9 : * mut::core::ffi::c_void, dwphysicalmonitorarraysize : u32, pphysicalmonitorarray : *mut PHYSICAL_MONITOR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("dxva2.dll" "system" fn GetTimingReport(hmonitor : super::super::Foundation:: HANDLE, pmtrmonitortimingreport : *mut MC_TIMING_REPORT) -> i32);
 ::windows_targets::link!("dxva2.dll" "system" fn GetVCPFeatureAndVCPFeatureReply(hmonitor : super::super::Foundation:: HANDLE, bvcpcode : u8, pvct : *mut MC_VCP_CODE_TYPE, pdwcurrentvalue : *mut u32, pdwmaximumvalue : *mut u32) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -134,8 +132,6 @@
 ::windows_targets::link!("gdi32.dll" "system" fn XLATEOBJ_hGetColorTransform(pxlo : *mut XLATEOBJ) -> super::super::Foundation:: HANDLE);
 ::windows_targets::link!("gdi32.dll" "system" fn XLATEOBJ_iXlate(pxlo : *mut XLATEOBJ, icolor : u32) -> u32);
 ::windows_targets::link!("gdi32.dll" "system" fn XLATEOBJ_piVector(pxlo : *mut XLATEOBJ) -> *mut u32);
-pub type ICloneViewHelper = *mut ::core::ffi::c_void;
-pub type IViewHelper = *mut ::core::ffi::c_void;
 pub const AR_DISABLED: AR_STATE = 1i32;
 pub const AR_DOCKED: AR_STATE = 64i32;
 pub const AR_ENABLED: AR_STATE = 0i32;

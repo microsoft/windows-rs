@@ -8,9 +8,6 @@
 ::windows_targets::link!("user32.dll" "system" fn RegisterTouchWindow(hwnd : super::super::super::Foundation:: HWND, ulflags : REGISTER_TOUCH_WINDOW_FLAGS) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn SetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, cids : u32, pgestureconfig : *const GESTURECONFIG, cbsize : u32) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("user32.dll" "system" fn UnregisterTouchWindow(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: BOOL);
-pub type IInertiaProcessor = *mut ::core::ffi::c_void;
-pub type IManipulationProcessor = *mut ::core::ffi::c_void;
-pub type _IManipulationEvents = *mut ::core::ffi::c_void;
 pub const GID_BEGIN: GESTURECONFIG_ID = 1u32;
 pub const GID_END: GESTURECONFIG_ID = 2u32;
 pub const GID_PAN: GESTURECONFIG_ID = 4u32;

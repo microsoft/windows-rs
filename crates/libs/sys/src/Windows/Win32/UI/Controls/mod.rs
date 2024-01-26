@@ -41,11 +41,9 @@ pub mod Dialogs;
 ::windows_targets::link!("comctl32.dll" "system" fn DPA_GetSize(hdpa : HDPA) -> u64);
 ::windows_targets::link!("comctl32.dll" "system" fn DPA_Grow(pdpa : HDPA, cp : i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("comctl32.dll" "system" fn DPA_InsertPtr(hdpa : HDPA, i : i32, p : *const ::core::ffi::c_void) -> i32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("comctl32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn DPA_LoadStream(phdpa : *mut HDPA, pfn : PFNDPASTREAM, pstream : super::super::System::Com:: IStream, pvinstdata : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comctl32.dll" "system" fn DPA_LoadStream(phdpa : *mut HDPA, pfn : PFNDPASTREAM, pstream : * mut::core::ffi::c_void, pvinstdata : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("comctl32.dll" "system" fn DPA_Merge(hdpadest : HDPA, hdpasrc : HDPA, dwflags : u32, pfncompare : PFNDACOMPARE, pfnmerge : PFNDPAMERGE, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("comctl32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn DPA_SaveStream(hdpa : HDPA, pfn : PFNDPASTREAM, pstream : super::super::System::Com:: IStream, pvinstdata : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comctl32.dll" "system" fn DPA_SaveStream(hdpa : HDPA, pfn : PFNDPASTREAM, pstream : * mut::core::ffi::c_void, pvinstdata : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("comctl32.dll" "system" fn DPA_Search(hdpa : HDPA, pfind : *const ::core::ffi::c_void, istart : i32, pfncompare : PFNDACOMPARE, lparam : super::super::Foundation:: LPARAM, options : u32) -> i32);
 ::windows_targets::link!("comctl32.dll" "system" fn DPA_SetPtr(hdpa : HDPA, i : i32, p : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("comctl32.dll" "system" fn DPA_Sort(hdpa : HDPA, pfncompare : PFNDACOMPARE, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
@@ -217,10 +215,8 @@ pub mod Dialogs;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("comctl32.dll" "system" #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"] fn ImageList_LoadImageW(hi : super::super::Foundation:: HINSTANCE, lpbmp : ::windows_sys::core::PCWSTR, cx : i32, cgrow : i32, crmask : super::super::Foundation:: COLORREF, utype : u32, uflags : super::WindowsAndMessaging:: IMAGE_FLAGS) -> HIMAGELIST);
 ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Merge(himl1 : HIMAGELIST, i1 : i32, himl2 : HIMAGELIST, i2 : i32, dx : i32, dy : i32) -> HIMAGELIST);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("comctl32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn ImageList_Read(pstm : super::super::System::Com:: IStream) -> HIMAGELIST);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("comctl32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn ImageList_ReadEx(dwflags : u32, pstm : super::super::System::Com:: IStream, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comctl32.dll" "system" fn ImageList_Read(pstm : * mut::core::ffi::c_void) -> HIMAGELIST);
+::windows_targets::link!("comctl32.dll" "system" fn ImageList_ReadEx(dwflags : u32, pstm : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Remove(himl : HIMAGELIST, i : i32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("comctl32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn ImageList_Replace(himl : HIMAGELIST, i : i32, hbmimage : super::super::Graphics::Gdi:: HBITMAP, hbmmask : super::super::Graphics::Gdi:: HBITMAP) -> super::super::Foundation:: BOOL);
@@ -231,10 +227,8 @@ pub mod Dialogs;
 ::windows_targets::link!("comctl32.dll" "system" fn ImageList_SetIconSize(himl : HIMAGELIST, cx : i32, cy : i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("comctl32.dll" "system" fn ImageList_SetImageCount(himl : HIMAGELIST, unewcount : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("comctl32.dll" "system" fn ImageList_SetOverlayImage(himl : HIMAGELIST, iimage : i32, ioverlay : i32) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("comctl32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn ImageList_Write(himl : HIMAGELIST, pstm : super::super::System::Com:: IStream) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("comctl32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn ImageList_WriteEx(himl : HIMAGELIST, dwflags : IMAGE_LIST_WRITE_STREAM_FLAGS, pstm : super::super::System::Com:: IStream) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comctl32.dll" "system" fn ImageList_Write(himl : HIMAGELIST, pstm : * mut::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("comctl32.dll" "system" fn ImageList_WriteEx(himl : HIMAGELIST, dwflags : IMAGE_LIST_WRITE_STREAM_FLAGS, pstm : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("comctl32.dll" "system" fn InitCommonControls());
 ::windows_targets::link!("comctl32.dll" "system" fn InitCommonControlsEx(picce : *const INITCOMMONCONTROLSEX) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("comctl32.dll" "system" fn InitMUILanguage(uilang : u16));
@@ -283,8 +277,6 @@ pub mod Dialogs;
 ::windows_targets::link!("comctl32.dll" "system" #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"] fn TaskDialogIndirect(ptaskconfig : *const TASKDIALOGCONFIG, pnbutton : *mut i32, pnradiobutton : *mut i32, pfverificationflagchecked : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("comctl32.dll" "system" fn UninitializeFlatSB(param0 : super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uxtheme.dll" "system" fn UpdatePanningFeedback(hwnd : super::super::Foundation:: HWND, ltotaloverpanoffsetx : i32, ltotaloverpanoffsety : i32, fininertia : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-pub type IImageList = *mut ::core::ffi::c_void;
-pub type IImageList2 = *mut ::core::ffi::c_void;
 pub const ABS_DOWNDISABLED: ARROWBTNSTATES = 8i32;
 pub const ABS_DOWNHOT: ARROWBTNSTATES = 6i32;
 pub const ABS_DOWNHOVER: ARROWBTNSTATES = 18i32;
@@ -8784,9 +8776,7 @@ pub type PFNDAENUMCALLBACK = ::core::option::Option<unsafe extern "system" fn(p:
 pub type PFNDAENUMCALLBACKCONST = ::core::option::Option<unsafe extern "system" fn(p: *const ::core::ffi::c_void, pdata: *const ::core::ffi::c_void) -> i32>;
 pub type PFNDPAMERGE = ::core::option::Option<unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const ::core::ffi::c_void, pvsrc: *const ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut ::core::ffi::c_void>;
 pub type PFNDPAMERGECONST = ::core::option::Option<unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const ::core::ffi::c_void, pvsrc: *const ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut ::core::ffi::c_void>;
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
-pub type PFNDPASTREAM = ::core::option::Option<unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: super::super::System::Com::IStream, pvinstdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+pub type PFNDPASTREAM = ::core::option::Option<unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: *mut ::core::ffi::c_void, pvinstdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 pub type PFNLVCOMPARE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::LPARAM, param1: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> i32>;
 pub type PFNLVGROUPCOMPARE = ::core::option::Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: *mut ::core::ffi::c_void) -> i32>;
 pub type PFNPROPSHEETCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::LPARAM) -> i32>;

@@ -5,11 +5,6 @@
 ::windows_targets::link!("wscapi.dll" "system" #[doc = "Required features: `\"Win32_System_Threading\"`"] fn WscRegisterForChanges(reserved : *mut ::core::ffi::c_void, phcallbackregistration : *mut super::super::Foundation:: HANDLE, lpcallbackaddress : super::Threading:: LPTHREAD_START_ROUTINE, pcontext : *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wscapi.dll" "system" fn WscRegisterForUserNotifications() -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wscapi.dll" "system" fn WscUnRegisterChanges(hregistrationhandle : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
-pub type IWSCDefaultProduct = *mut ::core::ffi::c_void;
-pub type IWSCProductList = *mut ::core::ffi::c_void;
-pub type IWscProduct = *mut ::core::ffi::c_void;
-pub type IWscProduct2 = *mut ::core::ffi::c_void;
-pub type IWscProduct3 = *mut ::core::ffi::c_void;
 pub const SECURITY_PRODUCT_TYPE_ANTISPYWARE: SECURITY_PRODUCT_TYPE = 2i32;
 pub const SECURITY_PRODUCT_TYPE_ANTIVIRUS: SECURITY_PRODUCT_TYPE = 0i32;
 pub const SECURITY_PRODUCT_TYPE_FIREWALL: SECURITY_PRODUCT_TYPE = 1i32;

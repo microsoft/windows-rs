@@ -1,6 +1,5 @@
 ::windows_targets::link!("mqrt.dll" "system" fn MQADsPathToFormatName(lpwcsadspath : ::windows_sys::core::PCWSTR, lpwcsformatname : ::windows_sys::core::PWSTR, lpdwformatnamelength : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
-::windows_targets::link!("mqrt.dll" "system" #[doc = "Required features: `\"Win32_System_DistributedTransactionCoordinator\"`"] fn MQBeginTransaction(pptransaction : *mut super::DistributedTransactionCoordinator:: ITransaction) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mqrt.dll" "system" fn MQBeginTransaction(pptransaction : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mqrt.dll" "system" fn MQCloseCursor(hcursor : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mqrt.dll" "system" fn MQCloseQueue(hqueue : isize) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mqrt.dll" "system" fn MQCreateCursor(hqueue : isize, phcursor : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
@@ -32,65 +31,21 @@
 ::windows_targets::link!("mqrt.dll" "system" fn MQMgmtAction(pcomputername : ::windows_sys::core::PCWSTR, pobjectname : ::windows_sys::core::PCWSTR, paction : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 ::windows_targets::link!("mqrt.dll" "system" #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"] fn MQMgmtGetInfo(pcomputername : ::windows_sys::core::PCWSTR, pobjectname : ::windows_sys::core::PCWSTR, pmgmtprops : *mut MQMGMTPROPS) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
-::windows_targets::link!("mqrt.dll" "system" #[doc = "Required features: `\"Win32_System_DistributedTransactionCoordinator\"`"] fn MQMoveMessage(hsourcequeue : isize, hdestinationqueue : isize, ulllookupid : u64, ptransaction : super::DistributedTransactionCoordinator:: ITransaction) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mqrt.dll" "system" fn MQMoveMessage(hsourcequeue : isize, hdestinationqueue : isize, ulllookupid : u64, ptransaction : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mqrt.dll" "system" fn MQOpenQueue(lpwcsformatname : ::windows_sys::core::PCWSTR, dwaccess : u32, dwsharemode : u32, phqueue : *mut isize) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mqrt.dll" "system" fn MQPathNameToFormatName(lpwcspathname : ::windows_sys::core::PCWSTR, lpwcsformatname : ::windows_sys::core::PWSTR, lpdwformatnamelength : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mqrt.dll" "system" fn MQPurgeQueue(hqueue : isize) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_DistributedTransactionCoordinator", feature = "Win32_System_IO", feature = "Win32_System_Variant"))]
-::windows_targets::link!("mqrt.dll" "system" #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_System_IO\"`, `\"Win32_System_Variant\"`"] fn MQReceiveMessage(hsource : isize, dwtimeout : u32, dwaction : u32, pmessageprops : *mut MQMSGPROPS, lpoverlapped : *mut super::IO:: OVERLAPPED, fnreceivecallback : PMQRECEIVECALLBACK, hcursor : super::super::Foundation:: HANDLE, ptransaction : super::DistributedTransactionCoordinator:: ITransaction) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_DistributedTransactionCoordinator", feature = "Win32_System_IO", feature = "Win32_System_Variant"))]
-::windows_targets::link!("mqrt.dll" "system" #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_System_IO\"`, `\"Win32_System_Variant\"`"] fn MQReceiveMessageByLookupId(hsource : isize, ulllookupid : u64, dwlookupaction : u32, pmessageprops : *mut MQMSGPROPS, lpoverlapped : *mut super::IO:: OVERLAPPED, fnreceivecallback : PMQRECEIVECALLBACK, ptransaction : super::DistributedTransactionCoordinator:: ITransaction) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_IO", feature = "Win32_System_Variant"))]
+::windows_targets::link!("mqrt.dll" "system" #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_IO\"`, `\"Win32_System_Variant\"`"] fn MQReceiveMessage(hsource : isize, dwtimeout : u32, dwaction : u32, pmessageprops : *mut MQMSGPROPS, lpoverlapped : *mut super::IO:: OVERLAPPED, fnreceivecallback : PMQRECEIVECALLBACK, hcursor : super::super::Foundation:: HANDLE, ptransaction : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_IO", feature = "Win32_System_Variant"))]
+::windows_targets::link!("mqrt.dll" "system" #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_IO\"`, `\"Win32_System_Variant\"`"] fn MQReceiveMessageByLookupId(hsource : isize, ulllookupid : u64, dwlookupaction : u32, pmessageprops : *mut MQMSGPROPS, lpoverlapped : *mut super::IO:: OVERLAPPED, fnreceivecallback : PMQRECEIVECALLBACK, ptransaction : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mqrt.dll" "system" fn MQRegisterCertificate(dwflags : u32, lpcertbuffer : *const ::core::ffi::c_void, dwcertbufferlength : u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_DistributedTransactionCoordinator", feature = "Win32_System_Variant"))]
-::windows_targets::link!("mqrt.dll" "system" #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_System_Variant\"`"] fn MQSendMessage(hdestinationqueue : isize, pmessageprops : *const MQMSGPROPS, ptransaction : super::DistributedTransactionCoordinator:: ITransaction) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
+::windows_targets::link!("mqrt.dll" "system" #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"] fn MQSendMessage(hdestinationqueue : isize, pmessageprops : *const MQMSGPROPS, ptransaction : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 ::windows_targets::link!("mqrt.dll" "system" #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"] fn MQSetQueueProperties(lpwcsformatname : ::windows_sys::core::PCWSTR, pqueueprops : *mut MQQUEUEPROPS) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security")]
 ::windows_targets::link!("mqrt.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn MQSetQueueSecurity(lpwcsformatname : ::windows_sys::core::PCWSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> ::windows_sys::core::HRESULT);
-pub type IMSMQApplication = *mut ::core::ffi::c_void;
-pub type IMSMQApplication2 = *mut ::core::ffi::c_void;
-pub type IMSMQApplication3 = *mut ::core::ffi::c_void;
-pub type IMSMQCollection = *mut ::core::ffi::c_void;
-pub type IMSMQCoordinatedTransactionDispenser = *mut ::core::ffi::c_void;
-pub type IMSMQCoordinatedTransactionDispenser2 = *mut ::core::ffi::c_void;
-pub type IMSMQCoordinatedTransactionDispenser3 = *mut ::core::ffi::c_void;
-pub type IMSMQDestination = *mut ::core::ffi::c_void;
-pub type IMSMQEvent = *mut ::core::ffi::c_void;
-pub type IMSMQEvent2 = *mut ::core::ffi::c_void;
-pub type IMSMQEvent3 = *mut ::core::ffi::c_void;
-pub type IMSMQManagement = *mut ::core::ffi::c_void;
-pub type IMSMQMessage = *mut ::core::ffi::c_void;
-pub type IMSMQMessage2 = *mut ::core::ffi::c_void;
-pub type IMSMQMessage3 = *mut ::core::ffi::c_void;
-pub type IMSMQMessage4 = *mut ::core::ffi::c_void;
-pub type IMSMQOutgoingQueueManagement = *mut ::core::ffi::c_void;
-pub type IMSMQPrivateDestination = *mut ::core::ffi::c_void;
-pub type IMSMQPrivateEvent = *mut ::core::ffi::c_void;
-pub type IMSMQQuery = *mut ::core::ffi::c_void;
-pub type IMSMQQuery2 = *mut ::core::ffi::c_void;
-pub type IMSMQQuery3 = *mut ::core::ffi::c_void;
-pub type IMSMQQuery4 = *mut ::core::ffi::c_void;
-pub type IMSMQQueue = *mut ::core::ffi::c_void;
-pub type IMSMQQueue2 = *mut ::core::ffi::c_void;
-pub type IMSMQQueue3 = *mut ::core::ffi::c_void;
-pub type IMSMQQueue4 = *mut ::core::ffi::c_void;
-pub type IMSMQQueueInfo = *mut ::core::ffi::c_void;
-pub type IMSMQQueueInfo2 = *mut ::core::ffi::c_void;
-pub type IMSMQQueueInfo3 = *mut ::core::ffi::c_void;
-pub type IMSMQQueueInfo4 = *mut ::core::ffi::c_void;
-pub type IMSMQQueueInfos = *mut ::core::ffi::c_void;
-pub type IMSMQQueueInfos2 = *mut ::core::ffi::c_void;
-pub type IMSMQQueueInfos3 = *mut ::core::ffi::c_void;
-pub type IMSMQQueueInfos4 = *mut ::core::ffi::c_void;
-pub type IMSMQQueueManagement = *mut ::core::ffi::c_void;
-pub type IMSMQTransaction = *mut ::core::ffi::c_void;
-pub type IMSMQTransaction2 = *mut ::core::ffi::c_void;
-pub type IMSMQTransaction3 = *mut ::core::ffi::c_void;
-pub type IMSMQTransactionDispenser = *mut ::core::ffi::c_void;
-pub type IMSMQTransactionDispenser2 = *mut ::core::ffi::c_void;
-pub type IMSMQTransactionDispenser3 = *mut ::core::ffi::c_void;
-pub type _DMSMQEventEvents = *mut ::core::ffi::c_void;
 pub const DEFAULT_M_ACKNOWLEDGE: MQDEFAULT = 0i32;
 pub const DEFAULT_M_APPSPECIFIC: MQDEFAULT = 0i32;
 pub const DEFAULT_M_AUTH_LEVEL: MQDEFAULT = 0i32;

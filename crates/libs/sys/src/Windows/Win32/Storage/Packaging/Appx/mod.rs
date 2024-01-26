@@ -63,92 +63,6 @@
 ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageFullName(packagefullname : ::windows_sys::core::PCWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageId(packageid : *const PACKAGE_ID) -> super::super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn VerifyPackageRelativeApplicationId(packagerelativeapplicationid : ::windows_sys::core::PCWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
-pub type IAppxAppInstallerReader = *mut ::core::ffi::c_void;
-pub type IAppxBlockMapBlock = *mut ::core::ffi::c_void;
-pub type IAppxBlockMapBlocksEnumerator = *mut ::core::ffi::c_void;
-pub type IAppxBlockMapFile = *mut ::core::ffi::c_void;
-pub type IAppxBlockMapFilesEnumerator = *mut ::core::ffi::c_void;
-pub type IAppxBlockMapReader = *mut ::core::ffi::c_void;
-pub type IAppxBundleFactory = *mut ::core::ffi::c_void;
-pub type IAppxBundleFactory2 = *mut ::core::ffi::c_void;
-pub type IAppxBundleManifestOptionalBundleInfo = *mut ::core::ffi::c_void;
-pub type IAppxBundleManifestOptionalBundleInfoEnumerator = *mut ::core::ffi::c_void;
-pub type IAppxBundleManifestPackageInfo = *mut ::core::ffi::c_void;
-pub type IAppxBundleManifestPackageInfo2 = *mut ::core::ffi::c_void;
-pub type IAppxBundleManifestPackageInfo3 = *mut ::core::ffi::c_void;
-pub type IAppxBundleManifestPackageInfo4 = *mut ::core::ffi::c_void;
-pub type IAppxBundleManifestPackageInfoEnumerator = *mut ::core::ffi::c_void;
-pub type IAppxBundleManifestReader = *mut ::core::ffi::c_void;
-pub type IAppxBundleManifestReader2 = *mut ::core::ffi::c_void;
-pub type IAppxBundleReader = *mut ::core::ffi::c_void;
-pub type IAppxBundleWriter = *mut ::core::ffi::c_void;
-pub type IAppxBundleWriter2 = *mut ::core::ffi::c_void;
-pub type IAppxBundleWriter3 = *mut ::core::ffi::c_void;
-pub type IAppxBundleWriter4 = *mut ::core::ffi::c_void;
-pub type IAppxContentGroup = *mut ::core::ffi::c_void;
-pub type IAppxContentGroupFilesEnumerator = *mut ::core::ffi::c_void;
-pub type IAppxContentGroupMapReader = *mut ::core::ffi::c_void;
-pub type IAppxContentGroupMapWriter = *mut ::core::ffi::c_void;
-pub type IAppxContentGroupsEnumerator = *mut ::core::ffi::c_void;
-pub type IAppxDigestProvider = *mut ::core::ffi::c_void;
-pub type IAppxEncryptedBundleWriter = *mut ::core::ffi::c_void;
-pub type IAppxEncryptedBundleWriter2 = *mut ::core::ffi::c_void;
-pub type IAppxEncryptedBundleWriter3 = *mut ::core::ffi::c_void;
-pub type IAppxEncryptedPackageWriter = *mut ::core::ffi::c_void;
-pub type IAppxEncryptedPackageWriter2 = *mut ::core::ffi::c_void;
-pub type IAppxEncryptionFactory = *mut ::core::ffi::c_void;
-pub type IAppxEncryptionFactory2 = *mut ::core::ffi::c_void;
-pub type IAppxEncryptionFactory3 = *mut ::core::ffi::c_void;
-pub type IAppxEncryptionFactory4 = *mut ::core::ffi::c_void;
-pub type IAppxEncryptionFactory5 = *mut ::core::ffi::c_void;
-pub type IAppxFactory = *mut ::core::ffi::c_void;
-pub type IAppxFactory2 = *mut ::core::ffi::c_void;
-pub type IAppxFactory3 = *mut ::core::ffi::c_void;
-pub type IAppxFile = *mut ::core::ffi::c_void;
-pub type IAppxFilesEnumerator = *mut ::core::ffi::c_void;
-pub type IAppxManifestApplication = *mut ::core::ffi::c_void;
-pub type IAppxManifestApplicationsEnumerator = *mut ::core::ffi::c_void;
-pub type IAppxManifestCapabilitiesEnumerator = *mut ::core::ffi::c_void;
-pub type IAppxManifestDeviceCapabilitiesEnumerator = *mut ::core::ffi::c_void;
-pub type IAppxManifestDriverConstraint = *mut ::core::ffi::c_void;
-pub type IAppxManifestDriverConstraintsEnumerator = *mut ::core::ffi::c_void;
-pub type IAppxManifestDriverDependenciesEnumerator = *mut ::core::ffi::c_void;
-pub type IAppxManifestDriverDependency = *mut ::core::ffi::c_void;
-pub type IAppxManifestHostRuntimeDependenciesEnumerator = *mut ::core::ffi::c_void;
-pub type IAppxManifestHostRuntimeDependency = *mut ::core::ffi::c_void;
-pub type IAppxManifestHostRuntimeDependency2 = *mut ::core::ffi::c_void;
-pub type IAppxManifestMainPackageDependenciesEnumerator = *mut ::core::ffi::c_void;
-pub type IAppxManifestMainPackageDependency = *mut ::core::ffi::c_void;
-pub type IAppxManifestOSPackageDependenciesEnumerator = *mut ::core::ffi::c_void;
-pub type IAppxManifestOSPackageDependency = *mut ::core::ffi::c_void;
-pub type IAppxManifestOptionalPackageInfo = *mut ::core::ffi::c_void;
-pub type IAppxManifestPackageDependenciesEnumerator = *mut ::core::ffi::c_void;
-pub type IAppxManifestPackageDependency = *mut ::core::ffi::c_void;
-pub type IAppxManifestPackageDependency2 = *mut ::core::ffi::c_void;
-pub type IAppxManifestPackageDependency3 = *mut ::core::ffi::c_void;
-pub type IAppxManifestPackageId = *mut ::core::ffi::c_void;
-pub type IAppxManifestPackageId2 = *mut ::core::ffi::c_void;
-pub type IAppxManifestProperties = *mut ::core::ffi::c_void;
-pub type IAppxManifestQualifiedResource = *mut ::core::ffi::c_void;
-pub type IAppxManifestQualifiedResourcesEnumerator = *mut ::core::ffi::c_void;
-pub type IAppxManifestReader = *mut ::core::ffi::c_void;
-pub type IAppxManifestReader2 = *mut ::core::ffi::c_void;
-pub type IAppxManifestReader3 = *mut ::core::ffi::c_void;
-pub type IAppxManifestReader4 = *mut ::core::ffi::c_void;
-pub type IAppxManifestReader5 = *mut ::core::ffi::c_void;
-pub type IAppxManifestReader6 = *mut ::core::ffi::c_void;
-pub type IAppxManifestReader7 = *mut ::core::ffi::c_void;
-pub type IAppxManifestResourcesEnumerator = *mut ::core::ffi::c_void;
-pub type IAppxManifestTargetDeviceFamiliesEnumerator = *mut ::core::ffi::c_void;
-pub type IAppxManifestTargetDeviceFamily = *mut ::core::ffi::c_void;
-pub type IAppxPackageEditor = *mut ::core::ffi::c_void;
-pub type IAppxPackageReader = *mut ::core::ffi::c_void;
-pub type IAppxPackageWriter = *mut ::core::ffi::c_void;
-pub type IAppxPackageWriter2 = *mut ::core::ffi::c_void;
-pub type IAppxPackageWriter3 = *mut ::core::ffi::c_void;
-pub type IAppxPackagingDiagnosticEventSink = *mut ::core::ffi::c_void;
-pub type IAppxPackagingDiagnosticEventSinkManager = *mut ::core::ffi::c_void;
-pub type IAppxSourceContentGroupMapReader = *mut ::core::ffi::c_void;
 pub const APPLICATION_USER_MODEL_ID_MAX_LENGTH: u32 = 130u32;
 pub const APPLICATION_USER_MODEL_ID_MIN_LENGTH: u32 = 20u32;
 pub const APPX_BUNDLE_FOOTPRINT_FILE_TYPE_BLOCKMAP: APPX_BUNDLE_FOOTPRINT_FILE_TYPE = 1i32;
@@ -355,34 +269,26 @@ impl ::core::clone::Clone for APPX_ENCRYPTED_EXEMPTIONS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub keyLength: u32,
     pub encryptionAlgorithm: ::windows_sys::core::PCWSTR,
     pub useDiffusion: super::super::super::Foundation::BOOL,
-    pub blockMapHashAlgorithm: super::super::super::System::Com::IUri,
+    pub blockMapHashAlgorithm: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for APPX_ENCRYPTED_PACKAGE_SETTINGS {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for APPX_ENCRYPTED_PACKAGE_SETTINGS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     pub keyLength: u32,
     pub encryptionAlgorithm: ::windows_sys::core::PCWSTR,
-    pub blockMapHashAlgorithm: super::super::super::System::Com::IUri,
+    pub blockMapHashAlgorithm: *mut ::core::ffi::c_void,
     pub options: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     fn clone(&self) -> Self {
         *self
@@ -402,32 +308,24 @@ impl ::core::clone::Clone for APPX_KEY_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct APPX_PACKAGE_SETTINGS {
     pub forceZip32: super::super::super::Foundation::BOOL,
-    pub hashMethod: super::super::super::System::Com::IUri,
+    pub hashMethod: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for APPX_PACKAGE_SETTINGS {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for APPX_PACKAGE_SETTINGS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
-    pub inputStream: super::super::super::System::Com::IStream,
+    pub inputStream: *mut ::core::ffi::c_void,
     pub fileName: ::windows_sys::core::PCWSTR,
     pub contentType: ::windows_sys::core::PCWSTR,
     pub compressionOption: APPX_COMPRESSION_OPTION,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     fn clone(&self) -> Self {
         *self

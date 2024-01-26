@@ -58,22 +58,10 @@ pub fn standalone_imp(writer: &Writer) -> String {
                 let kind = def.kind();
                 match kind {
                     metadata::TypeKind::Class => {
-                        let name = def.name();
-                        if writer.sys {
-                            let ident = to_ident(name);
-                            sorted.insert(name, quote! { pub type #ident = *mut ::core::ffi::c_void; });
-                        } else {
-                            sorted.insert(name, classes::writer(writer, def));
-                        }
+                        sorted.insert(def.name(), classes::writer(writer, def));
                     }
                     metadata::TypeKind::Interface => {
-                        let name = def.name();
-                        if writer.sys {
-                            let ident = to_ident(name);
-                            sorted.insert(name, quote! { pub type #ident = *mut ::core::ffi::c_void; });
-                        } else {
-                            sorted.insert(name, interfaces::writer(writer, def));
-                        }
+                        sorted.insert(def.name(), interfaces::writer(writer, def));
                     }
                     metadata::TypeKind::Enum => {
                         sorted.insert(def.name(), enums::writer(writer, def));

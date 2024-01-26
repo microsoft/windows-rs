@@ -16,11 +16,6 @@
 ::windows_targets::link!("ndfapi.dll" "system" fn NdfExecuteDiagnosis(handle : *const ::core::ffi::c_void, hwnd : super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ndfapi.dll" "system" fn NdfGetTraceFile(handle : *const ::core::ffi::c_void, tracefilelocation : *mut ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ndfapi.dll" "system" fn NdfRepairIncident(handle : *const ::core::ffi::c_void, repairex : *const RepairInfoEx, dwwait : u32) -> ::windows_sys::core::HRESULT);
-pub type INetDiagExtensibleHelper = *mut ::core::ffi::c_void;
-pub type INetDiagHelper = *mut ::core::ffi::c_void;
-pub type INetDiagHelperEx = *mut ::core::ffi::c_void;
-pub type INetDiagHelperInfo = *mut ::core::ffi::c_void;
-pub type INetDiagHelperUtilFactory = *mut ::core::ffi::c_void;
 pub const AT_BOOLEAN: ATTRIBUTE_TYPE = 1i32;
 pub const AT_GUID: ATTRIBUTE_TYPE = 11i32;
 pub const AT_INT16: ATTRIBUTE_TYPE = 4i32;

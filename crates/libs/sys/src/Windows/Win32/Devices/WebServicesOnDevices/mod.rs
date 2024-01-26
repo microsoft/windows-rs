@@ -1,23 +1,23 @@
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDAllocateLinkedMemory(pparent : *mut ::core::ffi::c_void, cbsize : usize) -> *mut ::core::ffi::c_void);
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDAttachLinkedMemory(pparent : *mut ::core::ffi::c_void, pchild : *mut ::core::ffi::c_void));
-::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceHost(pszlocalid : ::windows_sys::core::PCWSTR, pcontext : IWSDXMLContext, ppdevicehost : *mut IWSDDeviceHost) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceHost2(pszlocalid : ::windows_sys::core::PCWSTR, pcontext : IWSDXMLContext, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, ppdevicehost : *mut IWSDDeviceHost) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceHostAdvanced(pszlocalid : ::windows_sys::core::PCWSTR, pcontext : IWSDXMLContext, pphostaddresses : *const IWSDAddress, dwhostaddresscount : u32, ppdevicehost : *mut IWSDDeviceHost) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceProxy(pszdeviceid : ::windows_sys::core::PCWSTR, pszlocalid : ::windows_sys::core::PCWSTR, pcontext : IWSDXMLContext, ppdeviceproxy : *mut IWSDDeviceProxy) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceProxy2(pszdeviceid : ::windows_sys::core::PCWSTR, pszlocalid : ::windows_sys::core::PCWSTR, pcontext : IWSDXMLContext, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, ppdeviceproxy : *mut IWSDDeviceProxy) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceProxyAdvanced(pszdeviceid : ::windows_sys::core::PCWSTR, pdeviceaddress : IWSDAddress, pszlocalid : ::windows_sys::core::PCWSTR, pcontext : IWSDXMLContext, ppdeviceproxy : *mut IWSDDeviceProxy) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryProvider(pcontext : IWSDXMLContext, ppprovider : *mut IWSDiscoveryProvider) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryProvider2(pcontext : IWSDXMLContext, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, ppprovider : *mut IWSDiscoveryProvider) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryPublisher(pcontext : IWSDXMLContext, pppublisher : *mut IWSDiscoveryPublisher) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryPublisher2(pcontext : IWSDXMLContext, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, pppublisher : *mut IWSDiscoveryPublisher) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateHttpAddress(ppaddress : *mut IWSDHttpAddress) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateHttpMessageParameters(pptxparams : *mut IWSDHttpMessageParameters) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateOutboundAttachment(ppattachment : *mut IWSDOutboundAttachment) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateUdpAddress(ppaddress : *mut IWSDUdpAddress) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateUdpMessageParameters(pptxparams : *mut IWSDUdpMessageParameters) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceHost(pszlocalid : ::windows_sys::core::PCWSTR, pcontext : * mut::core::ffi::c_void, ppdevicehost : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceHost2(pszlocalid : ::windows_sys::core::PCWSTR, pcontext : * mut::core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, ppdevicehost : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceHostAdvanced(pszlocalid : ::windows_sys::core::PCWSTR, pcontext : * mut::core::ffi::c_void, pphostaddresses : *const * mut::core::ffi::c_void, dwhostaddresscount : u32, ppdevicehost : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceProxy(pszdeviceid : ::windows_sys::core::PCWSTR, pszlocalid : ::windows_sys::core::PCWSTR, pcontext : * mut::core::ffi::c_void, ppdeviceproxy : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceProxy2(pszdeviceid : ::windows_sys::core::PCWSTR, pszlocalid : ::windows_sys::core::PCWSTR, pcontext : * mut::core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, ppdeviceproxy : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDeviceProxyAdvanced(pszdeviceid : ::windows_sys::core::PCWSTR, pdeviceaddress : * mut::core::ffi::c_void, pszlocalid : ::windows_sys::core::PCWSTR, pcontext : * mut::core::ffi::c_void, ppdeviceproxy : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryProvider(pcontext : * mut::core::ffi::c_void, ppprovider : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryProvider2(pcontext : * mut::core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, ppprovider : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryPublisher(pcontext : * mut::core::ffi::c_void, pppublisher : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryPublisher2(pcontext : * mut::core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, pppublisher : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateHttpAddress(ppaddress : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateHttpMessageParameters(pptxparams : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateOutboundAttachment(ppattachment : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateUdpAddress(ppaddress : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wsdapi.dll" "system" fn WSDCreateUdpMessageParameters(pptxparams : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDDetachLinkedMemory(pvoid : *mut ::core::ffi::c_void));
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDFreeLinkedMemory(pvoid : *mut ::core::ffi::c_void));
-::windows_targets::link!("wsdapi.dll" "system" fn WSDGenerateFault(pszcode : ::windows_sys::core::PCWSTR, pszsubcode : ::windows_sys::core::PCWSTR, pszreason : ::windows_sys::core::PCWSTR, pszdetail : ::windows_sys::core::PCWSTR, pcontext : IWSDXMLContext, ppfault : *mut *mut WSD_SOAP_FAULT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wsdapi.dll" "system" fn WSDGenerateFault(pszcode : ::windows_sys::core::PCWSTR, pszsubcode : ::windows_sys::core::PCWSTR, pszreason : ::windows_sys::core::PCWSTR, pszdetail : ::windows_sys::core::PCWSTR, pcontext : * mut::core::ffi::c_void, ppfault : *mut *mut WSD_SOAP_FAULT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDGenerateFaultEx(pcode : *const WSDXML_NAME, psubcode : *const WSDXML_NAME, preasons : *const WSD_LOCALIZED_STRING_LIST, pszdetail : ::windows_sys::core::PCWSTR, ppfault : *mut *mut WSD_SOAP_FAULT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDGetConfigurationOption(dwoption : u32, pvoid : *mut ::core::ffi::c_void, cboutbuffer : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDSetConfigurationOption(dwoption : u32, pvoid : *const ::core::ffi::c_void, cbinbuffer : u32) -> ::windows_sys::core::HRESULT);
@@ -27,40 +27,9 @@
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDXMLAddSibling(pfirst : *mut WSDXML_ELEMENT, psecond : *mut WSDXML_ELEMENT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDXMLBuildAnyForSingleElement(pelementname : *mut WSDXML_NAME, psztext : ::windows_sys::core::PCWSTR, ppany : *mut *mut WSDXML_ELEMENT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDXMLCleanupElement(pany : *mut WSDXML_ELEMENT) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("wsdapi.dll" "system" fn WSDXMLCreateContext(ppcontext : *mut IWSDXMLContext) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wsdapi.dll" "system" fn WSDXMLCreateContext(ppcontext : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDXMLGetNameFromBuiltinNamespace(psznamespace : ::windows_sys::core::PCWSTR, pszname : ::windows_sys::core::PCWSTR, ppname : *mut *mut WSDXML_NAME) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wsdapi.dll" "system" fn WSDXMLGetValueFromAny(psznamespace : ::windows_sys::core::PCWSTR, pszname : ::windows_sys::core::PCWSTR, pany : *mut WSDXML_ELEMENT, ppszvalue : *mut ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-pub type IWSDAddress = *mut ::core::ffi::c_void;
-pub type IWSDAsyncCallback = *mut ::core::ffi::c_void;
-pub type IWSDAsyncResult = *mut ::core::ffi::c_void;
-pub type IWSDAttachment = *mut ::core::ffi::c_void;
-pub type IWSDDeviceHost = *mut ::core::ffi::c_void;
-pub type IWSDDeviceHostNotify = *mut ::core::ffi::c_void;
-pub type IWSDDeviceProxy = *mut ::core::ffi::c_void;
-pub type IWSDEndpointProxy = *mut ::core::ffi::c_void;
-pub type IWSDEventingStatus = *mut ::core::ffi::c_void;
-pub type IWSDHttpAddress = *mut ::core::ffi::c_void;
-pub type IWSDHttpAuthParameters = *mut ::core::ffi::c_void;
-pub type IWSDHttpMessageParameters = *mut ::core::ffi::c_void;
-pub type IWSDInboundAttachment = *mut ::core::ffi::c_void;
-pub type IWSDMessageParameters = *mut ::core::ffi::c_void;
-pub type IWSDMetadataExchange = *mut ::core::ffi::c_void;
-pub type IWSDOutboundAttachment = *mut ::core::ffi::c_void;
-pub type IWSDSSLClientCertificate = *mut ::core::ffi::c_void;
-pub type IWSDScopeMatchingRule = *mut ::core::ffi::c_void;
-pub type IWSDServiceMessaging = *mut ::core::ffi::c_void;
-pub type IWSDServiceProxy = *mut ::core::ffi::c_void;
-pub type IWSDServiceProxyEventing = *mut ::core::ffi::c_void;
-pub type IWSDSignatureProperty = *mut ::core::ffi::c_void;
-pub type IWSDTransportAddress = *mut ::core::ffi::c_void;
-pub type IWSDUdpAddress = *mut ::core::ffi::c_void;
-pub type IWSDUdpMessageParameters = *mut ::core::ffi::c_void;
-pub type IWSDXMLContext = *mut ::core::ffi::c_void;
-pub type IWSDiscoveredService = *mut ::core::ffi::c_void;
-pub type IWSDiscoveryProvider = *mut ::core::ffi::c_void;
-pub type IWSDiscoveryProviderNotify = *mut ::core::ffi::c_void;
-pub type IWSDiscoveryPublisher = *mut ::core::ffi::c_void;
-pub type IWSDiscoveryPublisherNotify = *mut ::core::ffi::c_void;
 pub const DirectedDiscovery: DeviceDiscoveryMechanism = 1i32;
 pub const MulticastDiscovery: DeviceDiscoveryMechanism = 0i32;
 pub const ONE_WAY: WSDUdpMessageType = 0i32;
@@ -414,7 +383,7 @@ impl ::core::clone::Clone for WSD_BYE {
 }
 #[repr(C)]
 pub struct WSD_CONFIG_ADDRESSES {
-    pub addresses: *mut IWSDAddress,
+    pub addresses: *mut *mut ::core::ffi::c_void,
     pub dwAddressCount: u32,
 }
 impl ::core::marker::Copy for WSD_CONFIG_ADDRESSES {}
@@ -507,7 +476,7 @@ pub struct WSD_EVENT {
     pub HandlerContext: WSD_HANDLER_CONTEXT,
     pub Soap: *mut WSD_SOAP_MESSAGE,
     pub Operation: *mut WSD_OPERATION,
-    pub MessageParameters: IWSDMessageParameters,
+    pub MessageParameters: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for WSD_EVENT {}
 impl ::core::clone::Clone for WSD_EVENT {
@@ -992,7 +961,7 @@ impl ::core::clone::Clone for WSD_SOAP_MESSAGE {
 pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     pub hr: ::windows_sys::core::HRESULT,
     pub eventHandle: super::super::Foundation::HANDLE,
-    pub messageParameters: IWSDMessageParameters,
+    pub messageParameters: *mut ::core::ffi::c_void,
     pub results: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {}
@@ -1052,4 +1021,4 @@ impl ::core::clone::Clone for WSD_URI_LIST {
     }
 }
 pub type PWSD_SOAP_MESSAGE_HANDLER = ::core::option::Option<unsafe extern "system" fn(thisunknown: ::windows_sys::core::IUnknown, event: *mut WSD_EVENT) -> ::windows_sys::core::HRESULT>;
-pub type WSD_STUB_FUNCTION = ::core::option::Option<unsafe extern "system" fn(server: ::windows_sys::core::IUnknown, session: IWSDServiceMessaging, event: *mut WSD_EVENT) -> ::windows_sys::core::HRESULT>;
+pub type WSD_STUB_FUNCTION = ::core::option::Option<unsafe extern "system" fn(server: ::windows_sys::core::IUnknown, session: *mut ::core::ffi::c_void, event: *mut WSD_EVENT) -> ::windows_sys::core::HRESULT>;

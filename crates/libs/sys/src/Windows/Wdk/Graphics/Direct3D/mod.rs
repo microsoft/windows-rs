@@ -3942,7 +3942,7 @@ impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA_0 {
 #[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_CONTEXTCREATEDATA_1 {
-    pub lpDDS: super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface,
+    pub lpDDS: *mut ::core::ffi::c_void,
     pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -3957,7 +3957,7 @@ impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA_1 {
 #[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_CONTEXTCREATEDATA_2 {
-    pub lpDDSZ: super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface,
+    pub lpDDSZ: *mut ::core::ffi::c_void,
     pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -5165,39 +5165,35 @@ impl ::core::clone::Clone for D3DHAL_GLOBALDRIVERDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DHAL_RENDERPRIMITIVEDATA {
     pub dwhContext: usize,
     pub dwOffset: u32,
     pub dwStatus: u32,
-    pub lpExeBuf: super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface,
+    pub lpExeBuf: *mut ::core::ffi::c_void,
     pub dwTLOffset: u32,
-    pub lpTLBuf: super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface,
+    pub lpTLBuf: *mut ::core::ffi::c_void,
     pub diInstruction: super::super::super::Win32::Graphics::Direct3D9::D3DINSTRUCTION,
     pub ddrval: ::windows_sys::core::HRESULT,
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::marker::Copy for D3DHAL_RENDERPRIMITIVEDATA {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::core::clone::Clone for D3DHAL_RENDERPRIMITIVEDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct D3DHAL_RENDERSTATEDATA {
     pub dwhContext: usize,
     pub dwOffset: u32,
     pub dwCount: u32,
-    pub lpExeBuf: super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface,
+    pub lpExeBuf: *mut ::core::ffi::c_void,
     pub ddrval: ::windows_sys::core::HRESULT,
 }
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::marker::Copy for D3DHAL_RENDERSTATEDATA {}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::clone::Clone for D3DHAL_RENDERSTATEDATA {
     fn clone(&self) -> Self {
         *self
@@ -5236,7 +5232,7 @@ impl ::core::clone::Clone for D3DHAL_SETRENDERTARGETDATA {
 #[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_SETRENDERTARGETDATA_0 {
-    pub lpDDS: super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface,
+    pub lpDDS: *mut ::core::ffi::c_void,
     pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -5251,7 +5247,7 @@ impl ::core::clone::Clone for D3DHAL_SETRENDERTARGETDATA_0 {
 #[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_SETRENDERTARGETDATA_1 {
-    pub lpDDSZ: super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface,
+    pub lpDDSZ: *mut ::core::ffi::c_void,
     pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
 }
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
@@ -5263,17 +5259,13 @@ impl ::core::clone::Clone for D3DHAL_SETRENDERTARGETDATA_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct D3DHAL_TEXTURECREATEDATA {
     pub dwhContext: usize,
-    pub lpDDS: super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface,
+    pub lpDDS: *mut ::core::ffi::c_void,
     pub dwHandle: u32,
     pub ddrval: ::windows_sys::core::HRESULT,
 }
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::marker::Copy for D3DHAL_TEXTURECREATEDATA {}
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
 impl ::core::clone::Clone for D3DHAL_TEXTURECREATEDATA {
     fn clone(&self) -> Self {
         *self
@@ -15375,18 +15367,14 @@ pub type LPD3DHAL_DRAWPRIMITIVESCB = ::core::option::Option<unsafe extern "syste
 #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type LPD3DHAL_GETSTATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_GETSTATEDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type LPD3DHAL_RENDERPRIMITIVECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_RENDERPRIMITIVEDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type LPD3DHAL_RENDERSTATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_RENDERSTATEDATA) -> u32>;
 pub type LPD3DHAL_SCENECAPTURECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_SCENECAPTUREDATA) -> u32>;
 #[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub type LPD3DHAL_SETRENDERTARGETCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_SETRENDERTARGETDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type LPD3DHAL_TEXTURECREATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTURECREATEDATA) -> u32>;
 pub type LPD3DHAL_TEXTUREDESTROYCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTUREDESTROYDATA) -> u32>;
 pub type LPD3DHAL_TEXTUREGETSURFCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTUREGETSURFDATA) -> u32>;

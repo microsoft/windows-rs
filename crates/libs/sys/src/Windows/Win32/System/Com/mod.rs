@@ -7,7 +7,7 @@ pub mod StructuredStorage;
 #[cfg(feature = "Win32_System_Com_Urlmon")]
 #[doc = "Required features: `\"Win32_System_Com_Urlmon\"`"]
 pub mod Urlmon;
-::windows_targets::link!("ole32.dll" "system" fn BindMoniker(pmk : IMoniker, grfopt : u32, iidresult : *const ::windows_sys::core::GUID, ppvresult : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn BindMoniker(pmk : * mut::core::ffi::c_void, grfopt : u32, iidresult : *const ::windows_sys::core::GUID, ppvresult : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CLSIDFromProgID(lpszprogid : ::windows_sys::core::PCWSTR, lpclsid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CLSIDFromProgIDEx(lpszprogid : ::windows_sys::core::PCWSTR, lpclsid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CLSIDFromString(lpsz : ::windows_sys::core::PCWSTR, pclsid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
@@ -42,7 +42,7 @@ pub mod Urlmon;
 ::windows_targets::link!("ole32.dll" "system" fn CoGetContextToken(ptoken : *mut usize) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoGetCurrentLogicalThreadId(pguid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoGetCurrentProcess() -> u32);
-::windows_targets::link!("ole32.dll" "system" fn CoGetMalloc(dwmemcontext : u32, ppmalloc : *mut IMalloc) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoGetMalloc(dwmemcontext : u32, ppmalloc : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoGetObject(pszname : ::windows_sys::core::PCWSTR, pbindoptions : *const BIND_OPTS, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoGetObjectContext(riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoGetPSClsid(riid : *const ::windows_sys::core::GUID, pclsid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
@@ -55,7 +55,7 @@ pub mod Urlmon;
 ::windows_targets::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const ::core::ffi::c_void, dwcoinit : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security")]
 ::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn CoInitializeSecurity(psecdesc : super::super::Security:: PSECURITY_DESCRIPTOR, cauthsvc : i32, asauthsvc : *const SOLE_AUTHENTICATION_SERVICE, preserved1 : *const ::core::ffi::c_void, dwauthnlevel : RPC_C_AUTHN_LEVEL, dwimplevel : RPC_C_IMP_LEVEL, pauthlist : *const ::core::ffi::c_void, dwcapabilities : u32, preserved3 : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CoInstall(pbc : IBindCtx, dwflags : u32, pclassspec : *const uCLSSPEC, pquery : *const QUERYCONTEXT, pszcodebase : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoInstall(pbc : * mut::core::ffi::c_void, dwflags : u32, pclassspec : *const uCLSSPEC, pquery : *const QUERYCONTEXT, pszcodebase : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoInvalidateRemoteMachineBindings(pszmachinename : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoIsHandlerConnected(punk : ::windows_sys::core::IUnknown) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("ole32.dll" "system" fn CoIsOle1Class(rclsid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: BOOL);
@@ -64,14 +64,14 @@ pub mod Urlmon;
 ::windows_targets::link!("ole32.dll" "system" fn CoQueryAuthenticationServices(pcauthsvc : *mut u32, asauthsvc : *mut *mut SOLE_AUTHENTICATION_SERVICE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoQueryClientBlanket(pauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut ::windows_sys::core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pprivs : *mut *mut ::core::ffi::c_void, pcapabilities : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoQueryProxyBlanket(pproxy : ::windows_sys::core::IUnknown, pwauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut ::windows_sys::core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pauthinfo : *mut *mut ::core::ffi::c_void, pcapabilites : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CoRegisterActivationFilter(pactivationfilter : IActivationFilter) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CoRegisterChannelHook(extensionuuid : *const ::windows_sys::core::GUID, pchannelhook : IChannelHook) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoRegisterActivationFilter(pactivationfilter : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoRegisterChannelHook(extensionuuid : *const ::windows_sys::core::GUID, pchannelhook : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoRegisterClassObject(rclsid : *const ::windows_sys::core::GUID, punk : ::windows_sys::core::IUnknown, dwclscontext : CLSCTX, flags : u32, lpdwregister : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoRegisterDeviceCatalog(deviceinstanceid : ::windows_sys::core::PCWSTR, cookie : *mut CO_DEVICE_CATALOG_COOKIE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CoRegisterInitializeSpy(pspy : IInitializeSpy, pulicookie : *mut u64) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CoRegisterMallocSpy(pmallocspy : IMallocSpy) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoRegisterInitializeSpy(pspy : * mut::core::ffi::c_void, pulicookie : *mut u64) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoRegisterMallocSpy(pmallocspy : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoRegisterPSClsid(riid : *const ::windows_sys::core::GUID, rclsid : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CoRegisterSurrogate(psurrogate : ISurrogate) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoRegisterSurrogate(psurrogate : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoReleaseServerProcess() -> u32);
 ::windows_targets::link!("ole32.dll" "system" fn CoResumeClassObjects() -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoRevertToSelf() -> ::windows_sys::core::HRESULT);
@@ -91,149 +91,34 @@ pub mod Urlmon;
 ::windows_targets::link!("ole32.dll" "system" fn CoUninitialize());
 ::windows_targets::link!("ole32.dll" "system" fn CoWaitForMultipleHandles(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::super::Foundation:: HANDLE, lpdwindex : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoWaitForMultipleObjects(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::super::Foundation:: HANDLE, lpdwindex : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CreateAntiMoniker(ppmk : *mut IMoniker) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CreateBindCtx(reserved : u32, ppbc : *mut IBindCtx) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CreateClassMoniker(rclsid : *const ::windows_sys::core::GUID, ppmk : *mut IMoniker) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CreateDataAdviseHolder(ppdaholder : *mut IDataAdviseHolder) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CreateAntiMoniker(ppmk : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CreateBindCtx(reserved : u32, ppbc : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CreateClassMoniker(rclsid : *const ::windows_sys::core::GUID, ppmk : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CreateDataAdviseHolder(ppdaholder : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CreateDataCache(punkouter : ::windows_sys::core::IUnknown, rclsid : *const ::windows_sys::core::GUID, iid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CreateFileMoniker(lpszpathname : ::windows_sys::core::PCWSTR, ppmk : *mut IMoniker) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CreateGenericComposite(pmkfirst : IMoniker, pmkrest : IMoniker, ppmkcomposite : *mut IMoniker) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn CreateIUriBuilder(piuri : IUri, dwflags : u32, dwreserved : usize, ppiuribuilder : *mut IUriBuilder) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CreateItemMoniker(lpszdelim : ::windows_sys::core::PCWSTR, lpszitem : ::windows_sys::core::PCWSTR, ppmk : *mut IMoniker) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CreateObjrefMoniker(punk : ::windows_sys::core::IUnknown, ppmk : *mut IMoniker) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CreatePointerMoniker(punk : ::windows_sys::core::IUnknown, ppmk : *mut IMoniker) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CreateStdProgressIndicator(hwndparent : super::super::Foundation:: HWND, psztitle : ::windows_sys::core::PCWSTR, pibsccaller : IBindStatusCallback, ppibsc : *mut IBindStatusCallback) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn CreateUri(pwzuri : ::windows_sys::core::PCWSTR, dwflags : URI_CREATE_FLAGS, dwreserved : usize, ppuri : *mut IUri) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn CreateUriFromMultiByteString(pszansiinputuri : ::windows_sys::core::PCSTR, dwencodingflags : u32, dwcodepage : u32, dwcreateflags : u32, dwreserved : usize, ppuri : *mut IUri) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("urlmon.dll" "system" fn CreateUriWithFragment(pwzuri : ::windows_sys::core::PCWSTR, pwzfragment : ::windows_sys::core::PCWSTR, dwflags : u32, dwreserved : usize, ppuri : *mut IUri) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CreateFileMoniker(lpszpathname : ::windows_sys::core::PCWSTR, ppmk : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CreateGenericComposite(pmkfirst : * mut::core::ffi::c_void, pmkrest : * mut::core::ffi::c_void, ppmkcomposite : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn CreateIUriBuilder(piuri : * mut::core::ffi::c_void, dwflags : u32, dwreserved : usize, ppiuribuilder : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CreateItemMoniker(lpszdelim : ::windows_sys::core::PCWSTR, lpszitem : ::windows_sys::core::PCWSTR, ppmk : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CreateObjrefMoniker(punk : ::windows_sys::core::IUnknown, ppmk : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CreatePointerMoniker(punk : ::windows_sys::core::IUnknown, ppmk : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CreateStdProgressIndicator(hwndparent : super::super::Foundation:: HWND, psztitle : ::windows_sys::core::PCWSTR, pibsccaller : * mut::core::ffi::c_void, ppibsc : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn CreateUri(pwzuri : ::windows_sys::core::PCWSTR, dwflags : URI_CREATE_FLAGS, dwreserved : usize, ppuri : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn CreateUriFromMultiByteString(pszansiinputuri : ::windows_sys::core::PCSTR, dwencodingflags : u32, dwcodepage : u32, dwcreateflags : u32, dwreserved : usize, ppuri : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("urlmon.dll" "system" fn CreateUriWithFragment(pwzuri : ::windows_sys::core::PCWSTR, pwzfragment : ::windows_sys::core::PCWSTR, dwflags : u32, dwreserved : usize, ppuri : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn DcomChannelSetHResult(pvreserved : *const ::core::ffi::c_void, pulreserved : *const u32, appshr : ::windows_sys::core::HRESULT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn GetClassFile(szfilename : ::windows_sys::core::PCWSTR, pclsid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("oleaut32.dll" "system" fn GetErrorInfo(dwreserved : u32, pperrinfo : *mut IErrorInfo) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn GetRunningObjectTable(reserved : u32, pprot : *mut IRunningObjectTable) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleaut32.dll" "system" fn GetErrorInfo(dwreserved : u32, pperrinfo : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn GetRunningObjectTable(reserved : u32, pprot : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn IIDFromString(lpsz : ::windows_sys::core::PCWSTR, lpiid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn MkParseDisplayName(pbc : IBindCtx, szusername : ::windows_sys::core::PCWSTR, pcheaten : *mut u32, ppmk : *mut IMoniker) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn MonikerCommonPrefixWith(pmkthis : IMoniker, pmkother : IMoniker, ppmkcommon : *mut IMoniker) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn MonikerRelativePathTo(pmksrc : IMoniker, pmkdest : IMoniker, ppmkrelpath : *mut IMoniker, dwreserved : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn MkParseDisplayName(pbc : * mut::core::ffi::c_void, szusername : ::windows_sys::core::PCWSTR, pcheaten : *mut u32, ppmk : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn MonikerCommonPrefixWith(pmkthis : * mut::core::ffi::c_void, pmkother : * mut::core::ffi::c_void, ppmkcommon : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn MonikerRelativePathTo(pmksrc : * mut::core::ffi::c_void, pmkdest : * mut::core::ffi::c_void, ppmkrelpath : *mut * mut::core::ffi::c_void, dwreserved : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn ProgIDFromCLSID(clsid : *const ::windows_sys::core::GUID, lplpszprogid : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("oleaut32.dll" "system" fn SetErrorInfo(dwreserved : u32, perrinfo : IErrorInfo) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleaut32.dll" "system" fn SetErrorInfo(dwreserved : u32, perrinfo : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn StringFromCLSID(rclsid : *const ::windows_sys::core::GUID, lplpsz : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn StringFromGUID2(rguid : *const ::windows_sys::core::GUID, lpsz : ::windows_sys::core::PWSTR, cchmax : i32) -> i32);
 ::windows_targets::link!("ole32.dll" "system" fn StringFromIID(rclsid : *const ::windows_sys::core::GUID, lplpsz : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-pub type AsyncIAdviseSink = *mut ::core::ffi::c_void;
-pub type AsyncIAdviseSink2 = *mut ::core::ffi::c_void;
-pub type AsyncIMultiQI = *mut ::core::ffi::c_void;
-pub type AsyncIPipeByte = *mut ::core::ffi::c_void;
-pub type AsyncIPipeDouble = *mut ::core::ffi::c_void;
-pub type AsyncIPipeLong = *mut ::core::ffi::c_void;
-pub type AsyncIUnknown = *mut ::core::ffi::c_void;
-pub type IActivationFilter = *mut ::core::ffi::c_void;
-pub type IAddrExclusionControl = *mut ::core::ffi::c_void;
-pub type IAddrTrackingControl = *mut ::core::ffi::c_void;
-pub type IAdviseSink = *mut ::core::ffi::c_void;
-pub type IAdviseSink2 = *mut ::core::ffi::c_void;
-pub type IAgileObject = *mut ::core::ffi::c_void;
-pub type IAsyncManager = *mut ::core::ffi::c_void;
-pub type IAsyncRpcChannelBuffer = *mut ::core::ffi::c_void;
-pub type IAuthenticate = *mut ::core::ffi::c_void;
-pub type IAuthenticateEx = *mut ::core::ffi::c_void;
-pub type IBindCtx = *mut ::core::ffi::c_void;
-pub type IBindHost = *mut ::core::ffi::c_void;
-pub type IBindStatusCallback = *mut ::core::ffi::c_void;
-pub type IBindStatusCallbackEx = *mut ::core::ffi::c_void;
-pub type IBinding = *mut ::core::ffi::c_void;
-pub type IBlockingLock = *mut ::core::ffi::c_void;
-pub type ICallFactory = *mut ::core::ffi::c_void;
-pub type ICancelMethodCalls = *mut ::core::ffi::c_void;
-pub type ICatInformation = *mut ::core::ffi::c_void;
-pub type ICatRegister = *mut ::core::ffi::c_void;
-pub type IChannelHook = *mut ::core::ffi::c_void;
-pub type IClassActivator = *mut ::core::ffi::c_void;
-pub type IClassFactory = *mut ::core::ffi::c_void;
-pub type IClientSecurity = *mut ::core::ffi::c_void;
-pub type IComThreadingInfo = *mut ::core::ffi::c_void;
-pub type IConnectionPoint = *mut ::core::ffi::c_void;
-pub type IConnectionPointContainer = *mut ::core::ffi::c_void;
-pub type IContext = *mut ::core::ffi::c_void;
-pub type IContextCallback = *mut ::core::ffi::c_void;
-pub type IDataAdviseHolder = *mut ::core::ffi::c_void;
-pub type IDataObject = *mut ::core::ffi::c_void;
-pub type IDispatch = *mut ::core::ffi::c_void;
-pub type IEnumCATEGORYINFO = *mut ::core::ffi::c_void;
-pub type IEnumConnectionPoints = *mut ::core::ffi::c_void;
-pub type IEnumConnections = *mut ::core::ffi::c_void;
-pub type IEnumContextProps = *mut ::core::ffi::c_void;
-pub type IEnumFORMATETC = *mut ::core::ffi::c_void;
-pub type IEnumGUID = *mut ::core::ffi::c_void;
-pub type IEnumMoniker = *mut ::core::ffi::c_void;
-pub type IEnumSTATDATA = *mut ::core::ffi::c_void;
-pub type IEnumString = *mut ::core::ffi::c_void;
-pub type IEnumUnknown = *mut ::core::ffi::c_void;
-pub type IErrorInfo = *mut ::core::ffi::c_void;
-pub type IErrorLog = *mut ::core::ffi::c_void;
-pub type IExternalConnection = *mut ::core::ffi::c_void;
-pub type IFastRundown = *mut ::core::ffi::c_void;
-pub type IForegroundTransfer = *mut ::core::ffi::c_void;
-pub type IGlobalInterfaceTable = *mut ::core::ffi::c_void;
-pub type IGlobalOptions = *mut ::core::ffi::c_void;
-pub type IInitializeSpy = *mut ::core::ffi::c_void;
-pub type IInternalUnknown = *mut ::core::ffi::c_void;
-pub type IMachineGlobalObjectTable = *mut ::core::ffi::c_void;
-pub type IMalloc = *mut ::core::ffi::c_void;
-pub type IMallocSpy = *mut ::core::ffi::c_void;
-pub type IMoniker = *mut ::core::ffi::c_void;
-pub type IMultiQI = *mut ::core::ffi::c_void;
-pub type INoMarshal = *mut ::core::ffi::c_void;
-pub type IOplockStorage = *mut ::core::ffi::c_void;
-pub type IPSFactoryBuffer = *mut ::core::ffi::c_void;
-pub type IPersist = *mut ::core::ffi::c_void;
-pub type IPersistFile = *mut ::core::ffi::c_void;
-pub type IPersistMemory = *mut ::core::ffi::c_void;
-pub type IPersistStream = *mut ::core::ffi::c_void;
-pub type IPersistStreamInit = *mut ::core::ffi::c_void;
-pub type IPipeByte = *mut ::core::ffi::c_void;
-pub type IPipeDouble = *mut ::core::ffi::c_void;
-pub type IPipeLong = *mut ::core::ffi::c_void;
-pub type IProcessInitControl = *mut ::core::ffi::c_void;
-pub type IProcessLock = *mut ::core::ffi::c_void;
-pub type IProgressNotify = *mut ::core::ffi::c_void;
-pub type IROTData = *mut ::core::ffi::c_void;
-pub type IReleaseMarshalBuffers = *mut ::core::ffi::c_void;
-pub type IRpcChannelBuffer = *mut ::core::ffi::c_void;
-pub type IRpcChannelBuffer2 = *mut ::core::ffi::c_void;
-pub type IRpcChannelBuffer3 = *mut ::core::ffi::c_void;
-pub type IRpcHelper = *mut ::core::ffi::c_void;
-pub type IRpcOptions = *mut ::core::ffi::c_void;
-pub type IRpcProxyBuffer = *mut ::core::ffi::c_void;
-pub type IRpcStubBuffer = *mut ::core::ffi::c_void;
-pub type IRpcSyntaxNegotiate = *mut ::core::ffi::c_void;
-pub type IRunnableObject = *mut ::core::ffi::c_void;
-pub type IRunningObjectTable = *mut ::core::ffi::c_void;
-pub type ISequentialStream = *mut ::core::ffi::c_void;
-pub type IServerSecurity = *mut ::core::ffi::c_void;
-pub type IServiceProvider = *mut ::core::ffi::c_void;
-pub type IStdMarshalInfo = *mut ::core::ffi::c_void;
-pub type IStream = *mut ::core::ffi::c_void;
-pub type ISupportAllowLowerTrustActivation = *mut ::core::ffi::c_void;
-pub type ISupportErrorInfo = *mut ::core::ffi::c_void;
-pub type ISurrogate = *mut ::core::ffi::c_void;
-pub type ISurrogateService = *mut ::core::ffi::c_void;
-pub type ISynchronize = *mut ::core::ffi::c_void;
-pub type ISynchronizeContainer = *mut ::core::ffi::c_void;
-pub type ISynchronizeEvent = *mut ::core::ffi::c_void;
-pub type ISynchronizeHandle = *mut ::core::ffi::c_void;
-pub type ISynchronizeMutex = *mut ::core::ffi::c_void;
-pub type ITimeAndNoticeControl = *mut ::core::ffi::c_void;
-pub type ITypeComp = *mut ::core::ffi::c_void;
-pub type ITypeInfo = *mut ::core::ffi::c_void;
-pub type ITypeInfo2 = *mut ::core::ffi::c_void;
-pub type ITypeLib = *mut ::core::ffi::c_void;
-pub type ITypeLib2 = *mut ::core::ffi::c_void;
-pub type ITypeLibRegistration = *mut ::core::ffi::c_void;
-pub type ITypeLibRegistrationReader = *mut ::core::ffi::c_void;
-pub type IUri = *mut ::core::ffi::c_void;
-pub type IUriBuilder = *mut ::core::ffi::c_void;
-pub type IUrlMon = *mut ::core::ffi::c_void;
-pub type IWaitMultiple = *mut ::core::ffi::c_void;
 pub const ADVFCACHE_FORCEBUILTIN: ADVF = 16i32;
 pub const ADVFCACHE_NOHANDLER: ADVF = 8i32;
 pub const ADVFCACHE_ONSAVE: ADVF = 32i32;
@@ -766,8 +651,8 @@ impl ::core::clone::Clone for AUTHENTICATEINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 pub struct BINDINFO {
     pub cbSize: u32,
     pub szExtraInfo: ::windows_sys::core::PWSTR,
@@ -784,9 +669,9 @@ pub struct BINDINFO {
     pub pUnk: ::windows_sys::core::IUnknown,
     pub dwReserved: u32,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl ::core::marker::Copy for BINDINFO {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 impl ::core::clone::Clone for BINDINFO {
     fn clone(&self) -> Self {
         *self
@@ -798,7 +683,7 @@ impl ::core::clone::Clone for BINDINFO {
 pub union BINDPTR {
     pub lpfuncdesc: *mut FUNCDESC,
     pub lpvardesc: *mut VARDESC,
-    pub lptcomp: ITypeComp,
+    pub lptcomp: *mut ::core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for BINDPTR {}
@@ -963,30 +848,30 @@ impl ::core::clone::Clone for CSPLATFORM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
+#[cfg(feature = "Win32_System_Variant")]
 pub struct CUSTDATA {
     pub cCustData: u32,
     pub prgCustData: *mut CUSTDATAITEM,
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::marker::Copy for CUSTDATA {}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for CUSTDATA {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
+#[cfg(feature = "Win32_System_Variant")]
 pub struct CUSTDATAITEM {
     pub guid: ::windows_sys::core::GUID,
     pub varValue: super::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::marker::Copy for CUSTDATAITEM {}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for CUSTDATAITEM {
     fn clone(&self) -> Self {
         *self
@@ -1039,17 +924,17 @@ impl ::core::clone::Clone for ContextProperty {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
+#[cfg(feature = "Win32_System_Variant")]
 pub struct DISPPARAMS {
     pub rgvarg: *mut super::Variant::VARIANT,
     pub rgdispidNamedArgs: *mut i32,
     pub cArgs: u32,
     pub cNamedArgs: u32,
 }
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::marker::Copy for DISPPARAMS {}
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for DISPPARAMS {
     fn clone(&self) -> Self {
         *self
@@ -1165,16 +1050,16 @@ impl ::core::clone::Clone for FLAGGED_WORD_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct FLAG_STGMEDIUM {
     pub ContextFlags: i32,
     pub fPassOwnership: i32,
     pub Stgmed: STGMEDIUM,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for FLAG_STGMEDIUM {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for FLAG_STGMEDIUM {
     fn clone(&self) -> Self {
         *self
@@ -1423,7 +1308,7 @@ impl ::core::clone::Clone for SOLE_AUTHENTICATION_SERVICE {
 pub struct STATDATA {
     pub formatetc: FORMATETC,
     pub advf: u32,
-    pub pAdvSink: IAdviseSink,
+    pub pAdvSink: *mut ::core::ffi::c_void,
     pub dwConnection: u32,
 }
 impl ::core::marker::Copy for STATDATA {}
@@ -1453,36 +1338,36 @@ impl ::core::clone::Clone for STATSTG {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct STGMEDIUM {
     pub tymed: u32,
     pub u: STGMEDIUM_0,
     pub pUnkForRelease: ::windows_sys::core::IUnknown,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for STGMEDIUM {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for STGMEDIUM {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub union STGMEDIUM_0 {
     pub hBitmap: super::super::Graphics::Gdi::HBITMAP,
     pub hMetaFilePict: *mut ::core::ffi::c_void,
     pub hEnhMetaFile: super::super::Graphics::Gdi::HENHMETAFILE,
     pub hGlobal: super::super::Foundation::HGLOBAL,
     pub lpszFileName: ::windows_sys::core::PWSTR,
-    pub pstm: IStream,
-    pub pstg: StructuredStorage::IStorage,
+    pub pstm: *mut ::core::ffi::c_void,
+    pub pstg: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for STGMEDIUM_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for STGMEDIUM_0 {
     fn clone(&self) -> Self {
         *self

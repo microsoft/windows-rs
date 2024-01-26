@@ -1,16 +1,16 @@
 #[cfg(feature = "Win32_System_Variant")]
 ::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn ClearPropVariantArray(rgpropvar : *mut PROPVARIANT, cvars : u32));
 ::windows_targets::link!("ole32.dll" "system" fn CoGetInstanceFromFile(pserverinfo : *const super:: COSERVERINFO, pclsid : *const ::windows_sys::core::GUID, punkouter : ::windows_sys::core::IUnknown, dwclsctx : super:: CLSCTX, grfmode : u32, pwszname : ::windows_sys::core::PCWSTR, dwcount : u32, presults : *mut super:: MULTI_QI) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CoGetInstanceFromIStorage(pserverinfo : *const super:: COSERVERINFO, pclsid : *const ::windows_sys::core::GUID, punkouter : ::windows_sys::core::IUnknown, dwclsctx : super:: CLSCTX, pstg : IStorage, dwcount : u32, presults : *mut super:: MULTI_QI) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CoGetInterfaceAndReleaseStream(pstm : super:: IStream, iid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CreateILockBytesOnHGlobal(hglobal : super::super::super::Foundation:: HGLOBAL, fdeleteonrelease : super::super::super::Foundation:: BOOL, pplkbyt : *mut ILockBytes) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CreateStreamOnHGlobal(hglobal : super::super::super::Foundation:: HGLOBAL, fdeleteonrelease : super::super::super::Foundation:: BOOL, ppstm : *mut super:: IStream) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoGetInstanceFromIStorage(pserverinfo : *const super:: COSERVERINFO, pclsid : *const ::windows_sys::core::GUID, punkouter : ::windows_sys::core::IUnknown, dwclsctx : super:: CLSCTX, pstg : * mut::core::ffi::c_void, dwcount : u32, presults : *mut super:: MULTI_QI) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoGetInterfaceAndReleaseStream(pstm : * mut::core::ffi::c_void, iid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CreateILockBytesOnHGlobal(hglobal : super::super::super::Foundation:: HGLOBAL, fdeleteonrelease : super::super::super::Foundation:: BOOL, pplkbyt : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CreateStreamOnHGlobal(hglobal : super::super::super::Foundation:: HGLOBAL, fdeleteonrelease : super::super::super::Foundation:: BOOL, ppstm : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn FmtIdToPropStgName(pfmtid : *const ::windows_sys::core::GUID, oszname : ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Variant")]
 ::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn FreePropVariantArray(cvariants : u32, rgvars : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn GetConvertStg(pstg : IStorage) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn GetHGlobalFromILockBytes(plkbyt : ILockBytes, phglobal : *mut super::super::super::Foundation:: HGLOBAL) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn GetHGlobalFromStream(pstm : super:: IStream, phglobal : *mut super::super::super::Foundation:: HGLOBAL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn GetConvertStg(pstg : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn GetHGlobalFromILockBytes(plkbyt : * mut::core::ffi::c_void, phglobal : *mut super::super::super::Foundation:: HGLOBAL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn GetHGlobalFromStream(pstm : * mut::core::ffi::c_void, phglobal : *mut super::super::super::Foundation:: HGLOBAL) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Variant")]
 ::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantFromBooleanVector(prgf : *const super::super::super::Foundation:: BOOL, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Variant")]
@@ -47,12 +47,12 @@
 ::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantFromUInt64Vector(prgn : *const u64, celems : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Variant")]
 ::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn InitPropVariantVectorFromPropVariant(propvarsingle : *const PROPVARIANT, ppropvarvector : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn OleConvertIStorageToOLESTREAM(pstg : IStorage, lpolestream : *mut OLESTREAM) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn OleConvertIStorageToOLESTREAM(pstg : * mut::core::ffi::c_void, lpolestream : *mut OLESTREAM) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn OleConvertIStorageToOLESTREAMEx(pstg : IStorage, cfformat : u16, lwidth : i32, lheight : i32, dwsize : u32, pmedium : *const super:: STGMEDIUM, polestm : *mut OLESTREAM) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorage(lpolestream : *const OLESTREAM, pstg : IStorage, ptd : *const super:: DVTARGETDEVICE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn OleConvertIStorageToOLESTREAMEx(pstg : * mut::core::ffi::c_void, cfformat : u16, lwidth : i32, lheight : i32, dwsize : u32, pmedium : *const super:: STGMEDIUM, polestm : *mut OLESTREAM) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorage(lpolestream : *const OLESTREAM, pstg : * mut::core::ffi::c_void, ptd : *const super:: DVTARGETDEVICE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn OleConvertOLESTREAMToIStorageEx(polestm : *const OLESTREAM, pstg : IStorage, pcfformat : *mut u16, plwwidth : *mut i32, plheight : *mut i32, pdwsize : *mut u32, pmedium : *mut super:: STGMEDIUM) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn OleConvertOLESTREAMToIStorageEx(polestm : *const OLESTREAM, pstg : * mut::core::ffi::c_void, pcfformat : *mut u16, plwwidth : *mut i32, plheight : *mut i32, pdwsize : *mut u32, pmedium : *mut super:: STGMEDIUM) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn PropStgNameToFmtId(oszname : ::windows_sys::core::PCWSTR, pfmtid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Variant")]
 ::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantChangeType(ppropvardest : *mut PROPVARIANT, propvarsrc : *const PROPVARIANT, flags : PROPVAR_CHANGE_FLAGS, vt : super::super::Variant:: VARENUM) -> ::windows_sys::core::HRESULT);
@@ -170,60 +170,46 @@
 ::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToUInt64VectorAlloc(propvar : *const PROPVARIANT, pprgn : *mut *mut u64, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Variant")]
 ::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToUInt64WithDefault(propvarin : *const PROPVARIANT, ulldefault : u64) -> u64);
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn PropVariantToVariant(ppropvar : *const PROPVARIANT, pvar : *mut super::super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToVariant(ppropvar : *const PROPVARIANT, pvar : *mut super::super::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Variant")]
 ::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn PropVariantToWinRTPropertyValue(propvar : *const PROPVARIANT, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn ReadClassStg(pstg : IStorage, pclsid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn ReadClassStm(pstm : super:: IStream, pclsid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn ReadFmtUserTypeStg(pstg : IStorage, pcf : *mut u16, lplpszusertype : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn SetConvertStg(pstg : IStorage, fconvert : super::super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn ReadClassStg(pstg : * mut::core::ffi::c_void, pclsid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn ReadClassStm(pstm : * mut::core::ffi::c_void, pclsid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn ReadFmtUserTypeStg(pstg : * mut::core::ffi::c_void, pcf : *mut u16, lplpszusertype : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn SetConvertStg(pstg : * mut::core::ffi::c_void, fconvert : super::super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Variant")]
 ::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn StgConvertVariantToProperty(pvar : *const PROPVARIANT, codepage : u16, pprop : *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32, pid : u32, freserved : super::super::super::Foundation:: BOOLEAN, pcindirect : *mut u32) -> *mut SERIALIZEDPROPERTYVALUE);
-::windows_targets::link!("ole32.dll" "system" fn StgCreateDocfile(pwcsname : ::windows_sys::core::PCWSTR, grfmode : super:: STGM, reserved : u32, ppstgopen : *mut IStorage) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn StgCreateDocfileOnILockBytes(plkbyt : ILockBytes, grfmode : super:: STGM, reserved : u32, ppstgopen : *mut IStorage) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn StgCreatePropSetStg(pstorage : IStorage, dwreserved : u32, pppropsetstg : *mut IPropertySetStorage) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn StgCreatePropStg(punk : ::windows_sys::core::IUnknown, fmtid : *const ::windows_sys::core::GUID, pclsid : *const ::windows_sys::core::GUID, grfflags : u32, dwreserved : u32, pppropstg : *mut IPropertyStorage) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn StgCreateDocfile(pwcsname : ::windows_sys::core::PCWSTR, grfmode : super:: STGM, reserved : u32, ppstgopen : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn StgCreateDocfileOnILockBytes(plkbyt : * mut::core::ffi::c_void, grfmode : super:: STGM, reserved : u32, ppstgopen : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn StgCreatePropSetStg(pstorage : * mut::core::ffi::c_void, dwreserved : u32, pppropsetstg : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn StgCreatePropStg(punk : ::windows_sys::core::IUnknown, fmtid : *const ::windows_sys::core::GUID, pclsid : *const ::windows_sys::core::GUID, grfflags : u32, dwreserved : u32, pppropstg : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security")]
 ::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn StgCreateStorageEx(pwcsname : ::windows_sys::core::PCWSTR, grfmode : super:: STGM, stgfmt : STGFMT, grfattrs : u32, pstgoptions : *mut STGOPTIONS, psecuritydescriptor : super::super::super::Security:: PSECURITY_DESCRIPTOR, riid : *const ::windows_sys::core::GUID, ppobjectopen : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Variant")]
 ::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn StgDeserializePropVariant(pprop : *const SERIALIZEDPROPERTYVALUE, cbmax : u32, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn StgGetIFillLockBytesOnFile(pwcsname : ::windows_sys::core::PCWSTR, ppflb : *mut IFillLockBytes) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn StgGetIFillLockBytesOnILockBytes(pilb : ILockBytes, ppflb : *mut IFillLockBytes) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn StgGetIFillLockBytesOnFile(pwcsname : ::windows_sys::core::PCWSTR, ppflb : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn StgGetIFillLockBytesOnILockBytes(pilb : * mut::core::ffi::c_void, ppflb : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn StgIsStorageFile(pwcsname : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn StgIsStorageILockBytes(plkbyt : ILockBytes) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn StgOpenAsyncDocfileOnIFillLockBytes(pflb : IFillLockBytes, grfmode : u32, asyncflags : u32, ppstgopen : *mut IStorage) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("dflayout.dll" "system" fn StgOpenLayoutDocfile(pwcsdfname : ::windows_sys::core::PCWSTR, grfmode : u32, reserved : u32, ppstgopen : *mut IStorage) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn StgOpenPropStg(punk : ::windows_sys::core::IUnknown, fmtid : *const ::windows_sys::core::GUID, grfflags : u32, dwreserved : u32, pppropstg : *mut IPropertyStorage) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn StgOpenStorage(pwcsname : ::windows_sys::core::PCWSTR, pstgpriority : IStorage, grfmode : super:: STGM, snbexclude : *const *const u16, reserved : u32, ppstgopen : *mut IStorage) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn StgIsStorageILockBytes(plkbyt : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn StgOpenAsyncDocfileOnIFillLockBytes(pflb : * mut::core::ffi::c_void, grfmode : u32, asyncflags : u32, ppstgopen : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("dflayout.dll" "system" fn StgOpenLayoutDocfile(pwcsdfname : ::windows_sys::core::PCWSTR, grfmode : u32, reserved : u32, ppstgopen : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn StgOpenPropStg(punk : ::windows_sys::core::IUnknown, fmtid : *const ::windows_sys::core::GUID, grfflags : u32, dwreserved : u32, pppropstg : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn StgOpenStorage(pwcsname : ::windows_sys::core::PCWSTR, pstgpriority : * mut::core::ffi::c_void, grfmode : super:: STGM, snbexclude : *const *const u16, reserved : u32, ppstgopen : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security")]
 ::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn StgOpenStorageEx(pwcsname : ::windows_sys::core::PCWSTR, grfmode : super:: STGM, stgfmt : STGFMT, grfattrs : u32, pstgoptions : *mut STGOPTIONS, psecuritydescriptor : super::super::super::Security:: PSECURITY_DESCRIPTOR, riid : *const ::windows_sys::core::GUID, ppobjectopen : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn StgOpenStorageOnILockBytes(plkbyt : ILockBytes, pstgpriority : IStorage, grfmode : super:: STGM, snbexclude : *const *const u16, reserved : u32, ppstgopen : *mut IStorage) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn StgOpenStorageOnILockBytes(plkbyt : * mut::core::ffi::c_void, pstgpriority : * mut::core::ffi::c_void, grfmode : super:: STGM, snbexclude : *const *const u16, reserved : u32, ppstgopen : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn StgPropertyLengthAsVariant(pprop : *const SERIALIZEDPROPERTYVALUE, cbprop : u32, codepage : u16, breserved : u8) -> u32);
 #[cfg(feature = "Win32_System_Variant")]
 ::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn StgSerializePropVariant(ppropvar : *const PROPVARIANT, ppprop : *mut *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn StgSetTimes(lpszname : ::windows_sys::core::PCWSTR, pctime : *const super::super::super::Foundation:: FILETIME, patime : *const super::super::super::Foundation:: FILETIME, pmtime : *const super::super::super::Foundation:: FILETIME) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn VariantToPropVariant(pvar : *const super::super::Variant:: VARIANT, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_System_Variant")]
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn VariantToPropVariant(pvar : *const super::super::Variant:: VARIANT, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Variant")]
 ::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Variant\"`"] fn WinRTPropertyValueToPropVariant(punkpropertyvalue : ::windows_sys::core::IUnknown, ppropvar : *mut PROPVARIANT) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn WriteClassStg(pstg : IStorage, rclsid : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn WriteClassStm(pstm : super:: IStream, rclsid : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn WriteFmtUserTypeStg(pstg : IStorage, cf : u16, lpszusertype : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
-pub type IDirectWriterLock = *mut ::core::ffi::c_void;
-pub type IEnumSTATPROPSETSTG = *mut ::core::ffi::c_void;
-pub type IEnumSTATPROPSTG = *mut ::core::ffi::c_void;
-pub type IEnumSTATSTG = *mut ::core::ffi::c_void;
-pub type IFillLockBytes = *mut ::core::ffi::c_void;
-pub type ILayoutStorage = *mut ::core::ffi::c_void;
-pub type ILockBytes = *mut ::core::ffi::c_void;
-pub type IPersistStorage = *mut ::core::ffi::c_void;
-pub type IPropertyBag = *mut ::core::ffi::c_void;
-pub type IPropertyBag2 = *mut ::core::ffi::c_void;
-pub type IPropertySetStorage = *mut ::core::ffi::c_void;
-pub type IPropertyStorage = *mut ::core::ffi::c_void;
-pub type IRootStorage = *mut ::core::ffi::c_void;
-pub type IStorage = *mut ::core::ffi::c_void;
+::windows_targets::link!("ole32.dll" "system" fn WriteClassStg(pstg : * mut::core::ffi::c_void, rclsid : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn WriteClassStm(pstm : * mut::core::ffi::c_void, rclsid : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn WriteFmtUserTypeStg(pstg : * mut::core::ffi::c_void, cf : u16, lpszusertype : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 pub const CCH_MAX_PROPSTG_NAME: u32 = 31u32;
 pub const CWCSTORAGENAME: u32 = 32u32;
 pub const PIDDI_THUMBNAIL: i32 = 2i32;
@@ -746,9 +732,9 @@ pub union PROPVARIANT_0_0_0 {
     pub pszVal: ::windows_sys::core::PSTR,
     pub pwszVal: ::windows_sys::core::PWSTR,
     pub punkVal: ::windows_sys::core::IUnknown,
-    pub pdispVal: super::IDispatch,
-    pub pStream: super::IStream,
-    pub pStorage: IStorage,
+    pub pdispVal: *mut ::core::ffi::c_void,
+    pub pStream: *mut ::core::ffi::c_void,
+    pub pStorage: *mut ::core::ffi::c_void,
     pub pVersionedStream: *mut VERSIONEDSTREAM,
     pub parray: *mut super::SAFEARRAY,
     pub cac: CAC,
@@ -790,7 +776,7 @@ pub union PROPVARIANT_0_0_0 {
     pub pdate: *mut f64,
     pub pbstrVal: *mut ::windows_sys::core::BSTR,
     pub ppunkVal: *mut ::windows_sys::core::IUnknown,
-    pub ppdispVal: *mut super::IDispatch,
+    pub ppdispVal: *mut *mut ::core::ffi::c_void,
     pub pparray: *mut *mut super::SAFEARRAY,
     pub pvarVal: *mut PROPVARIANT,
 }
@@ -873,7 +859,7 @@ impl ::core::clone::Clone for STGOPTIONS {
 #[repr(C)]
 pub struct VERSIONEDSTREAM {
     pub guidVersion: ::windows_sys::core::GUID,
-    pub pStream: super::IStream,
+    pub pStream: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for VERSIONEDSTREAM {}
 impl ::core::clone::Clone for VERSIONEDSTREAM {

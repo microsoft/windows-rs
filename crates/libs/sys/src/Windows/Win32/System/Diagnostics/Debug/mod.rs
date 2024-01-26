@@ -425,17 +425,6 @@ pub mod Extensions;
 ::windows_targets::link!("kernel32.dll" "system" fn Wow64GetThreadSelectorEntry(hthread : super::super::super::Foundation:: HANDLE, dwselector : u32, lpselectorentry : *mut WOW64_LDT_ENTRY) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn Wow64SetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *const WOW64_CONTEXT) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn WriteProcessMemory(hprocess : super::super::super::Foundation:: HANDLE, lpbaseaddress : *const ::core::ffi::c_void, lpbuffer : *const ::core::ffi::c_void, nsize : usize, lpnumberofbyteswritten : *mut usize) -> super::super::super::Foundation:: BOOL);
-pub type IDebugExtendedProperty = *mut ::core::ffi::c_void;
-pub type IDebugProperty = *mut ::core::ffi::c_void;
-pub type IDebugPropertyEnumType_All = *mut ::core::ffi::c_void;
-pub type IDebugPropertyEnumType_Arguments = *mut ::core::ffi::c_void;
-pub type IDebugPropertyEnumType_Locals = *mut ::core::ffi::c_void;
-pub type IDebugPropertyEnumType_LocalsPlusArgs = *mut ::core::ffi::c_void;
-pub type IDebugPropertyEnumType_Registers = *mut ::core::ffi::c_void;
-pub type IEnumDebugExtendedPropertyInfo = *mut ::core::ffi::c_void;
-pub type IEnumDebugPropertyInfo = *mut ::core::ffi::c_void;
-pub type IObjectSafety = *mut ::core::ffi::c_void;
-pub type IPerPropertyBrowsing2 = *mut ::core::ffi::c_void;
 pub const ABNORMAL_RESET_DETECTED: BUGCHECK_ERROR = 327u32;
 pub const ACPI_BIOS_ERROR: BUGCHECK_ERROR = 165u32;
 pub const ACPI_BIOS_FATAL_ERROR: BUGCHECK_ERROR = 224u32;
@@ -2925,7 +2914,7 @@ pub struct DebugPropertyInfo {
     pub m_bstrValue: ::windows_sys::core::BSTR,
     pub m_bstrFullName: ::windows_sys::core::BSTR,
     pub m_dwAttrib: u32,
-    pub m_pDebugProp: IDebugProperty,
+    pub m_pDebugProp: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DebugPropertyInfo {}
 impl ::core::clone::Clone for DebugPropertyInfo {
@@ -3026,8 +3015,8 @@ impl ::core::clone::Clone for EXIT_THREAD_DEBUG_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct ExtendedDebugPropertyInfo {
     pub dwValidFields: u32,
     pub pszName: ::windows_sys::core::PWSTR,
@@ -3035,16 +3024,16 @@ pub struct ExtendedDebugPropertyInfo {
     pub pszValue: ::windows_sys::core::PWSTR,
     pub pszFullName: ::windows_sys::core::PWSTR,
     pub dwAttrib: u32,
-    pub pDebugProp: IDebugProperty,
+    pub pDebugProp: *mut ::core::ffi::c_void,
     pub nDISPID: u32,
     pub nType: u32,
     pub varValue: super::super::Variant::VARIANT,
-    pub plbValue: super::super::Com::StructuredStorage::ILockBytes,
-    pub pDebugExtProp: IDebugExtendedProperty,
+    pub plbValue: *mut ::core::ffi::c_void,
+    pub pDebugExtProp: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for ExtendedDebugPropertyInfo {}
-#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for ExtendedDebugPropertyInfo {
     fn clone(&self) -> Self {
         *self

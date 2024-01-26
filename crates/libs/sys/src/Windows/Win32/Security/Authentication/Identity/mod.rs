@@ -259,7 +259,6 @@
 ::windows_targets::link!("secur32.dll" "system" fn TranslateNameW(lpaccountname : ::windows_sys::core::PCWSTR, accountnameformat : EXTENDED_NAME_FORMAT, desirednameformat : EXTENDED_NAME_FORMAT, lptranslatedname : ::windows_sys::core::PWSTR, nsize : *mut u32) -> super::super::super::Foundation:: BOOLEAN);
 #[cfg(feature = "Win32_Security_Credentials")]
 ::windows_targets::link!("secur32.dll" "system" #[doc = "Required features: `\"Win32_Security_Credentials\"`"] fn VerifySignature(phcontext : *const super::super::Credentials:: SecHandle, pmessage : *const SecBufferDesc, messageseqno : u32, pfqop : *mut u32) -> ::windows_sys::core::HRESULT);
-pub type ICcgDomainAuthCredentials = *mut ::core::ffi::c_void;
 pub const ACCOUNT_ADJUST_PRIVILEGES: i32 = 2i32;
 pub const ACCOUNT_ADJUST_QUOTAS: i32 = 4i32;
 pub const ACCOUNT_ADJUST_SYSTEM_ACCESS: i32 = 8i32;

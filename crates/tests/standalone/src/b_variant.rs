@@ -24,7 +24,7 @@ impl ::core::clone::Clone for ARRAYDESC {
 pub union BINDPTR {
     pub lpfuncdesc: *mut FUNCDESC,
     pub lpvardesc: *mut VARDESC,
-    pub lptcomp: ITypeComp,
+    pub lptcomp: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for BINDPTR {}
 impl ::core::clone::Clone for BINDPTR {
@@ -228,13 +228,8 @@ impl ::core::clone::Clone for IDLDESC {
     }
 }
 pub type IDLFLAGS = u16;
-pub type IDispatch = *mut ::core::ffi::c_void;
 pub type IMPLTYPEFLAGS = i32;
 pub type INVOKEKIND = i32;
-pub type IRecordInfo = *mut ::core::ffi::c_void;
-pub type ITypeComp = *mut ::core::ffi::c_void;
-pub type ITypeInfo = *mut ::core::ffi::c_void;
-pub type ITypeLib = *mut ::core::ffi::c_void;
 pub type IUnknown = *mut ::core::ffi::c_void;
 pub type LPEXCEPFINO_DEFERRED_FILLIN =
     ::core::option::Option<unsafe extern "system" fn(pexcepinfo: *mut EXCEPINFO) -> HRESULT>;
@@ -435,7 +430,7 @@ pub union VARIANT_0_0_0 {
     pub date: f64,
     pub bstrVal: BSTR,
     pub punkVal: IUnknown,
-    pub pdispVal: IDispatch,
+    pub pdispVal: *mut ::core::ffi::c_void,
     pub parray: *mut SAFEARRAY,
     pub pbVal: *mut u8,
     pub piVal: *mut i16,
@@ -450,7 +445,7 @@ pub union VARIANT_0_0_0 {
     pub pdate: *mut f64,
     pub pbstrVal: *mut BSTR,
     pub ppunkVal: *mut IUnknown,
-    pub ppdispVal: *mut IDispatch,
+    pub ppdispVal: *mut *mut ::core::ffi::c_void,
     pub pparray: *mut *mut SAFEARRAY,
     pub pvarVal: *mut VARIANT,
     pub byref: *mut ::core::ffi::c_void,
@@ -478,7 +473,7 @@ impl ::core::clone::Clone for VARIANT_0_0_0 {
 #[repr(C)]
 pub struct VARIANT_0_0_0_0 {
     pub pvRecord: *mut ::core::ffi::c_void,
-    pub pRecInfo: IRecordInfo,
+    pub pRecInfo: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for VARIANT_0_0_0_0 {}
 impl ::core::clone::Clone for VARIANT_0_0_0_0 {

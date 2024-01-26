@@ -190,7 +190,7 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
                                 let ident = to_ident(name);
                                 let value = writer.guid(&guid);
                                 let guid = writer.type_name(&metadata::Type::GUID);
-                                let cfg = cfg::type_def_cfg(def, &[]);
+                                let cfg = cfg::type_def_cfg(writer, def, &[]);
                                 let doc = writer.cfg_doc(&cfg);
                                 let constant = quote! {
                                     #doc

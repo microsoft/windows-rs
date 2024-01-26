@@ -139,10 +139,6 @@ pub type HBITMAP = isize;
 pub type HENHMETAFILE = isize;
 pub type HGLOBAL = *mut ::core::ffi::c_void;
 pub type HRESULT = i32;
-pub type IEnumSTATSTG = *mut ::core::ffi::c_void;
-pub type ISequentialStream = *mut ::core::ffi::c_void;
-pub type IStorage = *mut ::core::ffi::c_void;
-pub type IStream = *mut ::core::ffi::c_void;
 pub type IUnknown = *mut ::core::ffi::c_void;
 pub type PCWSTR = *const u16;
 #[repr(C)]
@@ -197,8 +193,8 @@ pub union STGMEDIUM_0 {
     pub hEnhMetaFile: HENHMETAFILE,
     pub hGlobal: HGLOBAL,
     pub lpszFileName: PWSTR,
-    pub pstm: IStream,
-    pub pstg: IStorage,
+    pub pstm: *mut ::core::ffi::c_void,
+    pub pstg: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for STGMEDIUM_0 {}
 impl ::core::clone::Clone for STGMEDIUM_0 {

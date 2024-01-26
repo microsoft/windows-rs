@@ -23,7 +23,7 @@ pub fn writer(writer: &Writer, namespace: &str, def: metadata::MethodDef) -> Tok
 
 fn gen_sys_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) -> TokenStream {
     let signature = metadata::method_def_signature(namespace, def, &[]);
-    let cfg = cfg::signature_cfg(def);
+    let cfg = cfg::signature_cfg(writer, def);
     let mut tokens = writer.cfg_features(&cfg);
     tokens.combine(&gen_link(writer, namespace, &signature, &cfg));
     tokens
@@ -35,7 +35,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
     let generics = writer.constraint_generics(&signature.params);
     let where_clause = writer.where_clause(&signature.params);
     let abi_return_type = writer.return_sig(&signature);
-    let cfg = cfg::signature_cfg(def);
+    let cfg = cfg::signature_cfg(writer, def);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
     let link = gen_link(writer, namespace, &signature, &cfg);

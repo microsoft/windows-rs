@@ -28,56 +28,10 @@
 #[cfg(feature = "Win32_Security")]
 ::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn RsopAccessCheckByType(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pprincipalselfsid : super::super::Foundation:: PSID, prsoptoken : *const ::core::ffi::c_void, dwdesiredaccessmask : u32, pobjecttypelist : *const super::super::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, pgenericmapping : *const super::super::Security:: GENERIC_MAPPING, pprivilegeset : *const super::super::Security:: PRIVILEGE_SET, pdwprivilegesetlength : *const u32, pdwgrantedaccessmask : *mut u32, pbaccessstatus : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("userenv.dll" "system" fn RsopFileAccessCheck(pszfilename : ::windows_sys::core::PCWSTR, prsoptoken : *const ::core::ffi::c_void, dwdesiredaccessmask : u32, pdwgrantedaccessmask : *mut u32, pbaccessstatus : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Wmi")]
-::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `\"Win32_System_Wmi\"`"] fn RsopResetPolicySettingStatus(dwflags : u32, pservices : super::Wmi:: IWbemServices, psettinginstance : super::Wmi:: IWbemClassObject) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Wmi")]
-::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `\"Win32_System_Wmi\"`"] fn RsopSetPolicySettingStatus(dwflags : u32, pservices : super::Wmi:: IWbemServices, psettinginstance : super::Wmi:: IWbemClassObject, ninfo : u32, pstatus : *const POLICYSETTINGSTATUSINFO) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("userenv.dll" "system" fn RsopResetPolicySettingStatus(dwflags : u32, pservices : * mut::core::ffi::c_void, psettinginstance : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("userenv.dll" "system" fn RsopSetPolicySettingStatus(dwflags : u32, pservices : * mut::core::ffi::c_void, psettinginstance : * mut::core::ffi::c_void, ninfo : u32, pstatus : *const POLICYSETTINGSTATUSINFO) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("advapi32.dll" "system" fn UninstallApplication(productcode : ::windows_sys::core::PCWSTR, dwstatus : u32) -> u32);
 ::windows_targets::link!("userenv.dll" "system" fn UnregisterGPNotification(hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-pub type IGPEInformation = *mut ::core::ffi::c_void;
-pub type IGPM = *mut ::core::ffi::c_void;
-pub type IGPM2 = *mut ::core::ffi::c_void;
-pub type IGPMAsyncCancel = *mut ::core::ffi::c_void;
-pub type IGPMAsyncProgress = *mut ::core::ffi::c_void;
-pub type IGPMBackup = *mut ::core::ffi::c_void;
-pub type IGPMBackupCollection = *mut ::core::ffi::c_void;
-pub type IGPMBackupDir = *mut ::core::ffi::c_void;
-pub type IGPMBackupDirEx = *mut ::core::ffi::c_void;
-pub type IGPMCSECollection = *mut ::core::ffi::c_void;
-pub type IGPMClientSideExtension = *mut ::core::ffi::c_void;
-pub type IGPMConstants = *mut ::core::ffi::c_void;
-pub type IGPMConstants2 = *mut ::core::ffi::c_void;
-pub type IGPMDomain = *mut ::core::ffi::c_void;
-pub type IGPMDomain2 = *mut ::core::ffi::c_void;
-pub type IGPMDomain3 = *mut ::core::ffi::c_void;
-pub type IGPMGPO = *mut ::core::ffi::c_void;
-pub type IGPMGPO2 = *mut ::core::ffi::c_void;
-pub type IGPMGPO3 = *mut ::core::ffi::c_void;
-pub type IGPMGPOCollection = *mut ::core::ffi::c_void;
-pub type IGPMGPOLink = *mut ::core::ffi::c_void;
-pub type IGPMGPOLinksCollection = *mut ::core::ffi::c_void;
-pub type IGPMMapEntry = *mut ::core::ffi::c_void;
-pub type IGPMMapEntryCollection = *mut ::core::ffi::c_void;
-pub type IGPMMigrationTable = *mut ::core::ffi::c_void;
-pub type IGPMPermission = *mut ::core::ffi::c_void;
-pub type IGPMRSOP = *mut ::core::ffi::c_void;
-pub type IGPMResult = *mut ::core::ffi::c_void;
-pub type IGPMSOM = *mut ::core::ffi::c_void;
-pub type IGPMSOMCollection = *mut ::core::ffi::c_void;
-pub type IGPMSearchCriteria = *mut ::core::ffi::c_void;
-pub type IGPMSecurityInfo = *mut ::core::ffi::c_void;
-pub type IGPMSitesContainer = *mut ::core::ffi::c_void;
-pub type IGPMStarterGPO = *mut ::core::ffi::c_void;
-pub type IGPMStarterGPOBackup = *mut ::core::ffi::c_void;
-pub type IGPMStarterGPOBackupCollection = *mut ::core::ffi::c_void;
-pub type IGPMStarterGPOCollection = *mut ::core::ffi::c_void;
-pub type IGPMStatusMessage = *mut ::core::ffi::c_void;
-pub type IGPMStatusMsgCollection = *mut ::core::ffi::c_void;
-pub type IGPMTrustee = *mut ::core::ffi::c_void;
-pub type IGPMWMIFilter = *mut ::core::ffi::c_void;
-pub type IGPMWMIFilterCollection = *mut ::core::ffi::c_void;
-pub type IGroupPolicyObject = *mut ::core::ffi::c_void;
-pub type IRSOPInformation = *mut ::core::ffi::c_void;
 pub const ABSENT: APPSTATE = 0i32;
 pub const ADMXCOMMENTS_EXTENSION_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6c5a2a86_9eb3_42b9_aa83_a7371ba011b9);
 pub const APPNAME: INSTALLSPECTYPE = 1i32;
@@ -499,31 +453,31 @@ impl ::core::clone::Clone for POLICYSETTINGSTATUSINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Wmi\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct RSOP_TARGET {
     pub pwszAccountName: ::windows_sys::core::PWSTR,
     pub pwszNewSOM: ::windows_sys::core::PWSTR,
     pub psaSecurityGroups: *mut super::Com::SAFEARRAY,
     pub pRsopToken: *mut ::core::ffi::c_void,
     pub pGPOList: *mut GROUP_POLICY_OBJECTA,
-    pub pWbemServices: super::Wmi::IWbemServices,
+    pub pWbemServices: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for RSOP_TARGET {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for RSOP_TARGET {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Wmi\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
+#[cfg(feature = "Win32_System_Com")]
 pub type PFNGENERATEGROUPPOLICY = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, pbabort: *mut super::super::Foundation::BOOL, pwszsite: ::windows_sys::core::PCWSTR, pcomputertarget: *const RSOP_TARGET, pusertarget: *const RSOP_TARGET) -> u32>;
 #[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PFNPROCESSGROUPPOLICY = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`, `\"Win32_System_Wmi\"`"]
-#[cfg(all(feature = "Win32_System_Registry", feature = "Win32_System_Wmi"))]
-pub type PFNPROCESSGROUPPOLICYEX = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK, pwbemservices: super::Wmi::IWbemServices, prsopstatus: *mut ::windows_sys::core::HRESULT) -> u32>;
+#[doc = "Required features: `\"Win32_System_Registry\"`"]
+#[cfg(feature = "Win32_System_Registry")]
+pub type PFNPROCESSGROUPPOLICYEX = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK, pwbemservices: *mut ::core::ffi::c_void, prsopstatus: *mut ::windows_sys::core::HRESULT) -> u32>;
 pub type PFNSTATUSMESSAGECALLBACK = ::core::option::Option<unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: ::windows_sys::core::PCWSTR) -> u32>;

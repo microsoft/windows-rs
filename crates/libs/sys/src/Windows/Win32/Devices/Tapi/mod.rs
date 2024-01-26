@@ -1,9 +1,6 @@
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn GetTnefStreamCodepage(lpstream : super::super::System::Com:: IStream, lpulcodepage : *mut u32, lpulsubcodepage : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`"] fn OpenTnefStream(lpvsupport : *mut ::core::ffi::c_void, lpstream : super::super::System::Com:: IStream, lpszstreamname : *const i8, ulflags : u32, lpmessage : super::super::System::AddressBook:: IMessage, wkeyval : u16, lpptnef : *mut ITnef) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`"] fn OpenTnefStreamEx(lpvsupport : *mut ::core::ffi::c_void, lpstream : super::super::System::Com:: IStream, lpszstreamname : *const i8, ulflags : u32, lpmessage : super::super::System::AddressBook:: IMessage, wkeyval : u16, lpadressbook : super::super::System::AddressBook:: IAddrBook, lpptnef : *mut ITnef) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mapi32.dll" "system" fn GetTnefStreamCodepage(lpstream : * mut::core::ffi::c_void, lpulcodepage : *mut u32, lpulsubcodepage : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mapi32.dll" "system" fn OpenTnefStream(lpvsupport : *mut ::core::ffi::c_void, lpstream : * mut::core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : * mut::core::ffi::c_void, wkeyval : u16, lpptnef : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mapi32.dll" "system" fn OpenTnefStreamEx(lpvsupport : *mut ::core::ffi::c_void, lpstream : * mut::core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : * mut::core::ffi::c_void, wkeyval : u16, lpadressbook : * mut::core::ffi::c_void, lpptnef : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("tapi32.dll" "system" fn lineAccept(hcall : u32, lpsuseruserinfo : ::windows_sys::core::PCSTR, dwsize : u32) -> i32);
 ::windows_targets::link!("tapi32.dll" "system" fn lineAddProvider(lpszproviderfilename : ::windows_sys::core::PCSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
 ::windows_targets::link!("tapi32.dll" "system" fn lineAddProviderA(lpszproviderfilename : ::windows_sys::core::PCSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
@@ -262,125 +259,6 @@
 ::windows_targets::link!("tapi32.dll" "system" fn tapiRequestMediaCall(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : ::windows_sys::core::PCSTR, lpdeviceid : ::windows_sys::core::PCSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : ::windows_sys::core::PCSTR, lpszappname : ::windows_sys::core::PCSTR, lpszcalledparty : ::windows_sys::core::PCSTR, lpszcomment : ::windows_sys::core::PCSTR) -> i32);
 ::windows_targets::link!("tapi32.dll" "system" fn tapiRequestMediaCallA(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : ::windows_sys::core::PCSTR, lpdeviceid : ::windows_sys::core::PCSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : ::windows_sys::core::PCSTR, lpszappname : ::windows_sys::core::PCSTR, lpszcalledparty : ::windows_sys::core::PCSTR, lpszcomment : ::windows_sys::core::PCSTR) -> i32);
 ::windows_targets::link!("tapi32.dll" "system" fn tapiRequestMediaCallW(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : ::windows_sys::core::PCWSTR, lpdeviceid : ::windows_sys::core::PCWSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : ::windows_sys::core::PCWSTR, lpszappname : ::windows_sys::core::PCWSTR, lpszcalledparty : ::windows_sys::core::PCWSTR, lpszcomment : ::windows_sys::core::PCWSTR) -> i32);
-pub type IEnumACDGroup = *mut ::core::ffi::c_void;
-pub type IEnumAddress = *mut ::core::ffi::c_void;
-pub type IEnumAgent = *mut ::core::ffi::c_void;
-pub type IEnumAgentHandler = *mut ::core::ffi::c_void;
-pub type IEnumAgentSession = *mut ::core::ffi::c_void;
-pub type IEnumBstr = *mut ::core::ffi::c_void;
-pub type IEnumCall = *mut ::core::ffi::c_void;
-pub type IEnumCallHub = *mut ::core::ffi::c_void;
-pub type IEnumCallingCard = *mut ::core::ffi::c_void;
-pub type IEnumDialableAddrs = *mut ::core::ffi::c_void;
-pub type IEnumDirectory = *mut ::core::ffi::c_void;
-pub type IEnumDirectoryObject = *mut ::core::ffi::c_void;
-pub type IEnumLocation = *mut ::core::ffi::c_void;
-pub type IEnumMcastScope = *mut ::core::ffi::c_void;
-pub type IEnumPhone = *mut ::core::ffi::c_void;
-pub type IEnumPluggableSuperclassInfo = *mut ::core::ffi::c_void;
-pub type IEnumPluggableTerminalClassInfo = *mut ::core::ffi::c_void;
-pub type IEnumQueue = *mut ::core::ffi::c_void;
-pub type IEnumStream = *mut ::core::ffi::c_void;
-pub type IEnumSubStream = *mut ::core::ffi::c_void;
-pub type IEnumTerminal = *mut ::core::ffi::c_void;
-pub type IEnumTerminalClass = *mut ::core::ffi::c_void;
-pub type IMcastAddressAllocation = *mut ::core::ffi::c_void;
-pub type IMcastLeaseInfo = *mut ::core::ffi::c_void;
-pub type IMcastScope = *mut ::core::ffi::c_void;
-pub type ITACDGroup = *mut ::core::ffi::c_void;
-pub type ITACDGroupEvent = *mut ::core::ffi::c_void;
-pub type ITAMMediaFormat = *mut ::core::ffi::c_void;
-pub type ITASRTerminalEvent = *mut ::core::ffi::c_void;
-pub type ITAddress = *mut ::core::ffi::c_void;
-pub type ITAddress2 = *mut ::core::ffi::c_void;
-pub type ITAddressCapabilities = *mut ::core::ffi::c_void;
-pub type ITAddressDeviceSpecificEvent = *mut ::core::ffi::c_void;
-pub type ITAddressEvent = *mut ::core::ffi::c_void;
-pub type ITAddressTranslation = *mut ::core::ffi::c_void;
-pub type ITAddressTranslationInfo = *mut ::core::ffi::c_void;
-pub type ITAgent = *mut ::core::ffi::c_void;
-pub type ITAgentEvent = *mut ::core::ffi::c_void;
-pub type ITAgentHandler = *mut ::core::ffi::c_void;
-pub type ITAgentHandlerEvent = *mut ::core::ffi::c_void;
-pub type ITAgentSession = *mut ::core::ffi::c_void;
-pub type ITAgentSessionEvent = *mut ::core::ffi::c_void;
-pub type ITAllocatorProperties = *mut ::core::ffi::c_void;
-pub type ITAutomatedPhoneControl = *mut ::core::ffi::c_void;
-pub type ITBasicAudioTerminal = *mut ::core::ffi::c_void;
-pub type ITBasicCallControl = *mut ::core::ffi::c_void;
-pub type ITBasicCallControl2 = *mut ::core::ffi::c_void;
-pub type ITCallHub = *mut ::core::ffi::c_void;
-pub type ITCallHubEvent = *mut ::core::ffi::c_void;
-pub type ITCallInfo = *mut ::core::ffi::c_void;
-pub type ITCallInfo2 = *mut ::core::ffi::c_void;
-pub type ITCallInfoChangeEvent = *mut ::core::ffi::c_void;
-pub type ITCallMediaEvent = *mut ::core::ffi::c_void;
-pub type ITCallNotificationEvent = *mut ::core::ffi::c_void;
-pub type ITCallStateEvent = *mut ::core::ffi::c_void;
-pub type ITCallingCard = *mut ::core::ffi::c_void;
-pub type ITCollection = *mut ::core::ffi::c_void;
-pub type ITCollection2 = *mut ::core::ffi::c_void;
-pub type ITCustomTone = *mut ::core::ffi::c_void;
-pub type ITDetectTone = *mut ::core::ffi::c_void;
-pub type ITDigitDetectionEvent = *mut ::core::ffi::c_void;
-pub type ITDigitGenerationEvent = *mut ::core::ffi::c_void;
-pub type ITDigitsGatheredEvent = *mut ::core::ffi::c_void;
-pub type ITDirectory = *mut ::core::ffi::c_void;
-pub type ITDirectoryObject = *mut ::core::ffi::c_void;
-pub type ITDirectoryObjectConference = *mut ::core::ffi::c_void;
-pub type ITDirectoryObjectUser = *mut ::core::ffi::c_void;
-pub type ITDispatchMapper = *mut ::core::ffi::c_void;
-pub type ITFileTerminalEvent = *mut ::core::ffi::c_void;
-pub type ITFileTrack = *mut ::core::ffi::c_void;
-pub type ITForwardInformation = *mut ::core::ffi::c_void;
-pub type ITForwardInformation2 = *mut ::core::ffi::c_void;
-pub type ITILSConfig = *mut ::core::ffi::c_void;
-pub type ITLegacyAddressMediaControl = *mut ::core::ffi::c_void;
-pub type ITLegacyAddressMediaControl2 = *mut ::core::ffi::c_void;
-pub type ITLegacyCallMediaControl = *mut ::core::ffi::c_void;
-pub type ITLegacyCallMediaControl2 = *mut ::core::ffi::c_void;
-pub type ITLegacyWaveSupport = *mut ::core::ffi::c_void;
-pub type ITLocationInfo = *mut ::core::ffi::c_void;
-pub type ITMSPAddress = *mut ::core::ffi::c_void;
-pub type ITMediaControl = *mut ::core::ffi::c_void;
-pub type ITMediaPlayback = *mut ::core::ffi::c_void;
-pub type ITMediaRecord = *mut ::core::ffi::c_void;
-pub type ITMediaSupport = *mut ::core::ffi::c_void;
-pub type ITMultiTrackTerminal = *mut ::core::ffi::c_void;
-pub type ITPhone = *mut ::core::ffi::c_void;
-pub type ITPhoneDeviceSpecificEvent = *mut ::core::ffi::c_void;
-pub type ITPhoneEvent = *mut ::core::ffi::c_void;
-pub type ITPluggableTerminalClassInfo = *mut ::core::ffi::c_void;
-pub type ITPluggableTerminalEventSink = *mut ::core::ffi::c_void;
-pub type ITPluggableTerminalEventSinkRegistration = *mut ::core::ffi::c_void;
-pub type ITPluggableTerminalSuperclassInfo = *mut ::core::ffi::c_void;
-pub type ITPrivateEvent = *mut ::core::ffi::c_void;
-pub type ITQOSEvent = *mut ::core::ffi::c_void;
-pub type ITQueue = *mut ::core::ffi::c_void;
-pub type ITQueueEvent = *mut ::core::ffi::c_void;
-pub type ITRendezvous = *mut ::core::ffi::c_void;
-pub type ITRequest = *mut ::core::ffi::c_void;
-pub type ITRequestEvent = *mut ::core::ffi::c_void;
-pub type ITScriptableAudioFormat = *mut ::core::ffi::c_void;
-pub type ITStaticAudioTerminal = *mut ::core::ffi::c_void;
-pub type ITStream = *mut ::core::ffi::c_void;
-pub type ITStreamControl = *mut ::core::ffi::c_void;
-pub type ITSubStream = *mut ::core::ffi::c_void;
-pub type ITSubStreamControl = *mut ::core::ffi::c_void;
-pub type ITTAPI = *mut ::core::ffi::c_void;
-pub type ITTAPI2 = *mut ::core::ffi::c_void;
-pub type ITTAPICallCenter = *mut ::core::ffi::c_void;
-pub type ITTAPIDispatchEventNotification = *mut ::core::ffi::c_void;
-pub type ITTAPIEventNotification = *mut ::core::ffi::c_void;
-pub type ITTAPIObjectEvent = *mut ::core::ffi::c_void;
-pub type ITTAPIObjectEvent2 = *mut ::core::ffi::c_void;
-pub type ITTTSTerminalEvent = *mut ::core::ffi::c_void;
-pub type ITTerminal = *mut ::core::ffi::c_void;
-pub type ITTerminalSupport = *mut ::core::ffi::c_void;
-pub type ITTerminalSupport2 = *mut ::core::ffi::c_void;
-pub type ITToneDetectionEvent = *mut ::core::ffi::c_void;
-pub type ITToneTerminalEvent = *mut ::core::ffi::c_void;
-pub type ITnef = *mut ::core::ffi::c_void;
 pub const ACDGE_GROUP_REMOVED: ACDGROUP_EVENT = 1i32;
 pub const ACDGE_NEW_GROUP: ACDGROUP_EVENT = 0i32;
 pub const ACDQE_NEW_QUEUE: ACDQUEUE_EVENT = 0i32;
@@ -3501,25 +3379,19 @@ impl ::core::clone::Clone for LINETRANSLATEOUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO {
     pub dwSize: u32,
     pub Event: MSP_EVENT,
     pub hCall: *mut i32,
     pub Anonymous: MSP_EVENT_INFO_0,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MSP_EVENT_INFO {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub union MSP_EVENT_INFO_0 {
     pub MSP_ADDRESS_EVENT_INFO: MSP_EVENT_INFO_0_0,
     pub MSP_CALL_EVENT_INFO: MSP_EVENT_INFO_0_2,
@@ -3530,135 +3402,101 @@ pub union MSP_EVENT_INFO_0 {
     pub MSP_TTS_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_7,
     pub MSP_TONE_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_5,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MSP_EVENT_INFO_0 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_0 {
     pub Type: MSP_ADDRESS_EVENT,
-    pub pTerminal: ITTerminal,
+    pub pTerminal: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MSP_EVENT_INFO_0_0 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_1 {
-    pub pASRTerminal: ITTerminal,
+    pub pASRTerminal: *mut ::core::ffi::c_void,
     pub hrErrorCode: ::windows_sys::core::HRESULT,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MSP_EVENT_INFO_0_1 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_2 {
     pub Type: MSP_CALL_EVENT,
     pub Cause: MSP_CALL_EVENT_CAUSE,
-    pub pStream: ITStream,
-    pub pTerminal: ITTerminal,
+    pub pStream: *mut ::core::ffi::c_void,
+    pub pTerminal: *mut ::core::ffi::c_void,
     pub hrError: ::windows_sys::core::HRESULT,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MSP_EVENT_INFO_0_2 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_3 {
-    pub pParentFileTerminal: ITTerminal,
-    pub pFileTrack: ITFileTrack,
+    pub pParentFileTerminal: *mut ::core::ffi::c_void,
+    pub pFileTrack: *mut ::core::ffi::c_void,
     pub TerminalMediaState: TERMINAL_MEDIA_STATE,
     pub ftecEventCause: FT_STATE_EVENT_CAUSE,
     pub hrErrorCode: ::windows_sys::core::HRESULT,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MSP_EVENT_INFO_0_3 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_4 {
-    pub pEvent: super::super::System::Com::IDispatch,
+    pub pEvent: *mut ::core::ffi::c_void,
     pub lEventCode: i32,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MSP_EVENT_INFO_0_4 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_4 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_5 {
-    pub pToneTerminal: ITTerminal,
+    pub pToneTerminal: *mut ::core::ffi::c_void,
     pub hrErrorCode: ::windows_sys::core::HRESULT,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MSP_EVENT_INFO_0_5 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_5 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_6 {
     pub dwBufferSize: u32,
     pub pBuffer: [u8; 1],
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MSP_EVENT_INFO_0_6 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_6 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_7 {
-    pub pTTSTerminal: ITTerminal,
+    pub pTTSTerminal: *mut ::core::ffi::c_void,
     pub hrErrorCode: ::windows_sys::core::HRESULT,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MSP_EVENT_INFO_0_7 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_7 {
     fn clone(&self) -> Self {
         *self
@@ -3963,15 +3801,9 @@ impl ::core::clone::Clone for VARSTRING {
 pub type ASYNC_COMPLETION = ::core::option::Option<unsafe extern "system" fn(dwrequestid: u32, lresult: i32)>;
 pub type LINECALLBACK = ::core::option::Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
 pub type LINEEVENT = ::core::option::Option<unsafe extern "system" fn(htline: HTAPILINE, htcall: HTAPICALL, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
-pub type LPGETTNEFSTREAMCODEPAGE = ::core::option::Option<unsafe extern "system" fn(lpstream: super::super::System::Com::IStream, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-pub type LPOPENTNEFSTREAM = ::core::option::Option<unsafe extern "system" fn(lpvsupport: *mut ::core::ffi::c_void, lpstream: super::super::System::Com::IStream, lpszstreamname: *const i8, ulflags: u32, lpmessage: super::super::System::AddressBook::IMessage, wkeyval: u16, lpptnef: *mut ITnef) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`"]
-#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
-pub type LPOPENTNEFSTREAMEX = ::core::option::Option<unsafe extern "system" fn(lpvsupport: *mut ::core::ffi::c_void, lpstream: super::super::System::Com::IStream, lpszstreamname: *const i8, ulflags: u32, lpmessage: super::super::System::AddressBook::IMessage, wkeyval: u16, lpadressbook: super::super::System::AddressBook::IAddrBook, lpptnef: *mut ITnef) -> ::windows_sys::core::HRESULT>;
+pub type LPGETTNEFSTREAMCODEPAGE = ::core::option::Option<unsafe extern "system" fn(lpstream: *mut ::core::ffi::c_void, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows_sys::core::HRESULT>;
+pub type LPOPENTNEFSTREAM = ::core::option::Option<unsafe extern "system" fn(lpvsupport: *mut ::core::ffi::c_void, lpstream: *mut ::core::ffi::c_void, lpszstreamname: *const i8, ulflags: u32, lpmessage: *mut ::core::ffi::c_void, wkeyval: u16, lpptnef: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+pub type LPOPENTNEFSTREAMEX = ::core::option::Option<unsafe extern "system" fn(lpvsupport: *mut ::core::ffi::c_void, lpstream: *mut ::core::ffi::c_void, lpszstreamname: *const i8, ulflags: u32, lpmessage: *mut ::core::ffi::c_void, wkeyval: u16, lpadressbook: *mut ::core::ffi::c_void, lpptnef: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 pub type PHONECALLBACK = ::core::option::Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
 pub type PHONEEVENT = ::core::option::Option<unsafe extern "system" fn(htphone: HTAPIPHONE, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
 pub type TUISPIDLLCALLBACK = ::core::option::Option<unsafe extern "system" fn(dwobjectid: usize, dwobjecttype: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32>;

@@ -153,7 +153,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, generics: &[metadata::Typ
                 metadata::TypeName::IVectorView => {
                     let item = writer.type_name(&interface_generics[0]);
                     let mut cfg = cfg.clone();
-                    cfg::type_def_cfg_combine(*interface, interface_generics, &mut cfg);
+                    cfg::type_def_cfg_combine(writer, *interface, interface_generics, &mut cfg);
                     let features = writer.cfg_features(&cfg);
 
                     return quote! {
@@ -180,7 +180,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, generics: &[metadata::Typ
                 metadata::TypeName::IVector => {
                     let item = writer.type_name(&interface_generics[0]);
                     let mut cfg = cfg.clone();
-                    cfg::type_def_cfg_combine(*interface, interface_generics, &mut cfg);
+                    cfg::type_def_cfg_combine(writer, *interface, interface_generics, &mut cfg);
                     let features = writer.cfg_features(&cfg);
 
                     return quote! {
@@ -217,7 +217,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, generics: &[metadata::Typ
         Some((interface, interface_generics)) => {
             let item = writer.type_name(&interface_generics[0]);
             let mut cfg = cfg.clone();
-            cfg::type_def_cfg_combine(interface, &interface_generics, &mut cfg);
+            cfg::type_def_cfg_combine(writer, interface, &interface_generics, &mut cfg);
             let features = writer.cfg_features(&cfg);
 
             quote! {
