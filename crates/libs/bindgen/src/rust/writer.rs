@@ -164,7 +164,17 @@ impl Writer {
                 quote! { [#name; #len] }
             }
             metadata::Type::GenericParam(generic) => generic.name().into(),
-            metadata::Type::TypeDef(def, generics) => self.type_def_name(*def, generics),
+            metadata::Type::TypeDef(def, generics) => {
+                if self.sys {
+                    match def.kind() {
+                        metadata::TypeKind::Interface => quote! { *mut ::core::ffi::c_void },
+                        metadata::TypeKind::Delegate if def.flags().contains(metadata::TypeAttributes::WindowsRuntime) => quote! { *mut ::core::ffi::c_void },
+                        _ => self.type_def_name(*def, generics),
+                    }
+                } else {
+                    self.type_def_name(*def, generics)
+                }
+            }
             metadata::Type::MutPtr(ty, pointers) => {
                 let pointers = mut_ptrs(*pointers);
                 let ty = self.type_default_name(ty);
@@ -788,7 +798,7 @@ impl Writer {
             }
             let name = method_names.add(method);
             let signature = metadata::method_def_signature(def.namespace(), method, generics);
-            let mut cfg = cfg::signature_cfg(method);
+            let mut cfg = cfg::signature_cfg(self, method);
             let signature = self.vtbl_signature(def, false, &signature);
             cfg.add_feature(def.namespace());
             let cfg_all = self.cfg_features(&cfg);

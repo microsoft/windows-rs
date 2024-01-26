@@ -10,7 +10,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     // TODO: unscoped enums should be removed from metadata
     let is_scoped = def.flags().contains(metadata::TypeAttributes::WindowsRuntime) || def.has_attribute("ScopedEnumAttribute");
 
-    let cfg = cfg::type_def_cfg(def, &[]);
+    let cfg = cfg::type_def_cfg(writer, def, &[]);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 

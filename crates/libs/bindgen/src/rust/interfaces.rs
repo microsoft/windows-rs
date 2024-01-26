@@ -2,22 +2,9 @@ use super::*;
 
 pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     if writer.sys {
-        gen_sys_interface(def)
-    } else {
-        gen_win_interface(writer, def)
-    }
-}
-
-fn gen_sys_interface(def: metadata::TypeDef) -> TokenStream {
-    let name = def.name();
-    let ident = to_ident(name);
-
-    if metadata::type_def_is_exclusive(def) {
         quote! {}
     } else {
-        quote! {
-            pub type #ident = *mut ::core::ffi::c_void;
-        }
+        gen_win_interface(writer, def)
     }
 }
 
@@ -28,7 +15,7 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let is_exclusive = metadata::type_def_is_exclusive(def);
     let phantoms = writer.generic_phantoms(generics);
     let constraints = writer.generic_constraints(generics);
-    let cfg = cfg::type_def_cfg(def, &[]);
+    let cfg = cfg::type_def_cfg(writer, def, &[]);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
     let interfaces = metadata::type_interfaces(&metadata::Type::TypeDef(def, generics.to_vec()));
@@ -108,7 +95,7 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
                 let into = writer.type_name(ty);
 
                 write!(&mut hierarchy, ", {into}").unwrap();
-                hierarchy_cfg = hierarchy_cfg.union(&cfg::type_cfg(ty));
+                hierarchy_cfg = hierarchy_cfg.union(&cfg::type_cfg(writer, ty));
             }
 
             hierarchy.push_str(");");
@@ -117,7 +104,7 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         } else {
             for ty in &vtables {
                 let into = writer.type_name(ty);
-                let cfg = writer.cfg_features(&cfg.union(&cfg::type_cfg(ty)));
+                let cfg = writer.cfg_features(&cfg.union(&cfg::type_cfg(writer, ty)));
                 tokens.combine(&quote! {
                     #cfg
                     impl<#constraints> ::windows_core::CanInto<#into> for #ident {}
@@ -134,7 +121,7 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
                     let into = writer.type_name(&interface.ty);
 
                     write!(&mut hierarchy, ", {into}").unwrap();
-                    hierarchy_cfg = hierarchy_cfg.union(&cfg::type_cfg(&interface.ty));
+                    hierarchy_cfg = hierarchy_cfg.union(&cfg::type_cfg(writer, &interface.ty));
                 }
 
                 hierarchy.push_str(");");
@@ -143,7 +130,7 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             } else {
                 for interface in &interfaces {
                     let into = writer.type_name(&interface.ty);
-                    let cfg = writer.cfg_features(&cfg.union(&cfg::type_cfg(&interface.ty)));
+                    let cfg = writer.cfg_features(&cfg.union(&cfg::type_cfg(writer, &interface.ty)));
                     tokens.combine(&quote! {
                         #cfg
                         impl<#constraints> ::windows_core::CanInto<#into> for #ident { const QUERY: bool = true; }
