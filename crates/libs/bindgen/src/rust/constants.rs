@@ -4,7 +4,7 @@ use metadata::HasAttributes;
 pub fn writer(writer: &Writer, def: metadata::Field) -> TokenStream {
     let name = to_ident(def.name());
     let ty = def.ty(None).to_const_type();
-    let cfg = cfg::field_cfg(def);
+    let cfg = cfg::field_cfg(writer, def);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 

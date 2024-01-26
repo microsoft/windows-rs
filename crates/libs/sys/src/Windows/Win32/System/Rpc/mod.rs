@@ -95,333 +95,179 @@
 ::windows_targets::link!("rpcrt4.dll" "system" fn NDRSContextUnmarshall(pbuff : *const ::core::ffi::c_void, datarepresentation : u32) -> *mut NDR_SCONTEXT);
 ::windows_targets::link!("rpcrt4.dll" "system" fn NDRSContextUnmarshall2(bindinghandle : *const ::core::ffi::c_void, pbuff : *const ::core::ffi::c_void, datarepresentation : u32, ctxguard : *const ::core::ffi::c_void, flags : u32) -> *mut NDR_SCONTEXT);
 ::windows_targets::link!("rpcrt4.dll" "system" fn NDRSContextUnmarshallEx(bindinghandle : *const ::core::ffi::c_void, pbuff : *const ::core::ffi::c_void, datarepresentation : u32) -> *mut NDR_SCONTEXT);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "cdecl" #[doc = "Required features: `\"Win32_System_Com\"`"] fn Ndr64AsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut ::core::ffi::c_void, ...) -> CLIENT_CALL_RETURN);
+::windows_targets::link!("rpcrt4.dll" "cdecl" fn Ndr64AsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut ::core::ffi::c_void, ...) -> CLIENT_CALL_RETURN);
 ::windows_targets::link!("rpcrt4.dll" "system" fn Ndr64AsyncServerCall64(prpcmsg : *mut RPC_MESSAGE));
 ::windows_targets::link!("rpcrt4.dll" "system" fn Ndr64AsyncServerCallAll(prpcmsg : *mut RPC_MESSAGE));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "cdecl" #[doc = "Required features: `\"Win32_System_Com\"`"] fn Ndr64DcomAsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut ::core::ffi::c_void, ...) -> CLIENT_CALL_RETURN);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn Ndr64DcomAsyncStubCall(pthis : super::Com:: IRpcStubBuffer, pchannel : super::Com:: IRpcChannelBuffer, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrAllocate(pstubmsg : *mut MIDL_STUB_MESSAGE, len : usize) -> *mut ::core::ffi::c_void);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "cdecl" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrAsyncClientCall(pstubdescriptor : *mut MIDL_STUB_DESC, pformat : *mut u8, ...) -> CLIENT_CALL_RETURN);
+::windows_targets::link!("rpcrt4.dll" "cdecl" fn Ndr64DcomAsyncClientCall(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut ::core::ffi::c_void, ...) -> CLIENT_CALL_RETURN);
+::windows_targets::link!("rpcrt4.dll" "system" fn Ndr64DcomAsyncStubCall(pthis : * mut::core::ffi::c_void, pchannel : * mut::core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrAllocate(pstubmsg : *mut MIDL_STUB_MESSAGE, len : usize) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrAsyncClientCall(pstubdescriptor : *mut MIDL_STUB_DESC, pformat : *mut u8, ...) -> CLIENT_CALL_RETURN);
 ::windows_targets::link!("rpcrt4.dll" "system" fn NdrAsyncServerCall(prpcmsg : *mut RPC_MESSAGE));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrByteCountPointerBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrByteCountPointerFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrByteCountPointerMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrByteCountPointerUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrClearOutParameters(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8, argaddr : *mut ::core::ffi::c_void));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "cdecl" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrClientCall2(pstubdescriptor : *mut MIDL_STUB_DESC, pformat : *mut u8, ...) -> CLIENT_CALL_RETURN);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "cdecl" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrClientCall3(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut ::core::ffi::c_void, ...) -> CLIENT_CALL_RETURN);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrClientContextMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, contexthandle : isize, fcheck : i32));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrClientContextUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pcontexthandle : *mut isize, bindhandle : *mut ::core::ffi::c_void));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrClientInitialize(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *mut MIDL_STUB_DESC, procnum : u32));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrClientInitializeNew(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *mut MIDL_STUB_DESC, procnum : u32));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrComplexArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrComplexArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrComplexArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrComplexArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrComplexArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrComplexStructBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrComplexStructFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrComplexStructMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrComplexStructMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrComplexStructUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantStringBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantStringMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantStringMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantStringUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantStructBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantStructFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantStructMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantStructMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantStructUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantVaryingArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantVaryingArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantVaryingArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantVaryingArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantVaryingArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantVaryingStructBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantVaryingStructFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantVaryingStructMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantVaryingStructMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConformantVaryingStructUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrContextHandleInitialize(pstubmsg : *const MIDL_STUB_MESSAGE, pformat : *const u8) -> *mut NDR_SCONTEXT);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrContextHandleSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConvert(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrConvert2(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8, numberparams : i32));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrCorrelationFree(pstubmsg : *mut MIDL_STUB_MESSAGE));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrCorrelationInitialize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut ::core::ffi::c_void, cachesize : u32, flags : u32));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrCorrelationPass(pstubmsg : *mut MIDL_STUB_MESSAGE));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrCreateServerInterfaceFromStub(pstub : super::Com:: IRpcStubBuffer, pserverif : *mut RPC_SERVER_INTERFACE) -> RPC_STATUS);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "cdecl" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrDcomAsyncClientCall(pstubdescriptor : *mut MIDL_STUB_DESC, pformat : *mut u8, ...) -> CLIENT_CALL_RETURN);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrDcomAsyncStubCall(pthis : super::Com:: IRpcStubBuffer, pchannel : super::Com:: IRpcChannelBuffer, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrEncapsulatedUnionBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrEncapsulatedUnionFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrEncapsulatedUnionMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrEncapsulatedUnionMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrEncapsulatedUnionUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrFixedArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrFixedArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrFixedArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrFixedArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrFixedArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrFreeBuffer(pstubmsg : *mut MIDL_STUB_MESSAGE));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrByteCountPointerBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrByteCountPointerFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrByteCountPointerMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrByteCountPointerUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrClearOutParameters(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8, argaddr : *mut ::core::ffi::c_void));
+::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrClientCall2(pstubdescriptor : *mut MIDL_STUB_DESC, pformat : *mut u8, ...) -> CLIENT_CALL_RETURN);
+::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrClientCall3(pproxyinfo : *mut MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut ::core::ffi::c_void, ...) -> CLIENT_CALL_RETURN);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrClientContextMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, contexthandle : isize, fcheck : i32));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrClientContextUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pcontexthandle : *mut isize, bindhandle : *mut ::core::ffi::c_void));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrClientInitialize(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *mut MIDL_STUB_DESC, procnum : u32));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrClientInitializeNew(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *mut MIDL_STUB_DESC, procnum : u32));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrComplexArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrComplexArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrComplexArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrComplexArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrComplexArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrComplexStructBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrComplexStructFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrComplexStructMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrComplexStructMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrComplexStructUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantStringBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantStringMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantStringMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantStringUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantStructBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantStructFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantStructMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantStructMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantStructUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrContextHandleInitialize(pstubmsg : *const MIDL_STUB_MESSAGE, pformat : *const u8) -> *mut NDR_SCONTEXT);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrContextHandleSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConvert(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrConvert2(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8, numberparams : i32));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrCorrelationFree(pstubmsg : *mut MIDL_STUB_MESSAGE));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrCorrelationInitialize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut ::core::ffi::c_void, cachesize : u32, flags : u32));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrCorrelationPass(pstubmsg : *mut MIDL_STUB_MESSAGE));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrCreateServerInterfaceFromStub(pstub : * mut::core::ffi::c_void, pserverif : *mut RPC_SERVER_INTERFACE) -> RPC_STATUS);
+::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrDcomAsyncClientCall(pstubdescriptor : *mut MIDL_STUB_DESC, pformat : *mut u8, ...) -> CLIENT_CALL_RETURN);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrDcomAsyncStubCall(pthis : * mut::core::ffi::c_void, pchannel : * mut::core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrFixedArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrFixedArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrFixedArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrFixedArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrFixedArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrFreeBuffer(pstubmsg : *mut MIDL_STUB_MESSAGE));
 ::windows_targets::link!("rpcrt4.dll" "system" fn NdrFullPointerXlatFree(pxlattables : *mut FULL_PTR_XLAT_TABLES));
 ::windows_targets::link!("rpcrt4.dll" "system" fn NdrFullPointerXlatInit(numberofpointers : u32, xlatside : XLAT_SIDE) -> *mut FULL_PTR_XLAT_TABLES);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrGetBuffer(pstubmsg : *mut MIDL_STUB_MESSAGE, bufferlength : u32, handle : *mut ::core::ffi::c_void) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrGetDcomProtocolVersion(pstubmsg : *mut MIDL_STUB_MESSAGE, pversion : *mut RPC_VERSION) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrGetUserMarshalInfo(pflags : *const u32, informationlevel : u32, pmarshalinfo : *mut NDR_USER_MARSHAL_INFO) -> RPC_STATUS);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrInterfacePointerBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrInterfacePointerFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrInterfacePointerMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrInterfacePointerMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrInterfacePointerUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrMapCommAndFaultStatus(pstubmsg : *mut MIDL_STUB_MESSAGE, pcommstatus : *mut u32, pfaultstatus : *mut u32, status : RPC_STATUS) -> RPC_STATUS);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "cdecl" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrMesProcEncodeDecode(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, ...));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "cdecl" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrMesProcEncodeDecode2(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, ...) -> CLIENT_CALL_RETURN);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "cdecl" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrMesProcEncodeDecode3(handle : *mut ::core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut ::core::ffi::c_void, ...) -> CLIENT_CALL_RETURN);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrGetBuffer(pstubmsg : *mut MIDL_STUB_MESSAGE, bufferlength : u32, handle : *mut ::core::ffi::c_void) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrGetDcomProtocolVersion(pstubmsg : *mut MIDL_STUB_MESSAGE, pversion : *mut RPC_VERSION) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrGetUserMarshalInfo(pflags : *const u32, informationlevel : u32, pmarshalinfo : *mut NDR_USER_MARSHAL_INFO) -> RPC_STATUS);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrInterfacePointerBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrInterfacePointerFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrInterfacePointerMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrInterfacePointerMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrInterfacePointerUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrMapCommAndFaultStatus(pstubmsg : *mut MIDL_STUB_MESSAGE, pcommstatus : *mut u32, pfaultstatus : *mut u32, status : RPC_STATUS) -> RPC_STATUS);
+::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrMesProcEncodeDecode(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, ...));
+::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrMesProcEncodeDecode2(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, ...) -> CLIENT_CALL_RETURN);
+::windows_targets::link!("rpcrt4.dll" "cdecl" fn NdrMesProcEncodeDecode3(handle : *mut ::core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, nprocnum : u32, preturnvalue : *mut ::core::ffi::c_void, ...) -> CLIENT_CALL_RETURN);
 ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeAlignSize(param0 : *mut ::core::ffi::c_void) -> usize);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrMesSimpleTypeAlignSizeAll(handle : *mut ::core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO) -> usize);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeAlignSizeAll(handle : *mut ::core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO) -> usize);
 ::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeDecode(handle : *mut ::core::ffi::c_void, pobject : *mut ::core::ffi::c_void, size : i16));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrMesSimpleTypeDecodeAll(handle : *mut ::core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, pobject : *mut ::core::ffi::c_void, size : i16));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrMesSimpleTypeEncode(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pobject : *const ::core::ffi::c_void, size : i16));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrMesSimpleTypeEncodeAll(handle : *mut ::core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, pobject : *const ::core::ffi::c_void, size : i16));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrMesTypeAlignSize(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *const ::core::ffi::c_void) -> usize);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrMesTypeAlignSize2(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *const ::core::ffi::c_void) -> usize);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrMesTypeAlignSize3(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset : *const *const u32, ntypeindex : u32, pobject : *const ::core::ffi::c_void) -> usize);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrMesTypeDecode(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *mut ::core::ffi::c_void));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrMesTypeDecode2(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *mut ::core::ffi::c_void));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrMesTypeDecode3(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset : *const *const u32, ntypeindex : u32, pobject : *mut ::core::ffi::c_void));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrMesTypeEncode(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *const ::core::ffi::c_void));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrMesTypeEncode2(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *const ::core::ffi::c_void));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrMesTypeEncode3(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset : *const *const u32, ntypeindex : u32, pobject : *const ::core::ffi::c_void));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrMesTypeFree2(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *mut ::core::ffi::c_void));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrMesTypeFree3(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset : *const *const u32, ntypeindex : u32, pobject : *mut ::core::ffi::c_void));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrNonConformantStringBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrNonConformantStringMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrNonConformantStringMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrNonConformantStringUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrNonEncapsulatedUnionBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrNonEncapsulatedUnionFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrNonEncapsulatedUnionMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrNonEncapsulatedUnionMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrNonEncapsulatedUnionUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrNsGetBuffer(pstubmsg : *mut MIDL_STUB_MESSAGE, bufferlength : u32, handle : *mut ::core::ffi::c_void) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrNsSendReceive(pstubmsg : *mut MIDL_STUB_MESSAGE, pbufferend : *mut u8, pautohandle : *mut *mut ::core::ffi::c_void) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeDecodeAll(handle : *mut ::core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, pobject : *mut ::core::ffi::c_void, size : i16));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeEncode(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pobject : *const ::core::ffi::c_void, size : i16));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesSimpleTypeEncodeAll(handle : *mut ::core::ffi::c_void, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, pobject : *const ::core::ffi::c_void, size : i16));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeAlignSize(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *const ::core::ffi::c_void) -> usize);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeAlignSize2(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *const ::core::ffi::c_void) -> usize);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeAlignSize3(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset : *const *const u32, ntypeindex : u32, pobject : *const ::core::ffi::c_void) -> usize);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeDecode(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *mut ::core::ffi::c_void));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeDecode2(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *mut ::core::ffi::c_void));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeDecode3(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset : *const *const u32, ntypeindex : u32, pobject : *mut ::core::ffi::c_void));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeEncode(handle : *mut ::core::ffi::c_void, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *const ::core::ffi::c_void));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeEncode2(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *const ::core::ffi::c_void));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeEncode3(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset : *const *const u32, ntypeindex : u32, pobject : *const ::core::ffi::c_void));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeFree2(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pstubdesc : *const MIDL_STUB_DESC, pformatstring : *mut u8, pobject : *mut ::core::ffi::c_void));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrMesTypeFree3(handle : *mut ::core::ffi::c_void, ppicklinginfo : *const MIDL_TYPE_PICKLING_INFO, pproxyinfo : *const MIDL_STUBLESS_PROXY_INFO, arrtypeoffset : *const *const u32, ntypeindex : u32, pobject : *mut ::core::ffi::c_void));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrNonConformantStringBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrNonConformantStringMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrNonConformantStringMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrNonConformantStringUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrNsGetBuffer(pstubmsg : *mut MIDL_STUB_MESSAGE, bufferlength : u32, handle : *mut ::core::ffi::c_void) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrNsSendReceive(pstubmsg : *mut MIDL_STUB_MESSAGE, pbufferend : *mut u8, pautohandle : *mut *mut ::core::ffi::c_void) -> *mut u8);
 ::windows_targets::link!("rpcrt4.dll" "system" fn NdrOleAllocate(size : usize) -> *mut ::core::ffi::c_void);
 ::windows_targets::link!("rpcrt4.dll" "system" fn NdrOleFree(nodetofree : *const ::core::ffi::c_void));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrPartialIgnoreClientBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut ::core::ffi::c_void));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrPartialIgnoreClientMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut ::core::ffi::c_void));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrPartialIgnoreServerInitialize(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut ::core::ffi::c_void, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrPartialIgnoreServerUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut ::core::ffi::c_void));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrPointerBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrPointerFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrPointerMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrPointerMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrPointerUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrRangeUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreClientBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut ::core::ffi::c_void));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreClientMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut ::core::ffi::c_void));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreServerInitialize(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut ::core::ffi::c_void, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreServerUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut ::core::ffi::c_void));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrPointerBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrPointerFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrPointerMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrPointerMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrPointerUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrRangeUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
 ::windows_targets::link!("rpcrt4.dll" "system" fn NdrRpcSmClientAllocate(size : usize) -> *mut ::core::ffi::c_void);
 ::windows_targets::link!("rpcrt4.dll" "system" fn NdrRpcSmClientFree(nodetofree : *const ::core::ffi::c_void));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrRpcSmSetClientToOsf(pmessage : *mut MIDL_STUB_MESSAGE));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrRpcSmSetClientToOsf(pmessage : *mut MIDL_STUB_MESSAGE));
 ::windows_targets::link!("rpcrt4.dll" "system" fn NdrRpcSsDefaultAllocate(size : usize) -> *mut ::core::ffi::c_void);
 ::windows_targets::link!("rpcrt4.dll" "system" fn NdrRpcSsDefaultFree(nodetofree : *const ::core::ffi::c_void));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrRpcSsDisableAllocate(pmessage : *mut MIDL_STUB_MESSAGE));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrRpcSsEnableAllocate(pmessage : *mut MIDL_STUB_MESSAGE));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrSendReceive(pstubmsg : *mut MIDL_STUB_MESSAGE, pbufferend : *mut u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrRpcSsDisableAllocate(pmessage : *mut MIDL_STUB_MESSAGE));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrRpcSsEnableAllocate(pmessage : *mut MIDL_STUB_MESSAGE));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrSendReceive(pstubmsg : *mut MIDL_STUB_MESSAGE, pbufferend : *mut u8) -> *mut u8);
 ::windows_targets::link!("rpcrt4.dll" "system" fn NdrServerCall2(prpcmsg : *mut RPC_MESSAGE));
 ::windows_targets::link!("rpcrt4.dll" "system" fn NdrServerCallAll(prpcmsg : *mut RPC_MESSAGE));
 ::windows_targets::link!("rpcrt4.dll" "system" fn NdrServerCallNdr64(prpcmsg : *mut RPC_MESSAGE));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrServerContextMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, contexthandle : *mut NDR_SCONTEXT, rundownroutine : NDR_RUNDOWN));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrServerContextNewMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, contexthandle : *mut NDR_SCONTEXT, rundownroutine : NDR_RUNDOWN, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrServerContextNewUnmarshall(pstubmsg : *const MIDL_STUB_MESSAGE, pformat : *const u8) -> *mut NDR_SCONTEXT);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrServerContextUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE) -> *mut NDR_SCONTEXT);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrServerInitialize(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *mut MIDL_STUB_DESC) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrServerInitializeMarshall(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrServerInitializeNew(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *mut MIDL_STUB_DESC) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrServerInitializePartial(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *mut MIDL_STUB_DESC, requestedbuffersize : u32));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrServerInitializeUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *mut MIDL_STUB_DESC, prpcmsg : *mut RPC_MESSAGE) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrSimpleStructBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrSimpleStructFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrSimpleStructMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrSimpleStructMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrSimpleStructUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrSimpleTypeMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, formatchar : u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrSimpleTypeUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, formatchar : u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrServerContextMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, contexthandle : *mut NDR_SCONTEXT, rundownroutine : NDR_RUNDOWN));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrServerContextNewMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, contexthandle : *mut NDR_SCONTEXT, rundownroutine : NDR_RUNDOWN, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrServerContextNewUnmarshall(pstubmsg : *const MIDL_STUB_MESSAGE, pformat : *const u8) -> *mut NDR_SCONTEXT);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrServerContextUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE) -> *mut NDR_SCONTEXT);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrServerInitialize(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *mut MIDL_STUB_DESC) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrServerInitializeMarshall(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrServerInitializeNew(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *mut MIDL_STUB_DESC) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrServerInitializePartial(prpcmsg : *mut RPC_MESSAGE, pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *mut MIDL_STUB_DESC, requestedbuffersize : u32));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrServerInitializeUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pstubdescriptor : *mut MIDL_STUB_DESC, prpcmsg : *mut RPC_MESSAGE) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrSimpleStructBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrSimpleStructFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrSimpleStructMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrSimpleStructMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrSimpleStructUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrSimpleTypeMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, formatchar : u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrSimpleTypeUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, formatchar : u8));
 ::windows_targets::link!("rpcrt4.dll" "system" fn NdrStubCall2(pthis : *mut ::core::ffi::c_void, pchannel : *mut ::core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
 ::windows_targets::link!("rpcrt4.dll" "system" fn NdrStubCall3(pthis : *mut ::core::ffi::c_void, pchannel : *mut ::core::ffi::c_void, prpcmsg : *mut RPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrUserMarshalBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrUserMarshalFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrUserMarshalMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrUserMarshalMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrUserMarshalBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrUserMarshalFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrUserMarshalMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrUserMarshalMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
 ::windows_targets::link!("rpcrt4.dll" "system" fn NdrUserMarshalSimpleTypeConvert(pflags : *mut u32, pbuffer : *mut u8, formatchar : u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrUserMarshalUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrVaryingArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrVaryingArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrVaryingArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrVaryingArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrVaryingArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrXmitOrRepAsBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrXmitOrRepAsFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrXmitOrRepAsMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrXmitOrRepAsMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn NdrXmitOrRepAsUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrUserMarshalUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrVaryingArrayBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrVaryingArrayFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrVaryingArrayMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrVaryingArrayMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrVaryingArrayUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsBufferSize(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsFree(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8));
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsMarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : *mut u8) -> *mut u8);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsMemorySize(pstubmsg : *mut MIDL_STUB_MESSAGE, pformat : *mut u8) -> u32);
+::windows_targets::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsUnmarshall(pstubmsg : *mut MIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : *mut u8, fmustalloc : u8) -> *mut u8);
 #[cfg(feature = "Win32_System_IO")]
 ::windows_targets::link!("rpcrt4.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn RpcAsyncAbortCall(pasync : *mut RPC_ASYNC_STATE, exceptioncode : u32) -> RPC_STATUS);
 #[cfg(feature = "Win32_System_IO")]
@@ -1337,8 +1183,6 @@ impl ::core::clone::Clone for MIDL_METHOD_PROPERTY_MAP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_SERVER_INFO {
     pub pStubDesc: *mut MIDL_STUB_DESC,
     pub DispatchTable: *const SERVER_ROUTINE,
@@ -1349,17 +1193,13 @@ pub struct MIDL_SERVER_INFO {
     pub nCount: usize,
     pub pSyntaxInfo: *mut MIDL_SYNTAX_INFO,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MIDL_SERVER_INFO {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MIDL_SERVER_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_STUBLESS_PROXY_INFO {
     pub pStubDesc: *mut MIDL_STUB_DESC,
     pub ProcFormatString: *mut u8,
@@ -1368,17 +1208,13 @@ pub struct MIDL_STUBLESS_PROXY_INFO {
     pub nCount: usize,
     pub pSyntaxInfo: *mut MIDL_SYNTAX_INFO,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MIDL_STUBLESS_PROXY_INFO {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MIDL_STUBLESS_PROXY_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_STUB_DESC {
     pub RpcInterfaceInformation: *mut ::core::ffi::c_void,
     pub pfnAllocate: PFN_RPC_ALLOCATE,
@@ -1401,33 +1237,25 @@ pub struct MIDL_STUB_DESC {
     pub ProxyServerInfo: *mut ::core::ffi::c_void,
     pub pExprInfo: *const NDR_EXPR_DESC,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MIDL_STUB_DESC {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MIDL_STUB_DESC {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub union MIDL_STUB_DESC_0 {
     pub pAutoHandle: *mut *mut ::core::ffi::c_void,
     pub pPrimitiveHandle: *mut *mut ::core::ffi::c_void,
     pub pGenericBindingInfo: *mut GENERIC_BINDING_INFO,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MIDL_STUB_DESC_0 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MIDL_STUB_DESC_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_STUB_MESSAGE {
     pub RpcMsg: *mut RPC_MESSAGE,
     pub Buffer: *mut u8,
@@ -1466,7 +1294,7 @@ pub struct MIDL_STUB_MESSAGE {
     pub pvDestContext: *mut ::core::ffi::c_void,
     pub SavedContextHandles: *mut *mut NDR_SCONTEXT,
     pub ParamNumber: i32,
-    pub pRpcChannelBuffer: super::Com::IRpcChannelBuffer,
+    pub pRpcChannelBuffer: *mut ::core::ffi::c_void,
     pub pArrayInfo: *mut ARRAY_INFO,
     pub SizePtrCountArray: *mut u32,
     pub SizePtrOffsetArray: *mut u32,
@@ -1489,9 +1317,7 @@ pub struct MIDL_STUB_MESSAGE {
     pub Reserved51_4: isize,
     pub Reserved51_5: isize,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MIDL_STUB_MESSAGE {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MIDL_STUB_MESSAGE {
     fn clone(&self) -> Self {
         *self
@@ -1527,8 +1353,6 @@ impl ::core::clone::Clone for MIDL_TYPE_PICKLING_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     pub Version: u32,
     pub TypeFormatString: *mut u8,
@@ -1536,9 +1360,7 @@ pub struct MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     pub TypeOffset: u16,
     pub StubDesc: *mut MIDL_STUB_DESC,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MIDL_WINRT_TYPE_SERIALIZATION_INFO {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2426,48 +2248,36 @@ impl ::core::clone::Clone for NDR_SCONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct NDR_USER_MARSHAL_INFO {
     pub InformationLevel: u32,
     pub Anonymous: NDR_USER_MARSHAL_INFO_0,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for NDR_USER_MARSHAL_INFO {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for NDR_USER_MARSHAL_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub union NDR_USER_MARSHAL_INFO_0 {
     pub Level1: NDR_USER_MARSHAL_INFO_LEVEL1,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for NDR_USER_MARSHAL_INFO_0 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for NDR_USER_MARSHAL_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct NDR_USER_MARSHAL_INFO_LEVEL1 {
     pub Buffer: *mut ::core::ffi::c_void,
     pub BufferSize: u32,
     pub pfnAllocate: isize,
     pub pfnFree: isize,
-    pub pRpcChannelBuffer: super::Com::IRpcChannelBuffer,
+    pub pRpcChannelBuffer: *mut ::core::ffi::c_void,
     pub Reserved: [usize; 5],
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for NDR_USER_MARSHAL_INFO_LEVEL1 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for NDR_USER_MARSHAL_INFO_LEVEL1 {
     fn clone(&self) -> Self {
         *self
@@ -3666,8 +3476,6 @@ impl ::core::clone::Clone for SEC_WINNT_AUTH_IDENTITY_W {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct USER_MARSHAL_CB {
     pub Flags: u32,
     pub pStubMsg: *mut MIDL_STUB_MESSAGE,
@@ -3677,9 +3485,7 @@ pub struct USER_MARSHAL_CB {
     pub pFormat: *mut u8,
     pub pTypeFormat: *mut u8,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for USER_MARSHAL_CB {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for USER_MARSHAL_CB {
     fn clone(&self) -> Self {
         *self
@@ -3710,17 +3516,13 @@ impl ::core::clone::Clone for UUID_VECTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub struct XMIT_ROUTINE_QUINTUPLE {
     pub pfnTranslateToXmit: XMIT_HELPER_ROUTINE,
     pub pfnTranslateFromXmit: XMIT_HELPER_ROUTINE,
     pub pfnFreeXmit: XMIT_HELPER_ROUTINE,
     pub pfnFreeInst: XMIT_HELPER_ROUTINE,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for XMIT_ROUTINE_QUINTUPLE {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for XMIT_ROUTINE_QUINTUPLE {
     fn clone(&self) -> Self {
         *self
@@ -3732,8 +3534,6 @@ pub type CS_TYPE_FROM_NETCS_ROUTINE = ::core::option::Option<unsafe extern "syst
 pub type CS_TYPE_LOCAL_SIZE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, ulnetworkbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pullocalbuffersize: *mut u32, pstatus: *mut u32)>;
 pub type CS_TYPE_NET_SIZE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, ullocalbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pulnetworkbuffersize: *mut u32, pstatus: *mut u32)>;
 pub type CS_TYPE_TO_NETCS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hbinding: *mut ::core::ffi::c_void, ulnetworkcodeset: u32, plocaldata: *mut ::core::ffi::c_void, ullocaldatalength: u32, pnetworkdata: *mut u8, pulnetworkdatalength: *mut u32, pstatus: *mut u32)>;
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub type EXPR_EVAL = ::core::option::Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
 pub type GENERIC_BINDING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
 pub type GENERIC_UNBIND_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut u8)>;
@@ -3775,13 +3575,9 @@ pub type RPC_OBJECT_INQ_FN = ::core::option::Option<unsafe extern "system" fn(ob
 pub type RPC_SECURITY_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
 pub type RPC_SETFILTER_FUNC = ::core::option::Option<unsafe extern "system" fn(pfnfilter: RPCLT_PDU_FILTER_FUNC)>;
 pub type SERVER_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> i32>;
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub type STUB_THUNK = ::core::option::Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
 pub type USER_MARSHAL_FREEING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut ::core::ffi::c_void)>;
 pub type USER_MARSHAL_MARSHALLING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut ::core::ffi::c_void) -> *mut u8>;
 pub type USER_MARSHAL_SIZING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: u32, param2: *mut ::core::ffi::c_void) -> u32>;
 pub type USER_MARSHAL_UNMARSHALLING_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut ::core::ffi::c_void) -> *mut u8>;
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
 pub type XMIT_HELPER_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;

@@ -1,5 +1,3 @@
-pub type IObjectArray = *mut ::core::ffi::c_void;
-pub type IObjectCollection = *mut ::core::ffi::c_void;
 pub const DEVICE_SCALE_FACTOR_INVALID: DEVICE_SCALE_FACTOR = 0i32;
 pub const PERCEIVEDFLAG_GDIPLUS: u32 = 16u32;
 pub const PERCEIVEDFLAG_HARDCODED: u32 = 2u32;

@@ -12,10 +12,6 @@
 ::windows_targets::link!("fhsvcctl.dll" "system" #[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"] fn FhServiceStopBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE, stoptracking : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 ::windows_targets::link!("fhsvcctl.dll" "system" #[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"] fn FhServiceUnblockBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> ::windows_sys::core::HRESULT);
-pub type IFhConfigMgr = *mut ::core::ffi::c_void;
-pub type IFhReassociation = *mut ::core::ffi::c_void;
-pub type IFhScopeIterator = *mut ::core::ffi::c_void;
-pub type IFhTarget = *mut ::core::ffi::c_void;
 pub const BackupCancelled: FhBackupStopReason = 4i32;
 pub const BackupInvalidStopReason: FhBackupStopReason = 0i32;
 pub const BackupLimitUserBusyMachineOnAC: FhBackupStopReason = 1i32;

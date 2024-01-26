@@ -9,8 +9,8 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, generic_types: &[metadata
     let vname = virtual_names.add(method);
     let generics = writer.constraint_generics(params);
     let where_clause = writer.where_clause(params);
-    let mut cfg = cfg::signature_cfg(method);
-    cfg::type_def_cfg_combine(def, generic_types, &mut cfg);
+    let mut cfg = cfg::signature_cfg(writer, method);
+    cfg::type_def_cfg_combine(writer, def, generic_types, &mut cfg);
     let doc = writer.cfg_method_doc(&cfg);
     let features = writer.cfg_features(&cfg);
     let args = gen_winrt_abi_args(writer, params);

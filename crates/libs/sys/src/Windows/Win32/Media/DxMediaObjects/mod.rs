@@ -1,4 +1,4 @@
-::windows_targets::link!("msdmo.dll" "system" fn DMOEnum(guidcategory : *const ::windows_sys::core::GUID, dwflags : u32, cintypes : u32, pintypes : *const DMO_PARTIAL_MEDIATYPE, couttypes : u32, pouttypes : *const DMO_PARTIAL_MEDIATYPE, ppenum : *mut IEnumDMO) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("msdmo.dll" "system" fn DMOEnum(guidcategory : *const ::windows_sys::core::GUID, dwflags : u32, cintypes : u32, pintypes : *const DMO_PARTIAL_MEDIATYPE, couttypes : u32, pouttypes : *const DMO_PARTIAL_MEDIATYPE, ppenum : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("msdmo.dll" "system" fn DMOGetName(clsiddmo : *const ::windows_sys::core::GUID, szname : ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("msdmo.dll" "system" fn DMOGetTypes(clsiddmo : *const ::windows_sys::core::GUID, ulinputtypesrequested : u32, pulinputtypessupplied : *mut u32, pinputtypes : *mut DMO_PARTIAL_MEDIATYPE, uloutputtypesrequested : u32, puloutputtypessupplied : *mut u32, poutputtypes : *mut DMO_PARTIAL_MEDIATYPE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("msdmo.dll" "system" fn DMORegister(szname : ::windows_sys::core::PCWSTR, clsiddmo : *const ::windows_sys::core::GUID, guidcategory : *const ::windows_sys::core::GUID, dwflags : u32, cintypes : u32, pintypes : *const DMO_PARTIAL_MEDIATYPE, couttypes : u32, pouttypes : *const DMO_PARTIAL_MEDIATYPE) -> ::windows_sys::core::HRESULT);
@@ -9,12 +9,6 @@
 ::windows_targets::link!("msdmo.dll" "system" fn MoDuplicateMediaType(ppmtdest : *mut *mut DMO_MEDIA_TYPE, pmtsrc : *const DMO_MEDIA_TYPE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("msdmo.dll" "system" fn MoFreeMediaType(pmt : *mut DMO_MEDIA_TYPE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("msdmo.dll" "system" fn MoInitMediaType(pmt : *mut DMO_MEDIA_TYPE, cbformat : u32) -> ::windows_sys::core::HRESULT);
-pub type IDMOQualityControl = *mut ::core::ffi::c_void;
-pub type IDMOVideoOutputOptimizations = *mut ::core::ffi::c_void;
-pub type IEnumDMO = *mut ::core::ffi::c_void;
-pub type IMediaBuffer = *mut ::core::ffi::c_void;
-pub type IMediaObject = *mut ::core::ffi::c_void;
-pub type IMediaObjectInPlace = *mut ::core::ffi::c_void;
 pub const DMOCATEGORY_ACOUSTIC_ECHO_CANCEL: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
 pub const DMOCATEGORY_AGC: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xe88c9ba0_c557_11d0_8a2b_00a0c9255ac1);
 pub const DMOCATEGORY_AUDIO_CAPTURE_EFFECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xf665aaba_3e09_4920_aa5f_219811148f09);
@@ -91,7 +85,7 @@ impl ::core::clone::Clone for DMO_MEDIA_TYPE {
 }
 #[repr(C)]
 pub struct DMO_OUTPUT_DATA_BUFFER {
-    pub pBuffer: IMediaBuffer,
+    pub pBuffer: *mut ::core::ffi::c_void,
     pub dwStatus: u32,
     pub rtTimestamp: i64,
     pub rtTimelength: i64,

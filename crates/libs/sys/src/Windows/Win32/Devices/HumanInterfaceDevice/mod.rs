@@ -45,26 +45,6 @@
 ::windows_targets::link!("hid.dll" "system" fn HidP_UnsetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : u16, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : PHIDP_PREPARSED_DATA, report : ::windows_sys::core::PCSTR, reportlength : u32) -> super::super::Foundation:: NTSTATUS);
 ::windows_targets::link!("hid.dll" "system" fn HidP_UsageListDifference(previoususagelist : *const u16, currentusagelist : *const u16, breakusagelist : *mut u16, makeusagelist : *mut u16, usagelistlength : u32) -> super::super::Foundation:: NTSTATUS);
 ::windows_targets::link!("winmm.dll" "system" fn joyConfigChanged(dwflags : u32) -> u32);
-pub type IDirectInput2A = *mut ::core::ffi::c_void;
-pub type IDirectInput2W = *mut ::core::ffi::c_void;
-pub type IDirectInput7A = *mut ::core::ffi::c_void;
-pub type IDirectInput7W = *mut ::core::ffi::c_void;
-pub type IDirectInput8A = *mut ::core::ffi::c_void;
-pub type IDirectInput8W = *mut ::core::ffi::c_void;
-pub type IDirectInputA = *mut ::core::ffi::c_void;
-pub type IDirectInputDevice2A = *mut ::core::ffi::c_void;
-pub type IDirectInputDevice2W = *mut ::core::ffi::c_void;
-pub type IDirectInputDevice7A = *mut ::core::ffi::c_void;
-pub type IDirectInputDevice7W = *mut ::core::ffi::c_void;
-pub type IDirectInputDevice8A = *mut ::core::ffi::c_void;
-pub type IDirectInputDevice8W = *mut ::core::ffi::c_void;
-pub type IDirectInputDeviceA = *mut ::core::ffi::c_void;
-pub type IDirectInputDeviceW = *mut ::core::ffi::c_void;
-pub type IDirectInputEffect = *mut ::core::ffi::c_void;
-pub type IDirectInputEffectDriver = *mut ::core::ffi::c_void;
-pub type IDirectInputJoyConfig = *mut ::core::ffi::c_void;
-pub type IDirectInputJoyConfig8 = *mut ::core::ffi::c_void;
-pub type IDirectInputW = *mut ::core::ffi::c_void;
 pub const BALLPOINT_I8042_HARDWARE: u32 = 8u32;
 pub const BALLPOINT_SERIAL_HARDWARE: u32 = 16u32;
 pub const BUTTON_BIT_ALLBUTTONSMASK: u32 = 16383u32;
@@ -4271,11 +4251,11 @@ impl ::core::clone::Clone for USAGE_AND_PAGE {
     }
 }
 pub type LPDICONFIGUREDEVICESCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::IUnknown, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: IDirectInputEffect, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type LPDIENUMDEVICEOBJECTSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type LPDIENUMDEVICEOBJECTSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type LPDIENUMDEVICESBYSEMANTICSCBA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: IDirectInputDevice8A, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-pub type LPDIENUMDEVICESBYSEMANTICSCBW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: IDirectInputDevice8W, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMDEVICESBYSEMANTICSCBA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDIENUMDEVICESBYSEMANTICSCBW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type LPDIENUMDEVICESCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type LPDIENUMDEVICESCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type LPDIENUMEFFECTSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIEFFECTINFOA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;

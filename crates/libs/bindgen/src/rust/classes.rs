@@ -26,7 +26,7 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let mut methods = quote! {};
     let mut method_names = MethodNames::new();
 
-    let cfg = cfg::type_def_cfg(def, &[]);
+    let cfg = cfg::type_def_cfg(writer, def, &[]);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 
@@ -45,7 +45,7 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             if let metadata::Type::TypeDef(def, generics) = &interface.ty {
                 if def.methods().next().is_some() {
                     let interface_type = writer.type_name(&interface.ty);
-                    let features = writer.cfg_features(&cfg::type_def_cfg(*def, generics));
+                    let features = writer.cfg_features(&cfg::type_def_cfg(writer, *def, generics));
 
                     return Some(quote! {
                         #[doc(hidden)]
@@ -148,14 +148,14 @@ fn gen_conversions(writer: &Writer, def: metadata::TypeDef, ident: &TokenStream,
 
         let into = writer.type_name(&interface.ty);
         write!(&mut hierarchy, ", {into}").unwrap();
-        hierarchy_cfg = hierarchy_cfg.union(&cfg::type_cfg(&interface.ty));
+        hierarchy_cfg = hierarchy_cfg.union(&cfg::type_cfg(writer, &interface.ty));
         hierarchy_added = true;
     }
 
     for def in metadata::type_def_bases(def) {
         let into = writer.type_def_name(def, &[]);
         write!(&mut hierarchy, ", {into}").unwrap();
-        hierarchy_cfg = hierarchy_cfg.union(&cfg::type_def_cfg(def, &[]));
+        hierarchy_cfg = hierarchy_cfg.union(&cfg::type_def_cfg(writer, def, &[]));
         hierarchy_added = true;
     }
 

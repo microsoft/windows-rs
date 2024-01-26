@@ -26,75 +26,6 @@
 ::windows_targets::link!("inkobjcore.dll" "system" fn SetGuide(hrc : HRECOCONTEXT, pguide : *const RECO_GUIDE, iindex : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("inkobjcore.dll" "system" fn SetTextContext(hrc : HRECOCONTEXT, cwcbefore : u32, pwcbefore : ::windows_sys::core::PCWSTR, cwcafter : u32, pwcafter : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("inkobjcore.dll" "system" fn SetWordList(hrc : HRECOCONTEXT, hwl : HRECOWORDLIST) -> ::windows_sys::core::HRESULT);
-pub type IDynamicRenderer = *mut ::core::ffi::c_void;
-pub type IGestureRecognizer = *mut ::core::ffi::c_void;
-pub type IHandwrittenTextInsertion = *mut ::core::ffi::c_void;
-pub type IInk = *mut ::core::ffi::c_void;
-pub type IInkCollector = *mut ::core::ffi::c_void;
-pub type IInkCursor = *mut ::core::ffi::c_void;
-pub type IInkCursorButton = *mut ::core::ffi::c_void;
-pub type IInkCursorButtons = *mut ::core::ffi::c_void;
-pub type IInkCursors = *mut ::core::ffi::c_void;
-pub type IInkCustomStrokes = *mut ::core::ffi::c_void;
-pub type IInkDisp = *mut ::core::ffi::c_void;
-pub type IInkDivider = *mut ::core::ffi::c_void;
-pub type IInkDivisionResult = *mut ::core::ffi::c_void;
-pub type IInkDivisionUnit = *mut ::core::ffi::c_void;
-pub type IInkDivisionUnits = *mut ::core::ffi::c_void;
-pub type IInkDrawingAttributes = *mut ::core::ffi::c_void;
-pub type IInkEdit = *mut ::core::ffi::c_void;
-pub type IInkExtendedProperties = *mut ::core::ffi::c_void;
-pub type IInkExtendedProperty = *mut ::core::ffi::c_void;
-pub type IInkGesture = *mut ::core::ffi::c_void;
-pub type IInkLineInfo = *mut ::core::ffi::c_void;
-pub type IInkOverlay = *mut ::core::ffi::c_void;
-pub type IInkPicture = *mut ::core::ffi::c_void;
-pub type IInkRecognitionAlternate = *mut ::core::ffi::c_void;
-pub type IInkRecognitionAlternates = *mut ::core::ffi::c_void;
-pub type IInkRecognitionResult = *mut ::core::ffi::c_void;
-pub type IInkRecognizer = *mut ::core::ffi::c_void;
-pub type IInkRecognizer2 = *mut ::core::ffi::c_void;
-pub type IInkRecognizerContext = *mut ::core::ffi::c_void;
-pub type IInkRecognizerContext2 = *mut ::core::ffi::c_void;
-pub type IInkRecognizerGuide = *mut ::core::ffi::c_void;
-pub type IInkRecognizers = *mut ::core::ffi::c_void;
-pub type IInkRectangle = *mut ::core::ffi::c_void;
-pub type IInkRenderer = *mut ::core::ffi::c_void;
-pub type IInkStrokeDisp = *mut ::core::ffi::c_void;
-pub type IInkStrokes = *mut ::core::ffi::c_void;
-pub type IInkTablet = *mut ::core::ffi::c_void;
-pub type IInkTablet2 = *mut ::core::ffi::c_void;
-pub type IInkTablet3 = *mut ::core::ffi::c_void;
-pub type IInkTablets = *mut ::core::ffi::c_void;
-pub type IInkTransform = *mut ::core::ffi::c_void;
-pub type IInkWordList = *mut ::core::ffi::c_void;
-pub type IInkWordList2 = *mut ::core::ffi::c_void;
-pub type IInputPanelWindowHandle = *mut ::core::ffi::c_void;
-pub type IMathInputControl = *mut ::core::ffi::c_void;
-pub type IPenInputPanel = *mut ::core::ffi::c_void;
-pub type IRealTimeStylus = *mut ::core::ffi::c_void;
-pub type IRealTimeStylus2 = *mut ::core::ffi::c_void;
-pub type IRealTimeStylus3 = *mut ::core::ffi::c_void;
-pub type IRealTimeStylusSynchronization = *mut ::core::ffi::c_void;
-pub type ISketchInk = *mut ::core::ffi::c_void;
-pub type IStrokeBuilder = *mut ::core::ffi::c_void;
-pub type IStylusAsyncPlugin = *mut ::core::ffi::c_void;
-pub type IStylusPlugin = *mut ::core::ffi::c_void;
-pub type IStylusSyncPlugin = *mut ::core::ffi::c_void;
-pub type ITextInputPanel = *mut ::core::ffi::c_void;
-pub type ITextInputPanelEventSink = *mut ::core::ffi::c_void;
-pub type ITextInputPanelRunInfo = *mut ::core::ffi::c_void;
-pub type ITipAutoCompleteClient = *mut ::core::ffi::c_void;
-pub type ITipAutoCompleteProvider = *mut ::core::ffi::c_void;
-pub type _IInkCollectorEvents = *mut ::core::ffi::c_void;
-pub type _IInkEditEvents = *mut ::core::ffi::c_void;
-pub type _IInkEvents = *mut ::core::ffi::c_void;
-pub type _IInkOverlayEvents = *mut ::core::ffi::c_void;
-pub type _IInkPictureEvents = *mut ::core::ffi::c_void;
-pub type _IInkRecognitionEvents = *mut ::core::ffi::c_void;
-pub type _IInkStrokesEvents = *mut ::core::ffi::c_void;
-pub type _IMathInputControlEvents = *mut ::core::ffi::c_void;
-pub type _IPenInputPanelEvents = *mut ::core::ffi::c_void;
 pub const ALT_BREAKS_FULL: ALT_BREAKS = 2i32;
 pub const ALT_BREAKS_SAME: ALT_BREAKS = 0i32;
 pub const ALT_BREAKS_UNIQUE: ALT_BREAKS = 1i32;
@@ -1412,7 +1343,7 @@ impl ::core::clone::Clone for CHARACTER_RANGE {
 #[repr(C)]
 pub struct DYNAMIC_RENDERER_CACHED_DATA {
     pub strokeId: i32,
-    pub dynamicRenderer: IDynamicRenderer,
+    pub dynamicRenderer: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DYNAMIC_RENDERER_CACHED_DATA {}
 impl ::core::clone::Clone for DYNAMIC_RENDERER_CACHED_DATA {
@@ -1458,48 +1389,48 @@ pub type HRECOGNIZER = isize;
 pub type HRECOLATTICE = isize;
 pub type HRECOWORDLIST = isize;
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Controls\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Controls\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
 pub struct IEC_GESTUREINFO {
     pub nmhdr: super::Controls::NMHDR,
-    pub Cursor: IInkCursor,
-    pub Strokes: IInkStrokes,
+    pub Cursor: *mut ::core::ffi::c_void,
+    pub Strokes: *mut ::core::ffi::c_void,
     pub Gestures: super::super::System::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
 impl ::core::marker::Copy for IEC_GESTUREINFO {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant", feature = "Win32_UI_Controls"))]
 impl ::core::clone::Clone for IEC_GESTUREINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Controls\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+#[doc = "Required features: `\"Win32_UI_Controls\"`"]
+#[cfg(feature = "Win32_UI_Controls")]
 pub struct IEC_RECOGNITIONRESULTINFO {
     pub nmhdr: super::Controls::NMHDR,
-    pub RecognitionResult: IInkRecognitionResult,
+    pub RecognitionResult: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+#[cfg(feature = "Win32_UI_Controls")]
 impl ::core::marker::Copy for IEC_RECOGNITIONRESULTINFO {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+#[cfg(feature = "Win32_UI_Controls")]
 impl ::core::clone::Clone for IEC_RECOGNITIONRESULTINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Controls\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+#[doc = "Required features: `\"Win32_UI_Controls\"`"]
+#[cfg(feature = "Win32_UI_Controls")]
 pub struct IEC_STROKEINFO {
     pub nmhdr: super::Controls::NMHDR,
-    pub Cursor: IInkCursor,
-    pub Stroke: IInkStrokeDisp,
+    pub Cursor: *mut ::core::ffi::c_void,
+    pub Stroke: *mut ::core::ffi::c_void,
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+#[cfg(feature = "Win32_UI_Controls")]
 impl ::core::marker::Copy for IEC_STROKEINFO {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
+#[cfg(feature = "Win32_UI_Controls")]
 impl ::core::clone::Clone for IEC_STROKEINFO {
     fn clone(&self) -> Self {
         *self

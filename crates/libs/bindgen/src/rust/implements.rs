@@ -14,7 +14,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let constraints = writer.generic_constraints(generics);
     let generic_names = writer.generic_names(generics);
     let named_phantoms = writer.generic_named_phantoms(generics);
-    let cfg = cfg::type_def_cfg_impl(def, generics);
+    let cfg = cfg::type_def_cfg_impl(writer, def, generics);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
     let mut requires = quote! {};

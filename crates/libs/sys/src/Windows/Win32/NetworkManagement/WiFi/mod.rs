@@ -62,16 +62,6 @@
 ::windows_targets::link!("wlanapi.dll" "system" fn WlanSetPsdIEDataList(hclienthandle : super::super::Foundation:: HANDLE, strformat : ::windows_sys::core::PCWSTR, ppsdiedatalist : *const WLAN_RAW_DATA_LIST, preserved : *const ::core::ffi::c_void) -> u32);
 ::windows_targets::link!("wlanapi.dll" "system" fn WlanSetSecuritySettings(hclienthandle : super::super::Foundation:: HANDLE, securableobject : WLAN_SECURABLE_OBJECT, strmodifiedsddl : ::windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("wlanui.dll" "system" fn WlanUIEditProfile(dwclientversion : u32, wstrprofilename : ::windows_sys::core::PCWSTR, pinterfaceguid : *const ::windows_sys::core::GUID, hwnd : super::super::Foundation:: HWND, wlstartpage : WL_DISPLAY_PAGES, preserved : *const ::core::ffi::c_void, pwlanreasoncode : *mut u32) -> u32);
-pub type IDot11AdHocInterface = *mut ::core::ffi::c_void;
-pub type IDot11AdHocInterfaceNotificationSink = *mut ::core::ffi::c_void;
-pub type IDot11AdHocManager = *mut ::core::ffi::c_void;
-pub type IDot11AdHocManagerNotificationSink = *mut ::core::ffi::c_void;
-pub type IDot11AdHocNetwork = *mut ::core::ffi::c_void;
-pub type IDot11AdHocNetworkNotificationSink = *mut ::core::ffi::c_void;
-pub type IDot11AdHocSecuritySettings = *mut ::core::ffi::c_void;
-pub type IEnumDot11AdHocInterfaces = *mut ::core::ffi::c_void;
-pub type IEnumDot11AdHocNetworks = *mut ::core::ffi::c_void;
-pub type IEnumDot11AdHocSecuritySettings = *mut ::core::ffi::c_void;
 #[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_InfraCast_AccessPointBssid: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 19 };

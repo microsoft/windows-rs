@@ -1,8 +1,7 @@
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn BuildDisplayTable(lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpmalloc : super::Com:: IMalloc, hinstance : super::super::Foundation:: HINSTANCE, cpages : u32, lppage : *mut DTPAGE, ulflags : u32, lpptable : *mut IMAPITable, lpptbldata : *mut ITableData) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mapi32.dll" "system" fn BuildDisplayTable(lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpmalloc : * mut::core::ffi::c_void, hinstance : super::super::Foundation:: HINSTANCE, cpages : u32, lppage : *mut DTPAGE, ulflags : u32, lpptable : *mut * mut::core::ffi::c_void, lpptbldata : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mapi32.dll" "system" fn ChangeIdleRoutine(ftg : *mut ::core::ffi::c_void, lpfnidle : PFNIDLE, lpvidleparam : *mut ::core::ffi::c_void, priidle : i16, csecidle : u32, iroidle : u16, ircidle : u16));
-::windows_targets::link!("mapi32.dll" "system" fn CreateIProp(lpinterface : *mut ::windows_sys::core::GUID, lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpvreserved : *mut ::core::ffi::c_void, lpppropdata : *mut IPropData) -> i32);
-::windows_targets::link!("rtm.dll" "system" fn CreateTable(lpinterface : *mut ::windows_sys::core::GUID, lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpvreserved : *mut ::core::ffi::c_void, ultabletype : u32, ulproptagindexcolumn : u32, lpsproptagarraycolumns : *mut SPropTagArray, lpptabledata : *mut ITableData) -> i32);
+::windows_targets::link!("mapi32.dll" "system" fn CreateIProp(lpinterface : *mut ::windows_sys::core::GUID, lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpvreserved : *mut ::core::ffi::c_void, lpppropdata : *mut * mut::core::ffi::c_void) -> i32);
+::windows_targets::link!("rtm.dll" "system" fn CreateTable(lpinterface : *mut ::windows_sys::core::GUID, lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpvreserved : *mut ::core::ffi::c_void, ultabletype : u32, ulproptagindexcolumn : u32, lpsproptagarraycolumns : *mut SPropTagArray, lpptabledata : *mut * mut::core::ffi::c_void) -> i32);
 ::windows_targets::link!("mapi32.dll" "system" fn DeinitMapiUtil());
 ::windows_targets::link!("mapi32.dll" "system" fn DeregisterIdleRoutine(ftg : *mut ::core::ffi::c_void));
 ::windows_targets::link!("mapi32.dll" "system" fn EnableIdleRoutine(ftg : *mut ::core::ffi::c_void, fenable : super::super::Foundation:: BOOL));
@@ -11,7 +10,7 @@
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn FPropCompareProp(lpspropvalue1 : *mut SPropValue, ulrelop : u32, lpspropvalue2 : *mut SPropValue) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn FPropContainsProp(lpspropvaluedst : *mut SPropValue, lpspropvaluesrc : *mut SPropValue, ulfuzzylevel : u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("mapi32.dll" "system" fn FPropExists(lpmapiprop : IMAPIProp, ulproptag : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("mapi32.dll" "system" fn FPropExists(lpmapiprop : * mut::core::ffi::c_void, ulproptag : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn FreePadrlist(lpadrlist : *mut ADRLIST));
 #[cfg(feature = "Win32_System_Com")]
@@ -22,35 +21,32 @@
 ::windows_targets::link!("mapi32.dll" "system" fn FtNegFt(ft : super::super::Foundation:: FILETIME) -> super::super::Foundation:: FILETIME);
 ::windows_targets::link!("mapi32.dll" "system" fn FtSubFt(ftminuend : super::super::Foundation:: FILETIME, ftsubtrahend : super::super::Foundation:: FILETIME) -> super::super::Foundation:: FILETIME);
 ::windows_targets::link!("mapi32.dll" "system" fn FtgRegisterIdleRoutine(lpfnidle : PFNIDLE, lpvidleparam : *mut ::core::ffi::c_void, priidle : i16, csecidle : u32, iroidle : u16) -> *mut ::core::ffi::c_void);
-::windows_targets::link!("mapi32.dll" "system" fn HrAddColumns(lptbl : IMAPITable, lpproptagcolumnsnew : *mut SPropTagArray, lpallocatebuffer : LPALLOCATEBUFFER, lpfreebuffer : LPFREEBUFFER) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mapi32.dll" "system" fn HrAddColumnsEx(lptbl : IMAPITable, lpproptagcolumnsnew : *mut SPropTagArray, lpallocatebuffer : LPALLOCATEBUFFER, lpfreebuffer : LPFREEBUFFER, lpfnfiltercolumns : isize) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mapi32.dll" "system" fn HrAddColumns(lptbl : * mut::core::ffi::c_void, lpproptagcolumnsnew : *mut SPropTagArray, lpallocatebuffer : LPALLOCATEBUFFER, lpfreebuffer : LPFREEBUFFER) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mapi32.dll" "system" fn HrAddColumnsEx(lptbl : * mut::core::ffi::c_void, lpproptagcolumnsnew : *mut SPropTagArray, lpallocatebuffer : LPALLOCATEBUFFER, lpfreebuffer : LPFREEBUFFER, lpfnfiltercolumns : isize) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HrAllocAdviseSink(lpfncallback : LPNOTIFCALLBACK, lpvcontext : *mut ::core::ffi::c_void, lppadvisesink : *mut IMAPIAdviseSink) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HrAllocAdviseSink(lpfncallback : LPNOTIFCALLBACK, lpvcontext : *mut ::core::ffi::c_void, lppadvisesink : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mapi32.dll" "system" fn HrDispatchNotifications(ulflags : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HrGetOneProp(lpmapiprop : IMAPIProp, ulproptag : u32, lppprop : *mut *mut SPropValue) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"] fn HrIStorageFromStream(lpunkin : ::windows_sys::core::IUnknown, lpinterface : *mut ::windows_sys::core::GUID, ulflags : u32, lppstorageout : *mut super::Com::StructuredStorage:: IStorage) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HrGetOneProp(lpmapiprop : * mut::core::ffi::c_void, ulproptag : u32, lppprop : *mut *mut SPropValue) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mapi32.dll" "system" fn HrIStorageFromStream(lpunkin : ::windows_sys::core::IUnknown, lpinterface : *mut ::windows_sys::core::GUID, ulflags : u32, lppstorageout : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HrQueryAllRows(lptable : IMAPITable, lpproptags : *mut SPropTagArray, lprestriction : *mut SRestriction, lpsortorderset : *mut SSortOrderSet, crowsmax : i32, lpprows : *mut *mut SRowSet) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HrQueryAllRows(lptable : * mut::core::ffi::c_void, lpproptags : *mut SPropTagArray, lprestriction : *mut SRestriction, lpsortorderset : *mut SSortOrderSet, crowsmax : i32, lpprows : *mut *mut SRowSet) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HrSetOneProp(lpmapiprop : IMAPIProp, lpprop : *mut SPropValue) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mapi32.dll" "system" fn HrThisThreadAdviseSink(lpadvisesink : IMAPIAdviseSink, lppadvisesink : *mut IMAPIAdviseSink) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HrSetOneProp(lpmapiprop : * mut::core::ffi::c_void, lpprop : *mut SPropValue) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mapi32.dll" "system" fn HrThisThreadAdviseSink(lpadvisesink : * mut::core::ffi::c_void, lppadvisesink : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn LPropCompareProp(lpspropvaluea : *mut SPropValue, lpspropvalueb : *mut SPropValue) -> i32);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn LpValFindProp(ulproptag : u32, cvalues : u32, lpproparray : *mut SPropValue) -> *mut SPropValue);
 ::windows_targets::link!("mapi32.dll" "system" fn MAPIDeinitIdle());
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn MAPIGetDefaultMalloc() -> super::Com:: IMalloc);
+::windows_targets::link!("mapi32.dll" "system" fn MAPIGetDefaultMalloc() -> * mut::core::ffi::c_void);
 ::windows_targets::link!("mapi32.dll" "system" fn MAPIInitIdle(lpvreserved : *mut ::core::ffi::c_void) -> i32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn OpenStreamOnFile(lpallocatebuffer : LPALLOCATEBUFFER, lpfreebuffer : LPFREEBUFFER, ulflags : u32, lpszfilename : *const i8, lpszprefix : *const i8, lppstream : *mut super::Com:: IStream) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mapi32.dll" "system" fn OpenStreamOnFile(lpallocatebuffer : LPALLOCATEBUFFER, lpfreebuffer : LPFREEBUFFER, ulflags : u32, lpszfilename : *const i8, lpszprefix : *const i8, lppstream : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn PpropFindProp(lpproparray : *mut SPropValue, cvalues : u32, ulproptag : u32) -> *mut SPropValue);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn PropCopyMore(lpspropvaluedest : *mut SPropValue, lpspropvaluesrc : *mut SPropValue, lpfallocmore : LPALLOCATEMORE, lpvobject : *mut ::core::ffi::c_void) -> i32);
-::windows_targets::link!("mapi32.dll" "system" fn RTFSync(lpmessage : IMessage, ulflags : u32, lpfmessageupdated : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mapi32.dll" "system" fn RTFSync(lpmessage : * mut::core::ffi::c_void, ulflags : u32, lpfmessageupdated : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn ScCopyNotifications(cnotification : i32, lpnotifications : *mut NOTIFICATION, lpvdst : *mut ::core::ffi::c_void, lpcb : *mut u32) -> i32);
 #[cfg(feature = "Win32_System_Com")]
@@ -77,30 +73,8 @@
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn UlPropSize(lpspropvalue : *mut SPropValue) -> u32);
 ::windows_targets::link!("mapi32.dll" "system" fn UlRelease(lpunk : *mut ::core::ffi::c_void) -> u32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn WrapCompressedRTFStream(lpcompressedrtfstream : super::Com:: IStream, ulflags : u32, lpuncompressedrtfstream : *mut super::Com:: IStream) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mapi32.dll" "system" fn WrapCompressedRTFStream(lpcompressedrtfstream : * mut::core::ffi::c_void, ulflags : u32, lpuncompressedrtfstream : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mapi32.dll" "system" fn WrapStoreEntryID(ulflags : u32, lpszdllname : *const i8, cborigentry : u32, lporigentry : *const ENTRYID, lpcbwrappedentry : *mut u32, lppwrappedentry : *mut *mut ENTRYID) -> ::windows_sys::core::HRESULT);
-pub type IABContainer = *mut ::core::ffi::c_void;
-pub type IAddrBook = *mut ::core::ffi::c_void;
-pub type IAttach = *mut ::core::ffi::c_void;
-pub type IDistList = *mut ::core::ffi::c_void;
-pub type IMAPIAdviseSink = *mut ::core::ffi::c_void;
-pub type IMAPIContainer = *mut ::core::ffi::c_void;
-pub type IMAPIControl = *mut ::core::ffi::c_void;
-pub type IMAPIFolder = *mut ::core::ffi::c_void;
-pub type IMAPIProgress = *mut ::core::ffi::c_void;
-pub type IMAPIProp = *mut ::core::ffi::c_void;
-pub type IMAPIStatus = *mut ::core::ffi::c_void;
-pub type IMAPITable = *mut ::core::ffi::c_void;
-pub type IMailUser = *mut ::core::ffi::c_void;
-pub type IMessage = *mut ::core::ffi::c_void;
-pub type IMsgStore = *mut ::core::ffi::c_void;
-pub type IProfSect = *mut ::core::ffi::c_void;
-pub type IPropData = *mut ::core::ffi::c_void;
-pub type IProviderAdmin = *mut ::core::ffi::c_void;
-pub type ITableData = *mut ::core::ffi::c_void;
-pub type IWABExtInit = *mut ::core::ffi::c_void;
-pub type IWABObject = *mut ::core::ffi::c_void;
 pub const E_IMAPI_BURN_VERIFICATION_FAILED: ::windows_sys::core::HRESULT = -1062600697i32;
 pub const E_IMAPI_DF2DATA_CLIENT_NAME_IS_NOT_VALID: ::windows_sys::core::HRESULT = -1062599672i32;
 pub const E_IMAPI_DF2DATA_INVALID_MEDIA_STATE: ::windows_sys::core::HRESULT = -1062599678i32;
@@ -1303,9 +1277,9 @@ impl ::core::clone::Clone for TABLE_NOTIFICATION {
 #[repr(C)]
 pub struct WABEXTDISPLAY {
     pub cbSize: u32,
-    pub lpWABObject: IWABObject,
-    pub lpAdrBook: IAddrBook,
-    pub lpPropObj: IMAPIProp,
+    pub lpWABObject: *mut ::core::ffi::c_void,
+    pub lpAdrBook: *mut ::core::ffi::c_void,
+    pub lpPropObj: *mut ::core::ffi::c_void,
     pub fReadOnly: super::super::Foundation::BOOL,
     pub fDataChanged: super::super::Foundation::BOOL,
     pub ulFlags: u32,
@@ -1321,7 +1295,7 @@ impl ::core::clone::Clone for WABEXTDISPLAY {
 #[repr(C)]
 pub struct WABIMPORTPARAM {
     pub cbSize: u32,
-    pub lpAdrBook: IAddrBook,
+    pub lpAdrBook: *mut ::core::ffi::c_void,
     pub hWnd: super::super::Foundation::HWND,
     pub ulFlags: u32,
     pub lpszFileName: ::windows_sys::core::PSTR,
@@ -1387,7 +1361,7 @@ impl ::core::clone::Clone for __UPV {
         *self
     }
 }
-pub type CALLERRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lptbldata: ITableData, lpvue: IMAPITable)>;
+pub type CALLERRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lptbldata: *mut ::core::ffi::c_void, lpvue: *mut ::core::ffi::c_void)>;
 pub type LPALLOCATEBUFFER = ::core::option::Option<unsafe extern "system" fn(cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
 pub type LPALLOCATEMORE = ::core::option::Option<unsafe extern "system" fn(cbsize: u32, lpobject: *mut ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
 pub type LPCREATECONVERSATIONINDEX = ::core::option::Option<unsafe extern "system" fn(cbparent: u32, lpbparent: *mut u8, lpcbconvindex: *mut u32, lppbconvindex: *mut *mut u8) -> i32>;
@@ -1399,12 +1373,10 @@ pub type LPFREEBUFFER = ::core::option::Option<unsafe extern "system" fn(lpbuffe
 #[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub type LPNOTIFCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpvcontext: *mut ::core::ffi::c_void, cnotification: u32, lpnotifications: *mut NOTIFICATION) -> i32>;
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
-pub type LPOPENSTREAMONFILE = ::core::option::Option<unsafe extern "system" fn(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8, lppstream: *mut super::Com::IStream) -> ::windows_sys::core::HRESULT>;
-pub type LPWABALLOCATEBUFFER = ::core::option::Option<unsafe extern "system" fn(lpwabobject: IWABObject, cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
-pub type LPWABALLOCATEMORE = ::core::option::Option<unsafe extern "system" fn(lpwabobject: IWABObject, cbsize: u32, lpobject: *mut ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
-pub type LPWABFREEBUFFER = ::core::option::Option<unsafe extern "system" fn(lpwabobject: IWABObject, lpbuffer: *mut ::core::ffi::c_void) -> u32>;
-pub type LPWABOPEN = ::core::option::Option<unsafe extern "system" fn(lppadrbook: *mut IAddrBook, lppwabobject: *mut IWABObject, lpwp: *mut WAB_PARAM, reserved2: u32) -> ::windows_sys::core::HRESULT>;
-pub type LPWABOPENEX = ::core::option::Option<unsafe extern "system" fn(lppadrbook: *mut IAddrBook, lppwabobject: *mut IWABObject, lpwp: *mut WAB_PARAM, reserved: u32, fnallocatebuffer: LPALLOCATEBUFFER, fnallocatemore: LPALLOCATEMORE, fnfreebuffer: LPFREEBUFFER) -> ::windows_sys::core::HRESULT>;
+pub type LPOPENSTREAMONFILE = ::core::option::Option<unsafe extern "system" fn(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, ulflags: u32, lpszfilename: *const i8, lpszprefix: *const i8, lppstream: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+pub type LPWABALLOCATEBUFFER = ::core::option::Option<unsafe extern "system" fn(lpwabobject: *mut ::core::ffi::c_void, cbsize: u32, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
+pub type LPWABALLOCATEMORE = ::core::option::Option<unsafe extern "system" fn(lpwabobject: *mut ::core::ffi::c_void, cbsize: u32, lpobject: *mut ::core::ffi::c_void, lppbuffer: *mut *mut ::core::ffi::c_void) -> i32>;
+pub type LPWABFREEBUFFER = ::core::option::Option<unsafe extern "system" fn(lpwabobject: *mut ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void) -> u32>;
+pub type LPWABOPEN = ::core::option::Option<unsafe extern "system" fn(lppadrbook: *mut *mut ::core::ffi::c_void, lppwabobject: *mut *mut ::core::ffi::c_void, lpwp: *mut WAB_PARAM, reserved2: u32) -> ::windows_sys::core::HRESULT>;
+pub type LPWABOPENEX = ::core::option::Option<unsafe extern "system" fn(lppadrbook: *mut *mut ::core::ffi::c_void, lppwabobject: *mut *mut ::core::ffi::c_void, lpwp: *mut WAB_PARAM, reserved: u32, fnallocatebuffer: LPALLOCATEBUFFER, fnallocatemore: LPALLOCATEMORE, fnfreebuffer: LPFREEBUFFER) -> ::windows_sys::core::HRESULT>;
 pub type PFNIDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;

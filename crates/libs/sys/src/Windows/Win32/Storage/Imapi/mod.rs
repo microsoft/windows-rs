@@ -2,70 +2,11 @@
 #[cfg(feature = "Win32_System_AddressBook")]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_AddressBook\"`"] fn GetAttribIMsgOnIStg(lpobject : *mut ::core::ffi::c_void, lpproptagarray : *mut super::super::System::AddressBook:: SPropTagArray, lpppropattrarray : *mut *mut SPropAttrArray) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("mapi32.dll" "system" fn MapStorageSCode(stgscode : i32) -> i32);
-#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com_StructuredStorage"))]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn OpenIMsgOnIStg(lpmsgsess : LPMSGSESS, lpallocatebuffer : super::super::System::AddressBook:: LPALLOCATEBUFFER, lpallocatemore : super::super::System::AddressBook:: LPALLOCATEMORE, lpfreebuffer : super::super::System::AddressBook:: LPFREEBUFFER, lpmalloc : super::super::System::Com:: IMalloc, lpmapisup : *mut ::core::ffi::c_void, lpstg : super::super::System::Com::StructuredStorage:: IStorage, lpfmsgcallrelease : *mut MSGCALLRELEASE, ulcallerdata : u32, ulflags : u32, lppmsg : *mut super::super::System::AddressBook:: IMessage) -> i32);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn OpenIMsgSession(lpmalloc : super::super::System::Com:: IMalloc, ulflags : u32, lppmsgsess : *mut LPMSGSESS) -> i32);
+#[cfg(feature = "Win32_System_AddressBook")]
+::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_AddressBook\"`"] fn OpenIMsgOnIStg(lpmsgsess : LPMSGSESS, lpallocatebuffer : super::super::System::AddressBook:: LPALLOCATEBUFFER, lpallocatemore : super::super::System::AddressBook:: LPALLOCATEMORE, lpfreebuffer : super::super::System::AddressBook:: LPFREEBUFFER, lpmalloc : * mut::core::ffi::c_void, lpmapisup : *mut ::core::ffi::c_void, lpstg : * mut::core::ffi::c_void, lpfmsgcallrelease : *mut MSGCALLRELEASE, ulcallerdata : u32, ulflags : u32, lppmsg : *mut * mut::core::ffi::c_void) -> i32);
+::windows_targets::link!("mapi32.dll" "system" fn OpenIMsgSession(lpmalloc : * mut::core::ffi::c_void, ulflags : u32, lppmsgsess : *mut LPMSGSESS) -> i32);
 #[cfg(feature = "Win32_System_AddressBook")]
 ::windows_targets::link!("mapi32.dll" "system" #[doc = "Required features: `\"Win32_System_AddressBook\"`"] fn SetAttribIMsgOnIStg(lpobject : *mut ::core::ffi::c_void, lpproptags : *mut super::super::System::AddressBook:: SPropTagArray, lppropattrs : *mut SPropAttrArray, lpppropproblems : *mut *mut super::super::System::AddressBook:: SPropProblemArray) -> ::windows_sys::core::HRESULT);
-pub type DDiscFormat2DataEvents = *mut ::core::ffi::c_void;
-pub type DDiscFormat2EraseEvents = *mut ::core::ffi::c_void;
-pub type DDiscFormat2RawCDEvents = *mut ::core::ffi::c_void;
-pub type DDiscFormat2TrackAtOnceEvents = *mut ::core::ffi::c_void;
-pub type DDiscMaster2Events = *mut ::core::ffi::c_void;
-pub type DFileSystemImageEvents = *mut ::core::ffi::c_void;
-pub type DFileSystemImageImportEvents = *mut ::core::ffi::c_void;
-pub type DWriteEngine2Events = *mut ::core::ffi::c_void;
-pub type IBlockRange = *mut ::core::ffi::c_void;
-pub type IBlockRangeList = *mut ::core::ffi::c_void;
-pub type IBootOptions = *mut ::core::ffi::c_void;
-pub type IBurnVerification = *mut ::core::ffi::c_void;
-pub type IDiscFormat2 = *mut ::core::ffi::c_void;
-pub type IDiscFormat2Data = *mut ::core::ffi::c_void;
-pub type IDiscFormat2DataEventArgs = *mut ::core::ffi::c_void;
-pub type IDiscFormat2Erase = *mut ::core::ffi::c_void;
-pub type IDiscFormat2RawCD = *mut ::core::ffi::c_void;
-pub type IDiscFormat2RawCDEventArgs = *mut ::core::ffi::c_void;
-pub type IDiscFormat2TrackAtOnce = *mut ::core::ffi::c_void;
-pub type IDiscFormat2TrackAtOnceEventArgs = *mut ::core::ffi::c_void;
-pub type IDiscMaster = *mut ::core::ffi::c_void;
-pub type IDiscMaster2 = *mut ::core::ffi::c_void;
-pub type IDiscMasterProgressEvents = *mut ::core::ffi::c_void;
-pub type IDiscRecorder = *mut ::core::ffi::c_void;
-pub type IDiscRecorder2 = *mut ::core::ffi::c_void;
-pub type IDiscRecorder2Ex = *mut ::core::ffi::c_void;
-pub type IEnumDiscMasterFormats = *mut ::core::ffi::c_void;
-pub type IEnumDiscRecorders = *mut ::core::ffi::c_void;
-pub type IEnumFsiItems = *mut ::core::ffi::c_void;
-pub type IEnumProgressItems = *mut ::core::ffi::c_void;
-pub type IFileSystemImage = *mut ::core::ffi::c_void;
-pub type IFileSystemImage2 = *mut ::core::ffi::c_void;
-pub type IFileSystemImage3 = *mut ::core::ffi::c_void;
-pub type IFileSystemImageResult = *mut ::core::ffi::c_void;
-pub type IFileSystemImageResult2 = *mut ::core::ffi::c_void;
-pub type IFsiDirectoryItem = *mut ::core::ffi::c_void;
-pub type IFsiDirectoryItem2 = *mut ::core::ffi::c_void;
-pub type IFsiFileItem = *mut ::core::ffi::c_void;
-pub type IFsiFileItem2 = *mut ::core::ffi::c_void;
-pub type IFsiItem = *mut ::core::ffi::c_void;
-pub type IFsiNamedStreams = *mut ::core::ffi::c_void;
-pub type IIsoImageManager = *mut ::core::ffi::c_void;
-pub type IJolietDiscMaster = *mut ::core::ffi::c_void;
-pub type IMultisession = *mut ::core::ffi::c_void;
-pub type IMultisessionRandomWrite = *mut ::core::ffi::c_void;
-pub type IMultisessionSequential = *mut ::core::ffi::c_void;
-pub type IMultisessionSequential2 = *mut ::core::ffi::c_void;
-pub type IProgressItem = *mut ::core::ffi::c_void;
-pub type IProgressItems = *mut ::core::ffi::c_void;
-pub type IRawCDImageCreator = *mut ::core::ffi::c_void;
-pub type IRawCDImageTrackInfo = *mut ::core::ffi::c_void;
-pub type IRedbookDiscMaster = *mut ::core::ffi::c_void;
-pub type IStreamConcatenate = *mut ::core::ffi::c_void;
-pub type IStreamInterleave = *mut ::core::ffi::c_void;
-pub type IStreamPseudoRandomBased = *mut ::core::ffi::c_void;
-pub type IWriteEngine2 = *mut ::core::ffi::c_void;
-pub type IWriteEngine2EventArgs = *mut ::core::ffi::c_void;
-pub type IWriteSpeedDescriptor = *mut ::core::ffi::c_void;
 pub const BlockRange: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb507ca27_2204_11dd_966a_001aa01bbc58);
 pub const BlockRangeList: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xb507ca28_2204_11dd_966a_001aa01bbc58);
 pub const BootOptions: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x2c941fce_975b_59be_a960_9a2a262853a5);
@@ -768,6 +709,4 @@ impl ::core::clone::Clone for tagIMMPID_GUIDLIST_ITEM {
         *self
     }
 }
-#[doc = "Required features: `\"Win32_System_AddressBook\"`"]
-#[cfg(feature = "Win32_System_AddressBook")]
-pub type MSGCALLRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lpmessage: super::super::System::AddressBook::IMessage)>;
+pub type MSGCALLRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lpmessage: *mut ::core::ffi::c_void)>;

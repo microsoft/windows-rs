@@ -469,11 +469,6 @@
 #[cfg(feature = "Win32_System_IO")]
 ::windows_targets::link!("clfsw32.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn WriteLogRestartArea(pvmarshal : *mut ::core::ffi::c_void, pvrestartbuffer : *mut ::core::ffi::c_void, cbrestartbuffer : u32, plsnbase : *mut CLS_LSN, fflags : CLFS_FLAG, pcbwritten : *mut u32, plsnnext : *mut CLS_LSN, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn WriteTapemark(hdevice : super::super::Foundation:: HANDLE, dwtapemarktype : TAPEMARK_TYPE, dwtapemarkcount : u32, bimmediate : super::super::Foundation:: BOOL) -> u32);
-pub type IDiskQuotaControl = *mut ::core::ffi::c_void;
-pub type IDiskQuotaEvents = *mut ::core::ffi::c_void;
-pub type IDiskQuotaUser = *mut ::core::ffi::c_void;
-pub type IDiskQuotaUserBatch = *mut ::core::ffi::c_void;
-pub type IEnumDiskQuotaUsers = *mut ::core::ffi::c_void;
 pub const ACCESS_ALL: SHARE_INFO_PERMISSIONS = 32768u32;
 pub const ACCESS_ATRIB: SHARE_INFO_PERMISSIONS = 32u32;
 pub const ACCESS_CREATE: SHARE_INFO_PERMISSIONS = 4u32;

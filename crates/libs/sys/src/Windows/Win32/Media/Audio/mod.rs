@@ -1,14 +1,14 @@
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-::windows_targets::link!("mmdevapi.dll" "system" #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"] fn ActivateAudioInterfaceAsync(deviceinterfacepath : ::windows_sys::core::PCWSTR, riid : *const ::windows_sys::core::GUID, activationparams : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, completionhandler : IActivateAudioInterfaceCompletionHandler, activationoperation : *mut IActivateAudioInterfaceAsyncOperation) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CoRegisterMessageFilter(lpmessagefilter : IMessageFilter, lplpmessagefilter : *mut IMessageFilter) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitor(audiostatemonitor : *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategory(category : AUDIO_STREAM_CATEGORY, audiostatemonitor : *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category : AUDIO_STREAM_CATEGORY, deviceid : ::windows_sys::core::PCWSTR, audiostatemonitor : *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category : AUDIO_STREAM_CATEGORY, role : ERole, audiostatemonitor : *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitor(audiostatemonitor : *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategory(category : AUDIO_STREAM_CATEGORY, audiostatemonitor : *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceId(category : AUDIO_STREAM_CATEGORY, deviceid : ::windows_sys::core::PCWSTR, audiostatemonitor : *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category : AUDIO_STREAM_CATEGORY, role : ERole, audiostatemonitor : *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mmdevapi.dll" "system" #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"] fn ActivateAudioInterfaceAsync(deviceinterfacepath : ::windows_sys::core::PCWSTR, riid : *const ::windows_sys::core::GUID, activationparams : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, completionhandler : * mut::core::ffi::c_void, activationoperation : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoRegisterMessageFilter(lpmessagefilter : * mut::core::ffi::c_void, lplpmessagefilter : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitor(audiostatemonitor : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategory(category : AUDIO_STREAM_CATEGORY, audiostatemonitor : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category : AUDIO_STREAM_CATEGORY, deviceid : ::windows_sys::core::PCWSTR, audiostatemonitor : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category : AUDIO_STREAM_CATEGORY, role : ERole, audiostatemonitor : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitor(audiostatemonitor : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategory(category : AUDIO_STREAM_CATEGORY, audiostatemonitor : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceId(category : AUDIO_STREAM_CATEGORY, deviceid : ::windows_sys::core::PCWSTR, audiostatemonitor : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category : AUDIO_STREAM_CATEGORY, role : ERole, audiostatemonitor : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("winmm.dll" "system" fn PlaySoundA(pszsound : ::windows_sys::core::PCSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("winmm.dll" "system" fn PlaySoundW(pszsound : ::windows_sys::core::PCWSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("msacm32.dll" "system" fn acmDriverAddA(phadid : *mut HACMDRIVERID, hinstmodule : super::super::Foundation:: HINSTANCE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
@@ -159,82 +159,6 @@
 ::windows_targets::link!("winmm.dll" "system" fn waveOutSetVolume(hwo : HWAVEOUT, dwvolume : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn waveOutUnprepareHeader(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn waveOutWrite(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
-pub type IAcousticEchoCancellationControl = *mut ::core::ffi::c_void;
-pub type IActivateAudioInterfaceAsyncOperation = *mut ::core::ffi::c_void;
-pub type IActivateAudioInterfaceCompletionHandler = *mut ::core::ffi::c_void;
-pub type IAudioAmbisonicsControl = *mut ::core::ffi::c_void;
-pub type IAudioAutoGainControl = *mut ::core::ffi::c_void;
-pub type IAudioBass = *mut ::core::ffi::c_void;
-pub type IAudioCaptureClient = *mut ::core::ffi::c_void;
-pub type IAudioChannelConfig = *mut ::core::ffi::c_void;
-pub type IAudioClient = *mut ::core::ffi::c_void;
-pub type IAudioClient2 = *mut ::core::ffi::c_void;
-pub type IAudioClient3 = *mut ::core::ffi::c_void;
-pub type IAudioClientDuckingControl = *mut ::core::ffi::c_void;
-pub type IAudioClock = *mut ::core::ffi::c_void;
-pub type IAudioClock2 = *mut ::core::ffi::c_void;
-pub type IAudioClockAdjustment = *mut ::core::ffi::c_void;
-pub type IAudioEffectsChangedNotificationClient = *mut ::core::ffi::c_void;
-pub type IAudioEffectsManager = *mut ::core::ffi::c_void;
-pub type IAudioFormatEnumerator = *mut ::core::ffi::c_void;
-pub type IAudioInputSelector = *mut ::core::ffi::c_void;
-pub type IAudioLoudness = *mut ::core::ffi::c_void;
-pub type IAudioMidrange = *mut ::core::ffi::c_void;
-pub type IAudioMute = *mut ::core::ffi::c_void;
-pub type IAudioOutputSelector = *mut ::core::ffi::c_void;
-pub type IAudioPeakMeter = *mut ::core::ffi::c_void;
-pub type IAudioRenderClient = *mut ::core::ffi::c_void;
-pub type IAudioSessionControl = *mut ::core::ffi::c_void;
-pub type IAudioSessionControl2 = *mut ::core::ffi::c_void;
-pub type IAudioSessionEnumerator = *mut ::core::ffi::c_void;
-pub type IAudioSessionEvents = *mut ::core::ffi::c_void;
-pub type IAudioSessionManager = *mut ::core::ffi::c_void;
-pub type IAudioSessionManager2 = *mut ::core::ffi::c_void;
-pub type IAudioSessionNotification = *mut ::core::ffi::c_void;
-pub type IAudioStateMonitor = *mut ::core::ffi::c_void;
-pub type IAudioStreamVolume = *mut ::core::ffi::c_void;
-pub type IAudioSystemEffectsPropertyChangeNotificationClient = *mut ::core::ffi::c_void;
-pub type IAudioSystemEffectsPropertyStore = *mut ::core::ffi::c_void;
-pub type IAudioTreble = *mut ::core::ffi::c_void;
-pub type IAudioViewManagerService = *mut ::core::ffi::c_void;
-pub type IAudioVolumeDuckNotification = *mut ::core::ffi::c_void;
-pub type IAudioVolumeLevel = *mut ::core::ffi::c_void;
-pub type IChannelAudioVolume = *mut ::core::ffi::c_void;
-pub type IConnector = *mut ::core::ffi::c_void;
-pub type IControlChangeNotify = *mut ::core::ffi::c_void;
-pub type IControlInterface = *mut ::core::ffi::c_void;
-pub type IDeviceSpecificProperty = *mut ::core::ffi::c_void;
-pub type IDeviceTopology = *mut ::core::ffi::c_void;
-pub type IMMDevice = *mut ::core::ffi::c_void;
-pub type IMMDeviceActivator = *mut ::core::ffi::c_void;
-pub type IMMDeviceCollection = *mut ::core::ffi::c_void;
-pub type IMMDeviceEnumerator = *mut ::core::ffi::c_void;
-pub type IMMEndpoint = *mut ::core::ffi::c_void;
-pub type IMMNotificationClient = *mut ::core::ffi::c_void;
-pub type IMessageFilter = *mut ::core::ffi::c_void;
-pub type IPart = *mut ::core::ffi::c_void;
-pub type IPartsList = *mut ::core::ffi::c_void;
-pub type IPerChannelDbLevel = *mut ::core::ffi::c_void;
-pub type ISimpleAudioVolume = *mut ::core::ffi::c_void;
-pub type ISpatialAudioClient = *mut ::core::ffi::c_void;
-pub type ISpatialAudioClient2 = *mut ::core::ffi::c_void;
-pub type ISpatialAudioMetadataClient = *mut ::core::ffi::c_void;
-pub type ISpatialAudioMetadataCopier = *mut ::core::ffi::c_void;
-pub type ISpatialAudioMetadataItems = *mut ::core::ffi::c_void;
-pub type ISpatialAudioMetadataItemsBuffer = *mut ::core::ffi::c_void;
-pub type ISpatialAudioMetadataReader = *mut ::core::ffi::c_void;
-pub type ISpatialAudioMetadataWriter = *mut ::core::ffi::c_void;
-pub type ISpatialAudioObject = *mut ::core::ffi::c_void;
-pub type ISpatialAudioObjectBase = *mut ::core::ffi::c_void;
-pub type ISpatialAudioObjectForHrtf = *mut ::core::ffi::c_void;
-pub type ISpatialAudioObjectForMetadataCommands = *mut ::core::ffi::c_void;
-pub type ISpatialAudioObjectForMetadataItems = *mut ::core::ffi::c_void;
-pub type ISpatialAudioObjectRenderStream = *mut ::core::ffi::c_void;
-pub type ISpatialAudioObjectRenderStreamBase = *mut ::core::ffi::c_void;
-pub type ISpatialAudioObjectRenderStreamForHrtf = *mut ::core::ffi::c_void;
-pub type ISpatialAudioObjectRenderStreamForMetadata = *mut ::core::ffi::c_void;
-pub type ISpatialAudioObjectRenderStreamNotify = *mut ::core::ffi::c_void;
-pub type ISubunit = *mut ::core::ffi::c_void;
 pub const ACMDM_DRIVER_ABOUT: u32 = 24587u32;
 pub const ACMDM_DRIVER_DETAILS: u32 = 24586u32;
 pub const ACMDM_DRIVER_NOTIFY: u32 = 24577u32;
@@ -1551,9 +1475,9 @@ impl ::core::clone::Clone for AudioClientProperties {
 #[repr(C)]
 pub struct AudioExtensionParams {
     pub AddPageParam: super::super::Foundation::LPARAM,
-    pub pEndpoint: IMMDevice,
-    pub pPnpInterface: IMMDevice,
-    pub pPnpDevnode: IMMDevice,
+    pub pEndpoint: *mut ::core::ffi::c_void,
+    pub pPnpInterface: *mut ::core::ffi::c_void,
+    pub pPnpDevnode: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for AudioExtensionParams {}
 impl ::core::clone::Clone for AudioExtensionParams {
@@ -2237,7 +2161,7 @@ pub struct SpatialAudioHrtfActivationParams {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
+    pub NotifyObject: *mut ::core::ffi::c_void,
     pub DistanceDecay: *mut SpatialAudioHrtfDistanceDecay,
     pub Directivity: *mut SpatialAudioHrtfDirectivityUnion,
     pub Environment: *mut SpatialAudioHrtfEnvironmentType,
@@ -2257,7 +2181,7 @@ pub struct SpatialAudioHrtfActivationParams2 {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
+    pub NotifyObject: *mut ::core::ffi::c_void,
     pub DistanceDecay: *mut SpatialAudioHrtfDistanceDecay,
     pub Directivity: *mut SpatialAudioHrtfDirectivityUnion,
     pub Environment: *mut SpatialAudioHrtfEnvironmentType,
@@ -2351,7 +2275,7 @@ pub struct SpatialAudioObjectRenderStreamActivationParams {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
+    pub NotifyObject: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for SpatialAudioObjectRenderStreamActivationParams {}
 impl ::core::clone::Clone for SpatialAudioObjectRenderStreamActivationParams {
@@ -2367,7 +2291,7 @@ pub struct SpatialAudioObjectRenderStreamActivationParams2 {
     pub MaxDynamicObjectCount: u32,
     pub Category: AUDIO_STREAM_CATEGORY,
     pub EventHandle: super::super::Foundation::HANDLE,
-    pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
+    pub NotifyObject: *mut ::core::ffi::c_void,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
 impl ::core::marker::Copy for SpatialAudioObjectRenderStreamActivationParams2 {}
@@ -2389,7 +2313,7 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
     pub MetadataFormatId: ::windows_sys::core::GUID,
     pub MaxMetadataItemCount: u16,
     pub MetadataActivationParams: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
-    pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
+    pub NotifyObject: *mut ::core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for SpatialAudioObjectRenderStreamForMetadataActivationParams {}
@@ -2412,7 +2336,7 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
     pub MetadataFormatId: ::windows_sys::core::GUID,
     pub MaxMetadataItemCount: u32,
     pub MetadataActivationParams: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
-    pub NotifyObject: ISpatialAudioObjectRenderStreamNotify,
+    pub NotifyObject: *mut ::core::ffi::c_void,
     pub Options: SPATIAL_AUDIO_STREAM_OPTIONS,
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
@@ -2699,4 +2623,4 @@ pub type LPMIDICALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr
 #[doc = "Required features: `\"Win32_Media_Multimedia\"`"]
 #[cfg(feature = "Win32_Media_Multimedia")]
 pub type LPWAVECALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr: super::Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
-pub type PAudioStateMonitorCallback = ::core::option::Option<unsafe extern "system" fn(audiostatemonitor: IAudioStateMonitor, context: *const ::core::ffi::c_void)>;
+pub type PAudioStateMonitorCallback = ::core::option::Option<unsafe extern "system" fn(audiostatemonitor: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void)>;

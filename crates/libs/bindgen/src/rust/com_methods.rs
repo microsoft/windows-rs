@@ -7,7 +7,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
     let vname = virtual_names.add(method);
     let generics = writer.constraint_generics(&signature.params);
     let where_clause = writer.where_clause(&signature.params);
-    let mut cfg = cfg::signature_cfg(method);
+    let mut cfg = cfg::signature_cfg(writer, method);
     cfg.add_feature(def.namespace());
     let doc = writer.cfg_method_doc(&cfg);
     let features = writer.cfg_features(&cfg);
