@@ -48,7 +48,8 @@ impl Error {
                 let mut code = HRESULT(0);
 
                 unsafe {
-                    let _ = info.GetErrorDetails(&mut fallback, &mut code, &mut message, &mut BSTR::default());
+                    // The vfptr is called directly to avoid the default error propagation logic.
+                    _ = (info.vtable().GetErrorDetails)(info.as_raw(), &mut fallback as *mut _ as _, &mut code, &mut message as *mut _ as _, &mut BSTR::default() as *mut _ as _);
                 }
 
                 if message.is_empty() {
@@ -58,7 +59,10 @@ impl Error {
 
             // Next attempt to retrieve the regular error information.
             if message.is_empty() {
-                message = unsafe { info.GetDescription().unwrap_or_default() };
+                unsafe {
+                    // The vfptr is called directly to avoid the default error propagation logic.
+                    _ = (info.vtable().GetDescription)(info.as_raw(), &mut message as *mut _ as _);
+                }
             }
 
             return HSTRING::from_wide(crate::imp::wide_trim_end(message.as_wide())).unwrap_or_default();
@@ -73,7 +77,7 @@ impl From<Error> for HRESULT {
     fn from(error: Error) -> Self {
         if error.info.is_some() {
             unsafe {
-                SetErrorInfo(0, std::mem::transmute_copy(&error.info));
+                crate::imp::SetErrorInfo(0, std::mem::transmute_copy(&error.info));
             }
         }
 
@@ -81,24 +85,11 @@ impl From<Error> for HRESULT {
     }
 }
 
-// TODO: this really needs a more lightweight set of COM bindings that don't provide the transformations
-// Maybe added that to windows-bindgen's "--config sys" bindings.
-
 impl From<HRESULT> for Error {
     fn from(code: HRESULT) -> Self {
-        // TODO: move GetErrorInfo to bindings.rs to avoid the redundant error paths
         let info = GetErrorInfo();
 
-        if let Some(info) = info.as_ref() {
-            // If it does (and therefore running on a recent version of Windows)
-            // then capture_propagation_context adds a breadcrumb to the error
-            // info to make debugging easier.
-            if let Ok(capture) = info.cast::<crate::imp::ILanguageExceptionErrorInfo2>() {
-                unsafe {
-                    let _ = capture.CapturePropagationContext(None);
-                }
-            }
-        }
+        // Call CapturePropagationContext here if a use case presents itself. Otherwise, we can avoid the overhead for error propagation.
 
         Self { code, info }
     }
@@ -159,8 +150,7 @@ impl std::fmt::Display for Error {
 impl std::error::Error for Error {}
 
 fn GetErrorInfo() -> Option<crate::imp::IErrorInfo> {
-    unsafe { crate::imp::GetErrorInfo(0).ok() }
+    let mut info = None;
+    unsafe { crate::imp::GetErrorInfo(0, &mut info as *mut _ as _) };
+    info
 }
-
-// TODO: move to bindings.rs
-windows_targets::link!("oleaut32.dll" "system" fn SetErrorInfo(reserved: u32, info: *mut std::ffi::c_void) -> i32);
