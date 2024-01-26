@@ -9,6 +9,9 @@ pub struct Error {
     pub(crate) info: Option<crate::imp::IErrorInfo>,
 }
 
+unsafe impl Send for Error {}
+unsafe impl Sync for Error {}
+
 impl Error {
     /// An error object without any failure information.
     pub const OK: Self = Self { code: HRESULT(0), info: None };
