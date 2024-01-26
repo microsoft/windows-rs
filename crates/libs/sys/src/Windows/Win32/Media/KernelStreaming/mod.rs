@@ -13,31 +13,6 @@
 ::windows_targets::link!("ksproxy.ax" "system" fn KsOpenDefaultDevice(category : *const ::windows_sys::core::GUID, access : u32, devicehandle : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ksproxy.ax" "system" fn KsResolveRequiredAttributes(datarange : *const KSDATAFORMAT, attributes : *const KSMULTIPLE_ITEM) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ksproxy.ax" "system" fn KsSynchronousDeviceControl(handle : super::super::Foundation:: HANDLE, iocontrol : u32, inbuffer : *const ::core::ffi::c_void, inlength : u32, outbuffer : *mut ::core::ffi::c_void, outlength : u32, bytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
-pub type IKsAggregateControl = *mut ::core::ffi::c_void;
-pub type IKsAllocator = *mut ::core::ffi::c_void;
-pub type IKsAllocatorEx = *mut ::core::ffi::c_void;
-pub type IKsClockPropertySet = *mut ::core::ffi::c_void;
-pub type IKsControl = *mut ::core::ffi::c_void;
-pub type IKsDataTypeCompletion = *mut ::core::ffi::c_void;
-pub type IKsDataTypeHandler = *mut ::core::ffi::c_void;
-pub type IKsFormatSupport = *mut ::core::ffi::c_void;
-pub type IKsInterfaceHandler = *mut ::core::ffi::c_void;
-pub type IKsJackContainerId = *mut ::core::ffi::c_void;
-pub type IKsJackDescription = *mut ::core::ffi::c_void;
-pub type IKsJackDescription2 = *mut ::core::ffi::c_void;
-pub type IKsJackDescription3 = *mut ::core::ffi::c_void;
-pub type IKsJackSinkInformation = *mut ::core::ffi::c_void;
-pub type IKsNodeControl = *mut ::core::ffi::c_void;
-pub type IKsNotifyEvent = *mut ::core::ffi::c_void;
-pub type IKsObject = *mut ::core::ffi::c_void;
-pub type IKsPin = *mut ::core::ffi::c_void;
-pub type IKsPinEx = *mut ::core::ffi::c_void;
-pub type IKsPinFactory = *mut ::core::ffi::c_void;
-pub type IKsPinPipe = *mut ::core::ffi::c_void;
-pub type IKsPropertySet = *mut ::core::ffi::c_void;
-pub type IKsQualityForwarder = *mut ::core::ffi::c_void;
-pub type IKsTopology = *mut ::core::ffi::c_void;
-pub type IKsTopologyInfo = *mut ::core::ffi::c_void;
 pub const AEC_MODE_FULL_DUPLEX: u32 = 2u32;
 pub const AEC_MODE_HALF_DUPLEX: u32 = 1u32;
 pub const AEC_MODE_PASS_THROUGH: u32 = 0u32;
@@ -2223,9 +2198,9 @@ pub struct ALLOCATOR_PROPERTIES_EX {
     pub AllocatorPlace: PIPE_ALLOCATOR_PLACE,
     pub Dimensions: PIPE_DIMENSIONS,
     pub PhysicalRange: KS_FRAMING_RANGE,
-    pub PrevSegment: IKsAllocatorEx,
+    pub PrevSegment: *mut ::core::ffi::c_void,
     pub CountNextSegments: u32,
-    pub NextSegments: *mut IKsAllocatorEx,
+    pub NextSegments: *mut *mut ::core::ffi::c_void,
     pub InsideFactors: u32,
     pub NumberPins: u32,
 }
@@ -5707,8 +5682,8 @@ impl ::core::clone::Clone for KSSTREAM_METADATA_INFO {
 }
 #[repr(C)]
 pub struct KSSTREAM_SEGMENT {
-    pub KsInterfaceHandler: IKsInterfaceHandler,
-    pub KsDataTypeHandler: IKsDataTypeHandler,
+    pub KsInterfaceHandler: *mut ::core::ffi::c_void,
+    pub KsDataTypeHandler: *mut ::core::ffi::c_void,
     pub IoOperation: KSIOOPERATION,
     pub CompletionEvent: super::super::Foundation::HANDLE,
 }

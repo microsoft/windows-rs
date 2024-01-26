@@ -304,11 +304,6 @@
 ::windows_targets::link!("wininet.dll" "system" fn UrlCacheServer() -> u32);
 ::windows_targets::link!("wininet.dll" "system" fn UrlCacheSetGlobalLimit(limittype : URL_CACHE_LIMIT_TYPE, ulllimit : u64) -> u32);
 ::windows_targets::link!("wininet.dll" "system" fn UrlCacheUpdateEntryExtraData(happcache : *const ::core::ffi::c_void, pcwszurl : ::windows_sys::core::PCWSTR, pbextradata : *const u8, cbextradata : u32) -> u32);
-pub type IDialBranding = *mut ::core::ffi::c_void;
-pub type IDialEngine = *mut ::core::ffi::c_void;
-pub type IDialEventSink = *mut ::core::ffi::c_void;
-pub type IProofOfPossessionCookieInfoManager = *mut ::core::ffi::c_void;
-pub type IProofOfPossessionCookieInfoManager2 = *mut ::core::ffi::c_void;
 pub const ANY_CACHE_ENTRY: u32 = 4294967295u32;
 pub const APP_CACHE_ENTRY_TYPE_EXPLICIT: u32 = 2u32;
 pub const APP_CACHE_ENTRY_TYPE_FALLBACK: u32 = 4u32;

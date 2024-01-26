@@ -207,8 +207,7 @@
 ::windows_targets::link!("dciman32.dll" "system" fn WinWatchOpen(hwnd : super::super::Foundation:: HWND) -> HWINWATCH);
 ::windows_targets::link!("wldp.dll" "system" fn WldpCanExecuteBuffer(host : *const ::windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, buffer : *const u8, buffersize : u32, auditinfo : ::windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wldp.dll" "system" fn WldpCanExecuteFile(host : *const ::windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle : super::super::Foundation:: HANDLE, auditinfo : ::windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("wldp.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn WldpCanExecuteStream(host : *const ::windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, stream : super::Com:: IStream, auditinfo : ::windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wldp.dll" "system" fn WldpCanExecuteStream(host : *const ::windows_sys::core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, stream : * mut::core::ffi::c_void, auditinfo : ::windows_sys::core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wldp.dll" "system" fn WldpGetLockdownPolicy(hostinformation : *const WLDP_HOST_INFORMATION, lockdownstate : *mut u32, lockdownflags : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wldp.dll" "system" fn WldpIsClassInApprovedList(classid : *const ::windows_sys::core::GUID, hostinformation : *const WLDP_HOST_INFORMATION, isapproved : *mut super::super::Foundation:: BOOL, optionalflags : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("wldp.dll" "system" fn WldpIsDynamicCodePolicyEnabled(isenabled : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
@@ -249,16 +248,6 @@
 ::windows_targets::link!("kernel32.dll" "system" fn uaw_wcslen(string : *const u16) -> usize);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 ::windows_targets::link!("kernel32.dll" "system" fn uaw_wcsrchr(string : *const u16, character : u16) -> *mut u16);
-pub type ICameraUIControl = *mut ::core::ffi::c_void;
-pub type ICameraUIControlEventCallback = *mut ::core::ffi::c_void;
-pub type IClipServiceNotificationHelper = *mut ::core::ffi::c_void;
-pub type IContainerActivationHelper = *mut ::core::ffi::c_void;
-pub type IDefaultBrowserSyncSettings = *mut ::core::ffi::c_void;
-pub type IDeleteBrowsingHistory = *mut ::core::ffi::c_void;
-pub type IEditionUpgradeBroker = *mut ::core::ffi::c_void;
-pub type IEditionUpgradeHelper = *mut ::core::ffi::c_void;
-pub type IFClipNotificationHelper = *mut ::core::ffi::c_void;
-pub type IWindowsLockModeHelper = *mut ::core::ffi::c_void;
 pub const AADBE_ADD_ENTRY: u32 = 1u32;
 pub const AADBE_DEL_ENTRY: u32 = 2u32;
 pub const ACTCTX_FLAG_APPLICATION_NAME_VALID: u32 = 32u32;
@@ -1988,9 +1977,7 @@ pub type PQUERYACTCTXW_FUNC = ::core::option::Option<unsafe extern "system" fn(d
 pub type PWINSTATIONQUERYINFORMATIONW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut ::core::ffi::c_void, param4: u32, param5: *mut u32) -> super::super::Foundation::BOOLEAN>;
 pub type PWLDP_CANEXECUTEBUFFER_API = ::core::option::Option<unsafe extern "system" fn(host: *const ::windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, buffer: *const u8, buffersize: u32, auditinfo: ::windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> ::windows_sys::core::HRESULT>;
 pub type PWLDP_CANEXECUTEFILE_API = ::core::option::Option<unsafe extern "system" fn(host: *const ::windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: super::super::Foundation::HANDLE, auditinfo: ::windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `\"Win32_System_Com\"`"]
-#[cfg(feature = "Win32_System_Com")]
-pub type PWLDP_CANEXECUTESTREAM_API = ::core::option::Option<unsafe extern "system" fn(host: *const ::windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: super::Com::IStream, auditinfo: ::windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> ::windows_sys::core::HRESULT>;
+pub type PWLDP_CANEXECUTESTREAM_API = ::core::option::Option<unsafe extern "system" fn(host: *const ::windows_sys::core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: *mut ::core::ffi::c_void, auditinfo: ::windows_sys::core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> ::windows_sys::core::HRESULT>;
 pub type PWLDP_ISAPPAPPROVEDBYPOLICY_API = ::core::option::Option<unsafe extern "system" fn(packagefamilyname: ::windows_sys::core::PCWSTR, packageversion: u64) -> ::windows_sys::core::HRESULT>;
 pub type PWLDP_ISDYNAMICCODEPOLICYENABLED_API = ::core::option::Option<unsafe extern "system" fn(pbenabled: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT>;
 pub type PWLDP_ISPRODUCTIONCONFIGURATION_API = ::core::option::Option<unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT>;

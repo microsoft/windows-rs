@@ -1,74 +1,4 @@
 ::windows_targets::link!("mi.dll" "cdecl" fn MI_Application_InitializeV1(flags : u32, applicationid : *const u16, extendederror : *mut *mut MI_Instance, application : *mut MI_Application) -> MI_Result);
-pub type IEnumWbemClassObject = *mut ::core::ffi::c_void;
-pub type IMofCompiler = *mut ::core::ffi::c_void;
-pub type ISWbemDateTime = *mut ::core::ffi::c_void;
-pub type ISWbemEventSource = *mut ::core::ffi::c_void;
-pub type ISWbemLastError = *mut ::core::ffi::c_void;
-pub type ISWbemLocator = *mut ::core::ffi::c_void;
-pub type ISWbemMethod = *mut ::core::ffi::c_void;
-pub type ISWbemMethodSet = *mut ::core::ffi::c_void;
-pub type ISWbemNamedValue = *mut ::core::ffi::c_void;
-pub type ISWbemNamedValueSet = *mut ::core::ffi::c_void;
-pub type ISWbemObject = *mut ::core::ffi::c_void;
-pub type ISWbemObjectEx = *mut ::core::ffi::c_void;
-pub type ISWbemObjectPath = *mut ::core::ffi::c_void;
-pub type ISWbemObjectSet = *mut ::core::ffi::c_void;
-pub type ISWbemPrivilege = *mut ::core::ffi::c_void;
-pub type ISWbemPrivilegeSet = *mut ::core::ffi::c_void;
-pub type ISWbemProperty = *mut ::core::ffi::c_void;
-pub type ISWbemPropertySet = *mut ::core::ffi::c_void;
-pub type ISWbemQualifier = *mut ::core::ffi::c_void;
-pub type ISWbemQualifierSet = *mut ::core::ffi::c_void;
-pub type ISWbemRefreshableItem = *mut ::core::ffi::c_void;
-pub type ISWbemRefresher = *mut ::core::ffi::c_void;
-pub type ISWbemSecurity = *mut ::core::ffi::c_void;
-pub type ISWbemServices = *mut ::core::ffi::c_void;
-pub type ISWbemServicesEx = *mut ::core::ffi::c_void;
-pub type ISWbemSink = *mut ::core::ffi::c_void;
-pub type ISWbemSinkEvents = *mut ::core::ffi::c_void;
-pub type IUnsecuredApartment = *mut ::core::ffi::c_void;
-pub type IWMIExtension = *mut ::core::ffi::c_void;
-pub type IWbemAddressResolution = *mut ::core::ffi::c_void;
-pub type IWbemBackupRestore = *mut ::core::ffi::c_void;
-pub type IWbemBackupRestoreEx = *mut ::core::ffi::c_void;
-pub type IWbemCallResult = *mut ::core::ffi::c_void;
-pub type IWbemClassObject = *mut ::core::ffi::c_void;
-pub type IWbemClientConnectionTransport = *mut ::core::ffi::c_void;
-pub type IWbemClientTransport = *mut ::core::ffi::c_void;
-pub type IWbemConfigureRefresher = *mut ::core::ffi::c_void;
-pub type IWbemConnectorLogin = *mut ::core::ffi::c_void;
-pub type IWbemConstructClassObject = *mut ::core::ffi::c_void;
-pub type IWbemContext = *mut ::core::ffi::c_void;
-pub type IWbemDecoupledBasicEventProvider = *mut ::core::ffi::c_void;
-pub type IWbemDecoupledRegistrar = *mut ::core::ffi::c_void;
-pub type IWbemEventConsumerProvider = *mut ::core::ffi::c_void;
-pub type IWbemEventProvider = *mut ::core::ffi::c_void;
-pub type IWbemEventProviderQuerySink = *mut ::core::ffi::c_void;
-pub type IWbemEventProviderSecurity = *mut ::core::ffi::c_void;
-pub type IWbemEventSink = *mut ::core::ffi::c_void;
-pub type IWbemHiPerfEnum = *mut ::core::ffi::c_void;
-pub type IWbemHiPerfProvider = *mut ::core::ffi::c_void;
-pub type IWbemLevel1Login = *mut ::core::ffi::c_void;
-pub type IWbemLocator = *mut ::core::ffi::c_void;
-pub type IWbemObjectAccess = *mut ::core::ffi::c_void;
-pub type IWbemObjectSink = *mut ::core::ffi::c_void;
-pub type IWbemObjectSinkEx = *mut ::core::ffi::c_void;
-pub type IWbemObjectTextSrc = *mut ::core::ffi::c_void;
-pub type IWbemPath = *mut ::core::ffi::c_void;
-pub type IWbemPathKeyList = *mut ::core::ffi::c_void;
-pub type IWbemPropertyProvider = *mut ::core::ffi::c_void;
-pub type IWbemProviderIdentity = *mut ::core::ffi::c_void;
-pub type IWbemProviderInit = *mut ::core::ffi::c_void;
-pub type IWbemProviderInitSink = *mut ::core::ffi::c_void;
-pub type IWbemQualifierSet = *mut ::core::ffi::c_void;
-pub type IWbemQuery = *mut ::core::ffi::c_void;
-pub type IWbemRefresher = *mut ::core::ffi::c_void;
-pub type IWbemServices = *mut ::core::ffi::c_void;
-pub type IWbemShutdown = *mut ::core::ffi::c_void;
-pub type IWbemStatusCodeText = *mut ::core::ffi::c_void;
-pub type IWbemTransport = *mut ::core::ffi::c_void;
-pub type IWbemUnboundObjectSink = *mut ::core::ffi::c_void;
-pub type IWbemUnsecuredApartment = *mut ::core::ffi::c_void;
 pub const CIM_BOOLEAN: CIMTYPE_ENUMERATION = 11i32;
 pub const CIM_CHAR16: CIMTYPE_ENUMERATION = 103i32;
 pub const CIM_DATETIME: CIMTYPE_ENUMERATION = 101i32;
@@ -3177,7 +3107,7 @@ pub struct SWbemAssocQueryInf {
     pub m_uVersion: u32,
     pub m_uAnalysisType: u32,
     pub m_uFeatureMask: u32,
-    pub m_pPath: IWbemPath,
+    pub m_pPath: *mut ::core::ffi::c_void,
     pub m_pszPath: ::windows_sys::core::PWSTR,
     pub m_pszQueryText: ::windows_sys::core::PWSTR,
     pub m_pszResultClass: ::windows_sys::core::PWSTR,

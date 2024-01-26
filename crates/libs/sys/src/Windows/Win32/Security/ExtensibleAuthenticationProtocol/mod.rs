@@ -1,11 +1,8 @@
 ::windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerBeginSession(dwflags : u32, eaptype : EAP_METHOD_TYPE, pattributearray : *const EAP_ATTRIBUTES, htokenimpersonateuser : super::super::Foundation:: HANDLE, dwsizeofconnectiondata : u32, pconnectiondata : *const u8, dwsizeofuserdata : u32, puserdata : *const u8, dwmaxsendpacketsize : u32, pconnectionid : *const ::windows_sys::core::GUID, func : NotificationHandler, pcontextdata : *mut ::core::ffi::c_void, psessionid : *mut u32, ppeaperror : *mut *mut EAP_ERROR) -> u32);
 ::windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerClearConnection(pconnectionid : *mut ::windows_sys::core::GUID, ppeaperror : *mut *mut EAP_ERROR) -> u32);
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-::windows_targets::link!("eappcfg.dll" "system" #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"] fn EapHostPeerConfigBlob2Xml(dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, dwsizeofconfigin : u32, pconfigin : *const u8, ppconfigdoc : *mut super::super::Data::Xml::MsXml:: IXMLDOMDocument2, ppeaperror : *mut *mut EAP_ERROR) -> u32);
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-::windows_targets::link!("eappcfg.dll" "system" #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"] fn EapHostPeerConfigXml2Blob(dwflags : u32, pconfigdoc : super::super::Data::Xml::MsXml:: IXMLDOMNode, pdwsizeofconfigout : *mut u32, ppconfigout : *mut *mut u8, peapmethodtype : *mut EAP_METHOD_TYPE, ppeaperror : *mut *mut EAP_ERROR) -> u32);
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-::windows_targets::link!("eappcfg.dll" "system" #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"] fn EapHostPeerCredentialsXml2Blob(dwflags : u32, pcredentialsdoc : super::super::Data::Xml::MsXml:: IXMLDOMNode, dwsizeofconfigin : u32, pconfigin : *const u8, pdwsizeofcredentialsout : *mut u32, ppcredentialsout : *mut *mut u8, peapmethodtype : *mut EAP_METHOD_TYPE, ppeaperror : *mut *mut EAP_ERROR) -> u32);
+::windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerConfigBlob2Xml(dwflags : u32, eapmethodtype : EAP_METHOD_TYPE, dwsizeofconfigin : u32, pconfigin : *const u8, ppconfigdoc : *mut * mut::core::ffi::c_void, ppeaperror : *mut *mut EAP_ERROR) -> u32);
+::windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerConfigXml2Blob(dwflags : u32, pconfigdoc : * mut::core::ffi::c_void, pdwsizeofconfigout : *mut u32, ppconfigout : *mut *mut u8, peapmethodtype : *mut EAP_METHOD_TYPE, ppeaperror : *mut *mut EAP_ERROR) -> u32);
+::windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerCredentialsXml2Blob(dwflags : u32, pcredentialsdoc : * mut::core::ffi::c_void, dwsizeofconfigin : u32, pconfigin : *const u8, pdwsizeofcredentialsout : *mut u32, ppcredentialsout : *mut *mut u8, peapmethodtype : *mut EAP_METHOD_TYPE, ppeaperror : *mut *mut EAP_ERROR) -> u32);
 ::windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerEndSession(sessionhandle : u32, ppeaperror : *mut *mut EAP_ERROR) -> u32);
 ::windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerFreeEapError(peaperror : *mut EAP_ERROR));
 ::windows_targets::link!("eappcfg.dll" "system" fn EapHostPeerFreeErrorMemory(peaperror : *mut EAP_ERROR));
@@ -33,12 +30,6 @@
 ::windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerSetResponseAttributes(sessionhandle : u32, pattribs : *const EAP_ATTRIBUTES, peapoutput : *mut EapHostPeerResponseAction, ppeaperror : *mut *mut EAP_ERROR) -> u32);
 ::windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerSetUIContext(sessionhandle : u32, dwsizeofuicontextdata : u32, puicontextdata : *const u8, peapoutput : *mut EapHostPeerResponseAction, ppeaperror : *mut *mut EAP_ERROR) -> u32);
 ::windows_targets::link!("eappprxy.dll" "system" fn EapHostPeerUninitialize());
-pub type IAccountingProviderConfig = *mut ::core::ffi::c_void;
-pub type IAuthenticationProviderConfig = *mut ::core::ffi::c_void;
-pub type IEAPProviderConfig = *mut ::core::ffi::c_void;
-pub type IEAPProviderConfig2 = *mut ::core::ffi::c_void;
-pub type IEAPProviderConfig3 = *mut ::core::ffi::c_void;
-pub type IRouterProtocolConfig = *mut ::core::ffi::c_void;
 pub const CERTIFICATE_HASH_LENGTH: u32 = 20u32;
 pub const EAPACTION_Authenticate: PPP_EAP_ACTION = 1i32;
 pub const EAPACTION_Done: PPP_EAP_ACTION = 2i32;

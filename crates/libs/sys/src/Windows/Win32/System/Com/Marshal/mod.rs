@@ -15,14 +15,14 @@
 ::windows_targets::link!("ole32.dll" "system" fn CLIPFORMAT_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut u16) -> *mut u8);
 ::windows_targets::link!("ole32.dll" "system" fn CLIPFORMAT_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut u16) -> *mut u8);
 ::windows_targets::link!("ole32.dll" "system" fn CoGetMarshalSizeMax(pulsize : *mut u32, riid : *const ::windows_sys::core::GUID, punk : ::windows_sys::core::IUnknown, dwdestcontext : u32, pvdestcontext : *const ::core::ffi::c_void, mshlflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CoGetStandardMarshal(riid : *const ::windows_sys::core::GUID, punk : ::windows_sys::core::IUnknown, dwdestcontext : u32, pvdestcontext : *const ::core::ffi::c_void, mshlflags : u32, ppmarshal : *mut IMarshal) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoGetStandardMarshal(riid : *const ::windows_sys::core::GUID, punk : ::windows_sys::core::IUnknown, dwdestcontext : u32, pvdestcontext : *const ::core::ffi::c_void, mshlflags : u32, ppmarshal : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoGetStdMarshalEx(punkouter : ::windows_sys::core::IUnknown, smexflags : u32, ppunkinner : *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CoMarshalHresult(pstm : super:: IStream, hresult : ::windows_sys::core::HRESULT) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CoMarshalInterThreadInterfaceInStream(riid : *const ::windows_sys::core::GUID, punk : ::windows_sys::core::IUnknown, ppstm : *mut super:: IStream) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CoMarshalInterface(pstm : super:: IStream, riid : *const ::windows_sys::core::GUID, punk : ::windows_sys::core::IUnknown, dwdestcontext : u32, pvdestcontext : *const ::core::ffi::c_void, mshlflags : u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CoReleaseMarshalData(pstm : super:: IStream) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CoUnmarshalHresult(pstm : super:: IStream, phresult : *mut ::windows_sys::core::HRESULT) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("ole32.dll" "system" fn CoUnmarshalInterface(pstm : super:: IStream, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoMarshalHresult(pstm : * mut::core::ffi::c_void, hresult : ::windows_sys::core::HRESULT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoMarshalInterThreadInterfaceInStream(riid : *const ::windows_sys::core::GUID, punk : ::windows_sys::core::IUnknown, ppstm : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoMarshalInterface(pstm : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, punk : ::windows_sys::core::IUnknown, dwdestcontext : u32, pvdestcontext : *const ::core::ffi::c_void, mshlflags : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoReleaseMarshalData(pstm : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoUnmarshalHresult(pstm : * mut::core::ffi::c_void, phresult : *mut ::windows_sys::core::HRESULT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoUnmarshalInterface(pstm : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 ::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"] fn HACCEL_UserFree(param0 : *const u32, param1 : *const super::super::super::UI::WindowsAndMessaging:: HACCEL));
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -151,25 +151,22 @@
 ::windows_targets::link!("ole32.dll" "system" fn SNB_UserSize64(param0 : *const u32, param1 : u32, param2 : *const *const *const u16) -> u32);
 ::windows_targets::link!("ole32.dll" "system" fn SNB_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut *mut *mut u16) -> *mut u8);
 ::windows_targets::link!("ole32.dll" "system" fn SNB_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut *mut *mut u16) -> *mut u8);
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn STGMEDIUM_UserFree(param0 : *const u32, param1 : *const super:: STGMEDIUM));
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn STGMEDIUM_UserFree64(param0 : *const u32, param1 : *const super:: STGMEDIUM));
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn STGMEDIUM_UserMarshal(param0 : *const u32, param1 : *mut u8, param2 : *const super:: STGMEDIUM) -> *mut u8);
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn STGMEDIUM_UserMarshal64(param0 : *const u32, param1 : *mut u8, param2 : *const super:: STGMEDIUM) -> *mut u8);
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn STGMEDIUM_UserSize(param0 : *const u32, param1 : u32, param2 : *const super:: STGMEDIUM) -> u32);
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn STGMEDIUM_UserSize64(param0 : *const u32, param1 : u32, param2 : *const super:: STGMEDIUM) -> u32);
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn STGMEDIUM_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super:: STGMEDIUM) -> *mut u8);
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"] fn STGMEDIUM_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super:: STGMEDIUM) -> *mut u8);
-pub type IMarshal = *mut ::core::ffi::c_void;
-pub type IMarshal2 = *mut ::core::ffi::c_void;
-pub type IMarshalingStream = *mut ::core::ffi::c_void;
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn STGMEDIUM_UserFree(param0 : *const u32, param1 : *const super:: STGMEDIUM));
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn STGMEDIUM_UserFree64(param0 : *const u32, param1 : *const super:: STGMEDIUM));
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn STGMEDIUM_UserMarshal(param0 : *const u32, param1 : *mut u8, param2 : *const super:: STGMEDIUM) -> *mut u8);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn STGMEDIUM_UserMarshal64(param0 : *const u32, param1 : *mut u8, param2 : *const super:: STGMEDIUM) -> *mut u8);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn STGMEDIUM_UserSize(param0 : *const u32, param1 : u32, param2 : *const super:: STGMEDIUM) -> u32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn STGMEDIUM_UserSize64(param0 : *const u32, param1 : u32, param2 : *const super:: STGMEDIUM) -> u32);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn STGMEDIUM_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super:: STGMEDIUM) -> *mut u8);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn STGMEDIUM_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super:: STGMEDIUM) -> *mut u8);
 pub const SMEXF_HANDLER: STDMSHLFLAGS = 2i32;
 pub const SMEXF_SERVER: STDMSHLFLAGS = 1i32;
 pub type STDMSHLFLAGS = i32;

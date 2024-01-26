@@ -68,11 +68,9 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipComment(graphics : *mut GpGraphics, sizedata : u32, data : *const u8) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlus(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, emftype : EmfType, description : ::windows_sys::core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlusToFile(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, filename : ::windows_sys::core::PCWSTR, emftype : EmfType, description : ::windows_sys::core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn GdipConvertToEmfPlusToStream(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, stream : super::super::System::Com:: IStream, emftype : EmfType, description : ::windows_sys::core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipConvertToEmfPlusToStream(refgraphics : *const GpGraphics, metafile : *mut GpMetafile, conversionfailureflag : *mut i32, stream : * mut::core::ffi::c_void, emftype : EmfType, description : ::windows_sys::core::PCWSTR, out_metafile : *mut *mut GpMetafile) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateAdjustableArrowCap(height : f32, width : f32, isfilled : super::super::Foundation:: BOOL, cap : *mut *mut GpAdjustableArrowCap) -> Status);
-#[cfg(feature = "Win32_Graphics_DirectDraw")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"] fn GdipCreateBitmapFromDirectDrawSurface(surface : super::DirectDraw:: IDirectDrawSurface7, bitmap : *mut *mut GpBitmap) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromDirectDrawSurface(surface : * mut::core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromFile(filename : ::windows_sys::core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromFileICM(filename : ::windows_sys::core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -84,10 +82,8 @@
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"] fn GdipCreateBitmapFromHICON(hicon : super::super::UI::WindowsAndMessaging:: HICON, bitmap : *mut *mut GpBitmap) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromResource(hinstance : super::super::Foundation:: HINSTANCE, lpbitmapname : ::windows_sys::core::PCWSTR, bitmap : *mut *mut GpBitmap) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromScan0(width : i32, height : i32, stride : i32, format : i32, scan0 : *const u8, bitmap : *mut *mut GpBitmap) -> Status);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn GdipCreateBitmapFromStream(stream : super::super::System::Com:: IStream, bitmap : *mut *mut GpBitmap) -> Status);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn GdipCreateBitmapFromStreamICM(stream : super::super::System::Com:: IStream, bitmap : *mut *mut GpBitmap) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromStream(stream : * mut::core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromStreamICM(stream : * mut::core::ffi::c_void, bitmap : *mut *mut GpBitmap) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateCachedBitmap(bitmap : *mut GpBitmap, graphics : *mut GpGraphics, cachedbitmap : *mut *mut GpCachedBitmap) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateCustomLineCap(fillpath : *mut GpPath, strokepath : *mut GpPath, basecap : LineCap, baseinset : f32, customcap : *mut *mut GpCustomLineCap) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateEffect(guid : ::windows_sys::core::GUID, effect : *mut *mut CGpEffect) -> Status);
@@ -126,8 +122,7 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipCreateMetafileFromEmf(hemf : super::Gdi:: HENHMETAFILE, deleteemf : super::super::Foundation:: BOOL, metafile : *mut *mut GpMetafile) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromFile(file : ::windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn GdipCreateMetafileFromStream(stream : super::super::System::Com:: IStream, metafile : *mut *mut GpMetafile) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromStream(stream : * mut::core::ffi::c_void, metafile : *mut *mut GpMetafile) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipCreateMetafileFromWmf(hwmf : super::Gdi:: HMETAFILE, deletewmf : super::super::Foundation:: BOOL, wmfplaceablefileheader : *const WmfPlaceableFileHeader, metafile : *mut *mut GpMetafile) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateMetafileFromWmfFile(file : ::windows_sys::core::PCWSTR, wmfplaceablefileheader : *const WmfPlaceableFileHeader, metafile : *mut *mut GpMetafile) -> Status);
@@ -148,8 +143,7 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateRegionRectI(rect : *const Rect, region : *mut *mut GpRegion) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateRegionRgnData(regiondata : *const u8, size : i32, region : *mut *mut GpRegion) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateSolidFill(color : u32, brush : *mut *mut GpSolidFill) -> Status);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn GdipCreateStreamOnFile(filename : ::windows_sys::core::PCWSTR, access : u32, stream : *mut super::super::System::Com:: IStream) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateStreamOnFile(filename : ::windows_sys::core::PCWSTR, access : u32, stream : *mut * mut::core::ffi::c_void) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateStringFormat(formatattributes : i32, language : u16, format : *mut *mut GpStringFormat) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateTexture(image : *mut GpImage, wrapmode : WrapMode, texture : *mut *mut GpTexture) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipCreateTexture2(image : *mut GpImage, wrapmode : WrapMode, x : f32, y : f32, width : f32, height : f32, texture : *mut *mut GpTexture) -> Status);
@@ -346,8 +340,8 @@
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipGetMetafileHeaderFromFile(filename : ::windows_sys::core::PCWSTR, header : *mut MetafileHeader) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipGetMetafileHeaderFromMetafile(metafile : *mut GpMetafile, header : *mut MetafileHeader) -> Status);
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"] fn GdipGetMetafileHeaderFromStream(stream : super::super::System::Com:: IStream, header : *mut MetafileHeader) -> Status);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipGetMetafileHeaderFromStream(stream : * mut::core::ffi::c_void, header : *mut MetafileHeader) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipGetMetafileHeaderFromWmf(hwmf : super::Gdi:: HMETAFILE, wmfplaceablefileheader : *const WmfPlaceableFileHeader, header : *mut MetafileHeader) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetNearestColor(graphics : *mut GpGraphics, argb : *mut u32) -> Status);
@@ -435,14 +429,14 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetVisibleClipBoundsI(graphics : *mut GpGraphics, rect : *mut Rect) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGetWorldTransform(graphics : *mut GpGraphics, matrix : *mut Matrix) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipGraphicsClear(graphics : *mut GpGraphics, color : u32) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipGraphicsSetAbort(pgraphics : *mut GpGraphics, piabort : GdiplusAbort) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipGraphicsSetAbort(pgraphics : *mut GpGraphics, piabort : * mut::core::ffi::c_void) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipImageForceValidation(image : *mut GpImage) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipImageGetFrameCount(image : *mut GpImage, dimensionid : *const ::windows_sys::core::GUID, count : *mut u32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipImageGetFrameDimensionsCount(image : *mut GpImage, count : *mut u32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipImageGetFrameDimensionsList(image : *mut GpImage, dimensionids : *mut ::windows_sys::core::GUID, count : u32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipImageRotateFlip(image : *mut GpImage, rftype : RotateFlipType) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipImageSelectActiveFrame(image : *mut GpImage, dimensionid : *const ::windows_sys::core::GUID, frameindex : u32) -> Status);
-::windows_targets::link!("gdiplus.dll" "system" fn GdipImageSetAbort(pimage : *mut GpImage, piabort : GdiplusAbort) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipImageSetAbort(pimage : *mut GpImage, piabort : * mut::core::ffi::c_void) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipInitializePalette(palette : *mut ColorPalette, palettetype : PaletteType, optimalcolors : i32, usetransparentcolor : super::super::Foundation:: BOOL, bitmap : *mut GpBitmap) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipInvertMatrix(matrix : *mut Matrix) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsClipEmpty(graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
@@ -468,10 +462,8 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipIsVisibleRegionRectI(region : *mut GpRegion, x : i32, y : i32, width : i32, height : i32, graphics : *mut GpGraphics, result : *mut super::super::Foundation:: BOOL) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromFile(filename : ::windows_sys::core::PCWSTR, image : *mut *mut GpImage) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromFileICM(filename : ::windows_sys::core::PCWSTR, image : *mut *mut GpImage) -> Status);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn GdipLoadImageFromStream(stream : super::super::System::Com:: IStream, image : *mut *mut GpImage) -> Status);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn GdipLoadImageFromStreamICM(stream : super::super::System::Com:: IStream, image : *mut *mut GpImage) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromStream(stream : * mut::core::ffi::c_void, image : *mut *mut GpImage) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipLoadImageFromStreamICM(stream : * mut::core::ffi::c_void, image : *mut *mut GpImage) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipMeasureCharacterRanges(graphics : *mut GpGraphics, string : ::windows_sys::core::PCWSTR, length : i32, font : *const GpFont, layoutrect : *const RectF, stringformat : *const GpStringFormat, regioncount : i32, regions : *mut *mut GpRegion) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipMeasureDriverString(graphics : *mut GpGraphics, text : *const u16, length : i32, font : *const GpFont, positions : *const PointF, flags : i32, matrix : *const Matrix, boundingbox : *mut RectF) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipMeasureString(graphics : *mut GpGraphics, string : ::windows_sys::core::PCWSTR, length : i32, font : *const GpFont, layoutrect : *const RectF, stringformat : *const GpStringFormat, boundingbox : *mut RectF, codepointsfitted : *mut i32, linesfilled : *mut i32) -> Status);
@@ -506,10 +498,10 @@
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipRecordMetafileFileNameI(filename : ::windows_sys::core::PCWSTR, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : ::windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipRecordMetafileI(referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : ::windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"] fn GdipRecordMetafileStream(stream : super::super::System::Com:: IStream, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : ::windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"] fn GdipRecordMetafileStreamI(stream : super::super::System::Com:: IStream, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : ::windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipRecordMetafileStream(stream : * mut::core::ffi::c_void, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const RectF, frameunit : MetafileFrameUnit, description : ::windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
+#[cfg(feature = "Win32_Graphics_Gdi")]
+::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipRecordMetafileStreamI(stream : * mut::core::ffi::c_void, referencehdc : super::Gdi:: HDC, r#type : EmfType, framerect : *const Rect, frameunit : MetafileFrameUnit, description : ::windows_sys::core::PCWSTR, metafile : *mut *mut GpMetafile) -> Status);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn GdipReleaseDC(graphics : *mut GpGraphics, hdc : super::Gdi:: HDC) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipRemovePropertyItem(image : *mut GpImage, propid : u32) -> Status);
@@ -534,8 +526,7 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSaveAddImage(image : *mut GpImage, newimage : *mut GpImage, encoderparams : *const EncoderParameters) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSaveGraphics(graphics : *mut GpGraphics, state : *mut u32) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipSaveImageToFile(image : *mut GpImage, filename : ::windows_sys::core::PCWSTR, clsidencoder : *const ::windows_sys::core::GUID, encoderparams : *const EncoderParameters) -> Status);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("gdiplus.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn GdipSaveImageToStream(image : *mut GpImage, stream : super::super::System::Com:: IStream, clsidencoder : *const ::windows_sys::core::GUID, encoderparams : *const EncoderParameters) -> Status);
+::windows_targets::link!("gdiplus.dll" "system" fn GdipSaveImageToStream(image : *mut GpImage, stream : * mut::core::ffi::c_void, clsidencoder : *const ::windows_sys::core::GUID, encoderparams : *const EncoderParameters) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipScaleLineTransform(brush : *mut GpLineGradient, sx : f32, sy : f32, order : MatrixOrder) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipScaleMatrix(matrix : *mut Matrix, scalex : f32, scaley : f32, order : MatrixOrder) -> Status);
 ::windows_targets::link!("gdiplus.dll" "system" fn GdipScalePathGradientTransform(brush : *mut GpPathGradient, sx : f32, sy : f32, order : MatrixOrder) -> Status);
@@ -669,8 +660,6 @@
 ::windows_targets::link!("gdiplus.dll" "system" fn GdiplusNotificationUnhook(token : usize));
 ::windows_targets::link!("gdiplus.dll" "system" fn GdiplusShutdown(token : usize));
 ::windows_targets::link!("gdiplus.dll" "system" fn GdiplusStartup(token : *mut usize, input : *const GdiplusStartupInput, output : *mut GdiplusStartupOutput) -> Status);
-pub type GdiplusAbort = *mut ::core::ffi::c_void;
-pub type IImageBytes = *mut ::core::ffi::c_void;
 pub const ALPHA_SHIFT: u32 = 24u32;
 pub const Aborted: Status = 9i32;
 pub const AccessDenied: Status = 12i32;

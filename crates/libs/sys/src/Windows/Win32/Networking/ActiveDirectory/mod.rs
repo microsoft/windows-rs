@@ -1,21 +1,18 @@
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"] fn ADsBuildEnumerator(padscontainer : IADsContainer, ppenumvariant : *mut super::super::System::Ole:: IEnumVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn ADsBuildVarArrayInt(lpdwobjecttypes : *mut u32, dwobjecttypes : u32, pvar : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn ADsBuildVarArrayStr(lpppathnames : *const ::windows_sys::core::PCWSTR, dwpathnames : u32, pvar : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("activeds.dll" "system" fn ADsBuildEnumerator(padscontainer : * mut::core::ffi::c_void, ppenumvariant : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"] fn ADsBuildVarArrayInt(lpdwobjecttypes : *mut u32, dwobjecttypes : u32, pvar : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"] fn ADsBuildVarArrayStr(lpppathnames : *const ::windows_sys::core::PCWSTR, dwpathnames : u32, pvar : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("activeds.dll" "system" fn ADsDecodeBinaryData(szsrcdata : ::windows_sys::core::PCWSTR, ppbdestdata : *mut *mut u8, pdwdestlen : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("activeds.dll" "system" fn ADsEncodeBinaryData(pbsrcdata : *mut u8, dwsrclen : u32, ppszdestdata : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn ADsEnumerateNext(penumvariant : super::super::System::Ole:: IEnumVARIANT, celements : u32, pvar : *mut super::super::System::Variant:: VARIANT, pcelementsfetched : *mut u32) -> ::windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_System_Ole")]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_System_Ole\"`"] fn ADsFreeEnumerator(penumvariant : super::super::System::Ole:: IEnumVARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"] fn ADsEnumerateNext(penumvariant : * mut::core::ffi::c_void, celements : u32, pvar : *mut super::super::System::Variant:: VARIANT, pcelementsfetched : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("activeds.dll" "system" fn ADsFreeEnumerator(penumvariant : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("activeds.dll" "system" fn ADsGetLastError(lperror : *mut u32, lperrorbuf : ::windows_sys::core::PWSTR, dwerrorbuflen : u32, lpnamebuf : ::windows_sys::core::PWSTR, dwnamebuflen : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("activeds.dll" "system" fn ADsGetObject(lpszpathname : ::windows_sys::core::PCWSTR, riid : *const ::windows_sys::core::GUID, ppobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("activeds.dll" "system" fn ADsOpenObject(lpszpathname : ::windows_sys::core::PCWSTR, lpszusername : ::windows_sys::core::PCWSTR, lpszpassword : ::windows_sys::core::PCWSTR, dwreserved : ADS_AUTHENTICATION_ENUM, riid : *const ::windows_sys::core::GUID, ppobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("dsprop.dll" "system" fn ADsPropCheckIfWritable(pwzattr : ::windows_sys::core::PCWSTR, pwritableattrs : *const ADS_ATTR_INFO) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("dsprop.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn ADsPropCreateNotifyObj(pappthddataobj : super::super::System::Com:: IDataObject, pwzadsobjname : ::windows_sys::core::PCWSTR, phnotifyobj : *mut super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("dsprop.dll" "system" fn ADsPropCreateNotifyObj(pappthddataobj : * mut::core::ffi::c_void, pwzadsobjname : ::windows_sys::core::PCWSTR, phnotifyobj : *mut super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("dsprop.dll" "system" fn ADsPropGetInitInfo(hnotifyobj : super::super::Foundation:: HWND, pinitparams : *mut ADSPROPINITPARAMS) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("dsprop.dll" "system" fn ADsPropSendErrorMessage(hnotifyobj : super::super::Foundation:: HWND, perror : *mut ADSPROPERROR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("dsprop.dll" "system" fn ADsPropSetHwnd(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
@@ -23,12 +20,12 @@
 ::windows_targets::link!("dsprop.dll" "system" fn ADsPropShowErrorDialog(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("activeds.dll" "system" fn ADsSetLastError(dwerr : u32, pszerror : ::windows_sys::core::PCWSTR, pszprovider : ::windows_sys::core::PCWSTR));
 ::windows_targets::link!("activeds.dll" "system" fn AdsFreeAdsValues(padsvalues : *mut ADSVALUE, dwnumvalues : u32));
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn AdsTypeToPropVariant(padsvalues : *mut ADSVALUE, dwnumvalues : u32, pvariant : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"] fn AdsTypeToPropVariant(padsvalues : *mut ADSVALUE, dwnumvalues : u32, pvariant : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("activeds.dll" "system" fn AllocADsMem(cb : u32) -> *mut ::core::ffi::c_void);
 ::windows_targets::link!("activeds.dll" "system" fn AllocADsStr(pstr : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
-#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn BinarySDToSecurityDescriptor(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pvarsec : *mut super::super::System::Variant:: VARIANT, pszservername : ::windows_sys::core::PCWSTR, username : ::windows_sys::core::PCWSTR, password : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"] fn BinarySDToSecurityDescriptor(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pvarsec : *mut super::super::System::Variant:: VARIANT, pszservername : ::windows_sys::core::PCWSTR, username : ::windows_sys::core::PCWSTR, password : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ntdsapi.dll" "system" fn DsAddSidHistoryA(hds : super::super::Foundation:: HANDLE, flags : u32, srcdomain : ::windows_sys::core::PCSTR, srcprincipal : ::windows_sys::core::PCSTR, srcdomaincontroller : ::windows_sys::core::PCSTR, srcdomaincreds : *const ::core::ffi::c_void, dstdomain : ::windows_sys::core::PCSTR, dstprincipal : ::windows_sys::core::PCSTR) -> u32);
 ::windows_targets::link!("ntdsapi.dll" "system" fn DsAddSidHistoryW(hds : super::super::Foundation:: HANDLE, flags : u32, srcdomain : ::windows_sys::core::PCWSTR, srcprincipal : ::windows_sys::core::PCWSTR, srcdomaincontroller : ::windows_sys::core::PCWSTR, srcdomaincreds : *const ::core::ffi::c_void, dstdomain : ::windows_sys::core::PCWSTR, dstprincipal : ::windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -171,90 +168,12 @@
 ::windows_targets::link!("ntdsapi.dll" "system" fn DsWriteAccountSpnW(hds : super::super::Foundation:: HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : ::windows_sys::core::PCWSTR, cspn : u32, rpszspn : *const ::windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("activeds.dll" "system" fn FreeADsMem(pmem : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("activeds.dll" "system" fn FreeADsStr(pstr : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn PropVariantToAdsType(pvariant : *mut super::super::System::Variant:: VARIANT, dwnumvariant : u32, ppadsvalues : *mut *mut ADSVALUE, pdwnumvalues : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"] fn PropVariantToAdsType(pvariant : *mut super::super::System::Variant:: VARIANT, dwnumvariant : u32, ppadsvalues : *mut *mut ADSVALUE, pdwnumvalues : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("activeds.dll" "system" fn ReallocADsMem(poldmem : *mut ::core::ffi::c_void, cbold : u32, cbnew : u32) -> *mut ::core::ffi::c_void);
 ::windows_targets::link!("activeds.dll" "system" fn ReallocADsStr(ppstr : *mut ::windows_sys::core::PWSTR, pstr : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn SecurityDescriptorToBinarySD(vvarsecdes : super::super::System::Variant:: VARIANT, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, pdwsdlength : *mut u32, pszservername : ::windows_sys::core::PCWSTR, username : ::windows_sys::core::PCWSTR, password : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
-pub type IADs = *mut ::core::ffi::c_void;
-pub type IADsADSystemInfo = *mut ::core::ffi::c_void;
-pub type IADsAccessControlEntry = *mut ::core::ffi::c_void;
-pub type IADsAccessControlList = *mut ::core::ffi::c_void;
-pub type IADsAcl = *mut ::core::ffi::c_void;
-pub type IADsAggregatee = *mut ::core::ffi::c_void;
-pub type IADsAggregator = *mut ::core::ffi::c_void;
-pub type IADsBackLink = *mut ::core::ffi::c_void;
-pub type IADsCaseIgnoreList = *mut ::core::ffi::c_void;
-pub type IADsClass = *mut ::core::ffi::c_void;
-pub type IADsCollection = *mut ::core::ffi::c_void;
-pub type IADsComputer = *mut ::core::ffi::c_void;
-pub type IADsComputerOperations = *mut ::core::ffi::c_void;
-pub type IADsContainer = *mut ::core::ffi::c_void;
-pub type IADsDNWithBinary = *mut ::core::ffi::c_void;
-pub type IADsDNWithString = *mut ::core::ffi::c_void;
-pub type IADsDeleteOps = *mut ::core::ffi::c_void;
-pub type IADsDomain = *mut ::core::ffi::c_void;
-pub type IADsEmail = *mut ::core::ffi::c_void;
-pub type IADsExtension = *mut ::core::ffi::c_void;
-pub type IADsFaxNumber = *mut ::core::ffi::c_void;
-pub type IADsFileService = *mut ::core::ffi::c_void;
-pub type IADsFileServiceOperations = *mut ::core::ffi::c_void;
-pub type IADsFileShare = *mut ::core::ffi::c_void;
-pub type IADsGroup = *mut ::core::ffi::c_void;
-pub type IADsHold = *mut ::core::ffi::c_void;
-pub type IADsLargeInteger = *mut ::core::ffi::c_void;
-pub type IADsLocality = *mut ::core::ffi::c_void;
-pub type IADsMembers = *mut ::core::ffi::c_void;
-pub type IADsNameTranslate = *mut ::core::ffi::c_void;
-pub type IADsNamespaces = *mut ::core::ffi::c_void;
-pub type IADsNetAddress = *mut ::core::ffi::c_void;
-pub type IADsO = *mut ::core::ffi::c_void;
-pub type IADsOU = *mut ::core::ffi::c_void;
-pub type IADsObjectOptions = *mut ::core::ffi::c_void;
-pub type IADsOctetList = *mut ::core::ffi::c_void;
-pub type IADsOpenDSObject = *mut ::core::ffi::c_void;
-pub type IADsPath = *mut ::core::ffi::c_void;
-pub type IADsPathname = *mut ::core::ffi::c_void;
-pub type IADsPostalAddress = *mut ::core::ffi::c_void;
-pub type IADsPrintJob = *mut ::core::ffi::c_void;
-pub type IADsPrintJobOperations = *mut ::core::ffi::c_void;
-pub type IADsPrintQueue = *mut ::core::ffi::c_void;
-pub type IADsPrintQueueOperations = *mut ::core::ffi::c_void;
-pub type IADsProperty = *mut ::core::ffi::c_void;
-pub type IADsPropertyEntry = *mut ::core::ffi::c_void;
-pub type IADsPropertyList = *mut ::core::ffi::c_void;
-pub type IADsPropertyValue = *mut ::core::ffi::c_void;
-pub type IADsPropertyValue2 = *mut ::core::ffi::c_void;
-pub type IADsReplicaPointer = *mut ::core::ffi::c_void;
-pub type IADsResource = *mut ::core::ffi::c_void;
-pub type IADsSecurityDescriptor = *mut ::core::ffi::c_void;
-pub type IADsSecurityUtility = *mut ::core::ffi::c_void;
-pub type IADsService = *mut ::core::ffi::c_void;
-pub type IADsServiceOperations = *mut ::core::ffi::c_void;
-pub type IADsSession = *mut ::core::ffi::c_void;
-pub type IADsSyntax = *mut ::core::ffi::c_void;
-pub type IADsTimestamp = *mut ::core::ffi::c_void;
-pub type IADsTypedName = *mut ::core::ffi::c_void;
-pub type IADsUser = *mut ::core::ffi::c_void;
-pub type IADsWinNTSystemInfo = *mut ::core::ffi::c_void;
-pub type ICommonQuery = *mut ::core::ffi::c_void;
-pub type IDirectoryObject = *mut ::core::ffi::c_void;
-pub type IDirectorySchemaMgmt = *mut ::core::ffi::c_void;
-pub type IDirectorySearch = *mut ::core::ffi::c_void;
-pub type IDsAdminCreateObj = *mut ::core::ffi::c_void;
-pub type IDsAdminNewObj = *mut ::core::ffi::c_void;
-pub type IDsAdminNewObjExt = *mut ::core::ffi::c_void;
-pub type IDsAdminNewObjPrimarySite = *mut ::core::ffi::c_void;
-pub type IDsAdminNotifyHandler = *mut ::core::ffi::c_void;
-pub type IDsBrowseDomainTree = *mut ::core::ffi::c_void;
-pub type IDsDisplaySpecifier = *mut ::core::ffi::c_void;
-pub type IDsObjectPicker = *mut ::core::ffi::c_void;
-pub type IDsObjectPickerCredentials = *mut ::core::ffi::c_void;
-pub type IPersistQuery = *mut ::core::ffi::c_void;
-pub type IPrivateDispatch = *mut ::core::ffi::c_void;
-pub type IPrivateUnknown = *mut ::core::ffi::c_void;
-pub type IQueryForm = *mut ::core::ffi::c_void;
+#[cfg(all(feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"] fn SecurityDescriptorToBinarySD(vvarsecdes : super::super::System::Variant:: VARIANT, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, pdwsdlength : *mut u32, pszservername : ::windows_sys::core::PCWSTR, username : ::windows_sys::core::PCWSTR, password : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
 pub const ACTRL_DS_CONTROL_ACCESS: u32 = 256u32;
 pub const ACTRL_DS_CREATE_CHILD: u32 = 1u32;
 pub const ACTRL_DS_DELETE_CHILD: u32 = 2u32;
@@ -1365,7 +1284,7 @@ pub struct ADSPROPINITPARAMS {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub hr: ::windows_sys::core::HRESULT,
-    pub pDsObj: IDirectoryObject,
+    pub pDsObj: *mut ::core::ffi::c_void,
     pub pwzCN: ::windows_sys::core::PWSTR,
     pub pWritableAttrs: *mut ADS_ATTR_INFO,
 }
@@ -2941,8 +2860,8 @@ impl ::core::clone::Clone for DS_SCHEMA_GUID_MAPW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct DS_SELECTION {
     pub pwzName: ::windows_sys::core::PWSTR,
     pub pwzADsPath: ::windows_sys::core::PWSTR,
@@ -2951,25 +2870,25 @@ pub struct DS_SELECTION {
     pub pvarFetchedAttributes: *mut super::super::System::Variant::VARIANT,
     pub flScopeType: u32,
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for DS_SELECTION {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for DS_SELECTION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct DS_SELECTION_LIST {
     pub cItems: u32,
     pub cFetchedAttributes: u32,
     pub aDsSelection: [DS_SELECTION; 1],
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for DS_SELECTION_LIST {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for DS_SELECTION_LIST {
     fn clone(&self) -> Self {
         *self
@@ -2987,35 +2906,27 @@ impl ::core::clone::Clone for DS_SITE_COST_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub struct OPENQUERYWINDOW {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub clsidHandler: ::windows_sys::core::GUID,
     pub pHandlerParameters: *mut ::core::ffi::c_void,
     pub clsidDefaultForm: ::windows_sys::core::GUID,
-    pub pPersistQuery: IPersistQuery,
+    pub pPersistQuery: *mut ::core::ffi::c_void,
     pub Anonymous: OPENQUERYWINDOW_0,
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::marker::Copy for OPENQUERYWINDOW {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::clone::Clone for OPENQUERYWINDOW {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub union OPENQUERYWINDOW_0 {
     pub pFormParameters: *mut ::core::ffi::c_void,
-    pub ppbFormParameters: super::super::System::Com::StructuredStorage::IPropertyBag,
+    pub ppbFormParameters: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::marker::Copy for OPENQUERYWINDOW_0 {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ::core::clone::Clone for OPENQUERYWINDOW_0 {
     fn clone(&self) -> Self {
         *self

@@ -92,9 +92,6 @@
 ::windows_targets::link!("advapi32.dll" "system" fn UnregisterTraceGuids(registrationhandle : u64) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" fn UpdateTraceA(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("advapi32.dll" "system" fn UpdateTraceW(tracehandle : CONTROLTRACE_HANDLE, instancename : ::windows_sys::core::PCWSTR, properties : *mut EVENT_TRACE_PROPERTIES) -> super::super::super::Foundation:: WIN32_ERROR);
-pub type ITraceEvent = *mut ::core::ffi::c_void;
-pub type ITraceEventCallback = *mut ::core::ffi::c_void;
-pub type ITraceRelogger = *mut ::core::ffi::c_void;
 pub const ALPCGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x45d8cccd_539f_4b72_a8b7_5c683142609a);
 pub const CLSID_TraceRelogger: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
 pub const CTraceRelogger: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);

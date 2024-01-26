@@ -152,8 +152,6 @@
 ::windows_targets::link!("mscms.dll" "system" fn WcsSetDefaultRenderingIntent(scope : WCS_PROFILE_MANAGEMENT_SCOPE, dwrenderingintent : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn WcsSetUsePerUserProfiles(pdevicename : ::windows_sys::core::PCWSTR, dwdeviceclass : u32, useperuserprofiles : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("mscms.dll" "system" fn WcsTranslateColors(hcolortransform : isize, ncolors : u32, ninputchannels : u32, cdtinput : COLORDATATYPE, cbinput : u32, pinputdata : *const ::core::ffi::c_void, noutputchannels : u32, cdtoutput : COLORDATATYPE, cboutput : u32, poutputdata : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
-pub type IDeviceModelPlugIn = *mut ::core::ffi::c_void;
-pub type IGamutMapModelPlugIn = *mut ::core::ffi::c_void;
 pub const ATTRIB_MATTE: u32 = 2u32;
 pub const ATTRIB_TRANSPARENCY: u32 = 1u32;
 pub const BEST_MODE: u32 = 3u32;

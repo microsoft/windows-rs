@@ -12,9 +12,6 @@
 ::windows_targets::link!("srpapi.dll" "system" fn SrpIsTokenService(tokenhandle : super::super::Foundation:: HANDLE, istokenservice : *mut u8) -> super::super::Foundation:: NTSTATUS);
 ::windows_targets::link!("srpapi.dll" "system" fn SrpSetTokenEnterpriseId(tokenhandle : super::super::Foundation:: HANDLE, enterpriseid : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("efswrt.dll" "system" fn UnprotectFile(fileorfolderpath : ::windows_sys::core::PCWSTR, options : *const FILE_UNPROTECT_OPTIONS) -> ::windows_sys::core::HRESULT);
-pub type IProtectionPolicyManagerInterop = *mut ::core::ffi::c_void;
-pub type IProtectionPolicyManagerInterop2 = *mut ::core::ffi::c_void;
-pub type IProtectionPolicyManagerInterop3 = *mut ::core::ffi::c_void;
 pub const ENTERPRISE_POLICY_ALLOWED: ENTERPRISE_DATA_POLICIES = 1i32;
 pub const ENTERPRISE_POLICY_ENLIGHTENED: ENTERPRISE_DATA_POLICIES = 2i32;
 pub const ENTERPRISE_POLICY_EXEMPT: ENTERPRISE_DATA_POLICIES = 4i32;

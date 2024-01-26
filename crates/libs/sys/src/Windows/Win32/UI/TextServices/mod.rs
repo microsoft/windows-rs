@@ -1,162 +1,6 @@
 ::windows_targets::link!("msctfmonitor.dll" "system" fn DoMsCtfMonitor(dwflags : u32, heventforservicestop : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("msctfmonitor.dll" "system" fn InitLocalMsCtfMonitor(dwflags : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("msctfmonitor.dll" "system" fn UninitLocalMsCtfMonitor() -> ::windows_sys::core::HRESULT);
-pub type IAccClientDocMgr = *mut ::core::ffi::c_void;
-pub type IAccDictionary = *mut ::core::ffi::c_void;
-pub type IAccServerDocMgr = *mut ::core::ffi::c_void;
-pub type IAccStore = *mut ::core::ffi::c_void;
-pub type IAnchor = *mut ::core::ffi::c_void;
-pub type IClonableWrapper = *mut ::core::ffi::c_void;
-pub type ICoCreateLocally = *mut ::core::ffi::c_void;
-pub type ICoCreatedLocally = *mut ::core::ffi::c_void;
-pub type IDocWrap = *mut ::core::ffi::c_void;
-pub type IEnumITfCompositionView = *mut ::core::ffi::c_void;
-pub type IEnumSpeechCommands = *mut ::core::ffi::c_void;
-pub type IEnumTfCandidates = *mut ::core::ffi::c_void;
-pub type IEnumTfContextViews = *mut ::core::ffi::c_void;
-pub type IEnumTfContexts = *mut ::core::ffi::c_void;
-pub type IEnumTfDisplayAttributeInfo = *mut ::core::ffi::c_void;
-pub type IEnumTfDocumentMgrs = *mut ::core::ffi::c_void;
-pub type IEnumTfFunctionProviders = *mut ::core::ffi::c_void;
-pub type IEnumTfInputProcessorProfiles = *mut ::core::ffi::c_void;
-pub type IEnumTfLangBarItems = *mut ::core::ffi::c_void;
-pub type IEnumTfLanguageProfiles = *mut ::core::ffi::c_void;
-pub type IEnumTfLatticeElements = *mut ::core::ffi::c_void;
-pub type IEnumTfProperties = *mut ::core::ffi::c_void;
-pub type IEnumTfPropertyValue = *mut ::core::ffi::c_void;
-pub type IEnumTfRanges = *mut ::core::ffi::c_void;
-pub type IEnumTfUIElements = *mut ::core::ffi::c_void;
-pub type IInternalDocWrap = *mut ::core::ffi::c_void;
-pub type ISpeechCommandProvider = *mut ::core::ffi::c_void;
-pub type ITextStoreACP = *mut ::core::ffi::c_void;
-pub type ITextStoreACP2 = *mut ::core::ffi::c_void;
-pub type ITextStoreACPEx = *mut ::core::ffi::c_void;
-pub type ITextStoreACPServices = *mut ::core::ffi::c_void;
-pub type ITextStoreACPSink = *mut ::core::ffi::c_void;
-pub type ITextStoreACPSinkEx = *mut ::core::ffi::c_void;
-pub type ITextStoreAnchor = *mut ::core::ffi::c_void;
-pub type ITextStoreAnchorEx = *mut ::core::ffi::c_void;
-pub type ITextStoreAnchorSink = *mut ::core::ffi::c_void;
-pub type ITextStoreSinkAnchorEx = *mut ::core::ffi::c_void;
-pub type ITfActiveLanguageProfileNotifySink = *mut ::core::ffi::c_void;
-pub type ITfCandidateList = *mut ::core::ffi::c_void;
-pub type ITfCandidateListUIElement = *mut ::core::ffi::c_void;
-pub type ITfCandidateListUIElementBehavior = *mut ::core::ffi::c_void;
-pub type ITfCandidateString = *mut ::core::ffi::c_void;
-pub type ITfCategoryMgr = *mut ::core::ffi::c_void;
-pub type ITfCleanupContextDurationSink = *mut ::core::ffi::c_void;
-pub type ITfCleanupContextSink = *mut ::core::ffi::c_void;
-pub type ITfClientId = *mut ::core::ffi::c_void;
-pub type ITfCompartment = *mut ::core::ffi::c_void;
-pub type ITfCompartmentEventSink = *mut ::core::ffi::c_void;
-pub type ITfCompartmentMgr = *mut ::core::ffi::c_void;
-pub type ITfComposition = *mut ::core::ffi::c_void;
-pub type ITfCompositionSink = *mut ::core::ffi::c_void;
-pub type ITfCompositionView = *mut ::core::ffi::c_void;
-pub type ITfConfigureSystemKeystrokeFeed = *mut ::core::ffi::c_void;
-pub type ITfContext = *mut ::core::ffi::c_void;
-pub type ITfContextComposition = *mut ::core::ffi::c_void;
-pub type ITfContextKeyEventSink = *mut ::core::ffi::c_void;
-pub type ITfContextOwner = *mut ::core::ffi::c_void;
-pub type ITfContextOwnerCompositionServices = *mut ::core::ffi::c_void;
-pub type ITfContextOwnerCompositionSink = *mut ::core::ffi::c_void;
-pub type ITfContextOwnerServices = *mut ::core::ffi::c_void;
-pub type ITfContextView = *mut ::core::ffi::c_void;
-pub type ITfCreatePropertyStore = *mut ::core::ffi::c_void;
-pub type ITfDisplayAttributeInfo = *mut ::core::ffi::c_void;
-pub type ITfDisplayAttributeMgr = *mut ::core::ffi::c_void;
-pub type ITfDisplayAttributeNotifySink = *mut ::core::ffi::c_void;
-pub type ITfDisplayAttributeProvider = *mut ::core::ffi::c_void;
-pub type ITfDocumentMgr = *mut ::core::ffi::c_void;
-pub type ITfEditRecord = *mut ::core::ffi::c_void;
-pub type ITfEditSession = *mut ::core::ffi::c_void;
-pub type ITfEditTransactionSink = *mut ::core::ffi::c_void;
-pub type ITfFnAdviseText = *mut ::core::ffi::c_void;
-pub type ITfFnBalloon = *mut ::core::ffi::c_void;
-pub type ITfFnConfigure = *mut ::core::ffi::c_void;
-pub type ITfFnConfigureRegisterEudc = *mut ::core::ffi::c_void;
-pub type ITfFnConfigureRegisterWord = *mut ::core::ffi::c_void;
-pub type ITfFnCustomSpeechCommand = *mut ::core::ffi::c_void;
-pub type ITfFnGetLinguisticAlternates = *mut ::core::ffi::c_void;
-pub type ITfFnGetPreferredTouchKeyboardLayout = *mut ::core::ffi::c_void;
-pub type ITfFnGetSAPIObject = *mut ::core::ffi::c_void;
-pub type ITfFnLMInternal = *mut ::core::ffi::c_void;
-pub type ITfFnLMProcessor = *mut ::core::ffi::c_void;
-pub type ITfFnLangProfileUtil = *mut ::core::ffi::c_void;
-pub type ITfFnPlayBack = *mut ::core::ffi::c_void;
-pub type ITfFnPropertyUIStatus = *mut ::core::ffi::c_void;
-pub type ITfFnReconversion = *mut ::core::ffi::c_void;
-pub type ITfFnSearchCandidateProvider = *mut ::core::ffi::c_void;
-pub type ITfFnShowHelp = *mut ::core::ffi::c_void;
-pub type ITfFunction = *mut ::core::ffi::c_void;
-pub type ITfFunctionProvider = *mut ::core::ffi::c_void;
-pub type ITfInputProcessorProfileActivationSink = *mut ::core::ffi::c_void;
-pub type ITfInputProcessorProfileMgr = *mut ::core::ffi::c_void;
-pub type ITfInputProcessorProfileSubstituteLayout = *mut ::core::ffi::c_void;
-pub type ITfInputProcessorProfiles = *mut ::core::ffi::c_void;
-pub type ITfInputProcessorProfilesEx = *mut ::core::ffi::c_void;
-pub type ITfInputScope = *mut ::core::ffi::c_void;
-pub type ITfInputScope2 = *mut ::core::ffi::c_void;
-pub type ITfInsertAtSelection = *mut ::core::ffi::c_void;
-pub type ITfIntegratableCandidateListUIElement = *mut ::core::ffi::c_void;
-pub type ITfKeyEventSink = *mut ::core::ffi::c_void;
-pub type ITfKeyTraceEventSink = *mut ::core::ffi::c_void;
-pub type ITfKeystrokeMgr = *mut ::core::ffi::c_void;
-pub type ITfLMLattice = *mut ::core::ffi::c_void;
-pub type ITfLangBarEventSink = *mut ::core::ffi::c_void;
-pub type ITfLangBarItem = *mut ::core::ffi::c_void;
-pub type ITfLangBarItemBalloon = *mut ::core::ffi::c_void;
-pub type ITfLangBarItemBitmap = *mut ::core::ffi::c_void;
-pub type ITfLangBarItemBitmapButton = *mut ::core::ffi::c_void;
-pub type ITfLangBarItemButton = *mut ::core::ffi::c_void;
-pub type ITfLangBarItemMgr = *mut ::core::ffi::c_void;
-pub type ITfLangBarItemSink = *mut ::core::ffi::c_void;
-pub type ITfLangBarMgr = *mut ::core::ffi::c_void;
-pub type ITfLanguageProfileNotifySink = *mut ::core::ffi::c_void;
-pub type ITfMSAAControl = *mut ::core::ffi::c_void;
-pub type ITfMenu = *mut ::core::ffi::c_void;
-pub type ITfMessagePump = *mut ::core::ffi::c_void;
-pub type ITfMouseSink = *mut ::core::ffi::c_void;
-pub type ITfMouseTracker = *mut ::core::ffi::c_void;
-pub type ITfMouseTrackerACP = *mut ::core::ffi::c_void;
-pub type ITfPersistentPropertyLoaderACP = *mut ::core::ffi::c_void;
-pub type ITfPreservedKeyNotifySink = *mut ::core::ffi::c_void;
-pub type ITfProperty = *mut ::core::ffi::c_void;
-pub type ITfPropertyStore = *mut ::core::ffi::c_void;
-pub type ITfQueryEmbedded = *mut ::core::ffi::c_void;
-pub type ITfRange = *mut ::core::ffi::c_void;
-pub type ITfRangeACP = *mut ::core::ffi::c_void;
-pub type ITfRangeBackup = *mut ::core::ffi::c_void;
-pub type ITfReadOnlyProperty = *mut ::core::ffi::c_void;
-pub type ITfReadingInformationUIElement = *mut ::core::ffi::c_void;
-pub type ITfReverseConversion = *mut ::core::ffi::c_void;
-pub type ITfReverseConversionList = *mut ::core::ffi::c_void;
-pub type ITfReverseConversionMgr = *mut ::core::ffi::c_void;
-pub type ITfSource = *mut ::core::ffi::c_void;
-pub type ITfSourceSingle = *mut ::core::ffi::c_void;
-pub type ITfSpeechUIServer = *mut ::core::ffi::c_void;
-pub type ITfStatusSink = *mut ::core::ffi::c_void;
-pub type ITfSystemDeviceTypeLangBarItem = *mut ::core::ffi::c_void;
-pub type ITfSystemLangBarItem = *mut ::core::ffi::c_void;
-pub type ITfSystemLangBarItemSink = *mut ::core::ffi::c_void;
-pub type ITfSystemLangBarItemText = *mut ::core::ffi::c_void;
-pub type ITfTextEditSink = *mut ::core::ffi::c_void;
-pub type ITfTextInputProcessor = *mut ::core::ffi::c_void;
-pub type ITfTextInputProcessorEx = *mut ::core::ffi::c_void;
-pub type ITfTextLayoutSink = *mut ::core::ffi::c_void;
-pub type ITfThreadFocusSink = *mut ::core::ffi::c_void;
-pub type ITfThreadMgr = *mut ::core::ffi::c_void;
-pub type ITfThreadMgr2 = *mut ::core::ffi::c_void;
-pub type ITfThreadMgrEventSink = *mut ::core::ffi::c_void;
-pub type ITfThreadMgrEx = *mut ::core::ffi::c_void;
-pub type ITfToolTipUIElement = *mut ::core::ffi::c_void;
-pub type ITfTransitoryExtensionSink = *mut ::core::ffi::c_void;
-pub type ITfTransitoryExtensionUIElement = *mut ::core::ffi::c_void;
-pub type ITfUIElement = *mut ::core::ffi::c_void;
-pub type ITfUIElementMgr = *mut ::core::ffi::c_void;
-pub type ITfUIElementSink = *mut ::core::ffi::c_void;
-pub type IUIManagerEventSink = *mut ::core::ffi::c_void;
-pub type IVersionInfo = *mut ::core::ffi::c_void;
 pub const AccClientDocMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xfc48cc30_4f3e_4fa1_803b_ad0e196a83b1);
 pub const AccDictionary: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6572ee16_5fe5_4331_bb6d_76a49c56e423);
 pub const AccServerDocMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0x6089a37e_eb8a_482d_bd6f_f9f46904d16d);
@@ -825,7 +669,7 @@ impl ::core::clone::Clone for TF_DISPLAYATTRIBUTE {
 }
 #[repr(C)]
 pub struct TF_HALTCOND {
-    pub pHaltRange: ITfRange,
+    pub pHaltRange: *mut ::core::ffi::c_void,
     pub aHaltPos: TfAnchor,
     pub dwFlags: u32,
 }
@@ -943,15 +787,15 @@ impl ::core::clone::Clone for TF_PRESERVEDKEY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct TF_PROPERTYVAL {
     pub guidId: ::windows_sys::core::GUID,
     pub varValue: super::super::System::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for TF_PROPERTYVAL {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for TF_PROPERTYVAL {
     fn clone(&self) -> Self {
         *self
@@ -959,7 +803,7 @@ impl ::core::clone::Clone for TF_PROPERTYVAL {
 }
 #[repr(C)]
 pub struct TF_SELECTION {
-    pub range: ITfRange,
+    pub range: *mut ::core::ffi::c_void,
     pub style: TF_SELECTIONSTYLE,
 }
 impl ::core::marker::Copy for TF_SELECTION {}
@@ -980,16 +824,16 @@ impl ::core::clone::Clone for TF_SELECTIONSTYLE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct TS_ATTRVAL {
     pub idAttr: ::windows_sys::core::GUID,
     pub dwOverlapId: u32,
     pub varValue: super::super::System::Variant::VARIANT,
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for TS_ATTRVAL {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for TS_ATTRVAL {
     fn clone(&self) -> Self {
         *self
@@ -1031,8 +875,8 @@ impl ::core::clone::Clone for TS_SELECTION_ACP {
 }
 #[repr(C)]
 pub struct TS_SELECTION_ANCHOR {
-    pub paStart: IAnchor,
-    pub paEnd: IAnchor,
+    pub paStart: *mut ::core::ffi::c_void,
+    pub paEnd: *mut ::core::ffi::c_void,
     pub style: TS_SELECTIONSTYLE,
 }
 impl ::core::marker::Copy for TS_SELECTION_ANCHOR {}

@@ -204,7 +204,6 @@
 ::windows_targets::link!("webservices.dll" "system" fn WsWriteXmlBufferToBytes(writer : *const WS_XML_WRITER, xmlbuffer : *const WS_XML_BUFFER, encoding : *const WS_XML_WRITER_ENCODING, properties : *const WS_XML_WRITER_PROPERTY, propertycount : u32, heap : *const WS_HEAP, bytes : *mut *mut ::core::ffi::c_void, bytecount : *mut u32, error : *const WS_ERROR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("webservices.dll" "system" fn WsWriteXmlnsAttribute(writer : *const WS_XML_WRITER, prefix : *const WS_XML_STRING, ns : *const WS_XML_STRING, singlequote : super::super::Foundation:: BOOL, error : *const WS_ERROR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("webservices.dll" "system" fn WsXmlStringEquals(string1 : *const WS_XML_STRING, string2 : *const WS_XML_STRING, error : *const WS_ERROR) -> ::windows_sys::core::HRESULT);
-pub type IContentPrefetcherTaskTrigger = *mut ::core::ffi::c_void;
 pub const CTAPCBOR_HYBRID_STORAGE_LINKED_DATA_CURRENT_VERSION: u32 = 1u32;
 pub const CTAPCBOR_HYBRID_STORAGE_LINKED_DATA_VERSION_1: u32 = 1u32;
 pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 7u32;

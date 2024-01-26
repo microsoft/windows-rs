@@ -28,14 +28,6 @@
 ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowUserSettingsUI(completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowUserSettingsUIForUser(user : ::windows_sys::core::IInspectable, completionroutine : GameUICompletionRoutine, context : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn TryCancelPendingGameUI() -> super::Foundation:: BOOL);
-pub type IGameExplorer = *mut ::core::ffi::c_void;
-pub type IGameExplorer2 = *mut ::core::ffi::c_void;
-pub type IGameStatistics = *mut ::core::ffi::c_void;
-pub type IGameStatisticsMgr = *mut ::core::ffi::c_void;
-pub type IXblIdpAuthManager = *mut ::core::ffi::c_void;
-pub type IXblIdpAuthManager2 = *mut ::core::ffi::c_void;
-pub type IXblIdpAuthTokenResult = *mut ::core::ffi::c_void;
-pub type IXblIdpAuthTokenResult2 = *mut ::core::ffi::c_void;
 pub const GAMESTATS_OPEN_CREATED: GAMESTATS_OPEN_RESULT = 0i32;
 pub const GAMESTATS_OPEN_OPENED: GAMESTATS_OPEN_RESULT = 1i32;
 pub const GAMESTATS_OPEN_OPENONLY: GAMESTATS_OPEN_TYPE = 1i32;
