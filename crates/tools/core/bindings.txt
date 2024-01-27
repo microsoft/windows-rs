@@ -70,3 +70,5 @@
     Windows.Win32.System.Variant.VT_UNKNOWN
     Windows.Win32.System.WinRT.RoGetActivationFactory
     Windows.Win32.System.WinRT.RoOriginateError
+    Windows.Win32.System.Com.GetErrorInfo
+    Windows.Win32.System.Com.SetErrorInfo

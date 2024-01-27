@@ -16,20 +16,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     RoGetAgileReference(options, riid, punk.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[inline]
-pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows_core::Result<IErrorInfo> {
-    ::windows_targets::link!("oleaut32.dll" "system" fn GetErrorInfo(dwreserved : u32, pperrinfo : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
-    let mut result__ = ::std::mem::zeroed();
-    GetErrorInfo(dwreserved, &mut result__).from_abi(result__)
-}
-#[inline]
-pub unsafe fn SetErrorInfo<P0>(dwreserved: u32, perrinfo: P0) -> ::windows_core::Result<()>
-where
-    P0: ::windows_core::IntoParam<IErrorInfo>,
-{
-    ::windows_targets::link!("oleaut32.dll" "system" fn SetErrorInfo(dwreserved : u32, perrinfo : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
-    SetErrorInfo(dwreserved, perrinfo.into_param().abi()).ok()
-}
 pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]

@@ -1,23 +1,27 @@
+#![allow(missing_docs)]
+
 use super::*;
 
 /// An error object consists of both an error code as well as detailed error information for debugging.
 #[derive(Clone, PartialEq, Eq)]
 pub struct Error {
     pub(crate) code: HRESULT,
-    pub(crate) info: Option<crate::imp::IRestrictedErrorInfo>,
+    pub(crate) info: Option<crate::imp::IErrorInfo>,
 }
+
+unsafe impl Send for Error {}
+unsafe impl Sync for Error {}
 
 impl Error {
     /// An error object without any failure information.
     pub const OK: Self = Self { code: HRESULT(0), info: None };
 
-    /// This creates a new WinRT error object, capturing the stack and other information about the
+    /// This creates a new error object, capturing the stack and other information about the
     /// point of failure.
     pub fn new(code: HRESULT, message: HSTRING) -> Self {
         unsafe {
             crate::imp::RoOriginateError(code.0, std::mem::transmute_copy(&message));
-            let info = GetErrorInfo().and_then(|e| e.cast()).ok();
-            Self { code, info }
+            Self { code, info: GetErrorInfo() }
         }
     }
 
@@ -31,43 +35,66 @@ impl Error {
         self.code
     }
 
-    /// The error information describing the error.
-    pub const fn info(&self) -> &Option<crate::imp::IRestrictedErrorInfo> {
-        &self.info
+    /// The error object describing the error.
+    pub fn info<T: Interface>(&self) -> Option<T> {
+        self.info.as_ref().and_then(|info| info.cast::<T>().ok())
     }
 
     /// The error message describing the error.
     pub fn message(&self) -> HSTRING {
-        // First attempt to retrieve the restricted error information.
         if let Some(info) = &self.info {
-            let mut fallback = BSTR::default();
             let mut message = BSTR::default();
-            let mut code = HRESULT(0);
 
-            unsafe {
-                let _ = info.GetErrorDetails(&mut fallback, &mut code, &mut message, &mut BSTR::default());
+            // First attempt to retrieve the restricted error information.
+            if let Ok(info) = info.cast::<crate::imp::IRestrictedErrorInfo>() {
+                let mut fallback = BSTR::default();
+                let mut code = HRESULT(0);
+
+                unsafe {
+                    // The vfptr is called directly to avoid the default error propagation logic.
+                    _ = (info.vtable().GetErrorDetails)(info.as_raw(), &mut fallback as *mut _ as _, &mut code, &mut message as *mut _ as _, &mut BSTR::default() as *mut _ as _);
+                }
+
+                if message.is_empty() {
+                    message = fallback
+                };
             }
 
-            if self.code == code {
-                let message = if !message.is_empty() { message } else { fallback };
-                return HSTRING::from_wide(crate::imp::wide_trim_end(message.as_wide())).unwrap_or_default();
+            // Next attempt to retrieve the regular error information.
+            if message.is_empty() {
+                unsafe {
+                    // The vfptr is called directly to avoid the default error propagation logic.
+                    _ = (info.vtable().GetDescription)(info.as_raw(), &mut message as *mut _ as _);
+                }
             }
+
+            return HSTRING::from_wide(crate::imp::wide_trim_end(message.as_wide())).unwrap_or_default();
         }
 
+        // Otherwise fallback to a generic error code description.
         self.code.message()
     }
 }
 
 impl From<Error> for HRESULT {
     fn from(error: Error) -> Self {
-        let code = error.code;
-        let info: Option<crate::imp::IErrorInfo> = error.info.and_then(|info| info.cast().ok());
-
-        unsafe {
-            let _ = crate::imp::SetErrorInfo(0, info.as_ref());
+        if error.info.is_some() {
+            unsafe {
+                crate::imp::SetErrorInfo(0, std::mem::transmute_copy(&error.info));
+            }
         }
 
-        code
+        error.code
+    }
+}
+
+impl From<HRESULT> for Error {
+    fn from(code: HRESULT) -> Self {
+        let info = GetErrorInfo();
+
+        // Call CapturePropagationContext here if a use case presents itself. Otherwise, we can avoid the overhead for error propagation.
+
+        Self { code, info }
     }
 }
 
@@ -105,32 +132,6 @@ impl From<std::convert::Infallible> for Error {
     }
 }
 
-impl From<HRESULT> for Error {
-    fn from(code: HRESULT) -> Self {
-        let info: Option<crate::imp::IRestrictedErrorInfo> = GetErrorInfo().and_then(|e| e.cast()).ok();
-
-        if let Some(info) = info {
-            // If it does (and therefore running on a recent version of Windows)
-            // then capture_propagation_context adds a breadcrumb to the error
-            // info to make debugging easier.
-            if let Ok(capture) = info.cast::<crate::imp::ILanguageExceptionErrorInfo2>() {
-                unsafe {
-                    let _ = capture.CapturePropagationContext(None);
-                }
-            }
-
-            return Self { code, info: Some(info) };
-        }
-
-        if let Ok(info) = GetErrorInfo() {
-            let message = unsafe { info.GetDescription().unwrap_or_default() };
-            Self::new(code, HSTRING::from_wide(message.as_wide()).unwrap_or_default())
-        } else {
-            Self { code, info: None }
-        }
-    }
-}
-
 impl std::fmt::Debug for Error {
     fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let mut debug = fmt.debug_struct("Error");
@@ -151,6 +152,8 @@ impl std::fmt::Display for Error {
 
 impl std::error::Error for Error {}
 
-fn GetErrorInfo() -> Result<crate::imp::IErrorInfo> {
-    unsafe { crate::imp::GetErrorInfo(0) }
+fn GetErrorInfo() -> Option<crate::imp::IErrorInfo> {
+    let mut info = None;
+    unsafe { crate::imp::GetErrorInfo(0, &mut info as *mut _ as _) };
+    info
 }

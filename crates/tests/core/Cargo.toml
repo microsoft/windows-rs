@@ -10,6 +10,8 @@ features = [
     "implement",
     "Win32_Foundation",
     "Win32_System_WinRT",
+    "Win32_System_Ole",
+    "Win32_System_Com",
     "Win32_Media_Audio",
 ]
 

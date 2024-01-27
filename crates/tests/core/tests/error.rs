@@ -1,4 +1,7 @@
-use windows::{core::*, Win32::Foundation::*, Win32::Media::Audio::*};
+use windows::{
+    core::*, Win32::Foundation::*, Win32::Media::Audio::*, Win32::System::Com::*,
+    Win32::System::Ole::*, Win32::System::WinRT::*,
+};
 
 #[test]
 fn display_debug() {
@@ -28,4 +31,37 @@ fn hresult_last_error() {
         let e = GetLastError().unwrap_err();
         assert_eq!(e.code(), CRYPT_E_NOT_FOUND);
     }
+}
+
+// Checks that non-restricted error info is reported.
+#[test]
+fn set_error_info() -> Result<()> {
+    unsafe {
+        let creator = CreateErrorInfo()?;
+        creator.SetDescription(w!("message"))?;
+        SetErrorInfo(0, &creator.cast::<IErrorInfo>()?)?;
+
+        assert_eq!(Error::from(E_FAIL).message(), "message");
+        SetErrorInfo(0, None)?;
+        assert_eq!(Error::from(E_FAIL).message(), "Unspecified error");
+
+        Ok(())
+    }
+}
+
+// https://github.com/microsoft/cppwinrt/pull/1386
+#[test]
+fn suppressed_error_info() -> Result<()> {
+    unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_SUPPRESSSETERRORINFO.0 as u32)? };
+
+    assert_eq!(
+        Error::new(E_FAIL, "message".into()).message(),
+        "Unspecified error"
+    );
+
+    unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_USESETERRORINFO.0 as u32)? };
+
+    assert_eq!(Error::new(E_FAIL, "message".into()).message(), "message");
+
+    Ok(())
 }
