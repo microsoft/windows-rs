@@ -1,0 +1,22 @@
+[package]
+name = "sample_component_json_validator_winrt_client"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dev-dependencies.windows-core]
+path = "../../../libs/core"
+
+[dev-dependencies.windows]
+path = "../../../libs/windows"
+features = [
+    "Win32_Foundation",
+]
+
+[build-dependencies.windows-bindgen]
+path = "../../../libs/bindgen"
+
+# TODO: this causes a warning about lack of linkage target. The point is to ensure that this binary dependency is built first but 
+# Cargo doesn't respect cdylib targets. https://github.com/rust-lang/cargo/issues/7825
+[build-dependencies.sample_component_json_validator_winrt]
+path = "../json_validator_winrt"

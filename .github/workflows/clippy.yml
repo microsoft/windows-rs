@@ -39,6 +39,8 @@ jobs:
           cargo clippy -p sample_com_uri &&
           cargo clippy -p sample_component_hello_world &&
           cargo clippy -p sample_component_json_validator &&
+          cargo clippy -p sample_component_json_validator_winrt &&
+          cargo clippy -p sample_component_json_validator_winrt_client &&
           cargo clippy -p sample_consent &&
           cargo clippy -p sample_core_app &&
           cargo clippy -p sample_counter &&

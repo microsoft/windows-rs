@@ -65,3 +65,11 @@ fn suppressed_error_info() -> Result<()> {
 
     Ok(())
 }
+
+// Checks that direct HRESULT-to-Error conversion doesn't create an error info object.
+#[test]
+fn just_hresult() {
+    let e: Error = E_NOTIMPL.into();
+    assert!(e.code() == E_NOTIMPL);
+    assert!(e.info::<IUnknown>().is_none());
+}
