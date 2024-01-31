@@ -1,0 +1,27 @@
+[package]
+name = "sample_component_json_validator_winrt"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "sample"
+crate-type = ["cdylib"]
+
+[dependencies]
+jsonschema = "0.17"
+serde_json = "1.0"
+
+[dependencies.windows]
+path = "../../../libs/windows"
+features = [
+    "implement",
+    "Win32_Foundation",
+    "Win32_System_WinRT",
+]
+
+[dependencies.windows-core]
+path = "../../../libs/core"
+
+[build-dependencies.windows-bindgen]
+path = "../../../libs/bindgen"

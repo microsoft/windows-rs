@@ -46,6 +46,8 @@ jobs:
           cargo test -p sample_com_uri &&
           cargo test -p sample_component_hello_world &&
           cargo test -p sample_component_json_validator &&
+          cargo test -p sample_component_json_validator_winrt &&
+          cargo test -p sample_component_json_validator_winrt_client &&
           cargo test -p sample_consent &&
           cargo test -p sample_core_app &&
           cargo test -p sample_counter &&
@@ -102,8 +104,8 @@ jobs:
           cargo test -p test_deprecated &&
           cargo test -p test_dispatch &&
           cargo test -p test_does_not_return &&
-          cargo test -p test_enums &&
           cargo clean &&
+          cargo test -p test_enums &&
           cargo test -p test_error &&
           cargo test -p test_event &&
           cargo test -p test_extensions &&
