@@ -38,7 +38,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Update toolchain
         run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.target }}
       - name: Add toolchain target
@@ -88,7 +88,7 @@ jobs:
     runs-on: windows-2019
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Update toolchain
         run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
       - name: Install clippy

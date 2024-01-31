@@ -35,7 +35,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Add toolchain target
         run: rustup target add ${{ matrix.target }}
@@ -57,7 +57,7 @@ jobs:
 
       - name: LLVM MinGW toolchain cache configuration
         id: cache-llvm-mingw-toolchain
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         if: startsWith(matrix.image, 'ubuntu-') && contains(matrix.target, 'gnullvm') && matrix.version == 'nightly'
         with:
           path: ${{ env.LLVM-MINGW-TOOLCHAIN-NAME }}
