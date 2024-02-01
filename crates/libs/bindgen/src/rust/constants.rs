@@ -5,7 +5,6 @@ pub fn writer(writer: &Writer, def: metadata::Field) -> TokenStream {
     let name = to_ident(def.name());
     let ty = def.ty(None).to_const_type();
     let cfg = cfg::field_cfg(writer, def);
-    let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 
     if let Some(constant) = def.constant() {
@@ -17,14 +16,12 @@ pub fn writer(writer: &Writer, def: metadata::Field) -> TokenStream {
                 if field_is_ansi(def) {
                     let value = writer.value(&constant.value());
                     quote! {
-                        #doc
                         #features
                         pub const #name: #crate_name PCSTR = #crate_name s!(#value);
                     }
                 } else {
                     let value = writer.value(&constant.value());
                     quote! {
-                        #doc
                         #features
                         pub const #name: #crate_name PCWSTR = #crate_name w!(#value);
                     }
@@ -32,7 +29,6 @@ pub fn writer(writer: &Writer, def: metadata::Field) -> TokenStream {
             } else {
                 let value = writer.typed_value(&constant.value());
                 quote! {
-                    #doc
                     #features
                     pub const #name: #value;
                 }
@@ -50,13 +46,11 @@ pub fn writer(writer: &Writer, def: metadata::Field) -> TokenStream {
 
             if !writer.sys && type_has_replacement(&ty) {
                 quote! {
-                    #doc
                     #features
                     pub const #name: #kind = #kind(#value);
                 }
             } else {
                 quote! {
-                    #doc
                     #features
                     pub const #name: #kind = #value;
                 }
@@ -66,14 +60,12 @@ pub fn writer(writer: &Writer, def: metadata::Field) -> TokenStream {
         let value = writer.guid(&guid);
         let guid = writer.type_name(&metadata::Type::GUID);
         quote! {
-            #doc
             pub const #name: #guid = #value;
         }
     } else if let Some(value) = initializer(writer, def) {
         let kind = writer.type_default_name(&ty);
 
         quote! {
-            #doc
             #features
             pub const #name: #kind = #kind { #value };
         }

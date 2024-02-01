@@ -27,7 +27,6 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let mut method_names = MethodNames::new();
 
     let cfg = cfg::type_def_cfg(writer, def, &[]);
-    let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 
     for interface in &interfaces {
@@ -84,7 +83,6 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         };
 
         let mut tokens = quote! {
-            #doc
             #features
             #[repr(transparent)]
             #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -111,7 +109,6 @@ fn gen_class(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         tokens
     } else {
         let mut tokens = quote! {
-            #doc
             #features
             pub struct #name;
             #features

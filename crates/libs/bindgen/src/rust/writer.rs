@@ -348,49 +348,6 @@ impl Writer {
     // Cfg
     //
 
-    /// Generates doc comments for types, free functions, and constants.
-    pub(crate) fn cfg_doc(&self, cfg: &cfg::Cfg) -> TokenStream {
-        if !self.package {
-            quote! {}
-        } else {
-            let mut tokens = String::new();
-
-            for features in self.cfg_features_imp(cfg, self.namespace) {
-                write!(tokens, r#"`\"{}\"`, "#, to_feature(features)).unwrap();
-            }
-
-            if tokens.is_empty() {
-                TokenStream::new()
-            } else {
-                tokens.truncate(tokens.len() - 2);
-                format!(r#" #[doc = "Required features: {tokens}"]"#).into()
-            }
-        }
-    }
-
-    /// Generates doc comments for member functions (methods) and avoids redundantly declaring the
-    /// enclosing module feature required by the method's type.
-    pub(crate) fn cfg_method_doc(&self, cfg: &cfg::Cfg) -> TokenStream {
-        if !self.package {
-            quote! {}
-        } else {
-            let features = self.cfg_features_imp(cfg, self.namespace);
-
-            if features.is_empty() {
-                quote! {}
-            } else {
-                let mut tokens = String::new();
-
-                for features in features {
-                    write!(tokens, r#"`\"{}\"`, "#, to_feature(features)).unwrap();
-                }
-
-                tokens.truncate(tokens.len() - 2);
-                format!(r#"#[doc = "Required features: {tokens}"]"#).into()
-            }
-        }
-    }
-
     pub(crate) fn cfg_features(&self, cfg: &cfg::Cfg) -> TokenStream {
         let arches = &cfg.arches;
         let arch = match arches.len() {

@@ -25,7 +25,7 @@ fn gen_sys_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
     let signature = metadata::method_def_signature(namespace, def, &[]);
     let cfg = cfg::signature_cfg(writer, def);
     let mut tokens = writer.cfg_features(&cfg);
-    tokens.combine(&gen_link(writer, namespace, &signature, &cfg));
+    tokens.combine(&gen_link(writer, namespace, &signature));
     tokens
 }
 
@@ -36,9 +36,8 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
     let where_clause = writer.where_clause(&signature.params);
     let abi_return_type = writer.return_sig(&signature);
     let cfg = cfg::signature_cfg(writer, def);
-    let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
-    let link = gen_link(writer, namespace, &signature, &cfg);
+    let link = gen_link(writer, namespace, &signature);
 
     let kind = signature.kind();
     match kind {
@@ -49,7 +48,6 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
             let where_clause = expand_where_clause(where_clause, quote!(T: ::windows_core::Interface));
 
             quote! {
-                #doc
                 #features
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<T> #where_clause {
@@ -66,7 +64,6 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
             let where_clause = expand_where_clause(where_clause, quote!(T: ::windows_core::Interface));
 
             quote! {
-                #doc
                 #features
                 #[inline]
                 pub unsafe fn #name<#generics>(#params result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()> #where_clause {
@@ -82,7 +79,6 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
             let return_type = writer.type_name(&return_type);
 
             quote! {
-                #doc
                 #features
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<#return_type> #where_clause {
@@ -97,7 +93,6 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
             let params = writer.win32_params(&signature.params, kind);
 
             quote! {
-                #doc
                 #features
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<()> #where_clause {
@@ -115,7 +110,6 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
 
             if is_nullable {
                 quote! {
-                    #doc
                     #features
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<#return_type> #where_clause {
@@ -127,7 +121,6 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
                 }
             } else {
                 quote! {
-                    #doc
                     #features
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) -> #return_type #where_clause {
@@ -146,7 +139,6 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
                 let return_type = writer.type_name(&signature.return_type);
 
                 quote! {
-                    #doc
                     #features
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<#return_type> #where_clause {
@@ -160,7 +152,6 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
                 let params = writer.win32_params(&signature.params, kind);
 
                 quote! {
-                    #doc
                     #features
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) #abi_return_type #where_clause {
@@ -176,7 +167,6 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
             let does_not_return = does_not_return(def);
 
             quote! {
-                #doc
                 #features
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) #does_not_return #where_clause {
@@ -188,7 +178,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
     }
 }
 
-fn gen_link(writer: &Writer, namespace: &str, signature: &metadata::Signature, cfg: &cfg::Cfg) -> TokenStream {
+fn gen_link(writer: &Writer, namespace: &str, signature: &metadata::Signature) -> TokenStream {
     let name = signature.def.name();
     let ident = to_ident(name);
     let library = signature.def.module_name();
@@ -229,15 +219,13 @@ fn gen_link(writer: &Writer, namespace: &str, signature: &metadata::Signature, c
     } else {
         let symbol = if symbol != name { format!(" \"{symbol}\"") } else { String::new() };
 
-        let doc = if writer.sys { writer.cfg_doc(cfg).0 } else { String::new() };
-
         let mut tokens = String::new();
         for param in params {
             tokens.push_str(&format!("{}, ", param.as_str()));
         }
         tokens.push_str(&vararg.0);
         let tokens = tokens.trim_end_matches(", ");
-        format!(r#"::windows_targets::link!("{library}" "{abi}"{symbol}{doc} fn {name}({tokens}){return_type});"#).into()
+        format!(r#"::windows_targets::link!("{library}" "{abi}"{symbol} fn {name}({tokens}){return_type});"#).into()
     }
 }
 

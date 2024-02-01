@@ -11,7 +11,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let is_scoped = def.flags().contains(metadata::TypeAttributes::WindowsRuntime) || def.has_attribute("ScopedEnumAttribute");
 
     let cfg = cfg::type_def_cfg(writer, def, &[]);
-    let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 
     let fields: Vec<(TokenStream, TokenStream)> = def
@@ -45,7 +44,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
 
     let mut tokens = if is_scoped || !writer.sys {
         quote! {
-            #doc
             #features
             #[repr(transparent)]
             #derive
@@ -53,7 +51,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         }
     } else {
         quote! {
-            #doc
             #features
             pub type #ident = #underlying_type;
         }
