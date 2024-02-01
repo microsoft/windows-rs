@@ -33,7 +33,6 @@ pub struct IXsltProcessorFactory_Vtbl {
 pub struct XsltProcessor(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(XsltProcessor, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl XsltProcessor {
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn TransformToString<P0>(&self, inputnode: P0) -> ::windows_core::Result<::windows_core::HSTRING>
     where
@@ -45,7 +44,6 @@ impl XsltProcessor {
             (::windows_core::Interface::vtable(this).TransformToString)(::windows_core::Interface::as_raw(this), inputnode.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn TransformToDocument<P0>(&self, inputnode: P0) -> ::windows_core::Result<super::Dom::XmlDocument>
     where
@@ -57,7 +55,6 @@ impl XsltProcessor {
             (::windows_core::Interface::vtable(this).TransformToDocument)(::windows_core::Interface::as_raw(this), inputnode.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn CreateInstance<P0>(document: P0) -> ::windows_core::Result<XsltProcessor>
     where

@@ -1,27 +1,19 @@
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Accessibility\"`"]
-    IAccessibleWinSAT,
-    IAccessibleWinSAT_Vtbl,
-    0x30e6018a_94a8_4ff8_a69a_71b67413f07b
-);
+::windows_core::imp::com_interface!(IAccessibleWinSAT, IAccessibleWinSAT_Vtbl, 0x30e6018a_94a8_4ff8_a69a_71b67413f07b);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 ::windows_core::imp::interface_hierarchy!(IAccessibleWinSAT, ::windows_core::IUnknown, super::Com::IDispatch, super::super::UI::Accessibility::IAccessible);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 impl IAccessibleWinSAT {
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Accessibility\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
     pub unsafe fn accParent(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.accParent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn accChildCount(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.accChildCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Accessibility\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
     pub unsafe fn get_accChild<P0>(&self, varchild: P0) -> ::windows_core::Result<super::Com::IDispatch>
     where
@@ -30,7 +22,6 @@ impl IAccessibleWinSAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_accChild)(::windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn get_accName<P0>(&self, varchild: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -39,7 +30,6 @@ impl IAccessibleWinSAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_accName)(::windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn get_accValue<P0>(&self, varchild: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -48,7 +38,6 @@ impl IAccessibleWinSAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_accValue)(::windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn get_accDescription<P0>(&self, varchild: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -57,7 +46,6 @@ impl IAccessibleWinSAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_accDescription)(::windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn get_accRole<P0>(&self, varchild: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
@@ -66,7 +54,6 @@ impl IAccessibleWinSAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_accRole)(::windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn get_accState<P0>(&self, varchild: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
@@ -75,7 +62,6 @@ impl IAccessibleWinSAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_accState)(::windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn get_accHelp<P0>(&self, varchild: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -84,7 +70,6 @@ impl IAccessibleWinSAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_accHelp)(::windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn get_accHelpTopic<P0>(&self, pszhelpfile: *mut ::windows_core::BSTR, varchild: P0) -> ::windows_core::Result<i32>
     where
@@ -93,7 +78,6 @@ impl IAccessibleWinSAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_accHelpTopic)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pszhelpfile), varchild.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn get_accKeyboardShortcut<P0>(&self, varchild: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -102,19 +86,16 @@ impl IAccessibleWinSAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_accKeyboardShortcut)(::windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn accFocus(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.accFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn accSelection(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.accSelection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn get_accDefaultAction<P0>(&self, varchild: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -123,7 +104,6 @@ impl IAccessibleWinSAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_accDefaultAction)(::windows_core::Interface::as_raw(self), varchild.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn accSelect<P0>(&self, flagsselect: i32, varchild: P0) -> ::windows_core::Result<()>
     where
@@ -131,7 +111,6 @@ impl IAccessibleWinSAT {
     {
         (::windows_core::Interface::vtable(self).base__.accSelect)(::windows_core::Interface::as_raw(self), flagsselect, varchild.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn accLocation<P0>(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: P0) -> ::windows_core::Result<()>
     where
@@ -139,7 +118,6 @@ impl IAccessibleWinSAT {
     {
         (::windows_core::Interface::vtable(self).base__.accLocation)(::windows_core::Interface::as_raw(self), pxleft, pytop, pcxwidth, pcyheight, varchild.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn accNavigate<P0>(&self, navdir: i32, varstart: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
@@ -148,13 +126,11 @@ impl IAccessibleWinSAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.accNavigate)(::windows_core::Interface::as_raw(self), navdir, varstart.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn accHitTest(&self, xleft: i32, ytop: i32) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.accHitTest)(::windows_core::Interface::as_raw(self), xleft, ytop, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn accDoDefaultAction<P0>(&self, varchild: P0) -> ::windows_core::Result<()>
     where
@@ -162,7 +138,6 @@ impl IAccessibleWinSAT {
     {
         (::windows_core::Interface::vtable(self).base__.accDoDefaultAction)(::windows_core::Interface::as_raw(self), varchild.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn put_accName<P0, P1>(&self, varchild: P0, szname: P1) -> ::windows_core::Result<()>
     where
@@ -171,7 +146,6 @@ impl IAccessibleWinSAT {
     {
         (::windows_core::Interface::vtable(self).base__.put_accName)(::windows_core::Interface::as_raw(self), varchild.into_param().abi(), szname.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_UI_Accessibility\"`"]
     #[cfg(feature = "Win32_UI_Accessibility")]
     pub unsafe fn put_accValue<P0, P1>(&self, varchild: P0, szvalue: P1) -> ::windows_core::Result<()>
     where
@@ -227,12 +201,7 @@ pub struct IInitiateWinSATAssessment_Vtbl {
     pub CancelAssessment: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IProvideWinSATAssessmentInfo,
-    IProvideWinSATAssessmentInfo_Vtbl,
-    0x0cd1c380_52d3_4678_ac6f_e929e480be9e
-);
+::windows_core::imp::com_interface!(IProvideWinSATAssessmentInfo, IProvideWinSATAssessmentInfo_Vtbl, 0x0cd1c380_52d3_4678_ac6f_e929e480be9e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IProvideWinSATAssessmentInfo, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -260,17 +229,11 @@ pub struct IProvideWinSATAssessmentInfo_Vtbl {
     pub Description: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IProvideWinSATResultsInfo,
-    IProvideWinSATResultsInfo_Vtbl,
-    0xf8334d5d_568e_4075_875f_9df341506640
-);
+::windows_core::imp::com_interface!(IProvideWinSATResultsInfo, IProvideWinSATResultsInfo_Vtbl, 0xf8334d5d_568e_4075_875f_9df341506640);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IProvideWinSATResultsInfo, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IProvideWinSATResultsInfo {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAssessmentInfo(&self, assessment: WINSAT_ASSESSMENT_TYPE) -> ::windows_core::Result<IProvideWinSATAssessmentInfo> {
         let mut result__ = ::std::mem::zeroed();
@@ -310,7 +273,6 @@ pub struct IProvideWinSATResultsInfo_Vtbl {
 ::windows_core::imp::com_interface!(IProvideWinSATVisuals, IProvideWinSATVisuals_Vtbl, 0xa9f4ade0_871a_42a3_b813_3078d25162c9);
 ::windows_core::imp::interface_hierarchy!(IProvideWinSATVisuals, ::windows_core::IUnknown);
 impl IProvideWinSATVisuals {
-    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn get_Bitmap(&self, bitmapsize: WINSAT_BITMAP_SIZE, state: WINSAT_ASSESSMENT_STATE, rating: f32) -> ::windows_core::Result<super::super::Graphics::Gdi::HBITMAP> {
         let mut result__ = ::std::mem::zeroed();
@@ -327,17 +289,11 @@ pub struct IProvideWinSATVisuals_Vtbl {
     get_Bitmap: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IQueryAllWinSATAssessments,
-    IQueryAllWinSATAssessments_Vtbl,
-    0x0b89ed1d_6398_4fea_87fc_567d8d19176f
-);
+::windows_core::imp::com_interface!(IQueryAllWinSATAssessments, IQueryAllWinSATAssessments_Vtbl, 0x0b89ed1d_6398_4fea_87fc_567d8d19176f);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IQueryAllWinSATAssessments, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IQueryAllWinSATAssessments {
-    #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn get_AllXML<P0, P1>(&self, xpath: P0, namespaces: P1) -> ::windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>
     where
@@ -373,17 +329,11 @@ pub struct IQueryOEMWinSATCustomization_Vtbl {
     pub GetOEMPrePopulationInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WINSAT_OEM_CUSTOMIZATION_STATE) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IQueryRecentWinSATAssessment,
-    IQueryRecentWinSATAssessment_Vtbl,
-    0xf8ad5d1f_3b47_4bdc_9375_7c6b1da4eca7
-);
+::windows_core::imp::com_interface!(IQueryRecentWinSATAssessment, IQueryRecentWinSATAssessment_Vtbl, 0xf8ad5d1f_3b47_4bdc_9375_7c6b1da4eca7);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IQueryRecentWinSATAssessment, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IQueryRecentWinSATAssessment {
-    #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn get_XML<P0, P1>(&self, xpath: P0, namespaces: P1) -> ::windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>
     where
@@ -393,7 +343,6 @@ impl IQueryRecentWinSATAssessment {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_XML)(::windows_core::Interface::as_raw(self), xpath.into_param().abi(), namespaces.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Info(&self) -> ::windows_core::Result<IProvideWinSATResultsInfo> {
         let mut result__ = ::std::mem::zeroed();

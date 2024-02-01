@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_Graphics_Imaging\"`"]
 #[cfg(feature = "Win32_Graphics_Imaging")]
 pub trait IMILBitmapEffect_Impl: Sized {
     fn GetOutput(&self, uiindex: u32, pcontext: ::core::option::Option<&IMILBitmapEffectRenderContext>) -> ::windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
@@ -427,7 +426,6 @@ impl IMILBitmapEffectGroupImpl_Vtbl {
         iid == &<IMILBitmapEffectGroupImpl as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Imaging\"`"]
 #[cfg(feature = "Win32_Graphics_Imaging")]
 pub trait IMILBitmapEffectImpl_Impl: Sized {
     fn IsInPlaceModificationAllowed(&self, poutputconnector: ::core::option::Option<&IMILBitmapEffectOutputConnector>) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -662,7 +660,6 @@ impl IMILBitmapEffectOutputConnectorImpl_Vtbl {
         iid == &<IMILBitmapEffectOutputConnectorImpl as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Graphics_Imaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Dwm", feature = "Win32_Graphics_Imaging"))]
 pub trait IMILBitmapEffectPrimitive_Impl: Sized {
     fn GetOutput(&self, uiindex: u32, pcontext: ::core::option::Option<&IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;

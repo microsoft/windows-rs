@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"UI_Composition\"`"]
 #[cfg(feature = "UI_Composition")]
 pub trait ICompositionCapabilitiesInteropFactory_Impl: Sized {
     fn GetForWindow(&self, hwnd: super::super::super::Foundation::HWND) -> ::windows_core::Result<super::super::super::super::UI::Composition::CompositionCapabilities>;
@@ -150,7 +149,6 @@ impl ICompositionTextureInterop_Vtbl {
         iid == &<ICompositionTextureInterop as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"UI_Composition_Desktop\"`"]
 #[cfg(feature = "UI_Composition_Desktop")]
 pub trait ICompositorDesktopInterop_Impl: Sized {
     fn CreateDesktopWindowTarget(&self, hwndtarget: super::super::super::Foundation::HWND, istopmost: super::super::super::Foundation::BOOL) -> ::windows_core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>;
@@ -187,7 +185,6 @@ impl ICompositorDesktopInterop_Vtbl {
         iid == &<ICompositorDesktopInterop as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"UI_Composition\"`"]
 #[cfg(feature = "UI_Composition")]
 pub trait ICompositorInterop_Impl: Sized {
     fn CreateCompositionSurfaceForHandle(&self, swapchain: super::super::super::Foundation::HANDLE) -> ::windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>;
@@ -243,7 +240,6 @@ impl ICompositorInterop_Vtbl {
         iid == &<ICompositorInterop as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"UI_Composition\"`"]
 #[cfg(feature = "UI_Composition")]
 pub trait ICompositorInterop2_Impl: Sized {
     fn CheckCompositionTextureSupport(&self, renderingdevice: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
@@ -309,7 +305,6 @@ impl IDesktopWindowTargetInterop_Vtbl {
         iid == &<IDesktopWindowTargetInterop as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IVisualInteractionSourceInterop_Impl: Sized {
     fn TryRedirectForManipulation(&self, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> ::windows_core::Result<()>;

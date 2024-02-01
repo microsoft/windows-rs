@@ -1,5 +1,4 @@
 #[cfg(feature = "Devices_Pwm_Provider")]
-#[doc = "Required features: `\"Devices_Pwm_Provider\"`"]
 pub mod Provider;
 ::windows_core::imp::com_interface!(IPwmController, IPwmController_Vtbl, 0xc45f5c85_d2e8_42cf_9bd6_cf5ed029e6a7);
 #[repr(C)]
@@ -100,7 +99,6 @@ impl PwmController {
             (::windows_core::Interface::vtable(this).OpenPin)(::windows_core::Interface::as_raw(this), pinnumber, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Pwm_Provider\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "Devices_Pwm_Provider", feature = "Foundation_Collections"))]
     pub fn GetControllersAsync<P0>(provider: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PwmController>>>
     where

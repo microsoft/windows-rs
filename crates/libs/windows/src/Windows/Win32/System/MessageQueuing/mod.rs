@@ -6,7 +6,6 @@ where
     ::windows_targets::link!("mqrt.dll" "system" fn MQADsPathToFormatName(lpwcsadspath : ::windows_core::PCWSTR, lpwcsformatname : ::windows_core::PWSTR, lpdwformatnamelength : *mut u32) -> ::windows_core::HRESULT);
     MQADsPathToFormatName(lpwcsadspath.into_param().abi(), ::core::mem::transmute(lpwcsformatname), lpdwformatnamelength).ok()
 }
-#[doc = "Required features: `\"Win32_System_DistributedTransactionCoordinator\"`"]
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 #[inline]
 pub unsafe fn MQBeginTransaction() -> ::windows_core::Result<super::DistributedTransactionCoordinator::ITransaction> {
@@ -33,7 +32,6 @@ pub unsafe fn MQCreateCursor(hqueue: isize) -> ::windows_core::Result<super::sup
     let mut result__ = ::std::mem::zeroed();
     MQCreateCursor(hqueue, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn MQCreateQueue<P0>(psecuritydescriptor: P0, pqueueprops: *mut MQQUEUEPROPS, lpwcsformatname: ::windows_core::PWSTR, lpdwformatnamelength: *mut u32) -> ::windows_core::Result<()>
@@ -72,7 +70,6 @@ where
     ::windows_targets::link!("mqrt.dll" "system" fn MQGetMachineProperties(lpwcsmachinename : ::windows_core::PCWSTR, pguidmachineid : *const ::windows_core::GUID, pqmprops : *mut MQQMPROPS) -> ::windows_core::HRESULT);
     MQGetMachineProperties(lpwcsmachinename.into_param().abi(), ::core::mem::transmute(pguidmachineid.unwrap_or(::std::ptr::null())), pqmprops).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn MQGetOverlappedResult(lpoverlapped: *const super::IO::OVERLAPPED) -> ::windows_core::Result<()> {
@@ -95,7 +92,6 @@ where
     ::windows_targets::link!("mqrt.dll" "system" fn MQGetQueueProperties(lpwcsformatname : ::windows_core::PCWSTR, pqueueprops : *mut MQQUEUEPROPS) -> ::windows_core::HRESULT);
     MQGetQueueProperties(lpwcsformatname.into_param().abi(), pqueueprops).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn MQGetQueueSecurity<P0>(lpwcsformatname: P0, requestedinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> ::windows_core::Result<()>
@@ -179,7 +175,6 @@ where
     ::windows_targets::link!("mqrt.dll" "system" fn MQMgmtGetInfo(pcomputername : ::windows_core::PCWSTR, pobjectname : ::windows_core::PCWSTR, pmgmtprops : *mut MQMGMTPROPS) -> ::windows_core::HRESULT);
     MQMgmtGetInfo(pcomputername.into_param().abi(), pobjectname.into_param().abi(), pmgmtprops).ok()
 }
-#[doc = "Required features: `\"Win32_System_DistributedTransactionCoordinator\"`"]
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 #[inline]
 pub unsafe fn MQMoveMessage<P0>(hsourcequeue: isize, hdestinationqueue: isize, ulllookupid: u64, ptransaction: P0) -> ::windows_core::Result<()>
@@ -211,7 +206,6 @@ pub unsafe fn MQPurgeQueue(hqueue: isize) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mqrt.dll" "system" fn MQPurgeQueue(hqueue : isize) -> ::windows_core::HRESULT);
     MQPurgeQueue(hqueue).ok()
 }
-#[doc = "Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_System_DistributedTransactionCoordinator", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn MQReceiveMessage<P0, P1>(hsource: isize, dwtimeout: u32, dwaction: u32, pmessageprops: ::core::option::Option<*mut MQMSGPROPS>, lpoverlapped: ::core::option::Option<*mut super::IO::OVERLAPPED>, fnreceivecallback: PMQRECEIVECALLBACK, hcursor: P0, ptransaction: P1) -> ::windows_core::Result<()>
@@ -222,7 +216,6 @@ where
     ::windows_targets::link!("mqrt.dll" "system" fn MQReceiveMessage(hsource : isize, dwtimeout : u32, dwaction : u32, pmessageprops : *mut MQMSGPROPS, lpoverlapped : *mut super::IO:: OVERLAPPED, fnreceivecallback : PMQRECEIVECALLBACK, hcursor : super::super::Foundation:: HANDLE, ptransaction : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     MQReceiveMessage(hsource, dwtimeout, dwaction, ::core::mem::transmute(pmessageprops.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), fnreceivecallback, hcursor.into_param().abi(), ptransaction.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_DistributedTransactionCoordinator\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_System_DistributedTransactionCoordinator", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn MQReceiveMessageByLookupId<P0>(hsource: isize, ulllookupid: u64, dwlookupaction: u32, pmessageprops: ::core::option::Option<*mut MQMSGPROPS>, lpoverlapped: ::core::option::Option<*mut super::IO::OVERLAPPED>, fnreceivecallback: PMQRECEIVECALLBACK, ptransaction: P0) -> ::windows_core::Result<()>
@@ -237,7 +230,6 @@ pub unsafe fn MQRegisterCertificate(dwflags: u32, lpcertbuffer: *const ::core::f
     ::windows_targets::link!("mqrt.dll" "system" fn MQRegisterCertificate(dwflags : u32, lpcertbuffer : *const ::core::ffi::c_void, dwcertbufferlength : u32) -> ::windows_core::HRESULT);
     MQRegisterCertificate(dwflags, lpcertbuffer, dwcertbufferlength).ok()
 }
-#[doc = "Required features: `\"Win32_System_DistributedTransactionCoordinator\"`"]
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 #[inline]
 pub unsafe fn MQSendMessage<P0>(hdestinationqueue: isize, pmessageprops: *const MQMSGPROPS, ptransaction: P0) -> ::windows_core::Result<()>
@@ -255,7 +247,6 @@ where
     ::windows_targets::link!("mqrt.dll" "system" fn MQSetQueueProperties(lpwcsformatname : ::windows_core::PCWSTR, pqueueprops : *mut MQQUEUEPROPS) -> ::windows_core::HRESULT);
     MQSetQueueProperties(lpwcsformatname.into_param().abi(), pqueueprops).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn MQSetQueueSecurity<P0, P1>(lpwcsformatname: P0, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P1) -> ::windows_core::Result<()>
@@ -267,12 +258,7 @@ where
     MQSetQueueSecurity(lpwcsformatname.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQApplication,
-    IMSMQApplication_Vtbl,
-    0xd7d6e085_dccd_11d0_aa4b_0060970debae
-);
+::windows_core::imp::com_interface!(IMSMQApplication, IMSMQApplication_Vtbl, 0xd7d6e085_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQApplication, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -293,12 +279,7 @@ pub struct IMSMQApplication_Vtbl {
     pub MachineIdOfMachineName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQApplication2,
-    IMSMQApplication2_Vtbl,
-    0x12a30900_7300_11d2_b0e6_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQApplication2, IMSMQApplication2_Vtbl, 0x12a30900_7300_11d2_b0e6_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQApplication2, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQApplication);
 #[cfg(feature = "Win32_System_Com")]
@@ -336,7 +317,6 @@ impl IMSMQApplication2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsDsEnabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -360,12 +340,7 @@ pub struct IMSMQApplication2_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQApplication3,
-    IMSMQApplication3_Vtbl,
-    0xeba96b1f_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQApplication3, IMSMQApplication3_Vtbl, 0xeba96b1f_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQApplication3, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQApplication, IMSMQApplication2);
 #[cfg(feature = "Win32_System_Com")]
@@ -403,7 +378,6 @@ impl IMSMQApplication3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsDsEnabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -466,12 +440,7 @@ pub struct IMSMQApplication3_Vtbl {
     pub Tidy: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQCollection,
-    IMSMQCollection_Vtbl,
-    0x0188ac2f_ecb3_4173_9779_635ca2039c72
-);
+::windows_core::imp::com_interface!(IMSMQCollection, IMSMQCollection_Vtbl, 0x0188ac2f_ecb3_4173_9779_635ca2039c72);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQCollection, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -499,17 +468,11 @@ pub struct IMSMQCollection_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQCoordinatedTransactionDispenser,
-    IMSMQCoordinatedTransactionDispenser_Vtbl,
-    0xd7d6e081_dccd_11d0_aa4b_0060970debae
-);
+::windows_core::imp::com_interface!(IMSMQCoordinatedTransactionDispenser, IMSMQCoordinatedTransactionDispenser_Vtbl, 0xd7d6e081_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQCoordinatedTransactionDispenser {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BeginTransaction(&self) -> ::windows_core::Result<IMSMQTransaction> {
         let mut result__ = ::std::mem::zeroed();
@@ -527,23 +490,16 @@ pub struct IMSMQCoordinatedTransactionDispenser_Vtbl {
     BeginTransaction: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQCoordinatedTransactionDispenser2,
-    IMSMQCoordinatedTransactionDispenser2_Vtbl,
-    0xeba96b10_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQCoordinatedTransactionDispenser2, IMSMQCoordinatedTransactionDispenser2_Vtbl, 0xeba96b10_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQCoordinatedTransactionDispenser2 {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BeginTransaction(&self) -> ::windows_core::Result<IMSMQTransaction2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BeginTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -565,23 +521,16 @@ pub struct IMSMQCoordinatedTransactionDispenser2_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQCoordinatedTransactionDispenser3,
-    IMSMQCoordinatedTransactionDispenser3_Vtbl,
-    0xeba96b14_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQCoordinatedTransactionDispenser3, IMSMQCoordinatedTransactionDispenser3_Vtbl, 0xeba96b14_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQCoordinatedTransactionDispenser3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQCoordinatedTransactionDispenser3 {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BeginTransaction(&self) -> ::windows_core::Result<IMSMQTransaction3> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BeginTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -603,12 +552,7 @@ pub struct IMSMQCoordinatedTransactionDispenser3_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQDestination,
-    IMSMQDestination_Vtbl,
-    0xeba96b16_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQDestination, IMSMQDestination_Vtbl, 0xeba96b16_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQDestination, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -623,13 +567,11 @@ impl IMSMQDestination {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsOpen)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IADs(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IADs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_IADs<P0>(&self, piads: P0) -> ::windows_core::Result<()>
     where
@@ -667,13 +609,11 @@ impl IMSMQDestination {
     {
         (::windows_core::Interface::vtable(self).SetFormatName)(::windows_core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Destinations(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Destinations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Destinations<P0>(&self, pdestinations: P0) -> ::windows_core::Result<()>
     where
@@ -681,7 +621,6 @@ impl IMSMQDestination {
     {
         (::windows_core::Interface::vtable(self).putref_Destinations)(::windows_core::Interface::as_raw(self), pdestinations.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -724,12 +663,7 @@ pub struct IMSMQDestination_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQEvent,
-    IMSMQEvent_Vtbl,
-    0xd7d6e077_dccd_11d0_aa4b_0060970debae
-);
+::windows_core::imp::com_interface!(IMSMQEvent, IMSMQEvent_Vtbl, 0xd7d6e077_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQEvent, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -741,17 +675,11 @@ pub struct IMSMQEvent_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQEvent2,
-    IMSMQEvent2_Vtbl,
-    0xeba96b12_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQEvent2, IMSMQEvent2_Vtbl, 0xeba96b12_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQEvent2, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQEvent);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQEvent2 {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -769,17 +697,11 @@ pub struct IMSMQEvent2_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQEvent3,
-    IMSMQEvent3_Vtbl,
-    0xeba96b1c_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQEvent3, IMSMQEvent3_Vtbl, 0xeba96b1c_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQEvent3, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQEvent, IMSMQEvent2);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQEvent3 {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -793,12 +715,7 @@ pub struct IMSMQEvent3_Vtbl {
     pub base__: IMSMQEvent2_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQManagement,
-    IMSMQManagement_Vtbl,
-    0xbe5f0241_e489_4957_8cc4_a452fcf3e23e
-);
+::windows_core::imp::com_interface!(IMSMQManagement, IMSMQManagement_Vtbl, 0xbe5f0241_e489_4957_8cc4_a452fcf3e23e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQManagement, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -855,12 +772,7 @@ pub struct IMSMQManagement_Vtbl {
     pub BytesInQueue: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQMessage,
-    IMSMQMessage_Vtbl,
-    0xd7d6e074_dccd_11d0_aa4b_0060970debae
-);
+::windows_core::imp::com_interface!(IMSMQMessage, IMSMQMessage_Vtbl, 0xd7d6e074_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQMessage, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -915,13 +827,11 @@ impl IMSMQMessage {
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetJournal)(::windows_core::Interface::as_raw(self), ljournal).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResponseQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ResponseQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> ::windows_core::Result<()>
     where
@@ -954,13 +864,11 @@ impl IMSMQMessage {
     {
         (::windows_core::Interface::vtable(self).SetBody)(::windows_core::Interface::as_raw(self), varbody.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdminQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AdminQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> ::windows_core::Result<()>
     where
@@ -1035,7 +943,6 @@ impl IMSMQMessage {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ArrivedTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DestinationQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
         let mut result__ = ::std::mem::zeroed();
@@ -1062,7 +969,6 @@ impl IMSMQMessage {
     pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSenderIdType)(::windows_core::Interface::as_raw(self), lsenderidtype).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>
     where
@@ -1148,12 +1054,7 @@ pub struct IMSMQMessage_Vtbl {
     pub AttachCurrentSecurityContext: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQMessage2,
-    IMSMQMessage2_Vtbl,
-    0xd9933be0_a567_11d2_b0f3_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQMessage2, IMSMQMessage2_Vtbl, 0xd9933be0_a567_11d2_b0f3_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQMessage2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1208,13 +1109,11 @@ impl IMSMQMessage2 {
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetJournal)(::windows_core::Interface::as_raw(self), ljournal).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResponseQueueInfo_v1(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ResponseQueueInfo_v1)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseQueueInfo_v1<P0>(&self, pqinforesponse: P0) -> ::windows_core::Result<()>
     where
@@ -1247,13 +1146,11 @@ impl IMSMQMessage2 {
     {
         (::windows_core::Interface::vtable(self).SetBody)(::windows_core::Interface::as_raw(self), varbody.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdminQueueInfo_v1(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AdminQueueInfo_v1)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AdminQueueInfo_v1<P0>(&self, pqinfoadmin: P0) -> ::windows_core::Result<()>
     where
@@ -1328,7 +1225,6 @@ impl IMSMQMessage2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ArrivedTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DestinationQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
         let mut result__ = ::std::mem::zeroed();
@@ -1355,7 +1251,6 @@ impl IMSMQMessage2 {
     pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSenderIdType)(::windows_core::Interface::as_raw(self), lsenderidtype).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>
     where
@@ -1390,7 +1285,6 @@ impl IMSMQMessage2 {
     {
         (::windows_core::Interface::vtable(self).SetConnectorTypeGuid)(::windows_core::Interface::as_raw(self), bstrguidconnectortype.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TransactionStatusQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
         let mut result__ = ::std::mem::zeroed();
@@ -1446,7 +1340,6 @@ impl IMSMQMessage2 {
     pub unsafe fn SetMsgClass(&self, lmsgclass: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMsgClass)(::windows_core::Interface::as_raw(self), lmsgclass).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -1464,13 +1357,11 @@ impl IMSMQMessage2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsLastInTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResponseQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ResponseQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> ::windows_core::Result<()>
     where
@@ -1478,13 +1369,11 @@ impl IMSMQMessage2 {
     {
         (::windows_core::Interface::vtable(self).putref_ResponseQueueInfo)(::windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdminQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AdminQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> ::windows_core::Result<()>
     where
@@ -1615,12 +1504,7 @@ pub struct IMSMQMessage2_Vtbl {
     pub ReceivedAuthenticationLevel: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i16) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQMessage3,
-    IMSMQMessage3_Vtbl,
-    0xeba96b1a_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQMessage3, IMSMQMessage3_Vtbl, 0xeba96b1a_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQMessage3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1675,13 +1559,11 @@ impl IMSMQMessage3 {
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetJournal)(::windows_core::Interface::as_raw(self), ljournal).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResponseQueueInfo_v1(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ResponseQueueInfo_v1)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseQueueInfo_v1<P0>(&self, pqinforesponse: P0) -> ::windows_core::Result<()>
     where
@@ -1714,13 +1596,11 @@ impl IMSMQMessage3 {
     {
         (::windows_core::Interface::vtable(self).SetBody)(::windows_core::Interface::as_raw(self), varbody.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdminQueueInfo_v1(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AdminQueueInfo_v1)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AdminQueueInfo_v1<P0>(&self, pqinfoadmin: P0) -> ::windows_core::Result<()>
     where
@@ -1795,7 +1675,6 @@ impl IMSMQMessage3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ArrivedTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DestinationQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo3> {
         let mut result__ = ::std::mem::zeroed();
@@ -1822,7 +1701,6 @@ impl IMSMQMessage3 {
     pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSenderIdType)(::windows_core::Interface::as_raw(self), lsenderidtype).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>
     where
@@ -1857,7 +1735,6 @@ impl IMSMQMessage3 {
     {
         (::windows_core::Interface::vtable(self).SetConnectorTypeGuid)(::windows_core::Interface::as_raw(self), bstrguidconnectortype.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TransactionStatusQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo3> {
         let mut result__ = ::std::mem::zeroed();
@@ -1913,7 +1790,6 @@ impl IMSMQMessage3 {
     pub unsafe fn SetMsgClass(&self, lmsgclass: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMsgClass)(::windows_core::Interface::as_raw(self), lmsgclass).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -1931,13 +1807,11 @@ impl IMSMQMessage3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsLastInTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResponseQueueInfo_v2(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ResponseQueueInfo_v2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseQueueInfo_v2<P0>(&self, pqinforesponse: P0) -> ::windows_core::Result<()>
     where
@@ -1945,13 +1819,11 @@ impl IMSMQMessage3 {
     {
         (::windows_core::Interface::vtable(self).putref_ResponseQueueInfo_v2)(::windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdminQueueInfo_v2(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AdminQueueInfo_v2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AdminQueueInfo_v2<P0>(&self, pqinfoadmin: P0) -> ::windows_core::Result<()>
     where
@@ -1963,13 +1835,11 @@ impl IMSMQMessage3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceivedAuthenticationLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResponseQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo3> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ResponseQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> ::windows_core::Result<()>
     where
@@ -1977,13 +1847,11 @@ impl IMSMQMessage3 {
     {
         (::windows_core::Interface::vtable(self).putref_ResponseQueueInfo)(::windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdminQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo3> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AdminQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> ::windows_core::Result<()>
     where
@@ -1991,13 +1859,11 @@ impl IMSMQMessage3 {
     {
         (::windows_core::Interface::vtable(self).putref_AdminQueueInfo)(::windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResponseDestination(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ResponseDestination)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseDestination<P0>(&self, pdestresponse: P0) -> ::windows_core::Result<()>
     where
@@ -2005,7 +1871,6 @@ impl IMSMQMessage3 {
     {
         (::windows_core::Interface::vtable(self).putref_ResponseDestination)(::windows_core::Interface::as_raw(self), pdestresponse.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Destination(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -2206,12 +2071,7 @@ pub struct IMSMQMessage3_Vtbl {
     pub SetSoapBody: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQMessage4,
-    IMSMQMessage4_Vtbl,
-    0xeba96b23_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQMessage4, IMSMQMessage4_Vtbl, 0xeba96b23_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQMessage4, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2266,13 +2126,11 @@ impl IMSMQMessage4 {
     pub unsafe fn SetJournal(&self, ljournal: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetJournal)(::windows_core::Interface::as_raw(self), ljournal).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResponseQueueInfo_v1(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ResponseQueueInfo_v1)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseQueueInfo_v1<P0>(&self, pqinforesponse: P0) -> ::windows_core::Result<()>
     where
@@ -2305,13 +2163,11 @@ impl IMSMQMessage4 {
     {
         (::windows_core::Interface::vtable(self).SetBody)(::windows_core::Interface::as_raw(self), varbody.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdminQueueInfo_v1(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AdminQueueInfo_v1)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AdminQueueInfo_v1<P0>(&self, pqinfoadmin: P0) -> ::windows_core::Result<()>
     where
@@ -2386,7 +2242,6 @@ impl IMSMQMessage4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ArrivedTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DestinationQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo4> {
         let mut result__ = ::std::mem::zeroed();
@@ -2413,7 +2268,6 @@ impl IMSMQMessage4 {
     pub unsafe fn SetSenderIdType(&self, lsenderidtype: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSenderIdType)(::windows_core::Interface::as_raw(self), lsenderidtype).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Send<P0>(&self, destinationqueue: P0, transaction: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>
     where
@@ -2448,7 +2302,6 @@ impl IMSMQMessage4 {
     {
         (::windows_core::Interface::vtable(self).SetConnectorTypeGuid)(::windows_core::Interface::as_raw(self), bstrguidconnectortype.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TransactionStatusQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo4> {
         let mut result__ = ::std::mem::zeroed();
@@ -2504,7 +2357,6 @@ impl IMSMQMessage4 {
     pub unsafe fn SetMsgClass(&self, lmsgclass: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMsgClass)(::windows_core::Interface::as_raw(self), lmsgclass).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -2522,13 +2374,11 @@ impl IMSMQMessage4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsLastInTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResponseQueueInfo_v2(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ResponseQueueInfo_v2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseQueueInfo_v2<P0>(&self, pqinforesponse: P0) -> ::windows_core::Result<()>
     where
@@ -2536,13 +2386,11 @@ impl IMSMQMessage4 {
     {
         (::windows_core::Interface::vtable(self).putref_ResponseQueueInfo_v2)(::windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdminQueueInfo_v2(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AdminQueueInfo_v2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AdminQueueInfo_v2<P0>(&self, pqinfoadmin: P0) -> ::windows_core::Result<()>
     where
@@ -2554,13 +2402,11 @@ impl IMSMQMessage4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceivedAuthenticationLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResponseQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo4> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ResponseQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseQueueInfo<P0>(&self, pqinforesponse: P0) -> ::windows_core::Result<()>
     where
@@ -2568,13 +2414,11 @@ impl IMSMQMessage4 {
     {
         (::windows_core::Interface::vtable(self).putref_ResponseQueueInfo)(::windows_core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdminQueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo4> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AdminQueueInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_AdminQueueInfo<P0>(&self, pqinfoadmin: P0) -> ::windows_core::Result<()>
     where
@@ -2582,13 +2426,11 @@ impl IMSMQMessage4 {
     {
         (::windows_core::Interface::vtable(self).putref_AdminQueueInfo)(::windows_core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResponseDestination(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ResponseDestination)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_ResponseDestination<P0>(&self, pdestresponse: P0) -> ::windows_core::Result<()>
     where
@@ -2596,7 +2438,6 @@ impl IMSMQMessage4 {
     {
         (::windows_core::Interface::vtable(self).putref_ResponseDestination)(::windows_core::Interface::as_raw(self), pdestresponse.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Destination(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -2797,12 +2638,7 @@ pub struct IMSMQMessage4_Vtbl {
     pub SetSoapBody: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQOutgoingQueueManagement,
-    IMSMQOutgoingQueueManagement_Vtbl,
-    0x64c478fb_f9b0_4695_8a7f_439ac94326d3
-);
+::windows_core::imp::com_interface!(IMSMQOutgoingQueueManagement, IMSMQOutgoingQueueManagement_Vtbl, 0x64c478fb_f9b0_4695_8a7f_439ac94326d3);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQOutgoingQueueManagement, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQManagement);
 #[cfg(feature = "Win32_System_Com")]
@@ -2850,7 +2686,6 @@ impl IMSMQOutgoingQueueManagement {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NextHops)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EodGetSendInfo(&self) -> ::windows_core::Result<IMSMQCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -2882,12 +2717,7 @@ pub struct IMSMQOutgoingQueueManagement_Vtbl {
     pub EodResend: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQPrivateDestination,
-    IMSMQPrivateDestination_Vtbl,
-    0xeba96b17_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQPrivateDestination, IMSMQPrivateDestination_Vtbl, 0xeba96b17_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQPrivateDestination, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2912,12 +2742,7 @@ pub struct IMSMQPrivateDestination_Vtbl {
     pub SetHandle: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQPrivateEvent,
-    IMSMQPrivateEvent_Vtbl,
-    0xd7ab3341_c9d3_11d1_bb47_0080c7c5a2c0
-);
+::windows_core::imp::com_interface!(IMSMQPrivateEvent, IMSMQPrivateEvent_Vtbl, 0xd7ab3341_c9d3_11d1_bb47_0080c7c5a2c0);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQPrivateEvent, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2926,7 +2751,6 @@ impl IMSMQPrivateEvent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Hwnd)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FireArrivedEvent<P0>(&self, pq: P0, msgcursor: i32) -> ::windows_core::Result<()>
     where
@@ -2934,7 +2758,6 @@ impl IMSMQPrivateEvent {
     {
         (::windows_core::Interface::vtable(self).FireArrivedEvent)(::windows_core::Interface::as_raw(self), pq.into_param().abi(), msgcursor).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FireArrivedErrorEvent<P0>(&self, pq: P0, hrstatus: ::windows_core::HRESULT, msgcursor: i32) -> ::windows_core::Result<()>
     where
@@ -2959,17 +2782,11 @@ pub struct IMSMQPrivateEvent_Vtbl {
     FireArrivedErrorEvent: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQQuery,
-    IMSMQQuery_Vtbl,
-    0xd7d6e072_dccd_11d0_aa4b_0060970debae
-);
+::windows_core::imp::com_interface!(IMSMQQuery, IMSMQQuery_Vtbl, 0xd7d6e072_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQQuery, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQuery {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LookupQueue(&self, queueguid: *const ::windows_core::VARIANT, servicetypeguid: *const ::windows_core::VARIANT, label: *const ::windows_core::VARIANT, createtime: *const ::windows_core::VARIANT, modifytime: *const ::windows_core::VARIANT, relservicetype: *const ::windows_core::VARIANT, rellabel: *const ::windows_core::VARIANT, relcreatetime: *const ::windows_core::VARIANT, relmodifytime: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQQueueInfos> {
         let mut result__ = ::std::mem::zeroed();
@@ -2987,23 +2804,16 @@ pub struct IMSMQQuery_Vtbl {
     LookupQueue: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQQuery2,
-    IMSMQQuery2_Vtbl,
-    0xeba96b0e_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQQuery2, IMSMQQuery2_Vtbl, 0xeba96b0e_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQQuery2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQuery2 {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LookupQueue(&self, queueguid: *const ::windows_core::VARIANT, servicetypeguid: *const ::windows_core::VARIANT, label: *const ::windows_core::VARIANT, createtime: *const ::windows_core::VARIANT, modifytime: *const ::windows_core::VARIANT, relservicetype: *const ::windows_core::VARIANT, rellabel: *const ::windows_core::VARIANT, relcreatetime: *const ::windows_core::VARIANT, relmodifytime: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQQueueInfos2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LookupQueue)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(queueguid), ::core::mem::transmute(servicetypeguid), ::core::mem::transmute(label), ::core::mem::transmute(createtime), ::core::mem::transmute(modifytime), ::core::mem::transmute(relservicetype), ::core::mem::transmute(rellabel), ::core::mem::transmute(relcreatetime), ::core::mem::transmute(relmodifytime), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -3025,29 +2835,21 @@ pub struct IMSMQQuery2_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQQuery3,
-    IMSMQQuery3_Vtbl,
-    0xeba96b19_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQQuery3, IMSMQQuery3_Vtbl, 0xeba96b19_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQQuery3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQuery3 {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LookupQueue_v2(&self, queueguid: *const ::windows_core::VARIANT, servicetypeguid: *const ::windows_core::VARIANT, label: *const ::windows_core::VARIANT, createtime: *const ::windows_core::VARIANT, modifytime: *const ::windows_core::VARIANT, relservicetype: *const ::windows_core::VARIANT, rellabel: *const ::windows_core::VARIANT, relcreatetime: *const ::windows_core::VARIANT, relmodifytime: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQQueueInfos3> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LookupQueue_v2)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(queueguid), ::core::mem::transmute(servicetypeguid), ::core::mem::transmute(label), ::core::mem::transmute(createtime), ::core::mem::transmute(modifytime), ::core::mem::transmute(relservicetype), ::core::mem::transmute(rellabel), ::core::mem::transmute(relcreatetime), ::core::mem::transmute(relmodifytime), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LookupQueue(&self, queueguid: *const ::windows_core::VARIANT, servicetypeguid: *const ::windows_core::VARIANT, label: *const ::windows_core::VARIANT, createtime: *const ::windows_core::VARIANT, modifytime: *const ::windows_core::VARIANT, relservicetype: *const ::windows_core::VARIANT, rellabel: *const ::windows_core::VARIANT, relcreatetime: *const ::windows_core::VARIANT, relmodifytime: *const ::windows_core::VARIANT, multicastaddress: *const ::windows_core::VARIANT, relmulticastaddress: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQQueueInfos3> {
         let mut result__ = ::std::mem::zeroed();
@@ -3073,29 +2875,21 @@ pub struct IMSMQQuery3_Vtbl {
     LookupQueue: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQQuery4,
-    IMSMQQuery4_Vtbl,
-    0xeba96b24_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQQuery4, IMSMQQuery4_Vtbl, 0xeba96b24_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQQuery4, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQQuery4 {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LookupQueue_v2(&self, queueguid: *const ::windows_core::VARIANT, servicetypeguid: *const ::windows_core::VARIANT, label: *const ::windows_core::VARIANT, createtime: *const ::windows_core::VARIANT, modifytime: *const ::windows_core::VARIANT, relservicetype: *const ::windows_core::VARIANT, rellabel: *const ::windows_core::VARIANT, relcreatetime: *const ::windows_core::VARIANT, relmodifytime: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQQueueInfos4> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LookupQueue_v2)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(queueguid), ::core::mem::transmute(servicetypeguid), ::core::mem::transmute(label), ::core::mem::transmute(createtime), ::core::mem::transmute(modifytime), ::core::mem::transmute(relservicetype), ::core::mem::transmute(rellabel), ::core::mem::transmute(relcreatetime), ::core::mem::transmute(relmodifytime), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LookupQueue(&self, queueguid: *const ::windows_core::VARIANT, servicetypeguid: *const ::windows_core::VARIANT, label: *const ::windows_core::VARIANT, createtime: *const ::windows_core::VARIANT, modifytime: *const ::windows_core::VARIANT, relservicetype: *const ::windows_core::VARIANT, rellabel: *const ::windows_core::VARIANT, relcreatetime: *const ::windows_core::VARIANT, relmodifytime: *const ::windows_core::VARIANT, multicastaddress: *const ::windows_core::VARIANT, relmulticastaddress: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQQueueInfos4> {
         let mut result__ = ::std::mem::zeroed();
@@ -3121,12 +2915,7 @@ pub struct IMSMQQuery4_Vtbl {
     LookupQueue: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQQueue,
-    IMSMQQueue_Vtbl,
-    0xd7d6e076_dccd_11d0_aa4b_0060970debae
-);
+::windows_core::imp::com_interface!(IMSMQQueue, IMSMQQueue_Vtbl, 0xd7d6e076_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQQueue, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3139,7 +2928,6 @@ impl IMSMQQueue {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ShareMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
         let mut result__ = ::std::mem::zeroed();
@@ -3156,19 +2944,16 @@ impl IMSMQQueue {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Receive(&self, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Receive)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Peek(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Peek)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>
     where
@@ -3179,19 +2964,16 @@ impl IMSMQQueue {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveCurrent(&self, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceiveCurrent)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekNext(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekNext)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekCurrent(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
@@ -3239,12 +3021,7 @@ pub struct IMSMQQueue_Vtbl {
     PeekCurrent: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQQueue2,
-    IMSMQQueue2_Vtbl,
-    0xef0574e0_06d8_11d3_b100_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQQueue2, IMSMQQueue2_Vtbl, 0xef0574e0_06d8_11d3_b100_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQQueue2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3257,7 +3034,6 @@ impl IMSMQQueue2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ShareMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
         let mut result__ = ::std::mem::zeroed();
@@ -3274,19 +3050,16 @@ impl IMSMQQueue2 {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Receive_v1(&self, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Receive_v1)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Peek_v1(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Peek_v1)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>
     where
@@ -3297,55 +3070,46 @@ impl IMSMQQueue2 {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveCurrent_v1(&self, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceiveCurrent_v1)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekNext_v1(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekNext_v1)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekCurrent_v1(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekCurrent_v1)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Receive(&self, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Receive)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Peek(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Peek)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveCurrent(&self, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceiveCurrent)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekNext(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekNext)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekCurrent(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekCurrent)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -3417,12 +3181,7 @@ pub struct IMSMQQueue2_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQQueue3,
-    IMSMQQueue3_Vtbl,
-    0xeba96b1b_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQQueue3, IMSMQQueue3_Vtbl, 0xeba96b1b_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQQueue3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3435,7 +3194,6 @@ impl IMSMQQueue3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ShareMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo3> {
         let mut result__ = ::std::mem::zeroed();
@@ -3452,19 +3210,16 @@ impl IMSMQQueue3 {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Receive_v1(&self, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Receive_v1)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Peek_v1(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Peek_v1)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>
     where
@@ -3475,55 +3230,46 @@ impl IMSMQQueue3 {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveCurrent_v1(&self, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceiveCurrent_v1)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekNext_v1(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekNext_v1)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekCurrent_v1(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekCurrent_v1)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Receive(&self, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Receive)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Peek(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Peek)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveCurrent(&self, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceiveCurrent)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekNext(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekNext)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekCurrent(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekCurrent)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -3533,7 +3279,6 @@ impl IMSMQQueue3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Handle2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveByLookupId<P0>(&self, lookupid: P0, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage3>
     where
@@ -3542,7 +3287,6 @@ impl IMSMQQueue3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceiveByLookupId)(::windows_core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveNextByLookupId<P0>(&self, lookupid: P0, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage3>
     where
@@ -3551,7 +3295,6 @@ impl IMSMQQueue3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceiveNextByLookupId)(::windows_core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceivePreviousByLookupId<P0>(&self, lookupid: P0, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage3>
     where
@@ -3560,19 +3303,16 @@ impl IMSMQQueue3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceivePreviousByLookupId)(::windows_core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveFirstByLookupId(&self, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceiveFirstByLookupId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveLastByLookupId(&self, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceiveLastByLookupId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekByLookupId<P0>(&self, lookupid: P0, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage3>
     where
@@ -3581,7 +3321,6 @@ impl IMSMQQueue3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekByLookupId)(::windows_core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekNextByLookupId<P0>(&self, lookupid: P0, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage3>
     where
@@ -3590,7 +3329,6 @@ impl IMSMQQueue3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekNextByLookupId)(::windows_core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekPreviousByLookupId<P0>(&self, lookupid: P0, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage3>
     where
@@ -3599,13 +3337,11 @@ impl IMSMQQueue3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekPreviousByLookupId)(::windows_core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekFirstByLookupId(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekFirstByLookupId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekLastByLookupId(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage3> {
         let mut result__ = ::std::mem::zeroed();
@@ -3727,12 +3463,7 @@ pub struct IMSMQQueue3_Vtbl {
     pub IsOpen2: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQQueue4,
-    IMSMQQueue4_Vtbl,
-    0xeba96b20_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQQueue4, IMSMQQueue4_Vtbl, 0xeba96b20_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQQueue4, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3745,7 +3476,6 @@ impl IMSMQQueue4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ShareMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueueInfo(&self) -> ::windows_core::Result<IMSMQQueueInfo4> {
         let mut result__ = ::std::mem::zeroed();
@@ -3762,19 +3492,16 @@ impl IMSMQQueue4 {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Receive_v1(&self, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Receive_v1)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Peek_v1(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Peek_v1)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnableNotification<P0>(&self, event: P0, cursor: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>
     where
@@ -3785,55 +3512,46 @@ impl IMSMQQueue4 {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveCurrent_v1(&self, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceiveCurrent_v1)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekNext_v1(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekNext_v1)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekCurrent_v1(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekCurrent_v1)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Receive(&self, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Receive)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Peek(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Peek)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveCurrent(&self, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceiveCurrent)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekNext(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekNext)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekCurrent(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, receivetimeout: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekCurrent)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(receivetimeout), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -3843,7 +3561,6 @@ impl IMSMQQueue4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Handle2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveByLookupId<P0>(&self, lookupid: P0, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage4>
     where
@@ -3852,7 +3569,6 @@ impl IMSMQQueue4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceiveByLookupId)(::windows_core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveNextByLookupId<P0>(&self, lookupid: P0, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage4>
     where
@@ -3861,7 +3577,6 @@ impl IMSMQQueue4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceiveNextByLookupId)(::windows_core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceivePreviousByLookupId<P0>(&self, lookupid: P0, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage4>
     where
@@ -3870,19 +3585,16 @@ impl IMSMQQueue4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceivePreviousByLookupId)(::windows_core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveFirstByLookupId(&self, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceiveFirstByLookupId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveLastByLookupId(&self, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceiveLastByLookupId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekByLookupId<P0>(&self, lookupid: P0, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage4>
     where
@@ -3891,7 +3603,6 @@ impl IMSMQQueue4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekByLookupId)(::windows_core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekNextByLookupId<P0>(&self, lookupid: P0, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage4>
     where
@@ -3900,7 +3611,6 @@ impl IMSMQQueue4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekNextByLookupId)(::windows_core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekPreviousByLookupId<P0>(&self, lookupid: P0, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage4>
     where
@@ -3909,13 +3619,11 @@ impl IMSMQQueue4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekPreviousByLookupId)(::windows_core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekFirstByLookupId(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeekFirstByLookupId)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PeekLastByLookupId(&self, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage4> {
         let mut result__ = ::std::mem::zeroed();
@@ -3928,7 +3636,6 @@ impl IMSMQQueue4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsOpen2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiveByLookupIdAllowPeek<P0>(&self, lookupid: P0, transaction: *const ::windows_core::VARIANT, wantdestinationqueue: *const ::windows_core::VARIANT, wantbody: *const ::windows_core::VARIANT, wantconnectortype: *const ::windows_core::VARIANT) -> ::windows_core::Result<IMSMQMessage4>
     where
@@ -4050,12 +3757,7 @@ pub struct IMSMQQueue4_Vtbl {
     ReceiveByLookupIdAllowPeek: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQQueueInfo,
-    IMSMQQueueInfo_Vtbl,
-    0xd7d6e07b_dccd_11d0_aa4b_0060970debae
-);
+::windows_core::imp::com_interface!(IMSMQQueueInfo, IMSMQQueueInfo_Vtbl, 0xd7d6e07b_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQQueueInfo, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4168,7 +3870,6 @@ impl IMSMQQueueInfo {
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows_core::Result<IMSMQQueue> {
         let mut result__ = ::std::mem::zeroed();
@@ -4221,12 +3922,7 @@ pub struct IMSMQQueueInfo_Vtbl {
     pub Update: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQQueueInfo2,
-    IMSMQQueueInfo2_Vtbl,
-    0xfd174a80_89cf_11d2_b0f2_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQQueueInfo2, IMSMQQueueInfo2_Vtbl, 0xfd174a80_89cf_11d2_b0f2_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQQueueInfo2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4339,7 +4035,6 @@ impl IMSMQQueueInfo2 {
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows_core::Result<IMSMQQueue2> {
         let mut result__ = ::std::mem::zeroed();
@@ -4355,7 +4050,6 @@ impl IMSMQQueueInfo2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PathNameDNS)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -4419,12 +4113,7 @@ pub struct IMSMQQueueInfo2_Vtbl {
     pub SetSecurity: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQQueueInfo3,
-    IMSMQQueueInfo3_Vtbl,
-    0xeba96b1d_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQQueueInfo3, IMSMQQueueInfo3_Vtbl, 0xeba96b1d_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQQueueInfo3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4537,7 +4226,6 @@ impl IMSMQQueueInfo3 {
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows_core::Result<IMSMQQueue3> {
         let mut result__ = ::std::mem::zeroed();
@@ -4553,7 +4241,6 @@ impl IMSMQQueueInfo3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PathNameDNS)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -4644,12 +4331,7 @@ pub struct IMSMQQueueInfo3_Vtbl {
     pub ADsPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQQueueInfo4,
-    IMSMQQueueInfo4_Vtbl,
-    0xeba96b21_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQQueueInfo4, IMSMQQueueInfo4_Vtbl, 0xeba96b21_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQQueueInfo4, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4762,7 +4444,6 @@ impl IMSMQQueueInfo4 {
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Open(&self, access: i32, sharemode: i32) -> ::windows_core::Result<IMSMQQueue4> {
         let mut result__ = ::std::mem::zeroed();
@@ -4778,7 +4459,6 @@ impl IMSMQQueueInfo4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PathNameDNS)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -4869,12 +4549,7 @@ pub struct IMSMQQueueInfo4_Vtbl {
     pub ADsPath: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQQueueInfos,
-    IMSMQQueueInfos_Vtbl,
-    0xd7d6e07d_dccd_11d0_aa4b_0060970debae
-);
+::windows_core::imp::com_interface!(IMSMQQueueInfos, IMSMQQueueInfos_Vtbl, 0xd7d6e07d_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQQueueInfos, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4882,7 +4557,6 @@ impl IMSMQQueueInfos {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self) -> ::windows_core::Result<IMSMQQueueInfo> {
         let mut result__ = ::std::mem::zeroed();
@@ -4901,12 +4575,7 @@ pub struct IMSMQQueueInfos_Vtbl {
     Next: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQQueueInfos2,
-    IMSMQQueueInfos2_Vtbl,
-    0xeba96b0f_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQQueueInfos2, IMSMQQueueInfos2_Vtbl, 0xeba96b0f_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQQueueInfos2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4914,13 +4583,11 @@ impl IMSMQQueueInfos2 {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self) -> ::windows_core::Result<IMSMQQueueInfo2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -4943,12 +4610,7 @@ pub struct IMSMQQueueInfos2_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQQueueInfos3,
-    IMSMQQueueInfos3_Vtbl,
-    0xeba96b1e_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQQueueInfos3, IMSMQQueueInfos3_Vtbl, 0xeba96b1e_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQQueueInfos3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4956,13 +4618,11 @@ impl IMSMQQueueInfos3 {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self) -> ::windows_core::Result<IMSMQQueueInfo3> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -4985,12 +4645,7 @@ pub struct IMSMQQueueInfos3_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQQueueInfos4,
-    IMSMQQueueInfos4_Vtbl,
-    0xeba96b22_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQQueueInfos4, IMSMQQueueInfos4_Vtbl, 0xeba96b22_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQQueueInfos4, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4998,13 +4653,11 @@ impl IMSMQQueueInfos4 {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self) -> ::windows_core::Result<IMSMQQueueInfo4> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -5027,12 +4680,7 @@ pub struct IMSMQQueueInfos4_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQQueueManagement,
-    IMSMQQueueManagement_Vtbl,
-    0x7fbe7759_5760_444d_b8a5_5e7ab9a84cce
-);
+::windows_core::imp::com_interface!(IMSMQQueueManagement, IMSMQQueueManagement_Vtbl, 0x7fbe7759_5760_444d_b8a5_5e7ab9a84cce);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQQueueManagement, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQManagement);
 #[cfg(feature = "Win32_System_Com")]
@@ -5095,12 +4743,7 @@ pub struct IMSMQQueueManagement_Vtbl {
     pub EodGetReceiveInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQTransaction,
-    IMSMQTransaction_Vtbl,
-    0xd7d6e07f_dccd_11d0_aa4b_0060970debae
-);
+::windows_core::imp::com_interface!(IMSMQTransaction, IMSMQTransaction_Vtbl, 0xd7d6e07f_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQTransaction, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5126,12 +4769,7 @@ pub struct IMSMQTransaction_Vtbl {
     pub Abort: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQTransaction2,
-    IMSMQTransaction2_Vtbl,
-    0x2ce0c5b0_6e67_11d2_b0e6_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQTransaction2, IMSMQTransaction2_Vtbl, 0x2ce0c5b0_6e67_11d2_b0e6_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQTransaction2, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQTransaction);
 #[cfg(feature = "Win32_System_Com")]
@@ -5152,7 +4790,6 @@ impl IMSMQTransaction2 {
     {
         (::windows_core::Interface::vtable(self).InitNew)(::windows_core::Interface::as_raw(self), vartransaction.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -5171,12 +4808,7 @@ pub struct IMSMQTransaction2_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQTransaction3,
-    IMSMQTransaction3_Vtbl,
-    0xeba96b13_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQTransaction3, IMSMQTransaction3_Vtbl, 0xeba96b13_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQTransaction3, ::windows_core::IUnknown, super::Com::IDispatch, IMSMQTransaction, IMSMQTransaction2);
 #[cfg(feature = "Win32_System_Com")]
@@ -5197,7 +4829,6 @@ impl IMSMQTransaction3 {
     {
         (::windows_core::Interface::vtable(self).base__.InitNew)(::windows_core::Interface::as_raw(self), vartransaction.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -5216,17 +4847,11 @@ pub struct IMSMQTransaction3_Vtbl {
     pub ITransaction: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQTransactionDispenser,
-    IMSMQTransactionDispenser_Vtbl,
-    0xd7d6e083_dccd_11d0_aa4b_0060970debae
-);
+::windows_core::imp::com_interface!(IMSMQTransactionDispenser, IMSMQTransactionDispenser_Vtbl, 0xd7d6e083_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQTransactionDispenser, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransactionDispenser {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BeginTransaction(&self) -> ::windows_core::Result<IMSMQTransaction> {
         let mut result__ = ::std::mem::zeroed();
@@ -5244,23 +4869,16 @@ pub struct IMSMQTransactionDispenser_Vtbl {
     BeginTransaction: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQTransactionDispenser2,
-    IMSMQTransactionDispenser2_Vtbl,
-    0xeba96b11_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQTransactionDispenser2, IMSMQTransactionDispenser2_Vtbl, 0xeba96b11_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQTransactionDispenser2, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransactionDispenser2 {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BeginTransaction(&self) -> ::windows_core::Result<IMSMQTransaction2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BeginTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -5282,23 +4900,16 @@ pub struct IMSMQTransactionDispenser2_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSMQTransactionDispenser3,
-    IMSMQTransactionDispenser3_Vtbl,
-    0xeba96b15_2168_11d3_898c_00e02c074f6b
-);
+::windows_core::imp::com_interface!(IMSMQTransactionDispenser3, IMSMQTransactionDispenser3_Vtbl, 0xeba96b15_2168_11d3_898c_00e02c074f6b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSMQTransactionDispenser3, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSMQTransactionDispenser3 {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BeginTransaction(&self) -> ::windows_core::Result<IMSMQTransaction3> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BeginTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -5320,12 +4931,7 @@ pub struct IMSMQTransactionDispenser3_Vtbl {
     Properties: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    _DMSMQEventEvents,
-    _DMSMQEventEvents_Vtbl,
-    0xd7d6e078_dccd_11d0_aa4b_0060970debae
-);
+::windows_core::imp::com_interface!(_DMSMQEventEvents, _DMSMQEventEvents_Vtbl, 0xd7d6e078_dccd_11d0_aa4b_0060970debae);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_DMSMQEventEvents, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6617,7 +6223,6 @@ impl ::core::default::Default for SEQUENCE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub type PMQRECEIVECALLBACK = ::core::option::Option<unsafe extern "system" fn(hrstatus: ::windows_core::HRESULT, hsource: isize, dwtimeout: u32, dwaction: u32, pmessageprops: *mut MQMSGPROPS, lpoverlapped: *mut super::IO::OVERLAPPED, hcursor: super::super::Foundation::HANDLE)>;
 #[cfg(feature = "implement")]

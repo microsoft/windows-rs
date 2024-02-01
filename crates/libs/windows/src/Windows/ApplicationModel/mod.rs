@@ -1,80 +1,54 @@
 #[cfg(feature = "ApplicationModel_Activation")]
-#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 pub mod Activation;
 #[cfg(feature = "ApplicationModel_AppExtensions")]
-#[doc = "Required features: `\"ApplicationModel_AppExtensions\"`"]
 pub mod AppExtensions;
 #[cfg(feature = "ApplicationModel_AppService")]
-#[doc = "Required features: `\"ApplicationModel_AppService\"`"]
 pub mod AppService;
 #[cfg(feature = "ApplicationModel_Appointments")]
-#[doc = "Required features: `\"ApplicationModel_Appointments\"`"]
 pub mod Appointments;
 #[cfg(feature = "ApplicationModel_Background")]
-#[doc = "Required features: `\"ApplicationModel_Background\"`"]
 pub mod Background;
 #[cfg(feature = "ApplicationModel_Calls")]
-#[doc = "Required features: `\"ApplicationModel_Calls\"`"]
 pub mod Calls;
 #[cfg(feature = "ApplicationModel_Chat")]
-#[doc = "Required features: `\"ApplicationModel_Chat\"`"]
 pub mod Chat;
 #[cfg(feature = "ApplicationModel_CommunicationBlocking")]
-#[doc = "Required features: `\"ApplicationModel_CommunicationBlocking\"`"]
 pub mod CommunicationBlocking;
 #[cfg(feature = "ApplicationModel_Contacts")]
-#[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
 pub mod Contacts;
 #[cfg(feature = "ApplicationModel_ConversationalAgent")]
-#[doc = "Required features: `\"ApplicationModel_ConversationalAgent\"`"]
 pub mod ConversationalAgent;
 #[cfg(feature = "ApplicationModel_Core")]
-#[doc = "Required features: `\"ApplicationModel_Core\"`"]
 pub mod Core;
 #[cfg(feature = "ApplicationModel_DataTransfer")]
-#[doc = "Required features: `\"ApplicationModel_DataTransfer\"`"]
 pub mod DataTransfer;
 #[cfg(feature = "ApplicationModel_Email")]
-#[doc = "Required features: `\"ApplicationModel_Email\"`"]
 pub mod Email;
 #[cfg(feature = "ApplicationModel_ExtendedExecution")]
-#[doc = "Required features: `\"ApplicationModel_ExtendedExecution\"`"]
 pub mod ExtendedExecution;
 #[cfg(feature = "ApplicationModel_Holographic")]
-#[doc = "Required features: `\"ApplicationModel_Holographic\"`"]
 pub mod Holographic;
 #[cfg(feature = "ApplicationModel_LockScreen")]
-#[doc = "Required features: `\"ApplicationModel_LockScreen\"`"]
 pub mod LockScreen;
 #[cfg(feature = "ApplicationModel_Payments")]
-#[doc = "Required features: `\"ApplicationModel_Payments\"`"]
 pub mod Payments;
 #[cfg(feature = "ApplicationModel_Preview")]
-#[doc = "Required features: `\"ApplicationModel_Preview\"`"]
 pub mod Preview;
 #[cfg(feature = "ApplicationModel_Resources")]
-#[doc = "Required features: `\"ApplicationModel_Resources\"`"]
 pub mod Resources;
 #[cfg(feature = "ApplicationModel_Search")]
-#[doc = "Required features: `\"ApplicationModel_Search\"`"]
 pub mod Search;
 #[cfg(feature = "ApplicationModel_Store")]
-#[doc = "Required features: `\"ApplicationModel_Store\"`"]
 pub mod Store;
 #[cfg(feature = "ApplicationModel_UserActivities")]
-#[doc = "Required features: `\"ApplicationModel_UserActivities\"`"]
 pub mod UserActivities;
 #[cfg(feature = "ApplicationModel_UserDataAccounts")]
-#[doc = "Required features: `\"ApplicationModel_UserDataAccounts\"`"]
 pub mod UserDataAccounts;
 #[cfg(feature = "ApplicationModel_UserDataTasks")]
-#[doc = "Required features: `\"ApplicationModel_UserDataTasks\"`"]
 pub mod UserDataTasks;
 #[cfg(feature = "ApplicationModel_VoiceCommands")]
-#[doc = "Required features: `\"ApplicationModel_VoiceCommands\"`"]
 pub mod VoiceCommands;
 #[cfg(feature = "ApplicationModel_Wallet")]
-#[doc = "Required features: `\"ApplicationModel_Wallet\"`"]
 pub mod Wallet;
 ::windows_core::imp::com_interface!(IAppDisplayInfo, IAppDisplayInfo_Vtbl, 0x1aeb1103_e4d4_41aa_a4f6_c4a276e79eac);
 #[repr(C)]
@@ -839,7 +813,6 @@ impl AppDisplayInfo {
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetLogo(&self, size: super::Foundation::Size) -> ::windows_core::Result<super::Storage::Streams::RandomAccessStreamReference> {
         let this = self;
@@ -927,7 +900,6 @@ impl AppInfo {
             (::windows_core::Interface::vtable(this).GetFromAppUserModelId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appusermodelid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetFromAppUserModelIdForUser<P0>(user: P0, appusermodelid: &::windows_core::HSTRING) -> ::windows_core::Result<AppInfo>
     where
@@ -1038,7 +1010,6 @@ impl AppInstallerInfo {
             (::windows_core::Interface::vtable(this).PausedUntil)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UpdateUris(&self) -> ::windows_core::Result<super::Foundation::Collections::IVectorView<super::Foundation::Uri>> {
         let this = &::windows_core::Interface::cast::<IAppInstallerInfo2>(self)?;
@@ -1047,7 +1018,6 @@ impl AppInstallerInfo {
             (::windows_core::Interface::vtable(this).UpdateUris)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RepairUris(&self) -> ::windows_core::Result<super::Foundation::Collections::IVectorView<super::Foundation::Uri>> {
         let this = &::windows_core::Interface::cast::<IAppInstallerInfo2>(self)?;
@@ -1056,7 +1026,6 @@ impl AppInstallerInfo {
             (::windows_core::Interface::vtable(this).RepairUris)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DependencyPackageUris(&self) -> ::windows_core::Result<super::Foundation::Collections::IVectorView<super::Foundation::Uri>> {
         let this = &::windows_core::Interface::cast::<IAppInstallerInfo2>(self)?;
@@ -1065,7 +1034,6 @@ impl AppInstallerInfo {
             (::windows_core::Interface::vtable(this).DependencyPackageUris)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn OptionalPackageUris(&self) -> ::windows_core::Result<super::Foundation::Collections::IVectorView<super::Foundation::Uri>> {
         let this = &::windows_core::Interface::cast::<IAppInstallerInfo2>(self)?;
@@ -1123,7 +1091,6 @@ impl AppInstance {
             (::windows_core::Interface::vtable(this).RecommendedInstance)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn GetActivatedEventArgs() -> ::windows_core::Result<Activation::IActivatedEventArgs> {
         Self::IAppInstanceStatics(|this| unsafe {
@@ -1140,7 +1107,6 @@ impl AppInstance {
     pub fn Unregister() -> ::windows_core::Result<()> {
         Self::IAppInstanceStatics(|this| unsafe { (::windows_core::Interface::vtable(this).Unregister)(::windows_core::Interface::as_raw(this)).ok() })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetInstances() -> ::windows_core::Result<super::Foundation::Collections::IVector<AppInstance>> {
         Self::IAppInstanceStatics(|this| unsafe {
@@ -1496,7 +1462,6 @@ impl Package {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn InstalledLocation(&self) -> ::windows_core::Result<super::Storage::StorageFolder> {
         let this = self;
@@ -1512,7 +1477,6 @@ impl Package {
             (::windows_core::Interface::vtable(this).IsFramework)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Dependencies(&self) -> ::windows_core::Result<super::Foundation::Collections::IVectorView<Package>> {
         let this = self;
@@ -1584,7 +1548,6 @@ impl Package {
             (::windows_core::Interface::vtable(this).InstalledDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Core\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation_Collections"))]
     pub fn GetAppListEntriesAsync(&self) -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<Core::AppListEntry>>> {
         let this = &::windows_core::Interface::cast::<IPackage3>(self)?;
@@ -1614,7 +1577,6 @@ impl Package {
             (::windows_core::Interface::vtable(this).VerifyContentIntegrityAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetContentGroupsAsync(&self) -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>> {
         let this = &::windows_core::Interface::cast::<IPackage5>(self)?;
@@ -1630,7 +1592,6 @@ impl Package {
             (::windows_core::Interface::vtable(this).GetContentGroupAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StageContentGroupsAsync<P0>(&self, names: P0) -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>
     where
@@ -1642,7 +1603,6 @@ impl Package {
             (::windows_core::Interface::vtable(this).StageContentGroupsAsync)(::windows_core::Interface::as_raw(this), names.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StageContentGroupsWithPriorityAsync<P0>(&self, names: P0, movetoheadofqueue: bool) -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>
     where
@@ -1675,7 +1635,6 @@ impl Package {
             (::windows_core::Interface::vtable(this).CheckUpdateAvailabilityAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn MutableLocation(&self) -> ::windows_core::Result<super::Storage::StorageFolder> {
         let this = &::windows_core::Interface::cast::<IPackage7>(self)?;
@@ -1684,7 +1643,6 @@ impl Package {
             (::windows_core::Interface::vtable(this).MutableLocation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn EffectiveLocation(&self) -> ::windows_core::Result<super::Storage::StorageFolder> {
         let this = &::windows_core::Interface::cast::<IPackage7>(self)?;
@@ -1693,7 +1651,6 @@ impl Package {
             (::windows_core::Interface::vtable(this).EffectiveLocation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn EffectiveExternalLocation(&self) -> ::windows_core::Result<super::Storage::StorageFolder> {
         let this = &::windows_core::Interface::cast::<IPackage8>(self)?;
@@ -1702,7 +1659,6 @@ impl Package {
             (::windows_core::Interface::vtable(this).EffectiveExternalLocation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn MachineExternalLocation(&self) -> ::windows_core::Result<super::Storage::StorageFolder> {
         let this = &::windows_core::Interface::cast::<IPackage8>(self)?;
@@ -1711,7 +1667,6 @@ impl Package {
             (::windows_core::Interface::vtable(this).MachineExternalLocation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn UserExternalLocation(&self) -> ::windows_core::Result<super::Storage::StorageFolder> {
         let this = &::windows_core::Interface::cast::<IPackage8>(self)?;
@@ -1762,7 +1717,6 @@ impl Package {
             (::windows_core::Interface::vtable(this).UserExternalPath)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetLogoAsRandomAccessStreamReference(&self, size: super::Foundation::Size) -> ::windows_core::Result<super::Storage::Streams::RandomAccessStreamReference> {
         let this = &::windows_core::Interface::cast::<IPackage8>(self)?;
@@ -1771,7 +1725,6 @@ impl Package {
             (::windows_core::Interface::vtable(this).GetLogoAsRandomAccessStreamReference)(::windows_core::Interface::as_raw(this), size, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Core\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation_Collections"))]
     pub fn GetAppListEntries(&self) -> ::windows_core::Result<super::Foundation::Collections::IVectorView<Core::AppListEntry>> {
         let this = &::windows_core::Interface::cast::<IPackage8>(self)?;
@@ -1787,7 +1740,6 @@ impl Package {
             (::windows_core::Interface::vtable(this).IsStub)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindRelatedPackages<P0>(&self, options: P0) -> ::windows_core::Result<super::Foundation::Collections::IVector<Package>>
     where
@@ -1826,7 +1778,6 @@ impl Package {
             (::windows_core::Interface::vtable(this).GetThumbnailToken)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Launch(&self, parameters: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = &::windows_core::Interface::cast::<IPackageWithMetadata>(self)?;
@@ -1946,7 +1897,6 @@ impl PackageCatalog {
             (::windows_core::Interface::vtable(this).AddOptionalPackageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(optionalpackagefamilyname), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveOptionalPackagesAsync<P0>(&self, optionalpackagefamilynames: P0) -> ::windows_core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveOptionalPackagesResult>>
     where
@@ -1965,7 +1915,6 @@ impl PackageCatalog {
             (::windows_core::Interface::vtable(this).AddResourcePackageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(resourcepackagefamilyname), ::core::mem::transmute_copy(resourceid), options, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveResourcePackagesAsync<P0>(&self, resourcepackages: P0) -> ::windows_core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveResourcePackagesResult>>
     where
@@ -2093,7 +2042,6 @@ unsafe impl ::core::marker::Sync for PackageCatalogAddResourcePackageResult {}
 pub struct PackageCatalogRemoveOptionalPackagesResult(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PackageCatalogRemoveOptionalPackagesResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PackageCatalogRemoveOptionalPackagesResult {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PackagesRemoved(&self) -> ::windows_core::Result<super::Foundation::Collections::IVectorView<Package>> {
         let this = self;
@@ -2125,7 +2073,6 @@ impl ::windows_core::RuntimeName for PackageCatalogRemoveOptionalPackagesResult 
 pub struct PackageCatalogRemoveResourcePackagesResult(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PackageCatalogRemoveResourcePackagesResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PackageCatalogRemoveResourcePackagesResult {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PackagesRemoved(&self) -> ::windows_core::Result<super::Foundation::Collections::IVectorView<Package>> {
         let this = self;
@@ -2297,7 +2244,6 @@ impl PackageId {
             (::windows_core::Interface::vtable(this).Version)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn Architecture(&self) -> ::windows_core::Result<super::System::ProcessorArchitecture> {
         let this = self;
@@ -2783,7 +2729,6 @@ impl StartupTask {
             (::windows_core::Interface::vtable(this).TaskId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetForCurrentPackageAsync() -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StartupTask>>> {
         Self::IStartupTaskStatics(|this| unsafe {

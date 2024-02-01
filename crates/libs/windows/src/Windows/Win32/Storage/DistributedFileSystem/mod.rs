@@ -58,7 +58,6 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn NetDfsGetClientInfo(dfsentrypath : ::windows_core::PCWSTR, servername : ::windows_core::PCWSTR, sharename : ::windows_core::PCWSTR, level : u32, buffer : *mut *mut u8) -> u32);
     NetDfsGetClientInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), level, buffer)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn NetDfsGetFtContainerSecurity<P0>(domainname: P0, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32
@@ -78,7 +77,6 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn NetDfsGetInfo(dfsentrypath : ::windows_core::PCWSTR, servername : ::windows_core::PCWSTR, sharename : ::windows_core::PCWSTR, level : u32, buffer : *mut *mut u8) -> u32);
     NetDfsGetInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), level, buffer)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn NetDfsGetSecurity<P0>(dfsentrypath: P0, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32
@@ -88,7 +86,6 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn NetDfsGetSecurity(dfsentrypath : ::windows_core::PCWSTR, securityinformation : u32, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> u32);
     NetDfsGetSecurity(dfsentrypath.into_param().abi(), securityinformation, ppsecuritydescriptor, lpcbsecuritydescriptor)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn NetDfsGetStdContainerSecurity<P0>(machinename: P0, securityinformation: u32, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32
@@ -174,7 +171,6 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn NetDfsSetClientInfo(dfsentrypath : ::windows_core::PCWSTR, servername : ::windows_core::PCWSTR, sharename : ::windows_core::PCWSTR, level : u32, buffer : *const u8) -> u32);
     NetDfsSetClientInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), level, buffer)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn NetDfsSetFtContainerSecurity<P0, P1>(domainname: P0, securityinformation: u32, psecuritydescriptor: P1) -> u32
@@ -195,7 +191,6 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn NetDfsSetInfo(dfsentrypath : ::windows_core::PCWSTR, servername : ::windows_core::PCWSTR, sharename : ::windows_core::PCWSTR, level : u32, buffer : *const u8) -> u32);
     NetDfsSetInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), level, buffer)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn NetDfsSetSecurity<P0, P1>(dfsentrypath: P0, securityinformation: u32, psecuritydescriptor: P1) -> u32
@@ -206,7 +201,6 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn NetDfsSetSecurity(dfsentrypath : ::windows_core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> u32);
     NetDfsSetSecurity(dfsentrypath.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn NetDfsSetStdContainerSecurity<P0, P1>(machinename: P0, securityinformation: u32, psecuritydescriptor: P1) -> u32
@@ -553,7 +547,6 @@ impl ::core::default::Default for DFS_INFO_106 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct DFS_INFO_107 {
     pub Comment: ::windows_core::PWSTR,
@@ -597,7 +590,6 @@ impl ::core::default::Default for DFS_INFO_107 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct DFS_INFO_150 {
     pub SdLengthReserved: u32,
@@ -1089,7 +1081,6 @@ impl ::core::default::Default for DFS_INFO_7 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct DFS_INFO_8 {
     pub EntryPath: ::windows_core::PWSTR,
@@ -1136,7 +1127,6 @@ impl ::core::default::Default for DFS_INFO_8 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct DFS_INFO_9 {
     pub EntryPath: ::windows_core::PWSTR,

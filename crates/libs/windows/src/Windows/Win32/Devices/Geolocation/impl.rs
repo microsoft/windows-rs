@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait ICivicAddressReport_Impl: Sized + ILocationReport_Impl {
     fn GetAddressLine1(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -106,7 +105,6 @@ impl ICivicAddressReport_Vtbl {
         iid == &<ICivicAddressReport as ::windows_core::Interface>::IID || iid == &<ILocationReport as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICivicAddressReportFactory_Impl: Sized + ILocationReportFactory_Impl {
     fn CivicAddressReport(&self) -> ::windows_core::Result<IDispCivicAddressReport>;
@@ -166,7 +164,6 @@ impl IDefaultLocation_Vtbl {
         iid == &<IDefaultLocation as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDispCivicAddressReport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AddressLine1(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -287,7 +284,6 @@ impl IDispCivicAddressReport_Vtbl {
         iid == &<IDispCivicAddressReport as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDispLatLongReport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Latitude(&self) -> ::windows_core::Result<f64>;
@@ -382,7 +378,6 @@ impl IDispLatLongReport_Vtbl {
         iid == &<IDispLatLongReport as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait ILatLongReport_Impl: Sized + ILocationReport_Impl {
     fn GetLatitude(&self) -> ::windows_core::Result<f64>;
@@ -464,7 +459,6 @@ impl ILatLongReport_Vtbl {
         iid == &<ILatLongReport as ::windows_core::Interface>::IID || iid == &<ILocationReport as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ILatLongReportFactory_Impl: Sized + ILocationReportFactory_Impl {
     fn LatLongReport(&self) -> ::windows_core::Result<IDispLatLongReport>;
@@ -491,7 +485,6 @@ impl ILatLongReportFactory_Vtbl {
         iid == &<ILatLongReportFactory as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ILocationReportFactory as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Devices_Sensors\"`"]
 #[cfg(feature = "Win32_Devices_Sensors")]
 pub trait ILocation_Impl: Sized {
     fn RegisterForReport(&self, pevents: ::core::option::Option<&ILocationEvents>, reporttype: *const ::windows_core::GUID, dwrequestedreportinterval: u32) -> ::windows_core::Result<()>;
@@ -649,7 +642,6 @@ impl ILocationPower_Vtbl {
         iid == &<ILocationPower as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait ILocationReport_Impl: Sized {
     fn GetSensorID(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -705,7 +697,6 @@ impl ILocationReport_Vtbl {
         iid == &<ILocationReport as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ILocationReportFactory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ListenForReports(&self, requestedreportinterval: u32) -> ::windows_core::Result<()>;
@@ -796,7 +787,6 @@ impl ILocationReportFactory_Vtbl {
         iid == &<ILocationReportFactory as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait _ICivicAddressReportFactoryEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -810,7 +800,6 @@ impl _ICivicAddressReportFactoryEvents_Vtbl {
         iid == &<_ICivicAddressReportFactoryEvents as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait _ILatLongReportFactoryEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(feature = "Win32_System_Com")]

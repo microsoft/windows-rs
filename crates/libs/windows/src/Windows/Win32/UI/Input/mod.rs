@@ -1,23 +1,16 @@
 #[cfg(feature = "Win32_UI_Input_Ime")]
-#[doc = "Required features: `\"Win32_UI_Input_Ime\"`"]
 pub mod Ime;
 #[cfg(feature = "Win32_UI_Input_Ink")]
-#[doc = "Required features: `\"Win32_UI_Input_Ink\"`"]
 pub mod Ink;
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-#[doc = "Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`"]
 pub mod KeyboardAndMouse;
 #[cfg(feature = "Win32_UI_Input_Pointer")]
-#[doc = "Required features: `\"Win32_UI_Input_Pointer\"`"]
 pub mod Pointer;
 #[cfg(feature = "Win32_UI_Input_Radial")]
-#[doc = "Required features: `\"Win32_UI_Input_Radial\"`"]
 pub mod Radial;
 #[cfg(feature = "Win32_UI_Input_Touch")]
-#[doc = "Required features: `\"Win32_UI_Input_Touch\"`"]
 pub mod Touch;
 #[cfg(feature = "Win32_UI_Input_XboxController")]
-#[doc = "Required features: `\"Win32_UI_Input_XboxController\"`"]
 pub mod XboxController;
 #[inline]
 pub unsafe fn DefRawInputProc(parawinput: &[*const RAWINPUT], cbsizeheader: u32) -> super::super::Foundation::LRESULT {

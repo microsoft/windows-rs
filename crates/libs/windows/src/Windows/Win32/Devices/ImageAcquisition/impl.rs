@@ -348,7 +348,6 @@ impl IWiaDataCallback_Vtbl {
         iid == &<IWiaDataCallback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IWiaDataTransfer_Impl: Sized {
     fn idtGetData(&self, pmedium: *mut super::super::System::Com::STGMEDIUM, piwiadatacallback: ::core::option::Option<&IWiaDataCallback>) -> ::windows_core::Result<()>;
@@ -801,7 +800,6 @@ impl IWiaEventCallback_Vtbl {
         iid == &<IWiaEventCallback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWiaImageFilter_Impl: Sized {
     fn InitializeFilter(&self, pwiaitem2: ::core::option::Option<&IWiaItem2>, pwiatransfercallback: ::core::option::Option<&IWiaTransferCallback>) -> ::windows_core::Result<()>;
@@ -1331,7 +1329,6 @@ impl IWiaLogEx_Vtbl {
         iid == &<IWiaLogEx as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IWiaMiniDrv_Impl: Sized {
     fn drvInitializeWia(&self, __midl__iwiaminidrv0000: *const u8, __midl__iwiaminidrv0001: i32, __midl__iwiaminidrv0002: &::windows_core::BSTR, __midl__iwiaminidrv0003: &::windows_core::BSTR, __midl__iwiaminidrv0004: ::core::option::Option<&::windows_core::IUnknown>, __midl__iwiaminidrv0005: ::core::option::Option<&::windows_core::IUnknown>, __midl__iwiaminidrv0006: *mut ::core::option::Option<IWiaDrvItem>, __midl__iwiaminidrv0007: *mut ::core::option::Option<::windows_core::IUnknown>, __midl__iwiaminidrv0008: *mut i32) -> ::windows_core::Result<()>;
@@ -1543,7 +1540,6 @@ impl IWiaMiniDrvCallBack_Vtbl {
         iid == &<IWiaMiniDrvCallBack as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWiaMiniDrvTransferCallback_Impl: Sized {
     fn GetNextStream(&self, lflags: i32, bstritemname: &::windows_core::BSTR, bstrfullitemname: &::windows_core::BSTR) -> ::windows_core::Result<super::super::System::Com::IStream>;
@@ -1638,7 +1634,6 @@ impl IWiaPreview_Vtbl {
         iid == &<IWiaPreview as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IWiaPropertyStorage_Impl: Sized {
     fn ReadMultiple(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *mut ::windows_core::PROPVARIANT) -> ::windows_core::Result<()>;
@@ -1779,7 +1774,6 @@ impl IWiaPropertyStorage_Vtbl {
         iid == &<IWiaPropertyStorage as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWiaSegmentationFilter_Impl: Sized {
     fn DetectRegions(&self, lflags: i32, pinputstream: ::core::option::Option<&super::super::System::Com::IStream>, pwiaitem2: ::core::option::Option<&IWiaItem2>) -> ::windows_core::Result<()>;
@@ -1800,7 +1794,6 @@ impl IWiaSegmentationFilter_Vtbl {
         iid == &<IWiaSegmentationFilter as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWiaTransfer_Impl: Sized {
     fn Download(&self, lflags: i32, piwiatransfercallback: ::core::option::Option<&IWiaTransferCallback>) -> ::windows_core::Result<()>;
@@ -1851,7 +1844,6 @@ impl IWiaTransfer_Vtbl {
         iid == &<IWiaTransfer as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWiaTransferCallback_Impl: Sized {
     fn TransferCallback(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows_core::Result<()>;
@@ -1888,7 +1880,6 @@ impl IWiaTransferCallback_Vtbl {
         iid == &<IWiaTransferCallback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWiaUIExtension_Impl: Sized {
     fn DeviceDialog(&self, pdevicedialogdata: *const DEVICEDIALOGDATA) -> ::windows_core::Result<()>;
@@ -1926,7 +1917,6 @@ impl IWiaUIExtension_Vtbl {
         iid == &<IWiaUIExtension as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait IWiaUIExtension2_Impl: Sized {
     fn DeviceDialog(&self, pdevicedialogdata: *const DEVICEDIALOGDATA2) -> ::windows_core::Result<()>;

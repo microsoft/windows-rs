@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceBlockBackup<P0>(pipe: P0) -> ::windows_core::Result<()>
@@ -8,7 +7,6 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceBlockBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> ::windows_core::HRESULT);
     FhServiceBlockBackup(pipe.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceClosePipe<P0>(pipe: P0) -> ::windows_core::Result<()>
@@ -18,7 +16,6 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceClosePipe(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> ::windows_core::HRESULT);
     FhServiceClosePipe(pipe.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceOpenPipe<P0>(startserviceifstopped: P0) -> ::windows_core::Result<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>
@@ -29,7 +26,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     FhServiceOpenPipe(startserviceifstopped.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceReloadConfiguration<P0>(pipe: P0) -> ::windows_core::Result<()>
@@ -39,7 +35,6 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceReloadConfiguration(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE) -> ::windows_core::HRESULT);
     FhServiceReloadConfiguration(pipe.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceStartBackup<P0, P1>(pipe: P0, lowpriorityio: P1) -> ::windows_core::Result<()>
@@ -50,7 +45,6 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStartBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE, lowpriorityio : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     FhServiceStartBackup(pipe.into_param().abi(), lowpriorityio.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceStopBackup<P0, P1>(pipe: P0, stoptracking: P1) -> ::windows_core::Result<()>
@@ -61,7 +55,6 @@ where
     ::windows_targets::link!("fhsvcctl.dll" "system" fn FhServiceStopBackup(pipe : super::super::System::WindowsProgramming:: FH_SERVICE_PIPE_HANDLE, stoptracking : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     FhServiceStopBackup(pipe.into_param().abi(), stoptracking.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceUnblockBackup<P0>(pipe: P0) -> ::windows_core::Result<()>

@@ -28,7 +28,7 @@
 ::windows_targets::link!("kernel32.dll" "system" fn SetupComm(hfile : super::super::Foundation:: HANDLE, dwinqueue : u32, dwoutqueue : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn TransmitCommChar(hfile : super::super::Foundation:: HANDLE, cchar : i8) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_IO")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn WaitCommEvent(hfile : super::super::Foundation:: HANDLE, lpevtmask : *mut COMM_EVENT_MASK, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" fn WaitCommEvent(hfile : super::super::Foundation:: HANDLE, lpevtmask : *mut COMM_EVENT_MASK, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
 pub const CE_BREAK: CLEAR_COMM_ERROR_FLAGS = 16u32;
 pub const CE_FRAME: CLEAR_COMM_ERROR_FLAGS = 8u32;
 pub const CE_OVERRUN: CLEAR_COMM_ERROR_FLAGS = 2u32;

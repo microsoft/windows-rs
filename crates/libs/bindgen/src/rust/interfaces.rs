@@ -16,7 +16,6 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let phantoms = writer.generic_phantoms(generics);
     let constraints = writer.generic_constraints(generics);
     let cfg = cfg::type_def_cfg(writer, def, &[]);
-    let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
     let interfaces = metadata::type_interfaces(&metadata::Type::TypeDef(def, generics.to_vec()));
     let vtables = metadata::type_def_vtables(def);
@@ -29,11 +28,10 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             let iid = writer.guid_literal(metadata::type_def_guid(def));
             tokens.combine(&quote! {
                 #features
-                ::windows_core::imp::com_interface!(#doc #ident, #vtbl_ident, #iid);
+                ::windows_core::imp::com_interface!(#ident, #vtbl_ident, #iid);
             });
         } else {
             tokens.combine(&quote! {
-                #doc
                 #features
                 #[repr(transparent)]
                 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -42,7 +40,6 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         }
     } else {
         tokens.combine(&quote! {
-            #doc
             #features
             ::windows_core::imp::interface!(#ident, #vtbl_ident);
         });

@@ -1,5 +1,4 @@
 #[cfg(feature = "ApplicationModel_UserDataTasks_DataProvider")]
-#[doc = "Required features: `\"ApplicationModel_UserDataTasks_DataProvider\"`"]
 pub mod DataProvider;
 ::windows_core::imp::com_interface!(IUserDataTask, IUserDataTask_Vtbl, 0x7c6585d1_e0d4_4f99_aee2_bc2d5ddadf4c);
 #[repr(C)]
@@ -383,7 +382,6 @@ unsafe impl ::core::marker::Sync for UserDataTask {}
 pub struct UserDataTaskBatch(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(UserDataTaskBatch, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl UserDataTaskBatch {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Tasks(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UserDataTask>> {
         let this = self;
@@ -686,7 +684,6 @@ impl UserDataTaskManager {
             (::windows_core::Interface::vtable(this).RequestStoreAsync)(::windows_core::Interface::as_raw(this), accesstype, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
@@ -701,7 +698,6 @@ impl UserDataTaskManager {
             (::windows_core::Interface::vtable(this).GetDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetForUser<P0>(user: P0) -> ::windows_core::Result<UserDataTaskManager>
     where
@@ -1027,7 +1023,6 @@ impl UserDataTaskStore {
             (::windows_core::Interface::vtable(this).CreateListInAccountAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(userdataaccountid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindListsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UserDataTaskList>>> {
         let this = self;

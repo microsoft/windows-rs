@@ -453,7 +453,6 @@ impl IDxcIncludeHandler_Vtbl {
         iid == &<IDxcIncludeHandler as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDxcLibrary_Impl: Sized {
     fn SetMalloc(&self, pmalloc: ::core::option::Option<&super::super::super::System::Com::IMalloc>) -> ::windows_core::Result<()>;
@@ -1140,7 +1139,6 @@ impl IDxcResult_Vtbl {
         iid == &<IDxcResult as ::windows_core::Interface>::IID || iid == &<IDxcOperationResult as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDxcUtils_Impl: Sized {
     fn CreateBlobFromBlob(&self, pblob: ::core::option::Option<&IDxcBlob>, offset: u32, length: u32) -> ::windows_core::Result<IDxcBlob>;

@@ -452,12 +452,10 @@ pub struct IMLOperatorTypeInferrer_Vtbl {
 ::windows_core::imp::com_interface!(IWinMLEvaluationContext, IWinMLEvaluationContext_Vtbl, 0x95848f9e_583d_4054_af12_916387cd8426);
 ::windows_core::imp::interface_hierarchy!(IWinMLEvaluationContext, ::windows_core::IUnknown);
 impl IWinMLEvaluationContext {
-    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BindValue(&self, pdescriptor: *const WINML_BINDING_DESC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).BindValue)(::windows_core::Interface::as_raw(self), pdescriptor).ok()
     }
-    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetValueByName<P0>(&self, name: P0) -> ::windows_core::Result<*mut WINML_BINDING_DESC>
     where
@@ -522,7 +520,6 @@ impl IWinMLRuntime {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LoadModel)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateEvaluationContext<P0>(&self, device: P0) -> ::windows_core::Result<IWinMLEvaluationContext>
     where
@@ -1143,7 +1140,6 @@ impl ::core::default::Default for MLOperatorSetId {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct WINML_BINDING_DESC {
     pub Name: ::windows_core::PCWSTR,
@@ -1167,7 +1163,6 @@ impl ::core::default::Default for WINML_BINDING_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub union WINML_BINDING_DESC_0 {
     pub Tensor: WINML_TENSOR_BINDING_DESC,
@@ -1382,7 +1377,6 @@ impl ::core::default::Default for WINML_MODEL_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct WINML_RESOURCE_BINDING_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,

@@ -75,7 +75,6 @@ where
     ::windows_targets::link!("wintrust.dll" "system" fn CryptCATAdminResolveCatalogPath(hcatadmin : isize, pwszcatalogfile : ::windows_core::PCWSTR, pscatinfo : *mut CATALOG_INFO, dwflags : u32) -> super::super::super::Foundation:: BOOL);
     CryptCATAdminResolveCatalogPath(hcatadmin, pwszcatalogfile.into_param().abi(), pscatinfo, dwflags).ok()
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography_Sip\"`"]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
 #[inline]
 pub unsafe fn CryptCATAllocSortedMemberInfo<P0, P1>(hcatalog: P0, pwszreferencetag: P1) -> *mut CRYPTCATMEMBER
@@ -91,7 +90,6 @@ pub unsafe fn CryptCATCDFClose(pcdf: *mut CRYPTCATCDF) -> super::super::super::F
     ::windows_targets::link!("wintrust.dll" "system" fn CryptCATCDFClose(pcdf : *mut CRYPTCATCDF) -> super::super::super::Foundation:: BOOL);
     CryptCATCDFClose(pcdf)
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography_Sip\"`"]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
 #[inline]
 pub unsafe fn CryptCATCDFEnumAttributes(pcdf: *mut CRYPTCATCDF, pmember: *mut CRYPTCATMEMBER, pprevattr: *mut CRYPTCATATTRIBUTE, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE {
@@ -103,7 +101,6 @@ pub unsafe fn CryptCATCDFEnumCatAttributes(pcdf: *mut CRYPTCATCDF, pprevattr: *m
     ::windows_targets::link!("wintrust.dll" "system" fn CryptCATCDFEnumCatAttributes(pcdf : *mut CRYPTCATCDF, pprevattr : *mut CRYPTCATATTRIBUTE, pfnparseerror : PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATATTRIBUTE);
     CryptCATCDFEnumCatAttributes(pcdf, pprevattr, pfnparseerror)
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography_Sip\"`"]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
 #[inline]
 pub unsafe fn CryptCATCDFEnumMembers(pcdf: *mut CRYPTCATCDF, pprevmember: *mut CRYPTCATMEMBER, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK) -> *mut CRYPTCATMEMBER {
@@ -131,7 +128,6 @@ where
     ::windows_targets::link!("wintrust.dll" "system" fn CryptCATClose(hcatalog : super::super::super::Foundation:: HANDLE) -> super::super::super::Foundation:: BOOL);
     CryptCATClose(hcatalog.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography_Sip\"`"]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
 #[inline]
 pub unsafe fn CryptCATEnumerateAttr<P0>(hcatalog: P0, pcatmember: *mut CRYPTCATMEMBER, pprevattr: *mut CRYPTCATATTRIBUTE) -> *mut CRYPTCATATTRIBUTE
@@ -149,7 +145,6 @@ where
     ::windows_targets::link!("wintrust.dll" "system" fn CryptCATEnumerateCatAttr(hcatalog : super::super::super::Foundation:: HANDLE, pprevattr : *mut CRYPTCATATTRIBUTE) -> *mut CRYPTCATATTRIBUTE);
     CryptCATEnumerateCatAttr(hcatalog.into_param().abi(), pprevattr)
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography_Sip\"`"]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
 #[inline]
 pub unsafe fn CryptCATEnumerateMember<P0>(hcatalog: P0, pprevmember: *mut CRYPTCATMEMBER) -> *mut CRYPTCATMEMBER
@@ -159,7 +154,6 @@ where
     ::windows_targets::link!("wintrust.dll" "system" fn CryptCATEnumerateMember(hcatalog : super::super::super::Foundation:: HANDLE, pprevmember : *mut CRYPTCATMEMBER) -> *mut CRYPTCATMEMBER);
     CryptCATEnumerateMember(hcatalog.into_param().abi(), pprevmember)
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography_Sip\"`"]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
 #[inline]
 pub unsafe fn CryptCATFreeSortedMemberInfo<P0>(hcatalog: P0, pcatmember: *mut CRYPTCATMEMBER)
@@ -169,7 +163,6 @@ where
     ::windows_targets::link!("wintrust.dll" "system" fn CryptCATFreeSortedMemberInfo(hcatalog : super::super::super::Foundation:: HANDLE, pcatmember : *mut CRYPTCATMEMBER));
     CryptCATFreeSortedMemberInfo(hcatalog.into_param().abi(), pcatmember)
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography_Sip\"`"]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
 #[inline]
 pub unsafe fn CryptCATGetAttrInfo<P0, P1>(hcatalog: P0, pcatmember: *mut CRYPTCATMEMBER, pwszreferencetag: P1) -> *mut CRYPTCATATTRIBUTE
@@ -189,7 +182,6 @@ where
     ::windows_targets::link!("wintrust.dll" "system" fn CryptCATGetCatAttrInfo(hcatalog : super::super::super::Foundation:: HANDLE, pwszreferencetag : ::windows_core::PCWSTR) -> *mut CRYPTCATATTRIBUTE);
     CryptCATGetCatAttrInfo(hcatalog.into_param().abi(), pwszreferencetag.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography_Sip\"`"]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
 #[inline]
 pub unsafe fn CryptCATGetMemberInfo<P0, P1>(hcatalog: P0, pwszreferencetag: P1) -> *mut CRYPTCATMEMBER
@@ -221,7 +213,6 @@ where
     ::windows_targets::link!("wintrust.dll" "system" fn CryptCATPersistStore(hcatalog : super::super::super::Foundation:: HANDLE) -> super::super::super::Foundation:: BOOL);
     CryptCATPersistStore(hcatalog.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography_Sip\"`"]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
 #[inline]
 pub unsafe fn CryptCATPutAttrInfo<P0, P1>(hcatalog: P0, pcatmember: *mut CRYPTCATMEMBER, pwszreferencetag: P1, dwattrtypeandaction: u32, cbdata: u32, pbdata: *mut u8) -> *mut CRYPTCATATTRIBUTE
@@ -241,7 +232,6 @@ where
     ::windows_targets::link!("wintrust.dll" "system" fn CryptCATPutCatAttrInfo(hcatalog : super::super::super::Foundation:: HANDLE, pwszreferencetag : ::windows_core::PCWSTR, dwattrtypeandaction : u32, cbdata : u32, pbdata : *mut u8) -> *mut CRYPTCATATTRIBUTE);
     CryptCATPutCatAttrInfo(hcatalog.into_param().abi(), pwszreferencetag.into_param().abi(), dwattrtypeandaction, cbdata, pbdata)
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography_Sip\"`"]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
 #[inline]
 pub unsafe fn CryptCATPutMemberInfo<P0, P1, P2>(hcatalog: P0, pwszfilename: P1, pwszreferencetag: P2, pgsubjecttype: *mut ::windows_core::GUID, dwcertversion: u32, cbsipindirectdata: u32, pbsipindirectdata: *mut u8) -> *mut CRYPTCATMEMBER
@@ -464,7 +454,6 @@ impl ::core::default::Default for CRYPTCATCDF {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography_Sip\"`"]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
 pub struct CRYPTCATMEMBER {
     pub cbStruct: u32,
@@ -562,7 +551,6 @@ impl ::core::default::Default for CRYPTCATSTORE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography_Sip\"`"]
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
 pub struct MS_ADDINFO_CATALOGMEMBER {
     pub cbStruct: u32,

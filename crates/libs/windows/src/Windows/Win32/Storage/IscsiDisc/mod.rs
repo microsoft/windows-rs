@@ -97,14 +97,12 @@ pub unsafe fn ClearPersistentIScsiDevices() -> u32 {
     ::windows_targets::link!("iscsidsc.dll" "system" fn ClearPersistentIScsiDevices() -> u32);
     ClearPersistentIScsiDevices()
 }
-#[doc = "Required features: `\"Win32_System_Ioctl\"`"]
 #[cfg(feature = "Win32_System_Ioctl")]
 #[inline]
 pub unsafe fn GetDevicesForIScsiSessionA(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, devicecount: *mut u32, devices: *mut ISCSI_DEVICE_ON_SESSIONA) -> u32 {
     ::windows_targets::link!("iscsidsc.dll" "system" fn GetDevicesForIScsiSessionA(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, devicecount : *mut u32, devices : *mut ISCSI_DEVICE_ON_SESSIONA) -> u32);
     GetDevicesForIScsiSessionA(uniquesessionid, devicecount, devices)
 }
-#[doc = "Required features: `\"Win32_System_Ioctl\"`"]
 #[cfg(feature = "Win32_System_Ioctl")]
 #[inline]
 pub unsafe fn GetDevicesForIScsiSessionW(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, devicecount: *mut u32, devices: *mut ISCSI_DEVICE_ON_SESSIONW) -> u32 {
@@ -1851,7 +1849,6 @@ impl ::core::default::Default for ISCSI_CONNECTION_INFO_EX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Ioctl\"`"]
 #[cfg(feature = "Win32_System_Ioctl")]
 pub struct ISCSI_DEVICE_ON_SESSIONA {
     pub InitiatorName: [i8; 256],
@@ -1896,7 +1893,6 @@ impl ::core::default::Default for ISCSI_DEVICE_ON_SESSIONA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Ioctl\"`"]
 #[cfg(feature = "Win32_System_Ioctl")]
 pub struct ISCSI_DEVICE_ON_SESSIONW {
     pub InitiatorName: [u16; 256],

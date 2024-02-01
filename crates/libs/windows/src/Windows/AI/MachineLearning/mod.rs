@@ -320,7 +320,6 @@ impl ITensor {
             (::windows_core::Interface::vtable(this).TensorKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Shape(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = self;
@@ -883,7 +882,6 @@ pub struct ImageFeatureDescriptor(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(ImageFeatureDescriptor, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(ImageFeatureDescriptor, ILearningModelFeatureDescriptor);
 impl ImageFeatureDescriptor {
-    #[doc = "Required features: `\"Graphics_Imaging\"`"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn BitmapPixelFormat(&self) -> ::windows_core::Result<super::super::Graphics::Imaging::BitmapPixelFormat> {
         let this = self;
@@ -892,7 +890,6 @@ impl ImageFeatureDescriptor {
             (::windows_core::Interface::vtable(this).BitmapPixelFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Graphics_Imaging\"`"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn BitmapAlphaMode(&self) -> ::windows_core::Result<super::super::Graphics::Imaging::BitmapAlphaMode> {
         let this = self;
@@ -969,7 +966,6 @@ pub struct ImageFeatureValue(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(ImageFeatureValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(ImageFeatureValue, ILearningModelFeatureValue);
 impl ImageFeatureValue {
-    #[doc = "Required features: `\"Media\"`"]
     #[cfg(feature = "Media")]
     pub fn VideoFrame(&self) -> ::windows_core::Result<super::super::Media::VideoFrame> {
         let this = self;
@@ -978,7 +974,6 @@ impl ImageFeatureValue {
             (::windows_core::Interface::vtable(this).VideoFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Media\"`"]
     #[cfg(feature = "Media")]
     pub fn CreateFromVideoFrame<P0>(image: P0) -> ::windows_core::Result<ImageFeatureValue>
     where
@@ -1059,7 +1054,6 @@ impl LearningModel {
             (::windows_core::Interface::vtable(this).Version)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Metadata(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::HSTRING>> {
         let this = self;
@@ -1068,7 +1062,6 @@ impl LearningModel {
             (::windows_core::Interface::vtable(this).Metadata)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InputFeatures(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ILearningModelFeatureDescriptor>> {
         let this = self;
@@ -1077,7 +1070,6 @@ impl LearningModel {
             (::windows_core::Interface::vtable(this).InputFeatures)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn OutputFeatures(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ILearningModelFeatureDescriptor>> {
         let this = self;
@@ -1086,7 +1078,6 @@ impl LearningModel {
             (::windows_core::Interface::vtable(this).OutputFeatures)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn LoadFromStorageFileAsync<P0>(modelfile: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
     where
@@ -1097,7 +1088,6 @@ impl LearningModel {
             (::windows_core::Interface::vtable(this).LoadFromStorageFileAsync)(::windows_core::Interface::as_raw(this), modelfile.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStreamAsync<P0>(modelstream: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
     where
@@ -1114,7 +1104,6 @@ impl LearningModel {
             (::windows_core::Interface::vtable(this).LoadFromFilePath)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStream<P0>(modelstream: P0) -> ::windows_core::Result<LearningModel>
     where
@@ -1125,7 +1114,6 @@ impl LearningModel {
             (::windows_core::Interface::vtable(this).LoadFromStream)(::windows_core::Interface::as_raw(this), modelstream.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn LoadFromStorageFileWithOperatorProviderAsync<P0, P1>(modelfile: P0, operatorprovider: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
     where
@@ -1137,7 +1125,6 @@ impl LearningModel {
             (::windows_core::Interface::vtable(this).LoadFromStorageFileWithOperatorProviderAsync)(::windows_core::Interface::as_raw(this), modelfile.into_param().abi(), operatorprovider.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStreamWithOperatorProviderAsync<P0, P1>(modelstream: P0, operatorprovider: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModel>>
     where
@@ -1158,7 +1145,6 @@ impl LearningModel {
             (::windows_core::Interface::vtable(this).LoadFromFilePathWithOperatorProvider)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), operatorprovider.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStreamWithOperatorProvider<P0, P1>(modelstream: P0, operatorprovider: P1) -> ::windows_core::Result<LearningModel>
     where
@@ -1195,7 +1181,6 @@ pub struct LearningModelBinding(::windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 ::windows_core::imp::required_hierarchy!(LearningModelBinding, super::super::Foundation::Collections::IIterable::<super::super::Foundation::Collections::IKeyValuePair::<::windows_core::HSTRING, ::windows_core::IInspectable>>, super::super::Foundation::Collections::IMapView::<::windows_core::HSTRING, ::windows_core::IInspectable>);
 impl LearningModelBinding {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>>> {
         let this = &::windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>>>(self)?;
@@ -1211,7 +1196,6 @@ impl LearningModelBinding {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Bind)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn BindWithProperties<P0, P1>(&self, name: &::windows_core::HSTRING, value: P0, props: P1) -> ::windows_core::Result<()>
     where
@@ -1234,7 +1218,6 @@ impl LearningModelBinding {
             (::windows_core::Interface::vtable(this).CreateFromSession)(::windows_core::Interface::as_raw(this), session.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Lookup(&self, key: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = &::windows_core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>>(self)?;
@@ -1243,7 +1226,6 @@ impl LearningModelBinding {
             (::windows_core::Interface::vtable(this).Lookup)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(key), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>>(self)?;
@@ -1252,7 +1234,6 @@ impl LearningModelBinding {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HasKey(&self, key: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
         let this = &::windows_core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>>(self)?;
@@ -1261,7 +1242,6 @@ impl LearningModelBinding {
             (::windows_core::Interface::vtable(this).HasKey)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(key), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Split(&self, first: &mut ::core::option::Option<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>>, second: &mut ::core::option::Option<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>>) -> ::windows_core::Result<()> {
         let this = &::windows_core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>>(self)?;
@@ -1306,7 +1286,6 @@ unsafe impl ::core::marker::Sync for LearningModelBinding {}
 pub struct LearningModelDevice(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(LearningModelDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl LearningModelDevice {
-    #[doc = "Required features: `\"Graphics\"`"]
     #[cfg(feature = "Graphics")]
     pub fn AdapterId(&self) -> ::windows_core::Result<super::super::Graphics::DisplayAdapterId> {
         let this = self;
@@ -1315,7 +1294,6 @@ impl LearningModelDevice {
             (::windows_core::Interface::vtable(this).AdapterId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Graphics_DirectX_Direct3D11\"`"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn Direct3D11Device(&self) -> ::windows_core::Result<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice> {
         let this = self;
@@ -1330,7 +1308,6 @@ impl LearningModelDevice {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), devicekind, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Graphics_DirectX_Direct3D11\"`"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn CreateFromDirect3D11Device<P0>(device: P0) -> ::windows_core::Result<LearningModelDevice>
     where
@@ -1390,7 +1367,6 @@ impl LearningModelEvaluationResult {
             (::windows_core::Interface::vtable(this).Succeeded)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Outputs(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = self;
@@ -1436,7 +1412,6 @@ impl LearningModelSession {
             (::windows_core::Interface::vtable(this).Device)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EvaluationProperties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
@@ -1455,7 +1430,6 @@ impl LearningModelSession {
             (::windows_core::Interface::vtable(this).EvaluateAsync)(::windows_core::Interface::as_raw(this), bindings.into_param().abi(), ::core::mem::transmute_copy(correlationid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EvaluateFeaturesAsync<P0>(&self, features: P0, correlationid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>>
     where
@@ -1477,7 +1451,6 @@ impl LearningModelSession {
             (::windows_core::Interface::vtable(this).Evaluate)(::windows_core::Interface::as_raw(this), bindings.into_param().abi(), ::core::mem::transmute_copy(correlationid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EvaluateFeatures<P0>(&self, features: P0, correlationid: &::windows_core::HSTRING) -> ::windows_core::Result<LearningModelEvaluationResult>
     where
@@ -1739,7 +1712,6 @@ impl TensorBoolean {
             (::windows_core::Interface::vtable(this).TensorKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Shape(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows_core::Interface::cast::<ITensor>(self)?;
@@ -1748,7 +1720,6 @@ impl TensorBoolean {
             (::windows_core::Interface::vtable(this).Shape)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAsVectorView(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<bool>> {
         let this = self;
@@ -1763,7 +1734,6 @@ impl TensorBoolean {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> ::windows_core::Result<TensorBoolean>
     where
@@ -1774,7 +1744,6 @@ impl TensorBoolean {
             (::windows_core::Interface::vtable(this).Create2)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[bool]) -> ::windows_core::Result<TensorBoolean>
     where
@@ -1785,7 +1754,6 @@ impl TensorBoolean {
             (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> ::windows_core::Result<TensorBoolean>
     where
@@ -1803,7 +1771,6 @@ impl TensorBoolean {
             (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> ::windows_core::Result<TensorBoolean>
     where
@@ -1868,7 +1835,6 @@ impl TensorDouble {
             (::windows_core::Interface::vtable(this).TensorKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Shape(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows_core::Interface::cast::<ITensor>(self)?;
@@ -1877,7 +1843,6 @@ impl TensorDouble {
             (::windows_core::Interface::vtable(this).Shape)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAsVectorView(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<f64>> {
         let this = self;
@@ -1892,7 +1857,6 @@ impl TensorDouble {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> ::windows_core::Result<TensorDouble>
     where
@@ -1903,7 +1867,6 @@ impl TensorDouble {
             (::windows_core::Interface::vtable(this).Create2)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[f64]) -> ::windows_core::Result<TensorDouble>
     where
@@ -1914,7 +1877,6 @@ impl TensorDouble {
             (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> ::windows_core::Result<TensorDouble>
     where
@@ -1932,7 +1894,6 @@ impl TensorDouble {
             (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> ::windows_core::Result<TensorDouble>
     where
@@ -2007,7 +1968,6 @@ impl TensorFeatureDescriptor {
             (::windows_core::Interface::vtable(this).TensorKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Shape(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = self;
@@ -2060,7 +2020,6 @@ impl TensorFloat {
             (::windows_core::Interface::vtable(this).TensorKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Shape(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows_core::Interface::cast::<ITensor>(self)?;
@@ -2069,7 +2028,6 @@ impl TensorFloat {
             (::windows_core::Interface::vtable(this).Shape)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAsVectorView(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<f32>> {
         let this = self;
@@ -2084,7 +2042,6 @@ impl TensorFloat {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> ::windows_core::Result<TensorFloat>
     where
@@ -2095,7 +2052,6 @@ impl TensorFloat {
             (::windows_core::Interface::vtable(this).Create2)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[f32]) -> ::windows_core::Result<TensorFloat>
     where
@@ -2106,7 +2062,6 @@ impl TensorFloat {
             (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> ::windows_core::Result<TensorFloat>
     where
@@ -2124,7 +2079,6 @@ impl TensorFloat {
             (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> ::windows_core::Result<TensorFloat>
     where
@@ -2189,7 +2143,6 @@ impl TensorFloat16Bit {
             (::windows_core::Interface::vtable(this).TensorKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Shape(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows_core::Interface::cast::<ITensor>(self)?;
@@ -2198,7 +2151,6 @@ impl TensorFloat16Bit {
             (::windows_core::Interface::vtable(this).Shape)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAsVectorView(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<f32>> {
         let this = self;
@@ -2213,7 +2165,6 @@ impl TensorFloat16Bit {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> ::windows_core::Result<TensorFloat16Bit>
     where
@@ -2224,7 +2175,6 @@ impl TensorFloat16Bit {
             (::windows_core::Interface::vtable(this).Create2)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[f32]) -> ::windows_core::Result<TensorFloat16Bit>
     where
@@ -2235,7 +2185,6 @@ impl TensorFloat16Bit {
             (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> ::windows_core::Result<TensorFloat16Bit>
     where
@@ -2253,7 +2202,6 @@ impl TensorFloat16Bit {
             (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> ::windows_core::Result<TensorFloat16Bit>
     where
@@ -2318,7 +2266,6 @@ impl TensorInt16Bit {
             (::windows_core::Interface::vtable(this).TensorKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Shape(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows_core::Interface::cast::<ITensor>(self)?;
@@ -2327,7 +2274,6 @@ impl TensorInt16Bit {
             (::windows_core::Interface::vtable(this).Shape)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAsVectorView(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i16>> {
         let this = self;
@@ -2342,7 +2288,6 @@ impl TensorInt16Bit {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> ::windows_core::Result<TensorInt16Bit>
     where
@@ -2353,7 +2298,6 @@ impl TensorInt16Bit {
             (::windows_core::Interface::vtable(this).Create2)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[i16]) -> ::windows_core::Result<TensorInt16Bit>
     where
@@ -2364,7 +2308,6 @@ impl TensorInt16Bit {
             (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> ::windows_core::Result<TensorInt16Bit>
     where
@@ -2382,7 +2325,6 @@ impl TensorInt16Bit {
             (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> ::windows_core::Result<TensorInt16Bit>
     where
@@ -2447,7 +2389,6 @@ impl TensorInt32Bit {
             (::windows_core::Interface::vtable(this).TensorKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Shape(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows_core::Interface::cast::<ITensor>(self)?;
@@ -2456,7 +2397,6 @@ impl TensorInt32Bit {
             (::windows_core::Interface::vtable(this).Shape)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAsVectorView(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i32>> {
         let this = self;
@@ -2471,7 +2411,6 @@ impl TensorInt32Bit {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> ::windows_core::Result<TensorInt32Bit>
     where
@@ -2482,7 +2421,6 @@ impl TensorInt32Bit {
             (::windows_core::Interface::vtable(this).Create2)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[i32]) -> ::windows_core::Result<TensorInt32Bit>
     where
@@ -2493,7 +2431,6 @@ impl TensorInt32Bit {
             (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> ::windows_core::Result<TensorInt32Bit>
     where
@@ -2511,7 +2448,6 @@ impl TensorInt32Bit {
             (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> ::windows_core::Result<TensorInt32Bit>
     where
@@ -2576,7 +2512,6 @@ impl TensorInt64Bit {
             (::windows_core::Interface::vtable(this).TensorKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Shape(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows_core::Interface::cast::<ITensor>(self)?;
@@ -2585,7 +2520,6 @@ impl TensorInt64Bit {
             (::windows_core::Interface::vtable(this).Shape)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAsVectorView(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = self;
@@ -2600,7 +2534,6 @@ impl TensorInt64Bit {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> ::windows_core::Result<TensorInt64Bit>
     where
@@ -2611,7 +2544,6 @@ impl TensorInt64Bit {
             (::windows_core::Interface::vtable(this).Create2)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[i64]) -> ::windows_core::Result<TensorInt64Bit>
     where
@@ -2622,7 +2554,6 @@ impl TensorInt64Bit {
             (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> ::windows_core::Result<TensorInt64Bit>
     where
@@ -2640,7 +2571,6 @@ impl TensorInt64Bit {
             (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> ::windows_core::Result<TensorInt64Bit>
     where
@@ -2705,7 +2635,6 @@ impl TensorInt8Bit {
             (::windows_core::Interface::vtable(this).TensorKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Shape(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows_core::Interface::cast::<ITensor>(self)?;
@@ -2714,7 +2643,6 @@ impl TensorInt8Bit {
             (::windows_core::Interface::vtable(this).Shape)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAsVectorView(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u8>> {
         let this = self;
@@ -2729,7 +2657,6 @@ impl TensorInt8Bit {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> ::windows_core::Result<TensorInt8Bit>
     where
@@ -2740,7 +2667,6 @@ impl TensorInt8Bit {
             (::windows_core::Interface::vtable(this).Create2)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[u8]) -> ::windows_core::Result<TensorInt8Bit>
     where
@@ -2751,7 +2677,6 @@ impl TensorInt8Bit {
             (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> ::windows_core::Result<TensorInt8Bit>
     where
@@ -2769,7 +2694,6 @@ impl TensorInt8Bit {
             (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> ::windows_core::Result<TensorInt8Bit>
     where
@@ -2834,7 +2758,6 @@ impl TensorString {
             (::windows_core::Interface::vtable(this).TensorKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Shape(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows_core::Interface::cast::<ITensor>(self)?;
@@ -2843,7 +2766,6 @@ impl TensorString {
             (::windows_core::Interface::vtable(this).Shape)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAsVectorView(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -2858,7 +2780,6 @@ impl TensorString {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> ::windows_core::Result<TensorString>
     where
@@ -2869,7 +2790,6 @@ impl TensorString {
             (::windows_core::Interface::vtable(this).Create2)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[::windows_core::HSTRING]) -> ::windows_core::Result<TensorString>
     where
@@ -2880,7 +2800,6 @@ impl TensorString {
             (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), ::core::mem::transmute(data.as_ptr()), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> ::windows_core::Result<TensorString>
     where
@@ -2952,7 +2871,6 @@ impl TensorUInt16Bit {
             (::windows_core::Interface::vtable(this).TensorKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Shape(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows_core::Interface::cast::<ITensor>(self)?;
@@ -2961,7 +2879,6 @@ impl TensorUInt16Bit {
             (::windows_core::Interface::vtable(this).Shape)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAsVectorView(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u16>> {
         let this = self;
@@ -2976,7 +2893,6 @@ impl TensorUInt16Bit {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> ::windows_core::Result<TensorUInt16Bit>
     where
@@ -2987,7 +2903,6 @@ impl TensorUInt16Bit {
             (::windows_core::Interface::vtable(this).Create2)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[u16]) -> ::windows_core::Result<TensorUInt16Bit>
     where
@@ -2998,7 +2913,6 @@ impl TensorUInt16Bit {
             (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> ::windows_core::Result<TensorUInt16Bit>
     where
@@ -3016,7 +2930,6 @@ impl TensorUInt16Bit {
             (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> ::windows_core::Result<TensorUInt16Bit>
     where
@@ -3081,7 +2994,6 @@ impl TensorUInt32Bit {
             (::windows_core::Interface::vtable(this).TensorKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Shape(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows_core::Interface::cast::<ITensor>(self)?;
@@ -3090,7 +3002,6 @@ impl TensorUInt32Bit {
             (::windows_core::Interface::vtable(this).Shape)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAsVectorView(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
@@ -3105,7 +3016,6 @@ impl TensorUInt32Bit {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> ::windows_core::Result<TensorUInt32Bit>
     where
@@ -3116,7 +3026,6 @@ impl TensorUInt32Bit {
             (::windows_core::Interface::vtable(this).Create2)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[u32]) -> ::windows_core::Result<TensorUInt32Bit>
     where
@@ -3127,7 +3036,6 @@ impl TensorUInt32Bit {
             (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> ::windows_core::Result<TensorUInt32Bit>
     where
@@ -3145,7 +3053,6 @@ impl TensorUInt32Bit {
             (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> ::windows_core::Result<TensorUInt32Bit>
     where
@@ -3210,7 +3117,6 @@ impl TensorUInt64Bit {
             (::windows_core::Interface::vtable(this).TensorKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Shape(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows_core::Interface::cast::<ITensor>(self)?;
@@ -3219,7 +3125,6 @@ impl TensorUInt64Bit {
             (::windows_core::Interface::vtable(this).Shape)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAsVectorView(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u64>> {
         let this = self;
@@ -3234,7 +3139,6 @@ impl TensorUInt64Bit {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> ::windows_core::Result<TensorUInt64Bit>
     where
@@ -3245,7 +3149,6 @@ impl TensorUInt64Bit {
             (::windows_core::Interface::vtable(this).Create2)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[u64]) -> ::windows_core::Result<TensorUInt64Bit>
     where
@@ -3256,7 +3159,6 @@ impl TensorUInt64Bit {
             (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> ::windows_core::Result<TensorUInt64Bit>
     where
@@ -3274,7 +3176,6 @@ impl TensorUInt64Bit {
             (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> ::windows_core::Result<TensorUInt64Bit>
     where
@@ -3339,7 +3240,6 @@ impl TensorUInt8Bit {
             (::windows_core::Interface::vtable(this).TensorKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Shape(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i64>> {
         let this = &::windows_core::Interface::cast::<ITensor>(self)?;
@@ -3348,7 +3248,6 @@ impl TensorUInt8Bit {
             (::windows_core::Interface::vtable(this).Shape)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAsVectorView(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u8>> {
         let this = self;
@@ -3363,7 +3262,6 @@ impl TensorUInt8Bit {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create2<P0>(shape: P0) -> ::windows_core::Result<TensorUInt8Bit>
     where
@@ -3374,7 +3272,6 @@ impl TensorUInt8Bit {
             (::windows_core::Interface::vtable(this).Create2)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromArray<P0>(shape: P0, data: &[u8]) -> ::windows_core::Result<TensorUInt8Bit>
     where
@@ -3385,7 +3282,6 @@ impl TensorUInt8Bit {
             (::windows_core::Interface::vtable(this).CreateFromArray)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> ::windows_core::Result<TensorUInt8Bit>
     where
@@ -3403,7 +3299,6 @@ impl TensorUInt8Bit {
             (::windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(::windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<P0>(shape: &[i64], buffer: P0) -> ::windows_core::Result<TensorUInt8Bit>
     where

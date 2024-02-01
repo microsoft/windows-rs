@@ -1,5 +1,4 @@
 #[cfg(feature = "UI_ViewManagement_Core")]
-#[doc = "Required features: `\"UI_ViewManagement_Core\"`"]
 pub mod Core;
 ::windows_core::imp::com_interface!(IAccessibilitySettings, IAccessibilitySettings_Vtbl, 0xfe0e8147_c4c0_4562_b962_1327b52ad5b9);
 #[repr(C)]
@@ -123,12 +122,7 @@ pub struct IApplicationViewConsolidatedEventArgs2_Vtbl {
     pub IsAppInitiated: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut bool) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    IApplicationViewFullscreenStatics,
-    IApplicationViewFullscreenStatics_Vtbl,
-    0xbc792ebd_64fe_4b65_a0c0_901ce2b68636
-);
+::windows_core::imp::com_interface!(IApplicationViewFullscreenStatics, IApplicationViewFullscreenStatics_Vtbl, 0xbc792ebd_64fe_4b65_a0c0_901ce2b68636);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -164,12 +158,7 @@ pub struct IApplicationViewScalingStatics_Vtbl {
     pub TrySetDisableLayoutScaling: unsafe extern "system" fn(*mut ::core::ffi::c_void, bool, *mut bool) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    IApplicationViewStatics,
-    IApplicationViewStatics_Vtbl,
-    0x010a6306_c433_44e5_a9f2_bd84d4030a95
-);
+::windows_core::imp::com_interface!(IApplicationViewStatics, IApplicationViewStatics_Vtbl, 0x010a6306_c433_44e5_a9f2_bd84d4030a95);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -641,7 +630,6 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).AdjacentToRightDisplayEdge)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn IsFullScreen(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -700,7 +688,6 @@ impl ApplicationView {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveConsolidated)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SuppressSystemOverlays(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::Interface::cast::<IApplicationView2>(self)?;
@@ -709,7 +696,6 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).SuppressSystemOverlays)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SetSuppressSystemOverlays(&self, value: bool) -> ::windows_core::Result<()> {
         let this = &::windows_core::Interface::cast::<IApplicationView2>(self)?;
@@ -850,7 +836,6 @@ impl ApplicationView {
         let this = &::windows_core::Interface::cast::<IApplicationView7>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetPersistedStateId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `\"UI_WindowManagement\"`"]
     #[cfg(feature = "UI_WindowManagement")]
     pub fn WindowingEnvironment(&self) -> ::windows_core::Result<super::WindowManagement::WindowingEnvironment> {
         let this = &::windows_core::Interface::cast::<IApplicationView9>(self)?;
@@ -859,7 +844,6 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).WindowingEnvironment)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"UI_WindowManagement\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_WindowManagement"))]
     pub fn GetDisplayRegions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::WindowManagement::DisplayRegion>> {
         let this = &::windows_core::Interface::cast::<IApplicationView9>(self)?;
@@ -868,7 +852,6 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).GetDisplayRegions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn TryUnsnapToFullscreen() -> ::windows_core::Result<bool> {
         Self::IApplicationViewFullscreenStatics(|this| unsafe {
@@ -876,7 +859,6 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).TryUnsnapToFullscreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"UI_Core\"`"]
     #[cfg(feature = "UI_Core")]
     pub fn GetApplicationViewIdForWindow<P0>(window: P0) -> ::windows_core::Result<i32>
     where
@@ -887,7 +869,6 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).GetApplicationViewIdForWindow)(::windows_core::Interface::as_raw(this), window.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Value() -> ::windows_core::Result<ApplicationViewState> {
         Self::IApplicationViewStatics(|this| unsafe {
@@ -895,7 +876,6 @@ impl ApplicationView {
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn TryUnsnap() -> ::windows_core::Result<bool> {
         Self::IApplicationViewStatics(|this| unsafe {
@@ -1547,7 +1527,6 @@ impl ProjectionManager {
     pub fn RemoveProjectionDisplayAvailableChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IProjectionManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveProjectionDisplayAvailableChanged)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `\"Devices_Enumeration\"`"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn StartProjectingWithDeviceInfoAsync<P0>(projectionviewid: i32, anchorviewid: i32, displaydeviceinfo: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1564,7 +1543,6 @@ impl ProjectionManager {
             (::windows_core::Interface::vtable(this).RequestStartProjectingAsync)(::windows_core::Interface::as_raw(this), projectionviewid, anchorviewid, selection, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"UI_Popups\"`"]
     #[cfg(feature = "UI_Popups")]
     pub fn RequestStartProjectingWithPlacementAsync(projectionviewid: i32, anchorviewid: i32, selection: super::super::Foundation::Rect, prefferedplacement: super::Popups::Placement) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IProjectionManagerStatics2(|this| unsafe {
@@ -2191,7 +2169,6 @@ impl ::core::fmt::Debug for ApplicationViewOrientation {
 impl ::windows_core::RuntimeType for ApplicationViewOrientation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ApplicationViewOrientation;i4)");
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]

@@ -349,7 +349,6 @@ impl ::core::default::Default for D2D1_GRADIENT_STOP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D2D1_PIXEL_FORMAT {
     pub format: super::super::Dxgi::Common::DXGI_FORMAT,

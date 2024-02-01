@@ -15,7 +15,6 @@ impl IAudioEndpointFormatControl_Vtbl {
         iid == &<IAudioEndpointFormatControl as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_Audio_Apo\"`"]
 #[cfg(feature = "Win32_Media_Audio_Apo")]
 pub trait IAudioEndpointLastBufferControl_Impl: Sized {
     fn IsLastBufferControlSupported(&self) -> super::super::super::Foundation::BOOL;
@@ -118,7 +117,6 @@ impl IAudioEndpointOffloadStreamMute_Vtbl {
         iid == &<IAudioEndpointOffloadStreamMute as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub trait IAudioEndpointOffloadStreamVolume_Impl: Sized {
     fn GetVolumeChannelCount(&self) -> ::windows_core::Result<u32>;

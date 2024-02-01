@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Storage_Streams\"`, `\"Web_Http_Headers\"`"]
 #[cfg(all(feature = "Storage_Streams", feature = "Web_Http_Headers"))]
 pub trait IHttpContent_Impl: Sized + super::super::Foundation::IClosable_Impl {
     fn Headers(&self) -> ::windows_core::Result<Headers::HttpContentHeaderCollection>;

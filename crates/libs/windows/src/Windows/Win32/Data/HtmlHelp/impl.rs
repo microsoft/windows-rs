@@ -46,7 +46,6 @@ impl IITDatabase_Vtbl {
         iid == &<IITDatabase as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IITPropList_Impl: Sized + super::super::System::Com::IPersistStreamInit_Impl {
     fn Set(&self, propid: u32, lpszwstring: &::windows_core::PCWSTR, dwoperation: u32) -> ::windows_core::Result<()>;
@@ -439,7 +438,6 @@ impl IStemSink_Vtbl {
         iid == &<IStemSink as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IStemmerConfig_Impl: Sized {
     fn SetLocaleInfo(&self, dwcodepageid: u32, lcid: u32) -> ::windows_core::Result<()>;
@@ -491,7 +489,6 @@ impl IStemmerConfig_Vtbl {
         iid == &<IStemmerConfig as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Search\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Search"))]
 pub trait IWordBreakerConfig_Impl: Sized {
     fn SetLocaleInfo(&self, dwcodepageid: u32, lcid: u32) -> ::windows_core::Result<()>;

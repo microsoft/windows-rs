@@ -112,7 +112,6 @@ impl MediaTranscoder {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).AddAudioEffect)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid)).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddAudioEffectWithSettings<P0>(&self, activatableclassid: &::windows_core::HSTRING, effectrequired: bool, configuration: P0) -> ::windows_core::Result<()>
     where
@@ -125,7 +124,6 @@ impl MediaTranscoder {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).AddVideoEffect)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid)).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddVideoEffectWithSettings<P0>(&self, activatableclassid: &::windows_core::HSTRING, effectrequired: bool, configuration: P0) -> ::windows_core::Result<()>
     where
@@ -138,7 +136,6 @@ impl MediaTranscoder {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).ClearEffects)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Media_MediaProperties\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage"))]
     pub fn PrepareFileTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>
     where
@@ -152,7 +149,6 @@ impl MediaTranscoder {
             (::windows_core::Interface::vtable(this).PrepareFileTranscodeAsync)(::windows_core::Interface::as_raw(this), source.into_param().abi(), destination.into_param().abi(), profile.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Media_MediaProperties\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
     pub fn PrepareStreamTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>
     where
@@ -166,7 +162,6 @@ impl MediaTranscoder {
             (::windows_core::Interface::vtable(this).PrepareStreamTranscodeAsync)(::windows_core::Interface::as_raw(this), source.into_param().abi(), destination.into_param().abi(), profile.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Media_Core\"`, `\"Media_MediaProperties\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
     pub fn PrepareMediaStreamSourceTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>
     where

@@ -145,7 +145,6 @@ pub struct ICoreWetStrokeUpdateSourceStatics_Vtbl {
 pub struct CoreIncrementalInkStroke(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(CoreIncrementalInkStroke, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CoreIncrementalInkStroke {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AppendInkPoints<P0>(&self, inkpoints: P0) -> ::windows_core::Result<super::super::super::super::Foundation::Rect>
     where
@@ -171,7 +170,6 @@ impl CoreIncrementalInkStroke {
             (::windows_core::Interface::vtable(this).DrawingAttributes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn PointTransform(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Numerics::Matrix3x2> {
         let this = self;
@@ -187,7 +185,6 @@ impl CoreIncrementalInkStroke {
             (::windows_core::Interface::vtable(this).BoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Create<P0>(drawingattributes: P0, pointtransform: super::super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows_core::Result<CoreIncrementalInkStroke>
     where
@@ -221,7 +218,6 @@ unsafe impl ::core::marker::Sync for CoreIncrementalInkStroke {}
 pub struct CoreInkIndependentInputSource(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(CoreInkIndependentInputSource, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CoreInkIndependentInputSource {
-    #[doc = "Required features: `\"UI_Core\"`"]
     #[cfg(feature = "UI_Core")]
     pub fn PointerEntering<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
@@ -237,7 +233,6 @@ impl CoreInkIndependentInputSource {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePointerEntering)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `\"UI_Core\"`"]
     #[cfg(feature = "UI_Core")]
     pub fn PointerHovering<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
@@ -253,7 +248,6 @@ impl CoreInkIndependentInputSource {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePointerHovering)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `\"UI_Core\"`"]
     #[cfg(feature = "UI_Core")]
     pub fn PointerExiting<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
@@ -269,7 +263,6 @@ impl CoreInkIndependentInputSource {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePointerExiting)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `\"UI_Core\"`"]
     #[cfg(feature = "UI_Core")]
     pub fn PointerPressing<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
@@ -285,7 +278,6 @@ impl CoreInkIndependentInputSource {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePointerPressing)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `\"UI_Core\"`"]
     #[cfg(feature = "UI_Core")]
     pub fn PointerMoving<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
@@ -301,7 +293,6 @@ impl CoreInkIndependentInputSource {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePointerMoving)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `\"UI_Core\"`"]
     #[cfg(feature = "UI_Core")]
     pub fn PointerReleasing<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
@@ -317,7 +308,6 @@ impl CoreInkIndependentInputSource {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePointerReleasing)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `\"UI_Core\"`"]
     #[cfg(feature = "UI_Core")]
     pub fn PointerLost<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
@@ -340,7 +330,6 @@ impl CoreInkIndependentInputSource {
             (::windows_core::Interface::vtable(this).InkPresenter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI_Core\"`"]
     #[cfg(feature = "UI_Core")]
     pub fn PointerCursor(&self) -> ::windows_core::Result<super::super::super::Core::CoreCursor> {
         let this = &::windows_core::Interface::cast::<ICoreInkIndependentInputSource2>(self)?;
@@ -349,7 +338,6 @@ impl CoreInkIndependentInputSource {
             (::windows_core::Interface::vtable(this).PointerCursor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI_Core\"`"]
     #[cfg(feature = "UI_Core")]
     pub fn SetPointerCursor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -404,7 +392,6 @@ impl CoreInkPresenterHost {
             (::windows_core::Interface::vtable(this).InkPresenter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI_Composition\"`"]
     #[cfg(feature = "UI_Composition")]
     pub fn RootVisual(&self) -> ::windows_core::Result<super::super::super::Composition::ContainerVisual> {
         let this = self;
@@ -413,7 +400,6 @@ impl CoreInkPresenterHost {
             (::windows_core::Interface::vtable(this).RootVisual)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI_Composition\"`"]
     #[cfg(feature = "UI_Composition")]
     pub fn SetRootVisual<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -440,7 +426,6 @@ unsafe impl ::core::marker::Sync for CoreInkPresenterHost {}
 pub struct CoreWetStrokeUpdateEventArgs(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(CoreWetStrokeUpdateEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CoreWetStrokeUpdateEventArgs {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn NewInkPoints(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVector<super::InkPoint>> {
         let this = self;

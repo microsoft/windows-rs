@@ -10,7 +10,7 @@
 ::windows_targets::link!("advapi32.dll" "system" fn EnumerateTraceGuidsEx(tracequeryinfoclass : TRACE_QUERY_INFO_CLASS, inbuffer : *const ::core::ffi::c_void, inbuffersize : u32, outbuffer : *mut ::core::ffi::c_void, outbuffersize : u32, returnlength : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("advapi32.dll" "system" fn EventAccessControl(guid : *const ::windows_sys::core::GUID, operation : u32, sid : super::super::super::Foundation:: PSID, rights : u32, allowordeny : super::super::super::Foundation:: BOOLEAN) -> u32);
 #[cfg(feature = "Win32_Security")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn EventAccessQuery(guid : *const ::windows_sys::core::GUID, buffer : super::super::super::Security:: PSECURITY_DESCRIPTOR, buffersize : *mut u32) -> u32);
+::windows_targets::link!("advapi32.dll" "system" fn EventAccessQuery(guid : *const ::windows_sys::core::GUID, buffer : super::super::super::Security:: PSECURITY_DESCRIPTOR, buffersize : *mut u32) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" fn EventAccessRemove(guid : *const ::windows_sys::core::GUID) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" fn EventActivityIdControl(controlcode : u32, activityid : *mut ::windows_sys::core::GUID) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" fn EventEnabled(reghandle : u64, eventdescriptor : *const EVENT_DESCRIPTOR) -> super::super::super::Foundation:: BOOLEAN);
@@ -28,17 +28,17 @@
 ::windows_targets::link!("advapi32.dll" "system" fn GetTraceEnableLevel(tracehandle : u64) -> u8);
 ::windows_targets::link!("advapi32.dll" "system" fn GetTraceLoggerHandle(buffer : *const ::core::ffi::c_void) -> u64);
 #[cfg(feature = "Win32_System_Time")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Time\"`"] fn OpenTraceA(logfile : *mut EVENT_TRACE_LOGFILEA) -> PROCESSTRACE_HANDLE);
+::windows_targets::link!("advapi32.dll" "system" fn OpenTraceA(logfile : *mut EVENT_TRACE_LOGFILEA) -> PROCESSTRACE_HANDLE);
 #[cfg(feature = "Win32_System_Time")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Time\"`"] fn OpenTraceFromBufferStream(options : *const ETW_OPEN_TRACE_OPTIONS, buffercompletioncallback : PETW_BUFFER_COMPLETION_CALLBACK, buffercompletioncontext : *const ::core::ffi::c_void) -> u64);
+::windows_targets::link!("advapi32.dll" "system" fn OpenTraceFromBufferStream(options : *const ETW_OPEN_TRACE_OPTIONS, buffercompletioncallback : PETW_BUFFER_COMPLETION_CALLBACK, buffercompletioncontext : *const ::core::ffi::c_void) -> u64);
 #[cfg(feature = "Win32_System_Time")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Time\"`"] fn OpenTraceFromFile(logfilename : ::windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
+::windows_targets::link!("advapi32.dll" "system" fn OpenTraceFromFile(logfilename : ::windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
 #[cfg(feature = "Win32_System_Time")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Time\"`"] fn OpenTraceFromRealTimeLogger(loggername : ::windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
+::windows_targets::link!("advapi32.dll" "system" fn OpenTraceFromRealTimeLogger(loggername : ::windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
 #[cfg(feature = "Win32_System_Time")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Time\"`"] fn OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername : ::windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, allocationsize : usize, memorypartitionhandle : super::super::super::Foundation:: HANDLE, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
+::windows_targets::link!("advapi32.dll" "system" fn OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername : ::windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, allocationsize : usize, memorypartitionhandle : super::super::super::Foundation:: HANDLE, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
 #[cfg(feature = "Win32_System_Time")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_System_Time\"`"] fn OpenTraceW(logfile : *mut EVENT_TRACE_LOGFILEW) -> PROCESSTRACE_HANDLE);
+::windows_targets::link!("advapi32.dll" "system" fn OpenTraceW(logfile : *mut EVENT_TRACE_LOGFILEW) -> PROCESSTRACE_HANDLE);
 ::windows_targets::link!("advapi32.dll" "system" fn ProcessTrace(handlearray : *const PROCESSTRACE_HANDLE, handlecount : u32, starttime : *const super::super::super::Foundation:: FILETIME, endtime : *const super::super::super::Foundation:: FILETIME) -> super::super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("advapi32.dll" "system" fn ProcessTraceAddBufferToBufferStream(tracehandle : u64, buffer : *const ETW_BUFFER_HEADER, buffersize : u32) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" fn ProcessTraceBufferDecrementReference(buffer : *const ETW_BUFFER_HEADER) -> u32);
@@ -886,7 +886,6 @@ impl ::core::clone::Clone for ENABLE_TRACE_PARAMETERS_V1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub struct ETW_BUFFER_CALLBACK_INFORMATION {
     pub TraceHandle: u64,
@@ -951,7 +950,6 @@ impl ::core::clone::Clone for ETW_BUFFER_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub struct ETW_OPEN_TRACE_OPTIONS {
     pub ProcessTraceModes: ETW_PROCESS_TRACE_MODES,
@@ -1748,7 +1746,6 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER_3_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub struct EVENT_TRACE_LOGFILEA {
     pub LogFileName: ::windows_sys::core::PSTR,
@@ -1775,7 +1772,6 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub union EVENT_TRACE_LOGFILEA_0 {
     pub LogFileMode: u32,
@@ -1790,7 +1786,6 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEA_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub union EVENT_TRACE_LOGFILEA_1 {
     pub EventCallback: PEVENT_CALLBACK,
@@ -1805,7 +1800,6 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEA_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub struct EVENT_TRACE_LOGFILEW {
     pub LogFileName: ::windows_sys::core::PWSTR,
@@ -1832,7 +1826,6 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub union EVENT_TRACE_LOGFILEW_0 {
     pub LogFileMode: u32,
@@ -1847,7 +1840,6 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEW_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub union EVENT_TRACE_LOGFILEW_1 {
     pub EventCallback: PEVENT_CALLBACK,
@@ -2268,7 +2260,6 @@ impl ::core::clone::Clone for TRACE_GUID_REGISTRATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub struct TRACE_LOGFILE_HEADER {
     pub BufferSize: u32,
@@ -2299,7 +2290,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub union TRACE_LOGFILE_HEADER_0 {
     pub Version: u32,
@@ -2314,7 +2304,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub struct TRACE_LOGFILE_HEADER_0_0 {
     pub MajorVersion: u8,
@@ -2331,7 +2320,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub union TRACE_LOGFILE_HEADER_1 {
     pub LogInstanceGuid: ::windows_sys::core::GUID,
@@ -2346,7 +2334,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub struct TRACE_LOGFILE_HEADER_1_0 {
     pub StartBuffers: u32,
@@ -2363,7 +2350,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER_1_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub struct TRACE_LOGFILE_HEADER32 {
     pub BufferSize: u32,
@@ -2394,7 +2380,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub union TRACE_LOGFILE_HEADER32_0 {
     pub Version: u32,
@@ -2409,7 +2394,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub struct TRACE_LOGFILE_HEADER32_0_0 {
     pub MajorVersion: u8,
@@ -2426,7 +2410,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub union TRACE_LOGFILE_HEADER32_1 {
     pub LogInstanceGuid: ::windows_sys::core::GUID,
@@ -2441,7 +2424,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub struct TRACE_LOGFILE_HEADER32_1_0 {
     pub StartBuffers: u32,
@@ -2458,7 +2440,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32_1_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub struct TRACE_LOGFILE_HEADER64 {
     pub BufferSize: u32,
@@ -2489,7 +2470,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub union TRACE_LOGFILE_HEADER64_0 {
     pub Version: u32,
@@ -2504,7 +2484,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub struct TRACE_LOGFILE_HEADER64_0_0 {
     pub MajorVersion: u8,
@@ -2521,7 +2500,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub union TRACE_LOGFILE_HEADER64_1 {
     pub LogInstanceGuid: ::windows_sys::core::GUID,
@@ -2536,7 +2514,6 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub struct TRACE_LOGFILE_HEADER64_1_0 {
     pub StartBuffers: u32,
@@ -2832,16 +2809,13 @@ impl ::core::clone::Clone for WNODE_TOO_SMALL {
     }
 }
 pub type PENABLECALLBACK = ::core::option::Option<unsafe extern "system" fn(sourceid: *const ::windows_sys::core::GUID, isenabled: ENABLECALLBACK_ENABLED_STATE, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut ::core::ffi::c_void)>;
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub type PETW_BUFFER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(buffer: *const ETW_BUFFER_HEADER, buffersize: u32, consumerinfo: *const ETW_BUFFER_CALLBACK_INFORMATION, callbackcontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 pub type PETW_BUFFER_COMPLETION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(buffer: *const ETW_BUFFER_HEADER, callbackcontext: *const ::core::ffi::c_void)>;
 pub type PEVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pevent: *mut EVENT_TRACE)>;
 pub type PEVENT_RECORD_CALLBACK = ::core::option::Option<unsafe extern "system" fn(eventrecord: *mut EVENT_RECORD)>;
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub type PEVENT_TRACE_BUFFER_CALLBACKA = ::core::option::Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEA) -> u32>;
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub type PEVENT_TRACE_BUFFER_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEW) -> u32>;
 pub type WMIDPREQUEST = ::core::option::Option<unsafe extern "system" fn(requestcode: WMIDPREQUESTCODE, requestcontext: *const ::core::ffi::c_void, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32>;

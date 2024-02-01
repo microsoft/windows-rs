@@ -1,5 +1,4 @@
 #[cfg(feature = "System_Threading_Core")]
-#[doc = "Required features: `\"System_Threading_Core\"`"]
 pub mod Core;
 ::windows_core::imp::com_interface!(IThreadPoolStatics, IThreadPoolStatics_Vtbl, 0xb6bf67dd_84bd_44f8_ac1c_93ebcb9dba91);
 #[repr(C)]

@@ -42,7 +42,6 @@ impl ::windows_core::RuntimeName for ServiceDevice {
 }
 pub struct StorageDevice;
 impl StorageDevice {
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn FromId(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Storage::StorageFolder> {
         Self::IStorageDeviceStatics(|this| unsafe {

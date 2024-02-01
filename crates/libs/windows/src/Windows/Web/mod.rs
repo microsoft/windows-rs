@@ -1,19 +1,14 @@
 #[cfg(feature = "Web_AtomPub")]
-#[doc = "Required features: `\"Web_AtomPub\"`"]
 pub mod AtomPub;
 #[cfg(feature = "Web_Http")]
-#[doc = "Required features: `\"Web_Http\"`"]
 pub mod Http;
 #[cfg(feature = "Web_Syndication")]
-#[doc = "Required features: `\"Web_Syndication\"`"]
 pub mod Syndication;
 #[cfg(feature = "Web_UI")]
-#[doc = "Required features: `\"Web_UI\"`"]
 pub mod UI;
 ::windows_core::imp::com_interface!(IUriToStreamResolver, IUriToStreamResolver_Vtbl, 0xb0aba86a_9aeb_4d3a_9590_003e3ca7e290);
 ::windows_core::imp::interface_hierarchy!(IUriToStreamResolver, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IUriToStreamResolver {
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn UriToStreamAsync<P0>(&self, uri: P0) -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>
     where

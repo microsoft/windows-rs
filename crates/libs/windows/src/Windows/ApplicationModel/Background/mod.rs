@@ -373,7 +373,6 @@ pub struct IBackgroundTaskInstance2_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IBackgroundTaskInstance4, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(IBackgroundTaskInstance4, IBackgroundTaskInstance);
 impl IBackgroundTaskInstance4 {
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
@@ -876,12 +875,7 @@ pub struct IDeviceConnectionChangeTriggerStatics_Vtbl {
     pub FromIdAsync: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::HSTRING>, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    IDeviceManufacturerNotificationTrigger,
-    IDeviceManufacturerNotificationTrigger_Vtbl,
-    0x81278ab5_41ab_16da_86c2_7f7bf0912f5b
-);
+::windows_core::imp::com_interface!(IDeviceManufacturerNotificationTrigger, IDeviceManufacturerNotificationTrigger_Vtbl, 0x81278ab5_41ab_16da_86c2_7f7bf0912f5b);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -897,12 +891,7 @@ pub struct IDeviceManufacturerNotificationTrigger_Vtbl {
     OneShot: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    IDeviceManufacturerNotificationTriggerFactory,
-    IDeviceManufacturerNotificationTriggerFactory_Vtbl,
-    0x7955de75_25bb_4153_a1a2_3029fcabb652
-);
+::windows_core::imp::com_interface!(IDeviceManufacturerNotificationTriggerFactory, IDeviceManufacturerNotificationTriggerFactory_Vtbl, 0x7955de75_25bb_4153_a1a2_3029fcabb652);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -1159,12 +1148,7 @@ pub struct IRfcommConnectionTrigger_Vtbl {
     SetRemoteHostName: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    ISecondaryAuthenticationFactorAuthenticationTrigger,
-    ISecondaryAuthenticationFactorAuthenticationTrigger_Vtbl,
-    0xf237f327_5181_4f24_96a7_700a4e5fac62
-);
+::windows_core::imp::com_interface!(ISecondaryAuthenticationFactorAuthenticationTrigger, ISecondaryAuthenticationFactorAuthenticationTrigger_Vtbl, 0xf237f327_5181_4f24_96a7_700a4e5fac62);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -1328,7 +1312,6 @@ pub struct ActivitySensorTrigger(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(ActivitySensorTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(ActivitySensorTrigger, IBackgroundTrigger);
 impl ActivitySensorTrigger {
-    #[doc = "Required features: `\"Devices_Sensors\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections"))]
     pub fn SubscribedActivities(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Devices::Sensors::ActivityType>> {
         let this = self;
@@ -1344,7 +1327,6 @@ impl ActivitySensorTrigger {
             (::windows_core::Interface::vtable(this).ReportInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Sensors\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections"))]
     pub fn SupportedActivities(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Devices::Sensors::ActivityType>> {
         let this = self;
@@ -1555,7 +1537,6 @@ impl ApplicationTrigger {
             (::windows_core::Interface::vtable(this).RequestAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestAsyncWithArguments<P0>(&self, arguments: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>>
     where
@@ -1585,7 +1566,6 @@ unsafe impl ::core::marker::Sync for ApplicationTrigger {}
 pub struct ApplicationTriggerDetails(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(ApplicationTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ApplicationTriggerDetails {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Arguments(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -1963,7 +1943,6 @@ impl BackgroundTaskRegistration {
             (::windows_core::Interface::vtable(this).TaskGroup)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllTasks() -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::GUID, IBackgroundTaskRegistration>> {
         Self::IBackgroundTaskRegistrationStatics(|this| unsafe {
@@ -1971,7 +1950,6 @@ impl BackgroundTaskRegistration {
             (::windows_core::Interface::vtable(this).AllTasks)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllTaskGroups() -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, BackgroundTaskRegistrationGroup>> {
         Self::IBackgroundTaskRegistrationStatics2(|this| unsafe {
@@ -2027,7 +2005,6 @@ impl BackgroundTaskRegistrationGroup {
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn BackgroundActivated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2043,7 +2020,6 @@ impl BackgroundTaskRegistrationGroup {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveBackgroundActivated)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllTasks(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::GUID, BackgroundTaskRegistration>> {
         let this = self;
@@ -2112,7 +2088,6 @@ impl BluetoothLEAdvertisementPublisherTrigger {
         static SHARED: ::windows_core::imp::FactoryCache<BluetoothLEAdvertisementPublisherTrigger, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Devices_Bluetooth_Advertisement\"`"]
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
     pub fn Advertisement(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisement> {
         let this = self;
@@ -2222,7 +2197,6 @@ impl BluetoothLEAdvertisementWatcherTrigger {
             (::windows_core::Interface::vtable(this).MaxOutOfRangeTimeout)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Bluetooth\"`"]
     #[cfg(feature = "Devices_Bluetooth")]
     pub fn SignalStrengthFilter(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::BluetoothSignalStrengthFilter> {
         let this = self;
@@ -2231,7 +2205,6 @@ impl BluetoothLEAdvertisementWatcherTrigger {
             (::windows_core::Interface::vtable(this).SignalStrengthFilter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Bluetooth\"`"]
     #[cfg(feature = "Devices_Bluetooth")]
     pub fn SetSignalStrengthFilter<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2240,7 +2213,6 @@ impl BluetoothLEAdvertisementWatcherTrigger {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSignalStrengthFilter)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Devices_Bluetooth_Advertisement\"`"]
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
     pub fn AdvertisementFilter(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter> {
         let this = self;
@@ -2249,7 +2221,6 @@ impl BluetoothLEAdvertisementWatcherTrigger {
             (::windows_core::Interface::vtable(this).AdvertisementFilter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Bluetooth_Advertisement\"`"]
     #[cfg(feature = "Devices_Bluetooth_Advertisement")]
     pub fn SetAdvertisementFilter<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2313,7 +2284,6 @@ unsafe impl ::core::marker::Sync for CachedFileUpdaterTrigger {}
 pub struct CachedFileUpdaterTriggerDetails(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(CachedFileUpdaterTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CachedFileUpdaterTriggerDetails {
-    #[doc = "Required features: `\"Storage_Provider\"`"]
     #[cfg(feature = "Storage_Provider")]
     pub fn UpdateTarget(&self) -> ::windows_core::Result<super::super::Storage::Provider::CachedFileTarget> {
         let this = self;
@@ -2322,7 +2292,6 @@ impl CachedFileUpdaterTriggerDetails {
             (::windows_core::Interface::vtable(this).UpdateTarget)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Provider\"`"]
     #[cfg(feature = "Storage_Provider")]
     pub fn UpdateRequest(&self) -> ::windows_core::Result<super::super::Storage::Provider::FileUpdateRequest> {
         let this = self;
@@ -2618,7 +2587,6 @@ impl ::windows_core::RuntimeName for DeviceConnectionChangeTrigger {
 }
 unsafe impl ::core::marker::Send for DeviceConnectionChangeTrigger {}
 unsafe impl ::core::marker::Sync for DeviceConnectionChangeTrigger {}
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2629,7 +2597,6 @@ pub struct DeviceManufacturerNotificationTrigger(::windows_core::IUnknown);
 ::windows_core::imp::required_hierarchy!(DeviceManufacturerNotificationTrigger, IBackgroundTrigger);
 #[cfg(feature = "deprecated")]
 impl DeviceManufacturerNotificationTrigger {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn TriggerQualifier(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2638,7 +2605,6 @@ impl DeviceManufacturerNotificationTrigger {
             (::windows_core::Interface::vtable(this).TriggerQualifier)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn OneShot(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -2647,7 +2613,6 @@ impl DeviceManufacturerNotificationTrigger {
             (::windows_core::Interface::vtable(this).OneShot)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Create(triggerqualifier: &::windows_core::HSTRING, oneshot: bool) -> ::windows_core::Result<DeviceManufacturerNotificationTrigger> {
         Self::IDeviceManufacturerNotificationTriggerFactory(|this| unsafe {
@@ -2803,7 +2768,6 @@ pub struct GattCharacteristicNotificationTrigger(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(GattCharacteristicNotificationTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(GattCharacteristicNotificationTrigger, IBackgroundTrigger);
 impl GattCharacteristicNotificationTrigger {
-    #[doc = "Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`"]
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub fn Characteristic(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic> {
         let this = self;
@@ -2812,7 +2776,6 @@ impl GattCharacteristicNotificationTrigger {
             (::windows_core::Interface::vtable(this).Characteristic)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Bluetooth_Background\"`"]
     #[cfg(feature = "Devices_Bluetooth_Background")]
     pub fn EventTriggeringMode(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode> {
         let this = &::windows_core::Interface::cast::<IGattCharacteristicNotificationTrigger2>(self)?;
@@ -2821,7 +2784,6 @@ impl GattCharacteristicNotificationTrigger {
             (::windows_core::Interface::vtable(this).EventTriggeringMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`"]
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub fn Create<P0>(characteristic: P0) -> ::windows_core::Result<GattCharacteristicNotificationTrigger>
     where
@@ -2832,7 +2794,6 @@ impl GattCharacteristicNotificationTrigger {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), characteristic.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Devices_Bluetooth_Background\"`, `\"Devices_Bluetooth_GenericAttributeProfile\"`"]
     #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile"))]
     pub fn CreateWithEventTriggeringMode<P0>(characteristic: P0, eventtriggeringmode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) -> ::windows_core::Result<GattCharacteristicNotificationTrigger>
     where
@@ -2879,7 +2840,6 @@ impl GattServiceProviderTrigger {
             (::windows_core::Interface::vtable(this).TriggerId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`"]
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub fn Service(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattLocalService> {
         let this = self;
@@ -2888,7 +2848,6 @@ impl GattServiceProviderTrigger {
             (::windows_core::Interface::vtable(this).Service)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`"]
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub fn SetAdvertisingParameters<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2897,7 +2856,6 @@ impl GattServiceProviderTrigger {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAdvertisingParameters)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`"]
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub fn AdvertisingParameters(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters> {
         let this = self;
@@ -2942,7 +2900,6 @@ impl GattServiceProviderTriggerResult {
             (::windows_core::Interface::vtable(this).Trigger)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Bluetooth\"`"]
     #[cfg(feature = "Devices_Bluetooth")]
     pub fn Error(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::BluetoothError> {
         let this = self;
@@ -2977,7 +2934,6 @@ impl GeovisitTrigger {
         static SHARED: ::windows_core::imp::FactoryCache<GeovisitTrigger, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Devices_Geolocation\"`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn MonitoringScope(&self) -> ::windows_core::Result<super::super::Devices::Geolocation::VisitMonitoringScope> {
         let this = self;
@@ -2986,7 +2942,6 @@ impl GeovisitTrigger {
             (::windows_core::Interface::vtable(this).MonitoringScope)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Geolocation\"`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn SetMonitoringScope(&self, value: super::super::Devices::Geolocation::VisitMonitoringScope) -> ::windows_core::Result<()> {
         let this = self;
@@ -3104,7 +3059,6 @@ impl MediaProcessingTrigger {
             (::windows_core::Interface::vtable(this).RequestAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestAsyncWithArguments<P0>(&self, arguments: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>>
     where
@@ -3381,7 +3335,6 @@ impl PhoneTrigger {
             (::windows_core::Interface::vtable(this).OneShot)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Calls_Background\"`"]
     #[cfg(feature = "ApplicationModel_Calls_Background")]
     pub fn TriggerType(&self) -> ::windows_core::Result<super::Calls::Background::PhoneTriggerType> {
         let this = self;
@@ -3390,7 +3343,6 @@ impl PhoneTrigger {
             (::windows_core::Interface::vtable(this).TriggerType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Calls_Background\"`"]
     #[cfg(feature = "ApplicationModel_Calls_Background")]
     pub fn Create(r#type: super::Calls::Background::PhoneTriggerType, oneshot: bool) -> ::windows_core::Result<PhoneTrigger> {
         Self::IPhoneTriggerFactory(|this| unsafe {
@@ -3492,7 +3444,6 @@ impl RfcommConnectionTrigger {
         static SHARED: ::windows_core::imp::FactoryCache<RfcommConnectionTrigger, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Devices_Bluetooth_Background\"`"]
     #[cfg(feature = "Devices_Bluetooth_Background")]
     pub fn InboundConnection(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::Background::RfcommInboundConnectionInformation> {
         let this = self;
@@ -3501,7 +3452,6 @@ impl RfcommConnectionTrigger {
             (::windows_core::Interface::vtable(this).InboundConnection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Bluetooth_Background\"`"]
     #[cfg(feature = "Devices_Bluetooth_Background")]
     pub fn OutboundConnection(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::Background::RfcommOutboundConnectionInformation> {
         let this = self;
@@ -3521,7 +3471,6 @@ impl RfcommConnectionTrigger {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAllowMultipleConnections)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Networking_Sockets\"`"]
     #[cfg(feature = "Networking_Sockets")]
     pub fn ProtectionLevel(&self) -> ::windows_core::Result<super::super::Networking::Sockets::SocketProtectionLevel> {
         let this = self;
@@ -3530,13 +3479,11 @@ impl RfcommConnectionTrigger {
             (::windows_core::Interface::vtable(this).ProtectionLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Networking_Sockets\"`"]
     #[cfg(feature = "Networking_Sockets")]
     pub fn SetProtectionLevel(&self, value: super::super::Networking::Sockets::SocketProtectionLevel) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetProtectionLevel)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Networking\"`"]
     #[cfg(feature = "Networking")]
     pub fn RemoteHostName(&self) -> ::windows_core::Result<super::super::Networking::HostName> {
         let this = self;
@@ -3545,7 +3492,6 @@ impl RfcommConnectionTrigger {
             (::windows_core::Interface::vtable(this).RemoteHostName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Networking\"`"]
     #[cfg(feature = "Networking")]
     pub fn SetRemoteHostName<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3567,7 +3513,6 @@ impl ::windows_core::RuntimeName for RfcommConnectionTrigger {
 }
 unsafe impl ::core::marker::Send for RfcommConnectionTrigger {}
 unsafe impl ::core::marker::Sync for RfcommConnectionTrigger {}
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3605,7 +3550,6 @@ pub struct SensorDataThresholdTrigger(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(SensorDataThresholdTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(SensorDataThresholdTrigger, IBackgroundTrigger);
 impl SensorDataThresholdTrigger {
-    #[doc = "Required features: `\"Devices_Sensors\"`"]
     #[cfg(feature = "Devices_Sensors")]
     pub fn Create<P0>(threshold: P0) -> ::windows_core::Result<SensorDataThresholdTrigger>
     where
@@ -3640,7 +3584,6 @@ pub struct SmartCardTrigger(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(SmartCardTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(SmartCardTrigger, IBackgroundTrigger);
 impl SmartCardTrigger {
-    #[doc = "Required features: `\"Devices_SmartCards\"`"]
     #[cfg(feature = "Devices_SmartCards")]
     pub fn TriggerType(&self) -> ::windows_core::Result<super::super::Devices::SmartCards::SmartCardTriggerType> {
         let this = self;
@@ -3649,7 +3592,6 @@ impl SmartCardTrigger {
             (::windows_core::Interface::vtable(this).TriggerType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_SmartCards\"`"]
     #[cfg(feature = "Devices_SmartCards")]
     pub fn Create(triggertype: super::super::Devices::SmartCards::SmartCardTriggerType) -> ::windows_core::Result<SmartCardTrigger> {
         Self::ISmartCardTriggerFactory(|this| unsafe {
@@ -3679,7 +3621,6 @@ pub struct SmsMessageReceivedTrigger(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(SmsMessageReceivedTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(SmsMessageReceivedTrigger, IBackgroundTrigger);
 impl SmsMessageReceivedTrigger {
-    #[doc = "Required features: `\"Devices_Sms\"`"]
     #[cfg(feature = "Devices_Sms")]
     pub fn Create<P0>(filterrules: P0) -> ::windows_core::Result<SmsMessageReceivedTrigger>
     where
@@ -3747,7 +3688,6 @@ pub struct StorageLibraryChangeTrackerTrigger(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(StorageLibraryChangeTrackerTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(StorageLibraryChangeTrackerTrigger, IBackgroundTrigger);
 impl StorageLibraryChangeTrackerTrigger {
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn Create<P0>(tracker: P0) -> ::windows_core::Result<StorageLibraryChangeTrackerTrigger>
     where
@@ -3782,7 +3722,6 @@ pub struct StorageLibraryContentChangedTrigger(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(StorageLibraryContentChangedTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(StorageLibraryContentChangedTrigger, IBackgroundTrigger);
 impl StorageLibraryContentChangedTrigger {
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn Create<P0>(storagelibrary: P0) -> ::windows_core::Result<StorageLibraryContentChangedTrigger>
     where
@@ -3793,7 +3732,6 @@ impl StorageLibraryContentChangedTrigger {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), storagelibrary.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn CreateFromLibraries<P0>(storagelibraries: P0) -> ::windows_core::Result<StorageLibraryContentChangedTrigger>
     where
@@ -4045,7 +3983,6 @@ pub struct UserNotificationChangedTrigger(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(UserNotificationChangedTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(UserNotificationChangedTrigger, IBackgroundTrigger);
 impl UserNotificationChangedTrigger {
-    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn Create(notificationkinds: super::super::UI::Notifications::NotificationKinds) -> ::windows_core::Result<UserNotificationChangedTrigger> {
         Self::IUserNotificationChangedTriggerFactory(|this| unsafe {

@@ -452,7 +452,6 @@ impl IOfflineFilesDirtyInfo_Vtbl {
         iid == &<IOfflineFilesDirtyInfo as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOfflineFilesErrorInfo_Impl: Sized {
     fn GetRawData(&self) -> ::windows_core::Result<*mut super::super::System::Com::BYTE_BLOB>;
@@ -1492,7 +1491,6 @@ impl IOfflineFilesSyncConflictHandler_Vtbl {
         iid == &<IOfflineFilesSyncConflictHandler as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOfflineFilesSyncErrorInfo_Impl: Sized + IOfflineFilesErrorInfo_Impl {
     fn GetSyncOperation(&self) -> ::windows_core::Result<OFFLINEFILES_SYNC_OPERATION>;

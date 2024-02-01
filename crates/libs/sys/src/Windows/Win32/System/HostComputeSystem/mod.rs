@@ -6,14 +6,14 @@
 ::windows_targets::link!("computecore.dll" "system" fn HcsCloseProcess(process : HCS_PROCESS));
 ::windows_targets::link!("computecore.dll" "system" fn HcsCrashComputeSystem(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security")]
-::windows_targets::link!("computecore.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn HcsCreateComputeSystem(id : ::windows_sys::core::PCWSTR, configuration : ::windows_sys::core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR, computesystem : *mut HCS_SYSTEM) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("computecore.dll" "system" fn HcsCreateComputeSystem(id : ::windows_sys::core::PCWSTR, configuration : ::windows_sys::core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR, computesystem : *mut HCS_SYSTEM) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("computecore.dll" "system" fn HcsCreateComputeSystemInNamespace(idnamespace : ::windows_sys::core::PCWSTR, id : ::windows_sys::core::PCWSTR, configuration : ::windows_sys::core::PCWSTR, operation : HCS_OPERATION, options : *const HCS_CREATE_OPTIONS, computesystem : *mut HCS_SYSTEM) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("computecore.dll" "system" fn HcsCreateEmptyGuestStateFile(gueststatefilepath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("computecore.dll" "system" fn HcsCreateEmptyRuntimeStateFile(runtimestatefilepath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("computecore.dll" "system" fn HcsCreateOperation(context : *const ::core::ffi::c_void, callback : HCS_OPERATION_COMPLETION) -> HCS_OPERATION);
 ::windows_targets::link!("computecore.dll" "system" fn HcsCreateOperationWithNotifications(eventtypes : HCS_OPERATION_OPTIONS, context : *const ::core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> HCS_OPERATION);
 #[cfg(feature = "Win32_Security")]
-::windows_targets::link!("computecore.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn HcsCreateProcess(computesystem : HCS_SYSTEM, processparameters : ::windows_sys::core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR, process : *mut HCS_PROCESS) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("computecore.dll" "system" fn HcsCreateProcess(computesystem : HCS_SYSTEM, processparameters : ::windows_sys::core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR, process : *mut HCS_PROCESS) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("computestorage.dll" "system" fn HcsDestroyLayer(layerpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("computestorage.dll" "system" fn HcsDetachLayerStorageFilter(layerpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("computecore.dll" "system" fn HcsEnumerateComputeSystems(query : ::windows_sys::core::PCWSTR, operation : HCS_OPERATION) -> ::windows_sys::core::HRESULT);
@@ -137,7 +137,6 @@ pub type HCS_OPERATION_OPTIONS = i32;
 pub type HCS_OPERATION_TYPE = i32;
 pub type HCS_RESOURCE_TYPE = i32;
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct HCS_CREATE_OPTIONS_1 {
     pub Version: HCS_CREATE_OPTIONS,

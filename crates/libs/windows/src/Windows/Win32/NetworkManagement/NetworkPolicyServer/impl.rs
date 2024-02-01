@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISdo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetPropertyInfo(&self, id: i32) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -82,7 +81,6 @@ impl ISdo_Vtbl {
         iid == &<ISdo as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISdoCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -179,7 +177,6 @@ impl ISdoCollection_Vtbl {
         iid == &<ISdoCollection as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISdoDictionaryOld_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnumAttributes(&self, id: *mut ::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -261,7 +258,6 @@ impl ISdoDictionaryOld_Vtbl {
         iid == &<ISdoDictionaryOld as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISdoMachine_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Attach(&self, bstrcomputername: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -389,7 +385,6 @@ impl ISdoMachine_Vtbl {
         iid == &<ISdoMachine as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISdoMachine2_Impl: Sized + ISdoMachine_Impl {
     fn GetTemplatesSDO(&self, bstrservicename: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -447,7 +442,6 @@ impl ISdoMachine2_Vtbl {
         iid == &<ISdoMachine2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISdoMachine as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISdoServiceControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StartService(&self) -> ::windows_core::Result<()>;
@@ -498,7 +492,6 @@ impl ISdoServiceControl_Vtbl {
         iid == &<ISdoServiceControl as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITemplateSdo_Impl: Sized + ISdo_Impl {
     fn AddToCollection(&self, bstrname: &::windows_core::BSTR, pcollection: ::core::option::Option<&super::super::System::Com::IDispatch>, ppitem: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows_core::Result<()>;

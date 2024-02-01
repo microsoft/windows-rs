@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub trait IDisplayDeviceInterop_Impl: Sized {
     fn CreateSharedHandle(&self, pobject: ::core::option::Option<&::windows_core::IInspectable>, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::HANDLE>;

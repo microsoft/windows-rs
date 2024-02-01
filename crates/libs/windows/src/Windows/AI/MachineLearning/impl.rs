@@ -104,7 +104,6 @@ impl ILearningModelOperatorProvider_Vtbl {
         iid == &<ILearningModelOperatorProvider as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait ITensor_Impl: Sized + ILearningModelFeatureValue_Impl {
     fn TensorKind(&self) -> ::windows_core::Result<TensorKind>;

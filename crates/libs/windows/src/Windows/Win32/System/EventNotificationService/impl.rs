@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISensLogon_Impl: Sized + super::Com::IDispatch_Impl {
     fn Logon(&self, bstrusername: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -64,7 +63,6 @@ impl ISensLogon_Vtbl {
         iid == &<ISensLogon as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISensLogon2_Impl: Sized + super::Com::IDispatch_Impl {
     fn Logon(&self, bstrusername: &::windows_core::BSTR, dwsessionid: u32) -> ::windows_core::Result<()>;
@@ -116,7 +114,6 @@ impl ISensLogon2_Vtbl {
         iid == &<ISensLogon2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISensNetwork_Impl: Sized + super::Com::IDispatch_Impl {
     fn ConnectionMade(&self, bstrconnection: &::windows_core::BSTR, ultype: u32, lpqocinfo: *const SENS_QOCINFO) -> ::windows_core::Result<()>;
@@ -168,7 +165,6 @@ impl ISensNetwork_Vtbl {
         iid == &<ISensNetwork as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISensOnNow_Impl: Sized + super::Com::IDispatch_Impl {
     fn OnACPower(&self) -> ::windows_core::Result<()>;

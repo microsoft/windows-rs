@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMXAttributes_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn addAttribute(&self, struri: &::windows_core::BSTR, strlocalname: &::windows_core::BSTR, strqname: &::windows_core::BSTR, strtype: &::windows_core::BSTR, strvalue: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -92,7 +91,6 @@ impl IMXAttributes_Vtbl {
         iid == &<IMXAttributes as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMXNamespaceManager_Impl: Sized {
     fn putAllowOverride(&self, foverride: super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -185,7 +183,6 @@ impl IMXNamespaceManager_Vtbl {
         iid == &<IMXNamespaceManager as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMXNamespacePrefixes_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_item(&self, index: i32) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -241,7 +238,6 @@ impl IMXNamespacePrefixes_Vtbl {
         iid == &<IMXNamespacePrefixes as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMXReaderControl_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn abort(&self) -> ::windows_core::Result<()>;
@@ -279,7 +275,6 @@ impl IMXReaderControl_Vtbl {
         iid == &<IMXReaderControl as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMXSchemaDeclHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn schemaElementDecl(&self, oschemaelement: ::core::option::Option<&ISchemaElement>) -> ::windows_core::Result<()>;
@@ -303,7 +298,6 @@ impl IMXSchemaDeclHandler_Vtbl {
         iid == &<IMXSchemaDeclHandler as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMXWriter_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Setoutput(&self, vardestination: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
@@ -487,7 +481,6 @@ impl IMXWriter_Vtbl {
         iid == &<IMXWriter as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMXXMLFilter_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn getFeature(&self, strname: &::windows_core::BSTR) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
@@ -1308,7 +1301,6 @@ impl ISAXXMLReader_Vtbl {
         iid == &<ISAXXMLReader as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISchema_Impl: Sized + ISchemaItem_Impl {
     fn targetNamespace(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1442,7 +1434,6 @@ impl ISchema_Vtbl {
         iid == &<ISchema as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISchemaItem as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISchemaAny_Impl: Sized + ISchemaParticle_Impl {
     fn namespaces(&self) -> ::windows_core::Result<ISchemaStringCollection>;
@@ -1485,7 +1476,6 @@ impl ISchemaAny_Vtbl {
         iid == &<ISchemaAny as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISchemaItem as ::windows_core::Interface>::IID || iid == &<ISchemaParticle as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISchemaAttribute_Impl: Sized + ISchemaItem_Impl {
     fn r#type(&self) -> ::windows_core::Result<ISchemaType>;
@@ -1580,7 +1570,6 @@ impl ISchemaAttribute_Vtbl {
         iid == &<ISchemaAttribute as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISchemaItem as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISchemaAttributeGroup_Impl: Sized + ISchemaItem_Impl {
     fn anyAttribute(&self) -> ::windows_core::Result<ISchemaAny>;
@@ -1623,7 +1612,6 @@ impl ISchemaAttributeGroup_Vtbl {
         iid == &<ISchemaAttributeGroup as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISchemaItem as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISchemaComplexType_Impl: Sized + ISchemaType_Impl {
     fn isAbstract(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
@@ -1718,7 +1706,6 @@ impl ISchemaComplexType_Vtbl {
         iid == &<ISchemaComplexType as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISchemaItem as ::windows_core::Interface>::IID || iid == &<ISchemaType as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISchemaElement_Impl: Sized + ISchemaParticle_Impl {
     fn r#type(&self) -> ::windows_core::Result<ISchemaType>;
@@ -1878,7 +1865,6 @@ impl ISchemaElement_Vtbl {
         iid == &<ISchemaElement as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISchemaItem as ::windows_core::Interface>::IID || iid == &<ISchemaParticle as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISchemaIdentityConstraint_Impl: Sized + ISchemaItem_Impl {
     fn selector(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1934,7 +1920,6 @@ impl ISchemaIdentityConstraint_Vtbl {
         iid == &<ISchemaIdentityConstraint as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISchemaItem as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISchemaItem_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2042,7 +2027,6 @@ impl ISchemaItem_Vtbl {
         iid == &<ISchemaItem as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISchemaItemCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_item(&self, index: i32) -> ::windows_core::Result<ISchemaItem>;
@@ -2124,7 +2108,6 @@ impl ISchemaItemCollection_Vtbl {
         iid == &<ISchemaItemCollection as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISchemaModelGroup_Impl: Sized + ISchemaParticle_Impl {
     fn particles(&self) -> ::windows_core::Result<ISchemaItemCollection>;
@@ -2151,7 +2134,6 @@ impl ISchemaModelGroup_Vtbl {
         iid == &<ISchemaModelGroup as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISchemaItem as ::windows_core::Interface>::IID || iid == &<ISchemaParticle as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISchemaNotation_Impl: Sized + ISchemaItem_Impl {
     fn systemIdentifier(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2194,7 +2176,6 @@ impl ISchemaNotation_Vtbl {
         iid == &<ISchemaNotation as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISchemaItem as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISchemaParticle_Impl: Sized + ISchemaItem_Impl {
     fn minOccurs(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -2237,7 +2218,6 @@ impl ISchemaParticle_Vtbl {
         iid == &<ISchemaParticle as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISchemaItem as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISchemaStringCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_item(&self, index: i32) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2293,7 +2273,6 @@ impl ISchemaStringCollection_Vtbl {
         iid == &<ISchemaStringCollection as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISchemaType_Impl: Sized + ISchemaItem_Impl {
     fn baseTypes(&self) -> ::windows_core::Result<ISchemaItemCollection>;
@@ -2531,7 +2510,6 @@ impl ISchemaType_Vtbl {
         iid == &<ISchemaType as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISchemaItem as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IServerXMLHTTPRequest_Impl: Sized + IXMLHTTPRequest_Impl {
     fn setTimeouts(&self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> ::windows_core::Result<()>;
@@ -2588,7 +2566,6 @@ impl IServerXMLHTTPRequest_Vtbl {
         iid == &<IServerXMLHTTPRequest as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLHTTPRequest as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IServerXMLHTTPRequest2_Impl: Sized + IServerXMLHTTPRequest_Impl {
     fn setProxy(&self, proxysetting: SXH_PROXY_SETTING, varproxyserver: &::windows_core::VARIANT, varbypasslist: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
@@ -2619,7 +2596,6 @@ impl IServerXMLHTTPRequest2_Vtbl {
         iid == &<IServerXMLHTTPRequest2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLHTTPRequest as ::windows_core::Interface>::IID || iid == &<IServerXMLHTTPRequest as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IVBMXNamespaceManager_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn SetallowOverride(&self, foverride: super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -2743,7 +2719,6 @@ impl IVBMXNamespaceManager_Vtbl {
         iid == &<IVBMXNamespaceManager as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IVBSAXAttributes_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn length(&self) -> ::windows_core::Result<i32>;
@@ -2916,7 +2891,6 @@ impl IVBSAXAttributes_Vtbl {
         iid == &<IVBSAXAttributes as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IVBSAXContentHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn putref_documentLocator(&self, olocator: ::core::option::Option<&IVBSAXLocator>) -> ::windows_core::Result<()>;
@@ -3010,7 +2984,6 @@ impl IVBSAXContentHandler_Vtbl {
         iid == &<IVBSAXContentHandler as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IVBSAXDTDHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn notationDecl(&self, strname: *mut ::windows_core::BSTR, strpublicid: *mut ::windows_core::BSTR, strsystemid: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -3041,7 +3014,6 @@ impl IVBSAXDTDHandler_Vtbl {
         iid == &<IVBSAXDTDHandler as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IVBSAXDeclHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn elementDecl(&self, strname: *mut ::windows_core::BSTR, strmodel: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -3086,7 +3058,6 @@ impl IVBSAXDeclHandler_Vtbl {
         iid == &<IVBSAXDeclHandler as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IVBSAXEntityResolver_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn resolveEntity(&self, strpublicid: *mut ::windows_core::BSTR, strsystemid: *mut ::windows_core::BSTR) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -3116,7 +3087,6 @@ impl IVBSAXEntityResolver_Vtbl {
         iid == &<IVBSAXEntityResolver as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IVBSAXErrorHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn error(&self, olocator: ::core::option::Option<&IVBSAXLocator>, strerrormessage: *mut ::windows_core::BSTR, nerrorcode: i32) -> ::windows_core::Result<()>;
@@ -3154,7 +3124,6 @@ impl IVBSAXErrorHandler_Vtbl {
         iid == &<IVBSAXErrorHandler as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IVBSAXLexicalHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn startDTD(&self, strname: *mut ::windows_core::BSTR, strpublicid: *mut ::windows_core::BSTR, strsystemid: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -3220,7 +3189,6 @@ impl IVBSAXLexicalHandler_Vtbl {
         iid == &<IVBSAXLexicalHandler as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IVBSAXLocator_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn columnNumber(&self) -> ::windows_core::Result<i32>;
@@ -3289,7 +3257,6 @@ impl IVBSAXLocator_Vtbl {
         iid == &<IVBSAXLocator as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IVBSAXXMLFilter_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn parent(&self) -> ::windows_core::Result<IVBSAXXMLReader>;
@@ -3326,7 +3293,6 @@ impl IVBSAXXMLFilter_Vtbl {
         iid == &<IVBSAXXMLFilter as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IVBSAXXMLReader_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn getFeature(&self, strname: &::windows_core::BSTR) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
@@ -3517,7 +3483,6 @@ impl IVBSAXXMLReader_Vtbl {
         iid == &<IVBSAXXMLReader as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLAttribute_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -3560,7 +3525,6 @@ impl IXMLAttribute_Vtbl {
         iid == &<IXMLAttribute as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMAttribute_Impl: Sized + IXMLDOMNode_Impl {
     fn name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -3610,7 +3574,6 @@ impl IXMLDOMAttribute_Vtbl {
         iid == &<IXMLDOMAttribute as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLDOMNode as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMCDATASection_Impl: Sized + IXMLDOMText_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -3624,7 +3587,6 @@ impl IXMLDOMCDATASection_Vtbl {
         iid == &<IXMLDOMCDATASection as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLDOMNode as ::windows_core::Interface>::IID || iid == &<IXMLDOMCharacterData as ::windows_core::Interface>::IID || iid == &<IXMLDOMText as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMCharacterData_Impl: Sized + IXMLDOMNode_Impl {
     fn data(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -3715,7 +3677,6 @@ impl IXMLDOMCharacterData_Vtbl {
         iid == &<IXMLDOMCharacterData as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLDOMNode as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMComment_Impl: Sized + IXMLDOMCharacterData_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -3729,7 +3690,6 @@ impl IXMLDOMComment_Vtbl {
         iid == &<IXMLDOMComment as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLDOMNode as ::windows_core::Interface>::IID || iid == &<IXMLDOMCharacterData as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMDocument_Impl: Sized + IXMLDOMNode_Impl {
     fn doctype(&self) -> ::windows_core::Result<IXMLDOMDocumentType>;
@@ -4115,7 +4075,6 @@ impl IXMLDOMDocument_Vtbl {
         iid == &<IXMLDOMDocument as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLDOMNode as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMDocument2_Impl: Sized + IXMLDOMDocument_Impl {
     fn namespaces(&self) -> ::windows_core::Result<IXMLDOMSchemaCollection>;
@@ -4198,7 +4157,6 @@ impl IXMLDOMDocument2_Vtbl {
         iid == &<IXMLDOMDocument2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLDOMNode as ::windows_core::Interface>::IID || iid == &<IXMLDOMDocument as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMDocument3_Impl: Sized + IXMLDOMDocument2_Impl {
     fn validateNode(&self, node: ::core::option::Option<&IXMLDOMNode>) -> ::windows_core::Result<IXMLDOMParseError>;
@@ -4241,7 +4199,6 @@ impl IXMLDOMDocument3_Vtbl {
         iid == &<IXMLDOMDocument3 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLDOMNode as ::windows_core::Interface>::IID || iid == &<IXMLDOMDocument as ::windows_core::Interface>::IID || iid == &<IXMLDOMDocument2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMDocumentFragment_Impl: Sized + IXMLDOMNode_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -4255,7 +4212,6 @@ impl IXMLDOMDocumentFragment_Vtbl {
         iid == &<IXMLDOMDocumentFragment as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLDOMNode as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMDocumentType_Impl: Sized + IXMLDOMNode_Impl {
     fn name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -4311,7 +4267,6 @@ impl IXMLDOMDocumentType_Vtbl {
         iid == &<IXMLDOMDocumentType as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLDOMNode as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMElement_Impl: Sized + IXMLDOMNode_Impl {
     fn tagName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -4427,7 +4382,6 @@ impl IXMLDOMElement_Vtbl {
         iid == &<IXMLDOMElement as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLDOMNode as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMEntity_Impl: Sized + IXMLDOMNode_Impl {
     fn publicId(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -4483,7 +4437,6 @@ impl IXMLDOMEntity_Vtbl {
         iid == &<IXMLDOMEntity as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLDOMNode as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMEntityReference_Impl: Sized + IXMLDOMNode_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -4497,7 +4450,6 @@ impl IXMLDOMEntityReference_Vtbl {
         iid == &<IXMLDOMEntityReference as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLDOMNode as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMImplementation_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn hasFeature(&self, feature: &::windows_core::BSTR, version: &::windows_core::BSTR) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
@@ -4524,7 +4476,6 @@ impl IXMLDOMImplementation_Vtbl {
         iid == &<IXMLDOMImplementation as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMNamedNodeMap_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn getNamedItem(&self, name: &::windows_core::BSTR) -> ::windows_core::Result<IXMLDOMNode>;
@@ -4665,7 +4616,6 @@ impl IXMLDOMNamedNodeMap_Vtbl {
         iid == &<IXMLDOMNamedNodeMap as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMNode_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn nodeName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -5120,7 +5070,6 @@ impl IXMLDOMNode_Vtbl {
         iid == &<IXMLDOMNode as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMNodeList_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_item(&self, index: i32) -> ::windows_core::Result<IXMLDOMNode>;
@@ -5196,7 +5145,6 @@ impl IXMLDOMNodeList_Vtbl {
         iid == &<IXMLDOMNodeList as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMNotation_Impl: Sized + IXMLDOMNode_Impl {
     fn publicId(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -5239,7 +5187,6 @@ impl IXMLDOMNotation_Vtbl {
         iid == &<IXMLDOMNotation as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLDOMNode as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMParseError_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn errorCode(&self) -> ::windows_core::Result<i32>;
@@ -5347,7 +5294,6 @@ impl IXMLDOMParseError_Vtbl {
         iid == &<IXMLDOMParseError as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMParseError2_Impl: Sized + IXMLDOMParseError_Impl {
     fn errorXPath(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -5416,7 +5362,6 @@ impl IXMLDOMParseError2_Vtbl {
         iid == &<IXMLDOMParseError2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLDOMParseError as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMParseErrorCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_item(&self, index: i32) -> ::windows_core::Result<IXMLDOMParseError2>;
@@ -5492,7 +5437,6 @@ impl IXMLDOMParseErrorCollection_Vtbl {
         iid == &<IXMLDOMParseErrorCollection as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMProcessingInstruction_Impl: Sized + IXMLDOMNode_Impl {
     fn target(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -5542,7 +5486,6 @@ impl IXMLDOMProcessingInstruction_Vtbl {
         iid == &<IXMLDOMProcessingInstruction as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLDOMNode as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMSchemaCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn add(&self, namespaceuri: &::windows_core::BSTR, var: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
@@ -5632,7 +5575,6 @@ impl IXMLDOMSchemaCollection_Vtbl {
         iid == &<IXMLDOMSchemaCollection as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMSchemaCollection2_Impl: Sized + IXMLDOMSchemaCollection_Impl {
     fn validate(&self) -> ::windows_core::Result<()>;
@@ -5702,7 +5644,6 @@ impl IXMLDOMSchemaCollection2_Vtbl {
         iid == &<IXMLDOMSchemaCollection2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLDOMSchemaCollection as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMSelection_Impl: Sized + IXMLDOMNodeList_Impl {
     fn expr(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -5838,7 +5779,6 @@ impl IXMLDOMSelection_Vtbl {
         iid == &<IXMLDOMSelection as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLDOMNodeList as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDOMText_Impl: Sized + IXMLDOMCharacterData_Impl {
     fn splitText(&self, offset: i32) -> ::windows_core::Result<IXMLDOMText>;
@@ -5865,7 +5805,6 @@ impl IXMLDOMText_Vtbl {
         iid == &<IXMLDOMText as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLDOMNode as ::windows_core::Interface>::IID || iid == &<IXMLDOMCharacterData as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDSOControl_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn XMLDocument(&self) -> ::windows_core::Result<IXMLDOMDocument>;
@@ -5935,7 +5874,6 @@ impl IXMLDSOControl_Vtbl {
         iid == &<IXMLDSOControl as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDocument_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn root(&self) -> ::windows_core::Result<IXMLElement>;
@@ -6122,7 +6060,6 @@ impl IXMLDocument_Vtbl {
         iid == &<IXMLDocument as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLDocument2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn root(&self) -> ::windows_core::Result<IXMLElement2>;
@@ -6329,7 +6266,6 @@ impl IXMLDocument2_Vtbl {
         iid == &<IXMLDocument2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLElement_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn tagName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -6466,7 +6402,6 @@ impl IXMLElement_Vtbl {
         iid == &<IXMLElement as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLElement2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn tagName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -6616,7 +6551,6 @@ impl IXMLElement2_Vtbl {
         iid == &<IXMLElement2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLElementCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Setlength(&self, v: i32) -> ::windows_core::Result<()>;
@@ -6696,7 +6630,6 @@ impl IXMLError_Vtbl {
         iid == &<IXMLError as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLHTTPRequest_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn open(&self, bstrmethod: &::windows_core::BSTR, bstrurl: &::windows_core::BSTR, varasync: &::windows_core::VARIANT, bstruser: &::windows_core::VARIANT, bstrpassword: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
@@ -6865,7 +6798,6 @@ impl IXMLHTTPRequest_Vtbl {
         iid == &<IXMLHTTPRequest as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLHTTPRequest2_Impl: Sized {
     fn Open(&self, pwszmethod: &::windows_core::PCWSTR, pwszurl: &::windows_core::PCWSTR, pstatuscallback: ::core::option::Option<&IXMLHTTPRequest2Callback>, pwszusername: &::windows_core::PCWSTR, pwszpassword: &::windows_core::PCWSTR, pwszproxyusername: &::windows_core::PCWSTR, pwszproxypassword: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -6970,7 +6902,6 @@ impl IXMLHTTPRequest2_Vtbl {
         iid == &<IXMLHTTPRequest2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLHTTPRequest2Callback_Impl: Sized {
     fn OnRedirect(&self, pxhr: ::core::option::Option<&IXMLHTTPRequest2>, pwszredirecturl: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -7022,7 +6953,6 @@ impl IXMLHTTPRequest2Callback_Vtbl {
         iid == &<IXMLHTTPRequest2Callback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLHTTPRequest3_Impl: Sized + IXMLHTTPRequest2_Impl {
     fn SetClientCertificate(&self, cbclientcertificatehash: u32, pbclientcertificatehash: *const u8, pwszpin: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -7043,7 +6973,6 @@ impl IXMLHTTPRequest3_Vtbl {
         iid == &<IXMLHTTPRequest3 as ::windows_core::Interface>::IID || iid == &<IXMLHTTPRequest2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXMLHTTPRequest3Callback_Impl: Sized + IXMLHTTPRequest2Callback_Impl {
     fn OnServerCertificateReceived(&self, pxhr: ::core::option::Option<&IXMLHTTPRequest3>, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *const XHR_CERT) -> ::windows_core::Result<()>;
@@ -7074,7 +7003,6 @@ impl IXMLHTTPRequest3Callback_Vtbl {
         iid == &<IXMLHTTPRequest3Callback as ::windows_core::Interface>::IID || iid == &<IXMLHTTPRequest2Callback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXSLProcessor_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Setinput(&self, var: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
@@ -7237,7 +7165,6 @@ impl IXSLProcessor_Vtbl {
         iid == &<IXSLProcessor as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXSLTemplate_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn putref_stylesheet(&self, stylesheet: ::core::option::Option<&IXMLDOMNode>) -> ::windows_core::Result<()>;
@@ -7287,7 +7214,6 @@ impl IXSLTemplate_Vtbl {
         iid == &<IXSLTemplate as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXTLRuntime_Impl: Sized + IXMLDOMNode_Impl {
     fn uniqueID(&self, pnode: ::core::option::Option<&IXMLDOMNode>) -> ::windows_core::Result<i32>;
@@ -7421,7 +7347,6 @@ impl IXTLRuntime_Vtbl {
         iid == &<IXTLRuntime as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IXMLDOMNode as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait XMLDOMDocumentEvents_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {}
 #[cfg(feature = "Win32_System_Com")]

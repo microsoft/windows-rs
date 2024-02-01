@@ -1,8 +1,6 @@
 #[cfg(feature = "Security_Authentication_Web_Core")]
-#[doc = "Required features: `\"Security_Authentication_Web_Core\"`"]
 pub mod Core;
 #[cfg(feature = "Security_Authentication_Web_Provider")]
-#[doc = "Required features: `\"Security_Authentication_Web_Provider\"`"]
 pub mod Provider;
 ::windows_core::imp::com_interface!(IWebAuthenticationBrokerStatics, IWebAuthenticationBrokerStatics_Vtbl, 0x2f149f1a_e673_40b5_bc22_201a6864a37b);
 #[repr(C)]
@@ -76,7 +74,6 @@ impl WebAuthenticationBroker {
     {
         Self::IWebAuthenticationBrokerStatics2(|this| unsafe { (::windows_core::Interface::vtable(this).AuthenticateWithCallbackUriAndContinue)(::windows_core::Interface::as_raw(this), requesturi.into_param().abi(), callbackuri.into_param().abi()).ok() })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue<P0, P1, P2>(requesturi: P0, callbackuri: P1, continuationdata: P2, options: WebAuthenticationOptions) -> ::windows_core::Result<()>
     where

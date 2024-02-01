@@ -1,7 +1,7 @@
 ::windows_targets::link!("comsvcs.dll" "system" fn CoCreateActivity(piunknown : ::windows_sys::core::IUnknown, riid : *const ::windows_sys::core::GUID, ppobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("comsvcs.dll" "system" fn CoEnterServiceDomain(pconfigobject : ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn CoGetDefaultContext(apttype : super::Com:: APTTYPE, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" fn CoGetDefaultContext(apttype : super::Com:: APTTYPE, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("comsvcs.dll" "system" fn CoLeaveServiceDomain(punkstatus : ::windows_sys::core::IUnknown));
 ::windows_targets::link!("mtxdm.dll" "cdecl" fn GetDispenserManager(param0 : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("comsvcs.dll" "system" fn GetManagedExtensions(dwexts : *mut u32) -> ::windows_sys::core::HRESULT);
@@ -606,7 +606,6 @@ impl ::core::clone::Clone for ComponentSummary {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct CrmLogRecordRead {
     pub dwCrmFlags: u32,

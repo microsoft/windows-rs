@@ -1,9 +1,9 @@
 ::windows_targets::link!("comdlg32.dll" "system" fn ChooseColorA(param0 : *mut CHOOSECOLORA) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("comdlg32.dll" "system" fn ChooseColorW(param0 : *mut CHOOSECOLORW) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn ChooseFontA(param0 : *mut CHOOSEFONTA) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("comdlg32.dll" "system" fn ChooseFontA(param0 : *mut CHOOSEFONTA) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn ChooseFontW(param0 : *mut CHOOSEFONTW) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("comdlg32.dll" "system" fn ChooseFontW(param0 : *mut CHOOSEFONTW) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("comdlg32.dll" "system" fn CommDlgExtendedError() -> COMMON_DLG_ERRORS);
 ::windows_targets::link!("comdlg32.dll" "system" fn FindTextA(param0 : *mut FINDREPLACEA) -> super::super::super::Foundation:: HWND);
 ::windows_targets::link!("comdlg32.dll" "system" fn FindTextW(param0 : *mut FINDREPLACEW) -> super::super::super::Foundation:: HWND);
@@ -16,13 +16,13 @@
 ::windows_targets::link!("comdlg32.dll" "system" fn PageSetupDlgA(param0 : *mut PAGESETUPDLGA) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("comdlg32.dll" "system" fn PageSetupDlgW(param0 : *mut PAGESETUPDLGW) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn PrintDlgA(ppd : *mut PRINTDLGA) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("comdlg32.dll" "system" fn PrintDlgA(ppd : *mut PRINTDLGA) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn PrintDlgExA(ppd : *mut PRINTDLGEXA) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comdlg32.dll" "system" fn PrintDlgExA(ppd : *mut PRINTDLGEXA) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn PrintDlgExW(ppd : *mut PRINTDLGEXW) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comdlg32.dll" "system" fn PrintDlgExW(ppd : *mut PRINTDLGEXW) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn PrintDlgW(ppd : *mut PRINTDLGW) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("comdlg32.dll" "system" fn PrintDlgW(ppd : *mut PRINTDLGW) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("comdlg32.dll" "system" fn ReplaceTextA(param0 : *mut FINDREPLACEA) -> super::super::super::Foundation:: HWND);
 ::windows_targets::link!("comdlg32.dll" "system" fn ReplaceTextW(param0 : *mut FINDREPLACEW) -> super::super::super::Foundation:: HWND);
 pub const BOLD_FONTTYPE: CHOOSEFONT_FONT_TYPE = 256u16;
@@ -399,7 +399,6 @@ impl ::core::clone::Clone for CHOOSECOLORW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct CHOOSEFONTA {
@@ -431,7 +430,6 @@ impl ::core::clone::Clone for CHOOSEFONTA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct CHOOSEFONTA {
@@ -463,7 +461,6 @@ impl ::core::clone::Clone for CHOOSEFONTA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct CHOOSEFONTW {
@@ -495,7 +492,6 @@ impl ::core::clone::Clone for CHOOSEFONTW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct CHOOSEFONTW {
@@ -1147,7 +1143,6 @@ impl ::core::clone::Clone for PAGESETUPDLGW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PRINTDLGA {
@@ -1182,7 +1177,6 @@ impl ::core::clone::Clone for PRINTDLGA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PRINTDLGA {
@@ -1217,7 +1211,6 @@ impl ::core::clone::Clone for PRINTDLGA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PRINTDLGEXA {
@@ -1254,7 +1247,6 @@ impl ::core::clone::Clone for PRINTDLGEXA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PRINTDLGEXA {
@@ -1291,7 +1283,6 @@ impl ::core::clone::Clone for PRINTDLGEXA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PRINTDLGEXW {
@@ -1328,7 +1319,6 @@ impl ::core::clone::Clone for PRINTDLGEXW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PRINTDLGEXW {
@@ -1365,7 +1355,6 @@ impl ::core::clone::Clone for PRINTDLGEXW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PRINTDLGW {
@@ -1400,7 +1389,6 @@ impl ::core::clone::Clone for PRINTDLGW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PRINTDLGW {

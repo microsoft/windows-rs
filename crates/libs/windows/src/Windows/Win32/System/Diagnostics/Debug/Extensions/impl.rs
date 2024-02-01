@@ -414,7 +414,6 @@ impl IDataModelNameBinder_Vtbl {
         iid == &<IDataModelNameBinder as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDataModelScript_Impl: Sized {
     fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1125,7 +1124,6 @@ impl IDataModelScriptProviderEnumerator_Vtbl {
         iid == &<IDataModelScriptProviderEnumerator as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDataModelScriptTemplate_Impl: Sized {
     fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -7185,7 +7183,6 @@ impl IDebugClient8_Vtbl {
         iid == &<IDebugClient8 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub trait IDebugControl_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -7997,7 +7994,6 @@ impl IDebugControl_Vtbl {
         iid == &<IDebugControl as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub trait IDebugControl2_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -8889,7 +8885,6 @@ impl IDebugControl2_Vtbl {
         iid == &<IDebugControl2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub trait IDebugControl3_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -9908,7 +9903,6 @@ impl IDebugControl3_Vtbl {
         iid == &<IDebugControl3 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub trait IDebugControl4_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -11334,7 +11328,6 @@ impl IDebugControl4_Vtbl {
         iid == &<IDebugControl4 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub trait IDebugControl5_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -12801,7 +12794,6 @@ impl IDebugControl5_Vtbl {
         iid == &<IDebugControl5 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub trait IDebugControl6_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -14288,7 +14280,6 @@ impl IDebugControl6_Vtbl {
         iid == &<IDebugControl6 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub trait IDebugControl7_Impl: Sized {
     fn GetInterrupt(&self) -> ::windows_core::Result<()>;
@@ -15947,7 +15938,6 @@ impl IDebugDataSpaces_Vtbl {
         iid == &<IDebugDataSpaces as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Memory\"`"]
 #[cfg(feature = "Win32_System_Memory")]
 pub trait IDebugDataSpaces2_Impl: Sized {
     fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows_core::Result<()>;
@@ -16164,7 +16154,6 @@ impl IDebugDataSpaces2_Vtbl {
         iid == &<IDebugDataSpaces2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Memory\"`, `\"Win32_System_SystemInformation\"`"]
 #[cfg(all(feature = "Win32_System_Memory", feature = "Win32_System_SystemInformation"))]
 pub trait IDebugDataSpaces3_Impl: Sized {
     fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows_core::Result<()>;
@@ -16422,7 +16411,6 @@ impl IDebugDataSpaces3_Vtbl {
         iid == &<IDebugDataSpaces3 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Memory\"`, `\"Win32_System_SystemInformation\"`"]
 #[cfg(all(feature = "Win32_System_Memory", feature = "Win32_System_SystemInformation"))]
 pub trait IDebugDataSpaces4_Impl: Sized {
     fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows_core::Result<()>;
@@ -17281,7 +17269,6 @@ impl IDebugFailureAnalysis_Vtbl {
         iid == &<IDebugFailureAnalysis as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 pub trait IDebugFailureAnalysis2_Impl: Sized {
     fn GetFailureClass(&self) -> u32;
@@ -17471,7 +17458,6 @@ impl IDebugFailureAnalysis2_Vtbl {
         iid == &<IDebugFailureAnalysis2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 pub trait IDebugFailureAnalysis3_Impl: Sized {
     fn GetFailureClass(&self) -> u32;
@@ -26293,7 +26279,6 @@ impl IModelMethod_Vtbl {
         iid == &<IModelMethod as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Variant\"`"]
 #[cfg(feature = "Win32_System_Variant")]
 pub trait IModelObject_Impl: Sized {
     fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext>;

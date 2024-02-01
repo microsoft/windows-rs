@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICatalog_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetCollection(&self, bstrcollname: &::windows_core::BSTR) -> ::windows_core::Result<super::Com::IDispatch>;
@@ -55,7 +54,6 @@ impl ICatalog_Vtbl {
         iid == &<ICatalog as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IComponentUtil_Impl: Sized + super::Com::IDispatch_Impl {
     fn InstallComponent(&self, bstrdllfile: &::windows_core::BSTR, bstrtypelibfile: &::windows_core::BSTR, bstrproxystubdllfile: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -100,7 +98,6 @@ impl IComponentUtil_Vtbl {
         iid == &<IComponentUtil as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPackageUtil_Impl: Sized + super::Com::IDispatch_Impl {
     fn InstallPackage(&self, bstrpackagefile: &::windows_core::BSTR, bstrinstallpath: &::windows_core::BSTR, loptions: i32) -> ::windows_core::Result<()>;
@@ -138,7 +135,6 @@ impl IPackageUtil_Vtbl {
         iid == &<IPackageUtil as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRemoteComponentUtil_Impl: Sized + super::Com::IDispatch_Impl {
     fn InstallRemoteComponent(&self, bstrserver: &::windows_core::BSTR, bstrpackageid: &::windows_core::BSTR, bstrclsid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -169,7 +165,6 @@ impl IRemoteComponentUtil_Vtbl {
         iid == &<IRemoteComponentUtil as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRoleAssociationUtil_Impl: Sized + super::Com::IDispatch_Impl {
     fn AssociateRole(&self, bstrroleid: &::windows_core::BSTR) -> ::windows_core::Result<()>;

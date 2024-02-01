@@ -259,7 +259,6 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
         iid == &<ICommonClaimedPosPrinterStation as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait ICommonPosPrintStationCapabilities_Impl: Sized {
     fn IsPrinterPresent(&self) -> ::windows_core::Result<bool>;
@@ -448,7 +447,6 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
         iid == &<ICommonPosPrintStationCapabilities as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait ICommonReceiptSlipCapabilities_Impl: Sized + ICommonPosPrintStationCapabilities_Impl {
     fn IsBarcodeSupported(&self) -> ::windows_core::Result<bool>;
@@ -636,7 +634,6 @@ impl IPosPrinterJob_Vtbl {
         iid == &<IPosPrinterJob as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Graphics_Imaging\"`"]
 #[cfg(feature = "Graphics_Imaging")]
 pub trait IReceiptOrSlipJob_Impl: Sized + IPosPrinterJob_Impl {
     fn SetBarcodeRotation(&self, value: PosPrinterRotation) -> ::windows_core::Result<()>;

@@ -215,7 +215,6 @@ pub struct IPrintHolePunchOptionDetails_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IPrintItemListOptionDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(IPrintItemListOptionDetails, IPrintOptionDetails);
 impl IPrintItemListOptionDetails {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>> {
         let this = self;
@@ -644,7 +643,6 @@ impl PrintBindingOptionDetails {
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -747,7 +745,6 @@ impl PrintBorderingOptionDetails {
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -850,7 +847,6 @@ impl PrintCollationOptionDetails {
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -953,7 +949,6 @@ impl PrintColorModeOptionDetails {
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -1182,7 +1177,6 @@ impl PrintCustomItemListOptionDetails {
         let this = &::windows_core::Interface::cast::<IPrintCustomItemListOptionDetails>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).AddItem)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(itemid), ::core::mem::transmute_copy(displayname)).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn AddItem2<P0>(&self, itemid: &::windows_core::HSTRING, displayname: &::windows_core::HSTRING, description: &::windows_core::HSTRING, icon: P0) -> ::windows_core::Result<()>
     where
@@ -1224,7 +1218,6 @@ impl PrintCustomItemListOptionDetails {
             (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -1548,7 +1541,6 @@ impl PrintDuplexOptionDetails {
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -1651,7 +1643,6 @@ impl PrintHolePunchOptionDetails {
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -1732,7 +1723,6 @@ pub struct PrintMediaSizeOptionDetails(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PrintMediaSizeOptionDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(PrintMediaSizeOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintMediaSizeOptionDetails {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -1835,7 +1825,6 @@ pub struct PrintMediaTypeOptionDetails(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PrintMediaTypeOptionDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(PrintMediaTypeOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintMediaTypeOptionDetails {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -1938,7 +1927,6 @@ pub struct PrintOrientationOptionDetails(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PrintOrientationOptionDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(PrintOrientationOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintOrientationOptionDetails {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -2135,7 +2123,6 @@ pub struct PrintQualityOptionDetails(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PrintQualityOptionDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(PrintQualityOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintQualityOptionDetails {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -2238,7 +2225,6 @@ pub struct PrintStapleOptionDetails(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PrintStapleOptionDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(PrintStapleOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintStapleOptionDetails {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -2366,7 +2352,6 @@ pub struct PrintTaskOptionDetails(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PrintTaskOptionDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(PrintTaskOptionDetails, super::IPrintTaskOptionsCore, super::IPrintTaskOptionsCoreUIConfiguration);
 impl PrintTaskOptionDetails {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Options(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, IPrintOptionDetails>> {
         let this = self;
@@ -2440,7 +2425,6 @@ impl PrintTaskOptionDetails {
             (::windows_core::Interface::vtable(this).GetPageDescription)(::windows_core::Interface::as_raw(this), jobpagenumber, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DisplayedOptions(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = &::windows_core::Interface::cast::<super::IPrintTaskOptionsCoreUIConfiguration>(self)?;

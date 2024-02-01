@@ -1,5 +1,4 @@
 #[cfg(feature = "Devices_I2c_Provider")]
-#[doc = "Required features: `\"Devices_I2c_Provider\"`"]
 pub mod Provider;
 ::windows_core::imp::com_interface!(II2cConnectionSettings, II2cConnectionSettings_Vtbl, 0xf2db1307_ab6f_4639_a767_54536dc3460f);
 #[repr(C)]
@@ -168,7 +167,6 @@ impl I2cController {
             (::windows_core::Interface::vtable(this).GetDevice)(::windows_core::Interface::as_raw(this), settings.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_I2c_Provider\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "Devices_I2c_Provider", feature = "Foundation_Collections"))]
     pub fn GetControllersAsync<P0>(provider: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<I2cController>>>
     where

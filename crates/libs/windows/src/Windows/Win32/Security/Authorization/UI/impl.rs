@@ -83,7 +83,6 @@ impl IEffectivePermission2_Vtbl {
         iid == &<IEffectivePermission2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Controls\"`"]
 #[cfg(feature = "Win32_UI_Controls")]
 pub trait ISecurityInformation_Impl: Sized {
     fn GetObjectInformation(&self, pobjectinfo: *mut SI_OBJECT_INFO) -> ::windows_core::Result<()>;
@@ -149,7 +148,6 @@ impl ISecurityInformation_Vtbl {
         iid == &<ISecurityInformation as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISecurityInformation2_Impl: Sized {
     fn IsDaclCanonical(&self, pdacl: *const super::super::ACL) -> super::super::super::Foundation::BOOL;

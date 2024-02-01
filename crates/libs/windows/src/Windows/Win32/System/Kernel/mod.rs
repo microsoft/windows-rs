@@ -198,7 +198,6 @@ impl ::core::default::Default for CSTRING {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub struct EXCEPTION_REGISTRATION_RECORD {
     pub Next: *mut EXCEPTION_REGISTRATION_RECORD,
@@ -409,7 +408,6 @@ impl ::core::default::Default for LIST_ENTRY64 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub struct NT_TIB {
     pub ExceptionList: *mut EXCEPTION_REGISTRATION_RECORD,
@@ -439,7 +437,6 @@ impl ::core::default::Default for NT_TIB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub union NT_TIB_0 {
     pub FiberData: *mut ::core::ffi::c_void,
@@ -1120,6 +1117,5 @@ impl ::core::default::Default for WNF_STATE_NAME {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`"]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub type EXCEPTION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const ::core::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const ::core::ffi::c_void) -> EXCEPTION_DISPOSITION>;

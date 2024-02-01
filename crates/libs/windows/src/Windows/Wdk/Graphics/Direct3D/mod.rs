@@ -18,7 +18,6 @@ pub unsafe fn D3DKMTCancelPresents(param0: *const D3DKMT_CANCEL_PRESENTS) -> sup
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCancelPresents(param0 : *const D3DKMT_CANCEL_PRESENTS) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCancelPresents(param0)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn D3DKMTChangeSurfacePointer(param0: *const D3DKMT_CHANGESURFACEPOINTER) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -100,7 +99,6 @@ pub unsafe fn D3DKMTCreateContextVirtual(param0: *const D3DKMT_CREATECONTEXTVIRT
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTCreateContextVirtual(param0 : *const D3DKMT_CREATECONTEXTVIRTUAL) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTCreateContextVirtual(param0)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn D3DKMTCreateDCFromMemory(param0: *mut D3DKMT_CREATEDCFROMMEMORY) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -177,7 +175,6 @@ pub unsafe fn D3DKMTDestroyContext(param0: *const D3DKMT_DESTROYCONTEXT) -> supe
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTDestroyContext(param0 : *const D3DKMT_DESTROYCONTEXT) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTDestroyContext(param0)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn D3DKMTDestroyDCFromMemory(param0: *const D3DKMT_DESTROYDCFROMMEMORY) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -417,7 +414,6 @@ pub unsafe fn D3DKMTOpenAdapterFromGdiDisplayName(param0: *mut D3DKMT_OPENADAPTE
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromGdiDisplayName(param0 : *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOpenAdapterFromGdiDisplayName(param0)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn D3DKMTOpenAdapterFromHdc(param0: *mut D3DKMT_OPENADAPTERFROMHDC) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -444,7 +440,6 @@ pub unsafe fn D3DKMTOpenKeyedMutexFromNtHandle(param0: *mut D3DKMT_OPENKEYEDMUTE
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenKeyedMutexFromNtHandle(param0 : *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOpenKeyedMutexFromNtHandle(param0)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOpenNtHandleFromName(param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -481,7 +476,6 @@ pub unsafe fn D3DKMTOpenSyncObjectFromNtHandle2(param0: *mut D3DKMT_OPENSYNCOBJE
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectFromNtHandle2(param0 : *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTOpenSyncObjectFromNtHandle2(param0)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTOpenSyncObjectNtHandleFromName(param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -754,7 +748,6 @@ pub unsafe fn D3DKMTSetVidPnSourceOwner2(param0: *const D3DKMT_SETVIDPNSOURCEOWN
     ::windows_targets::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceOwner2(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER2) -> super::super::super::Win32::Foundation:: NTSTATUS);
     D3DKMTSetVidPnSourceOwner2(param0)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn D3DKMTShareObjects(hobjects: &[u32], pobjectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS {
@@ -4249,7 +4242,6 @@ impl ::core::fmt::Debug for OUTPUTDUPL_CONTEXT_DEBUG_STATUS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DCAPS8 {
     pub DeviceType: super::super::super::Win32::Graphics::Direct3D9::D3DDEVTYPE,
@@ -7543,7 +7535,6 @@ impl ::core::default::Default for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLA
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DDEVICEDESC_V1 {
     pub dwSize: u32,
@@ -7607,7 +7598,6 @@ impl ::core::default::Default for D3DDEVICEDESC_V1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DDEVICEDESC_V2 {
     pub dwSize: u32,
@@ -7707,7 +7697,6 @@ impl ::core::default::Default for D3DDEVICEDESC_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DDEVICEDESC_V3 {
     pub dwSize: u32,
@@ -7877,7 +7866,6 @@ impl ::core::default::Default for D3DGPU_PHYSICAL_ADDRESS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct D3DHAL_CALLBACKS {
     pub dwSize: u32,
@@ -7966,7 +7954,6 @@ impl ::core::default::Default for D3DHAL_CALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct D3DHAL_CALLBACKS2 {
     pub dwSize: u32,
@@ -8002,7 +7989,6 @@ impl ::core::default::Default for D3DHAL_CALLBACKS2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct D3DHAL_CALLBACKS3 {
     pub dwSize: u32,
@@ -8037,7 +8023,6 @@ impl ::core::default::Default for D3DHAL_CALLBACKS3 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DHAL_CLEAR2DATA {
     pub dwhContext: usize,
@@ -8082,7 +8067,6 @@ impl ::core::default::Default for D3DHAL_CLEAR2DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DHAL_CLEARDATA {
     pub dwhContext: usize,
@@ -8157,7 +8141,6 @@ impl ::core::default::Default for D3DHAL_CLIPPEDTRIANGLEFAN {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct D3DHAL_CONTEXTCREATEDATA {
     pub Anonymous1: D3DHAL_CONTEXTCREATEDATA_0,
@@ -8184,7 +8167,6 @@ impl ::core::default::Default for D3DHAL_CONTEXTCREATEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_CONTEXTCREATEDATA_0 {
     pub lpDDGbl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DIRECTDRAW_GBL,
@@ -8209,7 +8191,6 @@ impl ::core::default::Default for D3DHAL_CONTEXTCREATEDATA_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_CONTEXTCREATEDATA_1 {
     pub lpDDS: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
@@ -8232,7 +8213,6 @@ impl ::core::default::Default for D3DHAL_CONTEXTCREATEDATA_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_CONTEXTCREATEDATA_2 {
     pub lpDDSZ: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
@@ -8255,7 +8235,6 @@ impl ::core::default::Default for D3DHAL_CONTEXTCREATEDATA_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_CONTEXTCREATEDATA_3 {
     pub dwPID: u32,
@@ -8555,7 +8534,6 @@ impl ::core::default::Default for D3DHAL_D3DEXTENDEDCAPS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DHAL_DP2ADDDIRTYBOX {
     pub dwSurface: u32,
@@ -8659,7 +8637,6 @@ impl ::core::default::Default for D3DHAL_DP2BLT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DHAL_DP2BUFFERBLT {
     pub dwDDDestSurface: u32,
@@ -8804,7 +8781,6 @@ impl ::core::default::Default for D3DHAL_DP2COMMAND_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DHAL_DP2COMPOSERECTS {
     pub SrcSurfaceHandle: u32,
@@ -8908,7 +8884,6 @@ impl ::core::default::Default for D3DHAL_DP2CREATEPIXELSHADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DHAL_DP2CREATEQUERY {
     pub dwQueryID: u32,
@@ -9067,7 +9042,6 @@ impl ::core::default::Default for D3DHAL_DP2DELETEQUERY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DHAL_DP2DRAWINDEXEDPRIMITIVE {
     pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
@@ -9110,7 +9084,6 @@ impl ::core::default::Default for D3DHAL_DP2DRAWINDEXEDPRIMITIVE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DHAL_DP2DRAWINDEXEDPRIMITIVE2 {
     pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
@@ -9153,7 +9126,6 @@ impl ::core::default::Default for D3DHAL_DP2DRAWINDEXEDPRIMITIVE2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DHAL_DP2DRAWPRIMITIVE {
     pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
@@ -9193,7 +9165,6 @@ impl ::core::default::Default for D3DHAL_DP2DRAWPRIMITIVE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DHAL_DP2DRAWPRIMITIVE2 {
     pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
@@ -9323,7 +9294,6 @@ impl ::core::default::Default for D3DHAL_DP2EXT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DHAL_DP2GENERATEMIPSUBLEVELS {
     pub hSurface: u32,
@@ -9630,7 +9600,6 @@ impl ::core::default::Default for D3DHAL_DP2LINESTRIP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 pub struct D3DHAL_DP2MULTIPLYTRANSFORM {
     pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
@@ -9728,7 +9697,6 @@ impl ::core::default::Default for D3DHAL_DP2POINTS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DHAL_DP2RENDERSTATE {
     pub RenderState: super::super::super::Win32::Graphics::Direct3D9::D3DRENDERSTATETYPE,
@@ -9753,7 +9721,6 @@ impl ::core::default::Default for D3DHAL_DP2RENDERSTATE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub union D3DHAL_DP2RENDERSTATE_0 {
     pub dvState: f32,
@@ -10294,7 +10261,6 @@ impl ::core::default::Default for D3DHAL_DP2SETTEXLOD {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 pub struct D3DHAL_DP2SETTRANSFORM {
     pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
@@ -10392,7 +10358,6 @@ impl ::core::default::Default for D3DHAL_DP2STARTVERTEX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DHAL_DP2STATESET {
     pub dwOperation: u32,
@@ -10739,7 +10704,6 @@ impl ::core::default::Default for D3DHAL_DP2VIEWPORTINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DHAL_DP2VOLUMEBLT {
     pub dwDDDestSurface: u32,
@@ -10843,7 +10807,6 @@ impl ::core::default::Default for D3DHAL_DP2ZRANGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA {
     pub dwhContext: usize,
@@ -10875,7 +10838,6 @@ impl ::core::default::Default for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub union D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0 {
     pub VertexType: super::super::super::Win32::Graphics::Direct3D9::D3DVERTEXTYPE,
@@ -10900,7 +10862,6 @@ impl ::core::default::Default for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DHAL_DRAWONEPRIMITIVEDATA {
     pub dwhContext: usize,
@@ -10931,7 +10892,6 @@ impl ::core::default::Default for D3DHAL_DRAWONEPRIMITIVEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub union D3DHAL_DRAWONEPRIMITIVEDATA_0 {
     pub VertexType: super::super::super::Win32::Graphics::Direct3D9::D3DVERTEXTYPE,
@@ -10988,7 +10948,6 @@ impl ::core::default::Default for D3DHAL_DRAWPRIMCOUNTS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct D3DHAL_DRAWPRIMITIVES2DATA {
     pub dwhContext: usize,
@@ -11025,7 +10984,6 @@ impl ::core::default::Default for D3DHAL_DRAWPRIMITIVES2DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_DRAWPRIMITIVES2DATA_0 {
     pub lpDDVertex: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
@@ -11050,7 +11008,6 @@ impl ::core::default::Default for D3DHAL_DRAWPRIMITIVES2DATA_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_DRAWPRIMITIVES2DATA_1 {
     pub dwVertexSize: u32,
@@ -11108,7 +11065,6 @@ impl ::core::default::Default for D3DHAL_DRAWPRIMITIVESDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DHAL_GETSTATEDATA {
     pub dwhContext: usize,
@@ -11135,7 +11091,6 @@ impl ::core::default::Default for D3DHAL_GETSTATEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 pub struct D3DHAL_GLOBALDRIVERDATA {
     pub dwSize: u32,
@@ -11178,7 +11133,6 @@ impl ::core::default::Default for D3DHAL_GLOBALDRIVERDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 pub struct D3DHAL_RENDERPRIMITIVEDATA {
     pub dwhContext: usize,
@@ -11221,7 +11175,6 @@ impl ::core::default::Default for D3DHAL_RENDERPRIMITIVEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct D3DHAL_RENDERSTATEDATA {
     pub dwhContext: usize,
@@ -11292,7 +11245,6 @@ impl ::core::default::Default for D3DHAL_SCENECAPTUREDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub struct D3DHAL_SETRENDERTARGETDATA {
     pub dwhContext: usize,
@@ -11317,7 +11269,6 @@ impl ::core::default::Default for D3DHAL_SETRENDERTARGETDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_SETRENDERTARGETDATA_0 {
     pub lpDDS: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
@@ -11340,7 +11291,6 @@ impl ::core::default::Default for D3DHAL_SETRENDERTARGETDATA_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub union D3DHAL_SETRENDERTARGETDATA_1 {
     pub lpDDSZ: ::std::mem::ManuallyDrop<::core::option::Option<super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface>>,
@@ -11363,7 +11313,6 @@ impl ::core::default::Default for D3DHAL_SETRENDERTARGETDATA_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct D3DHAL_TEXTURECREATEDATA {
     pub dwhContext: usize,
@@ -13477,7 +13426,6 @@ impl ::core::default::Default for D3DKMT_CANCEL_PRESENTS_FLAGS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct D3DKMT_CHANGESURFACEPOINTER {
     pub hDC: super::super::super::Win32::Graphics::Gdi::HDC,
@@ -14263,7 +14211,6 @@ impl ::core::default::Default for D3DKMT_CREATECONTEXTVIRTUAL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct D3DKMT_CREATEDCFROMMEMORY {
     pub pMemory: *mut ::core::ffi::c_void,
@@ -15135,7 +15082,6 @@ impl ::core::default::Default for D3DKMT_DESTROYCONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct D3DKMT_DESTROYDCFROMMEMORY {
     pub hDc: super::super::super::Win32::Graphics::Gdi::HDC,
@@ -19160,7 +19106,6 @@ impl ::core::default::Default for D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct D3DKMT_OPENADAPTERFROMHDC {
     pub hDc: super::super::super::Win32::Graphics::Gdi::HDC,
@@ -19379,7 +19324,6 @@ impl ::core::default::Default for D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 pub struct D3DKMT_OPENNTHANDLEFROMNAME {
     pub dwDesiredAccess: u32,
@@ -19702,7 +19646,6 @@ impl ::core::default::Default for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 pub struct D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
     pub dwDesiredAccess: u32,
@@ -27459,7 +27402,6 @@ impl ::core::default::Default for D3DLINEPATTERN {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DNTDEVICEDESC_V3 {
     pub dwSize: u32,
@@ -27598,7 +27540,6 @@ impl ::core::default::Default for D3DNTDEVICEDESC_V3 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DNTHALDEVICEDESC_V1 {
     pub dwSize: u32,
@@ -27662,7 +27603,6 @@ impl ::core::default::Default for D3DNTHALDEVICEDESC_V1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DNTHALDEVICEDESC_V2 {
     pub dwSize: u32,
@@ -27762,7 +27702,6 @@ impl ::core::default::Default for D3DNTHALDEVICEDESC_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct D3DNTHAL_CALLBACKS {
     pub dwSize: u32,
@@ -27854,7 +27793,6 @@ impl ::core::default::Default for D3DNTHAL_CALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct D3DNTHAL_CALLBACKS2 {
     pub dwSize: u32,
@@ -27890,7 +27828,6 @@ impl ::core::default::Default for D3DNTHAL_CALLBACKS2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 pub struct D3DNTHAL_CALLBACKS3 {
     pub dwSize: u32,
@@ -27925,7 +27862,6 @@ impl ::core::default::Default for D3DNTHAL_CALLBACKS3 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DNTHAL_CLEAR2DATA {
     pub dwhContext: usize,
@@ -28001,7 +27937,6 @@ impl ::core::default::Default for D3DNTHAL_CLIPPEDTRIANGLEFAN {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct D3DNTHAL_CONTEXTCREATEDATA {
     pub Anonymous1: D3DNTHAL_CONTEXTCREATEDATA_0,
@@ -28030,7 +27965,6 @@ impl ::core::default::Default for D3DNTHAL_CONTEXTCREATEDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub union D3DNTHAL_CONTEXTCREATEDATA_0 {
     pub lpDDGbl: *mut super::super::super::Win32::Graphics::DirectDraw::DD_DIRECTDRAW_GLOBAL,
@@ -28055,7 +27989,6 @@ impl ::core::default::Default for D3DNTHAL_CONTEXTCREATEDATA_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub union D3DNTHAL_CONTEXTCREATEDATA_1 {
     pub lpDDS: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
@@ -28080,7 +28013,6 @@ impl ::core::default::Default for D3DNTHAL_CONTEXTCREATEDATA_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub union D3DNTHAL_CONTEXTCREATEDATA_2 {
     pub lpDDSZ: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
@@ -28380,7 +28312,6 @@ impl ::core::default::Default for D3DNTHAL_D3DEXTENDEDCAPS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DNTHAL_DP2ADDDIRTYBOX {
     pub dwSurface: u32,
@@ -28484,7 +28415,6 @@ impl ::core::default::Default for D3DNTHAL_DP2BLT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DNTHAL_DP2BUFFERBLT {
     pub dwDDDestSurface: u32,
@@ -28629,7 +28559,6 @@ impl ::core::default::Default for D3DNTHAL_DP2COMMAND_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DNTHAL_DP2COMPOSERECTS {
     pub SrcSurfaceHandle: u32,
@@ -28733,7 +28662,6 @@ impl ::core::default::Default for D3DNTHAL_DP2CREATEPIXELSHADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DNTHAL_DP2CREATEQUERY {
     pub dwQueryID: u32,
@@ -28892,7 +28820,6 @@ impl ::core::default::Default for D3DNTHAL_DP2DELETEQUERY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE {
     pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
@@ -28935,7 +28862,6 @@ impl ::core::default::Default for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE2 {
     pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
@@ -28978,7 +28904,6 @@ impl ::core::default::Default for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DNTHAL_DP2DRAWPRIMITIVE {
     pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
@@ -29018,7 +28943,6 @@ impl ::core::default::Default for D3DNTHAL_DP2DRAWPRIMITIVE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DNTHAL_DP2DRAWPRIMITIVE2 {
     pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
@@ -29148,7 +29072,6 @@ impl ::core::default::Default for D3DNTHAL_DP2EXT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DNTHAL_DP2GENERATEMIPSUBLEVELS {
     pub hSurface: u32,
@@ -29455,7 +29378,6 @@ impl ::core::default::Default for D3DNTHAL_DP2LINESTRIP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 pub struct D3DNTHAL_DP2MULTIPLYTRANSFORM {
     pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
@@ -29553,7 +29475,6 @@ impl ::core::default::Default for D3DNTHAL_DP2POINTS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DNTHAL_DP2RENDERSTATE {
     pub RenderState: super::super::super::Win32::Graphics::Direct3D9::D3DRENDERSTATETYPE,
@@ -29578,7 +29499,6 @@ impl ::core::default::Default for D3DNTHAL_DP2RENDERSTATE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub union D3DNTHAL_DP2RENDERSTATE_0 {
     pub fState: f32,
@@ -30127,7 +30047,6 @@ impl ::core::default::Default for D3DNTHAL_DP2SETTEXLOD {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 pub struct D3DNTHAL_DP2SETTRANSFORM {
     pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
@@ -30225,7 +30144,6 @@ impl ::core::default::Default for D3DNTHAL_DP2STARTVERTEX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DNTHAL_DP2STATESET {
     pub dwOperation: u32,
@@ -30572,7 +30490,6 @@ impl ::core::default::Default for D3DNTHAL_DP2VIEWPORTINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct D3DNTHAL_DP2VOLUMEBLT {
     pub dwDDDestSurface: u32,
@@ -30676,7 +30593,6 @@ impl ::core::default::Default for D3DNTHAL_DP2ZRANGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct D3DNTHAL_DRAWPRIMITIVES2DATA {
     pub dwhContext: usize,
@@ -30713,7 +30629,6 @@ impl ::core::default::Default for D3DNTHAL_DRAWPRIMITIVES2DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub union D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
     pub lpDDVertex: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
@@ -30738,7 +30653,6 @@ impl ::core::default::Default for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub union D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
     pub dwVertexSize: u32,
@@ -30763,7 +30677,6 @@ impl ::core::default::Default for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 pub struct D3DNTHAL_GLOBALDRIVERDATA {
     pub dwSize: u32,
@@ -30837,7 +30750,6 @@ impl ::core::default::Default for D3DNTHAL_SCENECAPTUREDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct D3DNTHAL_SETRENDERTARGETDATA {
     pub dwhContext: usize,
@@ -31190,7 +31102,6 @@ impl ::core::default::Default for DDNT_GETD3DQUERYCOUNTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DDNT_GETD3DQUERYDATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
@@ -31215,7 +31126,6 @@ impl ::core::default::Default for DDNT_GETD3DQUERYDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub union DDNT_GETD3DQUERYDATA_0 {
     pub dwQueryIndex: u32,
@@ -31334,7 +31244,6 @@ impl ::core::default::Default for DDNT_GETEXTENDEDMODECOUNTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DDNT_GETEXTENDEDMODEDATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
@@ -31405,7 +31314,6 @@ impl ::core::default::Default for DDNT_GETFORMATCOUNTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct DDNT_GETFORMATDATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
@@ -31431,7 +31339,6 @@ impl ::core::default::Default for DDNT_GETFORMATDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DDNT_MULTISAMPLEQUALITYLEVELSDATA {
     pub gdi2: DDNT_GETDRIVERINFO2DATA,
@@ -31624,7 +31531,6 @@ impl ::core::default::Default for DD_GETD3DQUERYCOUNTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DD_GETD3DQUERYDATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
@@ -31649,7 +31555,6 @@ impl ::core::default::Default for DD_GETD3DQUERYDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub union DD_GETD3DQUERYDATA_0 {
     pub dwQueryIndex: u32,
@@ -31768,7 +31673,6 @@ impl ::core::default::Default for DD_GETEXTENDEDMODECOUNTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DD_GETEXTENDEDMODEDATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
@@ -31839,7 +31743,6 @@ impl ::core::default::Default for DD_GETFORMATCOUNTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub struct DD_GETFORMATDATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
@@ -31865,7 +31768,6 @@ impl ::core::default::Default for DD_GETFORMATDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DD_MULTISAMPLEQUALITYLEVELSDATA {
     pub gdi2: DD_GETDRIVERINFO2DATA,
@@ -33325,7 +33227,6 @@ impl ::core::default::Default for DXGK_GPUVERSION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Power\"`"]
 #[cfg(feature = "Win32_System_Power")]
 pub struct DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
     pub Version: u32,
@@ -33360,7 +33261,6 @@ impl ::core::default::Default for DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Power\"`"]
 #[cfg(feature = "Win32_System_Power")]
 pub struct DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
     pub DeviceHandle: *mut ::core::ffi::c_void,
@@ -33835,60 +33735,45 @@ impl ::core::default::Default for _NT_D3DLINEPATTERN {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type LPD3DHAL_CLEAR2CB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_CLEAR2DATA) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type LPD3DHAL_CLEARCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_CLEARDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub type LPD3DHAL_CONTEXTCREATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTCREATEDATA) -> u32>;
 pub type LPD3DHAL_CONTEXTDESTROYALLCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTDESTROYALLDATA) -> u32>;
 pub type LPD3DHAL_CONTEXTDESTROYCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTDESTROYDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type LPD3DHAL_DRAWONEINDEXEDPRIMITIVECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type LPD3DHAL_DRAWONEPRIMITIVECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWONEPRIMITIVEDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub type LPD3DHAL_DRAWPRIMITIVES2CB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWPRIMITIVES2DATA) -> u32>;
 pub type LPD3DHAL_DRAWPRIMITIVESCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWPRIMITIVESDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type LPD3DHAL_GETSTATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_GETSTATEDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
 pub type LPD3DHAL_RENDERPRIMITIVECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_RENDERPRIMITIVEDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type LPD3DHAL_RENDERSTATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_RENDERSTATEDATA) -> u32>;
 pub type LPD3DHAL_SCENECAPTURECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_SCENECAPTUREDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub type LPD3DHAL_SETRENDERTARGETCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_SETRENDERTARGETDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type LPD3DHAL_TEXTURECREATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTURECREATEDATA) -> u32>;
 pub type LPD3DHAL_TEXTUREDESTROYCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTUREDESTROYDATA) -> u32>;
 pub type LPD3DHAL_TEXTUREGETSURFCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTUREGETSURFDATA) -> u32>;
 pub type LPD3DHAL_TEXTURESWAPCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTURESWAPDATA) -> u32>;
 pub type LPD3DHAL_VALIDATETEXTURESTAGESTATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_VALIDATETEXTURESTAGESTATEDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type LPD3DNTHAL_CLEAR2CB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CLEAR2DATA) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type LPD3DNTHAL_CONTEXTCREATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTCREATEDATA) -> u32>;
 pub type LPD3DNTHAL_CONTEXTDESTROYALLCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYALLDATA) -> u32>;
 pub type LPD3DNTHAL_CONTEXTDESTROYCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type LPD3DNTHAL_DRAWPRIMITIVES2CB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_DRAWPRIMITIVES2DATA) -> u32>;
 pub type LPD3DNTHAL_SCENECAPTURECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_SCENECAPTUREDATA) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type LPD3DNTHAL_SETRENDERTARGETCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_SETRENDERTARGETDATA) -> u32>;
 pub type LPD3DNTHAL_TEXTURECREATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURECREATEDATA) -> u32>;
@@ -33899,7 +33784,6 @@ pub type LPD3DNTHAL_VALIDATETEXTURESTAGESTATECB = ::core::option::Option<unsafe 
 pub type PDXGK_FSTATE_NOTIFICATION = ::core::option::Option<unsafe extern "system" fn(graphicsdevicehandle: *mut ::core::ffi::c_void, componentindex: u32, newfstate: u32, prenotification: super::super::super::Win32::Foundation::BOOLEAN, privatehandle: *mut ::core::ffi::c_void)>;
 pub type PDXGK_GRAPHICSPOWER_UNREGISTER = ::core::option::Option<unsafe extern "system" fn(devicehandle: *mut ::core::ffi::c_void, privatehandle: *mut ::core::ffi::c_void) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PDXGK_INITIAL_COMPONENT_STATE = ::core::option::Option<unsafe extern "system" fn(graphicsdevicehandle: *mut ::core::ffi::c_void, privatehandle: *mut ::core::ffi::c_void, componentindex: u32, isblockingtype: super::super::super::Win32::Foundation::BOOLEAN, initialfstate: u32, componentguid: ::windows_core::GUID, powercomponentmappingflag: u32)>;
-#[doc = "Required features: `\"Win32_System_Power\"`"]
 #[cfg(feature = "Win32_System_Power")]
 pub type PDXGK_POWER_NOTIFICATION = ::core::option::Option<unsafe extern "system" fn(graphicsdevicehandle: *mut ::core::ffi::c_void, newgrfxpowerstate: super::super::super::Win32::System::Power::DEVICE_POWER_STATE, prenotification: super::super::super::Win32::Foundation::BOOLEAN, privatehandle: *mut ::core::ffi::c_void)>;
 pub type PDXGK_REMOVAL_NOTIFICATION = ::core::option::Option<unsafe extern "system" fn(graphicsdevicehandle: *mut ::core::ffi::c_void, privatehandle: *mut ::core::ffi::c_void)>;
@@ -33909,7 +33793,6 @@ pub type PFND3DKMT_ACQUIREKEYEDMUTEX2 = ::core::option::Option<unsafe extern "sy
 pub type PFND3DKMT_ADJUSTFULLSCREENGAMMA = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_BUDGETCHANGENOTIFICATIONCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_BUDGETCHANGENOTIFICATION)>;
 pub type PFND3DKMT_CANCELPRESENTS = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CANCEL_PRESENTS) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type PFND3DKMT_CHANGESURFACEPOINTER = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGESURFACEPOINTER) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_CHANGEVIDEOMEMORYRESERVATION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -33928,7 +33811,6 @@ pub type PFND3DKMT_CREATEALLOCATION = ::core::option::Option<unsafe extern "syst
 pub type PFND3DKMT_CREATEALLOCATION2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_CREATECONTEXT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATECONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_CREATECONTEXTVIRTUAL = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATECONTEXTVIRTUAL) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type PFND3DKMT_CREATEDCFROMMEMORY = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEDCFROMMEMORY) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_CREATEDEVICE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEDEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -33946,7 +33828,6 @@ pub type PFND3DKMT_CREATESYNCHRONIZATIONOBJECT2 = ::core::option::Option<unsafe 
 pub type PFND3DKMT_DESTROYALLOCATION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYALLOCATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_DESTROYALLOCATION2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYALLOCATION2) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_DESTROYCONTEXT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYCONTEXT) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type PFND3DKMT_DESTROYDCFROMMEMORY = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYDCFROMMEMORY) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_DESTROYDEVICE = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYDEVICE) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -33995,7 +33876,6 @@ pub type PFND3DKMT_NOTIFYWORKSUBMISSION = ::core::option::Option<unsafe extern "
 pub type PFND3DKMT_OFFERALLOCATIONS = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_OFFERALLOCATIONS) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_OPENADAPTERFROMDEVICENAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_OPENADAPTERFROMGDIDISPLAYNAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type PFND3DKMT_OPENADAPTERFROMHDC = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMHDC) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_OPENADAPTERFROMLUID = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMLUID) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -34003,7 +33883,6 @@ pub type PFND3DKMT_OPENKEYEDMUTEX = ::core::option::Option<unsafe extern "system
 pub type PFND3DKMT_OPENKEYEDMUTEX2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEX2) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_OPENKEYEDMUTEXFROMNTHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_OPENNATIVEFENCEFROMNTHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 pub type PFND3DKMT_OPENNTHANDLEFROMNAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -34013,7 +33892,6 @@ pub type PFND3DKMT_OPENRESOURCEFROMNTHANDLE = ::core::option::Option<unsafe exte
 pub type PFND3DKMT_OPENSYNCHRONIZATIONOBJECT = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 pub type PFND3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_OUTPUTDUPLGETFRAMEINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -34071,7 +33949,6 @@ pub type PFND3DKMT_SETVIDPNSOURCEOWNER1 = ::core::option::Option<unsafe extern "
 pub type PFND3DKMT_SETVIDPNSOURCEOWNER2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER2) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_SHAREDPRIMARYLOCKNOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 pub type PFND3DKMT_SHAREOBJECTS = ::core::option::Option<unsafe extern "system" fn(cobjects: u32, hobjects: *const u32, pobjectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
 pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;

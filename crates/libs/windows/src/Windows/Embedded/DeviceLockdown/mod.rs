@@ -20,7 +20,6 @@ pub struct IDeviceLockdownProfileStatics_Vtbl {
 }
 pub struct DeviceLockdownProfile;
 impl DeviceLockdownProfile {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSupportedLockdownProfiles() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::GUID>> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {

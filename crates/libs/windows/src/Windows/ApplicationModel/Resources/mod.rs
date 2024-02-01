@@ -1,8 +1,6 @@
 #[cfg(feature = "ApplicationModel_Resources_Core")]
-#[doc = "Required features: `\"ApplicationModel_Resources_Core\"`"]
 pub mod Core;
 #[cfg(feature = "ApplicationModel_Resources_Management")]
-#[doc = "Required features: `\"ApplicationModel_Resources_Management\"`"]
 pub mod Management;
 ::windows_core::imp::com_interface!(IResourceLoader, IResourceLoader_Vtbl, 0x08524908_16ef_45ad_a602_293637d7e61a);
 #[repr(C)]
@@ -127,7 +125,6 @@ impl ResourceLoader {
             (::windows_core::Interface::vtable(this).GetForViewIndependentUseWithName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn GetForUIContext<P0>(context: P0) -> ::windows_core::Result<ResourceLoader>
     where

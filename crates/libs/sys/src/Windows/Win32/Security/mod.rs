@@ -1,44 +1,30 @@
 #[cfg(feature = "Win32_Security_AppLocker")]
-#[doc = "Required features: `\"Win32_Security_AppLocker\"`"]
 pub mod AppLocker;
 #[cfg(feature = "Win32_Security_Authentication")]
-#[doc = "Required features: `\"Win32_Security_Authentication\"`"]
 pub mod Authentication;
 #[cfg(feature = "Win32_Security_Authorization")]
-#[doc = "Required features: `\"Win32_Security_Authorization\"`"]
 pub mod Authorization;
 #[cfg(feature = "Win32_Security_Credentials")]
-#[doc = "Required features: `\"Win32_Security_Credentials\"`"]
 pub mod Credentials;
 #[cfg(feature = "Win32_Security_Cryptography")]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 pub mod Cryptography;
 #[cfg(feature = "Win32_Security_DiagnosticDataQuery")]
-#[doc = "Required features: `\"Win32_Security_DiagnosticDataQuery\"`"]
 pub mod DiagnosticDataQuery;
 #[cfg(feature = "Win32_Security_DirectoryServices")]
-#[doc = "Required features: `\"Win32_Security_DirectoryServices\"`"]
 pub mod DirectoryServices;
 #[cfg(feature = "Win32_Security_EnterpriseData")]
-#[doc = "Required features: `\"Win32_Security_EnterpriseData\"`"]
 pub mod EnterpriseData;
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-#[doc = "Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`"]
 pub mod ExtensibleAuthenticationProtocol;
 #[cfg(feature = "Win32_Security_Isolation")]
-#[doc = "Required features: `\"Win32_Security_Isolation\"`"]
 pub mod Isolation;
 #[cfg(feature = "Win32_Security_LicenseProtection")]
-#[doc = "Required features: `\"Win32_Security_LicenseProtection\"`"]
 pub mod LicenseProtection;
 #[cfg(feature = "Win32_Security_NetworkAccessProtection")]
-#[doc = "Required features: `\"Win32_Security_NetworkAccessProtection\"`"]
 pub mod NetworkAccessProtection;
 #[cfg(feature = "Win32_Security_WinTrust")]
-#[doc = "Required features: `\"Win32_Security_WinTrust\"`"]
 pub mod WinTrust;
 #[cfg(feature = "Win32_Security_WinWlx")]
-#[doc = "Required features: `\"Win32_Security_WinWlx\"`"]
 pub mod WinWlx;
 ::windows_targets::link!("advapi32.dll" "system" fn AccessCheck(psecuritydescriptor : PSECURITY_DESCRIPTOR, clienttoken : super::Foundation:: HANDLE, desiredaccess : u32, genericmapping : *const GENERIC_MAPPING, privilegeset : *mut PRIVILEGE_SET, privilegesetlength : *mut u32, grantedaccess : *mut u32, accessstatus : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn AccessCheckAndAuditAlarmA(subsystemname : ::windows_sys::core::PCSTR, handleid : *const ::core::ffi::c_void, objecttypename : ::windows_sys::core::PCSTR, objectname : ::windows_sys::core::PCSTR, securitydescriptor : PSECURITY_DESCRIPTOR, desiredaccess : u32, genericmapping : *const GENERIC_MAPPING, objectcreation : super::Foundation:: BOOL, grantedaccess : *mut u32, accessstatus : *mut super::Foundation:: BOOL, pfgenerateonclose : *mut super::Foundation:: BOOL) -> super::Foundation:: BOOL);

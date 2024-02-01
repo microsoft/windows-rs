@@ -9,7 +9,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
     let where_clause = writer.where_clause(&signature.params);
     let mut cfg = cfg::signature_cfg(writer, method);
     cfg.add_feature(def.namespace());
-    let doc = writer.cfg_method_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 
     if kind == metadata::InterfaceKind::None {
@@ -31,7 +30,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
             let where_clause = expand_where_clause(where_clause, quote!(T: ::windows_core::Interface));
 
             quote! {
-                #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows_core::Result<T> #where_clause {
                     let mut result__ = ::std::ptr::null_mut();
@@ -46,7 +44,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
             let where_clause = expand_where_clause(where_clause, quote!(T: ::windows_core::Interface));
 
             quote! {
-                #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()> #where_clause {
                     (::windows_core::Interface::vtable(self)#bases.#vname)(::windows_core::Interface::as_raw(self), #args).ok()
@@ -60,7 +57,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
             let return_type = writer.type_name(&return_type);
 
             quote! {
-                #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows_core::Result<#return_type> #where_clause {
                     let mut result__ = ::std::mem::zeroed();
@@ -73,7 +69,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
             let params = writer.win32_params(&signature.params, kind);
 
             quote! {
-                #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows_core::Result<()> #where_clause {
                     (::windows_core::Interface::vtable(self)#bases.#vname)(::windows_core::Interface::as_raw(self), #args).ok()
@@ -89,7 +84,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
 
             if is_nullable {
                 quote! {
-                    #doc
                     #features
                     pub unsafe fn #name<#generics>(&self, #params) -> ::windows_core::Result<#return_type> #where_clause {
                         let mut result__ = ::std::mem::zeroed();
@@ -99,7 +93,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
                 }
             } else {
                 quote! {
-                    #doc
                     #features
                     pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
                         let mut result__ = ::std::mem::zeroed();
@@ -115,7 +108,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
             let return_type = writer.type_name(&signature.return_type);
 
             quote! {
-                #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
                     let mut result__: #return_type = ::core::mem::zeroed();
@@ -130,7 +122,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
             let return_type = writer.return_sig(&signature);
 
             quote! {
-                #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) #return_type #where_clause {
                     (::windows_core::Interface::vtable(self)#bases.#vname)(::windows_core::Interface::as_raw(self), #args)
@@ -142,7 +133,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
             let params = writer.win32_params(&signature.params, kind);
 
             quote! {
-                #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) #where_clause {
                     (::windows_core::Interface::vtable(self)#bases.#vname)(::windows_core::Interface::as_raw(self), #args)

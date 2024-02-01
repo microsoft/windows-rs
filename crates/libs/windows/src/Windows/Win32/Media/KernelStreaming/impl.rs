@@ -260,7 +260,6 @@ impl IKsControl_Vtbl {
         iid == &<IKsControl as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 pub trait IKsDataTypeCompletion_Impl: Sized {
     fn KsCompleteMediaType(&self, filterhandle: super::super::Foundation::HANDLE, pinfactoryid: u32, ammediatype: *mut super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()>;
@@ -281,7 +280,6 @@ impl IKsDataTypeCompletion_Vtbl {
         iid == &<IKsDataTypeCompletion as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_Media_MediaFoundation"))]
 pub trait IKsDataTypeHandler_Impl: Sized {
     fn KsCompleteIoOperation(&self, sample: ::core::option::Option<&super::DirectShow::IMediaSample>, streamheader: *mut ::core::ffi::c_void, iooperation: KSIOOPERATION, cancelled: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -372,7 +370,6 @@ impl IKsFormatSupport_Vtbl {
         iid == &<IKsFormatSupport as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
 #[cfg(feature = "Win32_Media_DirectShow")]
 pub trait IKsInterfaceHandler_Impl: Sized {
     fn KsSetPin(&self, kspin: ::core::option::Option<&IKsPin>) -> ::windows_core::Result<()>;
@@ -622,7 +619,6 @@ impl IKsObject_Vtbl {
         iid == &<IKsObject as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
 #[cfg(feature = "Win32_Media_DirectShow")]
 pub trait IKsPin_Impl: Sized {
     fn KsQueryMediums(&self) -> ::windows_core::Result<*mut KSMULTIPLE_ITEM>;
@@ -742,7 +738,6 @@ impl IKsPin_Vtbl {
         iid == &<IKsPin as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
 #[cfg(feature = "Win32_Media_DirectShow")]
 pub trait IKsPinEx_Impl: Sized + IKsPin_Impl {
     fn KsNotifyError(&self, sample: ::core::option::Option<&super::DirectShow::IMediaSample>, hr: ::windows_core::HRESULT);
@@ -786,7 +781,6 @@ impl IKsPinFactory_Vtbl {
         iid == &<IKsPinFactory as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
 #[cfg(feature = "Win32_Media_DirectShow")]
 pub trait IKsPinPipe_Impl: Sized {
     fn KsGetPinFramingCache(&self, framingex: *mut *mut KSALLOCATOR_FRAMING_EX, framingprop: *mut FRAMING_PROP, option: FRAMING_CACHE_OPS) -> ::windows_core::Result<()>;

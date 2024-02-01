@@ -32,7 +32,6 @@ impl IPrintDialogCallback_Vtbl {
         iid == &<IPrintDialogCallback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IPrintDialogServices_Impl: Sized {
     fn GetCurrentDevMode(&self, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows_core::Result<()>;

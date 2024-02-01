@@ -88,7 +88,6 @@ pub struct II2cDeviceProvider_Vtbl {
 ::windows_core::imp::com_interface!(II2cProvider, II2cProvider_Vtbl, 0x6f13083e_bf62_4fe2_a95a_f08999669818);
 ::windows_core::imp::interface_hierarchy!(II2cProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl II2cProvider {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetControllersAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>> {
         let this = self;

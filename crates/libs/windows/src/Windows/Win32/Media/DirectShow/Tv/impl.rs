@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IATSCChannelTuneRequest_Impl: Sized + IChannelTuneRequest_Impl {
     fn MinorChannel(&self) -> ::windows_core::Result<i32>;
@@ -35,7 +34,6 @@ impl IATSCChannelTuneRequest_Vtbl {
         iid == &<IATSCChannelTuneRequest as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITuneRequest as ::windows_core::Interface>::IID || iid == &<IChannelTuneRequest as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
 pub trait IATSCComponentType_Impl: Sized + IMPEG2ComponentType_Impl {
     fn Flags(&self) -> ::windows_core::Result<i32>;
@@ -72,7 +70,6 @@ impl IATSCComponentType_Vtbl {
         iid == &<IATSCComponentType as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IComponentType as ::windows_core::Interface>::IID || iid == &<ILanguageComponentType as ::windows_core::Interface>::IID || iid == &<IMPEG2ComponentType as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IATSCLocator_Impl: Sized + IDigitalLocator_Impl {
     fn PhysicalChannel(&self) -> ::windows_core::Result<i32>;
@@ -129,7 +126,6 @@ impl IATSCLocator_Vtbl {
         iid == &<IATSCLocator as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ILocator as ::windows_core::Interface>::IID || iid == &<IDigitalLocator as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IATSCLocator2_Impl: Sized + IATSCLocator_Impl {
     fn ProgramNumber(&self) -> ::windows_core::Result<i32>;
@@ -166,7 +162,6 @@ impl IATSCLocator2_Vtbl {
         iid == &<IATSCLocator2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ILocator as ::windows_core::Interface>::IID || iid == &<IDigitalLocator as ::windows_core::Interface>::IID || iid == &<IATSCLocator as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IATSCTuningSpace_Impl: Sized + IAnalogTVTuningSpace_Impl {
     fn MinMinorChannel(&self) -> ::windows_core::Result<i32>;
@@ -1083,7 +1078,6 @@ impl IATSC_VCT_Vtbl {
         iid == &<IATSC_VCT as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
 pub trait IAnalogAudioComponentType_Impl: Sized + IComponentType_Impl {
     fn AnalogAudioMode(&self) -> ::windows_core::Result<super::TVAudioMode>;
@@ -1120,7 +1114,6 @@ impl IAnalogAudioComponentType_Vtbl {
         iid == &<IAnalogAudioComponentType as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IComponentType as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAnalogLocator_Impl: Sized + ILocator_Impl {
     fn VideoStandard(&self) -> ::windows_core::Result<super::AnalogVideoStandard>;
@@ -1157,7 +1150,6 @@ impl IAnalogLocator_Vtbl {
         iid == &<IAnalogLocator as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ILocator as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAnalogRadioTuningSpace_Impl: Sized + ITuningSpace_Impl {
     fn MinFrequency(&self) -> ::windows_core::Result<i32>;
@@ -1234,7 +1226,6 @@ impl IAnalogRadioTuningSpace_Vtbl {
         iid == &<IAnalogRadioTuningSpace as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITuningSpace as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAnalogRadioTuningSpace2_Impl: Sized + IAnalogRadioTuningSpace_Impl {
     fn CountryCode(&self) -> ::windows_core::Result<i32>;
@@ -1271,7 +1262,6 @@ impl IAnalogRadioTuningSpace2_Vtbl {
         iid == &<IAnalogRadioTuningSpace2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITuningSpace as ::windows_core::Interface>::IID || iid == &<IAnalogRadioTuningSpace as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAnalogTVTuningSpace_Impl: Sized + ITuningSpace_Impl {
     fn MinChannel(&self) -> ::windows_core::Result<i32>;
@@ -1686,7 +1676,6 @@ impl IAttributeSet_Vtbl {
         iid == &<IAttributeSet as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAuxInTuningSpace_Impl: Sized + ITuningSpace_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -1700,7 +1689,6 @@ impl IAuxInTuningSpace_Vtbl {
         iid == &<IAuxInTuningSpace as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITuningSpace as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAuxInTuningSpace2_Impl: Sized + IAuxInTuningSpace_Impl {
     fn CountryCode(&self) -> ::windows_core::Result<i32>;
@@ -1737,7 +1725,6 @@ impl IAuxInTuningSpace2_Vtbl {
         iid == &<IAuxInTuningSpace2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITuningSpace as ::windows_core::Interface>::IID || iid == &<IAuxInTuningSpace as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IBDAComparable_Impl: Sized {
     fn CompareExact(&self, compareto: ::core::option::Option<&super::super::super::System::Com::IDispatch>) -> ::windows_core::Result<i32>;
@@ -1832,7 +1819,6 @@ impl IBDAComparable_Vtbl {
         iid == &<IBDAComparable as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IBDACreateTuneRequestEx_Impl: Sized {
     fn CreateTuneRequestEx(&self, tunerequestiid: *const ::windows_core::GUID) -> ::windows_core::Result<ITuneRequest>;
@@ -2071,7 +2057,6 @@ impl ICaptionServiceDescriptor_Vtbl {
         iid == &<ICaptionServiceDescriptor as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IChannelIDTuneRequest_Impl: Sized + ITuneRequest_Impl {
     fn ChannelID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2108,7 +2093,6 @@ impl IChannelIDTuneRequest_Vtbl {
         iid == &<IChannelIDTuneRequest as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITuneRequest as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IChannelTuneRequest_Impl: Sized + ITuneRequest_Impl {
     fn Channel(&self) -> ::windows_core::Result<i32>;
@@ -2145,7 +2129,6 @@ impl IChannelTuneRequest_Vtbl {
         iid == &<IChannelTuneRequest as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITuneRequest as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IComponent_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Type(&self) -> ::windows_core::Result<IComponentType>;
@@ -2255,7 +2238,6 @@ impl IComponent_Vtbl {
         iid == &<IComponent as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
 pub trait IComponentType_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Category(&self) -> ::windows_core::Result<super::ComponentCategory>;
@@ -2445,7 +2427,6 @@ impl IComponentType_Vtbl {
         iid == &<IComponentType as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IComponentTypes_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -2554,7 +2535,6 @@ impl IComponentTypes_Vtbl {
         iid == &<IComponentTypes as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IComponents_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -2663,7 +2643,6 @@ impl IComponents_Vtbl {
         iid == &<IComponents as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IComponentsOld_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -2765,7 +2744,6 @@ impl IComponentsOld_Vtbl {
         iid == &<IComponentsOld as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub trait ICreatePropBagOnRegKey_Impl: Sized {
     fn Create(&self, hkey: super::super::super::System::Registry::HKEY, subkey: &::windows_core::PCWSTR, uloptions: u32, samdesired: u32, iid: *const ::windows_core::GUID, ppbag: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -2994,7 +2972,6 @@ impl IDTFilterConfig_Vtbl {
         iid == &<IDTFilterConfig as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDTFilterEvents_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -3025,7 +3002,6 @@ impl IDTFilterLicenseRenewal_Vtbl {
         iid == &<IDTFilterLicenseRenewal as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDVBCLocator_Impl: Sized + IDigitalLocator_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -3039,7 +3015,6 @@ impl IDVBCLocator_Vtbl {
         iid == &<IDVBCLocator as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ILocator as ::windows_core::Interface>::IID || iid == &<IDigitalLocator as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDVBSLocator_Impl: Sized + IDigitalLocator_Impl {
     fn SignalPolarisation(&self) -> ::windows_core::Result<super::Polarisation>;
@@ -3156,7 +3131,6 @@ impl IDVBSLocator_Vtbl {
         iid == &<IDVBSLocator as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ILocator as ::windows_core::Interface>::IID || iid == &<IDigitalLocator as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDVBSLocator2_Impl: Sized + IDVBSLocator_Impl {
     fn DiseqLNBSource(&self) -> ::windows_core::Result<super::LNB_Source>;
@@ -3313,7 +3287,6 @@ impl IDVBSLocator2_Vtbl {
         iid == &<IDVBSLocator2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ILocator as ::windows_core::Interface>::IID || iid == &<IDigitalLocator as ::windows_core::Interface>::IID || iid == &<IDVBSLocator as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDVBSTuningSpace_Impl: Sized + IDVBTuningSpace2_Impl {
     fn LowOscillator(&self) -> ::windows_core::Result<i32>;
@@ -3430,7 +3403,6 @@ impl IDVBSTuningSpace_Vtbl {
         iid == &<IDVBSTuningSpace as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITuningSpace as ::windows_core::Interface>::IID || iid == &<IDVBTuningSpace as ::windows_core::Interface>::IID || iid == &<IDVBTuningSpace2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDVBTLocator_Impl: Sized + IDigitalLocator_Impl {
     fn Bandwidth(&self) -> ::windows_core::Result<i32>;
@@ -3587,7 +3559,6 @@ impl IDVBTLocator_Vtbl {
         iid == &<IDVBTLocator as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ILocator as ::windows_core::Interface>::IID || iid == &<IDigitalLocator as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDVBTLocator2_Impl: Sized + IDVBTLocator_Impl {
     fn PhysicalLayerPipeId(&self) -> ::windows_core::Result<i32>;
@@ -3624,7 +3595,6 @@ impl IDVBTLocator2_Vtbl {
         iid == &<IDVBTLocator2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ILocator as ::windows_core::Interface>::IID || iid == &<IDigitalLocator as ::windows_core::Interface>::IID || iid == &<IDVBTLocator as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDVBTuneRequest_Impl: Sized + ITuneRequest_Impl {
     fn ONID(&self) -> ::windows_core::Result<i32>;
@@ -3701,7 +3671,6 @@ impl IDVBTuneRequest_Vtbl {
         iid == &<IDVBTuneRequest as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITuneRequest as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDVBTuningSpace_Impl: Sized + ITuningSpace_Impl {
     fn SystemType(&self) -> ::windows_core::Result<super::DVBSystemType>;
@@ -3738,7 +3707,6 @@ impl IDVBTuningSpace_Vtbl {
         iid == &<IDVBTuningSpace as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITuningSpace as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDVBTuningSpace2_Impl: Sized + IDVBTuningSpace_Impl {
     fn NetworkID(&self) -> ::windows_core::Result<i32>;
@@ -5106,7 +5074,6 @@ impl IDVB_TOT_Vtbl {
         iid == &<IDVB_TOT as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDigitalCableLocator_Impl: Sized + IATSCLocator2_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -5120,7 +5087,6 @@ impl IDigitalCableLocator_Vtbl {
         iid == &<IDigitalCableLocator as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ILocator as ::windows_core::Interface>::IID || iid == &<IDigitalLocator as ::windows_core::Interface>::IID || iid == &<IATSCLocator as ::windows_core::Interface>::IID || iid == &<IATSCLocator2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDigitalCableTuneRequest_Impl: Sized + IATSCChannelTuneRequest_Impl {
     fn MajorChannel(&self) -> ::windows_core::Result<i32>;
@@ -5177,7 +5143,6 @@ impl IDigitalCableTuneRequest_Vtbl {
         iid == &<IDigitalCableTuneRequest as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITuneRequest as ::windows_core::Interface>::IID || iid == &<IChannelTuneRequest as ::windows_core::Interface>::IID || iid == &<IATSCChannelTuneRequest as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDigitalCableTuningSpace_Impl: Sized + IATSCTuningSpace_Impl {
     fn MinMajorChannel(&self) -> ::windows_core::Result<i32>;
@@ -5274,7 +5239,6 @@ impl IDigitalCableTuningSpace_Vtbl {
         iid == &<IDigitalCableTuningSpace as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITuningSpace as ::windows_core::Interface>::IID || iid == &<IAnalogTVTuningSpace as ::windows_core::Interface>::IID || iid == &<IATSCTuningSpace as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDigitalLocator_Impl: Sized + ILocator_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -7949,7 +7913,6 @@ impl IDvbTerrestrialDeliverySystemDescriptor_Vtbl {
         iid == &<IDvbTerrestrialDeliverySystemDescriptor as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IESCloseMmiEvent_Impl: Sized + super::IESEvent_Impl {
     fn GetDialogNumber(&self) -> ::windows_core::Result<u32>;
@@ -8071,7 +8034,6 @@ impl IESEventServiceConfiguration_Vtbl {
         iid == &<IESEventServiceConfiguration as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IESFileExpiryDateEvent_Impl: Sized + super::IESEvent_Impl {
     fn GetTunerId(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -8166,7 +8128,6 @@ impl IESFileExpiryDateEvent_Vtbl {
         iid == &<IESFileExpiryDateEvent as ::windows_core::Interface>::IID || iid == &<super::IESEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IESIsdbCasResponseEvent_Impl: Sized + super::IESEvent_Impl {
     fn GetRequestId(&self) -> ::windows_core::Result<u32>;
@@ -8235,7 +8196,6 @@ impl IESIsdbCasResponseEvent_Vtbl {
         iid == &<IESIsdbCasResponseEvent as ::windows_core::Interface>::IID || iid == &<super::IESEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IESLicenseRenewalResultEvent_Impl: Sized + super::IESEvent_Impl {
     fn GetCallersId(&self) -> ::windows_core::Result<u32>;
@@ -8395,7 +8355,6 @@ impl IESLicenseRenewalResultEvent_Vtbl {
         iid == &<IESLicenseRenewalResultEvent as ::windows_core::Interface>::IID || iid == &<super::IESEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IESOpenMmiEvent_Impl: Sized + super::IESEvent_Impl {
     fn GetDialogNumber(&self, pdialogrequest: *mut u32) -> ::windows_core::Result<u32>;
@@ -8464,7 +8423,6 @@ impl IESOpenMmiEvent_Vtbl {
         iid == &<IESOpenMmiEvent as ::windows_core::Interface>::IID || iid == &<super::IESEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IESRequestTunerEvent_Impl: Sized + super::IESEvent_Impl {
     fn GetPriority(&self) -> ::windows_core::Result<u8>;
@@ -8533,7 +8491,6 @@ impl IESRequestTunerEvent_Vtbl {
         iid == &<IESRequestTunerEvent as ::windows_core::Interface>::IID || iid == &<super::IESEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IESValueUpdatedEvent_Impl: Sized + super::IESEvent_Impl {
     fn GetValueNames(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY>;
@@ -8653,7 +8610,6 @@ impl IETFilterConfig_Vtbl {
         iid == &<IETFilterConfig as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IETFilterEvents_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -8667,7 +8623,6 @@ impl IETFilterEvents_Vtbl {
         iid == &<IETFilterEvents as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumComponentTypes_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IComponentType>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -8718,7 +8673,6 @@ impl IEnumComponentTypes_Vtbl {
         iid == &<IEnumComponentTypes as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumComponents_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IComponent>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -8816,7 +8770,6 @@ impl IEnumGuideDataProperties_Vtbl {
         iid == &<IEnumGuideDataProperties as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumMSVidGraphSegment_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IMSVidGraphSegment>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -8914,7 +8867,6 @@ impl IEnumStreamBufferRecordingAttrib_Vtbl {
         iid == &<IEnumStreamBufferRecordingAttrib as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumTuneRequests_Impl: Sized {
     fn Next(&self, celt: u32, ppprop: *mut ::core::option::Option<ITuneRequest>, pcelt: *mut u32) -> ::windows_core::Result<()>;
@@ -8965,7 +8917,6 @@ impl IEnumTuneRequests_Vtbl {
         iid == &<IEnumTuneRequests as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumTuningSpaces_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<ITuningSpace>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -9016,7 +8967,6 @@ impl IEnumTuningSpaces_Vtbl {
         iid == &<IEnumTuningSpaces as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEvalRat_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn get_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel) -> ::windows_core::Result<i32>;
@@ -9202,7 +9152,6 @@ impl IGpnvsCommonBase_Vtbl {
         iid == &<IGpnvsCommonBase as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IGuideData_Impl: Sized {
     fn GetServices(&self) -> ::windows_core::Result<IEnumTuneRequests>;
@@ -9438,7 +9387,6 @@ impl IGuideDataProperty_Vtbl {
         iid == &<IGuideDataProperty as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IISDBSLocator_Impl: Sized + IDVBSLocator_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -12486,7 +12434,6 @@ impl IIsdbTerrestrialDeliverySystemDescriptor_Vtbl {
         iid == &<IIsdbTerrestrialDeliverySystemDescriptor as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
 pub trait ILanguageComponentType_Impl: Sized + IComponentType_Impl {
     fn LangID(&self) -> ::windows_core::Result<i32>;
@@ -12523,7 +12470,6 @@ impl ILanguageComponentType_Vtbl {
         iid == &<ILanguageComponentType as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IComponentType as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ILocator_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn CarrierFrequency(&self) -> ::windows_core::Result<i32>;
@@ -12693,7 +12639,6 @@ impl ILocator_Vtbl {
         iid == &<ILocator as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMPEG2Component_Impl: Sized + IComponent_Impl {
     fn PID(&self) -> ::windows_core::Result<i32>;
@@ -12770,7 +12715,6 @@ impl IMPEG2Component_Vtbl {
         iid == &<IMPEG2Component as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IComponent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
 pub trait IMPEG2ComponentType_Impl: Sized + ILanguageComponentType_Impl {
     fn StreamType(&self) -> ::windows_core::Result<super::MPEG2StreamType>;
@@ -12807,7 +12751,6 @@ impl IMPEG2ComponentType_Vtbl {
         iid == &<IMPEG2ComponentType as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IComponentType as ::windows_core::Interface>::IID || iid == &<ILanguageComponentType as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMPEG2TuneRequest_Impl: Sized + ITuneRequest_Impl {
     fn TSID(&self) -> ::windows_core::Result<i32>;
@@ -12864,7 +12807,6 @@ impl IMPEG2TuneRequest_Vtbl {
         iid == &<IMPEG2TuneRequest as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITuneRequest as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMPEG2TuneRequestFactory_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn CreateTuneRequest(&self, tuningspace: ::core::option::Option<&ITuningSpace>) -> ::windows_core::Result<IMPEG2TuneRequest>;
@@ -12965,7 +12907,6 @@ impl IMPEG2_TIF_CONTROL_Vtbl {
         iid == &<IMPEG2_TIF_CONTROL as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSEventBinder_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Bind(&self, peventobject: ::core::option::Option<&super::super::super::System::Com::IDispatch>, eventname: &::windows_core::BSTR, eventhandler: &::windows_core::BSTR) -> ::windows_core::Result<i32>;
@@ -13002,7 +12943,6 @@ impl IMSEventBinder_Vtbl {
         iid == &<IMSEventBinder as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidAnalogTuner_Impl: Sized + IMSVidTuner_Impl {
     fn Channel(&self) -> ::windows_core::Result<i32>;
@@ -13118,7 +13058,6 @@ impl IMSVidAnalogTuner_Vtbl {
         iid == &<IMSVidAnalogTuner as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows_core::Interface>::IID || iid == &<IMSVidVideoInputDevice as ::windows_core::Interface>::IID || iid == &<IMSVidTuner as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidAnalogTuner2_Impl: Sized + IMSVidAnalogTuner_Impl {
     fn TVFormats(&self) -> ::windows_core::Result<i32>;
@@ -13174,7 +13113,6 @@ impl IMSVidAnalogTuner2_Vtbl {
         iid == &<IMSVidAnalogTuner2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows_core::Interface>::IID || iid == &<IMSVidVideoInputDevice as ::windows_core::Interface>::IID || iid == &<IMSVidTuner as ::windows_core::Interface>::IID || iid == &<IMSVidAnalogTuner as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidAnalogTunerEvent_Impl: Sized + IMSVidTunerEvent_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -13188,7 +13126,6 @@ impl IMSVidAnalogTunerEvent_Vtbl {
         iid == &<IMSVidAnalogTunerEvent as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidTunerEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidAudioRenderer_Impl: Sized + IMSVidOutputDevice_Impl {
     fn SetVolume(&self, lvol: i32) -> ::windows_core::Result<()>;
@@ -13245,7 +13182,6 @@ impl IMSVidAudioRenderer_Vtbl {
         iid == &<IMSVidAudioRenderer as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidAudioRendererDevices_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -13315,7 +13251,6 @@ impl IMSVidAudioRendererDevices_Vtbl {
         iid == &<IMSVidAudioRendererDevices as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidAudioRendererEvent_Impl: Sized + IMSVidOutputDeviceEvent_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -13329,7 +13264,6 @@ impl IMSVidAudioRendererEvent_Vtbl {
         iid == &<IMSVidAudioRendererEvent as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidAudioRendererEvent2_Impl: Sized + IMSVidAudioRendererEvent_Impl {
     fn AVDecAudioDualMono(&self) -> ::windows_core::Result<()>;
@@ -13402,7 +13336,6 @@ impl IMSVidAudioRendererEvent2_Vtbl {
         iid == &<IMSVidAudioRendererEvent2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidAudioRendererEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidClosedCaptioning_Impl: Sized + IMSVidFeature_Impl {
     fn Enable(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
@@ -13439,7 +13372,6 @@ impl IMSVidClosedCaptioning_Vtbl {
         iid == &<IMSVidClosedCaptioning as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidFeature as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidClosedCaptioning2_Impl: Sized + IMSVidClosedCaptioning_Impl {
     fn Service(&self) -> ::windows_core::Result<MSVidCCService>;
@@ -13476,7 +13408,6 @@ impl IMSVidClosedCaptioning2_Vtbl {
         iid == &<IMSVidClosedCaptioning2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidFeature as ::windows_core::Interface>::IID || iid == &<IMSVidClosedCaptioning as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidClosedCaptioning3_Impl: Sized + IMSVidClosedCaptioning2_Impl {
     fn TeleTextFilter(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -13503,7 +13434,6 @@ impl IMSVidClosedCaptioning3_Vtbl {
         iid == &<IMSVidClosedCaptioning3 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidFeature as ::windows_core::Interface>::IID || iid == &<IMSVidClosedCaptioning as ::windows_core::Interface>::IID || iid == &<IMSVidClosedCaptioning2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidCompositionSegment_Impl: Sized + IMSVidGraphSegment_Impl {
     fn Compose(&self, upstream: ::core::option::Option<&IMSVidGraphSegment>, downstream: ::core::option::Option<&IMSVidGraphSegment>) -> ::windows_core::Result<()>;
@@ -13553,7 +13483,6 @@ impl IMSVidCompositionSegment_Vtbl {
         iid == &<IMSVidCompositionSegment as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IPersist as ::windows_core::Interface>::IID || iid == &<IMSVidGraphSegment as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidCtl_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn AutoSize(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
@@ -13997,7 +13926,6 @@ impl IMSVidCtl_Vtbl {
         iid == &<IMSVidCtl as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidDataServices_Impl: Sized + IMSVidFeature_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -14011,7 +13939,6 @@ impl IMSVidDataServices_Vtbl {
         iid == &<IMSVidDataServices as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidFeature as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidDataServicesEvent_Impl: Sized + IMSVidDeviceEvent_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -14025,7 +13952,6 @@ impl IMSVidDataServicesEvent_Vtbl {
         iid == &<IMSVidDataServicesEvent as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidDevice_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -14176,7 +14102,6 @@ impl IMSVidDevice2_Vtbl {
         iid == &<IMSVidDevice2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidDeviceEvent_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn StateChange(&self, lpd: ::core::option::Option<&IMSVidDevice>, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>;
@@ -14197,7 +14122,6 @@ impl IMSVidDeviceEvent_Vtbl {
         iid == &<IMSVidDeviceEvent as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidEVR_Impl: Sized + IMSVidVideoRenderer_Impl {
     fn Presenter(&self) -> ::windows_core::Result<super::super::MediaFoundation::IMFVideoPresenter>;
@@ -14254,7 +14178,6 @@ impl IMSVidEVR_Vtbl {
         iid == &<IMSVidEVR as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows_core::Interface>::IID || iid == &<IMSVidVideoRenderer as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidEVREvent_Impl: Sized + IMSVidOutputDeviceEvent_Impl {
     fn OnUserEvent(&self, leventcode: i32) -> ::windows_core::Result<()>;
@@ -14275,7 +14198,6 @@ impl IMSVidEVREvent_Vtbl {
         iid == &<IMSVidEVREvent as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidEncoder_Impl: Sized + IMSVidFeature_Impl {
     fn VideoEncoderInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -14318,7 +14240,6 @@ impl IMSVidEncoder_Vtbl {
         iid == &<IMSVidEncoder as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidFeature as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidFeature_Impl: Sized + IMSVidDevice_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -14332,7 +14253,6 @@ impl IMSVidFeature_Vtbl {
         iid == &<IMSVidFeature as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidFeatureEvent_Impl: Sized + IMSVidDeviceEvent_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -14346,7 +14266,6 @@ impl IMSVidFeatureEvent_Vtbl {
         iid == &<IMSVidFeatureEvent as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidFeatures_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -14416,7 +14335,6 @@ impl IMSVidFeatures_Vtbl {
         iid == &<IMSVidFeatures as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidFilePlayback_Impl: Sized + IMSVidPlayback_Impl {
     fn FileName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -14453,7 +14371,6 @@ impl IMSVidFilePlayback_Vtbl {
         iid == &<IMSVidFilePlayback as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows_core::Interface>::IID || iid == &<IMSVidPlayback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidFilePlayback2_Impl: Sized + IMSVidFilePlayback_Impl {
     fn Set_SourceFilter(&self, filename: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -14484,7 +14401,6 @@ impl IMSVidFilePlayback2_Vtbl {
         iid == &<IMSVidFilePlayback2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows_core::Interface>::IID || iid == &<IMSVidPlayback as ::windows_core::Interface>::IID || iid == &<IMSVidFilePlayback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidFilePlaybackEvent_Impl: Sized + IMSVidPlaybackEvent_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -14498,7 +14414,6 @@ impl IMSVidFilePlaybackEvent_Vtbl {
         iid == &<IMSVidFilePlaybackEvent as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidPlaybackEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidGenericSink_Impl: Sized + IMSVidOutputDevice_Impl {
     fn SetSinkFilter(&self, bstrname: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -14542,7 +14457,6 @@ impl IMSVidGenericSink_Vtbl {
         iid == &<IMSVidGenericSink as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidGenericSink2_Impl: Sized + IMSVidGenericSink_Impl {
     fn AddFilter(&self, bstrname: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -14573,7 +14487,6 @@ impl IMSVidGenericSink2_Vtbl {
         iid == &<IMSVidGenericSink2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows_core::Interface>::IID || iid == &<IMSVidGenericSink as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidGraphSegment_Impl: Sized + super::super::super::System::Com::IPersist_Impl {
     fn Init(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -14725,7 +14638,6 @@ impl IMSVidGraphSegment_Vtbl {
         iid == &<IMSVidGraphSegment as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IPersist as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidGraphSegmentContainer_Impl: Sized {
     fn Graph(&self) -> ::windows_core::Result<super::IGraphBuilder>;
@@ -14936,7 +14848,6 @@ impl IMSVidGraphSegmentUserInput_Vtbl {
         iid == &<IMSVidGraphSegmentUserInput as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidInputDevice_Impl: Sized + IMSVidDevice_Impl {
     fn IsViewable(&self, v: *const ::windows_core::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
@@ -14973,7 +14884,6 @@ impl IMSVidInputDevice_Vtbl {
         iid == &<IMSVidInputDevice as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidInputDeviceEvent_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -14987,7 +14897,6 @@ impl IMSVidInputDeviceEvent_Vtbl {
         iid == &<IMSVidInputDeviceEvent as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidInputDevices_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -15057,7 +14966,6 @@ impl IMSVidInputDevices_Vtbl {
         iid == &<IMSVidInputDevices as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidOutputDevice_Impl: Sized + IMSVidDevice_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -15071,7 +14979,6 @@ impl IMSVidOutputDevice_Vtbl {
         iid == &<IMSVidOutputDevice as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidOutputDeviceEvent_Impl: Sized + IMSVidDeviceEvent_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -15085,7 +14992,6 @@ impl IMSVidOutputDeviceEvent_Vtbl {
         iid == &<IMSVidOutputDeviceEvent as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidOutputDevices_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -15155,7 +15061,6 @@ impl IMSVidOutputDevices_Vtbl {
         iid == &<IMSVidOutputDevices as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidPlayback_Impl: Sized + IMSVidInputDevice_Impl {
     fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
@@ -15306,7 +15211,6 @@ impl IMSVidPlayback_Vtbl {
         iid == &<IMSVidPlayback as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidPlaybackEvent_Impl: Sized + IMSVidInputDeviceEvent_Impl {
     fn EndOfMedia(&self, lpd: ::core::option::Option<&IMSVidPlayback>) -> ::windows_core::Result<()>;
@@ -15327,7 +15231,6 @@ impl IMSVidPlaybackEvent_Vtbl {
         iid == &<IMSVidPlaybackEvent as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidRect_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Top(&self) -> ::windows_core::Result<i32>;
@@ -15451,7 +15354,6 @@ impl IMSVidRect_Vtbl {
         iid == &<IMSVidRect as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidStreamBufferRecordingControl_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn StartTime(&self) -> ::windows_core::Result<i32>;
@@ -15560,7 +15462,6 @@ impl IMSVidStreamBufferRecordingControl_Vtbl {
         iid == &<IMSVidStreamBufferRecordingControl as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidStreamBufferSink_Impl: Sized + IMSVidOutputDevice_Impl {
     fn get_ContentRecorder(&self, pszfilename: &::windows_core::BSTR) -> ::windows_core::Result<IMSVidStreamBufferRecordingControl>;
@@ -15643,7 +15544,6 @@ impl IMSVidStreamBufferSink_Vtbl {
         iid == &<IMSVidStreamBufferSink as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidStreamBufferSink2_Impl: Sized + IMSVidStreamBufferSink_Impl {
     fn UnlockProfile(&self) -> ::windows_core::Result<()>;
@@ -15664,7 +15564,6 @@ impl IMSVidStreamBufferSink2_Vtbl {
         iid == &<IMSVidStreamBufferSink2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows_core::Interface>::IID || iid == &<IMSVidStreamBufferSink as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidStreamBufferSink3_Impl: Sized + IMSVidStreamBufferSink2_Impl {
     fn SetMinSeek(&self) -> ::windows_core::Result<i32>;
@@ -15879,7 +15778,6 @@ impl IMSVidStreamBufferSink3_Vtbl {
         iid == &<IMSVidStreamBufferSink3 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows_core::Interface>::IID || iid == &<IMSVidStreamBufferSink as ::windows_core::Interface>::IID || iid == &<IMSVidStreamBufferSink2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidStreamBufferSinkEvent_Impl: Sized + IMSVidOutputDeviceEvent_Impl {
     fn CertificateFailure(&self) -> ::windows_core::Result<()>;
@@ -15917,7 +15815,6 @@ impl IMSVidStreamBufferSinkEvent_Vtbl {
         iid == &<IMSVidStreamBufferSinkEvent as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidStreamBufferSinkEvent2_Impl: Sized + IMSVidStreamBufferSinkEvent_Impl {
     fn EncryptionOn(&self) -> ::windows_core::Result<()>;
@@ -15948,7 +15845,6 @@ impl IMSVidStreamBufferSinkEvent2_Vtbl {
         iid == &<IMSVidStreamBufferSinkEvent2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidStreamBufferSinkEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidStreamBufferSinkEvent3_Impl: Sized + IMSVidStreamBufferSinkEvent2_Impl {
     fn LicenseChange(&self, dwprot: i32) -> ::windows_core::Result<()>;
@@ -15969,7 +15865,6 @@ impl IMSVidStreamBufferSinkEvent3_Vtbl {
         iid == &<IMSVidStreamBufferSinkEvent3 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidStreamBufferSinkEvent as ::windows_core::Interface>::IID || iid == &<IMSVidStreamBufferSinkEvent2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidStreamBufferSinkEvent4_Impl: Sized + IMSVidStreamBufferSinkEvent3_Impl {
     fn WriteFailureClear(&self) -> ::windows_core::Result<()>;
@@ -15990,7 +15885,6 @@ impl IMSVidStreamBufferSinkEvent4_Vtbl {
         iid == &<IMSVidStreamBufferSinkEvent4 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidStreamBufferSinkEvent as ::windows_core::Interface>::IID || iid == &<IMSVidStreamBufferSinkEvent2 as ::windows_core::Interface>::IID || iid == &<IMSVidStreamBufferSinkEvent3 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidStreamBufferSource_Impl: Sized + IMSVidFilePlayback_Impl {
     fn Start(&self) -> ::windows_core::Result<i32>;
@@ -16074,7 +15968,6 @@ impl IMSVidStreamBufferSource_Vtbl {
         iid == &<IMSVidStreamBufferSource as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows_core::Interface>::IID || iid == &<IMSVidPlayback as ::windows_core::Interface>::IID || iid == &<IMSVidFilePlayback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidStreamBufferSource2_Impl: Sized + IMSVidStreamBufferSource_Impl {
     fn put_RateEx(&self, dwrate: f64, dwframespersecond: u32) -> ::windows_core::Result<()>;
@@ -16150,7 +16043,6 @@ impl IMSVidStreamBufferSource2_Vtbl {
         iid == &<IMSVidStreamBufferSource2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows_core::Interface>::IID || iid == &<IMSVidPlayback as ::windows_core::Interface>::IID || iid == &<IMSVidFilePlayback as ::windows_core::Interface>::IID || iid == &<IMSVidStreamBufferSource as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidStreamBufferSourceEvent_Impl: Sized + IMSVidFilePlaybackEvent_Impl {
     fn CertificateFailure(&self) -> ::windows_core::Result<()>;
@@ -16230,7 +16122,6 @@ impl IMSVidStreamBufferSourceEvent_Vtbl {
         iid == &<IMSVidStreamBufferSourceEvent as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidPlaybackEvent as ::windows_core::Interface>::IID || iid == &<IMSVidFilePlaybackEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidStreamBufferSourceEvent2_Impl: Sized + IMSVidStreamBufferSourceEvent_Impl {
     fn RateChange(&self, qwnewrate: f64, qwoldrate: f64) -> ::windows_core::Result<()>;
@@ -16251,7 +16142,6 @@ impl IMSVidStreamBufferSourceEvent2_Vtbl {
         iid == &<IMSVidStreamBufferSourceEvent2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidPlaybackEvent as ::windows_core::Interface>::IID || iid == &<IMSVidFilePlaybackEvent as ::windows_core::Interface>::IID || iid == &<IMSVidStreamBufferSourceEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidStreamBufferSourceEvent3_Impl: Sized + IMSVidStreamBufferSourceEvent2_Impl {
     fn BroadcastEvent(&self, guid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -16303,7 +16193,6 @@ impl IMSVidStreamBufferSourceEvent3_Vtbl {
         iid == &<IMSVidStreamBufferSourceEvent3 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidPlaybackEvent as ::windows_core::Interface>::IID || iid == &<IMSVidFilePlaybackEvent as ::windows_core::Interface>::IID || iid == &<IMSVidStreamBufferSourceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidStreamBufferSourceEvent2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidStreamBufferV2SourceEvent_Impl: Sized + IMSVidFilePlaybackEvent_Impl {
     fn RatingsChanged(&self) -> ::windows_core::Result<()>;
@@ -16383,7 +16272,6 @@ impl IMSVidStreamBufferV2SourceEvent_Vtbl {
         iid == &<IMSVidStreamBufferV2SourceEvent as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidPlaybackEvent as ::windows_core::Interface>::IID || iid == &<IMSVidFilePlaybackEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidTuner_Impl: Sized + IMSVidVideoInputDevice_Impl {
     fn Tune(&self) -> ::windows_core::Result<ITuneRequest>;
@@ -16440,7 +16328,6 @@ impl IMSVidTuner_Vtbl {
         iid == &<IMSVidTuner as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows_core::Interface>::IID || iid == &<IMSVidVideoInputDevice as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidTunerEvent_Impl: Sized + IMSVidInputDeviceEvent_Impl {
     fn TuneChanged(&self, lpd: ::core::option::Option<&IMSVidTuner>) -> ::windows_core::Result<()>;
@@ -16461,7 +16348,6 @@ impl IMSVidTunerEvent_Vtbl {
         iid == &<IMSVidTunerEvent as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidVMR9_Impl: Sized + IMSVidVideoRenderer_Impl {
     fn Allocator_ID(&self) -> ::windows_core::Result<i32>;
@@ -16531,7 +16417,6 @@ impl IMSVidVMR9_Vtbl {
         iid == &<IMSVidVMR9 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows_core::Interface>::IID || iid == &<IMSVidVideoRenderer as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IMSVidVRGraphSegment_Impl: Sized + IMSVidGraphSegment_Impl {
     fn Set_VMRendererMode(&self, dwmode: i32) -> ::windows_core::Result<()>;
@@ -16743,7 +16628,6 @@ impl IMSVidVRGraphSegment_Vtbl {
         iid == &<IMSVidVRGraphSegment as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IPersist as ::windows_core::Interface>::IID || iid == &<IMSVidGraphSegment as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidVideoInputDevice_Impl: Sized + IMSVidInputDevice_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -16757,7 +16641,6 @@ impl IMSVidVideoInputDevice_Vtbl {
         iid == &<IMSVidVideoInputDevice as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidVideoRenderer_Impl: Sized + IMSVidOutputDevice_Impl {
     fn CustomCompositorClass(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -17086,7 +16969,6 @@ impl IMSVidVideoRenderer_Vtbl {
         iid == &<IMSVidVideoRenderer as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidVideoRenderer2_Impl: Sized + IMSVidVideoRenderer_Impl {
     fn Allocator(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -17176,7 +17058,6 @@ impl IMSVidVideoRenderer2_Vtbl {
         iid == &<IMSVidVideoRenderer2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidOutputDevice as ::windows_core::Interface>::IID || iid == &<IMSVidVideoRenderer as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IMSVidVideoRendererDevices_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -17246,7 +17127,6 @@ impl IMSVidVideoRendererDevices_Vtbl {
         iid == &<IMSVidVideoRendererDevices as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidVideoRendererEvent_Impl: Sized + IMSVidOutputDeviceEvent_Impl {
     fn OverlayUnavailable(&self) -> ::windows_core::Result<()>;
@@ -17267,7 +17147,6 @@ impl IMSVidVideoRendererEvent_Vtbl {
         iid == &<IMSVidVideoRendererEvent as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidVideoRendererEvent2_Impl: Sized + IMSVidOutputDeviceEvent_Impl {
     fn OverlayUnavailable(&self) -> ::windows_core::Result<()>;
@@ -17288,7 +17167,6 @@ impl IMSVidVideoRendererEvent2_Vtbl {
         iid == &<IMSVidVideoRendererEvent2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidOutputDeviceEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidWebDVD_Impl: Sized + IMSVidPlayback_Impl {
     fn OnDVDEvent(&self, levent: i32, lparam1: isize, lparam2: isize) -> ::windows_core::Result<()>;
@@ -18276,7 +18154,6 @@ impl IMSVidWebDVD_Vtbl {
         iid == &<IMSVidWebDVD as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows_core::Interface>::IID || iid == &<IMSVidPlayback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidWebDVD2_Impl: Sized + IMSVidWebDVD_Impl {
     fn get_Bookmark(&self, ppdata: *mut *mut u8, pdatalength: *mut u32) -> ::windows_core::Result<()>;
@@ -18307,7 +18184,6 @@ impl IMSVidWebDVD2_Vtbl {
         iid == &<IMSVidWebDVD2 as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidInputDevice as ::windows_core::Interface>::IID || iid == &<IMSVidPlayback as ::windows_core::Interface>::IID || iid == &<IMSVidWebDVD as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidWebDVDAdm_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn ChangePassword(&self, strusername: &::windows_core::BSTR, strold: &::windows_core::BSTR, strnew: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -18464,7 +18340,6 @@ impl IMSVidWebDVDAdm_Vtbl {
         iid == &<IMSVidWebDVDAdm as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidWebDVDEvent_Impl: Sized + IMSVidPlaybackEvent_Impl {
     fn DVDNotify(&self, leventcode: i32, lparam1: &::windows_core::VARIANT, lparam2: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
@@ -18642,7 +18517,6 @@ impl IMSVidWebDVDEvent_Vtbl {
         iid == &<IMSVidWebDVDEvent as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidInputDeviceEvent as ::windows_core::Interface>::IID || iid == &<IMSVidPlaybackEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidXDS_Impl: Sized + IMSVidFeature_Impl {
     fn ChannelChangeInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -18669,7 +18543,6 @@ impl IMSVidXDS_Vtbl {
         iid == &<IMSVidXDS as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IMSVidDevice as ::windows_core::Interface>::IID || iid == &<IMSVidFeature as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidXDSEvent_Impl: Sized + IMSVidFeatureEvent_Impl {
     fn RatingChange(&self, prevratingsystem: EnTvRat_System, prevlevel: EnTvRat_GenericLevel, prevattributes: BfEnTvRat_GenericAttributes, newratingsystem: EnTvRat_System, newlevel: EnTvRat_GenericLevel, newattributes: BfEnTvRat_GenericAttributes) -> ::windows_core::Result<()>;
@@ -19563,7 +19436,6 @@ impl IPTFilterLicenseRenewal_Vtbl {
         iid == &<IPTFilterLicenseRenewal as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPersistTuneXml_Impl: Sized + super::super::super::System::Com::IPersist_Impl {
     fn InitNew(&self) -> ::windows_core::Result<()>;
@@ -19630,7 +19502,6 @@ impl IPersistTuneXmlUtility_Vtbl {
         iid == &<IPersistTuneXmlUtility as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPersistTuneXmlUtility2_Impl: Sized + IPersistTuneXmlUtility_Impl {
     fn Serialize(&self, pitunerequest: ::core::option::Option<&ITuneRequest>) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -19835,7 +19706,6 @@ impl ISBE2GlobalEvent2_Vtbl {
         iid == &<ISBE2GlobalEvent2 as ::windows_core::Interface>::IID || iid == &<ISBE2GlobalEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 pub trait ISBE2MediaTypeProfile_Impl: Sized {
     fn GetStreamCount(&self) -> ::windows_core::Result<u32>;
@@ -20372,7 +20242,6 @@ impl ISIInbandEPGEvent_Vtbl {
         iid == &<ISIInbandEPGEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IScanningTuner_Impl: Sized + ITuner_Impl {
     fn SeekUp(&self) -> ::windows_core::Result<()>;
@@ -20424,7 +20293,6 @@ impl IScanningTuner_Vtbl {
         iid == &<IScanningTuner as ::windows_core::Interface>::IID || iid == &<ITuner as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IScanningTunerEx_Impl: Sized + IScanningTuner_Impl {
     fn GetCurrentLocator(&self, pilocator: *const ::core::option::Option<ILocator>) -> ::windows_core::Result<()>;
@@ -20837,7 +20705,6 @@ impl IStreamBufferDataCounters_Vtbl {
         iid == &<IStreamBufferDataCounters as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub trait IStreamBufferInitialize_Impl: Sized {
     fn SetHKEY(&self, hkeyroot: super::super::super::System::Registry::HKEY) -> ::windows_core::Result<()>;
@@ -21241,7 +21108,6 @@ impl ITSDT_Vtbl {
         iid == &<ITSDT as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITuneRequest_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace>;
@@ -21317,7 +21183,6 @@ impl ITuneRequest_Vtbl {
         iid == &<ITuneRequest as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITuneRequestInfo_Impl: Sized {
     fn GetLocatorData(&self, request: ::core::option::Option<&ITuneRequest>) -> ::windows_core::Result<()>;
@@ -21407,7 +21272,6 @@ impl ITuneRequestInfo_Vtbl {
         iid == &<ITuneRequestInfo as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITuneRequestInfoEx_Impl: Sized + ITuneRequestInfo_Impl {
     fn CreateComponentListEx(&self, currentrequest: ::core::option::Option<&ITuneRequest>) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -21434,7 +21298,6 @@ impl ITuneRequestInfoEx_Vtbl {
         iid == &<ITuneRequestInfoEx as ::windows_core::Interface>::IID || iid == &<ITuneRequestInfo as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITuner_Impl: Sized {
     fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace>;
@@ -21608,7 +21471,6 @@ impl ITunerCapEx_Vtbl {
         iid == &<ITunerCapEx as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITuningSpace_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn UniqueName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -21830,7 +21692,6 @@ impl ITuningSpace_Vtbl {
         iid == &<ITuningSpace as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITuningSpaceContainer_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -21998,7 +21859,6 @@ impl ITuningSpaceContainer_Vtbl {
         iid == &<ITuningSpaceContainer as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITuningSpaces_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -22180,7 +22040,6 @@ impl IXDSCodecConfig_Vtbl {
         iid == &<IXDSCodecConfig as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXDSCodecEvents_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -22194,7 +22053,6 @@ impl IXDSCodecEvents_Vtbl {
         iid == &<IXDSCodecEvents as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXDSToRat_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn Init(&self) -> ::windows_core::Result<()>;
@@ -22225,7 +22083,6 @@ impl IXDSToRat_Vtbl {
         iid == &<IXDSToRat as ::windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait _IMSVidCtlEvents_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {}
 #[cfg(feature = "Win32_System_Com")]

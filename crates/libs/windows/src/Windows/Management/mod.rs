@@ -1,17 +1,12 @@
 #[cfg(feature = "Management_Core")]
-#[doc = "Required features: `\"Management_Core\"`"]
 pub mod Core;
 #[cfg(feature = "Management_Deployment")]
-#[doc = "Required features: `\"Management_Deployment\"`"]
 pub mod Deployment;
 #[cfg(feature = "Management_Policies")]
-#[doc = "Required features: `\"Management_Policies\"`"]
 pub mod Policies;
 #[cfg(feature = "Management_Update")]
-#[doc = "Required features: `\"Management_Update\"`"]
 pub mod Update;
 #[cfg(feature = "Management_Workplace")]
-#[doc = "Required features: `\"Management_Workplace\"`"]
 pub mod Workplace;
 ::windows_core::imp::com_interface!(IMdmAlert, IMdmAlert_Vtbl, 0xb0fbc327_28c1_4b52_a548_c5807caf70b6);
 #[repr(C)]
@@ -166,7 +161,6 @@ impl ::windows_core::RuntimeName for MdmAlert {
 pub struct MdmSession(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(MdmSession, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl MdmSession {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Alerts(&self) -> ::windows_core::Result<super::Foundation::Collections::IVectorView<MdmAlert>> {
         let this = self;
@@ -214,7 +208,6 @@ impl MdmSession {
             (::windows_core::Interface::vtable(this).StartAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StartWithAlertsAsync<P0>(&self, alerts: P0) -> ::windows_core::Result<super::Foundation::IAsyncAction>
     where
@@ -239,7 +232,6 @@ impl ::windows_core::RuntimeName for MdmSession {
 }
 pub struct MdmSessionManager;
 impl MdmSessionManager {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SessionIds() -> ::windows_core::Result<super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         Self::IMdmSessionManagerStatics(|this| unsafe {

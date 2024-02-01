@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait ISideShowBulkCapabilities_Impl: Sized + ISideShowCapabilities_Impl {
     fn GetCapabilities(&self, in_keycollection: ::core::option::Option<&ISideShowKeyCollection>, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows_core::Result<()>;
@@ -19,7 +18,6 @@ impl ISideShowBulkCapabilities_Vtbl {
         iid == &<ISideShowBulkCapabilities as ::windows_core::Interface>::IID || iid == &<ISideShowCapabilities as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait ISideShowCapabilities_Impl: Sized {
     fn GetCapability(&self, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut ::windows_core::PROPVARIANT) -> ::windows_core::Result<()>;
@@ -226,7 +224,6 @@ impl ISideShowEvents_Vtbl {
         iid == &<ISideShowEvents as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait ISideShowKeyCollection_Impl: Sized {
     fn Add(&self, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<()>;
@@ -278,7 +275,6 @@ impl ISideShowKeyCollection_Vtbl {
         iid == &<ISideShowKeyCollection as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait ISideShowNotification_Impl: Sized {
     fn NotificationId(&self) -> ::windows_core::Result<u32>;

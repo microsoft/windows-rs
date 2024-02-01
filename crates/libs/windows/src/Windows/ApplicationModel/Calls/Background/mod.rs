@@ -8,12 +8,7 @@ pub struct IPhoneCallBlockedTriggerDetails_Vtbl {
     pub CallBlockedReason: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut PhoneCallBlockedReason) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    IPhoneCallOriginDataRequestTriggerDetails,
-    IPhoneCallOriginDataRequestTriggerDetails_Vtbl,
-    0x6e9b5b3f_c54b_4e82_4cc9_e329a4184592
-);
+::windows_core::imp::com_interface!(IPhoneCallOriginDataRequestTriggerDetails, IPhoneCallOriginDataRequestTriggerDetails_Vtbl, 0x6e9b5b3f_c54b_4e82_4cc9_e329a4184592);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -29,12 +24,7 @@ pub struct IPhoneCallOriginDataRequestTriggerDetails_Vtbl {
     PhoneNumber: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    IPhoneIncomingCallDismissedTriggerDetails,
-    IPhoneIncomingCallDismissedTriggerDetails_Vtbl,
-    0xbad30276_83b6_5732_9c38_0c206546196a
-);
+::windows_core::imp::com_interface!(IPhoneIncomingCallDismissedTriggerDetails, IPhoneIncomingCallDismissedTriggerDetails_Vtbl, 0xbad30276_83b6_5732_9c38_0c206546196a);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -130,7 +120,6 @@ impl ::windows_core::RuntimeName for PhoneCallBlockedTriggerDetails {
 }
 unsafe impl ::core::marker::Send for PhoneCallBlockedTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneCallBlockedTriggerDetails {}
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -139,7 +128,6 @@ pub struct PhoneCallOriginDataRequestTriggerDetails(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PhoneCallOriginDataRequestTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl PhoneCallOriginDataRequestTriggerDetails {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RequestId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
@@ -148,7 +136,6 @@ impl PhoneCallOriginDataRequestTriggerDetails {
             (::windows_core::Interface::vtable(this).RequestId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn PhoneNumber(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -175,7 +162,6 @@ impl ::windows_core::RuntimeName for PhoneCallOriginDataRequestTriggerDetails {
 unsafe impl ::core::marker::Send for PhoneCallOriginDataRequestTriggerDetails {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PhoneCallOriginDataRequestTriggerDetails {}
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -184,7 +170,6 @@ pub struct PhoneIncomingCallDismissedTriggerDetails(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PhoneIncomingCallDismissedTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl PhoneIncomingCallDismissedTriggerDetails {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn LineId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
@@ -193,7 +178,6 @@ impl PhoneIncomingCallDismissedTriggerDetails {
             (::windows_core::Interface::vtable(this).LineId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn PhoneNumber(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -202,7 +186,6 @@ impl PhoneIncomingCallDismissedTriggerDetails {
             (::windows_core::Interface::vtable(this).PhoneNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -211,7 +194,6 @@ impl PhoneIncomingCallDismissedTriggerDetails {
             (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn DismissalTime(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -220,7 +202,6 @@ impl PhoneIncomingCallDismissedTriggerDetails {
             (::windows_core::Interface::vtable(this).DismissalTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn TextReplyMessage(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -229,7 +210,6 @@ impl PhoneIncomingCallDismissedTriggerDetails {
             (::windows_core::Interface::vtable(this).TextReplyMessage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Reason(&self) -> ::windows_core::Result<PhoneIncomingCallDismissedReason> {
         let this = self;
@@ -385,7 +365,6 @@ impl ::core::fmt::Debug for PhoneCallBlockedReason {
 impl ::windows_core::RuntimeType for PhoneCallBlockedReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneCallBlockedReason;i4)");
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]

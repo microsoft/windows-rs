@@ -1,11 +1,8 @@
 #[cfg(feature = "Phone_System_Power")]
-#[doc = "Required features: `\"Phone_System_Power\"`"]
 pub mod Power;
 #[cfg(feature = "Phone_System_Profile")]
-#[doc = "Required features: `\"Phone_System_Profile\"`"]
 pub mod Profile;
 #[cfg(feature = "Phone_System_UserProfile")]
-#[doc = "Required features: `\"Phone_System_UserProfile\"`"]
 pub mod UserProfile;
 ::windows_core::imp::com_interface!(ISystemProtectionStatics, ISystemProtectionStatics_Vtbl, 0x49c36560_97e1_4d99_8bfb_befeaa6ace6d);
 #[repr(C)]

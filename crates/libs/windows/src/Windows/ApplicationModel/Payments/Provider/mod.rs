@@ -92,7 +92,6 @@ unsafe impl ::core::marker::Sync for PaymentAppCanMakePaymentTriggerDetails {}
 pub struct PaymentAppManager(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PaymentAppManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PaymentAppManager {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterAsync<P0>(&self, supportedpaymentmethodids: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where

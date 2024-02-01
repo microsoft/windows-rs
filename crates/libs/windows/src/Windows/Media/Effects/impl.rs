@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IAudioEffectDefinition_Impl: Sized {
     fn ActivatableClassId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -45,7 +44,6 @@ impl IAudioEffectDefinition_Vtbl {
         iid == &<IAudioEffectDefinition as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_MediaProperties\"`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
 pub trait IBasicAudioEffect_Impl: Sized + super::IMediaExtension_Impl {
     fn UseInputFrameForOutput(&self) -> ::windows_core::Result<bool>;
@@ -119,7 +117,6 @@ impl IBasicAudioEffect_Vtbl {
         iid == &<IBasicAudioEffect as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`, `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 pub trait IBasicVideoEffect_Impl: Sized + super::IMediaExtension_Impl {
     fn IsReadOnly(&self) -> ::windows_core::Result<bool>;
@@ -219,7 +216,6 @@ impl IBasicVideoEffect_Vtbl {
         iid == &<IBasicVideoEffect as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`, `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 pub trait IVideoCompositor_Impl: Sized + super::IMediaExtension_Impl {
     fn TimeIndependent(&self) -> ::windows_core::Result<bool>;
@@ -279,7 +275,6 @@ impl IVideoCompositor_Vtbl {
         iid == &<IVideoCompositor as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVideoCompositorDefinition_Impl: Sized {
     fn ActivatableClassId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -326,7 +321,6 @@ impl IVideoCompositorDefinition_Vtbl {
         iid == &<IVideoCompositorDefinition as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVideoEffectDefinition_Impl: Sized {
     fn ActivatableClassId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;

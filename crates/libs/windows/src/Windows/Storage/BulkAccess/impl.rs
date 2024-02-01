@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Storage_FileProperties\"`, `\"Storage_Streams\"`"]
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 pub trait IStorageItemInformation_Impl: Sized {
     fn MusicProperties(&self) -> ::windows_core::Result<super::FileProperties::MusicProperties>;

@@ -63,9 +63,9 @@
 ::windows_targets::link!("wininet.dll" "system" fn FtpDeleteFileA(hconnect : *const ::core::ffi::c_void, lpszfilename : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wininet.dll" "system" fn FtpDeleteFileW(hconnect : *const ::core::ffi::c_void, lpszfilename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Storage_FileSystem")]
-::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `\"Win32_Storage_FileSystem\"`"] fn FtpFindFirstFileA(hconnect : *const ::core::ffi::c_void, lpszsearchfile : ::windows_sys::core::PCSTR, lpfindfiledata : *mut super::super::Storage::FileSystem:: WIN32_FIND_DATAA, dwflags : u32, dwcontext : usize) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("wininet.dll" "system" fn FtpFindFirstFileA(hconnect : *const ::core::ffi::c_void, lpszsearchfile : ::windows_sys::core::PCSTR, lpfindfiledata : *mut super::super::Storage::FileSystem:: WIN32_FIND_DATAA, dwflags : u32, dwcontext : usize) -> *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Storage_FileSystem")]
-::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `\"Win32_Storage_FileSystem\"`"] fn FtpFindFirstFileW(hconnect : *const ::core::ffi::c_void, lpszsearchfile : ::windows_sys::core::PCWSTR, lpfindfiledata : *mut super::super::Storage::FileSystem:: WIN32_FIND_DATAW, dwflags : u32, dwcontext : usize) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("wininet.dll" "system" fn FtpFindFirstFileW(hconnect : *const ::core::ffi::c_void, lpszsearchfile : ::windows_sys::core::PCWSTR, lpfindfiledata : *mut super::super::Storage::FileSystem:: WIN32_FIND_DATAW, dwflags : u32, dwcontext : usize) -> *mut ::core::ffi::c_void);
 ::windows_targets::link!("wininet.dll" "system" fn FtpGetCurrentDirectoryA(hconnect : *const ::core::ffi::c_void, lpszcurrentdirectory : ::windows_sys::core::PSTR, lpdwcurrentdirectory : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wininet.dll" "system" fn FtpGetCurrentDirectoryW(hconnect : *const ::core::ffi::c_void, lpszcurrentdirectory : ::windows_sys::core::PWSTR, lpdwcurrentdirectory : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wininet.dll" "system" fn FtpGetFileA(hconnect : *const ::core::ffi::c_void, lpszremotefile : ::windows_sys::core::PCSTR, lpsznewfile : ::windows_sys::core::PCSTR, ffailifexists : super::super::Foundation:: BOOL, dwflagsandattributes : u32, dwflags : u32, dwcontext : usize) -> super::super::Foundation:: BOOL);
@@ -138,9 +138,9 @@
 ::windows_targets::link!("wininet.dll" "system" fn IncrementUrlCacheHeaderData(nidx : u32, lpdwdata : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wininet.dll" "system" fn InternalInternetGetCookie(lpszurl : ::windows_sys::core::PCSTR, lpszcookiedata : ::windows_sys::core::PSTR, lpdwdatasize : *mut u32) -> u32);
 #[cfg(feature = "Win32_Security_Cryptography")]
-::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `\"Win32_Security_Cryptography\"`"] fn InternetAlgIdToStringA(ai : super::super::Security::Cryptography:: ALG_ID, lpstr : ::windows_sys::core::PSTR, lpdwstrlength : *mut u32, dwreserved : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wininet.dll" "system" fn InternetAlgIdToStringA(ai : super::super::Security::Cryptography:: ALG_ID, lpstr : ::windows_sys::core::PSTR, lpdwstrlength : *mut u32, dwreserved : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security_Cryptography")]
-::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `\"Win32_Security_Cryptography\"`"] fn InternetAlgIdToStringW(ai : super::super::Security::Cryptography:: ALG_ID, lpstr : ::windows_sys::core::PWSTR, lpdwstrlength : *mut u32, dwreserved : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wininet.dll" "system" fn InternetAlgIdToStringW(ai : super::super::Security::Cryptography:: ALG_ID, lpstr : ::windows_sys::core::PWSTR, lpdwstrlength : *mut u32, dwreserved : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wininet.dll" "system" fn InternetAttemptConnect(dwreserved : u32) -> u32);
 ::windows_targets::link!("wininet.dll" "system" fn InternetAutodial(dwflags : INTERNET_AUTODIAL, hwndparent : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wininet.dll" "system" fn InternetAutodialHangup(dwreserved : u32) -> super::super::Foundation:: BOOL);
@@ -159,9 +159,9 @@
 ::windows_targets::link!("wininet.dll" "system" fn InternetConnectW(hinternet : *const ::core::ffi::c_void, lpszservername : ::windows_sys::core::PCWSTR, nserverport : u16, lpszusername : ::windows_sys::core::PCWSTR, lpszpassword : ::windows_sys::core::PCWSTR, dwservice : u32, dwflags : u32, dwcontext : usize) -> *mut ::core::ffi::c_void);
 ::windows_targets::link!("wininet.dll" "system" fn InternetConvertUrlFromWireToWideChar(pcszurl : ::windows_sys::core::PCSTR, cchurl : u32, pcwszbaseurl : ::windows_sys::core::PCWSTR, dwcodepagehost : u32, dwcodepagepath : u32, fencodepathextra : super::super::Foundation:: BOOL, dwcodepageextra : u32, ppwszconvertedurl : *mut ::windows_sys::core::PWSTR) -> u32);
 #[cfg(feature = "Win32_Networking_WinHttp")]
-::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `\"Win32_Networking_WinHttp\"`"] fn InternetCrackUrlA(lpszurl : ::windows_sys::core::PCSTR, dwurllength : u32, dwflags : super::WinHttp:: WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents : *mut URL_COMPONENTSA) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wininet.dll" "system" fn InternetCrackUrlA(lpszurl : ::windows_sys::core::PCSTR, dwurllength : u32, dwflags : super::WinHttp:: WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents : *mut URL_COMPONENTSA) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Networking_WinHttp")]
-::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `\"Win32_Networking_WinHttp\"`"] fn InternetCrackUrlW(lpszurl : ::windows_sys::core::PCWSTR, dwurllength : u32, dwflags : super::WinHttp:: WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents : *mut URL_COMPONENTSW) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wininet.dll" "system" fn InternetCrackUrlW(lpszurl : ::windows_sys::core::PCWSTR, dwurllength : u32, dwflags : super::WinHttp:: WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents : *mut URL_COMPONENTSW) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wininet.dll" "system" fn InternetCreateUrlA(lpurlcomponents : *const URL_COMPONENTSA, dwflags : u32, lpszurl : ::windows_sys::core::PSTR, lpdwurllength : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wininet.dll" "system" fn InternetCreateUrlW(lpurlcomponents : *const URL_COMPONENTSW, dwflags : u32, lpszurl : ::windows_sys::core::PWSTR, lpdwurllength : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wininet.dll" "system" fn InternetDial(hwndparent : super::super::Foundation:: HWND, lpszconnectoid : ::windows_sys::core::PCSTR, dwflags : u32, lpdwconnection : *mut u32, dwreserved : u32) -> u32);
@@ -190,11 +190,11 @@
 ::windows_targets::link!("wininet.dll" "system" fn InternetGetPerSiteCookieDecisionW(pchhostname : ::windows_sys::core::PCWSTR, presult : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wininet.dll" "system" fn InternetGetProxyForUrl(hinternet : *const ::core::ffi::c_void, pcwszurl : ::windows_sys::core::PCWSTR, pproxyinfolist : *mut WININET_PROXY_INFO_LIST) -> u32);
 #[cfg(feature = "Win32_Security_Cryptography")]
-::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `\"Win32_Security_Cryptography\"`"] fn InternetGetSecurityInfoByURL(lpszurl : ::windows_sys::core::PCSTR, ppcertchain : *mut *mut super::super::Security::Cryptography:: CERT_CHAIN_CONTEXT, pdwsecureflags : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wininet.dll" "system" fn InternetGetSecurityInfoByURL(lpszurl : ::windows_sys::core::PCSTR, ppcertchain : *mut *mut super::super::Security::Cryptography:: CERT_CHAIN_CONTEXT, pdwsecureflags : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security_Cryptography")]
-::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `\"Win32_Security_Cryptography\"`"] fn InternetGetSecurityInfoByURLA(lpszurl : ::windows_sys::core::PCSTR, ppcertchain : *mut *mut super::super::Security::Cryptography:: CERT_CHAIN_CONTEXT, pdwsecureflags : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wininet.dll" "system" fn InternetGetSecurityInfoByURLA(lpszurl : ::windows_sys::core::PCSTR, ppcertchain : *mut *mut super::super::Security::Cryptography:: CERT_CHAIN_CONTEXT, pdwsecureflags : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Security_Cryptography")]
-::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `\"Win32_Security_Cryptography\"`"] fn InternetGetSecurityInfoByURLW(lpszurl : ::windows_sys::core::PCWSTR, ppcertchain : *mut *mut super::super::Security::Cryptography:: CERT_CHAIN_CONTEXT, pdwsecureflags : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wininet.dll" "system" fn InternetGetSecurityInfoByURLW(lpszurl : ::windows_sys::core::PCWSTR, ppcertchain : *mut *mut super::super::Security::Cryptography:: CERT_CHAIN_CONTEXT, pdwsecureflags : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wininet.dll" "system" fn InternetGoOnline(lpszurl : ::windows_sys::core::PCSTR, hwndparent : super::super::Foundation:: HWND, dwflags : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wininet.dll" "system" fn InternetGoOnlineA(lpszurl : ::windows_sys::core::PCSTR, hwndparent : super::super::Foundation:: HWND, dwflags : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wininet.dll" "system" fn InternetGoOnlineW(lpszurl : ::windows_sys::core::PCWSTR, hwndparent : super::super::Foundation:: HWND, dwflags : u32) -> super::super::Foundation:: BOOL);
@@ -278,7 +278,7 @@
 ::windows_targets::link!("wininet.dll" "system" fn SetUrlCacheHeaderData(nidx : u32, dwdata : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wininet.dll" "system" fn ShowClientAuthCerts(hwndparent : super::super::Foundation:: HWND) -> u32);
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-::windows_targets::link!("wininet.dll" "system" #[doc = "Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Cryptography\"`"] fn ShowSecurityInfo(hwndparent : super::super::Foundation:: HWND, psecurityinfo : *const INTERNET_SECURITY_INFO) -> u32);
+::windows_targets::link!("wininet.dll" "system" fn ShowSecurityInfo(hwndparent : super::super::Foundation:: HWND, psecurityinfo : *const INTERNET_SECURITY_INFO) -> u32);
 ::windows_targets::link!("wininet.dll" "system" fn ShowX509EncodedCertificate(hwndparent : super::super::Foundation:: HWND, lpcert : *const u8, cbcert : u32) -> u32);
 ::windows_targets::link!("wininet.dll" "system" fn UnlockUrlCacheEntryFile(lpszurlname : ::windows_sys::core::PCSTR, dwreserved : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wininet.dll" "system" fn UnlockUrlCacheEntryFileA(lpszurlname : ::windows_sys::core::PCSTR, dwreserved : u32) -> super::super::Foundation:: BOOL);
@@ -2382,7 +2382,6 @@ impl ::core::clone::Clone for INTERNET_PROXY_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Cryptography\"`"]
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 pub struct INTERNET_SECURITY_CONNECTION_INFO {
     pub dwSize: u32,
@@ -2399,7 +2398,6 @@ impl ::core::clone::Clone for INTERNET_SECURITY_CONNECTION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Cryptography\"`"]
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 pub struct INTERNET_SECURITY_INFO {
     pub dwSize: u32,

@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Security_Credentials\"`"]
 #[cfg(feature = "Security_Credentials")]
 pub trait IBackgroundTransferBase_Impl: Sized {
     fn SetRequestHeader(&self, headername: &::windows_core::HSTRING, headervalue: &::windows_core::HSTRING) -> ::windows_core::Result<()>;
@@ -171,7 +170,6 @@ impl IBackgroundTransferContentPartFactory_Vtbl {
         iid == &<IBackgroundTransferContentPartFactory as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Storage_Streams\"`"]
 #[cfg(feature = "Storage_Streams")]
 pub trait IBackgroundTransferOperation_Impl: Sized {
     fn Guid(&self) -> ::windows_core::Result<::windows_core::GUID>;

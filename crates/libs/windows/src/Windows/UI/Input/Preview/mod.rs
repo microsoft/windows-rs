@@ -1,5 +1,4 @@
 #[cfg(feature = "UI_Input_Preview_Injection")]
-#[doc = "Required features: `\"UI_Input_Preview_Injection\"`"]
 pub mod Injection;
 ::windows_core::imp::com_interface!(IInputActivationListenerPreviewStatics, IInputActivationListenerPreviewStatics_Vtbl, 0xf0551ce5_0de6_5be0_a589_f737201a4582);
 #[repr(C)]
@@ -13,7 +12,6 @@ pub struct IInputActivationListenerPreviewStatics_Vtbl {
 }
 pub struct InputActivationListenerPreview;
 impl InputActivationListenerPreview {
-    #[doc = "Required features: `\"UI_WindowManagement\"`"]
     #[cfg(feature = "UI_WindowManagement")]
     pub fn CreateForApplicationWindow<P0>(window: P0) -> ::windows_core::Result<super::InputActivationListener>
     where

@@ -310,7 +310,6 @@ impl SelectableWordsSegmenter {
             (::windows_core::Interface::vtable(this).GetTokenAt)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), startindex, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetTokens(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<SelectableWordSegment>> {
         let this = self;
@@ -319,7 +318,6 @@ impl SelectableWordsSegmenter {
             (::windows_core::Interface::vtable(this).GetTokens)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Tokenize<P0>(&self, text: &::windows_core::HSTRING, startindex: u32, handler: P0) -> ::windows_core::Result<()>
     where
@@ -357,7 +355,6 @@ unsafe impl ::core::marker::Sync for SelectableWordsSegmenter {}
 pub struct SemanticTextQuery(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(SemanticTextQuery, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SemanticTextQuery {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Find(&self, content: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<TextSegment>> {
         let this = self;
@@ -366,7 +363,6 @@ impl SemanticTextQuery {
             (::windows_core::Interface::vtable(this).Find)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(content), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindInProperty(&self, propertycontent: &::windows_core::HSTRING, propertyname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<TextSegment>> {
         let this = self;
@@ -424,7 +420,6 @@ impl TextConversionGenerator {
             (::windows_core::Interface::vtable(this).LanguageAvailableButNotInstalled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCandidatesAsync(&self, input: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>> {
         let this = self;
@@ -433,7 +428,6 @@ impl TextConversionGenerator {
             (::windows_core::Interface::vtable(this).GetCandidatesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCandidatesWithMaxCountAsync(&self, input: &::windows_core::HSTRING, maxcandidates: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>> {
         let this = self;
@@ -517,7 +511,6 @@ impl TextPredictionGenerator {
             (::windows_core::Interface::vtable(this).LanguageAvailableButNotInstalled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCandidatesAsync(&self, input: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>> {
         let this = self;
@@ -526,7 +519,6 @@ impl TextPredictionGenerator {
             (::windows_core::Interface::vtable(this).GetCandidatesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCandidatesWithMaxCountAsync(&self, input: &::windows_core::HSTRING, maxcandidates: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>> {
         let this = self;
@@ -535,7 +527,6 @@ impl TextPredictionGenerator {
             (::windows_core::Interface::vtable(this).GetCandidatesWithMaxCountAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), maxcandidates, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCandidatesWithParametersAsync<P0>(&self, input: &::windows_core::HSTRING, maxcandidates: u32, predictionoptions: TextPredictionOptions, previousstrings: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>>
     where
@@ -547,7 +538,6 @@ impl TextPredictionGenerator {
             (::windows_core::Interface::vtable(this).GetCandidatesWithParametersAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), maxcandidates, predictionoptions, previousstrings.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetNextWordCandidatesAsync<P0>(&self, maxcandidates: u32, previousstrings: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>>
     where
@@ -559,7 +549,6 @@ impl TextPredictionGenerator {
             (::windows_core::Interface::vtable(this).GetNextWordCandidatesAsync)(::windows_core::Interface::as_raw(this), maxcandidates, previousstrings.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI_Text_Core\"`"]
     #[cfg(feature = "UI_Text_Core")]
     pub fn InputScope(&self) -> ::windows_core::Result<super::super::UI::Text::Core::CoreTextInputScope> {
         let this = &::windows_core::Interface::cast::<ITextPredictionGenerator2>(self)?;
@@ -568,7 +557,6 @@ impl TextPredictionGenerator {
             (::windows_core::Interface::vtable(this).InputScope)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI_Text_Core\"`"]
     #[cfg(feature = "UI_Text_Core")]
     pub fn SetInputScope(&self, value: super::super::UI::Text::Core::CoreTextInputScope) -> ::windows_core::Result<()> {
         let this = &::windows_core::Interface::cast::<ITextPredictionGenerator2>(self)?;
@@ -624,7 +612,6 @@ impl TextReverseConversionGenerator {
             (::windows_core::Interface::vtable(this).ConvertBackAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetPhonemesAsync(&self, input: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<TextPhoneme>>> {
         let this = &::windows_core::Interface::cast::<ITextReverseConversionGenerator2>(self)?;
@@ -786,7 +773,6 @@ impl WordSegment {
             (::windows_core::Interface::vtable(this).SourceTextSegment)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AlternateForms(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<AlternateWordForm>> {
         let this = self;
@@ -827,7 +813,6 @@ impl WordsSegmenter {
             (::windows_core::Interface::vtable(this).GetTokenAt)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), startindex, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetTokens(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<WordSegment>> {
         let this = self;
@@ -836,7 +821,6 @@ impl WordsSegmenter {
             (::windows_core::Interface::vtable(this).GetTokens)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Tokenize<P0>(&self, text: &::windows_core::HSTRING, startindex: u32, handler: P0) -> ::windows_core::Result<()>
     where
@@ -1042,19 +1026,13 @@ impl ::core::default::Default for TextSegment {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
-    SelectableWordSegmentsTokenizingHandler,
-    SelectableWordSegmentsTokenizingHandler_Vtbl,
-    0x3a3dfc9c_aede_4dc7_9e6c_41c044bd3592
-);
+::windows_core::imp::com_interface!(SelectableWordSegmentsTokenizingHandler, SelectableWordSegmentsTokenizingHandler_Vtbl, 0x3a3dfc9c_aede_4dc7_9e6c_41c044bd3592);
 #[cfg(feature = "Foundation_Collections")]
 impl SelectableWordSegmentsTokenizingHandler {
     pub fn new<F: FnMut(::core::option::Option<&super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, ::core::option::Option<&super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = SelectableWordSegmentsTokenizingHandlerBox::<F> { vtable: &SelectableWordSegmentsTokenizingHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Invoke<P0, P1>(&self, precedingwords: P0, words: P1) -> ::windows_core::Result<()>
     where
@@ -1123,19 +1101,13 @@ pub struct SelectableWordSegmentsTokenizingHandler_Vtbl {
     Invoke: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
-    WordSegmentsTokenizingHandler,
-    WordSegmentsTokenizingHandler_Vtbl,
-    0xa5dd6357_bf2a_4c4f_a31f_29e71c6f8b35
-);
+::windows_core::imp::com_interface!(WordSegmentsTokenizingHandler, WordSegmentsTokenizingHandler_Vtbl, 0xa5dd6357_bf2a_4c4f_a31f_29e71c6f8b35);
 #[cfg(feature = "Foundation_Collections")]
 impl WordSegmentsTokenizingHandler {
     pub fn new<F: FnMut(::core::option::Option<&super::super::Foundation::Collections::IIterable<WordSegment>>, ::core::option::Option<&super::super::Foundation::Collections::IIterable<WordSegment>>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = WordSegmentsTokenizingHandlerBox::<F> { vtable: &WordSegmentsTokenizingHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Invoke<P0, P1>(&self, precedingwords: P0, words: P1) -> ::windows_core::Result<()>
     where

@@ -76,12 +76,10 @@ fn gen_struct_with_name(writer: &Writer, def: metadata::TypeDef, struct_name: &s
         quote! { struct }
     };
 
-    let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 
     let mut tokens = quote! {
         #repr
-        #doc
         #features
         pub #struct_or_union #name {#(#fields)*}
     };

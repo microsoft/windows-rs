@@ -1063,7 +1063,6 @@ pub struct IVdsMaintenance_Vtbl {
 ::windows_core::imp::com_interface!(IVdsOpenVDisk, IVdsOpenVDisk_Vtbl, 0x75c8f324_f715_4fe3_a28e_f9011b61a4a1);
 ::windows_core::imp::interface_hierarchy!(IVdsOpenVDisk, ::windows_core::IUnknown);
 impl IVdsOpenVDisk {
-    #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn Attach<P0>(&self, pstringsecuritydescriptor: P0, flags: super::Vhd::ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, timeoutinms: u32) -> ::windows_core::Result<IVdsAsync>
     where
@@ -1072,29 +1071,24 @@ impl IVdsOpenVDisk {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Attach)(::windows_core::Interface::as_raw(self), pstringsecuritydescriptor.into_param().abi(), flags, providerspecificflags, timeoutinms, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn Detach(&self, flags: super::Vhd::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Detach)(::windows_core::Interface::as_raw(self), flags, providerspecificflags).ok()
     }
-    #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn DetachAndDelete(&self, flags: super::Vhd::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DetachAndDelete)(::windows_core::Interface::as_raw(self), flags, providerspecificflags).ok()
     }
-    #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn Compact(&self, flags: super::Vhd::COMPACT_VIRTUAL_DISK_FLAG, reserved: u32) -> ::windows_core::Result<IVdsAsync> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Compact)(::windows_core::Interface::as_raw(self), flags, reserved, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn Merge(&self, flags: super::Vhd::MERGE_VIRTUAL_DISK_FLAG, mergedepth: u32) -> ::windows_core::Result<IVdsAsync> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Merge)(::windows_core::Interface::as_raw(self), flags, mergedepth, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn Expand(&self, flags: super::Vhd::EXPAND_VIRTUAL_DISK_FLAG, newsize: u64) -> ::windows_core::Result<IVdsAsync> {
         let mut result__ = ::std::mem::zeroed();
@@ -1746,13 +1740,11 @@ pub struct IVdsSwProvider_Vtbl {
 ::windows_core::imp::com_interface!(IVdsVDisk, IVdsVDisk_Vtbl, 0x1e062b84_e5e6_4b4b_8a25_67b81e8f13e8);
 ::windows_core::imp::interface_hierarchy!(IVdsVDisk, ::windows_core::IUnknown);
 impl IVdsVDisk {
-    #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn Open(&self, accessmask: super::Vhd::VIRTUAL_DISK_ACCESS_MASK, flags: super::Vhd::OPEN_VIRTUAL_DISK_FLAG, readwritedepth: u32) -> ::windows_core::Result<IVdsOpenVDisk> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Open)(::windows_core::Interface::as_raw(self), accessmask, flags, readwritedepth, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn GetProperties(&self, pdiskproperties: *mut VDS_VDISK_PROPERTIES) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), pdiskproperties).ok()
@@ -1788,7 +1780,6 @@ impl IVdsVdProvider {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryVDisks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn CreateVDisk<P0, P1>(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: P0, pstringsecuritydescriptor: P1, flags: super::Vhd::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, reserved: u32, pcreatediskparameters: *const VDS_CREATE_VDISK_PARAMETERS, ppasync: *mut ::core::option::Option<IVdsAsync>) -> ::windows_core::Result<()>
     where
@@ -1797,7 +1788,6 @@ impl IVdsVdProvider {
     {
         (::windows_core::Interface::vtable(self).CreateVDisk)(::windows_core::Interface::as_raw(self), virtualdevicetype, ppath.into_param().abi(), pstringsecuritydescriptor.into_param().abi(), flags, providerspecificflags, reserved, pcreatediskparameters, ::core::mem::transmute(ppasync)).ok()
     }
-    #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn AddVDisk<P0>(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: P0, ppvdisk: *mut ::core::option::Option<IVdsVDisk>) -> ::windows_core::Result<()>
     where
@@ -7158,7 +7148,6 @@ impl ::core::default::Default for VDS_TARGET_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
 #[cfg(feature = "Win32_Storage_Vhd")]
 pub struct VDS_VDISK_PROPERTIES {
     pub Id: ::windows_core::GUID,

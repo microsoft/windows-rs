@@ -106,7 +106,6 @@ impl RemoteDesktopConnectionInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SwitchToLocalSession)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn GetForLaunchUri<P0>(launchuri: P0, windowid: super::super::super::UI::WindowId) -> ::windows_core::Result<RemoteDesktopConnectionInfo>
     where
@@ -255,7 +254,6 @@ unsafe impl ::core::marker::Send for RemoteDesktopInfo {}
 unsafe impl ::core::marker::Sync for RemoteDesktopInfo {}
 pub struct RemoteDesktopRegistrar;
 impl RemoteDesktopRegistrar {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DesktopInfos() -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<RemoteDesktopInfo>> {
         Self::IRemoteDesktopRegistrarStatics(|this| unsafe {

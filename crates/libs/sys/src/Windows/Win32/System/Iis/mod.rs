@@ -985,7 +985,6 @@ pub type SF_PROPERTY_IIS = i32;
 pub type SF_REQ_TYPE = i32;
 pub type SF_STATUS_TYPE = i32;
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct CERT_CONTEXT_EX {
     pub CertContext: super::super::Security::Cryptography::CERT_CONTEXT,

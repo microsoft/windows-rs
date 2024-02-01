@@ -1,5 +1,4 @@
 #[cfg(feature = "System_Profile_SystemManufacturers")]
-#[doc = "Required features: `\"System_Profile_SystemManufacturers\"`"]
 pub mod SystemManufacturers;
 ::windows_core::imp::com_interface!(IAnalyticsInfoStatics, IAnalyticsInfoStatics_Vtbl, 0x1d5ee066_188d_5ba9_4387_acaeb0e7e305);
 #[repr(C)]
@@ -213,7 +212,6 @@ impl AnalyticsInfo {
             (::windows_core::Interface::vtable(this).DeviceForm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSystemPropertiesAsync<P0>(attributenames: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::HSTRING>>>
     where
@@ -279,7 +277,6 @@ unsafe impl ::core::marker::Send for AnalyticsVersionInfo {}
 unsafe impl ::core::marker::Sync for AnalyticsVersionInfo {}
 pub struct AppApplicability;
 impl AppApplicability {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUnsupportedAppRequirements<P0>(capabilities: P0) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>>
     where
@@ -318,7 +315,6 @@ impl ::windows_core::RuntimeName for EducationSettings {
 }
 pub struct HardwareIdentification;
 impl HardwareIdentification {
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetPackageSpecificToken<P0>(nonce: P0) -> ::windows_core::Result<HardwareToken>
     where
@@ -343,7 +339,6 @@ impl ::windows_core::RuntimeName for HardwareIdentification {
 pub struct HardwareToken(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(HardwareToken, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HardwareToken {
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Id(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -352,7 +347,6 @@ impl HardwareToken {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Signature(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -361,7 +355,6 @@ impl HardwareToken {
             (::windows_core::Interface::vtable(this).Signature)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Certificate(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -569,7 +562,6 @@ impl RetailInfo {
             (::windows_core::Interface::vtable(this).IsDemoModeEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties() -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         Self::IRetailInfoStatics(|this| unsafe {
@@ -674,7 +666,6 @@ impl ::windows_core::RuntimeName for SystemIdentification {
 pub struct SystemIdentificationInfo(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(SystemIdentificationInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SystemIdentificationInfo {
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Id(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;

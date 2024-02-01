@@ -1,5 +1,4 @@
 #[cfg(feature = "UI_UIAutomation_Core")]
-#[doc = "Required features: `\"UI_UIAutomation_Core\"`"]
 pub mod Core;
 ::windows_core::imp::com_interface!(IAutomationConnection, IAutomationConnection_Vtbl, 0xaad262ed_0ef4_5d43_97be_a834e27b65b9);
 #[repr(C)]

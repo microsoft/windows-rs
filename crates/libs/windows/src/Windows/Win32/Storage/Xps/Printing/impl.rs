@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintDocumentPackageStatusEvent_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn PackageStatusUpdated(&self, packagestatus: *const PrintDocumentPackageStatus) -> ::windows_core::Result<()>;
@@ -89,7 +88,6 @@ impl IPrintDocumentPackageTarget2_Vtbl {
         iid == &<IPrintDocumentPackageTarget2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintDocumentPackageTargetFactory_Impl: Sized {
     fn CreateDocumentPackageTargetForPrintJob(&self, printername: &::windows_core::PCWSTR, jobname: &::windows_core::PCWSTR, joboutputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, jobprintticketstream: ::core::option::Option<&super::super::super::System::Com::IStream>) -> ::windows_core::Result<IPrintDocumentPackageTarget>;
@@ -146,7 +144,6 @@ impl IXpsPrintJob_Vtbl {
         iid == &<IXpsPrintJob as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXpsPrintJobStream_Impl: Sized + super::super::super::System::Com::ISequentialStream_Impl {
     fn Close(&self) -> ::windows_core::Result<()>;

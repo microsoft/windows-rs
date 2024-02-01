@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ILearningModelDeviceFactoryNative_Impl: Sized {
     fn CreateFromD3D12CommandQueue(&self, value: ::core::option::Option<&super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -28,7 +27,6 @@ impl ILearningModelDeviceFactoryNative_Vtbl {
         iid == &<ILearningModelDeviceFactoryNative as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_AI_MachineLearning_WinML\"`"]
 #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
 pub trait ILearningModelOperatorProviderNative_Impl: Sized {
     fn GetRegistry(&self) -> ::windows_core::Result<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry>;
@@ -92,7 +90,6 @@ impl ILearningModelSessionOptionsNative1_Vtbl {
         iid == &<ILearningModelSessionOptionsNative1 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ITensorNative_Impl: Sized {
     fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> ::windows_core::Result<()>;
@@ -129,7 +126,6 @@ impl ITensorNative_Vtbl {
         iid == &<ITensorNative as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ITensorStaticsNative_Impl: Sized {
     fn CreateFromD3D12Resource(&self, value: ::core::option::Option<&super::super::super::Graphics::Direct3D12::ID3D12Resource>, shape: *mut i64, shapecount: i32, result: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;

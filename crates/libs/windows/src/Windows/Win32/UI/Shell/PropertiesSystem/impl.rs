@@ -49,7 +49,6 @@ impl IInitializeWithFile_Vtbl {
         iid == &<IInitializeWithFile as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInitializeWithStream_Impl: Sized {
     fn Initialize(&self, pstream: ::core::option::Option<&super::super::super::System::Com::IStream>, grfmode: u32) -> ::windows_core::Result<()>;
@@ -314,7 +313,6 @@ impl IPropertyChangeArray_Vtbl {
         iid == &<IPropertyChangeArray as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Search_Common\"`"]
 #[cfg(feature = "Win32_System_Search_Common")]
 pub trait IPropertyDescription_Impl: Sized {
     fn GetPropertyKey(&self, pkey: *mut PROPERTYKEY) -> ::windows_core::Result<()>;
@@ -568,7 +566,6 @@ impl IPropertyDescription_Vtbl {
         iid == &<IPropertyDescription as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Search_Common\"`"]
 #[cfg(feature = "Win32_System_Search_Common")]
 pub trait IPropertyDescription2_Impl: Sized + IPropertyDescription_Impl {
     fn GetImageReferenceForValue(&self, propvar: *const ::windows_core::PROPVARIANT) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -598,7 +595,6 @@ impl IPropertyDescription2_Vtbl {
         iid == &<IPropertyDescription2 as ::windows_core::Interface>::IID || iid == &<IPropertyDescription as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Search_Common\"`"]
 #[cfg(feature = "Win32_System_Search_Common")]
 pub trait IPropertyDescriptionAliasInfo_Impl: Sized + IPropertyDescription_Impl {
     fn GetSortByAlias(&self, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -662,7 +658,6 @@ impl IPropertyDescriptionList_Vtbl {
         iid == &<IPropertyDescriptionList as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Search_Common\"`"]
 #[cfg(feature = "Win32_System_Search_Common")]
 pub trait IPropertyDescriptionRelatedPropertyInfo_Impl: Sized + IPropertyDescription_Impl {
     fn GetRelatedProperty(&self, pszrelationshipname: &::windows_core::PCWSTR, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -683,7 +678,6 @@ impl IPropertyDescriptionRelatedPropertyInfo_Vtbl {
         iid == &<IPropertyDescriptionRelatedPropertyInfo as ::windows_core::Interface>::IID || iid == &<IPropertyDescription as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Search_Common\"`"]
 #[cfg(feature = "Win32_System_Search_Common")]
 pub trait IPropertyDescriptionSearchInfo_Impl: Sized + IPropertyDescription_Impl {
     fn GetSearchInfoFlags(&self) -> ::windows_core::Result<PROPDESC_SEARCHINFO_FLAGS>;

@@ -831,7 +831,6 @@ impl SpatialHoldStartedEventArgs {
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Perception_Spatial\"`"]
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetPointerPose<P0>(&self, coordinatesystem: P0) -> ::windows_core::Result<SpatialPointerPose>
     where
@@ -900,7 +899,6 @@ impl SpatialInteractionController {
             (::windows_core::Interface::vtable(this).HasThumbstick)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Haptics\"`"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::super::Devices::Haptics::SimpleHapticsController> {
         let this = self;
@@ -930,7 +928,6 @@ impl SpatialInteractionController {
             (::windows_core::Interface::vtable(this).Version)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn TryGetRenderableModelAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = &::windows_core::Interface::cast::<ISpatialInteractionController2>(self)?;
@@ -939,7 +936,6 @@ impl SpatialInteractionController {
             (::windows_core::Interface::vtable(this).TryGetRenderableModelAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Power\"`"]
     #[cfg(feature = "Devices_Power")]
     pub fn TryGetBatteryReport(&self) -> ::windows_core::Result<super::super::super::Devices::Power::BatteryReport> {
         let this = &::windows_core::Interface::cast::<ISpatialInteractionController3>(self)?;
@@ -1040,7 +1036,6 @@ impl SpatialInteractionDetectedEventArgs {
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Perception_Spatial\"`"]
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetPointerPose<P0>(&self, coordinatesystem: P0) -> ::windows_core::Result<SpatialPointerPose>
     where
@@ -1168,7 +1163,6 @@ impl SpatialInteractionManager {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveInteractionDetected)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Perception\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Perception"))]
     pub fn GetDetectedSourcesAtTimestamp<P0>(&self, timestamp: P0) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>>
     where
@@ -1262,7 +1256,6 @@ impl SpatialInteractionSource {
             (::windows_core::Interface::vtable(this).Controller)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Perception\"`"]
     #[cfg(feature = "Perception")]
     pub fn TryGetStateAtTimestamp<P0>(&self, timestamp: P0) -> ::windows_core::Result<SpatialInteractionSourceState>
     where
@@ -1281,7 +1274,6 @@ impl SpatialInteractionSource {
             (::windows_core::Interface::vtable(this).Handedness)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Perception_People\"`"]
     #[cfg(feature = "Perception_People")]
     pub fn TryCreateHandMeshObserver(&self) -> ::windows_core::Result<super::super::super::Perception::People::HandMeshObserver> {
         let this = &::windows_core::Interface::cast::<ISpatialInteractionSource4>(self)?;
@@ -1290,7 +1282,6 @@ impl SpatialInteractionSource {
             (::windows_core::Interface::vtable(this).TryCreateHandMeshObserver)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Perception_People\"`"]
     #[cfg(feature = "Perception_People")]
     pub fn TryCreateHandMeshObserverAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Perception::People::HandMeshObserver>> {
         let this = &::windows_core::Interface::cast::<ISpatialInteractionSource4>(self)?;
@@ -1349,7 +1340,6 @@ unsafe impl ::core::marker::Sync for SpatialInteractionSourceEventArgs {}
 pub struct SpatialInteractionSourceLocation(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(SpatialInteractionSourceLocation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SpatialInteractionSourceLocation {
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
         let this = self;
@@ -1358,7 +1348,6 @@ impl SpatialInteractionSourceLocation {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Velocity(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
         let this = self;
@@ -1367,7 +1356,6 @@ impl SpatialInteractionSourceLocation {
             (::windows_core::Interface::vtable(this).Velocity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Orientation(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Quaternion>> {
         let this = &::windows_core::Interface::cast::<ISpatialInteractionSourceLocation2>(self)?;
@@ -1383,7 +1371,6 @@ impl SpatialInteractionSourceLocation {
             (::windows_core::Interface::vtable(this).PositionAccuracy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AngularVelocity(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
         let this = &::windows_core::Interface::cast::<ISpatialInteractionSourceLocation3>(self)?;
@@ -1417,7 +1404,6 @@ unsafe impl ::core::marker::Sync for SpatialInteractionSourceLocation {}
 pub struct SpatialInteractionSourceProperties(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(SpatialInteractionSourceProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SpatialInteractionSourceProperties {
-    #[doc = "Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn TryGetSourceLossMitigationDirection<P0>(&self, coordinatesystem: P0) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>
     where
@@ -1436,7 +1422,6 @@ impl SpatialInteractionSourceProperties {
             (::windows_core::Interface::vtable(this).SourceLossRisk)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Perception_Spatial\"`"]
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetLocation<P0>(&self, coordinatesystem: P0) -> ::windows_core::Result<SpatialInteractionSourceLocation>
     where
@@ -1487,7 +1472,6 @@ impl SpatialInteractionSourceState {
             (::windows_core::Interface::vtable(this).IsPressed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Perception\"`"]
     #[cfg(feature = "Perception")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::super::Perception::PerceptionTimestamp> {
         let this = self;
@@ -1496,7 +1480,6 @@ impl SpatialInteractionSourceState {
             (::windows_core::Interface::vtable(this).Timestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Perception_Spatial\"`"]
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetPointerPose<P0>(&self, coordinatesystem: P0) -> ::windows_core::Result<SpatialPointerPose>
     where
@@ -1543,7 +1526,6 @@ impl SpatialInteractionSourceState {
             (::windows_core::Interface::vtable(this).ControllerProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Perception_People\"`"]
     #[cfg(feature = "Perception_People")]
     pub fn TryGetHandPose(&self) -> ::windows_core::Result<super::super::super::Perception::People::HandPose> {
         let this = &::windows_core::Interface::cast::<ISpatialInteractionSourceState3>(self)?;
@@ -1602,7 +1584,6 @@ impl SpatialManipulationCompletedEventArgs {
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Perception_Spatial\"`"]
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetCumulativeDelta<P0>(&self, coordinatesystem: P0) -> ::windows_core::Result<SpatialManipulationDelta>
     where
@@ -1632,7 +1613,6 @@ unsafe impl ::core::marker::Sync for SpatialManipulationCompletedEventArgs {}
 pub struct SpatialManipulationDelta(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(SpatialManipulationDelta, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SpatialManipulationDelta {
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Translation(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -1666,7 +1646,6 @@ impl SpatialManipulationStartedEventArgs {
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Perception_Spatial\"`"]
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetPointerPose<P0>(&self, coordinatesystem: P0) -> ::windows_core::Result<SpatialPointerPose>
     where
@@ -1703,7 +1682,6 @@ impl SpatialManipulationUpdatedEventArgs {
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Perception_Spatial\"`"]
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetCumulativeDelta<P0>(&self, coordinatesystem: P0) -> ::windows_core::Result<SpatialManipulationDelta>
     where
@@ -1765,7 +1743,6 @@ impl SpatialNavigationCompletedEventArgs {
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn NormalizedOffset(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -1799,7 +1776,6 @@ impl SpatialNavigationStartedEventArgs {
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Perception_Spatial\"`"]
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetPointerPose<P0>(&self, coordinatesystem: P0) -> ::windows_core::Result<SpatialPointerPose>
     where
@@ -1857,7 +1833,6 @@ impl SpatialNavigationUpdatedEventArgs {
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn NormalizedOffset(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -1884,7 +1859,6 @@ unsafe impl ::core::marker::Sync for SpatialNavigationUpdatedEventArgs {}
 pub struct SpatialPointerInteractionSourcePose(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(SpatialPointerInteractionSourcePose, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SpatialPointerInteractionSourcePose {
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -1893,7 +1867,6 @@ impl SpatialPointerInteractionSourcePose {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn ForwardDirection(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -1902,7 +1875,6 @@ impl SpatialPointerInteractionSourcePose {
             (::windows_core::Interface::vtable(this).ForwardDirection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn UpDirection(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -1911,7 +1883,6 @@ impl SpatialPointerInteractionSourcePose {
             (::windows_core::Interface::vtable(this).UpDirection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Orientation(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Quaternion> {
         let this = &::windows_core::Interface::cast::<ISpatialPointerInteractionSourcePose2>(self)?;
@@ -1945,7 +1916,6 @@ unsafe impl ::core::marker::Sync for SpatialPointerInteractionSourcePose {}
 pub struct SpatialPointerPose(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(SpatialPointerPose, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SpatialPointerPose {
-    #[doc = "Required features: `\"Perception\"`"]
     #[cfg(feature = "Perception")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::super::Perception::PerceptionTimestamp> {
         let this = self;
@@ -1954,7 +1924,6 @@ impl SpatialPointerPose {
             (::windows_core::Interface::vtable(this).Timestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Perception_People\"`"]
     #[cfg(feature = "Perception_People")]
     pub fn Head(&self) -> ::windows_core::Result<super::super::super::Perception::People::HeadPose> {
         let this = self;
@@ -1973,7 +1942,6 @@ impl SpatialPointerPose {
             (::windows_core::Interface::vtable(this).TryGetInteractionSourcePose)(::windows_core::Interface::as_raw(this), source.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Perception_People\"`"]
     #[cfg(feature = "Perception_People")]
     pub fn Eyes(&self) -> ::windows_core::Result<super::super::super::Perception::People::EyesPose> {
         let this = &::windows_core::Interface::cast::<ISpatialPointerPose3>(self)?;
@@ -1989,7 +1957,6 @@ impl SpatialPointerPose {
             (::windows_core::Interface::vtable(this).IsHeadCapturedBySystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Perception_Spatial\"`"]
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetAtTimestamp<P0, P1>(coordinatesystem: P0, timestamp: P1) -> ::windows_core::Result<SpatialPointerPose>
     where
@@ -2056,7 +2023,6 @@ impl SpatialRecognitionStartedEventArgs {
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Perception_Spatial\"`"]
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetPointerPose<P0>(&self, coordinatesystem: P0) -> ::windows_core::Result<SpatialPointerPose>
     where
@@ -2100,7 +2066,6 @@ impl SpatialTappedEventArgs {
             (::windows_core::Interface::vtable(this).InteractionSourceKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Perception_Spatial\"`"]
     #[cfg(feature = "Perception_Spatial")]
     pub fn TryGetPointerPose<P0>(&self, coordinatesystem: P0) -> ::windows_core::Result<SpatialPointerPose>
     where

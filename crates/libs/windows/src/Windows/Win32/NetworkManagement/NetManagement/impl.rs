@@ -373,7 +373,6 @@ impl INetCfgClassSetup2_Vtbl {
         iid == &<INetCfgClassSetup2 as ::windows_core::Interface>::IID || iid == &<INetCfgClassSetup as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub trait INetCfgComponent_Impl: Sized {
     fn GetDisplayName(&self, ppszwdisplayname: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>;
@@ -959,7 +958,6 @@ impl INetRasConnectionIpUiInfo_Vtbl {
         iid == &<INetRasConnectionIpUiInfo as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 pub trait IProvisioningDomain_Impl: Sized {
     fn Add(&self, pszwpathtofolder: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;

@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"System\"`"]
 #[cfg(feature = "System")]
 pub trait IGameController_Impl: Sized {
     fn HeadsetConnected(&self, value: ::core::option::Option<&super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -118,7 +117,6 @@ impl IGameController_Vtbl {
         iid == &<IGameController as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Devices_Power\"`"]
 #[cfg(feature = "Devices_Power")]
 pub trait IGameControllerBatteryInfo_Impl: Sized {
     fn TryGetBatteryReport(&self) -> ::windows_core::Result<super::super::Devices::Power::BatteryReport>;

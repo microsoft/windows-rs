@@ -597,7 +597,6 @@ impl IDataModelScript {
     {
         (::windows_core::Interface::vtable(self).Rename)(::windows_core::Interface::as_raw(self), scriptname.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Populate<P0>(&self, contentstream: P0) -> ::windows_core::Result<()>
     where
@@ -1055,7 +1054,6 @@ impl IDataModelScriptTemplate {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetContent(&self) -> ::windows_core::Result<super::super::super::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
@@ -5600,12 +5598,10 @@ impl IDebugControl {
     {
         (::windows_core::Interface::vtable(self).GetExtensionFunction)(::windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(::windows_core::Interface::as_raw(self), api).ok()
@@ -6112,12 +6108,10 @@ impl IDebugControl2 {
     {
         (::windows_core::Interface::vtable(self).GetExtensionFunction)(::windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(::windows_core::Interface::as_raw(self), api).ok()
@@ -6678,12 +6672,10 @@ impl IDebugControl3 {
     {
         (::windows_core::Interface::vtable(self).GetExtensionFunction)(::windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(::windows_core::Interface::as_raw(self), api).ok()
@@ -7318,12 +7310,10 @@ impl IDebugControl4 {
     {
         (::windows_core::Interface::vtable(self).GetExtensionFunction)(::windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(::windows_core::Interface::as_raw(self), api).ok()
@@ -8303,12 +8293,10 @@ impl IDebugControl5 {
     {
         (::windows_core::Interface::vtable(self).GetExtensionFunction)(::windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(::windows_core::Interface::as_raw(self), api).ok()
@@ -9309,12 +9297,10 @@ impl IDebugControl6 {
     {
         (::windows_core::Interface::vtable(self).GetExtensionFunction)(::windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(::windows_core::Interface::as_raw(self), api).ok()
@@ -10324,12 +10310,10 @@ impl IDebugControl7 {
     {
         (::windows_core::Interface::vtable(self).GetExtensionFunction)(::windows_core::Interface::as_raw(self), handle, funcname.into_param().abi(), function).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis32(&self, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis32)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Kernel\"`"]
     #[cfg(feature = "Win32_System_Kernel")]
     pub unsafe fn GetWindbgExtensionApis64(&self, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetWindbgExtensionApis64)(::windows_core::Interface::as_raw(self), api).ok()
@@ -11180,7 +11164,6 @@ impl IDebugDataSpaces2 {
     pub unsafe fn FillPhysical(&self, start: u64, size: u32, pattern: *const ::core::ffi::c_void, patternsize: u32, filled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).FillPhysical)(::windows_core::Interface::as_raw(self), start, size, pattern, patternsize, ::core::mem::transmute(filled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Memory\"`"]
     #[cfg(feature = "Win32_System_Memory")]
     pub unsafe fn QueryVirtual(&self, offset: u64, info: *mut super::super::super::Memory::MEMORY_BASIC_INFORMATION64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryVirtual)(::windows_core::Interface::as_raw(self), offset, info).ok()
@@ -11301,12 +11284,10 @@ impl IDebugDataSpaces3 {
     pub unsafe fn FillPhysical(&self, start: u64, size: u32, pattern: *const ::core::ffi::c_void, patternsize: u32, filled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).FillPhysical)(::windows_core::Interface::as_raw(self), start, size, pattern, patternsize, ::core::mem::transmute(filled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Memory\"`"]
     #[cfg(feature = "Win32_System_Memory")]
     pub unsafe fn QueryVirtual(&self, offset: u64, info: *mut super::super::super::Memory::MEMORY_BASIC_INFORMATION64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryVirtual)(::windows_core::Interface::as_raw(self), offset, info).ok()
     }
-    #[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
     #[cfg(feature = "Win32_System_SystemInformation")]
     pub unsafe fn ReadImageNtHeaders(&self, imagebase: u64, headers: *mut super::IMAGE_NT_HEADERS64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReadImageNtHeaders)(::windows_core::Interface::as_raw(self), imagebase, headers).ok()
@@ -11448,12 +11429,10 @@ impl IDebugDataSpaces4 {
     pub unsafe fn FillPhysical(&self, start: u64, size: u32, pattern: *const ::core::ffi::c_void, patternsize: u32, filled: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).FillPhysical)(::windows_core::Interface::as_raw(self), start, size, pattern, patternsize, ::core::mem::transmute(filled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Memory\"`"]
     #[cfg(feature = "Win32_System_Memory")]
     pub unsafe fn QueryVirtual(&self, offset: u64, info: *mut super::super::super::Memory::MEMORY_BASIC_INFORMATION64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryVirtual)(::windows_core::Interface::as_raw(self), offset, info).ok()
     }
-    #[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
     #[cfg(feature = "Win32_System_SystemInformation")]
     pub unsafe fn ReadImageNtHeaders(&self, imagebase: u64, headers: *mut super::IMAGE_NT_HEADERS64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReadImageNtHeaders)(::windows_core::Interface::as_raw(self), imagebase, headers).ok()
@@ -11964,7 +11943,6 @@ impl IDebugFailureAnalysis2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDebugFATagControl)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn GetAnalysisXml(&self) -> ::windows_core::Result<super::super::super::super::Data::Xml::MsXml::IXMLDOMElement> {
         let mut result__ = ::std::mem::zeroed();
@@ -12087,7 +12065,6 @@ impl IDebugFailureAnalysis3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDebugFATagControl)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn GetAnalysisXml(&self) -> ::windows_core::Result<super::super::super::super::Data::Xml::MsXml::IXMLDOMElement> {
         let mut result__ = ::std::mem::zeroed();
@@ -17918,7 +17895,6 @@ impl IModelObject {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIntrinsicValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Variant\"`"]
     #[cfg(feature = "Win32_System_Variant")]
     pub unsafe fn GetIntrinsicValueAs(&self, vt: super::super::super::Variant::VARENUM) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -20596,7 +20572,6 @@ impl ::core::default::Default for CPU_INFO_v2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct DBGKD_DEBUG_DATA_HEADER32 {
     pub List: super::super::super::Kernel::LIST_ENTRY32,
@@ -20636,7 +20611,6 @@ impl ::core::default::Default for DBGKD_DEBUG_DATA_HEADER32 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct DBGKD_DEBUG_DATA_HEADER64 {
     pub List: super::super::super::Kernel::LIST_ENTRY64,
@@ -23809,7 +23783,6 @@ impl ::core::default::Default for IOSPACE_EX64 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct KDDEBUGGER_DATA32 {
     pub Header: DBGKD_DEBUG_DATA_HEADER32,
@@ -24044,7 +24017,6 @@ impl ::core::default::Default for KDDEBUGGER_DATA32 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct KDDEBUGGER_DATA64 {
     pub Header: DBGKD_DEBUG_DATA_HEADER64,
@@ -25989,7 +25961,6 @@ impl ::core::default::Default for WDBGEXTS_THREAD_OS_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct WINDBG_EXTENSION_APIS {
     pub nSize: u32,
@@ -26030,7 +26001,6 @@ impl ::core::default::Default for WINDBG_EXTENSION_APIS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct WINDBG_EXTENSION_APIS32 {
     pub nSize: u32,
@@ -26071,7 +26041,6 @@ impl ::core::default::Default for WINDBG_EXTENSION_APIS32 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct WINDBG_EXTENSION_APIS64 {
     pub nSize: u32,
@@ -26268,13 +26237,10 @@ pub type PWINDBG_DISASM = ::core::option::Option<unsafe extern "system" fn(lpoff
 pub type PWINDBG_DISASM32 = ::core::option::Option<unsafe extern "system" fn(lpoffset: *mut u32, lpbuffer: ::windows_core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
 pub type PWINDBG_DISASM64 = ::core::option::Option<unsafe extern "system" fn(lpoffset: *mut u64, lpbuffer: ::windows_core::PCSTR, fshoweffectiveaddress: u32) -> u32>;
 pub type PWINDBG_EXTENSION_API_VERSION = ::core::option::Option<unsafe extern "system" fn() -> *mut EXT_API_VERSION>;
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_EXTENSION_DLL_INIT = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS, majorversion: u16, minorversion: u16)>;
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_EXTENSION_DLL_INIT32 = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS32, majorversion: u16, minorversion: u16)>;
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_EXTENSION_DLL_INIT64 = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS64, majorversion: u16, minorversion: u16)>;
 pub type PWINDBG_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: ::windows_core::PCSTR)>;
@@ -26286,21 +26252,18 @@ pub type PWINDBG_GET_EXPRESSION64 = ::core::option::Option<unsafe extern "system
 pub type PWINDBG_GET_SYMBOL = ::core::option::Option<unsafe extern "system" fn(offset: *mut ::core::ffi::c_void, pchbuffer: ::windows_core::PCSTR, pdisplacement: *mut usize)>;
 pub type PWINDBG_GET_SYMBOL32 = ::core::option::Option<unsafe extern "system" fn(offset: u32, pchbuffer: ::windows_core::PCSTR, pdisplacement: *mut u32)>;
 pub type PWINDBG_GET_SYMBOL64 = ::core::option::Option<unsafe extern "system" fn(offset: u64, pchbuffer: ::windows_core::PCSTR, pdisplacement: *mut u64)>;
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut super::CONTEXT, cbsizeofcontext: u32) -> u32>;
 pub type PWINDBG_IOCTL_ROUTINE = ::core::option::Option<unsafe extern "system" fn(ioctltype: u16, lpvdata: *mut ::core::ffi::c_void, cbsize: u32) -> u32>;
 pub type PWINDBG_OLDKD_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_OLDKD_EXTENSION_APIS, lpargumentstring: ::windows_core::PCSTR)>;
 pub type PWINDBG_OLDKD_READ_PHYSICAL_MEMORY = ::core::option::Option<unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, count: u32, bytesread: *mut u32) -> u32>;
 pub type PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY = ::core::option::Option<unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, length: u32, byteswritten: *mut u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_OLD_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_EXTENSION_APIS, lpargumentstring: ::windows_core::PCSTR)>;
 pub type PWINDBG_OUTPUT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpformat: ::windows_core::PCSTR)>;
 pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(offset: usize, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
 pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(offset: u32, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
 pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(offset: u64, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut super::CONTEXT, cbsizeofcontext: u32) -> u32>;
 pub type PWINDBG_STACKTRACE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE, frames: u32) -> u32>;

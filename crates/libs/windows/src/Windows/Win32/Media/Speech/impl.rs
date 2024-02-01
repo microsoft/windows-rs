@@ -65,7 +65,6 @@ impl IEnumSpObjectTokens_Vtbl {
         iid == &<IEnumSpObjectTokens as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
 pub trait ISpAudio_Impl: Sized + ISpStreamFormat_Impl {
     fn SetState(&self, newstate: SPAUDIOSTATE, ullreserved: u64) -> ::windows_core::Result<()>;
@@ -519,7 +518,6 @@ impl ISpEventSource2_Vtbl {
         iid == &<ISpEventSource2 as ::windows_core::Interface>::IID || iid == &<ISpNotifySource as ::windows_core::Interface>::IID || iid == &<ISpEventSource as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpGramCompBackend_Impl: Sized + ISpGrammarBuilder_Impl {
     fn SetSaveObjects(&self, pstream: ::core::option::Option<&super::super::System::Com::IStream>, perrorlog: ::core::option::Option<&ISpErrorLog>) -> ::windows_core::Result<()>;
@@ -646,7 +644,6 @@ impl ISpGrammarBuilder2_Vtbl {
         iid == &<ISpGrammarBuilder2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpGrammarCompiler_Impl: Sized {
     fn CompileStream(&self, psource: ::core::option::Option<&super::super::System::Com::IStream>, pdest: ::core::option::Option<&super::super::System::Com::IStream>, pheader: ::core::option::Option<&super::super::System::Com::IStream>, preserved: ::core::option::Option<&::windows_core::IUnknown>, perrorlog: ::core::option::Option<&ISpErrorLog>, dwflags: u32) -> ::windows_core::Result<()>;
@@ -749,7 +746,6 @@ impl ISpLexicon_Vtbl {
         iid == &<ISpLexicon as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
 pub trait ISpMMSysAudio_Impl: Sized + ISpAudio_Impl {
     fn GetDeviceId(&self, pudeviceid: *mut u32) -> ::windows_core::Result<()>;
@@ -1417,7 +1413,6 @@ impl ISpPhrase_Vtbl {
         iid == &<ISpPhrase as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpPhrase2_Impl: Sized + ISpPhrase_Impl {
     fn GetXMLResult(&self, ppszcomemxmlresult: *mut ::windows_core::PWSTR, options: SPXMLRESULTOPTIONS) -> ::windows_core::Result<()>;
@@ -1629,7 +1624,6 @@ impl ISpProperties_Vtbl {
         iid == &<ISpProperties as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait ISpRecoContext_Impl: Sized + ISpEventSource_Impl {
     fn GetRecognizer(&self) -> ::windows_core::Result<ISpRecognizer>;
@@ -1830,7 +1824,6 @@ impl ISpRecoContext2_Vtbl {
         iid == &<ISpRecoContext2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpRecoGrammar_Impl: Sized + ISpGrammarBuilder_Impl {
     fn GetGrammarId(&self, pullgrammarid: *mut u64) -> ::windows_core::Result<()>;
@@ -1979,7 +1972,6 @@ impl ISpRecoGrammar_Vtbl {
         iid == &<ISpRecoGrammar as ::windows_core::Interface>::IID || iid == &<ISpGrammarBuilder as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_Urlmon\"`"]
 #[cfg(feature = "Win32_System_Com_Urlmon")]
 pub trait ISpRecoGrammar2_Impl: Sized {
     fn GetRules(&self, ppcomemrules: *mut *mut SPRULE, punumrules: *mut u32) -> ::windows_core::Result<()>;
@@ -2052,7 +2044,6 @@ impl ISpRecoGrammar2_Vtbl {
         iid == &<ISpRecoGrammar2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
 pub trait ISpRecoResult_Impl: Sized + ISpPhrase_Impl {
     fn GetResultTimes(&self, ptimes: *mut SPRECORESULTTIMES) -> ::windows_core::Result<()>;
@@ -2130,7 +2121,6 @@ impl ISpRecoResult_Vtbl {
         iid == &<ISpRecoResult as ::windows_core::Interface>::IID || iid == &<ISpPhrase as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
 pub trait ISpRecoResult2_Impl: Sized + ISpRecoResult_Impl {
     fn CommitAlternate(&self, pphrasealt: ::core::option::Option<&ISpPhraseAlt>) -> ::windows_core::Result<ISpRecoResult>;
@@ -2174,7 +2164,6 @@ impl ISpRecoResult2_Vtbl {
         iid == &<ISpRecoResult2 as ::windows_core::Interface>::IID || iid == &<ISpPhrase as ::windows_core::Interface>::IID || iid == &<ISpRecoResult as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
 pub trait ISpRecognizer_Impl: Sized + ISpProperties_Impl {
     fn SetRecognizer(&self, precognizer: ::core::option::Option<&ISpObjectToken>) -> ::windows_core::Result<()>;
@@ -2367,7 +2356,6 @@ impl ISpRecognizer2_Vtbl {
         iid == &<ISpRecognizer2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub trait ISpRegDataKey_Impl: Sized + ISpDataKey_Impl {
     fn SetKey(&self, hkey: super::super::System::Registry::HKEY, freadonly: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -2388,7 +2376,6 @@ impl ISpRegDataKey_Vtbl {
         iid == &<ISpRegDataKey as ::windows_core::Interface>::IID || iid == &<ISpDataKey as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpResourceManager_Impl: Sized + super::super::System::Com::IServiceProvider_Impl {
     fn SetObject(&self, guidserviceid: *const ::windows_core::GUID, punkobject: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -2463,7 +2450,6 @@ impl ISpSRAlternates2_Vtbl {
         iid == &<ISpSRAlternates2 as ::windows_core::Interface>::IID || iid == &<ISpSRAlternates as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait ISpSREngine_Impl: Sized {
     fn SetSite(&self, psite: ::core::option::Option<&ISpSREngineSite>) -> ::windows_core::Result<()>;
@@ -2707,7 +2693,6 @@ impl ISpSREngine_Vtbl {
         iid == &<ISpSREngine as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait ISpSREngine2_Impl: Sized + ISpSREngine_Impl {
     fn PrivateCallImmediate(&self, pvenginecontext: *const ::core::ffi::c_void, pincallframe: *const ::core::ffi::c_void, ulincallframesize: u32, ppvcomemresponse: *mut *mut ::core::ffi::c_void, pulresponsesize: *mut u32) -> ::windows_core::Result<()>;
@@ -3125,7 +3110,6 @@ impl ISpShortcut_Vtbl {
         iid == &<ISpShortcut as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
 pub trait ISpStream_Impl: Sized + ISpStreamFormat_Impl {
     fn SetBaseStream(&self, pstream: ::core::option::Option<&super::super::System::Com::IStream>, rguidformat: *const ::windows_core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows_core::Result<()>;
@@ -3176,7 +3160,6 @@ impl ISpStream_Vtbl {
         iid == &<ISpStream as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IStream as ::windows_core::Interface>::IID || iid == &<ISpStreamFormat as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
 pub trait ISpStreamFormat_Impl: Sized + super::super::System::Com::IStream_Impl {
     fn GetFormat(&self, pguidformatid: *const ::windows_core::GUID) -> ::windows_core::Result<*mut super::Audio::WAVEFORMATEX>;
@@ -3203,7 +3186,6 @@ impl ISpStreamFormat_Vtbl {
         iid == &<ISpStreamFormat as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IStream as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
 pub trait ISpStreamFormatConverter_Impl: Sized + ISpStreamFormat_Impl {
     fn SetBaseStream(&self, pstream: ::core::option::Option<&ISpStreamFormat>, fsetformattobasestreamformat: super::super::Foundation::BOOL, fwritetobasestream: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -3280,7 +3262,6 @@ impl ISpStreamFormatConverter_Vtbl {
         iid == &<ISpStreamFormatConverter as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::ISequentialStream as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IStream as ::windows_core::Interface>::IID || iid == &<ISpStreamFormat as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait ISpTTSEngine_Impl: Sized {
     fn Speak(&self, dwspeakflags: u32, rguidformatid: *const ::windows_core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX, ptextfraglist: *const SPVTEXTFRAG, poutputsite: ::core::option::Option<&ISpTTSEngineSite>) -> ::windows_core::Result<()>;
@@ -3674,7 +3655,6 @@ impl ISpTranscript_Vtbl {
         iid == &<ISpTranscript as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpVoice_Impl: Sized + ISpEventSource_Impl {
     fn SetOutput(&self, punkoutput: ::core::option::Option<&::windows_core::IUnknown>, fallowformatchanges: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -3884,7 +3864,6 @@ impl ISpVoice_Vtbl {
         iid == &<ISpVoice as ::windows_core::Interface>::IID || iid == &<ISpNotifySource as ::windows_core::Interface>::IID || iid == &<ISpEventSource as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
 pub trait ISpXMLRecoResult_Impl: Sized + ISpRecoResult_Impl {
     fn GetXMLResult(&self, ppszcomemxmlresult: *mut ::windows_core::PWSTR, options: SPXMLRESULTOPTIONS) -> ::windows_core::Result<()>;
@@ -3915,7 +3894,6 @@ impl ISpXMLRecoResult_Vtbl {
         iid == &<ISpXMLRecoResult as ::windows_core::Interface>::IID || iid == &<ISpPhrase as ::windows_core::Interface>::IID || iid == &<ISpRecoResult as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechAudio_Impl: Sized + ISpeechBaseStream_Impl {
     fn Status(&self) -> ::windows_core::Result<ISpeechAudioStatus>;
@@ -4031,7 +4009,6 @@ impl ISpeechAudio_Vtbl {
         iid == &<ISpeechAudio as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISpeechBaseStream as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechAudioBufferInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn MinNotification(&self) -> ::windows_core::Result<i32>;
@@ -4108,7 +4085,6 @@ impl ISpeechAudioBufferInfo_Vtbl {
         iid == &<ISpeechAudioBufferInfo as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechAudioFormat_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Type(&self) -> ::windows_core::Result<SpeechAudioFormatType>;
@@ -4185,7 +4161,6 @@ impl ISpeechAudioFormat_Vtbl {
         iid == &<ISpeechAudioFormat as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechAudioStatus_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn FreeBufferSpace(&self) -> ::windows_core::Result<i32>;
@@ -4267,7 +4242,6 @@ impl ISpeechAudioStatus_Vtbl {
         iid == &<ISpeechAudioStatus as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechBaseStream_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Format(&self) -> ::windows_core::Result<ISpeechAudioFormat>;
@@ -4337,7 +4311,6 @@ impl ISpeechBaseStream_Vtbl {
         iid == &<ISpeechBaseStream as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechCustomStream_Impl: Sized + ISpeechBaseStream_Impl {
     fn BaseStream(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -4374,7 +4347,6 @@ impl ISpeechCustomStream_Vtbl {
         iid == &<ISpeechCustomStream as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISpeechBaseStream as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechDataKey_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetBinaryValue(&self, valuename: &::windows_core::BSTR, value: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
@@ -4517,7 +4489,6 @@ impl ISpeechDataKey_Vtbl {
         iid == &<ISpeechDataKey as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechFileStream_Impl: Sized + ISpeechBaseStream_Impl {
     fn Open(&self, filename: &::windows_core::BSTR, filemode: SpeechStreamFileMode, doevents: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -4544,7 +4515,6 @@ impl ISpeechFileStream_Vtbl {
         iid == &<ISpeechFileStream as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISpeechBaseStream as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechGrammarRule_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Attributes(&self) -> ::windows_core::Result<SpeechRuleAttributes>;
@@ -4640,7 +4610,6 @@ impl ISpeechGrammarRule_Vtbl {
         iid == &<ISpeechGrammarRule as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechGrammarRuleState_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Rule(&self) -> ::windows_core::Result<ISpeechGrammarRule>;
@@ -4704,7 +4673,6 @@ impl ISpeechGrammarRuleState_Vtbl {
         iid == &<ISpeechGrammarRuleState as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechGrammarRuleStateTransition_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Type(&self) -> ::windows_core::Result<SpeechGrammarRuleStateTransitionType>;
@@ -4825,7 +4793,6 @@ impl ISpeechGrammarRuleStateTransition_Vtbl {
         iid == &<ISpeechGrammarRuleStateTransition as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechGrammarRuleStateTransitions_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -4881,7 +4848,6 @@ impl ISpeechGrammarRuleStateTransitions_Vtbl {
         iid == &<ISpeechGrammarRuleStateTransitions as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechGrammarRules_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -4990,7 +4956,6 @@ impl ISpeechGrammarRules_Vtbl {
         iid == &<ISpeechGrammarRules as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechLexicon_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GenerationId(&self) -> ::windows_core::Result<i32>;
@@ -5075,7 +5040,6 @@ impl ISpeechLexicon_Vtbl {
         iid == &<ISpeechLexicon as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechLexiconPronunciation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Type(&self) -> ::windows_core::Result<SpeechLexiconType>;
@@ -5157,7 +5121,6 @@ impl ISpeechLexiconPronunciation_Vtbl {
         iid == &<ISpeechLexiconPronunciation as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechLexiconPronunciations_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -5213,7 +5176,6 @@ impl ISpeechLexiconPronunciations_Vtbl {
         iid == &<ISpeechLexiconPronunciations as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechLexiconWord_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn LangId(&self) -> ::windows_core::Result<i32>;
@@ -5282,7 +5244,6 @@ impl ISpeechLexiconWord_Vtbl {
         iid == &<ISpeechLexiconWord as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechLexiconWords_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -5338,7 +5299,6 @@ impl ISpeechLexiconWords_Vtbl {
         iid == &<ISpeechLexiconWords as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechMMSysAudio_Impl: Sized + ISpeechAudio_Impl {
     fn DeviceId(&self) -> ::windows_core::Result<i32>;
@@ -5408,7 +5368,6 @@ impl ISpeechMMSysAudio_Vtbl {
         iid == &<ISpeechMMSysAudio as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISpeechBaseStream as ::windows_core::Interface>::IID || iid == &<ISpeechAudio as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechMemoryStream_Impl: Sized + ISpeechBaseStream_Impl {
     fn SetData(&self, data: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
@@ -5445,7 +5404,6 @@ impl ISpeechMemoryStream_Vtbl {
         iid == &<ISpeechMemoryStream as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISpeechBaseStream as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechObjectToken_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Id(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -5607,7 +5565,6 @@ impl ISpeechObjectToken_Vtbl {
         iid == &<ISpeechObjectToken as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechObjectTokenCategory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Id(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -5690,7 +5647,6 @@ impl ISpeechObjectTokenCategory_Vtbl {
         iid == &<ISpeechObjectTokenCategory as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechObjectTokens_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -5746,7 +5702,6 @@ impl ISpeechObjectTokens_Vtbl {
         iid == &<ISpeechObjectTokens as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechPhoneConverter_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn LanguageId(&self) -> ::windows_core::Result<i32>;
@@ -5809,7 +5764,6 @@ impl ISpeechPhoneConverter_Vtbl {
         iid == &<ISpeechPhoneConverter as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechPhraseAlternate_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RecoResult(&self) -> ::windows_core::Result<ISpeechRecoResult>;
@@ -5885,7 +5839,6 @@ impl ISpeechPhraseAlternate_Vtbl {
         iid == &<ISpeechPhraseAlternate as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechPhraseAlternates_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -5941,7 +5894,6 @@ impl ISpeechPhraseAlternates_Vtbl {
         iid == &<ISpeechPhraseAlternates as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechPhraseElement_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AudioTimeOffset(&self) -> ::windows_core::Result<i32>;
@@ -6127,7 +6079,6 @@ impl ISpeechPhraseElement_Vtbl {
         iid == &<ISpeechPhraseElement as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechPhraseElements_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -6183,7 +6134,6 @@ impl ISpeechPhraseElements_Vtbl {
         iid == &<ISpeechPhraseElements as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechPhraseInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn LanguageId(&self) -> ::windows_core::Result<i32>;
@@ -6408,7 +6358,6 @@ impl ISpeechPhraseInfo_Vtbl {
         iid == &<ISpeechPhraseInfo as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechPhraseInfoBuilder_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RestorePhraseFromMemory(&self, phraseinmemory: *const ::windows_core::VARIANT) -> ::windows_core::Result<ISpeechPhraseInfo>;
@@ -6438,7 +6387,6 @@ impl ISpeechPhraseInfoBuilder_Vtbl {
         iid == &<ISpeechPhraseInfoBuilder as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechPhraseProperties_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -6494,7 +6442,6 @@ impl ISpeechPhraseProperties_Vtbl {
         iid == &<ISpeechPhraseProperties as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechPhraseProperty_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -6628,7 +6575,6 @@ impl ISpeechPhraseProperty_Vtbl {
         iid == &<ISpeechPhraseProperty as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechPhraseReplacement_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DisplayAttributes(&self) -> ::windows_core::Result<SpeechDisplayAttributes>;
@@ -6697,7 +6643,6 @@ impl ISpeechPhraseReplacement_Vtbl {
         iid == &<ISpeechPhraseReplacement as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechPhraseReplacements_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -6753,7 +6698,6 @@ impl ISpeechPhraseReplacements_Vtbl {
         iid == &<ISpeechPhraseReplacements as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechPhraseRule_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -6874,7 +6818,6 @@ impl ISpeechPhraseRule_Vtbl {
         iid == &<ISpeechPhraseRule as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechPhraseRules_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -6930,7 +6873,6 @@ impl ISpeechPhraseRules_Vtbl {
         iid == &<ISpeechPhraseRules as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechRecoContext_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Recognizer(&self) -> ::windows_core::Result<ISpeechRecognizer>;
@@ -7200,7 +7142,6 @@ impl ISpeechRecoContext_Vtbl {
         iid == &<ISpeechRecoContext as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechRecoGrammar_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Id(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -7380,7 +7321,6 @@ impl ISpeechRecoGrammar_Vtbl {
         iid == &<ISpeechRecoGrammar as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechRecoResult_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RecoContext(&self) -> ::windows_core::Result<ISpeechRecoContext>;
@@ -7515,7 +7455,6 @@ impl ISpeechRecoResult_Vtbl {
         iid == &<ISpeechRecoResult as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechRecoResult2_Impl: Sized + ISpeechRecoResult_Impl {
     fn SetTextFeedback(&self, feedback: &::windows_core::BSTR, wassuccessful: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -7536,7 +7475,6 @@ impl ISpeechRecoResult2_Vtbl {
         iid == &<ISpeechRecoResult2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ISpeechRecoResult as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechRecoResultDispatch_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RecoContext(&self) -> ::windows_core::Result<ISpeechRecoContext>;
@@ -7698,7 +7636,6 @@ impl ISpeechRecoResultDispatch_Vtbl {
         iid == &<ISpeechRecoResultDispatch as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechRecoResultTimes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StreamTime(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -7767,7 +7704,6 @@ impl ISpeechRecoResultTimes_Vtbl {
         iid == &<ISpeechRecoResultTimes as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechRecognizer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn putref_Recognizer(&self, recognizer: ::core::option::Option<&ISpeechObjectToken>) -> ::windows_core::Result<()>;
@@ -8062,7 +7998,6 @@ impl ISpeechRecognizer_Vtbl {
         iid == &<ISpeechRecognizer as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechRecognizerStatus_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AudioStatus(&self) -> ::windows_core::Result<ISpeechAudioStatus>;
@@ -8157,7 +8092,6 @@ impl ISpeechRecognizerStatus_Vtbl {
         iid == &<ISpeechRecognizerStatus as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechResourceLoader_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn LoadResource(&self, bstrresourceuri: &::windows_core::BSTR, falwaysreload: super::super::Foundation::VARIANT_BOOL, pstream: *mut ::core::option::Option<::windows_core::IUnknown>, pbstrmimetype: *mut ::windows_core::BSTR, pfmodified: *mut super::super::Foundation::VARIANT_BOOL, pbstrredirecturl: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -8195,7 +8129,6 @@ impl ISpeechResourceLoader_Vtbl {
         iid == &<ISpeechResourceLoader as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechTextSelectionInformation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetActiveOffset(&self, activeoffset: i32) -> ::windows_core::Result<()>;
@@ -8292,7 +8225,6 @@ impl ISpeechTextSelectionInformation_Vtbl {
         iid == &<ISpeechTextSelectionInformation as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechVoice_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Status(&self) -> ::windows_core::Result<ISpeechVoiceStatus>;
@@ -8647,7 +8579,6 @@ impl ISpeechVoice_Vtbl {
         iid == &<ISpeechVoice as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechVoiceStatus_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CurrentStreamNumber(&self) -> ::windows_core::Result<i32>;
@@ -8820,7 +8751,6 @@ impl ISpeechVoiceStatus_Vtbl {
         iid == &<ISpeechVoiceStatus as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechWaveFormatEx_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn FormatTag(&self) -> ::windows_core::Result<i16>;
@@ -8977,7 +8907,6 @@ impl ISpeechWaveFormatEx_Vtbl {
         iid == &<ISpeechWaveFormatEx as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpeechXMLRecoResult_Impl: Sized + ISpeechRecoResult_Impl {
     fn GetXMLResult(&self, options: SPXMLRESULTOPTIONS) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -9041,7 +8970,6 @@ impl _ISpPrivateEngineCall_Vtbl {
         iid == &<_ISpPrivateEngineCall as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait _ISpeechRecoContextEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -9055,7 +8983,6 @@ impl _ISpeechRecoContextEvents_Vtbl {
         iid == &<_ISpeechRecoContextEvents as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait _ISpeechVoiceEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(feature = "Win32_System_Com")]

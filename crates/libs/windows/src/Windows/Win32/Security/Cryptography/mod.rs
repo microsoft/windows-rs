@@ -1,14 +1,10 @@
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-#[doc = "Required features: `\"Win32_Security_Cryptography_Catalog\"`"]
 pub mod Catalog;
 #[cfg(feature = "Win32_Security_Cryptography_Certificates")]
-#[doc = "Required features: `\"Win32_Security_Cryptography_Certificates\"`"]
 pub mod Certificates;
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
-#[doc = "Required features: `\"Win32_Security_Cryptography_Sip\"`"]
 pub mod Sip;
 #[cfg(feature = "Win32_Security_Cryptography_UI")]
-#[doc = "Required features: `\"Win32_Security_Cryptography_UI\"`"]
 pub mod UI;
 #[inline]
 pub unsafe fn BCryptAddContextFunction<P0, P1>(dwtable: BCRYPT_TABLE, pszcontext: P0, dwinterface: BCRYPT_INTERFACE, pszfunction: P1, dwposition: u32) -> super::super::Foundation::NTSTATUS
@@ -1922,7 +1918,6 @@ pub unsafe fn CryptSetKeyParam(hkey: usize, dwparam: CRYPT_KEY_PARAM_ID, pbdata:
     ::windows_targets::link!("advapi32.dll" "system" fn CryptSetKeyParam(hkey : usize, dwparam : CRYPT_KEY_PARAM_ID, pbdata : *const u8, dwflags : u32) -> super::super::Foundation:: BOOL);
     CryptSetKeyParam(hkey, dwparam, pbdata, dwflags).ok()
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn CryptSetOIDFunctionValue<P0, P1, P2>(dwencodingtype: u32, pszfuncname: P0, pszoid: P1, pwszvaluename: P2, dwvaluetype: super::super::System::Registry::REG_VALUE_TYPE, pbvaluedata: ::core::option::Option<&[u8]>) -> super::super::Foundation::BOOL
@@ -2863,12 +2858,7 @@ where
     VerifyHash(hcrypto, phash.len().try_into().unwrap(), ::core::mem::transmute(phash.as_ptr()), hashalgoid.into_param().abi(), psig.len().try_into().unwrap(), ::core::mem::transmute(psig.as_ptr()), &mut result__).from_abi(result__)
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ICertSrvSetup,
-    ICertSrvSetup_Vtbl,
-    0xb760a1bb_4784_44c0_8f12_555f0780ff25
-);
+::windows_core::imp::com_interface!(ICertSrvSetup, ICertSrvSetup_Vtbl, 0xb760a1bb_4784_44c0_8f12_555f0780ff25);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertSrvSetup, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2928,13 +2918,11 @@ impl ICertSrvSetup {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPrivateKeyContainerList)(::windows_core::Interface::as_raw(self), bstrprovidername.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetExistingCACertificates(&self) -> ::windows_core::Result<ICertSrvSetupKeyInformationCollection> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExistingCACertificates)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CAImportPFX<P0, P1, P2>(&self, bstrfilename: P0, bstrpasswd: P1, boverwriteexistingkey: P2) -> ::windows_core::Result<ICertSrvSetupKeyInformation>
     where
@@ -3021,12 +3009,7 @@ pub struct ICertSrvSetup_Vtbl {
     pub PostUnInstall: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ICertSrvSetupKeyInformation,
-    ICertSrvSetupKeyInformation_Vtbl,
-    0x6ba73778_36da_4c39_8a85_bcfa7d000793
-);
+::windows_core::imp::com_interface!(ICertSrvSetupKeyInformation, ICertSrvSetupKeyInformation_Vtbl, 0x6ba73778_36da_4c39_8a85_bcfa7d000793);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertSrvSetupKeyInformation, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3108,12 +3091,7 @@ pub struct ICertSrvSetupKeyInformation_Vtbl {
     pub SetExistingCACertificate: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ICertSrvSetupKeyInformationCollection,
-    ICertSrvSetupKeyInformationCollection_Vtbl,
-    0xe65c8b00_e58f_41f9_a9ec_a28d7427c844
-);
+::windows_core::imp::com_interface!(ICertSrvSetupKeyInformationCollection, ICertSrvSetupKeyInformationCollection_Vtbl, 0xe65c8b00_e58f_41f9_a9ec_a28d7427c844);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertSrvSetupKeyInformationCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3130,7 +3108,6 @@ impl ICertSrvSetupKeyInformationCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pikeyinformation: P0) -> ::windows_core::Result<()>
     where
@@ -3153,12 +3130,7 @@ pub struct ICertSrvSetupKeyInformationCollection_Vtbl {
     Add: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ICertificateEnrollmentPolicyServerSetup,
-    ICertificateEnrollmentPolicyServerSetup_Vtbl,
-    0x859252cc_238c_4a88_b8fd_a37e7d04e68b
-);
+::windows_core::imp::com_interface!(ICertificateEnrollmentPolicyServerSetup, ICertificateEnrollmentPolicyServerSetup_Vtbl, 0x859252cc_238c_4a88_b8fd_a37e7d04e68b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertificateEnrollmentPolicyServerSetup, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3197,12 +3169,7 @@ pub struct ICertificateEnrollmentPolicyServerSetup_Vtbl {
     pub UnInstall: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ICertificateEnrollmentServerSetup,
-    ICertificateEnrollmentServerSetup_Vtbl,
-    0x70027fdb_9dd9_4921_8944_b35cb31bd2ec
-);
+::windows_core::imp::com_interface!(ICertificateEnrollmentServerSetup, ICertificateEnrollmentServerSetup_Vtbl, 0x70027fdb_9dd9_4921_8944_b35cb31bd2ec);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertificateEnrollmentServerSetup, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3249,12 +3216,7 @@ pub struct ICertificateEnrollmentServerSetup_Vtbl {
     pub UnInstall: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMSCEPSetup,
-    IMSCEPSetup_Vtbl,
-    0x4f7761bb_9f3b_4592_9ee0_9a73259c313e
-);
+::windows_core::imp::com_interface!(IMSCEPSetup, IMSCEPSetup_Vtbl, 0x4f7761bb_9f3b_4592_9ee0_9a73259c313e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMSCEPSetup, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -12087,7 +12049,6 @@ impl ::core::default::Default for CERT_RDN_ATTR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub struct CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
     pub hKeyBase: super::super::System::Registry::HKEY,
@@ -12126,7 +12087,6 @@ impl ::core::default::Default for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub struct CERT_REGISTRY_STORE_ROAMING_PARA {
     pub hKey: super::super::System::Registry::HKEY,
@@ -12757,7 +12717,6 @@ impl ::core::default::Default for CERT_SYSTEM_STORE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub struct CERT_SYSTEM_STORE_RELOCATE_PARA {
     pub Anonymous1: CERT_SYSTEM_STORE_RELOCATE_PARA_0,
@@ -12782,7 +12741,6 @@ impl ::core::default::Default for CERT_SYSTEM_STORE_RELOCATE_PARA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub union CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
     pub hKeyBase: super::super::System::Registry::HKEY,
@@ -12807,7 +12765,6 @@ impl ::core::default::Default for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub union CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
     pub pvSystemStore: *mut ::core::ffi::c_void,

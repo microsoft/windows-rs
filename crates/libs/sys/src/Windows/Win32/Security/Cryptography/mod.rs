@@ -1,14 +1,10 @@
 #[cfg(feature = "Win32_Security_Cryptography_Catalog")]
-#[doc = "Required features: `\"Win32_Security_Cryptography_Catalog\"`"]
 pub mod Catalog;
 #[cfg(feature = "Win32_Security_Cryptography_Certificates")]
-#[doc = "Required features: `\"Win32_Security_Cryptography_Certificates\"`"]
 pub mod Certificates;
 #[cfg(feature = "Win32_Security_Cryptography_Sip")]
-#[doc = "Required features: `\"Win32_Security_Cryptography_Sip\"`"]
 pub mod Sip;
 #[cfg(feature = "Win32_Security_Cryptography_UI")]
-#[doc = "Required features: `\"Win32_Security_Cryptography_UI\"`"]
 pub mod UI;
 ::windows_targets::link!("bcrypt.dll" "system" fn BCryptAddContextFunction(dwtable : BCRYPT_TABLE, pszcontext : ::windows_sys::core::PCWSTR, dwinterface : BCRYPT_INTERFACE, pszfunction : ::windows_sys::core::PCWSTR, dwposition : u32) -> super::super::Foundation:: NTSTATUS);
 ::windows_targets::link!("bcrypt.dll" "system" fn BCryptCloseAlgorithmProvider(halgorithm : BCRYPT_ALG_HANDLE, dwflags : u32) -> super::super::Foundation:: NTSTATUS);
@@ -295,7 +291,7 @@ pub mod UI;
 ::windows_targets::link!("crypt32.dll" "system" fn CryptSetKeyIdentifierProperty(pkeyidentifier : *const CRYPT_INTEGER_BLOB, dwpropid : u32, dwflags : u32, pwszcomputername : ::windows_sys::core::PCWSTR, pvreserved : *const ::core::ffi::c_void, pvdata : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn CryptSetKeyParam(hkey : usize, dwparam : CRYPT_KEY_PARAM_ID, pbdata : *const u8, dwflags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("crypt32.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn CryptSetOIDFunctionValue(dwencodingtype : u32, pszfuncname : ::windows_sys::core::PCSTR, pszoid : ::windows_sys::core::PCSTR, pwszvaluename : ::windows_sys::core::PCWSTR, dwvaluetype : super::super::System::Registry:: REG_VALUE_TYPE, pbvaluedata : *const u8, cbvaluedata : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("crypt32.dll" "system" fn CryptSetOIDFunctionValue(dwencodingtype : u32, pszfuncname : ::windows_sys::core::PCSTR, pszoid : ::windows_sys::core::PCSTR, pwszvaluename : ::windows_sys::core::PCWSTR, dwvaluetype : super::super::System::Registry:: REG_VALUE_TYPE, pbvaluedata : *const u8, cbvaluedata : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn CryptSetProvParam(hprov : usize, dwparam : CRYPT_SET_PROV_PARAM_ID, pbdata : *const u8, dwflags : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn CryptSetProviderA(pszprovname : ::windows_sys::core::PCSTR, dwprovtype : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn CryptSetProviderExA(pszprovname : ::windows_sys::core::PCSTR, dwprovtype : u32, pdwreserved : *const u32, dwflags : u32) -> super::super::Foundation:: BOOL);
@@ -5313,7 +5309,6 @@ impl ::core::clone::Clone for CERT_RDN_ATTR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub struct CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
     pub hKeyBase: super::super::System::Registry::HKEY,
@@ -5328,7 +5323,6 @@ impl ::core::clone::Clone for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub struct CERT_REGISTRY_STORE_ROAMING_PARA {
     pub hKey: super::super::System::Registry::HKEY,
@@ -5602,7 +5596,6 @@ impl ::core::clone::Clone for CERT_SYSTEM_STORE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub struct CERT_SYSTEM_STORE_RELOCATE_PARA {
     pub Anonymous1: CERT_SYSTEM_STORE_RELOCATE_PARA_0,
@@ -5617,7 +5610,6 @@ impl ::core::clone::Clone for CERT_SYSTEM_STORE_RELOCATE_PARA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub union CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
     pub hKeyBase: super::super::System::Registry::HKEY,
@@ -5632,7 +5624,6 @@ impl ::core::clone::Clone for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub union CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
     pub pvSystemStore: *mut ::core::ffi::c_void,

@@ -1299,7 +1299,6 @@ impl IDirectInputEffectDriver_Vtbl {
         iid == &<IDirectInputEffectDriver as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub trait IDirectInputJoyConfig_Impl: Sized {
     fn Acquire(&self) -> ::windows_core::Result<()>;
@@ -1428,7 +1427,6 @@ impl IDirectInputJoyConfig_Vtbl {
         iid == &<IDirectInputJoyConfig as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub trait IDirectInputJoyConfig8_Impl: Sized {
     fn Acquire(&self) -> ::windows_core::Result<()>;

@@ -39,7 +39,6 @@ impl ICloneViewHelper_Vtbl {
         iid == &<ICloneViewHelper as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IViewHelper_Impl: Sized {
     fn GetConnectedIDs(&self, wszadaptorname: &::windows_core::PCWSTR, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows_core::Result<()>;

@@ -598,7 +598,6 @@ impl IVssCreateExpressWriterMetadata_Vtbl {
         iid == &<IVssCreateExpressWriterMetadata as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 pub trait IVssCreateWriterMetadata_Impl: Sized {
     fn AddIncludeFiles(&self, wszpath: &::windows_core::PCWSTR, wszfilespec: &::windows_core::PCWSTR, brecursive: u8, wszalternatelocation: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -1099,7 +1098,6 @@ impl IVssFileShareSnapshotProvider_Vtbl {
         iid == &<IVssFileShareSnapshotProvider as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_VirtualDiskService\"`"]
 #[cfg(feature = "Win32_Storage_VirtualDiskService")]
 pub trait IVssHardwareSnapshotProvider_Impl: Sized {
     fn AreLunsSupported(&self, lluncount: i32, lcontext: i32, rgwszdevices: *const *const u16, pluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbissupported: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -1158,7 +1156,6 @@ impl IVssHardwareSnapshotProvider_Vtbl {
         iid == &<IVssHardwareSnapshotProvider as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_VirtualDiskService\"`"]
 #[cfg(feature = "Win32_Storage_VirtualDiskService")]
 pub trait IVssHardwareSnapshotProviderEx_Impl: Sized + IVssHardwareSnapshotProvider_Impl {
     fn GetProviderCapabilities(&self) -> ::windows_core::Result<u64>;

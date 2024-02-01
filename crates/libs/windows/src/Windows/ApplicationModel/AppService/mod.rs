@@ -145,7 +145,6 @@ pub struct IStatelessAppServiceResponse_Vtbl {
 }
 pub struct AppServiceCatalog;
 impl AppServiceCatalog {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAppServiceProvidersAsync(appservicename: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::AppInfo>>> {
         Self::IAppServiceCatalogStatics(|this| unsafe {
@@ -229,7 +228,6 @@ impl AppServiceConnection {
             (::windows_core::Interface::vtable(this).OpenAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SendMessageAsync<P0>(&self, message: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppServiceResponse>>
     where
@@ -269,7 +267,6 @@ impl AppServiceConnection {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveServiceClosed)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"System_RemoteSystems\"`"]
     #[cfg(feature = "System_RemoteSystems")]
     pub fn OpenRemoteAsync<P0>(&self, remotesystemconnectionrequest: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>>
     where
@@ -281,7 +278,6 @@ impl AppServiceConnection {
             (::windows_core::Interface::vtable(this).OpenRemoteAsync)(::windows_core::Interface::as_raw(this), remotesystemconnectionrequest.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::Interface::cast::<IAppServiceConnection2>(self)?;
@@ -290,7 +286,6 @@ impl AppServiceConnection {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn SetUser<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -299,7 +294,6 @@ impl AppServiceConnection {
         let this = &::windows_core::Interface::cast::<IAppServiceConnection2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetUser)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"System_RemoteSystems\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "System_RemoteSystems"))]
     pub fn SendStatelessMessageAsync<P0, P1, P2>(connection: P0, connectionrequest: P1, message: P2) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StatelessAppServiceResponse>>
     where
@@ -361,7 +355,6 @@ unsafe impl ::core::marker::Sync for AppServiceDeferral {}
 pub struct AppServiceRequest(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(AppServiceRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppServiceRequest {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Message(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -370,7 +363,6 @@ impl AppServiceRequest {
             (::windows_core::Interface::vtable(this).Message)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SendResponseAsync<P0>(&self, message: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppServiceResponseStatus>>
     where
@@ -432,7 +424,6 @@ unsafe impl ::core::marker::Sync for AppServiceRequestReceivedEventArgs {}
 pub struct AppServiceResponse(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(AppServiceResponse, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AppServiceResponse {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Message(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -526,7 +517,6 @@ unsafe impl ::core::marker::Sync for AppServiceTriggerDetails {}
 pub struct StatelessAppServiceResponse(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(StatelessAppServiceResponse, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl StatelessAppServiceResponse {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Message(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;

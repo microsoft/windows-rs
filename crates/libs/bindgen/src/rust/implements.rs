@@ -15,7 +15,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let generic_names = writer.generic_names(generics);
     let named_phantoms = writer.generic_named_phantoms(generics);
     let cfg = cfg::type_def_cfg_impl(writer, def, generics);
-    let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
     let mut requires = quote! {};
     let type_ident = quote! { #type_ident<#generic_names> };
@@ -128,7 +127,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
 
     if has_unknown_base {
         quote! {
-            #doc
             #features
             pub trait #impl_ident<#generic_names> : Sized #requires where #constraints {
                 #(#method_traits)*
@@ -150,7 +148,6 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         }
     } else {
         quote! {
-            #doc
             #features
             pub trait #impl_ident : Sized #requires {
                 #(#method_traits)*

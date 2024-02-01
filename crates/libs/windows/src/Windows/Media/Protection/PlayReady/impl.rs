@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 pub trait INDClosedCaptionDataReceivedEventArgs_Impl: Sized {
     fn ClosedCaptionDataFormat(&self) -> ::windows_core::Result<NDClosedCaptionFormat>;
@@ -58,7 +57,6 @@ impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
         iid == &<INDClosedCaptionDataReceivedEventArgs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 pub trait INDCustomData_Impl: Sized {
     fn CustomDataTypeID(&self) -> ::windows_core::Result<::windows_core::Array<u8>>;
@@ -107,7 +105,6 @@ impl INDCustomData_Vtbl {
         iid == &<INDCustomData as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 pub trait INDDownloadEngine_Impl: Sized {
     fn Open(&self, uri: ::core::option::Option<&super::super::super::Foundation::Uri>, sessionidbytes: &[u8]) -> ::windows_core::Result<()>;
@@ -214,7 +211,6 @@ impl INDDownloadEngine_Vtbl {
         iid == &<INDDownloadEngine as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 pub trait INDDownloadEngineNotifier_Impl: Sized {
     fn OnStreamOpened(&self) -> ::windows_core::Result<()>;
@@ -275,7 +271,6 @@ impl INDDownloadEngineNotifier_Vtbl {
         iid == &<INDDownloadEngineNotifier as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 pub trait INDLicenseFetchCompletedEventArgs_Impl: Sized {
     fn ResponseCustomData(&self) -> ::windows_core::Result<INDCustomData>;
@@ -308,7 +303,6 @@ impl INDLicenseFetchCompletedEventArgs_Vtbl {
         iid == &<INDLicenseFetchCompletedEventArgs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 pub trait INDLicenseFetchDescriptor_Impl: Sized {
     fn ContentIDType(&self) -> ::windows_core::Result<NDContentIDType>;
@@ -376,7 +370,6 @@ impl INDLicenseFetchDescriptor_Vtbl {
         iid == &<INDLicenseFetchDescriptor as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 pub trait INDLicenseFetchResult_Impl: Sized {
     fn ResponseCustomData(&self) -> ::windows_core::Result<INDCustomData>;
@@ -409,7 +402,6 @@ impl INDLicenseFetchResult_Vtbl {
         iid == &<INDLicenseFetchResult as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 pub trait INDMessenger_Impl: Sized {
     fn SendRegistrationRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>>;
@@ -484,7 +476,6 @@ impl INDMessenger_Vtbl {
         iid == &<INDMessenger as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 pub trait INDProximityDetectionCompletedEventArgs_Impl: Sized {
     fn ProximityDetectionRetryCount(&self) -> ::windows_core::Result<u32>;
@@ -516,7 +507,6 @@ impl INDProximityDetectionCompletedEventArgs_Vtbl {
         iid == &<INDProximityDetectionCompletedEventArgs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 pub trait INDRegistrationCompletedEventArgs_Impl: Sized {
     fn ResponseCustomData(&self) -> ::windows_core::Result<INDCustomData>;
@@ -583,7 +573,6 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
         iid == &<INDRegistrationCompletedEventArgs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 pub trait INDSendResult_Impl: Sized {
     fn Response(&self) -> ::windows_core::Result<::windows_core::Array<u8>>;
@@ -614,7 +603,6 @@ impl INDSendResult_Vtbl {
         iid == &<INDSendResult as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Media_Core\"`, `\"deprecated\"`"]
 #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
 pub trait INDStartResult_Impl: Sized {
     fn MediaStreamSource(&self) -> ::windows_core::Result<super::super::Core::MediaStreamSource>;
@@ -647,7 +635,6 @@ impl INDStartResult_Vtbl {
         iid == &<INDStartResult as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
 pub trait INDStorageFileHelper_Impl: Sized {
     fn GetFileURLs(&self, file: ::core::option::Option<&super::super::super::Storage::IStorageFile>) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>;
@@ -677,7 +664,6 @@ impl INDStorageFileHelper_Vtbl {
         iid == &<INDStorageFileHelper as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Media_Core\"`, `\"deprecated\"`"]
 #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
 pub trait INDStreamParser_Impl: Sized {
     fn ParseData(&self, databytes: &[u8]) -> ::windows_core::Result<()>;
@@ -744,7 +730,6 @@ impl INDStreamParser_Vtbl {
         iid == &<INDStreamParser as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Core\"`, `\"deprecated\"`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
 pub trait INDStreamParserNotifier_Impl: Sized {
     fn OnContentIDReceived(&self, licensefetchdescriptor: ::core::option::Option<&INDLicenseFetchDescriptor>) -> ::windows_core::Result<()>;
@@ -791,7 +776,6 @@ impl INDStreamParserNotifier_Vtbl {
         iid == &<INDStreamParserNotifier as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 pub trait INDTransmitterProperties_Impl: Sized {
     fn CertificateType(&self) -> ::windows_core::Result<NDCertificateType>;
@@ -1243,7 +1227,6 @@ impl IPlayReadyLicenseSession_Vtbl {
         iid == &<IPlayReadyLicenseSession as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPlayReadyLicenseSession2_Impl: Sized + IPlayReadyLicenseSession_Impl {
     fn CreateLicenseIterable(&self, contentheader: ::core::option::Option<&PlayReadyContentHeader>, fullyevaluated: bool) -> ::windows_core::Result<PlayReadyLicenseIterable>;

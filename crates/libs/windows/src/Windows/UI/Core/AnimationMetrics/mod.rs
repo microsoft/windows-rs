@@ -95,7 +95,6 @@ pub struct IScaleAnimation_Vtbl {
 pub struct AnimationDescription(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(AnimationDescription, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl AnimationDescription {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Animations(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>> {
         let this = self;

@@ -34,7 +34,6 @@ impl IDirectMusic {
     pub unsafe fn GetDefaultPort(&self, pguidport: *mut ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDefaultPort)(::windows_core::Interface::as_raw(self), pguidport).ok()
     }
-    #[doc = "Required features: `\"Win32_Media_Audio_DirectSound\"`"]
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
     pub unsafe fn SetDirectSound<P0, P1>(&self, pdirectsound: P0, hwnd: P1) -> ::windows_core::Result<()>
     where
@@ -97,7 +96,6 @@ impl IDirectMusic8 {
     pub unsafe fn GetDefaultPort(&self, pguidport: *mut ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetDefaultPort)(::windows_core::Interface::as_raw(self), pguidport).ok()
     }
-    #[doc = "Required features: `\"Win32_Media_Audio_DirectSound\"`"]
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
     pub unsafe fn SetDirectSound<P0, P1>(&self, pdirectsound: P0, hwnd: P1) -> ::windows_core::Result<()>
     where
@@ -285,7 +283,6 @@ impl IDirectMusicPort {
     pub unsafe fn GetCaps(&self, pportcaps: *mut DMUS_PORTCAPS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCaps)(::windows_core::Interface::as_raw(self), pportcaps).ok()
     }
-    #[doc = "Required features: `\"Win32_System_IO\"`"]
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *mut ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DeviceIoControl)(::windows_core::Interface::as_raw(self), dwiocontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned, lpoverlapped).ok()
@@ -308,7 +305,6 @@ impl IDirectMusicPort {
     pub unsafe fn GetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetChannelPriority)(::windows_core::Interface::as_raw(self), dwchannelgroup, dwchannel, pdwpriority).ok()
     }
-    #[doc = "Required features: `\"Win32_Media_Audio_DirectSound\"`"]
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
     pub unsafe fn SetDirectSound<P0, P1>(&self, pdirectsound: P0, pdirectsoundbuffer: P1) -> ::windows_core::Result<()>
     where
@@ -606,7 +602,6 @@ impl IDirectMusicSynthSink {
     pub unsafe fn RefTimeToSample(&self, rftime: i64, pllsampletime: *mut i64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RefTimeToSample)(::windows_core::Interface::as_raw(self), rftime, pllsampletime).ok()
     }
-    #[doc = "Required features: `\"Win32_Media_Audio_DirectSound\"`"]
     #[cfg(feature = "Win32_Media_Audio_DirectSound")]
     pub unsafe fn SetDirectSound<P0, P1>(&self, pdirectsound: P0, pdirectsoundbuffer: P1) -> ::windows_core::Result<()>
     where
@@ -2385,7 +2380,6 @@ impl ::core::default::Default for MIDILOCALE {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_Media_Multimedia\"`"]
 #[cfg(feature = "Win32_Media_Multimedia")]
 pub struct MIDIOPENDESC {
     pub hMidi: super::HMIDI,

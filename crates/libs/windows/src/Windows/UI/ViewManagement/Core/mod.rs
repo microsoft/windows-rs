@@ -256,7 +256,6 @@ unsafe impl ::core::marker::Sync for CoreFrameworkInputView {}
 pub struct CoreFrameworkInputViewAnimationStartingEventArgs(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(CoreFrameworkInputViewAnimationStartingEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CoreFrameworkInputViewAnimationStartingEventArgs {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Occlusions(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
@@ -297,7 +296,6 @@ unsafe impl ::core::marker::Sync for CoreFrameworkInputViewAnimationStartingEven
 pub struct CoreFrameworkInputViewOcclusionsChangedEventArgs(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(CoreFrameworkInputViewOcclusionsChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CoreFrameworkInputViewOcclusionsChangedEventArgs {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Occlusions(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
@@ -345,7 +343,6 @@ impl CoreInputView {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveOcclusionsChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCoreInputViewOcclusions(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
@@ -530,7 +527,6 @@ unsafe impl ::core::marker::Sync for CoreInputView {}
 pub struct CoreInputViewAnimationStartingEventArgs(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(CoreInputViewAnimationStartingEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CoreInputViewAnimationStartingEventArgs {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Occlusions(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;
@@ -632,7 +628,6 @@ unsafe impl ::core::marker::Sync for CoreInputViewOcclusion {}
 pub struct CoreInputViewOcclusionsChangedEventArgs(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(CoreInputViewOcclusionsChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CoreInputViewOcclusionsChangedEventArgs {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Occlusions(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CoreInputViewOcclusion>> {
         let this = self;

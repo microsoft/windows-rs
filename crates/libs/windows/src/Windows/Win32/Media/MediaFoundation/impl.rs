@@ -114,7 +114,6 @@ impl IClusterDetector_Vtbl {
         iid == &<IClusterDetector as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICodecAPI_Impl: Sized {
     fn IsSupported(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -248,7 +247,6 @@ impl ICodecAPI_Vtbl {
         iid == &<ICodecAPI as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDecodeCommandList_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12CommandList_Impl {
     fn Close(&self) -> ::windows_core::Result<()>;
@@ -363,7 +361,6 @@ impl ID3D12VideoDecodeCommandList_Vtbl {
         iid == &<ID3D12VideoDecodeCommandList as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDecodeCommandList1_Impl: Sized + ID3D12VideoDecodeCommandList_Impl {
     fn DecodeFrame1(&self, pdecoder: ::core::option::Option<&ID3D12VideoDecoder>, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS);
@@ -384,7 +381,6 @@ impl ID3D12VideoDecodeCommandList1_Vtbl {
         iid == &<ID3D12VideoDecodeCommandList1 as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::Interface>::IID || iid == &<ID3D12VideoDecodeCommandList as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDecodeCommandList2_Impl: Sized + ID3D12VideoDecodeCommandList1_Impl {
     fn SetProtectedResourceSession(&self, pprotectedresourcesession: ::core::option::Option<&super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>);
@@ -422,7 +418,6 @@ impl ID3D12VideoDecodeCommandList2_Vtbl {
         iid == &<ID3D12VideoDecodeCommandList2 as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::Interface>::IID || iid == &<ID3D12VideoDecodeCommandList as ::windows_core::Interface>::IID || iid == &<ID3D12VideoDecodeCommandList1 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDecodeCommandList3_Impl: Sized + ID3D12VideoDecodeCommandList2_Impl {
     fn Barrier(&self, numbarriergroups: u32, pbarriergroups: *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP);
@@ -443,7 +438,6 @@ impl ID3D12VideoDecodeCommandList3_Vtbl {
         iid == &<ID3D12VideoDecodeCommandList3 as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::Interface>::IID || iid == &<ID3D12VideoDecodeCommandList as ::windows_core::Interface>::IID || iid == &<ID3D12VideoDecodeCommandList1 as ::windows_core::Interface>::IID || iid == &<ID3D12VideoDecodeCommandList2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoDecoder_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetDesc(&self) -> D3D12_VIDEO_DECODER_DESC;
@@ -464,7 +458,6 @@ impl ID3D12VideoDecoder_Vtbl {
         iid == &<ID3D12VideoDecoder as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoDecoder1_Impl: Sized + ID3D12VideoDecoder_Impl {
     fn GetProtectedResourceSession(&self, riid: *const ::windows_core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -488,7 +481,6 @@ impl ID3D12VideoDecoder1_Vtbl {
         iid == &<ID3D12VideoDecoder1 as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::Interface>::IID || iid == &<ID3D12VideoDecoder as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDecoderHeap_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetDesc(&self) -> D3D12_VIDEO_DECODER_HEAP_DESC;
@@ -509,7 +501,6 @@ impl ID3D12VideoDecoderHeap_Vtbl {
         iid == &<ID3D12VideoDecoderHeap as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDecoderHeap1_Impl: Sized + ID3D12VideoDecoderHeap_Impl {
     fn GetProtectedResourceSession(&self, riid: *const ::windows_core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -533,7 +524,6 @@ impl ID3D12VideoDecoderHeap1_Vtbl {
         iid == &<ID3D12VideoDecoderHeap1 as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::Interface>::IID || iid == &<ID3D12VideoDecoderHeap as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D12VideoDevice_Impl: Sized {
     fn CheckFeatureSupport(&self, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows_core::Result<()>;
@@ -578,7 +568,6 @@ impl ID3D12VideoDevice_Vtbl {
         iid == &<ID3D12VideoDevice as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDevice1_Impl: Sized + ID3D12VideoDevice_Impl {
     fn CreateVideoMotionEstimator(&self, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: ::core::option::Option<&super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const ::windows_core::GUID, ppvideomotionestimator: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -609,7 +598,6 @@ impl ID3D12VideoDevice1_Vtbl {
         iid == &<ID3D12VideoDevice1 as ::windows_core::Interface>::IID || iid == &<ID3D12VideoDevice as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDevice2_Impl: Sized + ID3D12VideoDevice1_Impl {
     fn CreateVideoDecoder1(&self, pdesc: *const D3D12_VIDEO_DECODER_DESC, pprotectedresourcesession: ::core::option::Option<&super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const ::windows_core::GUID, ppvideodecoder: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -661,7 +649,6 @@ impl ID3D12VideoDevice2_Vtbl {
         iid == &<ID3D12VideoDevice2 as ::windows_core::Interface>::IID || iid == &<ID3D12VideoDevice as ::windows_core::Interface>::IID || iid == &<ID3D12VideoDevice1 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDevice3_Impl: Sized + ID3D12VideoDevice2_Impl {
     fn CreateVideoEncoder(&self, pdesc: *const D3D12_VIDEO_ENCODER_DESC, riid: *const ::windows_core::GUID, ppvideoencoder: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -692,7 +679,6 @@ impl ID3D12VideoDevice3_Vtbl {
         iid == &<ID3D12VideoDevice3 as ::windows_core::Interface>::IID || iid == &<ID3D12VideoDevice as ::windows_core::Interface>::IID || iid == &<ID3D12VideoDevice1 as ::windows_core::Interface>::IID || iid == &<ID3D12VideoDevice2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoEncodeCommandList_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12CommandList_Impl {
     fn Close(&self) -> ::windows_core::Result<()>;
@@ -821,7 +807,6 @@ impl ID3D12VideoEncodeCommandList_Vtbl {
         iid == &<ID3D12VideoEncodeCommandList as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoEncodeCommandList1_Impl: Sized + ID3D12VideoEncodeCommandList_Impl {
     fn InitializeExtensionCommand(&self, pextensioncommand: ::core::option::Option<&ID3D12VideoExtensionCommand>, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize);
@@ -852,7 +837,6 @@ impl ID3D12VideoEncodeCommandList1_Vtbl {
         iid == &<ID3D12VideoEncodeCommandList1 as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoEncodeCommandList2_Impl: Sized + ID3D12VideoEncodeCommandList1_Impl {
     fn EncodeFrame(&self, pencoder: ::core::option::Option<&ID3D12VideoEncoder>, pheap: ::core::option::Option<&ID3D12VideoEncoderHeap>, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS);
@@ -883,7 +867,6 @@ impl ID3D12VideoEncodeCommandList2_Vtbl {
         iid == &<ID3D12VideoEncodeCommandList2 as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList as ::windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList1 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoEncodeCommandList3_Impl: Sized + ID3D12VideoEncodeCommandList2_Impl {
     fn Barrier(&self, numbarriergroups: u32, pbarriergroups: *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP);
@@ -904,7 +887,6 @@ impl ID3D12VideoEncodeCommandList3_Vtbl {
         iid == &<ID3D12VideoEncodeCommandList3 as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList as ::windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList1 as ::windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoEncoder_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetNodeMask(&self) -> u32;
@@ -970,7 +952,6 @@ impl ID3D12VideoEncoder_Vtbl {
         iid == &<ID3D12VideoEncoder as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoEncoderHeap_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetNodeMask(&self) -> u32;
@@ -1036,7 +1017,6 @@ impl ID3D12VideoEncoderHeap_Vtbl {
         iid == &<ID3D12VideoEncoderHeap as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoExtensionCommand_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetDesc(&self) -> D3D12_VIDEO_EXTENSION_COMMAND_DESC;
@@ -1067,7 +1047,6 @@ impl ID3D12VideoExtensionCommand_Vtbl {
         iid == &<ID3D12VideoExtensionCommand as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoMotionEstimator_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetDesc(&self) -> D3D12_VIDEO_MOTION_ESTIMATOR_DESC;
@@ -1098,7 +1077,6 @@ impl ID3D12VideoMotionEstimator_Vtbl {
         iid == &<ID3D12VideoMotionEstimator as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoMotionVectorHeap_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetDesc(&self) -> D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC;
@@ -1129,7 +1107,6 @@ impl ID3D12VideoMotionVectorHeap_Vtbl {
         iid == &<ID3D12VideoMotionVectorHeap as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoProcessCommandList_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12CommandList_Impl {
     fn Close(&self) -> ::windows_core::Result<()>;
@@ -1244,7 +1221,6 @@ impl ID3D12VideoProcessCommandList_Vtbl {
         iid == &<ID3D12VideoProcessCommandList as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoProcessCommandList1_Impl: Sized + ID3D12VideoProcessCommandList_Impl {
     fn ProcessFrames1(&self, pvideoprocessor: ::core::option::Option<&ID3D12VideoProcessor>, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1);
@@ -1265,7 +1241,6 @@ impl ID3D12VideoProcessCommandList1_Vtbl {
         iid == &<ID3D12VideoProcessCommandList1 as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::Interface>::IID || iid == &<ID3D12VideoProcessCommandList as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoProcessCommandList2_Impl: Sized + ID3D12VideoProcessCommandList1_Impl {
     fn SetProtectedResourceSession(&self, pprotectedresourcesession: ::core::option::Option<&super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>);
@@ -1303,7 +1278,6 @@ impl ID3D12VideoProcessCommandList2_Vtbl {
         iid == &<ID3D12VideoProcessCommandList2 as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::Interface>::IID || iid == &<ID3D12VideoProcessCommandList as ::windows_core::Interface>::IID || iid == &<ID3D12VideoProcessCommandList1 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoProcessCommandList3_Impl: Sized + ID3D12VideoProcessCommandList2_Impl {
     fn Barrier(&self, numbarriergroups: u32, pbarriergroups: *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP);
@@ -1324,7 +1298,6 @@ impl ID3D12VideoProcessCommandList3_Vtbl {
         iid == &<ID3D12VideoProcessCommandList3 as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12CommandList as ::windows_core::Interface>::IID || iid == &<ID3D12VideoProcessCommandList as ::windows_core::Interface>::IID || iid == &<ID3D12VideoProcessCommandList1 as ::windows_core::Interface>::IID || iid == &<ID3D12VideoProcessCommandList2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoProcessor_Impl: Sized + super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetNodeMask(&self) -> u32;
@@ -1369,7 +1342,6 @@ impl ID3D12VideoProcessor_Vtbl {
         iid == &<ID3D12VideoProcessor as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoProcessor1_Impl: Sized + ID3D12VideoProcessor_Impl {
     fn GetProtectedResourceSession(&self, riid: *const ::windows_core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -1393,7 +1365,6 @@ impl ID3D12VideoProcessor1_Vtbl {
         iid == &<ID3D12VideoProcessor1 as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Object as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12DeviceChild as ::windows_core::Interface>::IID || iid == &<super::super::Graphics::Direct3D12::ID3D12Pageable as ::windows_core::Interface>::IID || iid == &<ID3D12VideoProcessor as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub trait IDXVAHD_Device_Impl: Sized {
     fn CreateVideoSurface(&self, width: u32, height: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, r#type: DXVAHD_SURFACE_TYPE, numsurfaces: u32, ppsurfaces: *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
@@ -1478,7 +1449,6 @@ impl IDXVAHD_Device_Vtbl {
         iid == &<IDXVAHD_Device as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub trait IDXVAHD_VideoProcessor_Impl: Sized {
     fn SetVideoProcessBltState(&self, state: DXVAHD_BLT_STATE, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -1530,7 +1500,6 @@ impl IDXVAHD_VideoProcessor_Vtbl {
         iid == &<IDXVAHD_VideoProcessor as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub trait IDirect3D9ExOverlayExtension_Impl: Sized {
     fn CheckDeviceOverlayType(&self, adapter: u32, devtype: super::super::Graphics::Direct3D9::D3DDEVTYPE, overlaywidth: u32, overlayheight: u32, overlayformat: super::super::Graphics::Direct3D9::D3DFORMAT, pdisplaymode: *mut super::super::Graphics::Direct3D9::D3DDISPLAYMODEEX, displayrotation: super::super::Graphics::Direct3D9::D3DDISPLAYROTATION, poverlaycaps: *mut D3DOVERLAYCAPS) -> ::windows_core::Result<()>;
@@ -1551,7 +1520,6 @@ impl IDirect3D9ExOverlayExtension_Vtbl {
         iid == &<IDirect3D9ExOverlayExtension as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub trait IDirect3DAuthenticatedChannel9_Impl: Sized {
     fn GetCertificateSize(&self, pcertificatesize: *mut u32) -> ::windows_core::Result<()>;
@@ -1603,7 +1571,6 @@ impl IDirect3DAuthenticatedChannel9_Vtbl {
         iid == &<IDirect3DAuthenticatedChannel9 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub trait IDirect3DCryptoSession9_Impl: Sized {
     fn GetCertificateSize(&self, pcertificatesize: *mut u32) -> ::windows_core::Result<()>;
@@ -1683,7 +1650,6 @@ impl IDirect3DCryptoSession9_Vtbl {
         iid == &<IDirect3DCryptoSession9 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub trait IDirect3DDevice9Video_Impl: Sized {
     fn GetContentProtectionCaps(&self, pcryptotype: *const ::windows_core::GUID, pdecodeprofile: *const ::windows_core::GUID, pcaps: *mut D3DCONTENTPROTECTIONCAPS) -> ::windows_core::Result<()>;
@@ -1721,7 +1687,6 @@ impl IDirect3DDevice9Video_Vtbl {
         iid == &<IDirect3DDevice9Video as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub trait IDirect3DDeviceManager9_Impl: Sized {
     fn ResetDevice(&self, pdevice: ::core::option::Option<&super::super::Graphics::Direct3D9::IDirect3DDevice9>, resettoken: u32) -> ::windows_core::Result<()>;
@@ -1793,7 +1758,6 @@ impl IDirect3DDeviceManager9_Vtbl {
         iid == &<IDirect3DDeviceManager9 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub trait IDirectXVideoAccelerationService_Impl: Sized {
     fn CreateSurface(&self, width: u32, height: u32, backbuffers: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, dxvatype: &DXVA2_VideoRenderTargetType, ppsurface: *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
@@ -1814,7 +1778,6 @@ impl IDirectXVideoAccelerationService_Vtbl {
         iid == &<IDirectXVideoAccelerationService as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub trait IDirectXVideoDecoder_Impl: Sized {
     fn GetVideoDecoderService(&self) -> ::windows_core::Result<IDirectXVideoDecoderService>;
@@ -1886,7 +1849,6 @@ impl IDirectXVideoDecoder_Vtbl {
         iid == &<IDirectXVideoDecoder as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub trait IDirectXVideoDecoderService_Impl: Sized + IDirectXVideoAccelerationService_Impl {
     fn GetDecoderDeviceGuids(&self, pcount: *mut u32, pguids: *mut *mut ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -1970,7 +1932,6 @@ impl IDirectXVideoMemoryConfiguration_Vtbl {
         iid == &<IDirectXVideoMemoryConfiguration as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub trait IDirectXVideoProcessor_Impl: Sized {
     fn GetVideoProcessorService(&self) -> ::windows_core::Result<IDirectXVideoProcessorService>;
@@ -2047,7 +2008,6 @@ impl IDirectXVideoProcessor_Vtbl {
         iid == &<IDirectXVideoProcessor as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub trait IDirectXVideoProcessorService_Impl: Sized + IDirectXVideoAccelerationService_Impl {
     fn RegisterVideoProcessorSoftwareDevice(&self, pcallbacks: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -2508,7 +2468,6 @@ impl IMF2DBuffer2_Vtbl {
         iid == &<IMF2DBuffer2 as ::windows_core::Interface>::IID || iid == &<IMF2DBuffer as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMFASFContentInfo_Impl: Sized {
     fn GetHeaderSize(&self, pistartofcontent: ::core::option::Option<&IMFMediaBuffer>) -> ::windows_core::Result<u64>;
@@ -3956,7 +3915,6 @@ impl IMFAttributes_Vtbl {
         iid == &<IMFAttributes as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IMFAudioMediaType_Impl: Sized + IMFMediaType_Impl {
     fn GetAudioFormat(&self) -> *mut super::Audio::WAVEFORMATEX;
@@ -4394,7 +4352,6 @@ impl IMFByteStreamCacheControl2_Vtbl {
         iid == &<IMFByteStreamCacheControl2 as ::windows_core::Interface>::IID || iid == &<IMFByteStreamCacheControl as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMFByteStreamHandler_Impl: Sized {
     fn BeginCreateObject(&self, pbytestream: ::core::option::Option<&IMFByteStream>, pwszurl: &::windows_core::PCWSTR, dwflags: u32, pprops: ::core::option::Option<&super::super::UI::Shell::PropertiesSystem::IPropertyStore>, ppiunknowncancelcookie: *mut ::core::option::Option<::windows_core::IUnknown>, pcallback: ::core::option::Option<&IMFAsyncCallback>, punkstate: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -5742,7 +5699,6 @@ impl IMFContentDecryptionModule_Vtbl {
         iid == &<IMFContentDecryptionModule as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMFContentDecryptionModuleAccess_Impl: Sized {
     fn CreateContentDecryptionModule(&self, contentdecryptionmoduleproperties: ::core::option::Option<&super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows_core::Result<IMFContentDecryptionModule>;
@@ -5798,7 +5754,6 @@ impl IMFContentDecryptionModuleAccess_Vtbl {
         iid == &<IMFContentDecryptionModuleAccess as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMFContentDecryptionModuleFactory_Impl: Sized {
     fn IsTypeSupported(&self, keysystem: &::windows_core::PCWSTR, contenttype: &::windows_core::PCWSTR) -> super::super::Foundation::BOOL;
@@ -6127,7 +6082,6 @@ impl IMFD3D12SynchronizationObject_Vtbl {
         iid == &<IMFD3D12SynchronizationObject as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IMFD3D12SynchronizationObjectCommands_Impl: Sized {
     fn EnqueueResourceReady(&self, pproducercommandqueue: ::core::option::Option<&super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> ::windows_core::Result<()>;
@@ -7846,7 +7800,6 @@ impl IMFMediaEngineClassFactory2_Vtbl {
         iid == &<IMFMediaEngineClassFactory2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMFMediaEngineClassFactory3_Impl: Sized {
     fn CreateMediaKeySystemAccess(&self, keysystem: &::windows_core::BSTR, ppsupportedconfigurationsarray: *const ::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>, usize: u32) -> ::windows_core::Result<IMFMediaKeySystemAccess>;
@@ -9162,7 +9115,6 @@ impl IMFMediaKeySessionNotify2_Vtbl {
         iid == &<IMFMediaKeySessionNotify2 as ::windows_core::Interface>::IID || iid == &<IMFMediaKeySessionNotify as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMFMediaKeySystemAccess_Impl: Sized {
     fn CreateMediaKeys(&self, pcdmcustomconfig: ::core::option::Option<&super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows_core::Result<IMFMediaKeys2>;
@@ -11028,7 +10980,6 @@ impl IMFPMPClientApp_Vtbl {
         iid == &<IMFPMPClientApp as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMFPMPHost_Impl: Sized {
     fn LockProcess(&self) -> ::windows_core::Result<()>;
@@ -11066,7 +11017,6 @@ impl IMFPMPHost_Vtbl {
         iid == &<IMFPMPHost as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMFPMPHostApp_Impl: Sized {
     fn LockProcess(&self) -> ::windows_core::Result<()>;
@@ -11138,7 +11088,6 @@ impl IMFPMPServer_Vtbl {
         iid == &<IMFPMPServer as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMFPMediaItem_Impl: Sized {
     fn GetMediaPlayer(&self) -> ::windows_core::Result<IMFPMediaPlayer>;
@@ -11697,7 +11646,6 @@ impl IMFPMediaPlayer_Vtbl {
         iid == &<IMFPMediaPlayer as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMFPMediaPlayerCallback_Impl: Sized {
     fn OnMediaPlayerEvent(&self, peventheader: *const MFP_EVENT_HEADER);
@@ -12953,7 +12901,6 @@ impl IMFSaveJob_Vtbl {
         iid == &<IMFSaveJob as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMFSchemeHandler_Impl: Sized {
     fn BeginCreateObject(&self, pwszurl: &::windows_core::PCWSTR, dwflags: u32, pprops: ::core::option::Option<&super::super::UI::Shell::PropertiesSystem::IPropertyStore>, ppiunknowncancelcookie: *mut ::core::option::Option<::windows_core::IUnknown>, pcallback: ::core::option::Option<&IMFAsyncCallback>, punkstate: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -14534,7 +14481,6 @@ impl IMFSourceReaderEx_Vtbl {
         iid == &<IMFSourceReaderEx as ::windows_core::Interface>::IID || iid == &<IMFSourceReader as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMFSourceResolver_Impl: Sized {
     fn CreateObjectFromURL(&self, pwszurl: &::windows_core::PCWSTR, dwflags: u32, pprops: ::core::option::Option<&super::super::UI::Shell::PropertiesSystem::IPropertyStore>, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -14600,7 +14546,6 @@ impl IMFSourceResolver_Vtbl {
         iid == &<IMFSourceResolver as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IMFSpatialAudioObjectBuffer_Impl: Sized + IMFMediaBuffer_Impl {
     fn SetID(&self, u32id: u32) -> ::windows_core::Result<()>;
@@ -16960,7 +16905,6 @@ impl IMFVideoDeviceID_Vtbl {
         iid == &<IMFVideoDeviceID as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IMFVideoDisplayControl_Impl: Sized {
     fn GetNativeVideoSize(&self, pszvideo: *mut super::super::Foundation::SIZE, pszarvideo: *mut super::super::Foundation::SIZE) -> ::windows_core::Result<()>;
@@ -17146,7 +17090,6 @@ impl IMFVideoMediaType_Vtbl {
         iid == &<IMFVideoMediaType as ::windows_core::Interface>::IID || iid == &<IMFAttributes as ::windows_core::Interface>::IID || iid == &<IMFMediaType as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 pub trait IMFVideoMixerBitmap_Impl: Sized {
     fn SetAlphaBitmap(&self, pbmpparms: *const MFVideoAlphaBitmap) -> ::windows_core::Result<()>;
@@ -17330,7 +17273,6 @@ impl IMFVideoPresenter_Vtbl {
         iid == &<IMFVideoPresenter as ::windows_core::Interface>::IID || iid == &<IMFClockStateSink as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub trait IMFVideoProcessor_Impl: Sized {
     fn GetAvailableVideoProcessorModes(&self, lpdwnumprocessingmodes: *mut u32, ppvideoprocessingmodes: *mut *mut ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -17780,7 +17722,6 @@ impl IMFVideoSampleAllocatorNotifyEx_Vtbl {
         iid == &<IMFVideoSampleAllocatorNotifyEx as ::windows_core::Interface>::IID || iid == &<IMFVideoSampleAllocatorNotify as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub trait IMFVirtualCamera_Impl: Sized + IMFAttributes_Impl {
     fn AddDeviceSourceInfo(&self, devicesourceinfo: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -18603,7 +18544,6 @@ impl IWMCodecOutputTimestamp_Vtbl {
         iid == &<IWMCodecOutputTimestamp as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_DxMediaObjects\"`"]
 #[cfg(feature = "Win32_Media_DxMediaObjects")]
 pub trait IWMCodecPrivateData_Impl: Sized {
     fn SetPartialOutputType(&self, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE) -> ::windows_core::Result<()>;
@@ -18634,7 +18574,6 @@ impl IWMCodecPrivateData_Vtbl {
         iid == &<IWMCodecPrivateData as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_DxMediaObjects\"`"]
 #[cfg(feature = "Win32_Media_DxMediaObjects")]
 pub trait IWMCodecProps_Impl: Sized {
     fn GetFormatProp(&self, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE, pszname: &::windows_core::PCWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows_core::Result<()>;
@@ -18665,7 +18604,6 @@ impl IWMCodecProps_Vtbl {
         iid == &<IWMCodecProps as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_DxMediaObjects\"`"]
 #[cfg(feature = "Win32_Media_DxMediaObjects")]
 pub trait IWMCodecStrings_Impl: Sized {
     fn GetName(&self, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE, cchlength: u32, szname: ::windows_core::PWSTR, pcchlength: *mut u32) -> ::windows_core::Result<()>;
@@ -18951,7 +18889,6 @@ impl IWMVideoDecoderHurryup_Vtbl {
         iid == &<IWMVideoDecoderHurryup as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_DxMediaObjects\"`"]
 #[cfg(feature = "Win32_Media_DxMediaObjects")]
 pub trait IWMVideoDecoderReconBuffer_Impl: Sized {
     fn GetReconstructedVideoFrameSize(&self, pdwsize: *mut u32) -> ::windows_core::Result<()>;

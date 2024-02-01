@@ -43,7 +43,6 @@ pub struct ISystemNavigationManagerPreviewStatics_Vtbl {
 pub struct CoreAppWindowPreview(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(CoreAppWindowPreview, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CoreAppWindowPreview {
-    #[doc = "Required features: `\"UI_WindowManagement\"`"]
     #[cfg(feature = "UI_WindowManagement")]
     pub fn GetIdFromWindow<P0>(window: P0) -> ::windows_core::Result<i32>
     where

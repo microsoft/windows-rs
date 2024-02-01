@@ -51,7 +51,6 @@ pub struct IHdmiDisplayMode2_Vtbl {
 pub struct HdmiDisplayInformation(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(HdmiDisplayInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HdmiDisplayInformation {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSupportedDisplayModes(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<HdmiDisplayMode>> {
         let this = self;

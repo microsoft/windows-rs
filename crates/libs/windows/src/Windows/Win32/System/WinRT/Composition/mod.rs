@@ -1,7 +1,6 @@
 ::windows_core::imp::com_interface!(ICompositionCapabilitiesInteropFactory, ICompositionCapabilitiesInteropFactory_Vtbl, 0x2c9db356_e70d_4642_8298_bc4aa5b4865c);
 ::windows_core::imp::interface_hierarchy!(ICompositionCapabilitiesInteropFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ICompositionCapabilitiesInteropFactory {
-    #[doc = "Required features: `\"UI_Composition\"`"]
     #[cfg(feature = "UI_Composition")]
     pub unsafe fn GetForWindow<P0>(&self, hwnd: P0) -> ::windows_core::Result<super::super::super::super::UI::Composition::CompositionCapabilities>
     where
@@ -132,7 +131,6 @@ pub struct ICompositionTextureInterop_Vtbl {
 ::windows_core::imp::com_interface!(ICompositorDesktopInterop, ICompositorDesktopInterop_Vtbl, 0x29e691fa_4567_4dca_b319_d0f207eb6807);
 ::windows_core::imp::interface_hierarchy!(ICompositorDesktopInterop, ::windows_core::IUnknown);
 impl ICompositorDesktopInterop {
-    #[doc = "Required features: `\"UI_Composition_Desktop\"`"]
     #[cfg(feature = "UI_Composition_Desktop")]
     pub unsafe fn CreateDesktopWindowTarget<P0, P1>(&self, hwndtarget: P0, istopmost: P1) -> ::windows_core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>
     where
@@ -159,7 +157,6 @@ pub struct ICompositorDesktopInterop_Vtbl {
 ::windows_core::imp::com_interface!(ICompositorInterop, ICompositorInterop_Vtbl, 0x25297d5c_3ad4_4c9c_b5cf_e36a38512330);
 ::windows_core::imp::interface_hierarchy!(ICompositorInterop, ::windows_core::IUnknown);
 impl ICompositorInterop {
-    #[doc = "Required features: `\"UI_Composition\"`"]
     #[cfg(feature = "UI_Composition")]
     pub unsafe fn CreateCompositionSurfaceForHandle<P0>(&self, swapchain: P0) -> ::windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>
     where
@@ -168,7 +165,6 @@ impl ICompositorInterop {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateCompositionSurfaceForHandle)(::windows_core::Interface::as_raw(self), swapchain.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"UI_Composition\"`"]
     #[cfg(feature = "UI_Composition")]
     pub unsafe fn CreateCompositionSurfaceForSwapChain<P0>(&self, swapchain: P0) -> ::windows_core::Result<super::super::super::super::UI::Composition::ICompositionSurface>
     where
@@ -177,7 +173,6 @@ impl ICompositorInterop {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateCompositionSurfaceForSwapChain)(::windows_core::Interface::as_raw(self), swapchain.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"UI_Composition\"`"]
     #[cfg(feature = "UI_Composition")]
     pub unsafe fn CreateGraphicsDevice<P0>(&self, renderingdevice: P0) -> ::windows_core::Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice>
     where
@@ -214,7 +209,6 @@ impl ICompositorInterop2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CheckCompositionTextureSupport)(::windows_core::Interface::as_raw(self), renderingdevice.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"UI_Composition\"`"]
     #[cfg(feature = "UI_Composition")]
     pub unsafe fn CreateCompositionTexture<P0>(&self, d3dtexture: P0) -> ::windows_core::Result<super::super::super::super::UI::Composition::ICompositionTexture>
     where
@@ -251,7 +245,6 @@ pub struct IDesktopWindowTargetInterop_Vtbl {
 ::windows_core::imp::com_interface!(IVisualInteractionSourceInterop, IVisualInteractionSourceInterop_Vtbl, 0x11f62cd1_2f9d_42d3_b05f_d6790d9e9f8e);
 ::windows_core::imp::interface_hierarchy!(IVisualInteractionSourceInterop, ::windows_core::IUnknown);
 impl IVisualInteractionSourceInterop {
-    #[doc = "Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
     #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TryRedirectForManipulation(&self, pointerinfo: *const super::super::super::UI::Input::Pointer::POINTER_INFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).TryRedirectForManipulation)(::windows_core::Interface::as_raw(self), pointerinfo).ok()

@@ -418,7 +418,6 @@ impl IFtpPreprocessProvider_Vtbl {
         iid == &<IFtpPreprocessProvider as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFtpProviderConstruct_Impl: Sized {
     fn Construct(&self, configurationentries: *const super::Com::SAFEARRAY) -> ::windows_core::Result<()>;

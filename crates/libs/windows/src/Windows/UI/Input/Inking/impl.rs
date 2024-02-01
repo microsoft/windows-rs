@@ -50,7 +50,6 @@ impl IInkPresenterRulerFactory_Vtbl {
         iid == &<IInkPresenterRulerFactory as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Numerics\"`"]
 #[cfg(feature = "Foundation_Numerics")]
 pub trait IInkPresenterStencil_Impl: Sized {
     fn Kind(&self) -> ::windows_core::Result<InkPresenterStencilKind>;
@@ -162,7 +161,6 @@ impl IInkPresenterStencil_Vtbl {
         iid == &<IInkPresenterStencil as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IInkRecognizerContainer_Impl: Sized {
     fn SetDefaultRecognizer(&self, recognizer: ::core::option::Option<&InkRecognizer>) -> ::windows_core::Result<()>;
@@ -216,7 +214,6 @@ impl IInkRecognizerContainer_Vtbl {
         iid == &<IInkRecognizerContainer as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 pub trait IInkStrokeContainer_Impl: Sized {
     fn BoundingRect(&self) -> ::windows_core::Result<super::super::super::Foundation::Rect>;

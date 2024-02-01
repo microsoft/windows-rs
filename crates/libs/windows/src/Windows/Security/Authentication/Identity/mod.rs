@@ -1,5 +1,4 @@
 #[cfg(feature = "Security_Authentication_Identity_Core")]
-#[doc = "Required features: `\"Security_Authentication_Identity_Core\"`"]
 pub mod Core;
 ::windows_core::imp::com_interface!(IEnterpriseKeyCredentialRegistrationInfo, IEnterpriseKeyCredentialRegistrationInfo_Vtbl, 0x38321acc_672b_4823_b603_6b3c753daf97);
 #[repr(C)]
@@ -87,7 +86,6 @@ unsafe impl ::core::marker::Sync for EnterpriseKeyCredentialRegistrationInfo {}
 pub struct EnterpriseKeyCredentialRegistrationManager(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(EnterpriseKeyCredentialRegistrationManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl EnterpriseKeyCredentialRegistrationManager {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetRegistrationsAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>> {
         let this = self;

@@ -175,7 +175,6 @@ pub unsafe fn HdvDestroySectionBackedMmioRange(requestor: *const ::core::ffi::c_
     ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvDestroySectionBackedMmioRange(requestor : *const ::core::ffi::c_void, barindex : HDV_PCI_BAR_SELECTOR, offsetinpages : u64) -> ::windows_core::HRESULT);
     HdvDestroySectionBackedMmioRange(requestor, barindex, offsetinpages).ok()
 }
-#[doc = "Required features: `\"Win32_System_HostComputeSystem\"`"]
 #[cfg(feature = "Win32_System_HostComputeSystem")]
 #[inline]
 pub unsafe fn HdvInitializeDeviceHost<P0>(computesystem: P0, devicehosthandle: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -185,7 +184,6 @@ where
     ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvInitializeDeviceHost(computesystem : super::HostComputeSystem:: HCS_SYSTEM, devicehosthandle : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     HdvInitializeDeviceHost(computesystem.into_param().abi(), devicehosthandle).ok()
 }
-#[doc = "Required features: `\"Win32_System_HostComputeSystem\"`"]
 #[cfg(feature = "Win32_System_HostComputeSystem")]
 #[inline]
 pub unsafe fn HdvInitializeDeviceHostEx<P0>(computesystem: P0, flags: HDV_DEVICE_HOST_FLAGS, devicehosthandle: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -788,7 +786,6 @@ where
     ::windows_targets::link!("winhvplatform.dll" "system" fn WHvSetVirtualProcessorXsaveState(partition : WHV_PARTITION_HANDLE, vpindex : u32, buffer : *const ::core::ffi::c_void, buffersizeinbytes : u32) -> ::windows_core::HRESULT);
     WHvSetVirtualProcessorXsaveState(partition.into_param().abi(), vpindex, buffer, buffersizeinbytes).ok()
 }
-#[doc = "Required features: `\"Win32_System_Power\"`"]
 #[cfg(feature = "Win32_System_Power")]
 #[inline]
 pub unsafe fn WHvSetVpciDevicePowerState<P0>(partition: P0, logicaldeviceid: u64, powerstate: super::Power::DEVICE_POWER_STATE) -> ::windows_core::Result<()>
@@ -2665,7 +2662,6 @@ impl ::core::default::Default for MODULE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct SOCKADDR_HV {
     pub Family: super::super::Networking::WinSock::ADDRESS_FAMILY,

@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn BindIFilterFromStorage<P0, P1>(pstg: P0, punkouter: P1, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -9,7 +8,6 @@ where
     ::windows_targets::link!("query.dll" "system" fn BindIFilterFromStorage(pstg : * mut::core::ffi::c_void, punkouter : * mut::core::ffi::c_void, ppiunk : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     BindIFilterFromStorage(pstg.into_param().abi(), punkouter.into_param().abi(), ppiunk).ok()
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn BindIFilterFromStream<P0, P1>(pstm: P0, punkouter: P1, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -40,12 +38,10 @@ where
 ::windows_core::imp::com_interface!(IFilter, IFilter_Vtbl, 0x89bcb740_6119_101a_bcb7_00dd010655af);
 ::windows_core::imp::interface_hierarchy!(IFilter, ::windows_core::IUnknown);
 impl IFilter {
-    #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Init(&self, grfflags: u32, aattributes: &[FULLPROPSPEC], pflags: *mut u32) -> i32 {
         (::windows_core::Interface::vtable(self).Init)(::windows_core::Interface::as_raw(self), grfflags, aattributes.len().try_into().unwrap(), ::core::mem::transmute(aattributes.as_ptr()), pflags)
     }
-    #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn GetChunk(&self, pstat: *mut STAT_CHUNK) -> i32 {
         (::windows_core::Interface::vtable(self).GetChunk)(::windows_core::Interface::as_raw(self), pstat)
@@ -582,7 +578,6 @@ impl ::core::default::Default for FILTERREGION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub struct FULLPROPSPEC {
     pub guidPropSet: ::windows_core::GUID,
@@ -607,7 +602,6 @@ impl ::core::default::Default for FULLPROPSPEC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub struct STAT_CHUNK {
     pub idChunk: u32,

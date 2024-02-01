@@ -324,7 +324,6 @@ impl ISingleSelectMediaTrackList_Vtbl {
         iid == &<ISingleSelectMediaTrackList as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait ITimedMetadataTrackProvider_Impl: Sized {
     fn TimedMetadataTracks(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>>;

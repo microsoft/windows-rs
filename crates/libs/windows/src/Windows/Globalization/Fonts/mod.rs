@@ -54,7 +54,6 @@ impl LanguageFont {
             (::windows_core::Interface::vtable(this).FontFamily)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI_Text\"`"]
     #[cfg(feature = "UI_Text")]
     pub fn FontWeight(&self) -> ::windows_core::Result<super::super::UI::Text::FontWeight> {
         let this = self;
@@ -63,7 +62,6 @@ impl LanguageFont {
             (::windows_core::Interface::vtable(this).FontWeight)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI_Text\"`"]
     #[cfg(feature = "UI_Text")]
     pub fn FontStretch(&self) -> ::windows_core::Result<super::super::UI::Text::FontStretch> {
         let this = self;
@@ -72,7 +70,6 @@ impl LanguageFont {
             (::windows_core::Interface::vtable(this).FontStretch)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI_Text\"`"]
     #[cfg(feature = "UI_Text")]
     pub fn FontStyle(&self) -> ::windows_core::Result<super::super::UI::Text::FontStyle> {
         let this = self;

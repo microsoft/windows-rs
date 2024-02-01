@@ -146,11 +146,9 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
     for (name, tree) in &tree.nested {
         let name = to_ident(name);
         let feature = tree.namespace[tree.namespace.find('.').unwrap() + 1..].replace('.', "_");
-        let doc = format!(r#"Required features: `\"{feature}\"`"#);
         if writer.package {
             tokens.combine(&quote! {
                 #[cfg(feature = #feature)]
-                #[doc = #doc]
                 pub mod #name;
             });
         } else {
@@ -190,10 +188,7 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
                                 let ident = to_ident(name);
                                 let value = writer.guid(&guid);
                                 let guid = writer.type_name(&metadata::Type::GUID);
-                                let cfg = cfg::type_def_cfg(writer, def, &[]);
-                                let doc = writer.cfg_doc(&cfg);
                                 let constant = quote! {
-                                    #doc
                                     pub const #ident: #guid = #value;
                                 };
                                 types.entry(metadata::TypeKind::Class).or_default().entry(name).or_default().combine(&constant);
