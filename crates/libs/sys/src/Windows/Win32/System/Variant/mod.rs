@@ -1,171 +1,171 @@
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn ClearVariantArray(pvars : *mut VARIANT, cvars : u32));
+::windows_targets::link!("propsys.dll" "system" fn ClearVariantArray(pvars : *mut VARIANT, cvars : u32));
 ::windows_targets::link!("oleaut32.dll" "system" fn DosDateTimeToVariantTime(wdosdate : u16, wdostime : u16, pvtime : *mut f64) -> i32);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn InitVariantFromBooleanArray(prgf : *const super::super::Foundation:: BOOL, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn InitVariantFromBooleanArray(prgf : *const super::super::Foundation:: BOOL, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn InitVariantFromBuffer(pv : *const ::core::ffi::c_void, cb : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn InitVariantFromBuffer(pv : *const ::core::ffi::c_void, cb : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn InitVariantFromDoubleArray(prgn : *const f64, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn InitVariantFromDoubleArray(prgn : *const f64, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn InitVariantFromFileTime(pft : *const super::super::Foundation:: FILETIME, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn InitVariantFromFileTime(pft : *const super::super::Foundation:: FILETIME, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn InitVariantFromFileTimeArray(prgft : *const super::super::Foundation:: FILETIME, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn InitVariantFromFileTimeArray(prgft : *const super::super::Foundation:: FILETIME, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn InitVariantFromGUIDAsString(guid : *const ::windows_sys::core::GUID, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn InitVariantFromGUIDAsString(guid : *const ::windows_sys::core::GUID, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn InitVariantFromInt16Array(prgn : *const i16, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn InitVariantFromInt16Array(prgn : *const i16, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn InitVariantFromInt32Array(prgn : *const i32, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn InitVariantFromInt32Array(prgn : *const i32, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn InitVariantFromInt64Array(prgn : *const i64, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn InitVariantFromInt64Array(prgn : *const i64, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn InitVariantFromResource(hinst : super::super::Foundation:: HINSTANCE, id : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn InitVariantFromResource(hinst : super::super::Foundation:: HINSTANCE, id : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn InitVariantFromStringArray(prgsz : *const ::windows_sys::core::PCWSTR, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn InitVariantFromStringArray(prgsz : *const ::windows_sys::core::PCWSTR, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn InitVariantFromUInt16Array(prgn : *const u16, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn InitVariantFromUInt16Array(prgn : *const u16, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn InitVariantFromUInt32Array(prgn : *const u32, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn InitVariantFromUInt32Array(prgn : *const u32, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn InitVariantFromUInt64Array(prgn : *const u64, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn InitVariantFromUInt64Array(prgn : *const u64, celems : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn InitVariantFromVariantArrayElem(varin : *const VARIANT, ielem : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn InitVariantFromVariantArrayElem(varin : *const VARIANT, ielem : u32, pvar : *mut VARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" fn SystemTimeToVariantTime(lpsystemtime : *const super::super::Foundation:: SYSTEMTIME, pvtime : *mut f64) -> i32);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VARIANT_UserFree(param0 : *const u32, param1 : *const VARIANT));
+::windows_targets::link!("oleaut32.dll" "system" fn VARIANT_UserFree(param0 : *const u32, param1 : *const VARIANT));
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VARIANT_UserFree64(param0 : *const u32, param1 : *const VARIANT));
+::windows_targets::link!("oleaut32.dll" "system" fn VARIANT_UserFree64(param0 : *const u32, param1 : *const VARIANT));
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VARIANT_UserMarshal(param0 : *const u32, param1 : *mut u8, param2 : *const VARIANT) -> *mut u8);
+::windows_targets::link!("oleaut32.dll" "system" fn VARIANT_UserMarshal(param0 : *const u32, param1 : *mut u8, param2 : *const VARIANT) -> *mut u8);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VARIANT_UserMarshal64(param0 : *const u32, param1 : *mut u8, param2 : *const VARIANT) -> *mut u8);
+::windows_targets::link!("oleaut32.dll" "system" fn VARIANT_UserMarshal64(param0 : *const u32, param1 : *mut u8, param2 : *const VARIANT) -> *mut u8);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VARIANT_UserSize(param0 : *const u32, param1 : u32, param2 : *const VARIANT) -> u32);
+::windows_targets::link!("oleaut32.dll" "system" fn VARIANT_UserSize(param0 : *const u32, param1 : u32, param2 : *const VARIANT) -> u32);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VARIANT_UserSize64(param0 : *const u32, param1 : u32, param2 : *const VARIANT) -> u32);
+::windows_targets::link!("oleaut32.dll" "system" fn VARIANT_UserSize64(param0 : *const u32, param1 : u32, param2 : *const VARIANT) -> u32);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VARIANT_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut VARIANT) -> *mut u8);
+::windows_targets::link!("oleaut32.dll" "system" fn VARIANT_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut VARIANT) -> *mut u8);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VARIANT_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut VARIANT) -> *mut u8);
+::windows_targets::link!("oleaut32.dll" "system" fn VARIANT_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut VARIANT) -> *mut u8);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantChangeType(pvargdest : *mut VARIANT, pvarsrc : *const VARIANT, wflags : VAR_CHANGE_FLAGS, vt : VARENUM) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleaut32.dll" "system" fn VariantChangeType(pvargdest : *mut VARIANT, pvarsrc : *const VARIANT, wflags : VAR_CHANGE_FLAGS, vt : VARENUM) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantChangeTypeEx(pvargdest : *mut VARIANT, pvarsrc : *const VARIANT, lcid : u32, wflags : VAR_CHANGE_FLAGS, vt : VARENUM) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleaut32.dll" "system" fn VariantChangeTypeEx(pvargdest : *mut VARIANT, pvarsrc : *const VARIANT, lcid : u32, wflags : VAR_CHANGE_FLAGS, vt : VARENUM) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantClear(pvarg : *mut VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleaut32.dll" "system" fn VariantClear(pvarg : *mut VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantCompare(var1 : *const VARIANT, var2 : *const VARIANT) -> i32);
+::windows_targets::link!("propsys.dll" "system" fn VariantCompare(var1 : *const VARIANT, var2 : *const VARIANT) -> i32);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantCopy(pvargdest : *mut VARIANT, pvargsrc : *const VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleaut32.dll" "system" fn VariantCopy(pvargdest : *mut VARIANT, pvargsrc : *const VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantCopyInd(pvardest : *mut VARIANT, pvargsrc : *const VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleaut32.dll" "system" fn VariantCopyInd(pvardest : *mut VARIANT, pvargsrc : *const VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantGetBooleanElem(var : *const VARIANT, ielem : u32, pfval : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantGetBooleanElem(var : *const VARIANT, ielem : u32, pfval : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantGetDoubleElem(var : *const VARIANT, ielem : u32, pnval : *mut f64) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantGetDoubleElem(var : *const VARIANT, ielem : u32, pnval : *mut f64) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantGetElementCount(varin : *const VARIANT) -> u32);
+::windows_targets::link!("propsys.dll" "system" fn VariantGetElementCount(varin : *const VARIANT) -> u32);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantGetInt16Elem(var : *const VARIANT, ielem : u32, pnval : *mut i16) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantGetInt16Elem(var : *const VARIANT, ielem : u32, pnval : *mut i16) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantGetInt32Elem(var : *const VARIANT, ielem : u32, pnval : *mut i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantGetInt32Elem(var : *const VARIANT, ielem : u32, pnval : *mut i32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantGetInt64Elem(var : *const VARIANT, ielem : u32, pnval : *mut i64) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantGetInt64Elem(var : *const VARIANT, ielem : u32, pnval : *mut i64) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantGetStringElem(var : *const VARIANT, ielem : u32, ppszval : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantGetStringElem(var : *const VARIANT, ielem : u32, ppszval : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantGetUInt16Elem(var : *const VARIANT, ielem : u32, pnval : *mut u16) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantGetUInt16Elem(var : *const VARIANT, ielem : u32, pnval : *mut u16) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantGetUInt32Elem(var : *const VARIANT, ielem : u32, pnval : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantGetUInt32Elem(var : *const VARIANT, ielem : u32, pnval : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantGetUInt64Elem(var : *const VARIANT, ielem : u32, pnval : *mut u64) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantGetUInt64Elem(var : *const VARIANT, ielem : u32, pnval : *mut u64) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantInit(pvarg : *mut VARIANT));
+::windows_targets::link!("oleaut32.dll" "system" fn VariantInit(pvarg : *mut VARIANT));
 ::windows_targets::link!("oleaut32.dll" "system" fn VariantTimeToDosDateTime(vtime : f64, pwdosdate : *mut u16, pwdostime : *mut u16) -> i32);
 ::windows_targets::link!("oleaut32.dll" "system" fn VariantTimeToSystemTime(vtime : f64, lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME) -> i32);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToBoolean(varin : *const VARIANT, pfret : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToBoolean(varin : *const VARIANT, pfret : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToBooleanArray(var : *const VARIANT, prgf : *mut super::super::Foundation:: BOOL, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToBooleanArray(var : *const VARIANT, prgf : *mut super::super::Foundation:: BOOL, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToBooleanArrayAlloc(var : *const VARIANT, pprgf : *mut *mut super::super::Foundation:: BOOL, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToBooleanArrayAlloc(var : *const VARIANT, pprgf : *mut *mut super::super::Foundation:: BOOL, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToBooleanWithDefault(varin : *const VARIANT, fdefault : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("propsys.dll" "system" fn VariantToBooleanWithDefault(varin : *const VARIANT, fdefault : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToBuffer(varin : *const VARIANT, pv : *mut ::core::ffi::c_void, cb : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToBuffer(varin : *const VARIANT, pv : *mut ::core::ffi::c_void, cb : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToDosDateTime(varin : *const VARIANT, pwdate : *mut u16, pwtime : *mut u16) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToDosDateTime(varin : *const VARIANT, pwdate : *mut u16, pwtime : *mut u16) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToDouble(varin : *const VARIANT, pdblret : *mut f64) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToDouble(varin : *const VARIANT, pdblret : *mut f64) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToDoubleArray(var : *const VARIANT, prgn : *mut f64, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToDoubleArray(var : *const VARIANT, prgn : *mut f64, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToDoubleArrayAlloc(var : *const VARIANT, pprgn : *mut *mut f64, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToDoubleArrayAlloc(var : *const VARIANT, pprgn : *mut *mut f64, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToDoubleWithDefault(varin : *const VARIANT, dbldefault : f64) -> f64);
+::windows_targets::link!("propsys.dll" "system" fn VariantToDoubleWithDefault(varin : *const VARIANT, dbldefault : f64) -> f64);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToFileTime(varin : *const VARIANT, stfout : PSTIME_FLAGS, pftout : *mut super::super::Foundation:: FILETIME) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToFileTime(varin : *const VARIANT, stfout : PSTIME_FLAGS, pftout : *mut super::super::Foundation:: FILETIME) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToGUID(varin : *const VARIANT, pguid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToGUID(varin : *const VARIANT, pguid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToInt16(varin : *const VARIANT, piret : *mut i16) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToInt16(varin : *const VARIANT, piret : *mut i16) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToInt16Array(var : *const VARIANT, prgn : *mut i16, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToInt16Array(var : *const VARIANT, prgn : *mut i16, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToInt16ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut i16, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToInt16ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut i16, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToInt16WithDefault(varin : *const VARIANT, idefault : i16) -> i16);
+::windows_targets::link!("propsys.dll" "system" fn VariantToInt16WithDefault(varin : *const VARIANT, idefault : i16) -> i16);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToInt32(varin : *const VARIANT, plret : *mut i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToInt32(varin : *const VARIANT, plret : *mut i32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToInt32Array(var : *const VARIANT, prgn : *mut i32, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToInt32Array(var : *const VARIANT, prgn : *mut i32, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToInt32ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut i32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToInt32ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut i32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToInt32WithDefault(varin : *const VARIANT, ldefault : i32) -> i32);
+::windows_targets::link!("propsys.dll" "system" fn VariantToInt32WithDefault(varin : *const VARIANT, ldefault : i32) -> i32);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToInt64(varin : *const VARIANT, pllret : *mut i64) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToInt64(varin : *const VARIANT, pllret : *mut i64) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToInt64Array(var : *const VARIANT, prgn : *mut i64, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToInt64Array(var : *const VARIANT, prgn : *mut i64, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToInt64ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut i64, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToInt64ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut i64, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToInt64WithDefault(varin : *const VARIANT, lldefault : i64) -> i64);
+::windows_targets::link!("propsys.dll" "system" fn VariantToInt64WithDefault(varin : *const VARIANT, lldefault : i64) -> i64);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToString(varin : *const VARIANT, pszbuf : ::windows_sys::core::PWSTR, cchbuf : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToString(varin : *const VARIANT, pszbuf : ::windows_sys::core::PWSTR, cchbuf : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToStringAlloc(varin : *const VARIANT, ppszbuf : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToStringAlloc(varin : *const VARIANT, ppszbuf : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToStringArray(var : *const VARIANT, prgsz : *mut ::windows_sys::core::PWSTR, crgsz : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToStringArray(var : *const VARIANT, prgsz : *mut ::windows_sys::core::PWSTR, crgsz : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToStringArrayAlloc(var : *const VARIANT, pprgsz : *mut *mut ::windows_sys::core::PWSTR, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToStringArrayAlloc(var : *const VARIANT, pprgsz : *mut *mut ::windows_sys::core::PWSTR, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToStringWithDefault(varin : *const VARIANT, pszdefault : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PCWSTR);
+::windows_targets::link!("propsys.dll" "system" fn VariantToStringWithDefault(varin : *const VARIANT, pszdefault : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PCWSTR);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToUInt16(varin : *const VARIANT, puiret : *mut u16) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToUInt16(varin : *const VARIANT, puiret : *mut u16) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToUInt16Array(var : *const VARIANT, prgn : *mut u16, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToUInt16Array(var : *const VARIANT, prgn : *mut u16, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToUInt16ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut u16, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToUInt16ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut u16, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToUInt16WithDefault(varin : *const VARIANT, uidefault : u16) -> u16);
+::windows_targets::link!("propsys.dll" "system" fn VariantToUInt16WithDefault(varin : *const VARIANT, uidefault : u16) -> u16);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToUInt32(varin : *const VARIANT, pulret : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToUInt32(varin : *const VARIANT, pulret : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToUInt32Array(var : *const VARIANT, prgn : *mut u32, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToUInt32Array(var : *const VARIANT, prgn : *mut u32, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToUInt32ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToUInt32ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToUInt32WithDefault(varin : *const VARIANT, uldefault : u32) -> u32);
+::windows_targets::link!("propsys.dll" "system" fn VariantToUInt32WithDefault(varin : *const VARIANT, uldefault : u32) -> u32);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToUInt64(varin : *const VARIANT, pullret : *mut u64) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToUInt64(varin : *const VARIANT, pullret : *mut u64) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToUInt64Array(var : *const VARIANT, prgn : *mut u64, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToUInt64Array(var : *const VARIANT, prgn : *mut u64, crgn : u32, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToUInt64ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut u64, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" fn VariantToUInt64ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut u64, pcelem : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn VariantToUInt64WithDefault(varin : *const VARIANT, ulldefault : u64) -> u64);
+::windows_targets::link!("propsys.dll" "system" fn VariantToUInt64WithDefault(varin : *const VARIANT, ulldefault : u64) -> u64);
 pub const DPF_ERROR: DRAWPROGRESSFLAGS = 4i32;
 pub const DPF_MARQUEE: DRAWPROGRESSFLAGS = 1i32;
 pub const DPF_MARQUEE_COMPLETE: DRAWPROGRESSFLAGS = 2i32;
@@ -239,7 +239,6 @@ pub type PSTIME_FLAGS = i32;
 pub type VARENUM = u16;
 pub type VAR_CHANGE_FLAGS = u16;
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct VARIANT {
     pub Anonymous: VARIANT_0,
@@ -253,7 +252,6 @@ impl ::core::clone::Clone for VARIANT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub union VARIANT_0 {
     pub Anonymous: VARIANT_0_0,
@@ -268,7 +266,6 @@ impl ::core::clone::Clone for VARIANT_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct VARIANT_0_0 {
     pub vt: VARENUM,
@@ -286,7 +283,6 @@ impl ::core::clone::Clone for VARIANT_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub union VARIANT_0_0_0 {
     pub llVal: i64,
@@ -345,7 +341,6 @@ impl ::core::clone::Clone for VARIANT_0_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct VARIANT_0_0_0_0 {
     pub pvRecord: *mut ::core::ffi::c_void,

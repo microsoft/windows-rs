@@ -861,7 +861,6 @@ impl ::core::clone::Clone for WINHTTP_CONNECTION_GROUP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WINHTTP_CONNECTION_INFO {
@@ -880,7 +879,6 @@ impl ::core::clone::Clone for WINHTTP_CONNECTION_INFO {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WINHTTP_CONNECTION_INFO {

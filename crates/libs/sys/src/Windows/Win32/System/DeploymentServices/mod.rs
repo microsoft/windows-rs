@@ -23,7 +23,7 @@
 ::windows_targets::link!("wdspxe.dll" "system" fn PxeProviderFreeInfo(pprovider : *const PXE_PROVIDER) -> u32);
 ::windows_targets::link!("wdspxe.dll" "system" fn PxeProviderQueryIndex(pszprovidername : ::windows_sys::core::PCWSTR, puindex : *mut u32) -> u32);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("wdspxe.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn PxeProviderRegister(pszprovidername : ::windows_sys::core::PCWSTR, pszmodulepath : ::windows_sys::core::PCWSTR, index : u32, biscritical : super::super::Foundation:: BOOL, phproviderkey : *mut super::Registry:: HKEY) -> u32);
+::windows_targets::link!("wdspxe.dll" "system" fn PxeProviderRegister(pszprovidername : ::windows_sys::core::PCWSTR, pszmodulepath : ::windows_sys::core::PCWSTR, index : u32, biscritical : super::super::Foundation:: BOOL, phproviderkey : *mut super::Registry:: HKEY) -> u32);
 ::windows_targets::link!("wdspxe.dll" "system" fn PxeProviderSetAttribute(hprovider : super::super::Foundation:: HANDLE, attribute : u32, pparameterbuffer : *const ::core::ffi::c_void, uparamlen : u32) -> u32);
 ::windows_targets::link!("wdspxe.dll" "system" fn PxeProviderUnRegister(pszprovidername : ::windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("wdspxe.dll" "system" fn PxeRegisterCallback(hprovider : super::super::Foundation:: HANDLE, callbacktype : u32, pcallbackfunction : *const ::core::ffi::c_void, pcontext : *const ::core::ffi::c_void) -> u32);
@@ -616,7 +616,6 @@ impl ::core::clone::Clone for WDS_TRANSPORTCLIENT_REQUEST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub struct WDS_TRANSPORTPROVIDER_INIT_PARAMS {
     pub ulLength: u32,

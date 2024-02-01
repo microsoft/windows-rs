@@ -1026,7 +1026,6 @@ impl ::core::clone::Clone for EapPeerMethodOutput {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct EapPeerMethodResult {
     pub fIsSuccess: super::super::Foundation::BOOL,
@@ -1106,7 +1105,6 @@ impl ::core::clone::Clone for LEGACY_INTERACTIVE_UI_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct NgcTicketContext {
     pub wszTicket: [u16; 45],
@@ -1167,7 +1165,6 @@ impl ::core::clone::Clone for PPP_EAP_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct PPP_EAP_OUTPUT {
     pub dwSizeInBytes: u32,

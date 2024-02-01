@@ -1,20 +1,14 @@
 #[cfg(feature = "Win32_Media_Audio")]
-#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 pub mod Audio;
 #[cfg(feature = "Win32_Media_DxMediaObjects")]
-#[doc = "Required features: `\"Win32_Media_DxMediaObjects\"`"]
 pub mod DxMediaObjects;
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 pub mod KernelStreaming;
 #[cfg(feature = "Win32_Media_Multimedia")]
-#[doc = "Required features: `\"Win32_Media_Multimedia\"`"]
 pub mod Multimedia;
 #[cfg(feature = "Win32_Media_Streaming")]
-#[doc = "Required features: `\"Win32_Media_Streaming\"`"]
 pub mod Streaming;
 #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
-#[doc = "Required features: `\"Win32_Media_WindowsMediaFormat\"`"]
 pub mod WindowsMediaFormat;
 ::windows_targets::link!("winmm.dll" "system" fn timeBeginPeriod(uperiod : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn timeEndPeriod(uperiod : u32) -> u32);
@@ -228,7 +222,6 @@ impl ::core::clone::Clone for TIMECODE_SAMPLE {
         *self
     }
 }
-#[doc = "Required features: `\"Win32_Media_Multimedia\"`"]
 #[cfg(feature = "Win32_Media_Multimedia")]
 pub type LPDRVCALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 pub type LPTIMECALLBACK = ::core::option::Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;

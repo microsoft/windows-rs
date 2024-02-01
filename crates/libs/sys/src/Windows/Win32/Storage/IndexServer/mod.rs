@@ -310,7 +310,6 @@ impl ::core::clone::Clone for FILTERREGION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub struct FULLPROPSPEC {
     pub guidPropSet: ::windows_sys::core::GUID,
@@ -325,7 +324,6 @@ impl ::core::clone::Clone for FULLPROPSPEC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub struct STAT_CHUNK {
     pub idChunk: u32,

@@ -2,7 +2,7 @@
 ::windows_targets::link!("fltlib.dll" "system" fn FilterAttachAtAltitude(lpfiltername : ::windows_sys::core::PCWSTR, lpvolumename : ::windows_sys::core::PCWSTR, lpaltitude : ::windows_sys::core::PCWSTR, lpinstancename : ::windows_sys::core::PCWSTR, dwcreatedinstancenamelength : u32, lpcreatedinstancename : ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" fn FilterClose(hfilter : HFILTER) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security")]
-::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn FilterConnectCommunicationPort(lpportname : ::windows_sys::core::PCWSTR, dwoptions : u32, lpcontext : *const ::core::ffi::c_void, wsizeofcontext : u16, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, hport : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fltlib.dll" "system" fn FilterConnectCommunicationPort(lpportname : ::windows_sys::core::PCWSTR, dwoptions : u32, lpcontext : *const ::core::ffi::c_void, wsizeofcontext : u16, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, hport : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" fn FilterCreate(lpfiltername : ::windows_sys::core::PCWSTR, hfilter : *mut HFILTER) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" fn FilterDetach(lpfiltername : ::windows_sys::core::PCWSTR, lpvolumename : ::windows_sys::core::PCWSTR, lpinstancename : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" fn FilterFindClose(hfilterfind : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
@@ -11,7 +11,7 @@
 ::windows_targets::link!("fltlib.dll" "system" fn FilterGetDosName(lpvolumename : ::windows_sys::core::PCWSTR, lpdosname : ::windows_sys::core::PWSTR, dwdosnamebuffersize : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" fn FilterGetInformation(hfilter : HFILTER, dwinformationclass : FILTER_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_IO")]
-::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `\"Win32_System_IO\"`"] fn FilterGetMessage(hport : super::super::Foundation:: HANDLE, lpmessagebuffer : *mut FILTER_MESSAGE_HEADER, dwmessagebuffersize : u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fltlib.dll" "system" fn FilterGetMessage(hport : super::super::Foundation:: HANDLE, lpmessagebuffer : *mut FILTER_MESSAGE_HEADER, dwmessagebuffersize : u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" fn FilterInstanceClose(hinstance : HFILTER_INSTANCE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" fn FilterInstanceCreate(lpfiltername : ::windows_sys::core::PCWSTR, lpvolumename : ::windows_sys::core::PCWSTR, lpinstancename : ::windows_sys::core::PCWSTR, hinstance : *mut HFILTER_INSTANCE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" fn FilterInstanceFindClose(hfilterinstancefind : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);

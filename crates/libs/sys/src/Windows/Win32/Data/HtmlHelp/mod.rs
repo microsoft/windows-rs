@@ -329,7 +329,6 @@ impl ::core::clone::Clone for CProperty_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_UI_Controls\"`"]
 #[cfg(feature = "Win32_UI_Controls")]
 pub struct HHNTRACK {
     pub hdr: super::super::UI::Controls::NMHDR,
@@ -346,7 +345,6 @@ impl ::core::clone::Clone for HHNTRACK {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_UI_Controls\"`"]
 #[cfg(feature = "Win32_UI_Controls")]
 pub struct HHN_NOTIFY {
     pub hdr: super::super::UI::Controls::NMHDR,
@@ -421,7 +419,6 @@ impl ::core::clone::Clone for HH_FTS_QUERY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
 pub struct HH_GLOBAL_PROPERTY {
     pub id: HH_GPROPID,

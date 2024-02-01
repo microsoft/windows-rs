@@ -1,12 +1,11 @@
 #[cfg(feature = "Win32_Networking_WinSock")]
-::windows_targets::link!("ualapi.dll" "system" #[doc = "Required features: `\"Win32_Networking_WinSock\"`"] fn UalInstrument(data : *const UAL_DATA_BLOB) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ualapi.dll" "system" fn UalInstrument(data : *const UAL_DATA_BLOB) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ualapi.dll" "system" fn UalRegisterProduct(wszproductname : ::windows_sys::core::PCWSTR, wszrolename : ::windows_sys::core::PCWSTR, wszguid : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Networking_WinSock")]
-::windows_targets::link!("ualapi.dll" "system" #[doc = "Required features: `\"Win32_Networking_WinSock\"`"] fn UalStart(data : *const UAL_DATA_BLOB) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ualapi.dll" "system" fn UalStart(data : *const UAL_DATA_BLOB) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Networking_WinSock")]
-::windows_targets::link!("ualapi.dll" "system" #[doc = "Required features: `\"Win32_Networking_WinSock\"`"] fn UalStop(data : *const UAL_DATA_BLOB) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ualapi.dll" "system" fn UalStop(data : *const UAL_DATA_BLOB) -> ::windows_sys::core::HRESULT);
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct UAL_DATA_BLOB {
     pub Size: u32,

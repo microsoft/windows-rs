@@ -1,17 +1,12 @@
 #[cfg(feature = "Win32_UI_Input_Ime")]
-#[doc = "Required features: `\"Win32_UI_Input_Ime\"`"]
 pub mod Ime;
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
-#[doc = "Required features: `\"Win32_UI_Input_KeyboardAndMouse\"`"]
 pub mod KeyboardAndMouse;
 #[cfg(feature = "Win32_UI_Input_Pointer")]
-#[doc = "Required features: `\"Win32_UI_Input_Pointer\"`"]
 pub mod Pointer;
 #[cfg(feature = "Win32_UI_Input_Touch")]
-#[doc = "Required features: `\"Win32_UI_Input_Touch\"`"]
 pub mod Touch;
 #[cfg(feature = "Win32_UI_Input_XboxController")]
-#[doc = "Required features: `\"Win32_UI_Input_XboxController\"`"]
 pub mod XboxController;
 ::windows_targets::link!("user32.dll" "system" fn DefRawInputProc(parawinput : *const *const RAWINPUT, ninput : i32, cbsizeheader : u32) -> super::super::Foundation:: LRESULT);
 ::windows_targets::link!("user32.dll" "system" fn GetCIMSSM(inputmessagesource : *mut INPUT_MESSAGE_SOURCE) -> super::super::Foundation:: BOOL);

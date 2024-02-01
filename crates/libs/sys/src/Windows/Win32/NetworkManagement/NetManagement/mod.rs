@@ -33,9 +33,9 @@
 ::windows_targets::link!("netapi32.dll" "system" fn NetErrorLogRead(uncservername : ::windows_sys::core::PCWSTR, reserved1 : ::windows_sys::core::PCWSTR, errorloghandle : *const HLOG, offset : u32, reserved2 : *const u32, reserved3 : u32, offsetflag : u32, bufptr : *mut *mut u8, prefmaxsize : u32, bytesread : *mut u32, totalavailable : *mut u32) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" fn NetErrorLogWrite(reserved1 : *const u8, code : u32, component : ::windows_sys::core::PCWSTR, buffer : *const u8, numbytes : u32, msgbuf : *const u8, strcount : u32, reserved2 : *const u8) -> u32);
 #[cfg(feature = "Win32_Security_Cryptography")]
-::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `\"Win32_Security_Cryptography\"`"] fn NetFreeAadJoinInformation(pjoininfo : *const DSREG_JOIN_INFO));
+::windows_targets::link!("netapi32.dll" "system" fn NetFreeAadJoinInformation(pjoininfo : *const DSREG_JOIN_INFO));
 #[cfg(feature = "Win32_Security_Cryptography")]
-::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `\"Win32_Security_Cryptography\"`"] fn NetGetAadJoinInformation(pcsztenantid : ::windows_sys::core::PCWSTR, ppjoininfo : *mut *mut DSREG_JOIN_INFO) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("netapi32.dll" "system" fn NetGetAadJoinInformation(pcsztenantid : ::windows_sys::core::PCWSTR, ppjoininfo : *mut *mut DSREG_JOIN_INFO) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("netapi32.dll" "system" fn NetGetAnyDCName(servername : ::windows_sys::core::PCWSTR, domainname : ::windows_sys::core::PCWSTR, buffer : *mut *mut u8) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" fn NetGetDCName(servername : ::windows_sys::core::PCWSTR, domainname : ::windows_sys::core::PCWSTR, buffer : *mut *mut u8) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" fn NetGetDisplayInformationIndex(servername : ::windows_sys::core::PCWSTR, level : u32, prefix : ::windows_sys::core::PCWSTR, index : *mut u32) -> u32);
@@ -2845,7 +2845,6 @@ impl ::core::clone::Clone for CONFIG_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct DSREG_JOIN_INFO {
     pub joinType: DSREG_JOIN_TYPE,
@@ -3075,7 +3074,6 @@ impl ::core::clone::Clone for LOCALGROUP_MEMBERS_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct LOCALGROUP_MEMBERS_INFO_1 {
     pub lgrmi1_sid: super::super::Foundation::PSID,
@@ -3091,7 +3089,6 @@ impl ::core::clone::Clone for LOCALGROUP_MEMBERS_INFO_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct LOCALGROUP_MEMBERS_INFO_2 {
     pub lgrmi2_sid: super::super::Foundation::PSID,

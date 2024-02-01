@@ -84,14 +84,14 @@
 #[cfg(target_arch = "x86")]
 ::windows_targets::link!("chakra.dll" "system" fn JsStartDebugging(debugapplication : * mut::core::ffi::c_void) -> JsErrorCode);
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
-::windows_targets::link!("chakra.dll" "system" #[doc = "Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`"] fn JsStartProfiling(callback : * mut::core::ffi::c_void, eventmask : super::Diagnostics::Debug::ActiveScript:: PROFILER_EVENT_MASK, context : u32) -> JsErrorCode);
+::windows_targets::link!("chakra.dll" "system" fn JsStartProfiling(callback : * mut::core::ffi::c_void, eventmask : super::Diagnostics::Debug::ActiveScript:: PROFILER_EVENT_MASK, context : u32) -> JsErrorCode);
 ::windows_targets::link!("chakra.dll" "system" fn JsStopProfiling(reason : ::windows_sys::core::HRESULT) -> JsErrorCode);
 ::windows_targets::link!("chakra.dll" "system" fn JsStrictEquals(object1 : *const ::core::ffi::c_void, object2 : *const ::core::ffi::c_void, result : *mut bool) -> JsErrorCode);
 ::windows_targets::link!("chakra.dll" "system" fn JsStringToPointer(value : *const ::core::ffi::c_void, stringvalue : *mut *mut u16, stringlength : *mut usize) -> JsErrorCode);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-::windows_targets::link!("chakra.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"] fn JsValueToVariant(object : *const ::core::ffi::c_void, variant : *mut super::Variant:: VARIANT) -> JsErrorCode);
+::windows_targets::link!("chakra.dll" "system" fn JsValueToVariant(object : *const ::core::ffi::c_void, variant : *mut super::Variant:: VARIANT) -> JsErrorCode);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Variant"))]
-::windows_targets::link!("chakra.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Variant\"`"] fn JsVariantToValue(variant : *const super::Variant:: VARIANT, value : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
+::windows_targets::link!("chakra.dll" "system" fn JsVariantToValue(variant : *const super::Variant:: VARIANT, value : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
 pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
 pub const JsArray: JsValueType = 8i32;
 pub const JsBoolean: JsValueType = 4i32;

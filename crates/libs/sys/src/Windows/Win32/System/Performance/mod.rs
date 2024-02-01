@@ -1,5 +1,4 @@
 #[cfg(feature = "Win32_System_Performance_HardwareCounterProfiling")]
-#[doc = "Required features: `\"Win32_System_Performance_HardwareCounterProfiling\"`"]
 pub mod HardwareCounterProfiling;
 ::windows_targets::link!("loadperf.dll" "system" fn BackupPerfRegistryToFileW(szfilename : ::windows_sys::core::PCWSTR, szcommentstring : ::windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("loadperf.dll" "system" fn InstallPerfDllA(szcomputername : ::windows_sys::core::PCSTR, lpinifile : ::windows_sys::core::PCSTR, dwflags : usize) -> u32);
