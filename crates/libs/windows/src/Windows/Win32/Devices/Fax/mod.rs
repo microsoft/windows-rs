@@ -266,14 +266,12 @@ where
     ::windows_targets::link!("winfax.dll" "system" fn FaxOpenPort(faxhandle : super::super::Foundation:: HANDLE, deviceid : u32, flags : u32, faxporthandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     FaxOpenPort(faxhandle.into_param().abi(), deviceid, flags, faxporthandle)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn FaxPrintCoverPageA(faxcontextinfo: *const FAX_CONTEXT_INFOA, coverpageinfo: *const FAX_COVERPAGE_INFOA) -> ::windows_core::Result<()> {
     ::windows_targets::link!("winfax.dll" "system" fn FaxPrintCoverPageA(faxcontextinfo : *const FAX_CONTEXT_INFOA, coverpageinfo : *const FAX_COVERPAGE_INFOA) -> super::super::Foundation:: BOOL);
     FaxPrintCoverPageA(faxcontextinfo, coverpageinfo).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn FaxPrintCoverPageW(faxcontextinfo: *const FAX_CONTEXT_INFOW, coverpageinfo: *const FAX_COVERPAGE_INFOW) -> ::windows_core::Result<()> {
@@ -436,7 +434,6 @@ where
     ::windows_targets::link!("winfax.dll" "system" fn FaxSetRoutingInfoW(faxporthandle : super::super::Foundation:: HANDLE, routingguid : ::windows_core::PCWSTR, routinginfobuffer : *const u8, routinginfobuffersize : u32) -> super::super::Foundation:: BOOL);
     FaxSetRoutingInfoW(faxporthandle.into_param().abi(), routingguid.into_param().abi(), routinginfobuffer, routinginfobuffersize).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn FaxStartPrintJobA<P0>(printername: P0, printinfo: *const FAX_PRINT_INFOA, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOA) -> ::windows_core::Result<()>
@@ -446,7 +443,6 @@ where
     ::windows_targets::link!("winfax.dll" "system" fn FaxStartPrintJobA(printername : ::windows_core::PCSTR, printinfo : *const FAX_PRINT_INFOA, faxjobid : *mut u32, faxcontextinfo : *mut FAX_CONTEXT_INFOA) -> super::super::Foundation:: BOOL);
     FaxStartPrintJobA(printername.into_param().abi(), printinfo, faxjobid, faxcontextinfo).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn FaxStartPrintJobW<P0>(printername: P0, printinfo: *const FAX_PRINT_INFOW, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOW) -> ::windows_core::Result<()>
@@ -482,12 +478,7 @@ where
     StiCreateInstanceW(hinst.into_param().abi(), dwver, ::core::mem::transmute(ppsti), punkouter.into_param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxAccount,
-    IFaxAccount_Vtbl,
-    0x68535b33_5dc4_4086_be26_b76f9b711006
-);
+::windows_core::imp::com_interface!(IFaxAccount, IFaxAccount_Vtbl, 0x68535b33_5dc4_4086_be26_b76f9b711006);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxAccount, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -496,7 +487,6 @@ impl IFaxAccount {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AccountName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Folders(&self) -> ::windows_core::Result<IFaxAccountFolders> {
         let mut result__ = ::std::mem::zeroed();
@@ -524,35 +514,26 @@ pub struct IFaxAccount_Vtbl {
     pub RegisteredEvents: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut FAX_ACCOUNT_EVENTS_TYPE_ENUM) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxAccountFolders,
-    IFaxAccountFolders_Vtbl,
-    0x6463f89d_23d8_46a9_8f86_c47b77ca7926
-);
+::windows_core::imp::com_interface!(IFaxAccountFolders, IFaxAccountFolders_Vtbl, 0x6463f89d_23d8_46a9_8f86_c47b77ca7926);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxAccountFolders, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxAccountFolders {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OutgoingQueue(&self) -> ::windows_core::Result<IFaxAccountOutgoingQueue> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OutgoingQueue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IncomingQueue(&self) -> ::windows_core::Result<IFaxAccountIncomingQueue> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IncomingQueue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IncomingArchive(&self) -> ::windows_core::Result<IFaxAccountIncomingArchive> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IncomingArchive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OutgoingArchive(&self) -> ::windows_core::Result<IFaxAccountOutgoingArchive> {
         let mut result__ = ::std::mem::zeroed();
@@ -582,12 +563,7 @@ pub struct IFaxAccountFolders_Vtbl {
     OutgoingArchive: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxAccountIncomingArchive,
-    IFaxAccountIncomingArchive_Vtbl,
-    0xa8a5b6ef_e0d6_4aee_955c_91625bec9db4
-);
+::windows_core::imp::com_interface!(IFaxAccountIncomingArchive, IFaxAccountIncomingArchive_Vtbl, 0xa8a5b6ef_e0d6_4aee_955c_91625bec9db4);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxAccountIncomingArchive, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -603,13 +579,11 @@ impl IFaxAccountIncomingArchive {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMessages(&self, lprefetchsize: i32) -> ::windows_core::Result<IFaxIncomingMessageIterator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMessages)(::windows_core::Interface::as_raw(self), lprefetchsize, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMessage<P0>(&self, bstrmessageid: P0) -> ::windows_core::Result<IFaxIncomingMessage>
     where
@@ -637,23 +611,16 @@ pub struct IFaxAccountIncomingArchive_Vtbl {
     GetMessage: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxAccountIncomingQueue,
-    IFaxAccountIncomingQueue_Vtbl,
-    0xdd142d92_0186_4a95_a090_cbc3eadba6b4
-);
+::windows_core::imp::com_interface!(IFaxAccountIncomingQueue, IFaxAccountIncomingQueue_Vtbl, 0xdd142d92_0186_4a95_a090_cbc3eadba6b4);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxAccountIncomingQueue, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxAccountIncomingQueue {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetJobs(&self) -> ::windows_core::Result<IFaxIncomingJobs> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetJobs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetJob<P0>(&self, bstrjobid: P0) -> ::windows_core::Result<IFaxIncomingJob>
     where
@@ -678,17 +645,11 @@ pub struct IFaxAccountIncomingQueue_Vtbl {
     GetJob: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxAccountNotify,
-    IFaxAccountNotify_Vtbl,
-    0xb9b3bc81_ac1b_46f3_b39d_0adc30e1b788
-);
+::windows_core::imp::com_interface!(IFaxAccountNotify, IFaxAccountNotify_Vtbl, 0xb9b3bc81_ac1b_46f3_b39d_0adc30e1b788);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxAccountNotify, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxAccountNotify {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingJobAdded<P0, P1>(&self, pfaxaccount: P0, bstrjobid: P1) -> ::windows_core::Result<()>
     where
@@ -697,7 +658,6 @@ impl IFaxAccountNotify {
     {
         (::windows_core::Interface::vtable(self).OnIncomingJobAdded)(::windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingJobRemoved<P0, P1>(&self, pfaxaccount: P0, bstrjobid: P1) -> ::windows_core::Result<()>
     where
@@ -706,7 +666,6 @@ impl IFaxAccountNotify {
     {
         (::windows_core::Interface::vtable(self).OnIncomingJobRemoved)(::windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingJobChanged<P0, P1, P2>(&self, pfaxaccount: P0, bstrjobid: P1, pjobstatus: P2) -> ::windows_core::Result<()>
     where
@@ -716,7 +675,6 @@ impl IFaxAccountNotify {
     {
         (::windows_core::Interface::vtable(self).OnIncomingJobChanged)(::windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi(), pjobstatus.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingJobAdded<P0, P1>(&self, pfaxaccount: P0, bstrjobid: P1) -> ::windows_core::Result<()>
     where
@@ -725,7 +683,6 @@ impl IFaxAccountNotify {
     {
         (::windows_core::Interface::vtable(self).OnOutgoingJobAdded)(::windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingJobRemoved<P0, P1>(&self, pfaxaccount: P0, bstrjobid: P1) -> ::windows_core::Result<()>
     where
@@ -734,7 +691,6 @@ impl IFaxAccountNotify {
     {
         (::windows_core::Interface::vtable(self).OnOutgoingJobRemoved)(::windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingJobChanged<P0, P1, P2>(&self, pfaxaccount: P0, bstrjobid: P1, pjobstatus: P2) -> ::windows_core::Result<()>
     where
@@ -744,7 +700,6 @@ impl IFaxAccountNotify {
     {
         (::windows_core::Interface::vtable(self).OnOutgoingJobChanged)(::windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi(), pjobstatus.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingMessageAdded<P0, P1, P2>(&self, pfaxaccount: P0, bstrmessageid: P1, faddedtoreceivefolder: P2) -> ::windows_core::Result<()>
     where
@@ -754,7 +709,6 @@ impl IFaxAccountNotify {
     {
         (::windows_core::Interface::vtable(self).OnIncomingMessageAdded)(::windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrmessageid.into_param().abi(), faddedtoreceivefolder.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingMessageRemoved<P0, P1, P2>(&self, pfaxaccount: P0, bstrmessageid: P1, fremovedfromreceivefolder: P2) -> ::windows_core::Result<()>
     where
@@ -764,7 +718,6 @@ impl IFaxAccountNotify {
     {
         (::windows_core::Interface::vtable(self).OnIncomingMessageRemoved)(::windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrmessageid.into_param().abi(), fremovedfromreceivefolder.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingMessageAdded<P0, P1>(&self, pfaxaccount: P0, bstrmessageid: P1) -> ::windows_core::Result<()>
     where
@@ -773,7 +726,6 @@ impl IFaxAccountNotify {
     {
         (::windows_core::Interface::vtable(self).OnOutgoingMessageAdded)(::windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrmessageid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingMessageRemoved<P0, P1>(&self, pfaxaccount: P0, bstrmessageid: P1) -> ::windows_core::Result<()>
     where
@@ -782,7 +734,6 @@ impl IFaxAccountNotify {
     {
         (::windows_core::Interface::vtable(self).OnOutgoingMessageRemoved)(::windows_core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrmessageid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnServerShutDown<P0>(&self, pfaxserver: P0) -> ::windows_core::Result<()>
     where
@@ -842,12 +793,7 @@ pub struct IFaxAccountNotify_Vtbl {
     OnServerShutDown: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxAccountOutgoingArchive,
-    IFaxAccountOutgoingArchive_Vtbl,
-    0x5463076d_ec14_491f_926e_b3ceda5e5662
-);
+::windows_core::imp::com_interface!(IFaxAccountOutgoingArchive, IFaxAccountOutgoingArchive_Vtbl, 0x5463076d_ec14_491f_926e_b3ceda5e5662);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxAccountOutgoingArchive, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -863,13 +809,11 @@ impl IFaxAccountOutgoingArchive {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMessages(&self, lprefetchsize: i32) -> ::windows_core::Result<IFaxOutgoingMessageIterator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMessages)(::windows_core::Interface::as_raw(self), lprefetchsize, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMessage<P0>(&self, bstrmessageid: P0) -> ::windows_core::Result<IFaxOutgoingMessage>
     where
@@ -897,23 +841,16 @@ pub struct IFaxAccountOutgoingArchive_Vtbl {
     GetMessage: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxAccountOutgoingQueue,
-    IFaxAccountOutgoingQueue_Vtbl,
-    0x0f1424e9_f22d_4553_b7a5_0d24bd0d7e46
-);
+::windows_core::imp::com_interface!(IFaxAccountOutgoingQueue, IFaxAccountOutgoingQueue_Vtbl, 0x0f1424e9_f22d_4553_b7a5_0d24bd0d7e46);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxAccountOutgoingQueue, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxAccountOutgoingQueue {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetJobs(&self) -> ::windows_core::Result<IFaxOutgoingJobs> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetJobs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetJob<P0>(&self, bstrjobid: P0) -> ::windows_core::Result<IFaxOutgoingJob>
     where
@@ -938,23 +875,16 @@ pub struct IFaxAccountOutgoingQueue_Vtbl {
     GetJob: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxAccountSet,
-    IFaxAccountSet_Vtbl,
-    0x7428fbae_841e_47b8_86f4_2288946dca1b
-);
+::windows_core::imp::com_interface!(IFaxAccountSet, IFaxAccountSet_Vtbl, 0x7428fbae_841e_47b8_86f4_2288946dca1b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxAccountSet, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxAccountSet {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAccounts(&self) -> ::windows_core::Result<IFaxAccounts> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAccounts)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAccount<P0>(&self, bstraccountname: P0) -> ::windows_core::Result<IFaxAccount>
     where
@@ -963,7 +893,6 @@ impl IFaxAccountSet {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAccount)(::windows_core::Interface::as_raw(self), bstraccountname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddAccount<P0>(&self, bstraccountname: P0) -> ::windows_core::Result<IFaxAccount>
     where
@@ -999,12 +928,7 @@ pub struct IFaxAccountSet_Vtbl {
     pub RemoveAccount: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxAccounts,
-    IFaxAccounts_Vtbl,
-    0x93ea8162_8be7_42d1_ae7b_ec74e2d989da
-);
+::windows_core::imp::com_interface!(IFaxAccounts, IFaxAccounts_Vtbl, 0x93ea8162_8be7_42d1_ae7b_ec74e2d989da);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxAccounts, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1013,7 +937,6 @@ impl IFaxAccounts {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, vindex: P0) -> ::windows_core::Result<IFaxAccount>
     where
@@ -1040,12 +963,7 @@ pub struct IFaxAccounts_Vtbl {
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxActivity,
-    IFaxActivity_Vtbl,
-    0x4b106f97_3df5_40f2_bc3c_44cb8115ebdf
-);
+::windows_core::imp::com_interface!(IFaxActivity, IFaxActivity_Vtbl, 0x4b106f97_3df5_40f2_bc3c_44cb8115ebdf);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxActivity, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1082,12 +1000,7 @@ pub struct IFaxActivity_Vtbl {
     pub Refresh: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxActivityLogging,
-    IFaxActivityLogging_Vtbl,
-    0x1e29078b_5a69_497b_9592_49b7e7faddb5
-);
+::windows_core::imp::com_interface!(IFaxActivityLogging, IFaxActivityLogging_Vtbl, 0x1e29078b_5a69_497b_9592_49b7e7faddb5);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxActivityLogging, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1144,12 +1057,7 @@ pub struct IFaxActivityLogging_Vtbl {
     pub Save: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxConfiguration,
-    IFaxConfiguration_Vtbl,
-    0x10f4d0f7_0994_4543_ab6e_506949128c40
-);
+::windows_core::imp::com_interface!(IFaxConfiguration, IFaxConfiguration_Vtbl, 0x10f4d0f7_0994_4543_ab6e_506949128c40);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxConfiguration, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1384,12 +1292,7 @@ pub struct IFaxConfiguration_Vtbl {
     pub Save: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxDevice,
-    IFaxDevice_Vtbl,
-    0x49306c59_b52e_4867_9df4_ca5841c956d0
-);
+::windows_core::imp::com_interface!(IFaxDevice, IFaxDevice_Vtbl, 0x49306c59_b52e_4867_9df4_ca5841c956d0);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxDevice, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1544,12 +1447,7 @@ pub struct IFaxDevice_Vtbl {
     pub AnswerCall: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxDeviceIds,
-    IFaxDeviceIds_Vtbl,
-    0x2f0f813f_4ce9_443e_8ca1_738cfaeee149
-);
+::windows_core::imp::com_interface!(IFaxDeviceIds, IFaxDeviceIds_Vtbl, 0x2f0f813f_4ce9_443e_8ca1_738cfaeee149);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxDeviceIds, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1589,12 +1487,7 @@ pub struct IFaxDeviceIds_Vtbl {
     pub SetOrder: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxDeviceProvider,
-    IFaxDeviceProvider_Vtbl,
-    0x290eac63_83ec_449c_8417_f148df8c682a
-);
+::windows_core::imp::com_interface!(IFaxDeviceProvider, IFaxDeviceProvider_Vtbl, 0x290eac63_83ec_449c_8417_f148df8c682a);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxDeviceProvider, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1667,12 +1560,7 @@ pub struct IFaxDeviceProvider_Vtbl {
     pub DeviceIds: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxDeviceProviders,
-    IFaxDeviceProviders_Vtbl,
-    0x9fb76f62_4c7e_43a5_b6fd_502893f7e13e
-);
+::windows_core::imp::com_interface!(IFaxDeviceProviders, IFaxDeviceProviders_Vtbl, 0x9fb76f62_4c7e_43a5_b6fd_502893f7e13e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxDeviceProviders, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1681,7 +1569,6 @@ impl IFaxDeviceProviders {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, vindex: P0) -> ::windows_core::Result<IFaxDeviceProvider>
     where
@@ -1708,12 +1595,7 @@ pub struct IFaxDeviceProviders_Vtbl {
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxDevices,
-    IFaxDevices_Vtbl,
-    0x9e46783e_f34f_482e_a360_0416becbbd96
-);
+::windows_core::imp::com_interface!(IFaxDevices, IFaxDevices_Vtbl, 0x9e46783e_f34f_482e_a360_0416becbbd96);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxDevices, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1722,7 +1604,6 @@ impl IFaxDevices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, vindex: P0) -> ::windows_core::Result<IFaxDevice>
     where
@@ -1735,7 +1616,6 @@ impl IFaxDevices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemById(&self, lid: i32) -> ::windows_core::Result<IFaxDevice> {
         let mut result__ = ::std::mem::zeroed();
@@ -1759,12 +1639,7 @@ pub struct IFaxDevices_Vtbl {
     get_ItemById: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxDocument,
-    IFaxDocument_Vtbl,
-    0xb207a246_09e3_4a4e_a7dc_fea31d29458f
-);
+::windows_core::imp::com_interface!(IFaxDocument, IFaxDocument_Vtbl, 0xb207a246_09e3_4a4e_a7dc_fea31d29458f);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxDocument, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1779,13 +1654,11 @@ impl IFaxDocument {
     {
         (::windows_core::Interface::vtable(self).SetBody)(::windows_core::Interface::as_raw(self), bstrbody.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Sender(&self) -> ::windows_core::Result<IFaxSender> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Sender)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recipients(&self) -> ::windows_core::Result<IFaxRecipients> {
         let mut result__ = ::std::mem::zeroed();
@@ -1893,13 +1766,11 @@ impl IFaxDocument {
     pub unsafe fn SetPriority(&self, priority: FAX_PRIORITY_TYPE_ENUM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPriority)(::windows_core::Interface::as_raw(self), priority).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TapiConnection(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TapiConnection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_TapiConnection<P0>(&self, ptapiconnection: P0) -> ::windows_core::Result<()>
     where
@@ -1914,7 +1785,6 @@ impl IFaxDocument {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Submit)(::windows_core::Interface::as_raw(self), bstrfaxservername.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConnectedSubmit<P0>(&self, pfaxserver: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
@@ -1990,12 +1860,7 @@ pub struct IFaxDocument_Vtbl {
     pub SetAttachFaxToReceipt: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxDocument2,
-    IFaxDocument2_Vtbl,
-    0xe1347661_f9ef_4d6d_b4a5_c0a068b65cff
-);
+::windows_core::imp::com_interface!(IFaxDocument2, IFaxDocument2_Vtbl, 0xe1347661_f9ef_4d6d_b4a5_c0a068b65cff);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxDocument2, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFaxDocument);
 #[cfg(feature = "Win32_System_Com")]
@@ -2010,13 +1875,11 @@ impl IFaxDocument2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetBody)(::windows_core::Interface::as_raw(self), bstrbody.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Sender(&self) -> ::windows_core::Result<IFaxSender> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Sender)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recipients(&self) -> ::windows_core::Result<IFaxRecipients> {
         let mut result__ = ::std::mem::zeroed();
@@ -2124,13 +1987,11 @@ impl IFaxDocument2 {
     pub unsafe fn SetPriority(&self, priority: FAX_PRIORITY_TYPE_ENUM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetPriority)(::windows_core::Interface::as_raw(self), priority).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TapiConnection(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TapiConnection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_TapiConnection<P0>(&self, ptapiconnection: P0) -> ::windows_core::Result<()>
     where
@@ -2145,7 +2006,6 @@ impl IFaxDocument2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Submit)(::windows_core::Interface::as_raw(self), bstrfaxservername.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConnectedSubmit<P0>(&self, pfaxserver: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
@@ -2184,7 +2044,6 @@ impl IFaxDocument2 {
     {
         (::windows_core::Interface::vtable(self).Submit2)(::windows_core::Interface::as_raw(self), bstrfaxservername.into_param().abi(), ::core::mem::transmute(pvfaxoutgoingjobids), plerrorbodyfile).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConnectedSubmit2<P0>(&self, pfaxserver: P0, pvfaxoutgoingjobids: *mut ::windows_core::VARIANT, plerrorbodyfile: *mut i32) -> ::windows_core::Result<()>
     where
@@ -2208,12 +2067,7 @@ pub struct IFaxDocument2_Vtbl {
     ConnectedSubmit2: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxEventLogging,
-    IFaxEventLogging_Vtbl,
-    0x0880d965_20e8_42e4_8e17_944f192caad4
-);
+::windows_core::imp::com_interface!(IFaxEventLogging, IFaxEventLogging_Vtbl, 0x0880d965_20e8_42e4_8e17_944f192caad4);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxEventLogging, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2270,35 +2124,26 @@ pub struct IFaxEventLogging_Vtbl {
     pub Save: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxFolders,
-    IFaxFolders_Vtbl,
-    0xdce3b2a8_a7ab_42bc_9d0a_3149457261a0
-);
+::windows_core::imp::com_interface!(IFaxFolders, IFaxFolders_Vtbl, 0xdce3b2a8_a7ab_42bc_9d0a_3149457261a0);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxFolders, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxFolders {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OutgoingQueue(&self) -> ::windows_core::Result<IFaxOutgoingQueue> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OutgoingQueue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IncomingQueue(&self) -> ::windows_core::Result<IFaxIncomingQueue> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IncomingQueue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IncomingArchive(&self) -> ::windows_core::Result<IFaxIncomingArchive> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IncomingArchive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OutgoingArchive(&self) -> ::windows_core::Result<IFaxOutgoingArchive> {
         let mut result__ = ::std::mem::zeroed();
@@ -2328,23 +2173,16 @@ pub struct IFaxFolders_Vtbl {
     OutgoingArchive: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxInboundRouting,
-    IFaxInboundRouting_Vtbl,
-    0x8148c20f_9d52_45b1_bf96_38fc12713527
-);
+::windows_core::imp::com_interface!(IFaxInboundRouting, IFaxInboundRouting_Vtbl, 0x8148c20f_9d52_45b1_bf96_38fc12713527);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxInboundRouting, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxInboundRouting {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetExtensions(&self) -> ::windows_core::Result<IFaxInboundRoutingExtensions> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExtensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMethods(&self) -> ::windows_core::Result<IFaxInboundRoutingMethods> {
         let mut result__ = ::std::mem::zeroed();
@@ -2366,12 +2204,7 @@ pub struct IFaxInboundRouting_Vtbl {
     GetMethods: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxInboundRoutingExtension,
-    IFaxInboundRoutingExtension_Vtbl,
-    0x885b5e08_c26c_4ef9_af83_51580a750be1
-);
+::windows_core::imp::com_interface!(IFaxInboundRoutingExtension, IFaxInboundRoutingExtension_Vtbl, 0x885b5e08_c26c_4ef9_af83_51580a750be1);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxInboundRoutingExtension, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2439,12 +2272,7 @@ pub struct IFaxInboundRoutingExtension_Vtbl {
     pub Methods: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxInboundRoutingExtensions,
-    IFaxInboundRoutingExtensions_Vtbl,
-    0x2f6c9673_7b26_42de_8eb0_915dcd2a4f4c
-);
+::windows_core::imp::com_interface!(IFaxInboundRoutingExtensions, IFaxInboundRoutingExtensions_Vtbl, 0x2f6c9673_7b26_42de_8eb0_915dcd2a4f4c);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxInboundRoutingExtensions, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2453,7 +2281,6 @@ impl IFaxInboundRoutingExtensions {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, vindex: P0) -> ::windows_core::Result<IFaxInboundRoutingExtension>
     where
@@ -2480,12 +2307,7 @@ pub struct IFaxInboundRoutingExtensions_Vtbl {
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxInboundRoutingMethod,
-    IFaxInboundRoutingMethod_Vtbl,
-    0x45700061_ad9d_4776_a8c4_64065492cf4b
-);
+::windows_core::imp::com_interface!(IFaxInboundRoutingMethod, IFaxInboundRoutingMethod_Vtbl, 0x45700061_ad9d_4776_a8c4_64065492cf4b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxInboundRoutingMethod, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2540,12 +2362,7 @@ pub struct IFaxInboundRoutingMethod_Vtbl {
     pub Save: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxInboundRoutingMethods,
-    IFaxInboundRoutingMethods_Vtbl,
-    0x783fca10_8908_4473_9d69_f67fbea0c6b9
-);
+::windows_core::imp::com_interface!(IFaxInboundRoutingMethods, IFaxInboundRoutingMethods_Vtbl, 0x783fca10_8908_4473_9d69_f67fbea0c6b9);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxInboundRoutingMethods, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2554,7 +2371,6 @@ impl IFaxInboundRoutingMethods {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, vindex: P0) -> ::windows_core::Result<IFaxInboundRoutingMethod>
     where
@@ -2581,12 +2397,7 @@ pub struct IFaxInboundRoutingMethods_Vtbl {
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxIncomingArchive,
-    IFaxIncomingArchive_Vtbl,
-    0x76062cc7_f714_4fbd_aa06_ed6e4a4b70f3
-);
+::windows_core::imp::com_interface!(IFaxIncomingArchive, IFaxIncomingArchive_Vtbl, 0x76062cc7_f714_4fbd_aa06_ed6e4a4b70f3);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxIncomingArchive, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2656,13 +2467,11 @@ impl IFaxIncomingArchive {
     pub unsafe fn Save(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Save)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMessages(&self, lprefetchsize: i32) -> ::windows_core::Result<IFaxIncomingMessageIterator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMessages)(::windows_core::Interface::as_raw(self), lprefetchsize, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMessage<P0>(&self, bstrmessageid: P0) -> ::windows_core::Result<IFaxIncomingMessage>
     where
@@ -2703,12 +2512,7 @@ pub struct IFaxIncomingArchive_Vtbl {
     GetMessage: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxIncomingJob,
-    IFaxIncomingJob_Vtbl,
-    0x207529e6_654a_4916_9f88_4d232ee8a107
-);
+::windows_core::imp::com_interface!(IFaxIncomingJob, IFaxIncomingJob_Vtbl, 0x207529e6_654a_4916_9f88_4d232ee8a107);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxIncomingJob, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2816,12 +2620,7 @@ pub struct IFaxIncomingJob_Vtbl {
     pub CopyTiff: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxIncomingJobs,
-    IFaxIncomingJobs_Vtbl,
-    0x011f04e9_4fd6_4c23_9513_b6b66bb26be9
-);
+::windows_core::imp::com_interface!(IFaxIncomingJobs, IFaxIncomingJobs_Vtbl, 0x011f04e9_4fd6_4c23_9513_b6b66bb26be9);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxIncomingJobs, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2830,7 +2629,6 @@ impl IFaxIncomingJobs {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, vindex: P0) -> ::windows_core::Result<IFaxIncomingJob>
     where
@@ -2857,12 +2655,7 @@ pub struct IFaxIncomingJobs_Vtbl {
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxIncomingMessage,
-    IFaxIncomingMessage_Vtbl,
-    0x7cab88fa_2ef9_4851_b2f3_1d148fed8447
-);
+::windows_core::imp::com_interface!(IFaxIncomingMessage, IFaxIncomingMessage_Vtbl, 0x7cab88fa_2ef9_4851_b2f3_1d148fed8447);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxIncomingMessage, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2941,12 +2734,7 @@ pub struct IFaxIncomingMessage_Vtbl {
     pub Delete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxIncomingMessage2,
-    IFaxIncomingMessage2_Vtbl,
-    0xf9208503_e2bc_48f3_9ec0_e6236f9b509a
-);
+::windows_core::imp::com_interface!(IFaxIncomingMessage2, IFaxIncomingMessage2_Vtbl, 0xf9208503_e2bc_48f3_9ec0_e6236f9b509a);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxIncomingMessage2, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFaxIncomingMessage);
 #[cfg(feature = "Win32_System_Com")]
@@ -3101,17 +2889,11 @@ pub struct IFaxIncomingMessage2_Vtbl {
     pub Refresh: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxIncomingMessageIterator,
-    IFaxIncomingMessageIterator_Vtbl,
-    0xfd73ecc4_6f06_4f52_82a8_f7ba06ae3108
-);
+::windows_core::imp::com_interface!(IFaxIncomingMessageIterator, IFaxIncomingMessageIterator_Vtbl, 0xfd73ecc4_6f06_4f52_82a8_f7ba06ae3108);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxIncomingMessageIterator, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxIncomingMessageIterator {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Message(&self) -> ::windows_core::Result<IFaxIncomingMessage> {
         let mut result__ = ::std::mem::zeroed();
@@ -3151,12 +2933,7 @@ pub struct IFaxIncomingMessageIterator_Vtbl {
     pub MoveNext: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxIncomingQueue,
-    IFaxIncomingQueue_Vtbl,
-    0x902e64ef_8fd8_4b75_9725_6014df161545
-);
+::windows_core::imp::com_interface!(IFaxIncomingQueue, IFaxIncomingQueue_Vtbl, 0x902e64ef_8fd8_4b75_9725_6014df161545);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxIncomingQueue, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3177,13 +2954,11 @@ impl IFaxIncomingQueue {
     pub unsafe fn Save(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Save)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetJobs(&self) -> ::windows_core::Result<IFaxIncomingJobs> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetJobs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetJob<P0>(&self, bstrjobid: P0) -> ::windows_core::Result<IFaxIncomingJob>
     where
@@ -3212,12 +2987,7 @@ pub struct IFaxIncomingQueue_Vtbl {
     GetJob: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxJobStatus,
-    IFaxJobStatus_Vtbl,
-    0x8b86f485_fd7f_4824_886b_40c5caa617cc
-);
+::windows_core::imp::com_interface!(IFaxJobStatus, IFaxJobStatus_Vtbl, 0x8b86f485_fd7f_4824_886b_40c5caa617cc);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxJobStatus, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3315,23 +3085,16 @@ pub struct IFaxJobStatus_Vtbl {
     pub RoutingInformation: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxLoggingOptions,
-    IFaxLoggingOptions_Vtbl,
-    0x34e64fb9_6b31_4d32_8b27_d286c0c33606
-);
+::windows_core::imp::com_interface!(IFaxLoggingOptions, IFaxLoggingOptions_Vtbl, 0x34e64fb9_6b31_4d32_8b27_d286c0c33606);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxLoggingOptions, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxLoggingOptions {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EventLogging(&self) -> ::windows_core::Result<IFaxEventLogging> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EventLogging)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActivityLogging(&self) -> ::windows_core::Result<IFaxActivityLogging> {
         let mut result__ = ::std::mem::zeroed();
@@ -3353,23 +3116,16 @@ pub struct IFaxLoggingOptions_Vtbl {
     ActivityLogging: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxOutboundRouting,
-    IFaxOutboundRouting_Vtbl,
-    0x25dc05a4_9909_41bd_a95b_7e5d1dec1d43
-);
+::windows_core::imp::com_interface!(IFaxOutboundRouting, IFaxOutboundRouting_Vtbl, 0x25dc05a4_9909_41bd_a95b_7e5d1dec1d43);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxOutboundRouting, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxOutboundRouting {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetGroups(&self) -> ::windows_core::Result<IFaxOutboundRoutingGroups> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRules(&self) -> ::windows_core::Result<IFaxOutboundRoutingRules> {
         let mut result__ = ::std::mem::zeroed();
@@ -3391,12 +3147,7 @@ pub struct IFaxOutboundRouting_Vtbl {
     GetRules: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxOutboundRoutingGroup,
-    IFaxOutboundRoutingGroup_Vtbl,
-    0xca6289a1_7e25_4f87_9a0b_93365734962c
-);
+::windows_core::imp::com_interface!(IFaxOutboundRoutingGroup, IFaxOutboundRoutingGroup_Vtbl, 0xca6289a1_7e25_4f87_9a0b_93365734962c);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxOutboundRoutingGroup, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3409,7 +3160,6 @@ impl IFaxOutboundRoutingGroup {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeviceIds(&self) -> ::windows_core::Result<IFaxDeviceIds> {
         let mut result__ = ::std::mem::zeroed();
@@ -3429,12 +3179,7 @@ pub struct IFaxOutboundRoutingGroup_Vtbl {
     DeviceIds: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxOutboundRoutingGroups,
-    IFaxOutboundRoutingGroups_Vtbl,
-    0x235cbef7_c2de_4bfd_b8da_75097c82c87f
-);
+::windows_core::imp::com_interface!(IFaxOutboundRoutingGroups, IFaxOutboundRoutingGroups_Vtbl, 0x235cbef7_c2de_4bfd_b8da_75097c82c87f);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxOutboundRoutingGroups, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3443,7 +3188,6 @@ impl IFaxOutboundRoutingGroups {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, vindex: P0) -> ::windows_core::Result<IFaxOutboundRoutingGroup>
     where
@@ -3456,7 +3200,6 @@ impl IFaxOutboundRoutingGroups {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, bstrname: P0) -> ::windows_core::Result<IFaxOutboundRoutingGroup>
     where
@@ -3490,12 +3233,7 @@ pub struct IFaxOutboundRoutingGroups_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxOutboundRoutingRule,
-    IFaxOutboundRoutingRule_Vtbl,
-    0xe1f795d5_07c2_469f_b027_acacc23219da
-);
+::windows_core::imp::com_interface!(IFaxOutboundRoutingRule, IFaxOutboundRoutingRule_Vtbl, 0xe1f795d5_07c2_469f_b027_acacc23219da);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxOutboundRoutingRule, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3564,12 +3302,7 @@ pub struct IFaxOutboundRoutingRule_Vtbl {
     pub Save: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxOutboundRoutingRules,
-    IFaxOutboundRoutingRules_Vtbl,
-    0xdcefa1e7_ae7d_4ed6_8521_369edcca5120
-);
+::windows_core::imp::com_interface!(IFaxOutboundRoutingRules, IFaxOutboundRoutingRules_Vtbl, 0xdcefa1e7_ae7d_4ed6_8521_369edcca5120);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxOutboundRoutingRules, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3578,7 +3311,6 @@ impl IFaxOutboundRoutingRules {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows_core::Result<IFaxOutboundRoutingRule> {
         let mut result__ = ::std::mem::zeroed();
@@ -3588,7 +3320,6 @@ impl IFaxOutboundRoutingRules {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ItemByCountryAndArea(&self, lcountrycode: i32, lareacode: i32) -> ::windows_core::Result<IFaxOutboundRoutingRule> {
         let mut result__ = ::std::mem::zeroed();
@@ -3600,7 +3331,6 @@ impl IFaxOutboundRoutingRules {
     pub unsafe fn Remove(&self, lindex: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), lindex).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0, P1>(&self, lcountrycode: i32, lareacode: i32, busedevice: P0, bstrgroupname: P1, ldeviceid: i32) -> ::windows_core::Result<IFaxOutboundRoutingRule>
     where
@@ -3634,12 +3364,7 @@ pub struct IFaxOutboundRoutingRules_Vtbl {
     Add: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxOutgoingArchive,
-    IFaxOutgoingArchive_Vtbl,
-    0xc9c28f40_8d80_4e53_810f_9a79919b49fd
-);
+::windows_core::imp::com_interface!(IFaxOutgoingArchive, IFaxOutgoingArchive_Vtbl, 0xc9c28f40_8d80_4e53_810f_9a79919b49fd);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxOutgoingArchive, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3709,13 +3434,11 @@ impl IFaxOutgoingArchive {
     pub unsafe fn Save(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Save)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMessages(&self, lprefetchsize: i32) -> ::windows_core::Result<IFaxOutgoingMessageIterator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMessages)(::windows_core::Interface::as_raw(self), lprefetchsize, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMessage<P0>(&self, bstrmessageid: P0) -> ::windows_core::Result<IFaxOutgoingMessage>
     where
@@ -3756,12 +3479,7 @@ pub struct IFaxOutgoingArchive_Vtbl {
     GetMessage: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxOutgoingJob,
-    IFaxOutgoingJob_Vtbl,
-    0x6356daad_6614_4583_bf7a_3ad67bbfc71c
-);
+::windows_core::imp::com_interface!(IFaxOutgoingJob, IFaxOutgoingJob_Vtbl, 0x6356daad_6614_4583_bf7a_3ad67bbfc71c);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxOutgoingJob, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3806,13 +3524,11 @@ impl IFaxOutgoingJob {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Priority)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Sender(&self) -> ::windows_core::Result<IFaxSender> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Sender)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recipient(&self) -> ::windows_core::Result<IFaxRecipient> {
         let mut result__ = ::std::mem::zeroed();
@@ -3936,12 +3652,7 @@ pub struct IFaxOutgoingJob_Vtbl {
     pub Cancel: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxOutgoingJob2,
-    IFaxOutgoingJob2_Vtbl,
-    0x418a8d96_59a0_4789_b176_edf3dc8fa8f7
-);
+::windows_core::imp::com_interface!(IFaxOutgoingJob2, IFaxOutgoingJob2_Vtbl, 0x418a8d96_59a0_4789_b176_edf3dc8fa8f7);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxOutgoingJob2, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFaxOutgoingJob);
 #[cfg(feature = "Win32_System_Com")]
@@ -3986,13 +3697,11 @@ impl IFaxOutgoingJob2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Priority)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Sender(&self) -> ::windows_core::Result<IFaxSender> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Sender)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recipient(&self) -> ::windows_core::Result<IFaxRecipient> {
         let mut result__ = ::std::mem::zeroed();
@@ -4094,12 +3803,7 @@ pub struct IFaxOutgoingJob2_Vtbl {
     pub ScheduleType: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut FAX_SCHEDULE_TYPE_ENUM) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxOutgoingJobs,
-    IFaxOutgoingJobs_Vtbl,
-    0x2c56d8e6_8c2f_4573_944c_e505f8f5aeed
-);
+::windows_core::imp::com_interface!(IFaxOutgoingJobs, IFaxOutgoingJobs_Vtbl, 0x2c56d8e6_8c2f_4573_944c_e505f8f5aeed);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxOutgoingJobs, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4108,7 +3812,6 @@ impl IFaxOutgoingJobs {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, vindex: P0) -> ::windows_core::Result<IFaxOutgoingJob>
     where
@@ -4135,12 +3838,7 @@ pub struct IFaxOutgoingJobs_Vtbl {
     pub Count: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxOutgoingMessage,
-    IFaxOutgoingMessage_Vtbl,
-    0xf0ea35de_caa5_4a7c_82c7_2b60ba5f2be2
-);
+::windows_core::imp::com_interface!(IFaxOutgoingMessage, IFaxOutgoingMessage_Vtbl, 0xf0ea35de_caa5_4a7c_82c7_2b60ba5f2be2);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxOutgoingMessage, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4185,13 +3883,11 @@ impl IFaxOutgoingMessage {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Priority)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Sender(&self) -> ::windows_core::Result<IFaxSender> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Sender)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recipient(&self) -> ::windows_core::Result<IFaxRecipient> {
         let mut result__ = ::std::mem::zeroed();
@@ -4259,12 +3955,7 @@ pub struct IFaxOutgoingMessage_Vtbl {
     pub Delete: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxOutgoingMessage2,
-    IFaxOutgoingMessage2_Vtbl,
-    0xb37df687_bc88_4b46_b3be_b458b3ea9e7f
-);
+::windows_core::imp::com_interface!(IFaxOutgoingMessage2, IFaxOutgoingMessage2_Vtbl, 0xb37df687_bc88_4b46_b3be_b458b3ea9e7f);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxOutgoingMessage2, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFaxOutgoingMessage);
 #[cfg(feature = "Win32_System_Com")]
@@ -4309,13 +4000,11 @@ impl IFaxOutgoingMessage2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Priority)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Sender(&self) -> ::windows_core::Result<IFaxSender> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Sender)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recipient(&self) -> ::windows_core::Result<IFaxRecipient> {
         let mut result__ = ::std::mem::zeroed();
@@ -4393,17 +4082,11 @@ pub struct IFaxOutgoingMessage2_Vtbl {
     pub Refresh: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxOutgoingMessageIterator,
-    IFaxOutgoingMessageIterator_Vtbl,
-    0xf5ec5d4f_b840_432f_9980_112fe42a9b7a
-);
+::windows_core::imp::com_interface!(IFaxOutgoingMessageIterator, IFaxOutgoingMessageIterator_Vtbl, 0xf5ec5d4f_b840_432f_9980_112fe42a9b7a);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxOutgoingMessageIterator, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxOutgoingMessageIterator {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Message(&self) -> ::windows_core::Result<IFaxOutgoingMessage> {
         let mut result__ = ::std::mem::zeroed();
@@ -4443,12 +4126,7 @@ pub struct IFaxOutgoingMessageIterator_Vtbl {
     pub MoveNext: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxOutgoingQueue,
-    IFaxOutgoingQueue_Vtbl,
-    0x80b1df24_d9ac_4333_b373_487cedc80ce5
-);
+::windows_core::imp::com_interface!(IFaxOutgoingQueue, IFaxOutgoingQueue_Vtbl, 0x80b1df24_d9ac_4333_b373_487cedc80ce5);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxOutgoingQueue, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4544,13 +4222,11 @@ impl IFaxOutgoingQueue {
     pub unsafe fn Save(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Save)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetJobs(&self) -> ::windows_core::Result<IFaxOutgoingJobs> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetJobs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetJob<P0>(&self, bstrjobid: P0) -> ::windows_core::Result<IFaxOutgoingJob>
     where
@@ -4597,12 +4273,7 @@ pub struct IFaxOutgoingQueue_Vtbl {
     GetJob: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxReceiptOptions,
-    IFaxReceiptOptions_Vtbl,
-    0x378efaeb_5fcb_4afb_b2ee_e16e80614487
-);
+::windows_core::imp::com_interface!(IFaxReceiptOptions, IFaxReceiptOptions_Vtbl, 0x378efaeb_5fcb_4afb_b2ee_e16e80614487);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxReceiptOptions, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4710,12 +4381,7 @@ pub struct IFaxReceiptOptions_Vtbl {
     pub SetUseForInboundRouting: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxRecipient,
-    IFaxRecipient_Vtbl,
-    0x9a3da3a0_538d_42b6_9444_aaa57d0ce2bc
-);
+::windows_core::imp::com_interface!(IFaxRecipient, IFaxRecipient_Vtbl, 0x9a3da3a0_538d_42b6_9444_aaa57d0ce2bc);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxRecipient, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4752,12 +4418,7 @@ pub struct IFaxRecipient_Vtbl {
     pub SetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxRecipients,
-    IFaxRecipients_Vtbl,
-    0xb9c9de5a_894e_4492_9fa3_08c627c11d5d
-);
+::windows_core::imp::com_interface!(IFaxRecipients, IFaxRecipients_Vtbl, 0xb9c9de5a_894e_4492_9fa3_08c627c11d5d);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxRecipients, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4766,7 +4427,6 @@ impl IFaxRecipients {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows_core::Result<IFaxRecipient> {
         let mut result__ = ::std::mem::zeroed();
@@ -4776,7 +4436,6 @@ impl IFaxRecipients {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0, P1>(&self, bstrfaxnumber: P0, bstrrecipientname: P1) -> ::windows_core::Result<IFaxRecipient>
     where
@@ -4808,12 +4467,7 @@ pub struct IFaxRecipients_Vtbl {
     pub Remove: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxSecurity,
-    IFaxSecurity_Vtbl,
-    0x77b508c1_09c0_47a2_91eb_fce7fdf2690e
-);
+::windows_core::imp::com_interface!(IFaxSecurity, IFaxSecurity_Vtbl, 0x77b508c1_09c0_47a2_91eb_fce7fdf2690e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxSecurity, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4860,12 +4514,7 @@ pub struct IFaxSecurity_Vtbl {
     pub SetInformationType: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxSecurity2,
-    IFaxSecurity2_Vtbl,
-    0x17d851f4_d09b_48fc_99c9_8f24c4db9ab1
-);
+::windows_core::imp::com_interface!(IFaxSecurity2, IFaxSecurity2_Vtbl, 0x17d851f4_d09b_48fc_99c9_8f24c4db9ab1);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxSecurity2, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4912,12 +4561,7 @@ pub struct IFaxSecurity2_Vtbl {
     pub SetInformationType: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxSender,
-    IFaxSender_Vtbl,
-    0x0d879d7d_f57a_4cc6_a6f9_3ee5d527b46a
-);
+::windows_core::imp::com_interface!(IFaxSender, IFaxSender_Vtbl, 0x0d879d7d_f57a_4cc6_a6f9_3ee5d527b46a);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxSender, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5130,12 +4774,7 @@ pub struct IFaxSender_Vtbl {
     pub SaveDefaultSender: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxServer,
-    IFaxServer_Vtbl,
-    0x475b6469_90a5_4878_a577_17a86e8e3462
-);
+::windows_core::imp::com_interface!(IFaxServer, IFaxServer_Vtbl, 0x475b6469_90a5_4878_a577_17a86e8e3462);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxServer, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5150,31 +4789,26 @@ impl IFaxServer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ServerName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDeviceProviders(&self) -> ::windows_core::Result<IFaxDeviceProviders> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDeviceProviders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDevices(&self) -> ::windows_core::Result<IFaxDevices> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDevices)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InboundRouting(&self) -> ::windows_core::Result<IFaxInboundRouting> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).InboundRouting)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Folders(&self) -> ::windows_core::Result<IFaxFolders> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Folders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoggingOptions(&self) -> ::windows_core::Result<IFaxLoggingOptions> {
         let mut result__ = ::std::mem::zeroed();
@@ -5200,25 +4834,21 @@ impl IFaxServer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Debug)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Activity(&self) -> ::windows_core::Result<IFaxActivity> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Activity)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OutboundRouting(&self) -> ::windows_core::Result<IFaxOutboundRouting> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OutboundRouting)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiptOptions(&self) -> ::windows_core::Result<IFaxReceiptOptions> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReceiptOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Security(&self) -> ::windows_core::Result<IFaxSecurity> {
         let mut result__ = ::std::mem::zeroed();
@@ -5343,12 +4973,7 @@ pub struct IFaxServer_Vtbl {
     pub APIVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut FAX_SERVER_APIVERSION_ENUM) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxServer2,
-    IFaxServer2_Vtbl,
-    0x571ced0f_5609_4f40_9176_547e3a72ca7c
-);
+::windows_core::imp::com_interface!(IFaxServer2, IFaxServer2_Vtbl, 0x571ced0f_5609_4f40_9176_547e3a72ca7c);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxServer2, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IFaxServer);
 #[cfg(feature = "Win32_System_Com")]
@@ -5363,31 +4988,26 @@ impl IFaxServer2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ServerName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDeviceProviders(&self) -> ::windows_core::Result<IFaxDeviceProviders> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetDeviceProviders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDevices(&self) -> ::windows_core::Result<IFaxDevices> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetDevices)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InboundRouting(&self) -> ::windows_core::Result<IFaxInboundRouting> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.InboundRouting)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Folders(&self) -> ::windows_core::Result<IFaxFolders> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Folders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoggingOptions(&self) -> ::windows_core::Result<IFaxLoggingOptions> {
         let mut result__ = ::std::mem::zeroed();
@@ -5413,25 +5033,21 @@ impl IFaxServer2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Debug)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Activity(&self) -> ::windows_core::Result<IFaxActivity> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Activity)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OutboundRouting(&self) -> ::windows_core::Result<IFaxOutboundRouting> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.OutboundRouting)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiptOptions(&self) -> ::windows_core::Result<IFaxReceiptOptions> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ReceiptOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Security(&self) -> ::windows_core::Result<IFaxSecurity> {
         let mut result__ = ::std::mem::zeroed();
@@ -5495,25 +5111,21 @@ impl IFaxServer2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.APIVersion)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Configuration(&self) -> ::windows_core::Result<IFaxConfiguration> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Configuration)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentAccount(&self) -> ::windows_core::Result<IFaxAccount> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentAccount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FaxAccountSet(&self) -> ::windows_core::Result<IFaxAccountSet> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FaxAccountSet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Security2(&self) -> ::windows_core::Result<IFaxSecurity2> {
         let mut result__ = ::std::mem::zeroed();
@@ -5543,12 +5155,7 @@ pub struct IFaxServer2_Vtbl {
     Security2: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxServerNotify,
-    IFaxServerNotify_Vtbl,
-    0x2e037b27_cf8a_4abd_b1e0_5704943bea6f
-);
+::windows_core::imp::com_interface!(IFaxServerNotify, IFaxServerNotify_Vtbl, 0x2e037b27_cf8a_4abd_b1e0_5704943bea6f);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxServerNotify, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5560,17 +5167,11 @@ pub struct IFaxServerNotify_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IFaxServerNotify2,
-    IFaxServerNotify2_Vtbl,
-    0xec9c69b9_5fe7_4805_9467_82fcd96af903
-);
+::windows_core::imp::com_interface!(IFaxServerNotify2, IFaxServerNotify2_Vtbl, 0xec9c69b9_5fe7_4805_9467_82fcd96af903);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IFaxServerNotify2, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFaxServerNotify2 {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingJobAdded<P0, P1>(&self, pfaxserver: P0, bstrjobid: P1) -> ::windows_core::Result<()>
     where
@@ -5579,7 +5180,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnIncomingJobAdded)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingJobRemoved<P0, P1>(&self, pfaxserver: P0, bstrjobid: P1) -> ::windows_core::Result<()>
     where
@@ -5588,7 +5188,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnIncomingJobRemoved)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingJobChanged<P0, P1, P2>(&self, pfaxserver: P0, bstrjobid: P1, pjobstatus: P2) -> ::windows_core::Result<()>
     where
@@ -5598,7 +5197,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnIncomingJobChanged)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi(), pjobstatus.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingJobAdded<P0, P1>(&self, pfaxserver: P0, bstrjobid: P1) -> ::windows_core::Result<()>
     where
@@ -5607,7 +5205,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnOutgoingJobAdded)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingJobRemoved<P0, P1>(&self, pfaxserver: P0, bstrjobid: P1) -> ::windows_core::Result<()>
     where
@@ -5616,7 +5213,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnOutgoingJobRemoved)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingJobChanged<P0, P1, P2>(&self, pfaxserver: P0, bstrjobid: P1, pjobstatus: P2) -> ::windows_core::Result<()>
     where
@@ -5626,7 +5222,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnOutgoingJobChanged)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi(), pjobstatus.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingMessageAdded<P0, P1>(&self, pfaxserver: P0, bstrmessageid: P1) -> ::windows_core::Result<()>
     where
@@ -5635,7 +5230,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnIncomingMessageAdded)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrmessageid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingMessageRemoved<P0, P1>(&self, pfaxserver: P0, bstrmessageid: P1) -> ::windows_core::Result<()>
     where
@@ -5644,7 +5238,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnIncomingMessageRemoved)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrmessageid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingMessageAdded<P0, P1>(&self, pfaxserver: P0, bstrmessageid: P1) -> ::windows_core::Result<()>
     where
@@ -5653,7 +5246,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnOutgoingMessageAdded)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrmessageid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingMessageRemoved<P0, P1>(&self, pfaxserver: P0, bstrmessageid: P1) -> ::windows_core::Result<()>
     where
@@ -5662,7 +5254,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnOutgoingMessageRemoved)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrmessageid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnReceiptOptionsChange<P0>(&self, pfaxserver: P0) -> ::windows_core::Result<()>
     where
@@ -5670,7 +5261,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnReceiptOptionsChange)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnActivityLoggingConfigChange<P0>(&self, pfaxserver: P0) -> ::windows_core::Result<()>
     where
@@ -5678,7 +5268,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnActivityLoggingConfigChange)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSecurityConfigChange<P0>(&self, pfaxserver: P0) -> ::windows_core::Result<()>
     where
@@ -5686,7 +5275,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnSecurityConfigChange)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnEventLoggingConfigChange<P0>(&self, pfaxserver: P0) -> ::windows_core::Result<()>
     where
@@ -5694,7 +5282,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnEventLoggingConfigChange)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingQueueConfigChange<P0>(&self, pfaxserver: P0) -> ::windows_core::Result<()>
     where
@@ -5702,7 +5289,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnOutgoingQueueConfigChange)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingArchiveConfigChange<P0>(&self, pfaxserver: P0) -> ::windows_core::Result<()>
     where
@@ -5710,7 +5296,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnOutgoingArchiveConfigChange)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingArchiveConfigChange<P0>(&self, pfaxserver: P0) -> ::windows_core::Result<()>
     where
@@ -5718,7 +5303,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnIncomingArchiveConfigChange)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnDevicesConfigChange<P0>(&self, pfaxserver: P0) -> ::windows_core::Result<()>
     where
@@ -5726,7 +5310,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnDevicesConfigChange)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutboundRoutingGroupsConfigChange<P0>(&self, pfaxserver: P0) -> ::windows_core::Result<()>
     where
@@ -5734,7 +5317,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnOutboundRoutingGroupsConfigChange)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutboundRoutingRulesConfigChange<P0>(&self, pfaxserver: P0) -> ::windows_core::Result<()>
     where
@@ -5742,7 +5324,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnOutboundRoutingRulesConfigChange)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnServerActivityChange<P0>(&self, pfaxserver: P0, lincomingmessages: i32, lroutingmessages: i32, loutgoingmessages: i32, lqueuedmessages: i32) -> ::windows_core::Result<()>
     where
@@ -5750,7 +5331,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnServerActivityChange)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), lincomingmessages, lroutingmessages, loutgoingmessages, lqueuedmessages).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnQueuesStatusChange<P0, P1, P2, P3>(&self, pfaxserver: P0, boutgoingqueueblocked: P1, boutgoingqueuepaused: P2, bincomingqueueblocked: P3) -> ::windows_core::Result<()>
     where
@@ -5761,7 +5341,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnQueuesStatusChange)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), boutgoingqueueblocked.into_param().abi(), boutgoingqueuepaused.into_param().abi(), bincomingqueueblocked.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnNewCall<P0, P1>(&self, pfaxserver: P0, lcallid: i32, ldeviceid: i32, bstrcallerid: P1) -> ::windows_core::Result<()>
     where
@@ -5770,7 +5349,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnNewCall)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), lcallid, ldeviceid, bstrcallerid.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnServerShutDown<P0>(&self, pfaxserver: P0) -> ::windows_core::Result<()>
     where
@@ -5778,7 +5356,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnServerShutDown)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnDeviceStatusChange<P0, P1, P2, P3, P4>(&self, pfaxserver: P0, ldeviceid: i32, bpoweredoff: P1, bsending: P2, breceiving: P3, bringing: P4) -> ::windows_core::Result<()>
     where
@@ -5790,7 +5367,6 @@ impl IFaxServerNotify2 {
     {
         (::windows_core::Interface::vtable(self).OnDeviceStatusChange)(::windows_core::Interface::as_raw(self), pfaxserver.into_param().abi(), ldeviceid, bpoweredoff.into_param().abi(), bsending.into_param().abi(), breceiving.into_param().abi(), bringing.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnGeneralServerConfigChanged<P0>(&self, pfaxserver: P0) -> ::windows_core::Result<()>
     where
@@ -5944,22 +5520,18 @@ impl IStiDevice {
     pub unsafe fn UnLockDevice(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UnLockDevice)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_IO\"`"]
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawReadData(&self, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RawReadData)(::windows_core::Interface::as_raw(self), lpbuffer, lpdwnumberofbytes, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `\"Win32_System_IO\"`"]
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawWriteData(&self, lpbuffer: *const ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RawWriteData)(::windows_core::Interface::as_raw(self), lpbuffer, nnumberofbytes, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `\"Win32_System_IO\"`"]
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawReadCommand(&self, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RawReadCommand)(::windows_core::Interface::as_raw(self), lpbuffer, lpdwnumberofbytes, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `\"Win32_System_IO\"`"]
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawWriteCommand(&self, lpbuffer: *const ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RawWriteCommand)(::windows_core::Interface::as_raw(self), lpbuffer, nnumberofbytes, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null()))).ok()
@@ -6020,22 +5592,18 @@ impl IStiDeviceControl {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), dwdevicetype, dwmode, pwszportname.into_param().abi(), dwflags).ok()
     }
-    #[doc = "Required features: `\"Win32_System_IO\"`"]
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawReadData(&self, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RawReadData)(::windows_core::Interface::as_raw(self), lpbuffer, lpdwnumberofbytes, lpoverlapped).ok()
     }
-    #[doc = "Required features: `\"Win32_System_IO\"`"]
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawWriteData(&self, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RawWriteData)(::windows_core::Interface::as_raw(self), lpbuffer, nnumberofbytes, lpoverlapped).ok()
     }
-    #[doc = "Required features: `\"Win32_System_IO\"`"]
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawReadCommand(&self, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RawReadCommand)(::windows_core::Interface::as_raw(self), lpbuffer, lpdwnumberofbytes, lpoverlapped).ok()
     }
-    #[doc = "Required features: `\"Win32_System_IO\"`"]
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawWriteCommand(&self, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RawWriteCommand)(::windows_core::Interface::as_raw(self), lpbuffer, nnumberofbytes, lpoverlapped).ok()
@@ -6093,7 +5661,6 @@ pub struct IStiDeviceControl_Vtbl {
 ::windows_core::imp::com_interface!(IStiUSD, IStiUSD_Vtbl, 0x0c9bb460_51ac_11d0_90ea_00aa0060f86c);
 ::windows_core::imp::interface_hierarchy!(IStiUSD, ::windows_core::IUnknown);
 impl IStiUSD {
-    #[doc = "Required features: `\"Win32_System_Registry\"`"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn Initialize<P0, P1>(&self, pheldcb: P0, dwstiversion: u32, hparameterskey: P1) -> ::windows_core::Result<()>
     where
@@ -6128,22 +5695,18 @@ impl IStiUSD {
     pub unsafe fn UnLockDevice(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UnLockDevice)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_IO\"`"]
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawReadData(&self, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RawReadData)(::windows_core::Interface::as_raw(self), lpbuffer, lpdwnumberofbytes, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `\"Win32_System_IO\"`"]
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawWriteData(&self, lpbuffer: *const ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RawWriteData)(::windows_core::Interface::as_raw(self), lpbuffer, nnumberofbytes, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `\"Win32_System_IO\"`"]
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawReadCommand(&self, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RawReadCommand)(::windows_core::Interface::as_raw(self), lpbuffer, lpdwnumberofbytes, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `\"Win32_System_IO\"`"]
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawWriteCommand(&self, lpbuffer: *const ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RawWriteCommand)(::windows_core::Interface::as_raw(self), lpbuffer, nnumberofbytes, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null()))).ok()
@@ -6315,10 +5878,8 @@ pub const CF_MSFAXSRV_ROUTEEXT_NAME: ::windows_core::PCWSTR = ::windows_core::w!
 pub const CF_MSFAXSRV_ROUTING_METHOD_GUID: ::windows_core::PCWSTR = ::windows_core::w!("FAXSRV_RoutingMethodGuid");
 pub const CF_MSFAXSRV_SERVER_NAME: ::windows_core::PCWSTR = ::windows_core::w!("FAXSRV_ServerName");
 pub const CLSID_Sti: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb323f8e0_2e68_11d0_90ea_00aa0060f86c);
-#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WIA_DeviceType: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x6bdd1fc6_810f_11d0_bec7_08002be2092f), pid: 2 };
-#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WIA_USDClassId: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x6bdd1fc6_810f_11d0_bec7_08002be2092f), pid: 3 };
 pub const DEV_ID_SRC_FAX: FAX_ENUM_DEVICE_ID_SOURCE = FAX_ENUM_DEVICE_ID_SOURCE(0i32);
@@ -7225,7 +6786,6 @@ impl ::core::default::Default for FAX_CONFIGURATIONW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct FAX_CONTEXT_INFOA {
     pub SizeOfStruct: u32,
@@ -7265,7 +6825,6 @@ impl ::core::default::Default for FAX_CONTEXT_INFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct FAX_CONTEXT_INFOW {
     pub SizeOfStruct: u32,
@@ -8971,7 +8530,6 @@ pub type PFAXCOMPLETEJOBPARAMSW = ::core::option::Option<unsafe extern "system" 
 pub type PFAXCONNECTFAXSERVERA = ::core::option::Option<unsafe extern "system" fn(machinename: ::windows_core::PCSTR, faxhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 pub type PFAXCONNECTFAXSERVERW = ::core::option::Option<unsafe extern "system" fn(machinename: ::windows_core::PCWSTR, faxhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 pub type PFAXDEVABORTOPERATION = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_UI_Controls\"`"]
 #[cfg(feature = "Win32_UI_Controls")]
 pub type PFAXDEVCONFIGURE = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::UI::Controls::HPROPSHEETPAGE) -> super::super::Foundation::BOOL>;
 pub type PFAXDEVENDJOB = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
@@ -9008,10 +8566,8 @@ pub type PFAXGETROUTINGINFOA = ::core::option::Option<unsafe extern "system" fn(
 pub type PFAXGETROUTINGINFOW = ::core::option::Option<unsafe extern "system" fn(faxporthandle: super::super::Foundation::HANDLE, routingguid: ::windows_core::PCWSTR, routinginfobuffer: *mut *mut u8, routinginfobuffersize: *mut u32) -> super::super::Foundation::BOOL>;
 pub type PFAXINITIALIZEEVENTQUEUE = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, completionport: super::super::Foundation::HANDLE, completionkey: usize, hwnd: super::super::Foundation::HWND, messagestart: u32) -> super::super::Foundation::BOOL>;
 pub type PFAXOPENPORT = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, deviceid: u32, flags: u32, faxporthandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type PFAXPRINTCOVERPAGEA = ::core::option::Option<unsafe extern "system" fn(faxcontextinfo: *const FAX_CONTEXT_INFOA, coverpageinfo: *const FAX_COVERPAGE_INFOA) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type PFAXPRINTCOVERPAGEW = ::core::option::Option<unsafe extern "system" fn(faxcontextinfo: *const FAX_CONTEXT_INFOW, coverpageinfo: *const FAX_COVERPAGE_INFOW) -> super::super::Foundation::BOOL>;
 pub type PFAXREGISTERROUTINGEXTENSIONW = ::core::option::Option<unsafe extern "system" fn(faxhandle: super::super::Foundation::HANDLE, extensionname: ::windows_core::PCWSTR, friendlyname: ::windows_core::PCWSTR, imagename: ::windows_core::PCWSTR, callback: PFAX_ROUTING_INSTALLATION_CALLBACKW, context: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
@@ -9044,10 +8600,8 @@ pub type PFAXSETPORTA = ::core::option::Option<unsafe extern "system" fn(faxport
 pub type PFAXSETPORTW = ::core::option::Option<unsafe extern "system" fn(faxporthandle: super::super::Foundation::HANDLE, portinfo: *const FAX_PORT_INFOW) -> super::super::Foundation::BOOL>;
 pub type PFAXSETROUTINGINFOA = ::core::option::Option<unsafe extern "system" fn(faxporthandle: super::super::Foundation::HANDLE, routingguid: ::windows_core::PCSTR, routinginfobuffer: *const u8, routinginfobuffersize: u32) -> super::super::Foundation::BOOL>;
 pub type PFAXSETROUTINGINFOW = ::core::option::Option<unsafe extern "system" fn(faxporthandle: super::super::Foundation::HANDLE, routingguid: ::windows_core::PCWSTR, routinginfobuffer: *const u8, routinginfobuffersize: u32) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type PFAXSTARTPRINTJOBA = ::core::option::Option<unsafe extern "system" fn(printername: ::windows_core::PCSTR, printinfo: *const FAX_PRINT_INFOA, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOA) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type PFAXSTARTPRINTJOBW = ::core::option::Option<unsafe extern "system" fn(printername: ::windows_core::PCWSTR, printinfo: *const FAX_PRINT_INFOW, faxjobid: *mut u32, faxcontextinfo: *mut FAX_CONTEXT_INFOW) -> super::super::Foundation::BOOL>;
 pub type PFAXUNREGISTERSERVICEPROVIDERW = ::core::option::Option<unsafe extern "system" fn(deviceprovider: ::windows_core::PCWSTR) -> super::super::Foundation::BOOL>;

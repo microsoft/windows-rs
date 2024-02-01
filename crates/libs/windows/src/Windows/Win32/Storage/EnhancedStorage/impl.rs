@@ -156,7 +156,6 @@ impl IEnhancedStorageACT3_Vtbl {
         iid == &<IEnhancedStorageACT3 as ::windows_core::Interface>::IID || iid == &<IEnhancedStorageACT as ::windows_core::Interface>::IID || iid == &<IEnhancedStorageACT2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Devices_PortableDevices\"`"]
 #[cfg(feature = "Win32_Devices_PortableDevices")]
 pub trait IEnhancedStorageSilo_Impl: Sized {
     fn GetInfo(&self) -> ::windows_core::Result<SILO_INFO>;

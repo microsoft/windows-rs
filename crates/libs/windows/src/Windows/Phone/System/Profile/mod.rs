@@ -1,10 +1,5 @@
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    IRetailModeStatics,
-    IRetailModeStatics_Vtbl,
-    0xd7ded029_fdda_43e7_93fb_e53ab6e89ec3
-);
+::windows_core::imp::com_interface!(IRetailModeStatics, IRetailModeStatics_Vtbl, 0xd7ded029_fdda_43e7_93fb_e53ab6e89ec3);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -15,12 +10,10 @@ pub struct IRetailModeStatics_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     RetailModeEnabled: usize,
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 pub struct RetailMode;
 #[cfg(feature = "deprecated")]
 impl RetailMode {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RetailModeEnabled() -> ::windows_core::Result<bool> {
         Self::IRetailModeStatics(|this| unsafe {

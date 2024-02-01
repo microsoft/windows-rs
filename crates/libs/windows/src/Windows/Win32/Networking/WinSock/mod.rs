@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn AcceptEx<P0, P1>(slistensocket: P0, sacceptsocket: P1, lpoutputbuffer: *mut ::core::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, lpdwbytesreceived: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
@@ -39,7 +38,6 @@ pub unsafe fn GetAcceptExSockaddrs(lpoutputbuffer: *const ::core::ffi::c_void, d
     ::windows_targets::link!("mswsock.dll" "system" fn GetAcceptExSockaddrs(lpoutputbuffer : *const ::core::ffi::c_void, dwreceivedatalength : u32, dwlocaladdresslength : u32, dwremoteaddresslength : u32, localsockaddr : *mut *mut SOCKADDR, localsockaddrlength : *mut i32, remotesockaddr : *mut *mut SOCKADDR, remotesockaddrlength : *mut i32));
     GetAcceptExSockaddrs(lpoutputbuffer, dwreceivedatalength, dwlocaladdresslength, dwremoteaddresslength, localsockaddr, localsockaddrlength, remotesockaddr, remotesockaddrlength)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn GetAddrInfoExA<P0, P1>(pname: P0, pservicename: P1, dwnamespace: u32, lpnspid: ::core::option::Option<*const ::windows_core::GUID>, hints: ::core::option::Option<*const ADDRINFOEXA>, ppresult: *mut *mut ADDRINFOEXA, timeout: ::core::option::Option<*const TIMEVAL>, lpoverlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: ::core::option::Option<*mut super::super::Foundation::HANDLE>) -> i32
@@ -55,14 +53,12 @@ pub unsafe fn GetAddrInfoExCancel(lphandle: *const super::super::Foundation::HAN
     ::windows_targets::link!("ws2_32.dll" "system" fn GetAddrInfoExCancel(lphandle : *const super::super::Foundation:: HANDLE) -> i32);
     GetAddrInfoExCancel(lphandle)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn GetAddrInfoExOverlappedResult(lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> i32 {
     ::windows_targets::link!("ws2_32.dll" "system" fn GetAddrInfoExOverlappedResult(lpoverlapped : *const super::super::System::IO:: OVERLAPPED) -> i32);
     GetAddrInfoExOverlappedResult(lpoverlapped)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn GetAddrInfoExW<P0, P1>(pname: P0, pservicename: P1, dwnamespace: u32, lpnspid: ::core::option::Option<*const ::windows_core::GUID>, hints: ::core::option::Option<*const ADDRINFOEXW>, ppresult: *mut *mut ADDRINFOEXW, timeout: ::core::option::Option<*const TIMEVAL>, lpoverlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lphandle: ::core::option::Option<*mut super::super::Foundation::HANDLE>) -> i32
@@ -166,7 +162,6 @@ where
     ::windows_targets::link!("ws2_32.dll" "system" fn InetPtonW(family : i32, pszaddrstring : ::windows_core::PCWSTR, paddrbuf : *mut ::core::ffi::c_void) -> i32);
     InetPtonW(family, pszaddrstring.into_param().abi(), paddrbuf)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ProcessSocketNotifications<P0>(completionport: P0, registrationinfos: ::core::option::Option<&mut [SOCK_NOTIFY_REGISTRATION]>, timeoutms: u32, completionportentries: ::core::option::Option<&mut [super::super::System::IO::OVERLAPPED_ENTRY]>, receivedentrycount: ::core::option::Option<*mut u32>) -> u32
@@ -318,7 +313,6 @@ where
     ::windows_targets::link!("ntdll.dll" "system" fn RtlIpv6StringToAddressW(s : ::windows_core::PCWSTR, terminator : *mut ::windows_core::PCWSTR, addr : *mut IN6_ADDR) -> i32);
     RtlIpv6StringToAddressW(s.into_param().abi(), terminator, addr)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn SetAddrInfoExA<P0, P1>(pname: P0, pservicename: P1, paddresses: ::core::option::Option<*const SOCKET_ADDRESS>, dwaddresscount: u32, lpblob: ::core::option::Option<*const super::super::System::Com::BLOB>, dwflags: u32, dwnamespace: u32, lpnspid: ::core::option::Option<*const ::windows_core::GUID>, timeout: ::core::option::Option<*const TIMEVAL>, lpoverlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: ::core::option::Option<*mut super::super::Foundation::HANDLE>) -> i32
@@ -342,7 +336,6 @@ where
         ::core::mem::transmute(lpnamehandle.unwrap_or(::std::ptr::null_mut())),
     )
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn SetAddrInfoExW<P0, P1>(pname: P0, pservicename: P1, paddresses: ::core::option::Option<*const SOCKET_ADDRESS>, dwaddresscount: u32, lpblob: ::core::option::Option<*const super::super::System::Com::BLOB>, dwflags: u32, dwnamespace: u32, lpnspid: ::core::option::Option<*const ::windows_core::GUID>, timeout: ::core::option::Option<*const TIMEVAL>, lpoverlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: ::core::option::Option<*mut super::super::Foundation::HANDLE>) -> i32
@@ -366,14 +359,12 @@ where
         ::core::mem::transmute(lpnamehandle.unwrap_or(::std::ptr::null_mut())),
     )
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SetServiceA(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOA, lpserviceasyncinfo: ::core::option::Option<*const SERVICE_ASYNC_INFO>, lpdwstatusflags: *mut u32) -> i32 {
     ::windows_targets::link!("mswsock.dll" "system" fn SetServiceA(dwnamespace : u32, dwoperation : SET_SERVICE_OPERATION, dwflags : u32, lpserviceinfo : *const SERVICE_INFOA, lpserviceasyncinfo : *const SERVICE_ASYNC_INFO, lpdwstatusflags : *mut u32) -> i32);
     SetServiceA(dwnamespace, dwoperation, dwflags, lpserviceinfo, ::core::mem::transmute(lpserviceasyncinfo.unwrap_or(::std::ptr::null())), lpdwstatusflags)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SetServiceW(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOW, lpserviceasyncinfo: ::core::option::Option<*const SERVICE_ASYNC_INFO>, lpdwstatusflags: *mut u32) -> i32 {
@@ -388,7 +379,6 @@ where
     ::windows_targets::link!("windows.networking.dll" "system" fn SetSocketMediaStreamingMode(value : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     SetSocketMediaStreamingMode(value.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn TransmitFile<P0, P1>(hsocket: P0, hfile: P1, nnumberofbytestowrite: u32, nnumberofbytespersend: u32, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>, lptransmitbuffers: ::core::option::Option<*const TRANSMIT_FILE_BUFFERS>, dwreserved: u32) -> super::super::Foundation::BOOL
@@ -399,7 +389,6 @@ where
     ::windows_targets::link!("mswsock.dll" "system" fn TransmitFile(hsocket : SOCKET, hfile : super::super::Foundation:: HANDLE, nnumberofbytestowrite : u32, nnumberofbytespersend : u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lptransmitbuffers : *const TRANSMIT_FILE_BUFFERS, dwreserved : u32) -> super::super::Foundation:: BOOL);
     TransmitFile(hsocket.into_param().abi(), hfile.into_param().abi(), nnumberofbytestowrite, nnumberofbytespersend, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lptransmitbuffers.unwrap_or(::std::ptr::null())), dwreserved)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WPUCompleteOverlappedRequest<P0>(s: P0, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, dwerror: u32, cbtransferred: u32, lperrno: *mut i32) -> i32
@@ -427,7 +416,6 @@ pub unsafe fn WSAAddressToStringW(lpsaaddress: *const SOCKADDR, dwaddresslength:
     ::windows_targets::link!("ws2_32.dll" "system" fn WSAAddressToStringW(lpsaaddress : *const SOCKADDR, dwaddresslength : u32, lpprotocolinfo : *const WSAPROTOCOL_INFOW, lpszaddressstring : ::windows_core::PWSTR, lpdwaddressstringlength : *mut u32) -> i32);
     WSAAddressToStringW(lpsaaddress, dwaddresslength, ::core::mem::transmute(lpprotocolinfo.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpszaddressstring), lpdwaddressstringlength)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WSAAdvertiseProvider(puuidproviderid: *const ::windows_core::GUID, pnspv2routine: *const NSPV2_ROUTINE) -> i32 {
@@ -536,7 +524,6 @@ where
     ::windows_targets::link!("ws2_32.dll" "system" fn WSAConnect(s : SOCKET, name : *const SOCKADDR, namelen : i32, lpcallerdata : *const WSABUF, lpcalleedata : *mut WSABUF, lpsqos : *const QOS, lpgqos : *const QOS) -> i32);
     WSAConnect(s.into_param().abi(), name, namelen, ::core::mem::transmute(lpcallerdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpcalleedata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpsqos.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpgqos.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WSAConnectByList<P0>(s: P0, socketaddress: *const SOCKET_ADDRESS_LIST, localaddresslength: ::core::option::Option<*mut u32>, localaddress: ::core::option::Option<*mut SOCKADDR>, remoteaddresslength: ::core::option::Option<*mut u32>, remoteaddress: ::core::option::Option<*mut SOCKADDR>, timeout: ::core::option::Option<*const TIMEVAL>, reserved: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()>
@@ -546,7 +533,6 @@ where
     ::windows_targets::link!("ws2_32.dll" "system" fn WSAConnectByList(s : SOCKET, socketaddress : *const SOCKET_ADDRESS_LIST, localaddresslength : *mut u32, localaddress : *mut SOCKADDR, remoteaddresslength : *mut u32, remoteaddress : *mut SOCKADDR, timeout : *const TIMEVAL, reserved : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     WSAConnectByList(s.into_param().abi(), socketaddress, ::core::mem::transmute(localaddresslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(localaddress.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(remoteaddresslength.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(remoteaddress.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(timeout.unwrap_or(::std::ptr::null())), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WSAConnectByNameA<P0, P1, P2>(s: P0, nodename: P1, servicename: P2, localaddresslength: ::core::option::Option<*mut u32>, localaddress: ::core::option::Option<*mut SOCKADDR>, remoteaddresslength: ::core::option::Option<*mut u32>, remoteaddress: ::core::option::Option<*mut SOCKADDR>, timeout: ::core::option::Option<*const TIMEVAL>, reserved: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()>
@@ -569,7 +555,6 @@ where
     )
     .ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WSAConnectByNameW<P0, P1, P2>(s: P0, nodename: P1, servicename: P2, localaddresslength: ::core::option::Option<*mut u32>, localaddress: ::core::option::Option<*mut SOCKADDR>, remoteaddresslength: ::core::option::Option<*mut u32>, remoteaddress: ::core::option::Option<*mut SOCKADDR>, timeout: ::core::option::Option<*const TIMEVAL>, reserved: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()>
@@ -598,7 +583,6 @@ pub unsafe fn WSACreateEvent() -> ::windows_core::Result<super::super::Foundatio
     let result__ = WSACreateEvent();
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WSADeleteSocketPeerTargetName<P0>(socket: P0, peeraddr: *const SOCKADDR, peeraddrlen: u32, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32
@@ -629,14 +613,12 @@ pub unsafe fn WSAEnumNameSpaceProvidersA(lpdwbufferlength: *mut u32, lpnspbuffer
     ::windows_targets::link!("ws2_32.dll" "system" fn WSAEnumNameSpaceProvidersA(lpdwbufferlength : *mut u32, lpnspbuffer : *mut WSANAMESPACE_INFOA) -> i32);
     WSAEnumNameSpaceProvidersA(lpdwbufferlength, lpnspbuffer)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WSAEnumNameSpaceProvidersExA(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOEXA) -> i32 {
     ::windows_targets::link!("ws2_32.dll" "system" fn WSAEnumNameSpaceProvidersExA(lpdwbufferlength : *mut u32, lpnspbuffer : *mut WSANAMESPACE_INFOEXA) -> i32);
     WSAEnumNameSpaceProvidersExA(lpdwbufferlength, lpnspbuffer)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WSAEnumNameSpaceProvidersExW(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOEXW) -> i32 {
@@ -681,7 +663,6 @@ pub unsafe fn WSAGetLastError() -> WSA_ERROR {
     ::windows_targets::link!("ws2_32.dll" "system" fn WSAGetLastError() -> WSA_ERROR);
     WSAGetLastError()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WSAGetOverlappedResult<P0, P1>(s: P0, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcbtransfer: *mut u32, fwait: P1, lpdwflags: *mut u32) -> ::windows_core::Result<()>
@@ -754,7 +735,6 @@ pub unsafe fn WSAInstallServiceClassW(lpserviceclassinfo: *const WSASERVICECLASS
     ::windows_targets::link!("ws2_32.dll" "system" fn WSAInstallServiceClassW(lpserviceclassinfo : *const WSASERVICECLASSINFOW) -> i32);
     WSAInstallServiceClassW(lpserviceclassinfo)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WSAIoctl<P0>(s: P0, dwiocontrolcode: u32, lpvinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, cbinbuffer: u32, lpvoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32
@@ -777,14 +757,12 @@ where
     ::windows_targets::link!("ws2_32.dll" "system" fn WSAJoinLeaf(s : SOCKET, name : *const SOCKADDR, namelen : i32, lpcallerdata : *const WSABUF, lpcalleedata : *mut WSABUF, lpsqos : *const QOS, lpgqos : *const QOS, dwflags : u32) -> SOCKET);
     WSAJoinLeaf(s.into_param().abi(), name, namelen, ::core::mem::transmute(lpcallerdata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpcalleedata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpsqos.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpgqos.unwrap_or(::std::ptr::null())), dwflags)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WSALookupServiceBeginA(lpqsrestrictions: *const WSAQUERYSETA, dwcontrolflags: u32, lphlookup: *mut super::super::Foundation::HANDLE) -> i32 {
     ::windows_targets::link!("ws2_32.dll" "system" fn WSALookupServiceBeginA(lpqsrestrictions : *const WSAQUERYSETA, dwcontrolflags : u32, lphlookup : *mut super::super::Foundation:: HANDLE) -> i32);
     WSALookupServiceBeginA(lpqsrestrictions, dwcontrolflags, lphlookup)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WSALookupServiceBeginW(lpqsrestrictions: *const WSAQUERYSETW, dwcontrolflags: u32, lphlookup: *mut super::super::Foundation::HANDLE) -> i32 {
@@ -799,7 +777,6 @@ where
     ::windows_targets::link!("ws2_32.dll" "system" fn WSALookupServiceEnd(hlookup : super::super::Foundation:: HANDLE) -> i32);
     WSALookupServiceEnd(hlookup.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WSALookupServiceNextA<P0>(hlookup: P0, dwcontrolflags: u32, lpdwbufferlength: *mut u32, lpqsresults: *mut WSAQUERYSETA) -> i32
@@ -809,7 +786,6 @@ where
     ::windows_targets::link!("ws2_32.dll" "system" fn WSALookupServiceNextA(hlookup : super::super::Foundation:: HANDLE, dwcontrolflags : u32, lpdwbufferlength : *mut u32, lpqsresults : *mut WSAQUERYSETA) -> i32);
     WSALookupServiceNextA(hlookup.into_param().abi(), dwcontrolflags, lpdwbufferlength, lpqsresults)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WSALookupServiceNextW<P0>(hlookup: P0, dwcontrolflags: u32, lpdwbufferlength: *mut u32, lpqsresults: ::core::option::Option<*mut WSAQUERYSETW>) -> i32
@@ -819,7 +795,6 @@ where
     ::windows_targets::link!("ws2_32.dll" "system" fn WSALookupServiceNextW(hlookup : super::super::Foundation:: HANDLE, dwcontrolflags : u32, lpdwbufferlength : *mut u32, lpqsresults : *mut WSAQUERYSETW) -> i32);
     WSALookupServiceNextW(hlookup.into_param().abi(), dwcontrolflags, lpdwbufferlength, ::core::mem::transmute(lpqsresults.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WSANSPIoctl<P0>(hlookup: P0, dwcontrolcode: u32, lpvinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, cbinbuffer: u32, lpvoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpcompletion: ::core::option::Option<*const WSACOMPLETION>) -> i32
@@ -858,14 +833,12 @@ where
     ::windows_targets::link!("ws2_32.dll" "system" fn WSAProviderCompleteAsyncCall(hasynccall : super::super::Foundation:: HANDLE, iretcode : i32) -> i32);
     WSAProviderCompleteAsyncCall(hasynccall.into_param().abi(), iretcode)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WSAProviderConfigChange(lpnotificationhandle: *mut super::super::Foundation::HANDLE, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     ::windows_targets::link!("ws2_32.dll" "system" fn WSAProviderConfigChange(lpnotificationhandle : *mut super::super::Foundation:: HANDLE, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32);
     WSAProviderConfigChange(lpnotificationhandle, ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), lpcompletionroutine)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WSAQuerySocketSecurity<P0>(socket: P0, securityquerytemplate: ::core::option::Option<*const SOCKET_SECURITY_QUERY_TEMPLATE>, securityquerytemplatelen: u32, securityqueryinfo: ::core::option::Option<*mut SOCKET_SECURITY_QUERY_INFO>, securityqueryinfolen: *mut u32, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32
@@ -875,7 +848,6 @@ where
     ::windows_targets::link!("fwpuclnt.dll" "system" fn WSAQuerySocketSecurity(socket : SOCKET, securityquerytemplate : *const SOCKET_SECURITY_QUERY_TEMPLATE, securityquerytemplatelen : u32, securityqueryinfo : *mut SOCKET_SECURITY_QUERY_INFO, securityqueryinfolen : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED, completionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32);
     WSAQuerySocketSecurity(socket.into_param().abi(), ::core::mem::transmute(securityquerytemplate.unwrap_or(::std::ptr::null())), securityquerytemplatelen, ::core::mem::transmute(securityqueryinfo.unwrap_or(::std::ptr::null_mut())), securityqueryinfolen, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())), completionroutine)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WSARecv<P0>(s: P0, lpbuffers: &[WSABUF], lpnumberofbytesrecvd: ::core::option::Option<*mut u32>, lpflags: *mut u32, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32
@@ -901,7 +873,6 @@ where
     ::windows_targets::link!("mswsock.dll" "system" fn WSARecvEx(s : SOCKET, buf : ::windows_core::PSTR, len : i32, flags : *mut i32) -> i32);
     WSARecvEx(s.into_param().abi(), ::core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap(), flags)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WSARecvFrom<P0>(s: P0, lpbuffers: &[WSABUF], lpnumberofbytesrecvd: ::core::option::Option<*mut u32>, lpflags: *mut u32, lpfrom: ::core::option::Option<*mut SOCKADDR>, lpfromlen: ::core::option::Option<*mut i32>, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32
@@ -929,7 +900,6 @@ pub unsafe fn WSARevertImpersonation() -> i32 {
     ::windows_targets::link!("fwpuclnt.dll" "system" fn WSARevertImpersonation() -> i32);
     WSARevertImpersonation()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WSASend<P0>(s: P0, lpbuffers: &[WSABUF], lpnumberofbytessent: ::core::option::Option<*mut u32>, dwflags: u32, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32
@@ -947,7 +917,6 @@ where
     ::windows_targets::link!("ws2_32.dll" "system" fn WSASendDisconnect(s : SOCKET, lpoutbounddisconnectdata : *const WSABUF) -> i32);
     WSASendDisconnect(s.into_param().abi(), ::core::mem::transmute(lpoutbounddisconnectdata.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WSASendMsg<P0>(handle: P0, lpmsg: *const WSAMSG, dwflags: u32, lpnumberofbytessent: ::core::option::Option<*mut u32>, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32
@@ -957,7 +926,6 @@ where
     ::windows_targets::link!("ws2_32.dll" "system" fn WSASendMsg(handle : SOCKET, lpmsg : *const WSAMSG, dwflags : u32, lpnumberofbytessent : *mut u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32);
     WSASendMsg(handle.into_param().abi(), lpmsg, dwflags, ::core::mem::transmute(lpnumberofbytessent.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), lpcompletionroutine)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WSASendTo<P0>(s: P0, lpbuffers: &[WSABUF], lpnumberofbytessent: ::core::option::Option<*mut u32>, dwflags: u32, lpto: ::core::option::Option<*const SOCKADDR>, itolen: i32, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32
@@ -985,21 +953,18 @@ pub unsafe fn WSASetLastError(ierror: i32) {
     ::windows_targets::link!("ws2_32.dll" "system" fn WSASetLastError(ierror : i32));
     WSASetLastError(ierror)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WSASetServiceA(lpqsreginfo: *const WSAQUERYSETA, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32) -> i32 {
     ::windows_targets::link!("ws2_32.dll" "system" fn WSASetServiceA(lpqsreginfo : *const WSAQUERYSETA, essoperation : WSAESETSERVICEOP, dwcontrolflags : u32) -> i32);
     WSASetServiceA(lpqsreginfo, essoperation, dwcontrolflags)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WSASetServiceW(lpqsreginfo: *const WSAQUERYSETW, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32) -> i32 {
     ::windows_targets::link!("ws2_32.dll" "system" fn WSASetServiceW(lpqsreginfo : *const WSAQUERYSETW, essoperation : WSAESETSERVICEOP, dwcontrolflags : u32) -> i32);
     WSASetServiceW(lpqsreginfo, essoperation, dwcontrolflags)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WSASetSocketPeerTargetName<P0>(socket: P0, peertargetname: *const SOCKET_PEER_TARGET_NAME, peertargetnamelen: u32, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32
@@ -1009,7 +974,6 @@ where
     ::windows_targets::link!("fwpuclnt.dll" "system" fn WSASetSocketPeerTargetName(socket : SOCKET, peertargetname : *const SOCKET_PEER_TARGET_NAME, peertargetnamelen : u32, overlapped : *const super::super::System::IO:: OVERLAPPED, completionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32);
     WSASetSocketPeerTargetName(socket.into_param().abi(), peertargetname, peertargetnamelen, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())), completionroutine)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WSASetSocketSecurity<P0>(socket: P0, securitysettings: ::core::option::Option<*const SOCKET_SECURITY_SETTINGS>, securitysettingslen: u32, overlapped: ::core::option::Option<*const super::super::System::IO::OVERLAPPED>, completionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32
@@ -1103,7 +1067,6 @@ pub unsafe fn WSCEnumNameSpaceProviders32(lpdwbufferlength: *mut u32, lpnspbuffe
     ::windows_targets::link!("ws2_32.dll" "system" fn WSCEnumNameSpaceProviders32(lpdwbufferlength : *mut u32, lpnspbuffer : *mut WSANAMESPACE_INFOW) -> i32);
     WSCEnumNameSpaceProviders32(lpdwbufferlength, lpnspbuffer)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -1168,7 +1131,6 @@ where
     ::windows_targets::link!("ws2_32.dll" "system" fn WSCInstallNameSpace32(lpszidentifier : ::windows_core::PCWSTR, lpszpathname : ::windows_core::PCWSTR, dwnamespace : u32, dwversion : u32, lpproviderid : *const ::windows_core::GUID) -> i32);
     WSCInstallNameSpace32(lpszidentifier.into_param().abi(), lpszpathname.into_param().abi(), dwnamespace, dwversion, lpproviderid)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WSCInstallNameSpaceEx<P0, P1>(lpszidentifier: P0, lpszpathname: P1, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows_core::GUID, lpproviderspecific: *const super::super::System::Com::BLOB) -> i32
@@ -1179,7 +1141,6 @@ where
     ::windows_targets::link!("ws2_32.dll" "system" fn WSCInstallNameSpaceEx(lpszidentifier : ::windows_core::PCWSTR, lpszpathname : ::windows_core::PCWSTR, dwnamespace : u32, dwversion : u32, lpproviderid : *const ::windows_core::GUID, lpproviderspecific : *const super::super::System::Com:: BLOB) -> i32);
     WSCInstallNameSpaceEx(lpszidentifier.into_param().abi(), lpszpathname.into_param().abi(), dwnamespace, dwversion, lpproviderid, lpproviderspecific)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -5417,7 +5378,6 @@ impl ::core::default::Default for DL_TEREDO_ADDRESS_PRV_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct DL_TUNNEL_ADDRESS {
     pub CompartmentId: super::super::System::Kernel::COMPARTMENT_ID,
@@ -8739,7 +8699,6 @@ impl ::core::default::Default for NPI_MODULEID_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct NSPV2_ROUTINE {
     pub cbSize: u32,
@@ -8778,7 +8737,6 @@ impl ::core::default::Default for NSPV2_ROUTINE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 pub struct NSP_ROUTINE {
     pub cbSize: u32,
@@ -8881,7 +8839,6 @@ impl ::core::default::Default for NS_INFOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct NS_SERVICE_INFOA {
     pub dwNameSpace: u32,
@@ -8920,7 +8877,6 @@ impl ::core::default::Default for NS_SERVICE_INFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct NS_SERVICE_INFOW {
     pub dwNameSpace: u32,
@@ -10031,7 +9987,6 @@ impl ::core::default::Default for SERVICE_ASYNC_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct SERVICE_INFOA {
     pub lpServiceType: *mut ::windows_core::GUID,
@@ -10078,7 +10033,6 @@ impl ::core::default::Default for SERVICE_INFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct SERVICE_INFOW {
     pub lpServiceType: *mut ::windows_core::GUID,
@@ -10946,7 +10900,6 @@ impl ::core::default::Default for SOCKET_PEER_TARGET_NAME {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct SOCKET_PROCESSOR_AFFINITY {
     pub Processor: super::super::System::Kernel::PROCESSOR_NUMBER,
@@ -12300,7 +12253,6 @@ impl ::core::default::Default for WSABUF {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub struct WSACOMPLETION {
     pub Type: WSACOMPLETIONTYPE,
@@ -12325,7 +12277,6 @@ impl ::core::default::Default for WSACOMPLETION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub union WSACOMPLETION_0 {
     pub WindowMessage: WSACOMPLETION_0_3,
@@ -12352,7 +12303,6 @@ impl ::core::default::Default for WSACOMPLETION_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub struct WSACOMPLETION_0_0 {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
@@ -12383,7 +12333,6 @@ impl ::core::default::Default for WSACOMPLETION_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub struct WSACOMPLETION_0_1 {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
@@ -12421,7 +12370,6 @@ impl ::core::default::Default for WSACOMPLETION_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub struct WSACOMPLETION_0_2 {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
@@ -12461,7 +12409,6 @@ impl ::core::default::Default for WSACOMPLETION_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub struct WSACOMPLETION_0_3 {
     pub hWnd: super::super::Foundation::HWND,
@@ -12681,7 +12628,6 @@ impl ::core::default::Default for WSANAMESPACE_INFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct WSANAMESPACE_INFOEXA {
     pub NSProviderId: ::windows_core::GUID,
@@ -12724,7 +12670,6 @@ impl ::core::default::Default for WSANAMESPACE_INFOEXA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct WSANAMESPACE_INFOEXW {
     pub NSProviderId: ::windows_core::GUID,
@@ -13165,7 +13110,6 @@ impl ::core::default::Default for WSAPROTOCOL_INFOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct WSAQUERYSET2A {
     pub dwSize: u32,
@@ -13231,7 +13175,6 @@ impl ::core::default::Default for WSAQUERYSET2A {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct WSAQUERYSET2W {
     pub dwSize: u32,
@@ -13297,7 +13240,6 @@ impl ::core::default::Default for WSAQUERYSET2W {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct WSAQUERYSETA {
     pub dwSize: u32,
@@ -13365,7 +13307,6 @@ impl ::core::default::Default for WSAQUERYSETA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct WSAQUERYSETW {
     pub dwSize: u32,
@@ -13433,7 +13374,6 @@ impl ::core::default::Default for WSAQUERYSETW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub struct WSASENDMSG {
     pub lpMsg: *mut WSAMSG,
@@ -13682,7 +13622,6 @@ impl ::core::default::Default for WSPDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub struct WSPPROC_TABLE {
     pub lpWSPAccept: LPWSPACCEPT,
@@ -13935,13 +13874,10 @@ impl ::core::default::Default for tcp_keepalive {
 }
 pub type LPBLOCKINGCALLBACK = ::core::option::Option<unsafe extern "system" fn(dwcontext: usize) -> super::super::Foundation::BOOL>;
 pub type LPCONDITIONPROC = ::core::option::Option<unsafe extern "system" fn(lpcallerid: *mut WSABUF, lpcallerdata: *mut WSABUF, lpsqos: *mut QOS, lpgqos: *mut QOS, lpcalleeid: *mut WSABUF, lpcalleedata: *mut WSABUF, g: *mut u32, dwcallbackdata: usize) -> i32>;
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub type LPFN_ACCEPTEX = ::core::option::Option<unsafe extern "system" fn(slistensocket: SOCKET, sacceptsocket: SOCKET, lpoutputbuffer: *mut ::core::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, lpdwbytesreceived: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub type LPFN_CONNECTEX = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, name: *const SOCKADDR, namelen: i32, lpsendbuffer: *const ::core::ffi::c_void, dwsenddatalength: u32, lpdwbytessent: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub type LPFN_DISCONNECTEX = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, dwflags: u32, dwreserved: u32) -> super::super::Foundation::BOOL>;
 pub type LPFN_GETACCEPTEXSOCKADDRS = ::core::option::Option<unsafe extern "system" fn(lpoutputbuffer: *const ::core::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, localsockaddr: *mut *mut SOCKADDR, localsockaddrlength: *mut i32, remotesockaddr: *mut *mut SOCKADDR, remotesockaddrlength: *mut i32)>;
@@ -13959,52 +13895,39 @@ pub type LPFN_RIORESIZECOMPLETIONQUEUE = ::core::option::Option<unsafe extern "s
 pub type LPFN_RIORESIZEREQUESTQUEUE = ::core::option::Option<unsafe extern "system" fn(rq: RIO_RQ, maxoutstandingreceive: u32, maxoutstandingsend: u32) -> super::super::Foundation::BOOL>;
 pub type LPFN_RIOSEND = ::core::option::Option<unsafe extern "system" fn(socketqueue: RIO_RQ, pdata: *const RIO_BUF, databuffercount: u32, flags: u32, requestcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type LPFN_RIOSENDEX = ::core::option::Option<unsafe extern "system" fn(socketqueue: RIO_RQ, pdata: *const RIO_BUF, databuffercount: u32, plocaladdress: *const RIO_BUF, premoteaddress: *const RIO_BUF, pcontrolcontext: *const RIO_BUF, pflags: *const RIO_BUF, flags: u32, requestcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub type LPFN_TRANSMITFILE = ::core::option::Option<unsafe extern "system" fn(hsocket: SOCKET, hfile: super::super::Foundation::HANDLE, nnumberofbytestowrite: u32, nnumberofbytespersend: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lptransmitbuffers: *const TRANSMIT_FILE_BUFFERS, dwreserved: u32) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub type LPFN_TRANSMITPACKETS = ::core::option::Option<unsafe extern "system" fn(hsocket: SOCKET, lppacketarray: *const TRANSMIT_PACKETS_ELEMENT, nelementcount: u32, nsendsize: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, dwflags: u32) -> super::super::Foundation::BOOL>;
 pub type LPFN_WSAPOLL = ::core::option::Option<unsafe extern "system" fn(fdarray: *mut WSAPOLLFD, nfds: u32, timeout: i32) -> i32>;
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub type LPFN_WSARECVMSG = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpmsg: *mut WSAMSG, lpdwnumberofbytesrecvd: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32>;
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub type LPFN_WSASENDMSG = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpmsg: *const WSAMSG, dwflags: u32, lpnumberofbytessent: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32>;
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub type LPLOOKUPSERVICE_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwerror: u32, dwbytes: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED)>;
 pub type LPNSPCLEANUP = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows_core::GUID) -> i32>;
 pub type LPNSPGETSERVICECLASSINFO = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows_core::GUID, lpdwbufsize: *const u32, lpserviceclassinfo: *const WSASERVICECLASSINFOW) -> i32>;
 pub type LPNSPINSTALLSERVICECLASS = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows_core::GUID, lpserviceclassinfo: *const WSASERVICECLASSINFOW) -> i32>;
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub type LPNSPIOCTL = ::core::option::Option<unsafe extern "system" fn(hlookup: super::super::Foundation::HANDLE, dwcontrolcode: u32, lpvinbuffer: *const ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpcompletion: *const WSACOMPLETION, lpthreadid: *const WSATHREADID) -> i32>;
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub type LPNSPLOOKUPSERVICEBEGIN = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows_core::GUID, lpqsrestrictions: *const WSAQUERYSETW, lpserviceclassinfo: *const WSASERVICECLASSINFOW, dwcontrolflags: u32, lphlookup: *mut super::super::Foundation::HANDLE) -> i32>;
 pub type LPNSPLOOKUPSERVICEEND = ::core::option::Option<unsafe extern "system" fn(hlookup: super::super::Foundation::HANDLE) -> i32>;
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub type LPNSPLOOKUPSERVICENEXT = ::core::option::Option<unsafe extern "system" fn(hlookup: super::super::Foundation::HANDLE, dwcontrolflags: u32, lpdwbufferlength: *mut u32, lpqsresults: *mut WSAQUERYSETW) -> i32>;
 pub type LPNSPREMOVESERVICECLASS = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows_core::GUID, lpserviceclassid: *const ::windows_core::GUID) -> i32>;
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub type LPNSPSETSERVICE = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows_core::GUID, lpserviceclassinfo: *const WSASERVICECLASSINFOW, lpqsreginfo: *const WSAQUERYSETW, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32) -> i32>;
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 pub type LPNSPSTARTUP = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows_core::GUID, lpnsproutines: *mut NSP_ROUTINE) -> i32>;
 pub type LPNSPV2CLEANUP = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows_core::GUID, pvclientsessionarg: *const ::core::ffi::c_void) -> i32>;
 pub type LPNSPV2CLIENTSESSIONRUNDOWN = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows_core::GUID, pvclientsessionarg: *const ::core::ffi::c_void)>;
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub type LPNSPV2LOOKUPSERVICEBEGIN = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows_core::GUID, lpqsrestrictions: *const WSAQUERYSET2W, dwcontrolflags: u32, lpvclientsessionarg: *const ::core::ffi::c_void, lphlookup: *mut super::super::Foundation::HANDLE) -> i32>;
 pub type LPNSPV2LOOKUPSERVICEEND = ::core::option::Option<unsafe extern "system" fn(hlookup: super::super::Foundation::HANDLE) -> i32>;
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub type LPNSPV2LOOKUPSERVICENEXTEX = ::core::option::Option<unsafe extern "system" fn(hasynccall: super::super::Foundation::HANDLE, hlookup: super::super::Foundation::HANDLE, dwcontrolflags: u32, lpdwbufferlength: *const u32, lpqsresults: *mut WSAQUERYSET2W)>;
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub type LPNSPV2SETSERVICEEX = ::core::option::Option<unsafe extern "system" fn(hasynccall: super::super::Foundation::HANDLE, lpproviderid: *const ::windows_core::GUID, lpqsreginfo: *const WSAQUERYSET2W, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32, lpvclientsessionarg: *const ::core::ffi::c_void)>;
 pub type LPNSPV2STARTUP = ::core::option::Option<unsafe extern "system" fn(lpproviderid: *const ::windows_core::GUID, ppvclientsessionarg: *mut *mut ::core::ffi::c_void) -> i32>;
@@ -14012,7 +13935,6 @@ pub type LPSERVICE_CALLBACK_PROC = ::core::option::Option<unsafe extern "system"
 pub type LPWPUCLOSEEVENT = ::core::option::Option<unsafe extern "system" fn(hevent: super::super::Foundation::HANDLE, lperrno: *mut i32) -> super::super::Foundation::BOOL>;
 pub type LPWPUCLOSESOCKETHANDLE = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lperrno: *mut i32) -> i32>;
 pub type LPWPUCLOSETHREAD = ::core::option::Option<unsafe extern "system" fn(lpthreadid: *const WSATHREADID, lperrno: *mut i32) -> i32>;
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub type LPWPUCOMPLETEOVERLAPPEDREQUEST = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, dwerror: u32, cbtransferred: u32, lperrno: *mut i32) -> i32>;
 pub type LPWPUCREATEEVENT = ::core::option::Option<unsafe extern "system" fn(lperrno: *mut i32) -> super::super::Foundation::HANDLE>;
@@ -14027,7 +13949,6 @@ pub type LPWPUQUERYSOCKETHANDLECONTEXT = ::core::option::Option<unsafe extern "s
 pub type LPWPUQUEUEAPC = ::core::option::Option<unsafe extern "system" fn(lpthreadid: *const WSATHREADID, lpfnuserapc: LPWSAUSERAPC, dwcontext: usize, lperrno: *mut i32) -> i32>;
 pub type LPWPURESETEVENT = ::core::option::Option<unsafe extern "system" fn(hevent: super::super::Foundation::HANDLE, lperrno: *mut i32) -> super::super::Foundation::BOOL>;
 pub type LPWPUSETEVENT = ::core::option::Option<unsafe extern "system" fn(hevent: super::super::Foundation::HANDLE, lperrno: *mut i32) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub type LPWSAOVERLAPPED_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwerror: u32, cbtransferred: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, dwflags: u32)>;
 pub type LPWSAUSERAPC = ::core::option::Option<unsafe extern "system" fn(dwcontext: usize)>;
@@ -14052,37 +13973,30 @@ pub type LPWSPCONNECT = ::core::option::Option<unsafe extern "system" fn(s: SOCK
 pub type LPWSPDUPLICATESOCKET = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, dwprocessid: u32, lpprotocolinfo: *mut WSAPROTOCOL_INFOW, lperrno: *mut i32) -> i32>;
 pub type LPWSPENUMNETWORKEVENTS = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, heventobject: super::super::Foundation::HANDLE, lpnetworkevents: *mut WSANETWORKEVENTS, lperrno: *mut i32) -> i32>;
 pub type LPWSPEVENTSELECT = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, heventobject: super::super::Foundation::HANDLE, lnetworkevents: i32, lperrno: *mut i32) -> i32>;
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub type LPWSPGETOVERLAPPEDRESULT = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcbtransfer: *mut u32, fwait: super::super::Foundation::BOOL, lpdwflags: *mut u32, lperrno: *mut i32) -> super::super::Foundation::BOOL>;
 pub type LPWSPGETPEERNAME = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, name: *mut SOCKADDR, namelen: *mut i32, lperrno: *mut i32) -> i32>;
 pub type LPWSPGETQOSBYNAME = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpqosname: *const WSABUF, lpqos: *mut QOS, lperrno: *mut i32) -> super::super::Foundation::BOOL>;
 pub type LPWSPGETSOCKNAME = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, name: *mut SOCKADDR, namelen: *mut i32, lperrno: *mut i32) -> i32>;
 pub type LPWSPGETSOCKOPT = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, level: i32, optname: i32, optval: ::windows_core::PSTR, optlen: *mut i32, lperrno: *mut i32) -> i32>;
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub type LPWSPIOCTL = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, dwiocontrolcode: u32, lpvinbuffer: *const ::core::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::core::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE, lpthreadid: *const WSATHREADID, lperrno: *mut i32) -> i32>;
 pub type LPWSPJOINLEAF = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, name: *const SOCKADDR, namelen: i32, lpcallerdata: *const WSABUF, lpcalleedata: *mut WSABUF, lpsqos: *const QOS, lpgqos: *const QOS, dwflags: u32, lperrno: *mut i32) -> SOCKET>;
 pub type LPWSPLISTEN = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, backlog: i32, lperrno: *mut i32) -> i32>;
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub type LPWSPRECV = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE, lpthreadid: *const WSATHREADID, lperrno: *const i32) -> i32>;
 pub type LPWSPRECVDISCONNECT = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpinbounddisconnectdata: *const WSABUF, lperrno: *mut i32) -> i32>;
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub type LPWSPRECVFROM = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpfrom: *mut SOCKADDR, lpfromlen: *mut i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE, lpthreadid: *const WSATHREADID, lperrno: *mut i32) -> i32>;
 pub type LPWSPSELECT = ::core::option::Option<unsafe extern "system" fn(nfds: i32, readfds: *mut FD_SET, writefds: *mut FD_SET, exceptfds: *mut FD_SET, timeout: *const TIMEVAL, lperrno: *mut i32) -> i32>;
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub type LPWSPSEND = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE, lpthreadid: *const WSATHREADID, lperrno: *mut i32) -> i32>;
 pub type LPWSPSENDDISCONNECT = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpoutbounddisconnectdata: *const WSABUF, lperrno: *mut i32) -> i32>;
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub type LPWSPSENDTO = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpto: *const SOCKADDR, itolen: i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE, lpthreadid: *const WSATHREADID, lperrno: *mut i32) -> i32>;
 pub type LPWSPSETSOCKOPT = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, level: i32, optname: i32, optval: ::windows_core::PCSTR, optlen: i32, lperrno: *mut i32) -> i32>;
 pub type LPWSPSHUTDOWN = ::core::option::Option<unsafe extern "system" fn(s: SOCKET, how: i32, lperrno: *mut i32) -> i32>;
 pub type LPWSPSOCKET = ::core::option::Option<unsafe extern "system" fn(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, g: u32, dwflags: u32, lperrno: *mut i32) -> SOCKET>;
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 pub type LPWSPSTARTUP = ::core::option::Option<unsafe extern "system" fn(wversionrequested: u16, lpwspdata: *const WSPDATA, lpprotocolinfo: *const WSAPROTOCOL_INFOW, upcalltable: WSPUPCALLTABLE, lpproctable: *mut WSPPROC_TABLE) -> i32>;
 pub type LPWSPSTRINGTOADDRESS = ::core::option::Option<unsafe extern "system" fn(addressstring: ::windows_core::PCWSTR, addressfamily: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, lpaddress: *mut SOCKADDR, lpaddresslength: *mut i32, lperrno: *mut i32) -> i32>;

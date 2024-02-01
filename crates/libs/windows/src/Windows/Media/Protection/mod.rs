@@ -1,5 +1,4 @@
 #[cfg(feature = "Media_Protection_PlayReady")]
-#[doc = "Required features: `\"Media_Protection_PlayReady\"`"]
 pub mod PlayReady;
 ::windows_core::imp::com_interface!(IComponentLoadFailedEventArgs, IComponentLoadFailedEventArgs_Vtbl, 0x95972e93_7746_417e_8495_f031bbc5862c);
 #[repr(C)]
@@ -315,7 +314,6 @@ impl MediaProtectionManager {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveComponentLoadFailed)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
@@ -342,7 +340,6 @@ unsafe impl ::core::marker::Sync for MediaProtectionManager {}
 pub struct MediaProtectionPMPServer(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(MediaProtectionPMPServer, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl MediaProtectionPMPServer {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
@@ -351,7 +348,6 @@ impl MediaProtectionPMPServer {
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreatePMPServer<P0>(pproperties: P0) -> ::windows_core::Result<MediaProtectionPMPServer>
     where
@@ -439,7 +435,6 @@ unsafe impl ::core::marker::Sync for ProtectionCapabilities {}
 pub struct RevocationAndRenewalInformation(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(RevocationAndRenewalInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl RevocationAndRenewalInformation {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<RevocationAndRenewalItem>> {
         let this = self;
@@ -533,7 +528,6 @@ impl ServiceRequestedEventArgs {
             (::windows_core::Interface::vtable(this).Completion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Media_Playback\"`"]
     #[cfg(feature = "Media_Playback")]
     pub fn MediaPlaybackItem(&self) -> ::windows_core::Result<super::Playback::MediaPlaybackItem> {
         let this = &::windows_core::Interface::cast::<IServiceRequestedEventArgs2>(self)?;

@@ -1,14 +1,10 @@
 #[cfg(feature = "UI_Input_Core")]
-#[doc = "Required features: `\"UI_Input_Core\"`"]
 pub mod Core;
 #[cfg(feature = "UI_Input_Inking")]
-#[doc = "Required features: `\"UI_Input_Inking\"`"]
 pub mod Inking;
 #[cfg(feature = "UI_Input_Preview")]
-#[doc = "Required features: `\"UI_Input_Preview\"`"]
 pub mod Preview;
 #[cfg(feature = "UI_Input_Spatial")]
-#[doc = "Required features: `\"UI_Input_Spatial\"`"]
 pub mod Spatial;
 ::windows_core::imp::com_interface!(IAttachableInputObject, IAttachableInputObject_Vtbl, 0x9b822734_a3c1_542a_b2f4_0e32b773fb07);
 #[repr(C)]
@@ -845,7 +841,6 @@ unsafe impl ::core::marker::Sync for AttachableInputObject {}
 pub struct CrossSlidingEventArgs(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(CrossSlidingEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CrossSlidingEventArgs {
-    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDeviceType(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
@@ -891,7 +886,6 @@ impl ::windows_core::RuntimeName for CrossSlidingEventArgs {
 pub struct DraggingEventArgs(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(DraggingEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DraggingEventArgs {
-    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDeviceType(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
@@ -1239,7 +1233,6 @@ impl GestureRecognizer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).ProcessDownEvent)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ProcessMoveEvents<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1500,7 +1493,6 @@ impl ::windows_core::RuntimeName for GestureRecognizer {
 pub struct HoldingEventArgs(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(HoldingEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl HoldingEventArgs {
-    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDeviceType(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
@@ -1633,7 +1625,6 @@ impl KeyboardDeliveryInterceptor {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIsInterceptionEnabledWhenInForeground)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"UI_Core\"`"]
     #[cfg(feature = "UI_Core")]
     pub fn KeyDown<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1649,7 +1640,6 @@ impl KeyboardDeliveryInterceptor {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveKeyDown)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"UI_Core\"`"]
     #[cfg(feature = "UI_Core")]
     pub fn KeyUp<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1694,7 +1684,6 @@ unsafe impl ::core::marker::Sync for KeyboardDeliveryInterceptor {}
 pub struct ManipulationCompletedEventArgs(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(ManipulationCompletedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ManipulationCompletedEventArgs {
-    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDeviceType(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
@@ -1754,7 +1743,6 @@ impl ::windows_core::RuntimeName for ManipulationCompletedEventArgs {
 pub struct ManipulationInertiaStartingEventArgs(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(ManipulationInertiaStartingEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ManipulationInertiaStartingEventArgs {
-    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDeviceType(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
@@ -1814,7 +1802,6 @@ impl ::windows_core::RuntimeName for ManipulationInertiaStartingEventArgs {
 pub struct ManipulationStartedEventArgs(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(ManipulationStartedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ManipulationStartedEventArgs {
-    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDeviceType(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
@@ -1860,7 +1847,6 @@ impl ::windows_core::RuntimeName for ManipulationStartedEventArgs {
 pub struct ManipulationUpdatedEventArgs(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(ManipulationUpdatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ManipulationUpdatedEventArgs {
-    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDeviceType(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
@@ -1987,7 +1973,6 @@ impl ::windows_core::RuntimeName for MouseWheelParameters {
 pub struct PointerPoint(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PointerPoint, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PointerPoint {
-    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDevice(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDevice> {
         let this = self;
@@ -2051,7 +2036,6 @@ impl PointerPoint {
             (::windows_core::Interface::vtable(this).GetCurrentPoint)(::windows_core::Interface::as_raw(this), pointerid, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetIntermediatePoints(pointerid: u32) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<PointerPoint>> {
         Self::IPointerPointStatics(|this| unsafe {
@@ -2068,7 +2052,6 @@ impl PointerPoint {
             (::windows_core::Interface::vtable(this).GetCurrentPointTransformed)(::windows_core::Interface::as_raw(this), pointerid, transform.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetIntermediatePointsTransformed<P0>(pointerid: u32, transform: P0) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<PointerPoint>>
     where
@@ -2553,7 +2536,6 @@ impl RadialControllerButtonClickedEventArgs {
             (::windows_core::Interface::vtable(this).Contact)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Haptics\"`"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = &::windows_core::Interface::cast::<IRadialControllerButtonClickedEventArgs2>(self)?;
@@ -2587,7 +2569,6 @@ impl RadialControllerButtonHoldingEventArgs {
             (::windows_core::Interface::vtable(this).Contact)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Haptics\"`"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = self;
@@ -2621,7 +2602,6 @@ impl RadialControllerButtonPressedEventArgs {
             (::windows_core::Interface::vtable(this).Contact)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Haptics\"`"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = self;
@@ -2655,7 +2635,6 @@ impl RadialControllerButtonReleasedEventArgs {
             (::windows_core::Interface::vtable(this).Contact)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Haptics\"`"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = self;
@@ -2682,7 +2661,6 @@ unsafe impl ::core::marker::Sync for RadialControllerButtonReleasedEventArgs {}
 pub struct RadialControllerConfiguration(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(RadialControllerConfiguration, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl RadialControllerConfiguration {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetDefaultMenuItems<P0>(&self, buttons: P0) -> ::windows_core::Result<()>
     where
@@ -2796,7 +2774,6 @@ impl RadialControllerControlAcquiredEventArgs {
             (::windows_core::Interface::vtable(this).IsButtonPressed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Haptics\"`"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = &::windows_core::Interface::cast::<IRadialControllerControlAcquiredEventArgs2>(self)?;
@@ -2823,7 +2800,6 @@ unsafe impl ::core::marker::Sync for RadialControllerControlAcquiredEventArgs {}
 pub struct RadialControllerMenu(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(RadialControllerMenu, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl RadialControllerMenu {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<RadialControllerMenuItem>> {
         let this = self;
@@ -2917,7 +2893,6 @@ impl RadialControllerMenuItem {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveInvoked)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromIcon<P0>(displaytext: &::windows_core::HSTRING, icon: P0) -> ::windows_core::Result<RadialControllerMenuItem>
     where
@@ -2998,7 +2973,6 @@ impl RadialControllerRotationChangedEventArgs {
             (::windows_core::Interface::vtable(this).IsButtonPressed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Haptics\"`"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = &::windows_core::Interface::cast::<IRadialControllerRotationChangedEventArgs2>(self)?;
@@ -3071,7 +3045,6 @@ impl RadialControllerScreenContactContinuedEventArgs {
             (::windows_core::Interface::vtable(this).IsButtonPressed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Haptics\"`"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = &::windows_core::Interface::cast::<IRadialControllerScreenContactContinuedEventArgs2>(self)?;
@@ -3105,7 +3078,6 @@ impl RadialControllerScreenContactEndedEventArgs {
             (::windows_core::Interface::vtable(this).IsButtonPressed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Haptics\"`"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = self;
@@ -3146,7 +3118,6 @@ impl RadialControllerScreenContactStartedEventArgs {
             (::windows_core::Interface::vtable(this).IsButtonPressed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Haptics\"`"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = &::windows_core::Interface::cast::<IRadialControllerScreenContactStartedEventArgs2>(self)?;
@@ -3173,7 +3144,6 @@ unsafe impl ::core::marker::Sync for RadialControllerScreenContactStartedEventAr
 pub struct RightTappedEventArgs(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(RightTappedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl RightTappedEventArgs {
-    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDeviceType(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
@@ -3273,7 +3243,6 @@ impl SystemButtonEventController {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSystemFunctionLockIndicatorChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn CreateForDispatcherQueue<P0>(queue: P0) -> ::windows_core::Result<SystemButtonEventController>
     where
@@ -3429,7 +3398,6 @@ unsafe impl ::core::marker::Sync for SystemFunctionLockIndicatorChangedEventArgs
 pub struct TappedEventArgs(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(TappedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl TappedEventArgs {
-    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDeviceType(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;

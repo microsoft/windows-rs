@@ -24,7 +24,6 @@ where
     let result__ = AllJoynConnectToBus(connectionspec.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn AllJoynCreateBus(outbuffersize: u32, inbuffersize: u32, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> super::super::Foundation::HANDLE {

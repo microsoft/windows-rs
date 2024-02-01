@@ -83,7 +83,6 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn RegCreateKeyA(hkey : HKEY, lpsubkey : ::windows_core::PCSTR, phkresult : *mut HKEY) -> super::super::Foundation:: WIN32_ERROR);
     RegCreateKeyA(hkey.into_param().abi(), lpsubkey.into_param().abi(), phkresult).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn RegCreateKeyExA<P0, P1, P2>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut HKEY, lpdwdisposition: ::core::option::Option<*mut REG_CREATE_KEY_DISPOSITION>) -> ::windows_core::Result<()>
@@ -95,7 +94,6 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn RegCreateKeyExA(hkey : HKEY, lpsubkey : ::windows_core::PCSTR, reserved : u32, lpclass : ::windows_core::PCSTR, dwoptions : REG_OPEN_CREATE_OPTIONS, samdesired : REG_SAM_FLAGS, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut HKEY, lpdwdisposition : *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation:: WIN32_ERROR);
     RegCreateKeyExA(hkey.into_param().abi(), lpsubkey.into_param().abi(), reserved, lpclass.into_param().abi(), dwoptions, samdesired, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), phkresult, ::core::mem::transmute(lpdwdisposition.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn RegCreateKeyExW<P0, P1, P2>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut HKEY, lpdwdisposition: ::core::option::Option<*mut REG_CREATE_KEY_DISPOSITION>) -> ::windows_core::Result<()>
@@ -107,7 +105,6 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn RegCreateKeyExW(hkey : HKEY, lpsubkey : ::windows_core::PCWSTR, reserved : u32, lpclass : ::windows_core::PCWSTR, dwoptions : REG_OPEN_CREATE_OPTIONS, samdesired : REG_SAM_FLAGS, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut HKEY, lpdwdisposition : *mut REG_CREATE_KEY_DISPOSITION) -> super::super::Foundation:: WIN32_ERROR);
     RegCreateKeyExW(hkey.into_param().abi(), lpsubkey.into_param().abi(), reserved, lpclass.into_param().abi(), dwoptions, samdesired, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), phkresult, ::core::mem::transmute(lpdwdisposition.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn RegCreateKeyTransactedA<P0, P1, P2, P3>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut HKEY, lpdwdisposition: ::core::option::Option<*mut REG_CREATE_KEY_DISPOSITION>, htransaction: P3, pextendedparemeter: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
@@ -120,7 +117,6 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn RegCreateKeyTransactedA(hkey : HKEY, lpsubkey : ::windows_core::PCSTR, reserved : u32, lpclass : ::windows_core::PCSTR, dwoptions : REG_OPEN_CREATE_OPTIONS, samdesired : REG_SAM_FLAGS, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut HKEY, lpdwdisposition : *mut REG_CREATE_KEY_DISPOSITION, htransaction : super::super::Foundation:: HANDLE, pextendedparemeter : *const ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
     RegCreateKeyTransactedA(hkey.into_param().abi(), lpsubkey.into_param().abi(), reserved, lpclass.into_param().abi(), dwoptions, samdesired, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), phkresult, ::core::mem::transmute(lpdwdisposition.unwrap_or(::std::ptr::null_mut())), htransaction.into_param().abi(), ::core::mem::transmute(pextendedparemeter.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn RegCreateKeyTransactedW<P0, P1, P2, P3>(hkey: P0, lpsubkey: P1, reserved: u32, lpclass: P2, dwoptions: REG_OPEN_CREATE_OPTIONS, samdesired: REG_SAM_FLAGS, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut HKEY, lpdwdisposition: ::core::option::Option<*mut REG_CREATE_KEY_DISPOSITION>, htransaction: P3, pextendedparemeter: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
@@ -336,7 +332,6 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn RegFlushKey(hkey : HKEY) -> super::super::Foundation:: WIN32_ERROR);
     RegFlushKey(hkey.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn RegGetKeySecurity<P0>(hkey: P0, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> ::windows_core::Result<()>
@@ -665,7 +660,6 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn RegRestoreKeyW(hkey : HKEY, lpfile : ::windows_core::PCWSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
     RegRestoreKeyW(hkey.into_param().abi(), lpfile.into_param().abi(), dwflags.0 as _).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn RegSaveKeyA<P0, P1>(hkey: P0, lpfile: P1, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows_core::Result<()>
@@ -676,7 +670,6 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn RegSaveKeyA(hkey : HKEY, lpfile : ::windows_core::PCSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: WIN32_ERROR);
     RegSaveKeyA(hkey.into_param().abi(), lpfile.into_param().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn RegSaveKeyExA<P0, P1>(hkey: P0, lpfile: P1, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, flags: REG_SAVE_FORMAT) -> ::windows_core::Result<()>
@@ -687,7 +680,6 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn RegSaveKeyExA(hkey : HKEY, lpfile : ::windows_core::PCSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, flags : REG_SAVE_FORMAT) -> super::super::Foundation:: WIN32_ERROR);
     RegSaveKeyExA(hkey.into_param().abi(), lpfile.into_param().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), flags).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn RegSaveKeyExW<P0, P1>(hkey: P0, lpfile: P1, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, flags: REG_SAVE_FORMAT) -> ::windows_core::Result<()>
@@ -698,7 +690,6 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn RegSaveKeyExW(hkey : HKEY, lpfile : ::windows_core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, flags : REG_SAVE_FORMAT) -> super::super::Foundation:: WIN32_ERROR);
     RegSaveKeyExW(hkey.into_param().abi(), lpfile.into_param().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), flags).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn RegSaveKeyW<P0, P1>(hkey: P0, lpfile: P1, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows_core::Result<()>
@@ -709,7 +700,6 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn RegSaveKeyW(hkey : HKEY, lpfile : ::windows_core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: WIN32_ERROR);
     RegSaveKeyW(hkey.into_param().abi(), lpfile.into_param().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn RegSetKeySecurity<P0, P1>(hkey: P0, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P1) -> ::windows_core::Result<()>

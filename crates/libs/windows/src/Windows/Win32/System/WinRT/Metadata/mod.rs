@@ -3,7 +3,6 @@ pub unsafe fn MetaDataGetDispenser(rclsid: *const ::windows_core::GUID, riid: *c
     ::windows_targets::link!("rometadata.dll" "system" fn MetaDataGetDispenser(rclsid : *const ::windows_core::GUID, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     MetaDataGetDispenser(rclsid, riid, ppv).ok()
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 #[inline]
 pub unsafe fn RoCreateNonAgilePropertySet() -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IPropertySet> {
@@ -11,7 +10,6 @@ pub unsafe fn RoCreateNonAgilePropertySet() -> ::windows_core::Result<super::sup
     let mut result__ = ::std::mem::zeroed();
     RoCreateNonAgilePropertySet(&mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Storage_Streams\"`"]
 #[cfg(feature = "Storage_Streams")]
 #[inline]
 pub unsafe fn RoCreatePropertySetSerializer() -> ::windows_core::Result<super::super::super::super::Storage::Streams::IPropertySetSerializer> {
@@ -388,7 +386,6 @@ impl IMetaDataDispenserEx {
     pub unsafe fn GetOption(&self, optionid: *const ::windows_core::GUID, pvalue: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetOption)(::windows_core::Interface::as_raw(self), optionid, ::core::mem::transmute(pvalue)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenScopeOnITypeInfo<P0>(&self, piti: P0, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>
     where
@@ -450,7 +447,6 @@ impl IMetaDataEmit {
     {
         (::windows_core::Interface::vtable(self).Save)(::windows_core::Interface::as_raw(self), szfile.into_param().abi(), dwsaveflags).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveToStream<P0>(&self, pistream: P0, dwsaveflags: u32) -> ::windows_core::Result<()>
     where
@@ -738,7 +734,6 @@ impl IMetaDataEmit2 {
     {
         (::windows_core::Interface::vtable(self).base__.Save)(::windows_core::Interface::as_raw(self), szfile.into_param().abi(), dwsaveflags).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveToStream<P0>(&self, pistream: P0, dwsaveflags: u32) -> ::windows_core::Result<()>
     where
@@ -965,7 +960,6 @@ impl IMetaDataEmit2 {
     {
         (::windows_core::Interface::vtable(self).SaveDelta)(::windows_core::Interface::as_raw(self), szfile.into_param().abi(), dwsaveflags).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveDeltaToStream<P0>(&self, pistream: P0, dwsaveflags: u32) -> ::windows_core::Result<()>
     where

@@ -41,7 +41,6 @@ impl ContactPartnerProvisioningManager {
             (::windows_core::Interface::vtable(this).AssociateNetworkAccountAsync)(::windows_core::Interface::as_raw(this), store.into_param().abi(), ::core::mem::transmute_copy(networkname), ::core::mem::transmute_copy(networkaccountid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ImportVcardToSystemAsync<P0>(stream: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -77,7 +76,6 @@ impl ::windows_core::RuntimeName for ContactPartnerProvisioningManager {
 }
 pub struct MessagePartnerProvisioningManager;
 impl MessagePartnerProvisioningManager {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ImportSmsToSystemAsync<P0>(incoming: bool, read: bool, body: &::windows_core::HSTRING, sender: &::windows_core::HSTRING, recipients: P0, deliverytime: super::super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -88,7 +86,6 @@ impl MessagePartnerProvisioningManager {
             (::windows_core::Interface::vtable(this).ImportSmsToSystemAsync)(::windows_core::Interface::as_raw(this), incoming, read, ::core::mem::transmute_copy(body), ::core::mem::transmute_copy(sender), recipients.into_param().abi(), deliverytime, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ImportMmsToSystemAsync<P0, P1>(incoming: bool, read: bool, subject: &::windows_core::HSTRING, sender: &::windows_core::HSTRING, recipients: P0, deliverytime: super::super::super::Foundation::DateTime, attachments: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where

@@ -848,7 +848,6 @@ pub struct IWSDOutboundAttachment_Vtbl {
 ::windows_core::imp::com_interface!(IWSDSSLClientCertificate, IWSDSSLClientCertificate_Vtbl, 0xde105e87_a0da_418e_98ad_27b9eed87bdc);
 ::windows_core::imp::interface_hierarchy!(IWSDSSLClientCertificate, ::windows_core::IUnknown);
 impl IWSDSSLClientCertificate {
-    #[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
     #[cfg(feature = "Win32_Security_Cryptography")]
     pub unsafe fn GetClientCertificate(&self) -> ::windows_core::Result<*mut super::super::Security::Cryptography::CERT_CONTEXT> {
         let mut result__ = ::std::mem::zeroed();
@@ -1220,12 +1219,10 @@ impl IWSDUdpAddress {
     {
         (::windows_core::Interface::vtable(self).base__.SetTransportAddress)(::windows_core::Interface::as_raw(self), pszaddress.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
     #[cfg(feature = "Win32_Networking_WinSock")]
     pub unsafe fn SetSockaddr(&self, psockaddr: *const super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSockaddr)(::windows_core::Interface::as_raw(self), psockaddr).ok()
     }
-    #[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
     #[cfg(feature = "Win32_Networking_WinSock")]
     pub unsafe fn GetSockaddr(&self, psockaddr: *mut super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSockaddr)(::windows_core::Interface::as_raw(self), psockaddr).ok()
@@ -3547,7 +3544,6 @@ impl ::core::default::Default for WSD_SCOPES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct WSD_SECURITY_CERT_VALIDATION {
     pub certMatchArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
@@ -3592,7 +3588,6 @@ impl ::core::default::Default for WSD_SECURITY_CERT_VALIDATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct WSD_SECURITY_CERT_VALIDATION_V1 {
     pub certMatchArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,
@@ -3634,7 +3629,6 @@ impl ::core::default::Default for WSD_SECURITY_CERT_VALIDATION_V1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct WSD_SECURITY_SIGNATURE_VALIDATION {
     pub signingCertArray: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT,

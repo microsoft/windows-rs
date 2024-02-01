@@ -44,7 +44,6 @@ impl IItemEnumerator_Vtbl {
         iid == &<IItemEnumerator as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISettingsContext_Impl: Sized {
     fn Serialize(&self, pstream: ::core::option::Option<&super::Com::IStream>, ptarget: ::core::option::Option<&ITargetInfo>) -> ::windows_core::Result<()>;
@@ -128,7 +127,6 @@ impl ISettingsContext_Vtbl {
         iid == &<ISettingsContext as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISettingsEngine_Impl: Sized {
     fn GetNamespaces(&self, flags: WcmNamespaceEnumerationFlags, reserved: *const ::core::ffi::c_void) -> ::windows_core::Result<IItemEnumerator>;

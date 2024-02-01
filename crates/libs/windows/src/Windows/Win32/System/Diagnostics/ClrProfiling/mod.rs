@@ -1,7 +1,6 @@
 ::windows_core::imp::com_interface!(ICorProfilerAssemblyReferenceProvider, ICorProfilerAssemblyReferenceProvider_Vtbl, 0x66a78c24_2eef_4f65_b45f_dd1d8038bf3c);
 ::windows_core::imp::interface_hierarchy!(ICorProfilerAssemblyReferenceProvider, ::windows_core::IUnknown);
 impl ICorProfilerAssemblyReferenceProvider {
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn AddAssemblyReference(&self, passemblyrefinfo: *const COR_PRF_ASSEMBLY_REFERENCE_INFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddAssemblyReference)(::windows_core::Interface::as_raw(self), passemblyrefinfo).ok()
@@ -3540,7 +3539,6 @@ impl ICorProfilerInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -3707,7 +3705,6 @@ impl ICorProfilerInfo10 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -3810,7 +3807,6 @@ impl ICorProfilerInfo10 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -4051,7 +4047,6 @@ impl ICorProfilerInfo11 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -4154,7 +4149,6 @@ impl ICorProfilerInfo11 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -4404,7 +4398,6 @@ impl ICorProfilerInfo12 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -4507,7 +4500,6 @@ impl ICorProfilerInfo12 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -4796,7 +4788,6 @@ impl ICorProfilerInfo13 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -4899,7 +4890,6 @@ impl ICorProfilerInfo13 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -5194,7 +5184,6 @@ impl ICorProfilerInfo14 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -5297,7 +5286,6 @@ impl ICorProfilerInfo14 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -5606,7 +5594,6 @@ impl ICorProfilerInfo2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -5709,7 +5696,6 @@ impl ICorProfilerInfo2 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -5834,7 +5820,6 @@ impl ICorProfilerInfo3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -5937,7 +5922,6 @@ impl ICorProfilerInfo3 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -6097,7 +6081,6 @@ impl ICorProfilerInfo4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -6200,7 +6183,6 @@ impl ICorProfilerInfo4 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -6389,7 +6371,6 @@ impl ICorProfilerInfo5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -6492,7 +6473,6 @@ impl ICorProfilerInfo5 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -6679,7 +6659,6 @@ impl ICorProfilerInfo6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -6782,7 +6761,6 @@ impl ICorProfilerInfo6 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -6971,7 +6949,6 @@ impl ICorProfilerInfo7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -7074,7 +7051,6 @@ impl ICorProfilerInfo7 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -7275,7 +7251,6 @@ impl ICorProfilerInfo8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -7378,7 +7353,6 @@ impl ICorProfilerInfo8 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -7589,7 +7563,6 @@ impl ICorProfilerInfo9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -7692,7 +7665,6 @@ impl ICorProfilerInfo9 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -8460,7 +8432,6 @@ impl ::core::default::Default for COR_IL_MAP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 pub struct COR_PRF_ASSEMBLY_REFERENCE_INFO {
     pub pbPublicKeyOrToken: *mut ::core::ffi::c_void,

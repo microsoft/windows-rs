@@ -157,7 +157,6 @@ impl IBidiRequest_Vtbl {
         iid == &<IBidiRequest as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IBidiRequestContainer_Impl: Sized {
     fn AddRequest(&self, prequest: ::core::option::Option<&IBidiRequest>) -> ::windows_core::Result<()>;
@@ -248,7 +247,6 @@ impl IBidiSpl_Vtbl {
         iid == &<IBidiSpl as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IBidiSpl2_Impl: Sized {
     fn BindDevice(&self, pszdevicename: &::windows_core::PCWSTR, dwaccess: u32) -> ::windows_core::Result<()>;
@@ -483,7 +481,6 @@ impl IFixedPage_Vtbl {
         iid == &<IFixedPage as ::windows_core::Interface>::IID || iid == &<IPartBase as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Ole\"`"]
 #[cfg(feature = "Win32_System_Ole")]
 pub trait IImgCreateErrorInfo_Impl: Sized + super::super::System::Ole::ICreateErrorInfo_Impl {
     fn AttachToErrorInfo(&self, perrorinfo: *mut ImgErrorInfo) -> ::windows_core::Result<()>;
@@ -507,7 +504,6 @@ impl IImgCreateErrorInfo_Vtbl {
         iid == &<IImgCreateErrorInfo as ::windows_core::Interface>::IID || iid == &<super::super::System::Ole::ICreateErrorInfo as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IImgErrorInfo_Impl: Sized + super::super::System::Com::IErrorInfo_Impl {
     fn GetDeveloperDescription(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1130,7 +1126,6 @@ impl IPrintClassObjectFactory_Vtbl {
         iid == &<IPrintClassObjectFactory as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IPrintCoreHelper_Impl: Sized {
     fn GetOption(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszfeaturerequested: &::windows_core::PCSTR) -> ::windows_core::Result<::windows_core::PCSTR>;
@@ -1216,7 +1211,6 @@ impl IPrintCoreHelper_Vtbl {
         iid == &<IPrintCoreHelper as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IPrintCoreHelperPS_Impl: Sized + IPrintCoreHelper_Impl {
     fn GetGlobalAttribute(&self, pszattribute: &::windows_core::PCSTR, pdwdatatype: *mut u32, ppbdata: *mut *mut u8, pcbsize: *mut u32) -> ::windows_core::Result<()>;
@@ -1254,7 +1248,6 @@ impl IPrintCoreHelperPS_Vtbl {
         iid == &<IPrintCoreHelperPS as ::windows_core::Interface>::IID || iid == &<IPrintCoreHelper as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IPrintCoreHelperUni_Impl: Sized + IPrintCoreHelper_Impl {
     fn CreateGDLSnapshot(&self, pdevmode: *mut super::Gdi::DEVMODEA, cbsize: u32, dwflags: u32, ppsnapshotstream: *mut ::core::option::Option<super::super::System::Com::IStream>) -> ::windows_core::Result<()>;
@@ -1291,7 +1284,6 @@ impl IPrintCoreHelperUni_Vtbl {
         iid == &<IPrintCoreHelperUni as ::windows_core::Interface>::IID || iid == &<IPrintCoreHelper as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IPrintCoreHelperUni2_Impl: Sized + IPrintCoreHelperUni_Impl {
     fn GetNamedCommand(&self, pdevmode: *const super::Gdi::DEVMODEA, cbsize: u32, pszcommandname: &::windows_core::PCWSTR, ppcommandbytes: *mut *mut u8, pcbcommandsize: *mut u32) -> ::windows_core::Result<()>;
@@ -1499,7 +1491,6 @@ impl IPrintJob_Vtbl {
         iid == &<IPrintJob as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintJobCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<u32>;
@@ -1555,7 +1546,6 @@ impl IPrintJobCollection_Vtbl {
         iid == &<IPrintJobCollection as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IPrintOemCommon_Impl: Sized {
     fn GetInfo(&self, dwmode: u32, pbuffer: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32) -> ::windows_core::Result<()>;
@@ -1620,7 +1610,6 @@ impl IPrintOemDriverUI_Vtbl {
         iid == &<IPrintOemDriverUI as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IPrintOemUI_Impl: Sized + IPrintOemCommon_Impl {
     fn PublishDriverInterface(&self, piunknown: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -1721,7 +1710,6 @@ impl IPrintOemUI_Vtbl {
         iid == &<IPrintOemUI as ::windows_core::Interface>::IID || iid == &<IPrintOemCommon as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IPrintOemUI2_Impl: Sized + IPrintOemUI_Impl {
     fn QueryJobAttributes(&self, hprinter: super::super::Foundation::HANDLE, pdevmode: *const super::Gdi::DEVMODEA, dwlevel: u32, lpattributeinfo: *const u8) -> ::windows_core::Result<()>;
@@ -1759,7 +1747,6 @@ impl IPrintOemUI2_Vtbl {
         iid == &<IPrintOemUI2 as ::windows_core::Interface>::IID || iid == &<IPrintOemCommon as ::windows_core::Interface>::IID || iid == &<IPrintOemUI as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IPrintOemUIMXDC_Impl: Sized {
     fn AdjustImageableArea(&self, hprinter: super::super::Foundation::HANDLE, cbdevmode: u32, pdevmode: *const super::Gdi::DEVMODEA, cboemdm: u32, poemdm: *const ::core::ffi::c_void, prclimageablearea: *mut super::super::Foundation::RECTL) -> ::windows_core::Result<()>;
@@ -1831,7 +1818,6 @@ impl IPrintPipelineFilter_Vtbl {
         iid == &<IPrintPipelineFilter as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintPipelineManagerControl_Impl: Sized {
     fn RequestShutdown(&self, hrreason: ::windows_core::HRESULT, preason: ::core::option::Option<&IImgErrorInfo>) -> ::windows_core::Result<()>;
@@ -1919,7 +1905,6 @@ impl IPrintPipelinePropertyBag_Vtbl {
         iid == &<IPrintPipelinePropertyBag as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Dxgi\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 pub trait IPrintPreviewDxgiPackageTarget_Impl: Sized {
     fn SetJobPageCount(&self, counttype: PageCountType, count: u32) -> ::windows_core::Result<()>;
@@ -2007,7 +1992,6 @@ impl IPrintReadStreamFactory_Vtbl {
         iid == &<IPrintReadStreamFactory as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaAsyncOperation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Start(&self) -> ::windows_core::Result<()>;
@@ -2038,7 +2022,6 @@ impl IPrintSchemaAsyncOperation_Vtbl {
         iid == &<IPrintSchemaAsyncOperation as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaAsyncOperationEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Completed(&self, pticket: ::core::option::Option<&IPrintSchemaTicket>, hroperation: ::windows_core::HRESULT) -> ::windows_core::Result<()>;
@@ -2059,7 +2042,6 @@ impl IPrintSchemaAsyncOperationEvent_Vtbl {
         iid == &<IPrintSchemaAsyncOperationEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaCapabilities_Impl: Sized + IPrintSchemaElement_Impl {
     fn GetFeatureByKeyName(&self, bstrkeyname: &::windows_core::BSTR) -> ::windows_core::Result<IPrintSchemaFeature>;
@@ -2167,7 +2149,6 @@ impl IPrintSchemaCapabilities_Vtbl {
         iid == &<IPrintSchemaCapabilities as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaCapabilities2_Impl: Sized + IPrintSchemaCapabilities_Impl {
     fn GetParameterDefinition(&self, bstrname: &::windows_core::BSTR, bstrnamespaceuri: &::windows_core::BSTR) -> ::windows_core::Result<IPrintSchemaParameterDefinition>;
@@ -2194,7 +2175,6 @@ impl IPrintSchemaCapabilities2_Vtbl {
         iid == &<IPrintSchemaCapabilities2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows_core::Interface>::IID || iid == &<IPrintSchemaCapabilities as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaDisplayableElement_Impl: Sized + IPrintSchemaElement_Impl {
     fn DisplayName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2221,7 +2201,6 @@ impl IPrintSchemaDisplayableElement_Vtbl {
         iid == &<IPrintSchemaDisplayableElement as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaElement_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn XmlNode(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -2277,7 +2256,6 @@ impl IPrintSchemaElement_Vtbl {
         iid == &<IPrintSchemaElement as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaFeature_Impl: Sized + IPrintSchemaDisplayableElement_Impl {
     fn SelectedOption(&self) -> ::windows_core::Result<IPrintSchemaOption>;
@@ -2353,7 +2331,6 @@ impl IPrintSchemaFeature_Vtbl {
         iid == &<IPrintSchemaFeature as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows_core::Interface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaNUpOption_Impl: Sized + IPrintSchemaOption_Impl {
     fn PagesPerSheet(&self) -> ::windows_core::Result<u32>;
@@ -2380,7 +2357,6 @@ impl IPrintSchemaNUpOption_Vtbl {
         iid == &<IPrintSchemaNUpOption as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows_core::Interface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows_core::Interface>::IID || iid == &<IPrintSchemaOption as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaOption_Impl: Sized + IPrintSchemaDisplayableElement_Impl {
     fn Selected(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -2436,7 +2412,6 @@ impl IPrintSchemaOption_Vtbl {
         iid == &<IPrintSchemaOption as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows_core::Interface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaOptionCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<u32>;
@@ -2492,7 +2467,6 @@ impl IPrintSchemaOptionCollection_Vtbl {
         iid == &<IPrintSchemaOptionCollection as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaPageImageableSize_Impl: Sized + IPrintSchemaElement_Impl {
     fn ImageableSizeWidthInMicrons(&self) -> ::windows_core::Result<u32>;
@@ -2587,7 +2561,6 @@ impl IPrintSchemaPageImageableSize_Vtbl {
         iid == &<IPrintSchemaPageImageableSize as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaPageMediaSizeOption_Impl: Sized + IPrintSchemaOption_Impl {
     fn WidthInMicrons(&self) -> ::windows_core::Result<u32>;
@@ -2630,7 +2603,6 @@ impl IPrintSchemaPageMediaSizeOption_Vtbl {
         iid == &<IPrintSchemaPageMediaSizeOption as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows_core::Interface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows_core::Interface>::IID || iid == &<IPrintSchemaOption as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaParameterDefinition_Impl: Sized + IPrintSchemaDisplayableElement_Impl {
     fn UserInputRequired(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -2712,7 +2684,6 @@ impl IPrintSchemaParameterDefinition_Vtbl {
         iid == &<IPrintSchemaParameterDefinition as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows_core::Interface>::IID || iid == &<IPrintSchemaDisplayableElement as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaParameterInitializer_Impl: Sized + IPrintSchemaElement_Impl {
     fn Value(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -2749,7 +2720,6 @@ impl IPrintSchemaParameterInitializer_Vtbl {
         iid == &<IPrintSchemaParameterInitializer as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaTicket_Impl: Sized + IPrintSchemaElement_Impl {
     fn GetFeatureByKeyName(&self, bstrkeyname: &::windows_core::BSTR) -> ::windows_core::Result<IPrintSchemaFeature>;
@@ -2858,7 +2828,6 @@ impl IPrintSchemaTicket_Vtbl {
         iid == &<IPrintSchemaTicket as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintSchemaTicket2_Impl: Sized + IPrintSchemaTicket_Impl {
     fn GetParameterInitializer(&self, bstrname: &::windows_core::BSTR, bstrnamespaceuri: &::windows_core::BSTR) -> ::windows_core::Result<IPrintSchemaParameterInitializer>;
@@ -2885,7 +2854,6 @@ impl IPrintSchemaTicket2_Vtbl {
         iid == &<IPrintSchemaTicket2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IPrintSchemaElement as ::windows_core::Interface>::IID || iid == &<IPrintSchemaTicket as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IPrintTicketProvider_Impl: Sized {
     fn GetSupportedVersions(&self, hprinter: super::super::Foundation::HANDLE, ppversions: *mut *mut i32, cversions: *mut i32) -> ::windows_core::Result<()>;
@@ -2957,7 +2925,6 @@ impl IPrintTicketProvider_Vtbl {
         iid == &<IPrintTicketProvider as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IPrintTicketProvider2_Impl: Sized + IPrintTicketProvider_Impl {
     fn GetPrintDeviceCapabilities(&self, pprintticket: ::core::option::Option<&super::super::Data::Xml::MsXml::IXMLDOMDocument2>) -> ::windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument2>;
@@ -3104,7 +3071,6 @@ impl IPrinterExtensionAsyncOperation_Vtbl {
         iid == &<IPrinterExtensionAsyncOperation as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterExtensionContext_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn PrinterQueue(&self) -> ::windows_core::Result<IPrinterQueue>;
@@ -3173,7 +3139,6 @@ impl IPrinterExtensionContext_Vtbl {
         iid == &<IPrinterExtensionContext as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterExtensionContextCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<u32>;
@@ -3229,7 +3194,6 @@ impl IPrinterExtensionContextCollection_Vtbl {
         iid == &<IPrinterExtensionContextCollection as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterExtensionEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn OnDriverEvent(&self, peventargs: ::core::option::Option<&IPrinterExtensionEventArgs>) -> ::windows_core::Result<()>;
@@ -3260,7 +3224,6 @@ impl IPrinterExtensionEvent_Vtbl {
         iid == &<IPrinterExtensionEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterExtensionEventArgs_Impl: Sized + IPrinterExtensionContext_Impl {
     fn BidiNotification(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -3395,7 +3358,6 @@ impl IPrinterExtensionManager_Vtbl {
         iid == &<IPrinterExtensionManager as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterExtensionRequest_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Cancel(&self, hrstatus: ::windows_core::HRESULT, bstrlogmessage: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -3426,7 +3388,6 @@ impl IPrinterExtensionRequest_Vtbl {
         iid == &<IPrinterExtensionRequest as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterPropertyBag_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetBool(&self, bstrname: &::windows_core::BSTR) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -3543,7 +3504,6 @@ impl IPrinterPropertyBag_Vtbl {
         iid == &<IPrinterPropertyBag as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterQueue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Handle(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE>;
@@ -3606,7 +3566,6 @@ impl IPrinterQueue_Vtbl {
         iid == &<IPrinterQueue as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterQueue2_Impl: Sized + IPrinterQueue_Impl {
     fn SendBidiSetRequestAsync(&self, bstrbidirequest: &::windows_core::BSTR, pcallback: ::core::option::Option<&IPrinterBidiSetRequestCallback>) -> ::windows_core::Result<IPrinterExtensionAsyncOperation>;
@@ -3649,7 +3608,6 @@ impl IPrinterQueue2_Vtbl {
         iid == &<IPrinterQueue2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IPrinterQueue as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterQueueEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn OnBidiResponseReceived(&self, bstrresponse: &::windows_core::BSTR, hrstatus: ::windows_core::HRESULT) -> ::windows_core::Result<()>;
@@ -3673,7 +3631,6 @@ impl IPrinterQueueEvent_Vtbl {
         iid == &<IPrinterQueueEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterQueueView_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetViewRange(&self, ulviewoffset: u32, ulviewsize: u32) -> ::windows_core::Result<()>;
@@ -3694,7 +3651,6 @@ impl IPrinterQueueView_Vtbl {
         iid == &<IPrinterQueueView as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterQueueViewEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn OnChanged(&self, pcollection: ::core::option::Option<&IPrintJobCollection>, ulviewoffset: u32, ulviewsize: u32, ulcountjobsinprintqueue: u32) -> ::windows_core::Result<()>;
@@ -3715,7 +3671,6 @@ impl IPrinterQueueViewEvent_Vtbl {
         iid == &<IPrinterQueueViewEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterScriptContext_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DriverProperties(&self) -> ::windows_core::Result<IPrinterScriptablePropertyBag>;
@@ -3771,7 +3726,6 @@ impl IPrinterScriptContext_Vtbl {
         iid == &<IPrinterScriptContext as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterScriptablePropertyBag_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetBool(&self, bstrname: &::windows_core::BSTR) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -3894,7 +3848,6 @@ impl IPrinterScriptablePropertyBag_Vtbl {
         iid == &<IPrinterScriptablePropertyBag as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterScriptablePropertyBag2_Impl: Sized + IPrinterScriptablePropertyBag_Impl {
     fn GetReadStreamAsXML(&self, bstrname: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -3921,7 +3874,6 @@ impl IPrinterScriptablePropertyBag2_Vtbl {
         iid == &<IPrinterScriptablePropertyBag2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IPrinterScriptablePropertyBag as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterScriptableSequentialStream_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Read(&self, cbread: i32) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
@@ -3964,7 +3916,6 @@ impl IPrinterScriptableSequentialStream_Vtbl {
         iid == &<IPrinterScriptableSequentialStream as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrinterScriptableStream_Impl: Sized + IPrinterScriptableSequentialStream_Impl {
     fn Commit(&self) -> ::windows_core::Result<()>;
@@ -4167,7 +4118,6 @@ impl IXpsPartIterator_Vtbl {
         iid == &<IXpsPartIterator as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Xps\"`"]
 #[cfg(feature = "Win32_Storage_Xps")]
 pub trait IXpsRasterizationFactory_Impl: Sized {
     fn CreateRasterizer(&self, xpspage: ::core::option::Option<&super::super::Storage::Xps::IXpsOMPage>, dpi: f32, nontextrenderingmode: XPSRAS_RENDERING_MODE, textrenderingmode: XPSRAS_RENDERING_MODE) -> ::windows_core::Result<IXpsRasterizer>;
@@ -4194,7 +4144,6 @@ impl IXpsRasterizationFactory_Vtbl {
         iid == &<IXpsRasterizationFactory as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Xps\"`"]
 #[cfg(feature = "Win32_Storage_Xps")]
 pub trait IXpsRasterizationFactory1_Impl: Sized {
     fn CreateRasterizer(&self, xpspage: ::core::option::Option<&super::super::Storage::Xps::IXpsOMPage>, dpi: f32, nontextrenderingmode: XPSRAS_RENDERING_MODE, textrenderingmode: XPSRAS_RENDERING_MODE, pixelformat: XPSRAS_PIXEL_FORMAT) -> ::windows_core::Result<IXpsRasterizer>;
@@ -4221,7 +4170,6 @@ impl IXpsRasterizationFactory1_Vtbl {
         iid == &<IXpsRasterizationFactory1 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Xps\"`"]
 #[cfg(feature = "Win32_Storage_Xps")]
 pub trait IXpsRasterizationFactory2_Impl: Sized {
     fn CreateRasterizer(&self, xpspage: ::core::option::Option<&super::super::Storage::Xps::IXpsOMPage>, dpix: f32, dpiy: f32, nontextrenderingmode: XPSRAS_RENDERING_MODE, textrenderingmode: XPSRAS_RENDERING_MODE, pixelformat: XPSRAS_PIXEL_FORMAT, backgroundcolor: XPSRAS_BACKGROUND_COLOR) -> ::windows_core::Result<IXpsRasterizer>;
@@ -4248,7 +4196,6 @@ impl IXpsRasterizationFactory2_Vtbl {
         iid == &<IXpsRasterizationFactory2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Imaging\"`"]
 #[cfg(feature = "Win32_Graphics_Imaging")]
 pub trait IXpsRasterizer_Impl: Sized {
     fn RasterizeRect(&self, x: i32, y: i32, width: i32, height: i32, notificationcallback: ::core::option::Option<&IXpsRasterizerNotificationCallback>) -> ::windows_core::Result<super::Imaging::IWICBitmap>;

@@ -45,7 +45,6 @@ pub struct IDualSimTileStatics_Vtbl {
 ::windows_core::imp::com_interface!(IToastNotificationManagerStatics3, IToastNotificationManagerStatics3_Vtbl, 0x2717f54b_50df_4455_8e6e_41e0fc8e13ce);
 ::windows_core::imp::interface_hierarchy!(IToastNotificationManagerStatics3, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IToastNotificationManagerStatics3 {
-    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn CreateToastNotifierForSecondaryTile(&self, tileid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::UI::Notifications::ToastNotifier> {
         let this = self;
@@ -130,7 +129,6 @@ impl DualSimTile {
             (::windows_core::Interface::vtable(this).UpdateDisplayNameForSim1Async)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn CreateTileUpdaterForSim1() -> ::windows_core::Result<super::super::UI::Notifications::TileUpdater> {
         Self::IDualSimTileStatics(|this| unsafe {
@@ -138,7 +136,6 @@ impl DualSimTile {
             (::windows_core::Interface::vtable(this).CreateTileUpdaterForSim1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn CreateTileUpdaterForSim2() -> ::windows_core::Result<super::super::UI::Notifications::TileUpdater> {
         Self::IDualSimTileStatics(|this| unsafe {
@@ -146,7 +143,6 @@ impl DualSimTile {
             (::windows_core::Interface::vtable(this).CreateTileUpdaterForSim2)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn CreateBadgeUpdaterForSim1() -> ::windows_core::Result<super::super::UI::Notifications::BadgeUpdater> {
         Self::IDualSimTileStatics(|this| unsafe {
@@ -154,7 +150,6 @@ impl DualSimTile {
             (::windows_core::Interface::vtable(this).CreateBadgeUpdaterForSim1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn CreateBadgeUpdaterForSim2() -> ::windows_core::Result<super::super::UI::Notifications::BadgeUpdater> {
         Self::IDualSimTileStatics(|this| unsafe {
@@ -162,7 +157,6 @@ impl DualSimTile {
             (::windows_core::Interface::vtable(this).CreateBadgeUpdaterForSim2)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn CreateToastNotifierForSim1() -> ::windows_core::Result<super::super::UI::Notifications::ToastNotifier> {
         Self::IDualSimTileStatics(|this| unsafe {
@@ -170,7 +164,6 @@ impl DualSimTile {
             (::windows_core::Interface::vtable(this).CreateToastNotifierForSim1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"UI_Notifications\"`"]
     #[cfg(feature = "UI_Notifications")]
     pub fn CreateToastNotifierForSim2() -> ::windows_core::Result<super::super::UI::Notifications::ToastNotifier> {
         Self::IDualSimTileStatics(|this| unsafe {

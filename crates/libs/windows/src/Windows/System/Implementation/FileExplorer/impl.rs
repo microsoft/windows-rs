@@ -76,7 +76,6 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
         iid == &<ISysStorageProviderHandlerFactory as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Web_Http\"`"]
 #[cfg(feature = "Web_Http")]
 pub trait ISysStorageProviderHttpRequestProvider_Impl: Sized {
     fn SendRequestAsync(&self, request: ::core::option::Option<&super::super::super::Web::Http::HttpRequestMessage>) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>;

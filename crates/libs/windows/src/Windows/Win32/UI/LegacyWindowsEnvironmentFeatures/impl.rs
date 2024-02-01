@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Ole\"`"]
 #[cfg(feature = "Win32_System_Ole")]
 pub trait IADesktopP2_Impl: Sized {
     fn ReReadWallpaper(&self) -> ::windows_core::Result<()>;
@@ -84,7 +83,6 @@ impl IActiveDesktopP_Vtbl {
         iid == &<IActiveDesktopP as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IBriefcaseInitiator_Impl: Sized {
     fn IsMonikerInBriefcase(&self, pmk: ::core::option::Option<&super::super::System::Com::IMoniker>) -> ::windows_core::Result<()>;
@@ -105,7 +103,6 @@ impl IBriefcaseInitiator_Vtbl {
         iid == &<IBriefcaseInitiator as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub trait IEmptyVolumeCache_Impl: Sized {
     fn Initialize(&self, hkregkey: super::super::System::Registry::HKEY, pcwszvolume: &::windows_core::PCWSTR, ppwszdisplayname: *mut ::windows_core::PWSTR, ppwszdescription: *mut ::windows_core::PWSTR, pdwflags: *mut EMPTY_VOLUME_CACHE_FLAGS) -> ::windows_core::Result<()>;
@@ -163,7 +160,6 @@ impl IEmptyVolumeCache_Vtbl {
         iid == &<IEmptyVolumeCache as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub trait IEmptyVolumeCache2_Impl: Sized + IEmptyVolumeCache_Impl {
     fn InitializeEx(&self, hkregkey: super::super::System::Registry::HKEY, pcwszvolume: &::windows_core::PCWSTR, pcwszkeyname: &::windows_core::PCWSTR, ppwszdisplayname: *mut ::windows_core::PWSTR, ppwszdescription: *mut ::windows_core::PWSTR, ppwszbtntext: *mut ::windows_core::PWSTR, pdwflags: *mut EMPTY_VOLUME_CACHE_FLAGS) -> ::windows_core::Result<()>;
@@ -211,7 +207,6 @@ impl IEmptyVolumeCacheCallBack_Vtbl {
         iid == &<IEmptyVolumeCacheCallBack as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IReconcilableObject_Impl: Sized {
     fn Reconcile(&self, pinitiator: ::core::option::Option<&IReconcileInitiator>, dwflags: u32, hwndowner: super::super::Foundation::HWND, hwndprogressfeedback: super::super::Foundation::HWND, ulcinput: u32, rgpmkotherinput: *mut ::core::option::Option<super::super::System::Com::IMoniker>, ploutindex: *mut i32, pstgnewresidues: ::core::option::Option<&super::super::System::Com::StructuredStorage::IStorage>, pvreserved: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;

@@ -79,7 +79,6 @@ impl IDirectSound_Vtbl {
         iid == &<IDirectSound as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait IDirectSound3DBuffer_Impl: Sized {
     fn GetAllParameters(&self, pds3dbuffer: *mut DS3DBUFFER) -> ::windows_core::Result<()>;
@@ -264,7 +263,6 @@ impl IDirectSound3DBuffer_Vtbl {
         iid == &<IDirectSound3DBuffer as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait IDirectSound3DListener_Impl: Sized {
     fn GetAllParameters(&self, plistener: *mut DS3DLISTENER) -> ::windows_core::Result<()>;

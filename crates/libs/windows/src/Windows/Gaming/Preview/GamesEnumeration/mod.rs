@@ -1,7 +1,6 @@
 ::windows_core::imp::com_interface!(IGameListEntry, IGameListEntry_Vtbl, 0x735924d3_811f_4494_b69c_c641a0c61543);
 ::windows_core::imp::interface_hierarchy!(IGameListEntry, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IGameListEntry {
-    #[doc = "Required features: `\"ApplicationModel\"`"]
     #[cfg(feature = "ApplicationModel")]
     pub fn DisplayInfo(&self) -> ::windows_core::Result<super::super::super::ApplicationModel::AppDisplayInfo> {
         let this = self;
@@ -24,7 +23,6 @@ impl IGameListEntry {
             (::windows_core::Interface::vtable(this).Category)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = self;
@@ -161,7 +159,6 @@ pub struct IGameModeUserConfigurationStatics_Vtbl {
 }
 pub struct GameList;
 impl GameList {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsync() -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>> {
         Self::IGameListStatics(|this| unsafe {
@@ -169,7 +166,6 @@ impl GameList {
             (::windows_core::Interface::vtable(this).FindAllAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsyncPackageFamilyName(packagefamilyname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>> {
         Self::IGameListStatics(|this| unsafe {
@@ -223,7 +219,6 @@ impl GameList {
             (::windows_core::Interface::vtable(this).MergeEntriesAsync)(::windows_core::Interface::as_raw(this), left.into_param().abi(), right.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UnmergeEntryAsync<P0>(mergedentry: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>>
     where
@@ -254,7 +249,6 @@ pub struct GameListEntry(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(GameListEntry, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(GameListEntry, IGameListEntry);
 impl GameListEntry {
-    #[doc = "Required features: `\"ApplicationModel\"`"]
     #[cfg(feature = "ApplicationModel")]
     pub fn DisplayInfo(&self) -> ::windows_core::Result<super::super::super::ApplicationModel::AppDisplayInfo> {
         let this = self;
@@ -277,7 +271,6 @@ impl GameListEntry {
             (::windows_core::Interface::vtable(this).Category)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = self;
@@ -300,7 +293,6 @@ impl GameListEntry {
             (::windows_core::Interface::vtable(this).LaunchableState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn LauncherExecutable(&self) -> ::windows_core::Result<super::super::super::Storage::IStorageFile> {
         let this = &::windows_core::Interface::cast::<IGameListEntry2>(self)?;
@@ -316,7 +308,6 @@ impl GameListEntry {
             (::windows_core::Interface::vtable(this).LaunchParameters)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn SetLauncherExecutableFileAsync<P0>(&self, executablefile: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -328,7 +319,6 @@ impl GameListEntry {
             (::windows_core::Interface::vtable(this).SetLauncherExecutableFileAsync)(::windows_core::Interface::as_raw(this), executablefile.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn SetLauncherExecutableFileWithParamsAsync<P0>(&self, executablefile: P0, launchparams: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -390,7 +380,6 @@ impl GameModeConfiguration {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIsEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RelatedProcessNames(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -519,7 +508,6 @@ unsafe impl ::core::marker::Sync for GameModeConfiguration {}
 pub struct GameModeUserConfiguration(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(GameModeUserConfiguration, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GameModeUserConfiguration {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GamingRelatedProcessNames(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;

@@ -32,28 +32,24 @@ pub unsafe fn MgmGetFirstMfeStats(pdwbuffersize: *mut u32, pbbuffer: *mut u8, pd
     ::windows_targets::link!("rtm.dll" "system" fn MgmGetFirstMfeStats(pdwbuffersize : *mut u32, pbbuffer : *mut u8, pdwnumentries : *mut u32, dwflags : u32) -> u32);
     MgmGetFirstMfeStats(pdwbuffersize, pbbuffer, pdwnumentries, dwflags)
 }
-#[doc = "Required features: `\"Win32_NetworkManagement_IpHelper\"`"]
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 #[inline]
 pub unsafe fn MgmGetMfe(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8) -> u32 {
     ::windows_targets::link!("rtm.dll" "system" fn MgmGetMfe(pimm : *mut super::IpHelper:: MIB_IPMCAST_MFE, pdwbuffersize : *mut u32, pbbuffer : *mut u8) -> u32);
     MgmGetMfe(pimm, pdwbuffersize, pbbuffer)
 }
-#[doc = "Required features: `\"Win32_NetworkManagement_IpHelper\"`"]
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 #[inline]
 pub unsafe fn MgmGetMfeStats(pimm: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, dwflags: u32) -> u32 {
     ::windows_targets::link!("rtm.dll" "system" fn MgmGetMfeStats(pimm : *mut super::IpHelper:: MIB_IPMCAST_MFE, pdwbuffersize : *mut u32, pbbuffer : *mut u8, dwflags : u32) -> u32);
     MgmGetMfeStats(pimm, pdwbuffersize, pbbuffer, dwflags)
 }
-#[doc = "Required features: `\"Win32_NetworkManagement_IpHelper\"`"]
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 #[inline]
 pub unsafe fn MgmGetNextMfe(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32) -> u32 {
     ::windows_targets::link!("rtm.dll" "system" fn MgmGetNextMfe(pimmstart : *mut super::IpHelper:: MIB_IPMCAST_MFE, pdwbuffersize : *mut u32, pbbuffer : *mut u8, pdwnumentries : *mut u32) -> u32);
     MgmGetNextMfe(pimmstart, pdwbuffersize, pbbuffer, pdwnumentries)
 }
-#[doc = "Required features: `\"Win32_NetworkManagement_IpHelper\"`"]
 #[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 #[inline]
 pub unsafe fn MgmGetNextMfeStats(pimmstart: *mut super::IpHelper::MIB_IPMCAST_MFE, pdwbuffersize: *mut u32, pbbuffer: *mut u8, pdwnumentries: *mut u32, dwflags: u32) -> u32 {
@@ -265,7 +261,6 @@ where
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceGetCredentialsEx(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwlevel : u32, lplpbbuffer : *mut *mut u8) -> u32);
     MprAdminInterfaceGetCredentialsEx(hmprserver, hinterface.into_param().abi(), dwlevel, lplpbbuffer)
 }
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`"]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn MprAdminInterfaceGetCustomInfoEx<P0>(hmprserver: isize, hinterface: P0, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32
@@ -320,7 +315,6 @@ where
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminInterfaceSetCredentialsEx(hmprserver : isize, hinterface : super::super::Foundation:: HANDLE, dwlevel : u32, lpbbuffer : *const u8) -> u32);
     MprAdminInterfaceSetCredentialsEx(hmprserver, hinterface.into_param().abi(), dwlevel, lpbbuffer)
 }
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`"]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn MprAdminInterfaceSetCustomInfoEx<P0>(hmprserver: isize, hinterface: P0, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32
@@ -540,7 +534,6 @@ pub unsafe fn MprAdminServerGetInfo(hmprserver: isize, dwlevel: u32, lplpbbuffer
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminServerGetInfo(hmprserver : isize, dwlevel : u32, lplpbbuffer : *mut *mut u8) -> u32);
     MprAdminServerGetInfo(hmprserver, dwlevel, lplpbbuffer)
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn MprAdminServerGetInfoEx(hmprserver: isize, pserverinfo: *mut MPR_SERVER_EX1) -> u32 {
@@ -557,7 +550,6 @@ pub unsafe fn MprAdminServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer: 
     ::windows_targets::link!("mprapi.dll" "system" fn MprAdminServerSetInfo(hmprserver : isize, dwlevel : u32, lpbbuffer : *const u8) -> u32);
     MprAdminServerSetInfo(hmprserver, dwlevel, lpbbuffer)
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn MprAdminServerSetInfoEx(hmprserver: isize, pserverinfo: *const MPR_SERVER_SET_CONFIG_EX1) -> u32 {
@@ -673,7 +665,6 @@ where
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceEnum(hmprconfig : super::super::Foundation:: HANDLE, dwlevel : u32, lplpbuffer : *mut *mut u8, dwprefmaxlen : u32, lpdwentriesread : *mut u32, lpdwtotalentries : *mut u32, lpdwresumehandle : *mut u32) -> u32);
     MprConfigInterfaceEnum(hmprconfig.into_param().abi(), dwlevel, lplpbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, ::core::mem::transmute(lpdwresumehandle.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`"]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn MprConfigInterfaceGetCustomInfoEx<P0, P1>(hmprconfig: P0, hrouterinterface: P1, pcustominfo: *mut MPR_IF_CUSTOMINFOEX2) -> u32
@@ -702,7 +693,6 @@ where
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigInterfaceGetInfo(hmprconfig : super::super::Foundation:: HANDLE, hrouterinterface : super::super::Foundation:: HANDLE, dwlevel : u32, lplpbuffer : *mut *mut u8, lpdwbuffersize : *mut u32) -> u32);
     MprConfigInterfaceGetInfo(hmprconfig.into_param().abi(), hrouterinterface.into_param().abi(), dwlevel, lplpbuffer, lpdwbuffersize)
 }
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`"]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn MprConfigInterfaceSetCustomInfoEx<P0, P1>(hmprconfig: P0, hrouterinterface: P1, pcustominfo: *const MPR_IF_CUSTOMINFOEX2) -> u32
@@ -813,7 +803,6 @@ where
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigServerGetInfo(hmprconfig : super::super::Foundation:: HANDLE, dwlevel : u32, lplpbbuffer : *mut *mut u8) -> u32);
     MprConfigServerGetInfo(hmprconfig.into_param().abi(), dwlevel, lplpbbuffer)
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn MprConfigServerGetInfoEx<P0>(hmprconfig: P0, pserverinfo: *mut MPR_SERVER_EX1) -> u32
@@ -850,7 +839,6 @@ pub unsafe fn MprConfigServerSetInfo(hmprserver: isize, dwlevel: u32, lpbbuffer:
     ::windows_targets::link!("mprapi.dll" "system" fn MprConfigServerSetInfo(hmprserver : isize, dwlevel : u32, lpbbuffer : *const u8) -> u32);
     MprConfigServerSetInfo(hmprserver, dwlevel, lpbbuffer)
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn MprConfigServerSetInfoEx<P0>(hmprconfig: P0, psetserverconfig: *const MPR_SERVER_SET_CONFIG_EX1) -> u32
@@ -1215,7 +1203,6 @@ pub unsafe fn RasGetAutodialParamW(param0: u32, param1: *mut ::core::ffi::c_void
     ::windows_targets::link!("rasapi32.dll" "system" fn RasGetAutodialParamW(param0 : u32, param1 : *mut ::core::ffi::c_void, param2 : *mut u32) -> u32);
     RasGetAutodialParamW(param0, param1, param2)
 }
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn RasGetConnectStatusA<P0>(param0: P0, param1: *mut RASCONNSTATUSA) -> u32
@@ -1225,7 +1212,6 @@ where
     ::windows_targets::link!("rasapi32.dll" "system" fn RasGetConnectStatusA(param0 : HRASCONN, param1 : *mut RASCONNSTATUSA) -> u32);
     RasGetConnectStatusA(param0.into_param().abi(), param1)
 }
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn RasGetConnectStatusW<P0>(param0: P0, param1: *mut RASCONNSTATUSW) -> u32
@@ -1345,7 +1331,6 @@ where
     ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEntryDialParamsW(param0 : ::windows_core::PCWSTR, param1 : *mut RASDIALPARAMSW, param2 : *mut super::super::Foundation:: BOOL) -> u32);
     RasGetEntryDialParamsW(param0.into_param().abi(), param1, param2)
 }
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn RasGetEntryPropertiesA<P0, P1>(param0: P0, param1: P1, param2: ::core::option::Option<*mut RASENTRYA>, param3: *mut u32, param4: ::core::option::Option<*mut u8>, param5: ::core::option::Option<*mut u32>) -> u32
@@ -1356,7 +1341,6 @@ where
     ::windows_targets::link!("rasapi32.dll" "system" fn RasGetEntryPropertiesA(param0 : ::windows_core::PCSTR, param1 : ::windows_core::PCSTR, param2 : *mut RASENTRYA, param3 : *mut u32, param4 : *mut u8, param5 : *mut u32) -> u32);
     RasGetEntryPropertiesA(param0.into_param().abi(), param1.into_param().abi(), ::core::mem::transmute(param2.unwrap_or(::std::ptr::null_mut())), param3, ::core::mem::transmute(param4.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(param5.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn RasGetEntryPropertiesW<P0, P1>(param0: P0, param1: P1, param2: ::core::option::Option<*mut RASENTRYW>, param3: *mut u32, param4: ::core::option::Option<*mut u8>, param5: ::core::option::Option<*mut u32>) -> u32
@@ -1398,7 +1382,6 @@ where
     ::windows_targets::link!("rasapi32.dll" "system" fn RasGetProjectionInfoA(param0 : HRASCONN, param1 : RASPROJECTION, param2 : *mut ::core::ffi::c_void, param3 : *mut u32) -> u32);
     RasGetProjectionInfoA(param0.into_param().abi(), param1, param2, param3)
 }
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn RasGetProjectionInfoEx<P0>(hrasconn: P0, prasprojection: ::core::option::Option<*mut RAS_PROJECTION_INFO>, lpdwsize: *mut u32) -> u32
@@ -1631,7 +1614,6 @@ where
     ::windows_targets::link!("rasapi32.dll" "system" fn RasSetEntryDialParamsW(param0 : ::windows_core::PCWSTR, param1 : *const RASDIALPARAMSW, param2 : super::super::Foundation:: BOOL) -> u32);
     RasSetEntryDialParamsW(param0.into_param().abi(), param1, param2.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn RasSetEntryPropertiesA<P0, P1>(param0: P0, param1: P1, param2: *const RASENTRYA, param3: u32, param4: ::core::option::Option<*const u8>, param5: u32) -> u32
@@ -1642,7 +1624,6 @@ where
     ::windows_targets::link!("rasapi32.dll" "system" fn RasSetEntryPropertiesA(param0 : ::windows_core::PCSTR, param1 : ::windows_core::PCSTR, param2 : *const RASENTRYA, param3 : u32, param4 : *const u8, param5 : u32) -> u32);
     RasSetEntryPropertiesA(param0.into_param().abi(), param1.into_param().abi(), param2, param3, ::core::mem::transmute(param4.unwrap_or(::std::ptr::null())), param5)
 }
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn RasSetEntryPropertiesW<P0, P1>(param0: P0, param1: P1, param2: *const RASENTRYW, param3: u32, param4: ::core::option::Option<*const u8>, param5: u32) -> u32
@@ -1671,7 +1652,6 @@ where
     ::windows_targets::link!("rasapi32.dll" "system" fn RasSetSubEntryPropertiesW(param0 : ::windows_core::PCWSTR, param1 : ::windows_core::PCWSTR, param2 : u32, param3 : *const RASSUBENTRYW, param4 : u32, param5 : *const u8, param6 : u32) -> u32);
     RasSetSubEntryPropertiesW(param0.into_param().abi(), param1.into_param().abi(), param2, param3, param4, ::core::mem::transmute(param5.unwrap_or(::std::ptr::null())), param6)
 }
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn RasUpdateConnection<P0>(hrasconn: P0, lprasupdateconn: *const RASUPDATECONN) -> u32
@@ -1717,14 +1697,12 @@ where
     ::windows_targets::link!("rtm.dll" "system" fn RtmBlockMethods(rtmreghandle : isize, targethandle : super::super::Foundation:: HANDLE, targettype : u8, blockingflag : u32) -> u32);
     RtmBlockMethods(rtmreghandle, targethandle.into_param().abi(), targettype, blockingflag)
 }
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress: *mut RTM_NET_ADDRESS, address: super::super::Networking::WinSock::IN6_ADDR, dwlength: u32, dwaddresssize: u32) -> u32 {
     ::windows_targets::link!("rtm.dll" "system" fn RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress : *mut RTM_NET_ADDRESS, address : super::super::Networking::WinSock:: IN6_ADDR, dwlength : u32, dwaddresssize : u32) -> u32);
     RtmConvertIpv6AddressAndLengthToNetAddress(pnetaddress, ::core::mem::transmute(address), dwlength, dwaddresssize)
 }
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn RtmConvertNetAddressToIpv6AddressAndLength(pnetaddress: *mut RTM_NET_ADDRESS, paddress: *mut super::super::Networking::WinSock::IN6_ADDR, plength: *mut u32, dwaddresssize: u32) -> u32 {
@@ -3292,7 +3270,6 @@ impl ::windows_core::TypeKind for HRASCONN {
     type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct IKEV2_CONFIG_PARAMS {
     pub dwNumPorts: u32,
@@ -3482,7 +3459,6 @@ impl ::core::default::Default for IKEV2_PROJECTION_INFO2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
     pub dwIdleTimeout: u32,
@@ -3540,7 +3516,6 @@ impl ::core::default::Default for IKEV2_TUNNEL_CONFIG_PARAMS2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
     pub dwIdleTimeout: u32,
@@ -3604,7 +3579,6 @@ impl ::core::default::Default for IKEV2_TUNNEL_CONFIG_PARAMS3 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
     pub dwIdleTimeout: u32,
@@ -3831,7 +3805,6 @@ impl ::core::default::Default for MGM_IF_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MPRAPI_ADMIN_DLL_CALLBACKS {
     pub revision: u8,
@@ -3904,7 +3877,6 @@ impl ::core::default::Default for MPRAPI_OBJECT_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     pub IkeConfigParams: IKEV2_CONFIG_PARAMS,
@@ -3945,7 +3917,6 @@ impl ::core::default::Default for MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     pub IkeConfigParams: IKEV2_CONFIG_PARAMS,
@@ -4200,7 +4171,6 @@ impl ::core::default::Default for MPR_IFTRANSPORT_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct MPR_IF_CUSTOMINFOEX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
@@ -4240,7 +4210,6 @@ impl ::core::default::Default for MPR_IF_CUSTOMINFOEX0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct MPR_IF_CUSTOMINFOEX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
@@ -4280,7 +4249,6 @@ impl ::core::default::Default for MPR_IF_CUSTOMINFOEX1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`"]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 pub struct MPR_IF_CUSTOMINFOEX2 {
     pub Header: MPRAPI_OBJECT_HEADER,
@@ -4530,7 +4498,6 @@ impl ::core::default::Default for MPR_INTERFACE_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MPR_INTERFACE_3 {
     pub wszInterfaceName: [u16; 257],
@@ -4722,7 +4689,6 @@ impl ::core::default::Default for MPR_SERVER_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct MPR_SERVER_EX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
@@ -4766,7 +4732,6 @@ impl ::core::default::Default for MPR_SERVER_EX0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct MPR_SERVER_EX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
@@ -4810,7 +4775,6 @@ impl ::core::default::Default for MPR_SERVER_EX1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct MPR_SERVER_SET_CONFIG_EX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
@@ -4850,7 +4814,6 @@ impl ::core::default::Default for MPR_SERVER_SET_CONFIG_EX0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct MPR_SERVER_SET_CONFIG_EX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
@@ -4921,7 +4884,6 @@ impl ::core::default::Default for MPR_TRANSPORT_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MPR_VPN_TRAFFIC_SELECTOR {
     pub r#type: MPR_VPN_TS_TYPE,
@@ -4951,7 +4913,6 @@ impl ::core::default::Default for MPR_VPN_TRAFFIC_SELECTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MPR_VPN_TRAFFIC_SELECTORS {
     pub numTsi: u32,
@@ -5948,7 +5909,6 @@ impl ::core::default::Default for RASCONNA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RASCONNSTATUSA {
     pub dwSize: u32,
@@ -5980,7 +5940,6 @@ impl ::core::default::Default for RASCONNSTATUSA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RASCONNSTATUSW {
     pub dwSize: u32,
@@ -6570,7 +6529,6 @@ impl ::core::default::Default for RASEAPUSERIDENTITYW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RASENTRYA {
     pub dwSize: u32,
@@ -6842,7 +6800,6 @@ impl ::core::default::Default for RASENTRYNAMEW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RASENTRYW {
     pub dwSize: u32,
@@ -6926,7 +6883,6 @@ impl ::core::default::Default for RASENTRYW {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RASIKEV2_PROJECTION_INFO {
@@ -6969,7 +6925,6 @@ impl ::core::default::Default for RASIKEV2_PROJECTION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RASIKEV2_PROJECTION_INFO {
@@ -7624,7 +7579,6 @@ impl ::core::default::Default for RASPPPNBFW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RASPPP_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
@@ -7738,7 +7692,6 @@ impl ::core::default::Default for RASSUBENTRYW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RASTUNNELENDPOINT {
     pub dwType: u32,
@@ -7763,7 +7716,6 @@ impl ::core::default::Default for RASTUNNELENDPOINT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union RASTUNNELENDPOINT_0 {
     pub ipv4: super::super::Networking::WinSock::IN_ADDR,
@@ -7788,7 +7740,6 @@ impl ::core::default::Default for RASTUNNELENDPOINT_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RASUPDATECONN {
     pub version: RASAPIVERSION,
@@ -8283,7 +8234,6 @@ impl ::core::default::Default for RAS_PORT_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RAS_PROJECTION_INFO {
     pub version: RASAPIVERSION,
@@ -8309,7 +8259,6 @@ impl ::core::default::Default for RAS_PROJECTION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union RAS_PROJECTION_INFO_0 {
     pub ppp: RASPPP_PROJECTION_INFO,
@@ -8551,7 +8500,6 @@ impl ::core::default::Default for ROUTER_CUSTOM_IKEv2_POLICY0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     pub dwSaLifeTime: u32,
@@ -8592,7 +8540,6 @@ impl ::core::default::Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     pub dwSaLifeTime: u32,
@@ -8634,7 +8581,6 @@ impl ::core::default::Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Security_Cryptography\"`"]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security_Cryptography"))]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     pub dwSaLifeTime: u32,
@@ -9213,7 +9159,6 @@ impl ::core::default::Default for SOURCE_GROUP_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SSTP_CERT_INFO {
     pub isDefault: super::super::Foundation::BOOL,
@@ -9252,7 +9197,6 @@ impl ::core::default::Default for SSTP_CERT_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SSTP_CONFIG_PARAMS {
     pub dwNumPorts: u32,
@@ -9294,7 +9238,6 @@ impl ::core::default::Default for SSTP_CONFIG_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct VPN_TS_IP_ADDRESS {
     pub Type: u16,
@@ -9319,7 +9262,6 @@ impl ::core::default::Default for VPN_TS_IP_ADDRESS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union VPN_TS_IP_ADDRESS_0 {
     pub v4: super::super::Networking::WinSock::IN_ADDR,
@@ -9372,13 +9314,11 @@ pub type PMPRADMINCONNECTIONHANGUPNOTIFICATION2 = ::core::option::Option<unsafe 
 pub type PMPRADMINCONNECTIONHANGUPNOTIFICATION3 = ::core::option::Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1, param2: *mut RAS_CONNECTION_2, param3: RAS_CONNECTION_3)>;
 pub type PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX = ::core::option::Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_EX)>;
 pub type PMPRADMINGETIPADDRESSFORUSER = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: ::windows_core::PCWSTR, param2: *mut u32, param3: *mut super::super::Foundation::BOOL) -> u32>;
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub type PMPRADMINGETIPV6ADDRESSFORUSER = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: ::windows_core::PCWSTR, param2: *mut super::super::Networking::WinSock::IN6_ADDR, param3: *mut super::super::Foundation::BOOL) -> u32>;
 pub type PMPRADMINLINKHANGUPNOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: *mut RAS_PORT_0, param1: *mut RAS_PORT_1)>;
 pub type PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX = ::core::option::Option<unsafe extern "system" fn(param0: *mut AUTH_VALIDATION_EX) -> u32>;
 pub type PMPRADMINRELEASEIPADRESS = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: ::windows_core::PCWSTR, param2: *mut u32)>;
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub type PMPRADMINRELEASEIPV6ADDRESSFORUSER = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: ::windows_core::PCWSTR, param2: *mut super::super::Networking::WinSock::IN6_ADDR)>;
 pub type PMPRADMINTERMINATEDLL = ::core::option::Option<unsafe extern "system" fn() -> u32>;

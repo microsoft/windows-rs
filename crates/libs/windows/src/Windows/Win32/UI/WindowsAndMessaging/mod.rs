@@ -375,7 +375,6 @@ pub unsafe fn CreateAcceleratorTableW(paccel: &[ACCEL]) -> ::windows_core::Resul
     let result__ = CreateAcceleratorTableW(::core::mem::transmute(paccel.as_ptr()), paccel.len().try_into().unwrap());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CreateCaret<P0, P1>(hwnd: P0, hbitmap: P1, nwidth: i32, nheight: i32) -> ::windows_core::Result<()>
@@ -464,7 +463,6 @@ where
     let result__ = CreateIconFromResourceEx(::core::mem::transmute(presbits.as_ptr()), presbits.len().try_into().unwrap(), ficon.into_param().abi(), dwver, cxdesired, cydesired, flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CreateIconIndirect(piconinfo: *const ICONINFO) -> ::windows_core::Result<HICON> {
@@ -775,7 +773,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn DragObject(hwndparent : super::super::Foundation:: HWND, hwndfrom : super::super::Foundation:: HWND, fmt : u32, data : usize, hcur : HCURSOR) -> u32);
     DragObject(hwndparent.into_param().abi(), hwndfrom.into_param().abi(), fmt, data, hcur.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawIcon<P0, P1>(hdc: P0, x: i32, y: i32, hicon: P1) -> ::windows_core::Result<()>
@@ -786,7 +783,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn DrawIcon(hdc : super::super::Graphics::Gdi:: HDC, x : i32, y : i32, hicon : HICON) -> super::super::Foundation:: BOOL);
     DrawIcon(hdc.into_param().abi(), x, y, hicon.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawIconEx<P0, P1, P2>(hdc: P0, xleft: i32, ytop: i32, hicon: P1, cxwidth: i32, cywidth: i32, istepifanicur: u32, hbrflickerfreedraw: P2, diflags: DI_FLAGS) -> ::windows_core::Result<()>
@@ -982,7 +978,6 @@ pub unsafe fn GetCaretPos(lppoint: *mut super::super::Foundation::POINT) -> ::wi
     ::windows_targets::link!("user32.dll" "system" fn GetCaretPos(lppoint : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
     GetCaretPos(lppoint).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetClassInfoA<P0, P1>(hinstance: P0, lpclassname: P1, lpwndclass: *mut WNDCLASSA) -> ::windows_core::Result<()>
@@ -993,7 +988,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetClassInfoA(hinstance : super::super::Foundation:: HINSTANCE, lpclassname : ::windows_core::PCSTR, lpwndclass : *mut WNDCLASSA) -> super::super::Foundation:: BOOL);
     GetClassInfoA(hinstance.into_param().abi(), lpclassname.into_param().abi(), lpwndclass).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetClassInfoExA<P0, P1>(hinstance: P0, lpszclass: P1, lpwcx: *mut WNDCLASSEXA) -> ::windows_core::Result<()>
@@ -1004,7 +998,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetClassInfoExA(hinstance : super::super::Foundation:: HINSTANCE, lpszclass : ::windows_core::PCSTR, lpwcx : *mut WNDCLASSEXA) -> super::super::Foundation:: BOOL);
     GetClassInfoExA(hinstance.into_param().abi(), lpszclass.into_param().abi(), lpwcx).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetClassInfoExW<P0, P1>(hinstance: P0, lpszclass: P1, lpwcx: *mut WNDCLASSEXW) -> ::windows_core::Result<()>
@@ -1015,7 +1008,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetClassInfoExW(hinstance : super::super::Foundation:: HINSTANCE, lpszclass : ::windows_core::PCWSTR, lpwcx : *mut WNDCLASSEXW) -> super::super::Foundation:: BOOL);
     GetClassInfoExW(hinstance.into_param().abi(), lpszclass.into_param().abi(), lpwcx).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetClassInfoW<P0, P1>(hinstance: P0, lpclassname: P1, lpwndclass: *mut WNDCLASSW) -> ::windows_core::Result<()>
@@ -1173,7 +1165,6 @@ pub unsafe fn GetGUIThreadInfo(idthread: u32, pgui: *mut GUITHREADINFO) -> ::win
     ::windows_targets::link!("user32.dll" "system" fn GetGUIThreadInfo(idthread : u32, pgui : *mut GUITHREADINFO) -> super::super::Foundation:: BOOL);
     GetGUIThreadInfo(idthread, pgui).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetIconInfo<P0>(hicon: P0, piconinfo: *mut ICONINFO) -> ::windows_core::Result<()>
@@ -1183,7 +1174,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetIconInfo(hicon : HICON, piconinfo : *mut ICONINFO) -> super::super::Foundation:: BOOL);
     GetIconInfo(hicon.into_param().abi(), piconinfo).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetIconInfoExA<P0>(hicon: P0, piconinfo: *mut ICONINFOEXA) -> super::super::Foundation::BOOL
@@ -1193,7 +1183,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetIconInfoExA(hicon : HICON, piconinfo : *mut ICONINFOEXA) -> super::super::Foundation:: BOOL);
     GetIconInfoExA(hicon.into_param().abi(), piconinfo)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetIconInfoExW<P0>(hicon: P0, piconinfo: *mut ICONINFOEXW) -> super::super::Foundation::BOOL
@@ -1253,7 +1242,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetMenuDefaultItem(hmenu : HMENU, fbypos : u32, gmdiflags : GET_MENU_DEFAULT_ITEM_FLAGS) -> u32);
     GetMenuDefaultItem(hmenu.into_param().abi(), fbypos, gmdiflags)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetMenuInfo<P0>(param0: P0, param1: *mut MENUINFO) -> ::windows_core::Result<()>
@@ -1279,7 +1267,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetMenuItemID(hmenu : HMENU, npos : i32) -> u32);
     GetMenuItemID(hmenu.into_param().abi(), npos)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetMenuItemInfoA<P0, P1>(hmenu: P0, item: u32, fbyposition: P1, lpmii: *mut MENUITEMINFOA) -> ::windows_core::Result<()>
@@ -1290,7 +1277,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetMenuItemInfoA(hmenu : HMENU, item : u32, fbyposition : super::super::Foundation:: BOOL, lpmii : *mut MENUITEMINFOA) -> super::super::Foundation:: BOOL);
     GetMenuItemInfoA(hmenu.into_param().abi(), item, fbyposition.into_param().abi(), lpmii).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetMenuItemInfoW<P0, P1>(hmenu: P0, item: u32, fbyposition: P1, lpmii: *mut MENUITEMINFOW) -> ::windows_core::Result<()>
@@ -1692,7 +1678,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn InsertMenuA(hmenu : HMENU, uposition : u32, uflags : MENU_ITEM_FLAGS, uidnewitem : usize, lpnewitem : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     InsertMenuA(hmenu.into_param().abi(), uposition, uflags, uidnewitem, lpnewitem.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn InsertMenuItemA<P0, P1>(hmenu: P0, item: u32, fbyposition: P1, lpmi: *const MENUITEMINFOA) -> ::windows_core::Result<()>
@@ -1703,7 +1688,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn InsertMenuItemA(hmenu : HMENU, item : u32, fbyposition : super::super::Foundation:: BOOL, lpmi : *const MENUITEMINFOA) -> super::super::Foundation:: BOOL);
     InsertMenuItemA(hmenu.into_param().abi(), item, fbyposition.into_param().abi(), lpmi).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn InsertMenuItemW<P0, P1>(hmenu: P0, item: u32, fbyposition: P1, lpmi: *const MENUITEMINFOW) -> ::windows_core::Result<()>
@@ -2103,14 +2087,12 @@ where
     ::windows_targets::link!("user32.dll" "system" fn MessageBoxExW(hwnd : super::super::Foundation:: HWND, lptext : ::windows_core::PCWSTR, lpcaption : ::windows_core::PCWSTR, utype : MESSAGEBOX_STYLE, wlanguageid : u16) -> MESSAGEBOX_RESULT);
     MessageBoxExW(hwnd.into_param().abi(), lptext.into_param().abi(), lpcaption.into_param().abi(), utype, wlanguageid)
 }
-#[doc = "Required features: `\"Win32_UI_Shell\"`"]
 #[cfg(feature = "Win32_UI_Shell")]
 #[inline]
 pub unsafe fn MessageBoxIndirectA(lpmbp: *const MSGBOXPARAMSA) -> MESSAGEBOX_RESULT {
     ::windows_targets::link!("user32.dll" "system" fn MessageBoxIndirectA(lpmbp : *const MSGBOXPARAMSA) -> MESSAGEBOX_RESULT);
     MessageBoxIndirectA(lpmbp)
 }
-#[doc = "Required features: `\"Win32_UI_Shell\"`"]
 #[cfg(feature = "Win32_UI_Shell")]
 #[inline]
 pub unsafe fn MessageBoxIndirectW(lpmbp: *const MSGBOXPARAMSW) -> MESSAGEBOX_RESULT {
@@ -2497,28 +2479,24 @@ where
     ::windows_targets::link!("user32.dll" "system" fn RealGetWindowClassW(hwnd : super::super::Foundation:: HWND, ptszclassname : ::windows_core::PWSTR, cchclassnamemax : u32) -> u32);
     RealGetWindowClassW(hwnd.into_param().abi(), ::core::mem::transmute(ptszclassname.as_ptr()), ptszclassname.len().try_into().unwrap())
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn RegisterClassA(lpwndclass: *const WNDCLASSA) -> u16 {
     ::windows_targets::link!("user32.dll" "system" fn RegisterClassA(lpwndclass : *const WNDCLASSA) -> u16);
     RegisterClassA(lpwndclass)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn RegisterClassExA(param0: *const WNDCLASSEXA) -> u16 {
     ::windows_targets::link!("user32.dll" "system" fn RegisterClassExA(param0 : *const WNDCLASSEXA) -> u16);
     RegisterClassExA(param0)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn RegisterClassExW(param0: *const WNDCLASSEXW) -> u16 {
     ::windows_targets::link!("user32.dll" "system" fn RegisterClassExW(param0 : *const WNDCLASSEXW) -> u16);
     RegisterClassExW(param0)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn RegisterClassW(lpwndclass: *const WNDCLASSW) -> u16 {
@@ -2611,7 +2589,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn ReplyMessage(lresult : super::super::Foundation:: LRESULT) -> super::super::Foundation:: BOOL);
     ReplyMessage(lresult.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScrollDC<P0, P1>(hdc: P0, dx: i32, dy: i32, lprcscroll: ::core::option::Option<*const super::super::Foundation::RECT>, lprcclip: ::core::option::Option<*const super::super::Foundation::RECT>, hrgnupdate: P1, lprcupdate: ::core::option::Option<*mut super::super::Foundation::RECT>) -> ::windows_core::Result<()>
@@ -2630,7 +2607,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn ScrollWindow(hwnd : super::super::Foundation:: HWND, xamount : i32, yamount : i32, lprect : *const super::super::Foundation:: RECT, lpcliprect : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
     ScrollWindow(hwnd.into_param().abi(), xamount, yamount, ::core::mem::transmute(lprect.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpcliprect.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScrollWindowEx<P0, P1>(hwnd: P0, dx: i32, dy: i32, prcscroll: ::core::option::Option<*const super::super::Foundation::RECT>, prcclip: ::core::option::Option<*const super::super::Foundation::RECT>, hrgnupdate: P1, prcupdate: ::core::option::Option<*mut super::super::Foundation::RECT>, flags: SCROLL_WINDOW_FLAGS) -> i32
@@ -2888,7 +2864,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn SetMenuDefaultItem(hmenu : HMENU, uitem : u32, fbypos : u32) -> super::super::Foundation:: BOOL);
     SetMenuDefaultItem(hmenu.into_param().abi(), uitem, fbypos).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn SetMenuInfo<P0>(param0: P0, param1: *const MENUINFO) -> ::windows_core::Result<()>
@@ -2898,7 +2873,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn SetMenuInfo(param0 : HMENU, param1 : *const MENUINFO) -> super::super::Foundation:: BOOL);
     SetMenuInfo(param0.into_param().abi(), param1).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn SetMenuItemBitmaps<P0, P1, P2>(hmenu: P0, uposition: u32, uflags: MENU_ITEM_FLAGS, hbitmapunchecked: P1, hbitmapchecked: P2) -> ::windows_core::Result<()>
@@ -2910,7 +2884,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn SetMenuItemBitmaps(hmenu : HMENU, uposition : u32, uflags : MENU_ITEM_FLAGS, hbitmapunchecked : super::super::Graphics::Gdi:: HBITMAP, hbitmapchecked : super::super::Graphics::Gdi:: HBITMAP) -> super::super::Foundation:: BOOL);
     SetMenuItemBitmaps(hmenu.into_param().abi(), uposition, uflags, hbitmapunchecked.into_param().abi(), hbitmapchecked.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn SetMenuItemInfoA<P0, P1>(hmenu: P0, item: u32, fbypositon: P1, lpmii: *const MENUITEMINFOA) -> ::windows_core::Result<()>
@@ -2921,7 +2894,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn SetMenuItemInfoA(hmenu : HMENU, item : u32, fbypositon : super::super::Foundation:: BOOL, lpmii : *const MENUITEMINFOA) -> super::super::Foundation:: BOOL);
     SetMenuItemInfoA(hmenu.into_param().abi(), item, fbypositon.into_param().abi(), lpmii).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn SetMenuItemInfoW<P0, P1>(hmenu: P0, item: u32, fbypositon: P1, lpmii: *const MENUITEMINFOW) -> ::windows_core::Result<()>
@@ -3279,7 +3251,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn UnregisterDeviceNotification(handle : HDEVNOTIFY) -> super::super::Foundation:: BOOL);
     UnregisterDeviceNotification(handle.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn UpdateLayeredWindow<P0, P1, P2, P3>(hwnd: P0, hdcdst: P1, pptdst: ::core::option::Option<*const super::super::Foundation::POINT>, psize: ::core::option::Option<*const super::super::Foundation::SIZE>, hdcsrc: P2, pptsrc: ::core::option::Option<*const super::super::Foundation::POINT>, crkey: P3, pblend: ::core::option::Option<*const super::super::Graphics::Gdi::BLENDFUNCTION>, dwflags: UPDATE_LAYERED_WINDOW_FLAGS) -> ::windows_core::Result<()>
@@ -3292,7 +3263,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn UpdateLayeredWindow(hwnd : super::super::Foundation:: HWND, hdcdst : super::super::Graphics::Gdi:: HDC, pptdst : *const super::super::Foundation:: POINT, psize : *const super::super::Foundation:: SIZE, hdcsrc : super::super::Graphics::Gdi:: HDC, pptsrc : *const super::super::Foundation:: POINT, crkey : super::super::Foundation:: COLORREF, pblend : *const super::super::Graphics::Gdi:: BLENDFUNCTION, dwflags : UPDATE_LAYERED_WINDOW_FLAGS) -> super::super::Foundation:: BOOL);
     UpdateLayeredWindow(hwnd.into_param().abi(), hdcdst.into_param().abi(), ::core::mem::transmute(pptdst.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psize.unwrap_or(::std::ptr::null())), hdcsrc.into_param().abi(), ::core::mem::transmute(pptsrc.unwrap_or(::std::ptr::null())), crkey.into_param().abi(), ::core::mem::transmute(pblend.unwrap_or(::std::ptr::null())), dwflags).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn UpdateLayeredWindowIndirect<P0>(hwnd: P0, pulwinfo: *const UPDATELAYEREDWINDOWINFO) -> super::super::Foundation::BOOL
@@ -3880,37 +3850,26 @@ pub const GW_MAX: u32 = 5u32;
 pub const GW_OWNER: GET_WINDOW_CMD = GET_WINDOW_CMD(4u32);
 pub const HANDEDNESS_LEFT: HANDEDNESS = HANDEDNESS(0i32);
 pub const HANDEDNESS_RIGHT: HANDEDNESS = HANDEDNESS(1i32);
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub const HBMMENU_CALLBACK: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(-1i32 as _);
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub const HBMMENU_MBAR_CLOSE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(5i32 as _);
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub const HBMMENU_MBAR_CLOSE_D: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(6i32 as _);
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub const HBMMENU_MBAR_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(3i32 as _);
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub const HBMMENU_MBAR_MINIMIZE_D: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(7i32 as _);
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub const HBMMENU_MBAR_RESTORE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(2i32 as _);
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub const HBMMENU_POPUP_CLOSE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(8i32 as _);
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub const HBMMENU_POPUP_MAXIMIZE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(10i32 as _);
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub const HBMMENU_POPUP_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(11i32 as _);
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub const HBMMENU_POPUP_RESTORE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(9i32 as _);
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub const HBMMENU_SYSTEM: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(1i32 as _);
 pub const HCBT_ACTIVATE: u32 = 5u32;
@@ -9073,7 +9032,6 @@ impl ::windows_core::TypeKind for HMENU {
     type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICONINFO {
     pub fIcon: super::super::Foundation::BOOL,
@@ -9115,7 +9073,6 @@ impl ::core::default::Default for ICONINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICONINFOEXA {
     pub cbSize: u32,
@@ -9161,7 +9118,6 @@ impl ::core::default::Default for ICONINFOEXA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICONINFOEXW {
     pub cbSize: u32,
@@ -9207,7 +9163,6 @@ impl ::core::default::Default for ICONINFOEXW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICONMETRICSA {
     pub cbSize: u32,
@@ -9249,7 +9204,6 @@ impl ::core::default::Default for ICONMETRICSA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICONMETRICSW {
     pub cbSize: u32,
@@ -9589,7 +9543,6 @@ impl ::core::default::Default for MENUGETOBJECTINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct MENUINFO {
     pub cbSize: u32,
@@ -9633,7 +9586,6 @@ impl ::core::default::Default for MENUINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct MENUITEMINFOA {
     pub cbSize: u32,
@@ -9682,7 +9634,6 @@ impl ::core::default::Default for MENUITEMINFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct MENUITEMINFOW {
     pub cbSize: u32,
@@ -10143,7 +10094,6 @@ impl ::core::default::Default for MSG {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_UI_Shell\"`"]
 #[cfg(feature = "Win32_UI_Shell")]
 pub struct MSGBOXPARAMSA {
     pub cbSize: u32,
@@ -10182,7 +10132,6 @@ impl ::core::default::Default for MSGBOXPARAMSA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_UI_Shell\"`"]
 #[cfg(feature = "Win32_UI_Shell")]
 pub struct MSGBOXPARAMSW {
     pub cbSize: u32,
@@ -10344,7 +10293,6 @@ impl ::core::default::Default for NCCALCSIZE_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NONCLIENTMETRICSA {
     pub cbSize: u32,
@@ -10414,7 +10362,6 @@ impl ::core::default::Default for NONCLIENTMETRICSA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NONCLIENTMETRICSW {
     pub cbSize: u32,
@@ -10739,7 +10686,6 @@ impl ::core::default::Default for TPMPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct UPDATELAYEREDWINDOWINFO {
     pub cbSize: u32,
@@ -10927,7 +10873,6 @@ impl ::core::default::Default for WINDOWPOS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct WNDCLASSA {
     pub style: WNDCLASS_STYLES,
@@ -10966,7 +10911,6 @@ impl ::core::default::Default for WNDCLASSA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct WNDCLASSEXA {
     pub cbSize: u32,
@@ -11007,7 +10951,6 @@ impl ::core::default::Default for WNDCLASSEXA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct WNDCLASSEXW {
     pub cbSize: u32,
@@ -11048,7 +10991,6 @@ impl ::core::default::Default for WNDCLASSEXW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct WNDCLASSW {
     pub style: WNDCLASS_STYLES,
@@ -11149,7 +11091,6 @@ impl ::core::default::Default for _DEV_BROADCAST_USERDEFINED {
 }
 pub type DLGPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> isize>;
 pub type HOOKPROC = ::core::option::Option<unsafe extern "system" fn(code: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
-#[doc = "Required features: `\"Win32_UI_Shell\"`"]
 #[cfg(feature = "Win32_UI_Shell")]
 pub type MSGBOXCALLBACK = ::core::option::Option<unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO)>;
 pub type NAMEENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;

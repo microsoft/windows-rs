@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Accessibility\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 pub trait IAccessibleWinSAT_Impl: Sized + super::super::UI::Accessibility::IAccessible_Impl {
     fn SetAccessiblityData(&self, wsname: &::windows_core::PCWSTR, wsvalue: &::windows_core::PCWSTR, wsdesc: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -56,7 +55,6 @@ impl IInitiateWinSATAssessment_Vtbl {
         iid == &<IInitiateWinSATAssessment as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IProvideWinSATAssessmentInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn Score(&self) -> ::windows_core::Result<f32>;
@@ -112,7 +110,6 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
         iid == &<IProvideWinSATAssessmentInfo as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IProvideWinSATResultsInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetAssessmentInfo(&self, assessment: WINSAT_ASSESSMENT_TYPE) -> ::windows_core::Result<IProvideWinSATAssessmentInfo>;
@@ -194,7 +191,6 @@ impl IProvideWinSATResultsInfo_Vtbl {
         iid == &<IProvideWinSATResultsInfo as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IProvideWinSATVisuals_Impl: Sized {
     fn get_Bitmap(&self, bitmapsize: WINSAT_BITMAP_SIZE, state: WINSAT_ASSESSMENT_STATE, rating: f32) -> ::windows_core::Result<super::super::Graphics::Gdi::HBITMAP>;
@@ -221,7 +217,6 @@ impl IProvideWinSATVisuals_Vtbl {
         iid == &<IProvideWinSATVisuals as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 pub trait IQueryAllWinSATAssessments_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_AllXML(&self, xpath: &::windows_core::BSTR, namespaces: &::windows_core::BSTR) -> ::windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>;
@@ -271,7 +266,6 @@ impl IQueryOEMWinSATCustomization_Vtbl {
         iid == &<IQueryOEMWinSATCustomization as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 pub trait IQueryRecentWinSATAssessment_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_XML(&self, xpath: &::windows_core::BSTR, namespaces: &::windows_core::BSTR) -> ::windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>;

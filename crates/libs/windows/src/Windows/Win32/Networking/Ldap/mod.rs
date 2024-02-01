@@ -2839,10 +2839,8 @@ impl ::windows_core::TypeKind for PLDAPSearch {
 pub type DBGPRINT = ::core::option::Option<unsafe extern "system" fn(format: ::windows_core::PCSTR) -> u32>;
 pub type DEREFERENCECONNECTION = ::core::option::Option<unsafe extern "system" fn(primaryconnection: *mut LDAP, connectiontodereference: *mut LDAP) -> u32>;
 pub type NOTIFYOFNEWCONNECTION = ::core::option::Option<unsafe extern "system" fn(primaryconnection: *mut LDAP, referralfromconnection: *mut LDAP, newdn: ::windows_core::PCWSTR, hostname: ::windows_core::PCSTR, newconnection: *mut LDAP, portnumber: u32, secauthidentity: *mut ::core::ffi::c_void, currentuser: *mut ::core::ffi::c_void, errorcodefrombind: u32) -> super::super::Foundation::BOOLEAN>;
-#[doc = "Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Cryptography\"`"]
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 pub type QUERYCLIENTCERT = ::core::option::Option<unsafe extern "system" fn(connection: *mut LDAP, trusted_cas: *mut super::super::Security::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertificate: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> super::super::Foundation::BOOLEAN>;
 pub type QUERYFORCONNECTION = ::core::option::Option<unsafe extern "system" fn(primaryconnection: *mut LDAP, referralfromconnection: *mut LDAP, newdn: ::windows_core::PCWSTR, hostname: ::windows_core::PCSTR, portnumber: u32, secauthidentity: *mut ::core::ffi::c_void, currentusertoken: *mut ::core::ffi::c_void, connectiontouse: *mut *mut LDAP) -> u32>;
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub type VERIFYSERVERCERT = ::core::option::Option<unsafe extern "system" fn(connection: *mut LDAP, pservercert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> super::super::Foundation::BOOLEAN>;

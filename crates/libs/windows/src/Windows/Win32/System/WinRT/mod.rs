@@ -1,47 +1,32 @@
 #[cfg(feature = "Win32_System_WinRT_AllJoyn")]
-#[doc = "Required features: `\"Win32_System_WinRT_AllJoyn\"`"]
 pub mod AllJoyn;
 #[cfg(feature = "Win32_System_WinRT_Composition")]
-#[doc = "Required features: `\"Win32_System_WinRT_Composition\"`"]
 pub mod Composition;
 #[cfg(feature = "Win32_System_WinRT_CoreInputView")]
-#[doc = "Required features: `\"Win32_System_WinRT_CoreInputView\"`"]
 pub mod CoreInputView;
 #[cfg(feature = "Win32_System_WinRT_Direct3D11")]
-#[doc = "Required features: `\"Win32_System_WinRT_Direct3D11\"`"]
 pub mod Direct3D11;
 #[cfg(feature = "Win32_System_WinRT_Display")]
-#[doc = "Required features: `\"Win32_System_WinRT_Display\"`"]
 pub mod Display;
 #[cfg(feature = "Win32_System_WinRT_Graphics")]
-#[doc = "Required features: `\"Win32_System_WinRT_Graphics\"`"]
 pub mod Graphics;
 #[cfg(feature = "Win32_System_WinRT_Holographic")]
-#[doc = "Required features: `\"Win32_System_WinRT_Holographic\"`"]
 pub mod Holographic;
 #[cfg(feature = "Win32_System_WinRT_Isolation")]
-#[doc = "Required features: `\"Win32_System_WinRT_Isolation\"`"]
 pub mod Isolation;
 #[cfg(feature = "Win32_System_WinRT_ML")]
-#[doc = "Required features: `\"Win32_System_WinRT_ML\"`"]
 pub mod ML;
 #[cfg(feature = "Win32_System_WinRT_Media")]
-#[doc = "Required features: `\"Win32_System_WinRT_Media\"`"]
 pub mod Media;
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
-#[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
 pub mod Metadata;
 #[cfg(feature = "Win32_System_WinRT_Pdf")]
-#[doc = "Required features: `\"Win32_System_WinRT_Pdf\"`"]
 pub mod Pdf;
 #[cfg(feature = "Win32_System_WinRT_Printing")]
-#[doc = "Required features: `\"Win32_System_WinRT_Printing\"`"]
 pub mod Printing;
 #[cfg(feature = "Win32_System_WinRT_Shell")]
-#[doc = "Required features: `\"Win32_System_WinRT_Shell\"`"]
 pub mod Shell;
 #[cfg(feature = "Win32_System_WinRT_Storage")]
-#[doc = "Required features: `\"Win32_System_WinRT_Storage\"`"]
 pub mod Storage;
 #[inline]
 pub unsafe fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64) -> ::windows_core::Result<ServerInformation> {
@@ -68,7 +53,6 @@ where
     let mut result__ = ::std::ptr::null_mut();
     CreateControlInputEx(pcorewindow.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"System\"`"]
 #[cfg(feature = "System")]
 #[inline]
 pub unsafe fn CreateDispatcherQueueController(options: DispatcherQueueOptions) -> ::windows_core::Result<super::super::super::System::DispatcherQueueController> {
@@ -86,7 +70,6 @@ where
     let mut result__ = ::std::ptr::null_mut();
     CreateRandomAccessStreamOnFile(filepath.into_param().abi(), accessmode, &T::IID, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateRandomAccessStreamOverStream<P0, T>(stream: P0, options: BSOS_OPTIONS) -> ::windows_core::Result<T>
@@ -204,7 +187,6 @@ pub unsafe fn RoGetApartmentIdentifier() -> ::windows_core::Result<u64> {
     let mut result__ = ::std::mem::zeroed();
     RoGetApartmentIdentifier(&mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_System_Com_Marshal\"`"]
 #[cfg(feature = "Win32_System_Com_Marshal")]
 #[inline]
 pub unsafe fn RoGetBufferMarshaler() -> ::windows_core::Result<super::Com::Marshal::IMarshal> {
@@ -642,7 +624,6 @@ impl ICastingSourceInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetController)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetProperties(&self) -> ::windows_core::Result<super::super::UI::Shell::PropertiesSystem::INamedPropertyStore> {
         let mut result__ = ::std::mem::zeroed();

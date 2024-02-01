@@ -249,7 +249,6 @@ impl IDirectManipulationManager {
     {
         (::windows_core::Interface::vtable(self).RegisterHitTestTarget)(::windows_core::Interface::as_raw(self), window.into_param().abi(), hittestwindow.into_param().abi(), r#type).ok()
     }
-    #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn ProcessInput(&self, message: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -317,7 +316,6 @@ impl IDirectManipulationManager2 {
     {
         (::windows_core::Interface::vtable(self).base__.RegisterHitTestTarget)(::windows_core::Interface::as_raw(self), window.into_param().abi(), hittestwindow.into_param().abi(), r#type).ok()
     }
-    #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn ProcessInput(&self, message: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -383,7 +381,6 @@ impl IDirectManipulationManager3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.RegisterHitTestTarget)(::windows_core::Interface::as_raw(self), window.into_param().abi(), hittestwindow.into_param().abi(), r#type).ok()
     }
-    #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn ProcessInput(&self, message: *const super::super::UI::WindowsAndMessaging::MSG) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();

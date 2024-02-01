@@ -766,7 +766,6 @@ impl IOutputStream_Vtbl {
         iid == &<IOutputStream as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPropertySetSerializer_Impl: Sized {
     fn Serialize(&self, propertyset: ::core::option::Option<&super::super::Foundation::Collections::IPropertySet>) -> ::windows_core::Result<IBuffer>;

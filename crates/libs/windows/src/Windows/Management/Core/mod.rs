@@ -19,7 +19,6 @@ pub struct IApplicationDataManagerStatics_Vtbl {
 pub struct ApplicationDataManager(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(ApplicationDataManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ApplicationDataManager {
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn CreateForPackageFamily(packagefamilyname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Storage::ApplicationData> {
         Self::IApplicationDataManagerStatics(|this| unsafe {

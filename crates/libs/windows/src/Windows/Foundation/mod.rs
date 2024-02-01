@@ -1,14 +1,10 @@
 #[cfg(feature = "Foundation_Collections")]
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 pub mod Collections;
 #[cfg(feature = "Foundation_Diagnostics")]
-#[doc = "Required features: `\"Foundation_Diagnostics\"`"]
 pub mod Diagnostics;
 #[cfg(feature = "Foundation_Metadata")]
-#[doc = "Required features: `\"Foundation_Metadata\"`"]
 pub mod Metadata;
 #[cfg(feature = "Foundation_Numerics")]
-#[doc = "Required features: `\"Foundation_Numerics\"`"]
 pub mod Numerics;
 ::windows_core::imp::com_interface!(IAsyncAction, IAsyncAction_Vtbl, 0x5a648006_843a_4da9_865b_9d26e5dfad7b);
 ::windows_core::imp::interface_hierarchy!(IAsyncAction, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -2138,7 +2134,6 @@ pub struct WwwFormUrlDecoder(::windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 ::windows_core::imp::required_hierarchy!(WwwFormUrlDecoder, Collections::IIterable::<IWwwFormUrlDecoderEntry>, Collections::IVectorView::<IWwwFormUrlDecoderEntry>);
 impl WwwFormUrlDecoder {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<Collections::IIterator<IWwwFormUrlDecoderEntry>> {
         let this = &::windows_core::Interface::cast::<Collections::IIterable<IWwwFormUrlDecoderEntry>>(self)?;
@@ -2147,7 +2142,6 @@ impl WwwFormUrlDecoder {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<IWwwFormUrlDecoderEntry> {
         let this = &::windows_core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
@@ -2156,7 +2150,6 @@ impl WwwFormUrlDecoder {
             (::windows_core::Interface::vtable(this).GetAt)(::windows_core::Interface::as_raw(this), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
@@ -2165,7 +2158,6 @@ impl WwwFormUrlDecoder {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows_core::Result<bool>
     where
@@ -2177,7 +2169,6 @@ impl WwwFormUrlDecoder {
             (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<IWwwFormUrlDecoderEntry>]) -> ::windows_core::Result<u32> {
         let this = &::windows_core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;

@@ -286,7 +286,6 @@ impl SerialDevice {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetWriteTimeout)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
@@ -295,7 +294,6 @@ impl SerialDevice {
             (::windows_core::Interface::vtable(this).InputStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn OutputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;

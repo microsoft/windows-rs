@@ -370,7 +370,6 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).CurrentPlaybackBitrate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AvailableBitrates(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
@@ -566,7 +565,6 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).CreateFromUriAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Web_Http\"`"]
     #[cfg(feature = "Web_Http")]
     pub fn CreateFromUriWithDownloaderAsync<P0, P1>(uri: P0, httpclient: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>>
     where
@@ -578,7 +576,6 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).CreateFromUriWithDownloaderAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), httpclient.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromStreamAsync<P0, P1>(stream: P0, uri: P1, contenttype: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>>
     where
@@ -590,7 +587,6 @@ impl AdaptiveMediaSource {
             (::windows_core::Interface::vtable(this).CreateFromStreamAsync)(::windows_core::Interface::as_raw(this), stream.into_param().abi(), uri.into_param().abi(), ::core::mem::transmute_copy(contenttype), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`, `\"Web_Http\"`"]
     #[cfg(all(feature = "Storage_Streams", feature = "Web_Http"))]
     pub fn CreateFromStreamWithDownloaderAsync<P0, P1, P2>(stream: P0, uri: P1, contenttype: &::windows_core::HSTRING, httpclient: P2) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>>
     where
@@ -740,7 +736,6 @@ impl AdaptiveMediaSourceCreationResult {
             (::windows_core::Interface::vtable(this).MediaSource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Web_Http\"`"]
     #[cfg(feature = "Web_Http")]
     pub fn HttpResponseMessage(&self) -> ::windows_core::Result<super::super::super::Web::Http::HttpResponseMessage> {
         let this = self;
@@ -975,7 +970,6 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
             (::windows_core::Interface::vtable(this).ResourceByteRangeLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Web_Http\"`"]
     #[cfg(feature = "Web_Http")]
     pub fn HttpResponseMessage(&self) -> ::windows_core::Result<super::super::super::Web::Http::HttpResponseMessage> {
         let this = self;
@@ -1065,7 +1059,6 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
             (::windows_core::Interface::vtable(this).ResourceByteRangeLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Web_Http\"`"]
     #[cfg(feature = "Web_Http")]
     pub fn HttpResponseMessage(&self) -> ::windows_core::Result<super::super::super::Web::Http::HttpResponseMessage> {
         let this = self;
@@ -1258,7 +1251,6 @@ impl AdaptiveMediaSourceDownloadResult {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetResourceUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InputStream(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IInputStream> {
         let this = self;
@@ -1267,7 +1259,6 @@ impl AdaptiveMediaSourceDownloadResult {
             (::windows_core::Interface::vtable(this).InputStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetInputStream<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1276,7 +1267,6 @@ impl AdaptiveMediaSourceDownloadResult {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetInputStream)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Buffer(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1285,7 +1275,6 @@ impl AdaptiveMediaSourceDownloadResult {
             (::windows_core::Interface::vtable(this).Buffer)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetBuffer<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where

@@ -24,7 +24,6 @@ pub struct IItemEnumerator_Vtbl {
 ::windows_core::imp::com_interface!(ISettingsContext, ISettingsContext_Vtbl, 0x9f7d7bbd_20b3_11da_81a5_0030f1642e3c);
 ::windows_core::imp::interface_hierarchy!(ISettingsContext, ::windows_core::IUnknown);
 impl ISettingsContext {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Serialize<P0, P1>(&self, pstream: P0, ptarget: P1) -> ::windows_core::Result<()>
     where
@@ -33,7 +32,6 @@ impl ISettingsContext {
     {
         (::windows_core::Interface::vtable(self).Serialize)(::windows_core::Interface::as_raw(self), pstream.into_param().abi(), ptarget.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Deserialize<P0, P1>(&self, pstream: P0, ptarget: P1, pppresults: *mut *mut ::core::option::Option<ISettingsResult>) -> ::windows_core::Result<usize>
     where
@@ -118,7 +116,6 @@ impl ISettingsEngine {
     pub unsafe fn UnloadStore(&self, reserved: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UnloadStore)(::windows_core::Interface::as_raw(self), reserved).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RegisterNamespace<P0, P1, P2>(&self, settingsid: P0, stream: P1, pushsettings: P2) -> ::windows_core::Result<::windows_core::VARIANT>
     where

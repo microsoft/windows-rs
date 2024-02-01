@@ -21,7 +21,6 @@ impl ICompositionFramePresentStatistics {
     pub unsafe fn GetCompositionFrameId(&self) -> u64 {
         (::windows_core::Interface::vtable(self).GetCompositionFrameId)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDisplayInstanceArray(&self, displayinstancearraycount: *mut u32, displayinstancearray: *mut *mut CompositionFrameDisplayInstance) {
         (::windows_core::Interface::vtable(self).GetDisplayInstanceArray)(::windows_core::Interface::as_raw(self), displayinstancearraycount, displayinstancearray)
@@ -258,12 +257,10 @@ impl IPresentationSurface {
     {
         (::windows_core::Interface::vtable(self).SetBuffer)(::windows_core::Interface::as_raw(self), presentationbuffer.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn SetColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetColorSpace)(::windows_core::Interface::as_raw(self), colorspace).ok()
     }
-    #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn SetAlphaMode(&self, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAlphaMode)(::windows_core::Interface::as_raw(self), alphamode).ok()
@@ -349,7 +346,6 @@ impl ::core::fmt::Debug for PresentStatus {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct CompositionFrameDisplayInstance {
     pub displayAdapterLUID: super::super::Foundation::LUID,

@@ -1,44 +1,30 @@
 #[cfg(feature = "UI_Accessibility")]
-#[doc = "Required features: `\"UI_Accessibility\"`"]
 pub mod Accessibility;
 #[cfg(feature = "UI_ApplicationSettings")]
-#[doc = "Required features: `\"UI_ApplicationSettings\"`"]
 pub mod ApplicationSettings;
 #[cfg(feature = "UI_Composition")]
-#[doc = "Required features: `\"UI_Composition\"`"]
 pub mod Composition;
 #[cfg(feature = "UI_Core")]
-#[doc = "Required features: `\"UI_Core\"`"]
 pub mod Core;
 #[cfg(feature = "UI_Input")]
-#[doc = "Required features: `\"UI_Input\"`"]
 pub mod Input;
 #[cfg(feature = "UI_Notifications")]
-#[doc = "Required features: `\"UI_Notifications\"`"]
 pub mod Notifications;
 #[cfg(feature = "UI_Popups")]
-#[doc = "Required features: `\"UI_Popups\"`"]
 pub mod Popups;
 #[cfg(feature = "UI_Shell")]
-#[doc = "Required features: `\"UI_Shell\"`"]
 pub mod Shell;
 #[cfg(feature = "UI_StartScreen")]
-#[doc = "Required features: `\"UI_StartScreen\"`"]
 pub mod StartScreen;
 #[cfg(feature = "UI_Text")]
-#[doc = "Required features: `\"UI_Text\"`"]
 pub mod Text;
 #[cfg(feature = "UI_UIAutomation")]
-#[doc = "Required features: `\"UI_UIAutomation\"`"]
 pub mod UIAutomation;
 #[cfg(feature = "UI_ViewManagement")]
-#[doc = "Required features: `\"UI_ViewManagement\"`"]
 pub mod ViewManagement;
 #[cfg(feature = "UI_WebUI")]
-#[doc = "Required features: `\"UI_WebUI\"`"]
 pub mod WebUI;
 #[cfg(feature = "UI_WindowManagement")]
-#[doc = "Required features: `\"UI_WindowManagement\"`"]
 pub mod WindowManagement;
 ::windows_core::imp::com_interface!(IColorHelper, IColorHelper_Vtbl, 0x193cfbe7_65c7_4540_ad08_6283ba76879a);
 #[repr(C)]

@@ -226,7 +226,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn TransmitCommChar(hfile : super::super::Foundation:: HANDLE, cchar : i8) -> super::super::Foundation:: BOOL);
     TransmitCommChar(hfile.into_param().abi(), cchar).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WaitCommEvent<P0>(hfile: P0, lpevtmask: *mut COMM_EVENT_MASK, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()>

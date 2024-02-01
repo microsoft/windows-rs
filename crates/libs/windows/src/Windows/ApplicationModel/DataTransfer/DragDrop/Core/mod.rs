@@ -269,7 +269,6 @@ impl CoreDragOperation {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPointerId)(::windows_core::Interface::as_raw(this), pointerid).ok() }
     }
-    #[doc = "Required features: `\"Graphics_Imaging\"`"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetDragUIContentFromSoftwareBitmap<P0>(&self, softwarebitmap: P0) -> ::windows_core::Result<()>
     where
@@ -278,7 +277,6 @@ impl CoreDragOperation {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDragUIContentFromSoftwareBitmap)(::windows_core::Interface::as_raw(this), softwarebitmap.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Graphics_Imaging\"`"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetDragUIContentFromSoftwareBitmapWithAnchorPoint<P0>(&self, softwarebitmap: P0, anchorpoint: super::super::super::super::Foundation::Point) -> ::windows_core::Result<()>
     where
@@ -334,7 +332,6 @@ unsafe impl ::core::marker::Sync for CoreDragOperation {}
 pub struct CoreDragUIOverride(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(CoreDragUIOverride, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CoreDragUIOverride {
-    #[doc = "Required features: `\"Graphics_Imaging\"`"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetContentFromSoftwareBitmap<P0>(&self, softwarebitmap: P0) -> ::windows_core::Result<()>
     where
@@ -343,7 +340,6 @@ impl CoreDragUIOverride {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetContentFromSoftwareBitmap)(::windows_core::Interface::as_raw(this), softwarebitmap.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Graphics_Imaging\"`"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetContentFromSoftwareBitmapWithAnchorPoint<P0>(&self, softwarebitmap: P0, anchorpoint: super::super::super::super::Foundation::Point) -> ::windows_core::Result<()>
     where

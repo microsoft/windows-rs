@@ -1,5 +1,4 @@
 #[cfg(feature = "Devices_Sensors_Custom")]
-#[doc = "Required features: `\"Devices_Sensors_Custom\"`"]
 pub mod Custom;
 ::windows_core::imp::com_interface!(IAccelerometer, IAccelerometer_Vtbl, 0xdf184548_2711_4da7_8098_4b82205d3c7d);
 #[repr(C)]
@@ -1530,13 +1529,11 @@ impl Accelerometer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveShaken)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Graphics_Display\"`"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows_core::Result<()> {
         let this = &::windows_core::Interface::cast::<IAccelerometer2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetReadingTransform)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Graphics_Display\"`"]
     #[cfg(feature = "Graphics_Display")]
     pub fn ReadingTransform(&self) -> ::windows_core::Result<super::super::Graphics::Display::DisplayOrientations> {
         let this = &::windows_core::Interface::cast::<IAccelerometer2>(self)?;
@@ -1727,7 +1724,6 @@ impl AccelerometerReading {
             (::windows_core::Interface::vtable(this).PerformanceCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IAccelerometerReading2>(self)?;
@@ -1811,7 +1807,6 @@ impl ActivitySensor {
             (::windows_core::Interface::vtable(this).GetCurrentReadingAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SubscribedActivities(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ActivityType>> {
         let this = self;
@@ -1834,7 +1829,6 @@ impl ActivitySensor {
             (::windows_core::Interface::vtable(this).DeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedActivities(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ActivityType>> {
         let this = self;
@@ -1882,7 +1876,6 @@ impl ActivitySensor {
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSystemHistoryAsync(fromtime: super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>> {
         Self::IActivitySensorStatics(|this| unsafe {
@@ -1890,7 +1883,6 @@ impl ActivitySensor {
             (::windows_core::Interface::vtable(this).GetSystemHistoryAsync)(::windows_core::Interface::as_raw(this), fromtime, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSystemHistoryWithDurationAsync(fromtime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>> {
         Self::IActivitySensorStatics(|this| unsafe {
@@ -2010,7 +2002,6 @@ unsafe impl ::core::marker::Sync for ActivitySensorReadingChangedEventArgs {}
 pub struct ActivitySensorTriggerDetails(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(ActivitySensorTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ActivitySensorTriggerDetails {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReadReports(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ActivitySensorReadingChangeReport>> {
         let this = self;
@@ -2180,7 +2171,6 @@ impl AltimeterReading {
             (::windows_core::Interface::vtable(this).PerformanceCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IAltimeterReading2>(self)?;
@@ -2399,7 +2389,6 @@ impl BarometerReading {
             (::windows_core::Interface::vtable(this).PerformanceCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IBarometerReading2>(self)?;
@@ -2490,13 +2479,11 @@ impl Compass {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveReadingChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Graphics_Display\"`"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows_core::Result<()> {
         let this = &::windows_core::Interface::cast::<ICompass2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetReadingTransform)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Graphics_Display\"`"]
     #[cfg(feature = "Graphics_Display")]
     pub fn ReadingTransform(&self) -> ::windows_core::Result<super::super::Graphics::Display::DisplayOrientations> {
         let this = &::windows_core::Interface::cast::<ICompass2>(self)?;
@@ -2640,7 +2627,6 @@ impl CompassReading {
             (::windows_core::Interface::vtable(this).PerformanceCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<ICompassReading2>(self)?;
@@ -2738,13 +2724,11 @@ impl Gyrometer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveReadingChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Graphics_Display\"`"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows_core::Result<()> {
         let this = &::windows_core::Interface::cast::<IGyrometer2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetReadingTransform)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Graphics_Display\"`"]
     #[cfg(feature = "Graphics_Display")]
     pub fn ReadingTransform(&self) -> ::windows_core::Result<super::super::Graphics::Display::DisplayOrientations> {
         let this = &::windows_core::Interface::cast::<IGyrometer2>(self)?;
@@ -2917,7 +2901,6 @@ impl GyrometerReading {
             (::windows_core::Interface::vtable(this).PerformanceCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IGyrometerReading2>(self)?;
@@ -2983,7 +2966,6 @@ impl HingeAngleReading {
             (::windows_core::Interface::vtable(this).AngleInDegrees)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = self;
@@ -3135,7 +3117,6 @@ impl HumanPresenceFeatures {
             (::windows_core::Interface::vtable(this).SensorId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedWakeOrLockDistancesInMillimeters(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
@@ -3158,7 +3139,6 @@ impl HumanPresenceFeatures {
             (::windows_core::Interface::vtable(this).IsLockOnLeaveSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn IsAttentionAwareDimmingSupported(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -3334,7 +3314,6 @@ impl HumanPresenceSensorReading {
             (::windows_core::Interface::vtable(this).DistanceInMillimeters)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IHumanPresenceSensorReading2>(self)?;
@@ -3539,7 +3518,6 @@ impl HumanPresenceSettings {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetLockOnLeaveTimeout)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn IsAttentionAwareDimmingEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -3548,7 +3526,6 @@ impl HumanPresenceSettings {
             (::windows_core::Interface::vtable(this).IsAttentionAwareDimmingEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SetIsAttentionAwareDimmingEnabled(&self, value: bool) -> ::windows_core::Result<()> {
         let this = self;
@@ -3625,7 +3602,6 @@ impl HumanPresenceSettings {
             (::windows_core::Interface::vtable(this).GetSupportedFeaturesForSensorId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(sensorid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSupportedLockOnLeaveTimeouts() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::TimeSpan>> {
         Self::IHumanPresenceSettingsStatics(|this| unsafe {
@@ -3707,13 +3683,11 @@ impl Inclinometer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveReadingChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Graphics_Display\"`"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows_core::Result<()> {
         let this = &::windows_core::Interface::cast::<IInclinometer2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetReadingTransform)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Graphics_Display\"`"]
     #[cfg(feature = "Graphics_Display")]
     pub fn ReadingTransform(&self) -> ::windows_core::Result<super::super::Graphics::Display::DisplayOrientations> {
         let this = &::windows_core::Interface::cast::<IInclinometer2>(self)?;
@@ -3915,7 +3889,6 @@ impl InclinometerReading {
             (::windows_core::Interface::vtable(this).PerformanceCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IInclinometerReading2>(self)?;
@@ -4152,7 +4125,6 @@ impl LightSensorReading {
             (::windows_core::Interface::vtable(this).PerformanceCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<ILightSensorReading2>(self)?;
@@ -4272,13 +4244,11 @@ impl Magnetometer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveReadingChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Graphics_Display\"`"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows_core::Result<()> {
         let this = &::windows_core::Interface::cast::<IMagnetometer2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetReadingTransform)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Graphics_Display\"`"]
     #[cfg(feature = "Graphics_Display")]
     pub fn ReadingTransform(&self) -> ::windows_core::Result<super::super::Graphics::Display::DisplayOrientations> {
         let this = &::windows_core::Interface::cast::<IMagnetometer2>(self)?;
@@ -4458,7 +4428,6 @@ impl MagnetometerReading {
             (::windows_core::Interface::vtable(this).PerformanceCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IMagnetometerReading2>(self)?;
@@ -4549,13 +4518,11 @@ impl OrientationSensor {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveReadingChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Graphics_Display\"`"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows_core::Result<()> {
         let this = &::windows_core::Interface::cast::<IOrientationSensor2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetReadingTransform)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Graphics_Display\"`"]
     #[cfg(feature = "Graphics_Display")]
     pub fn ReadingTransform(&self) -> ::windows_core::Result<super::super::Graphics::Display::DisplayOrientations> {
         let this = &::windows_core::Interface::cast::<IOrientationSensor2>(self)?;
@@ -4704,7 +4671,6 @@ impl OrientationSensorReading {
             (::windows_core::Interface::vtable(this).PerformanceCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = &::windows_core::Interface::cast::<IOrientationSensorReading2>(self)?;
@@ -4809,7 +4775,6 @@ impl Pedometer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveReadingChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCurrentReadings(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<PedometerStepKind, PedometerReading>> {
         let this = &::windows_core::Interface::cast::<IPedometer2>(self)?;
@@ -4836,7 +4801,6 @@ impl Pedometer {
             (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSystemHistoryAsync(fromtime: super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>> {
         Self::IPedometerStatics(|this| unsafe {
@@ -4844,7 +4808,6 @@ impl Pedometer {
             (::windows_core::Interface::vtable(this).GetSystemHistoryAsync)(::windows_core::Interface::as_raw(this), fromtime, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSystemHistoryWithDurationAsync(fromtime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>> {
         Self::IPedometerStatics(|this| unsafe {
@@ -4852,7 +4815,6 @@ impl Pedometer {
             (::windows_core::Interface::vtable(this).GetSystemHistoryWithDurationAsync)(::windows_core::Interface::as_raw(this), fromtime, duration, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetReadingsFromTriggerDetails<P0>(triggerdetails: P0) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PedometerReading>>
     where
@@ -5056,7 +5018,6 @@ impl ProximitySensor {
             (::windows_core::Interface::vtable(this).FromId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(sensorid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetReadingsFromTriggerDetails<P0>(triggerdetails: P0) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ProximitySensorReading>>
     where
@@ -5395,13 +5356,11 @@ impl SimpleOrientationSensor {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveOrientationChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"Graphics_Display\"`"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows_core::Result<()> {
         let this = &::windows_core::Interface::cast::<ISimpleOrientationSensor2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetReadingTransform)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Graphics_Display\"`"]
     #[cfg(feature = "Graphics_Display")]
     pub fn ReadingTransform(&self) -> ::windows_core::Result<super::super::Graphics::Display::DisplayOrientations> {
         let this = &::windows_core::Interface::cast::<ISimpleOrientationSensor2>(self)?;

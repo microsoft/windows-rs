@@ -124,7 +124,6 @@ pub struct INumberFormatter2_Vtbl {
 ::windows_core::imp::com_interface!(INumberFormatterOptions, INumberFormatterOptions_Vtbl, 0x80332d21_aee1_4a39_baa2_07ed8c96daf6);
 ::windows_core::imp::interface_hierarchy!(INumberFormatterOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl INumberFormatterOptions {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Languages(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -476,7 +475,6 @@ impl CurrencyFormatter {
             (::windows_core::Interface::vtable(this).Currency)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SetCurrency(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = self;
@@ -503,7 +501,6 @@ impl CurrencyFormatter {
             (::windows_core::Interface::vtable(this).CreateCurrencyFormatterCode)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(currencycode), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateCurrencyFormatterCodeContext<P0>(currencycode: &::windows_core::HSTRING, languages: P0, geographicregion: &::windows_core::HSTRING) -> ::windows_core::Result<CurrencyFormatter>
     where
@@ -556,7 +553,6 @@ impl CurrencyFormatter {
             (::windows_core::Interface::vtable(this).FormatDouble)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Languages(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = &::windows_core::Interface::cast::<INumberFormatterOptions>(self)?;
@@ -729,7 +725,6 @@ impl DecimalFormatter {
         static SHARED: ::windows_core::imp::FactoryCache<DecimalFormatter, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDecimalFormatter<P0>(languages: P0, geographicregion: &::windows_core::HSTRING) -> ::windows_core::Result<DecimalFormatter>
     where
@@ -782,7 +777,6 @@ impl DecimalFormatter {
             (::windows_core::Interface::vtable(this).FormatDouble)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Languages(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = &::windows_core::Interface::cast::<INumberFormatterOptions>(self)?;
@@ -1044,7 +1038,6 @@ impl NumeralSystemTranslator {
         static SHARED: ::windows_core::imp::FactoryCache<NumeralSystemTranslator, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Languages(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -1078,7 +1071,6 @@ impl NumeralSystemTranslator {
             (::windows_core::Interface::vtable(this).TranslateNumerals)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create<P0>(languages: P0) -> ::windows_core::Result<NumeralSystemTranslator>
     where
@@ -1162,7 +1154,6 @@ impl PercentFormatter {
             (::windows_core::Interface::vtable(this).FormatDouble)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Languages(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = &::windows_core::Interface::cast::<INumberFormatterOptions>(self)?;
@@ -1282,7 +1273,6 @@ impl PercentFormatter {
         let this = &::windows_core::Interface::cast::<INumberRounderOption>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetNumberRounder)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreatePercentFormatter<P0>(languages: P0, geographicregion: &::windows_core::HSTRING) -> ::windows_core::Result<PercentFormatter>
     where
@@ -1388,7 +1378,6 @@ impl PermilleFormatter {
             (::windows_core::Interface::vtable(this).FormatDouble)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Languages(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = &::windows_core::Interface::cast::<INumberFormatterOptions>(self)?;
@@ -1508,7 +1497,6 @@ impl PermilleFormatter {
         let this = &::windows_core::Interface::cast::<INumberRounderOption>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetNumberRounder)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreatePermilleFormatter<P0>(languages: P0, geographicregion: &::windows_core::HSTRING) -> ::windows_core::Result<PermilleFormatter>
     where

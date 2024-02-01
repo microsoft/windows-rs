@@ -829,7 +829,6 @@ impl IWSDOutboundAttachment_Vtbl {
         iid == &<IWSDOutboundAttachment as ::windows_core::Interface>::IID || iid == &<IWSDAttachment as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub trait IWSDSSLClientCertificate_Impl: Sized {
     fn GetClientCertificate(&self) -> ::windows_core::Result<*mut super::super::Security::Cryptography::CERT_CONTEXT>;
@@ -1271,7 +1270,6 @@ impl IWSDTransportAddress_Vtbl {
         iid == &<IWSDTransportAddress as ::windows_core::Interface>::IID || iid == &<IWSDAddress as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub trait IWSDUdpAddress_Impl: Sized + IWSDTransportAddress_Impl {
     fn SetSockaddr(&self, psockaddr: *const super::super::Networking::WinSock::SOCKADDR_STORAGE) -> ::windows_core::Result<()>;

@@ -14,7 +14,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn CallNamedPipeW(lpnamedpipename : ::windows_core::PCWSTR, lpinbuffer : *const ::core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut ::core::ffi::c_void, noutbuffersize : u32, lpbytesread : *mut u32, ntimeout : u32) -> super::super::Foundation:: BOOL);
     CallNamedPipeW(lpnamedpipename.into_param().abi(), ::core::mem::transmute(lpinbuffer.unwrap_or(::std::ptr::null())), ninbuffersize, ::core::mem::transmute(lpoutbuffer.unwrap_or(::std::ptr::null_mut())), noutbuffersize, lpbytesread, ntimeout)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ConnectNamedPipe<P0>(hnamedpipe: P0, lpoverlapped: ::core::option::Option<*mut super::IO::OVERLAPPED>) -> ::windows_core::Result<()>
@@ -24,7 +23,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn ConnectNamedPipe(hnamedpipe : super::super::Foundation:: HANDLE, lpoverlapped : *mut super::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     ConnectNamedPipe(hnamedpipe.into_param().abi(), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_Storage_FileSystem\"`"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_FileSystem"))]
 #[inline]
 pub unsafe fn CreateNamedPipeA<P0>(lpname: P0, dwopenmode: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, dwpipemode: NAMED_PIPE_MODE, nmaxinstances: u32, noutbuffersize: u32, ninbuffersize: u32, ndefaulttimeout: u32, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -35,7 +33,6 @@ where
     let result__ = CreateNamedPipeA(lpname.into_param().abi(), dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_Storage_FileSystem\"`"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_FileSystem"))]
 #[inline]
 pub unsafe fn CreateNamedPipeW<P0>(lpname: P0, dwopenmode: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, dwpipemode: NAMED_PIPE_MODE, nmaxinstances: u32, noutbuffersize: u32, ninbuffersize: u32, ndefaulttimeout: u32, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> super::super::Foundation::HANDLE
@@ -45,7 +42,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn CreateNamedPipeW(lpname : ::windows_core::PCWSTR, dwopenmode : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES, dwpipemode : NAMED_PIPE_MODE, nmaxinstances : u32, noutbuffersize : u32, ninbuffersize : u32, ndefaulttimeout : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: HANDLE);
     CreateNamedPipeW(lpname.into_param().abi(), dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreatePipe(hreadpipe: *mut super::super::Foundation::HANDLE, hwritepipe: *mut super::super::Foundation::HANDLE, lppipeattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, nsize: u32) -> ::windows_core::Result<()> {
@@ -173,7 +169,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn SetNamedPipeHandleState(hnamedpipe : super::super::Foundation:: HANDLE, lpmode : *const NAMED_PIPE_MODE, lpmaxcollectioncount : *const u32, lpcollectdatatimeout : *const u32) -> super::super::Foundation:: BOOL);
     SetNamedPipeHandleState(hnamedpipe.into_param().abi(), ::core::mem::transmute(lpmode.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpmaxcollectioncount.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpcollectdatatimeout.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn TransactNamedPipe<P0>(hnamedpipe: P0, lpinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, noutbuffersize: u32, lpbytesread: *mut u32, lpoverlapped: ::core::option::Option<*mut super::IO::OVERLAPPED>) -> ::windows_core::Result<()>

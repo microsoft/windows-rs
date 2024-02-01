@@ -78,7 +78,6 @@ pub unsafe fn DCIBeginAccess(pdci: *mut DCISURFACEINFO, x: i32, y: i32, dx: i32,
     ::windows_targets::link!("dciman32.dll" "system" fn DCIBeginAccess(pdci : *mut DCISURFACEINFO, x : i32, y : i32, dx : i32, dy : i32) -> i32);
     DCIBeginAccess(pdci, x, y, dx, dy)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DCICloseProvider<P0>(hdc: P0)
@@ -88,7 +87,6 @@ where
     ::windows_targets::link!("dciman32.dll" "system" fn DCICloseProvider(hdc : super::super::Graphics::Gdi:: HDC));
     DCICloseProvider(hdc.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DCICreateOffscreen<P0>(hdc: P0, dwcompression: u32, dwredmask: u32, dwgreenmask: u32, dwbluemask: u32, dwwidth: u32, dwheight: u32, dwdcicaps: u32, dwbitcount: u32, lplpsurface: *mut *mut DCIOFFSCREEN) -> i32
@@ -98,7 +96,6 @@ where
     ::windows_targets::link!("dciman32.dll" "system" fn DCICreateOffscreen(hdc : super::super::Graphics::Gdi:: HDC, dwcompression : u32, dwredmask : u32, dwgreenmask : u32, dwbluemask : u32, dwwidth : u32, dwheight : u32, dwdcicaps : u32, dwbitcount : u32, lplpsurface : *mut *mut DCIOFFSCREEN) -> i32);
     DCICreateOffscreen(hdc.into_param().abi(), dwcompression, dwredmask, dwgreenmask, dwbluemask, dwwidth, dwheight, dwdcicaps, dwbitcount, lplpsurface)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DCICreateOverlay<P0>(hdc: P0, lpoffscreensurf: *mut ::core::ffi::c_void, lplpsurface: *mut *mut DCIOVERLAY) -> i32
@@ -108,7 +105,6 @@ where
     ::windows_targets::link!("dciman32.dll" "system" fn DCICreateOverlay(hdc : super::super::Graphics::Gdi:: HDC, lpoffscreensurf : *mut ::core::ffi::c_void, lplpsurface : *mut *mut DCIOVERLAY) -> i32);
     DCICreateOverlay(hdc.into_param().abi(), lpoffscreensurf, lplpsurface)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DCICreatePrimary<P0>(hdc: P0, lplpsurface: *mut *mut DCISURFACEINFO) -> i32
@@ -133,7 +129,6 @@ pub unsafe fn DCIEndAccess(pdci: *mut DCISURFACEINFO) {
     ::windows_targets::link!("dciman32.dll" "system" fn DCIEndAccess(pdci : *mut DCISURFACEINFO));
     DCIEndAccess(pdci)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DCIEnum<P0>(hdc: P0, lprdst: *mut super::super::Foundation::RECT, lprsrc: *mut super::super::Foundation::RECT, lpfncallback: *mut ::core::ffi::c_void, lpcontext: *mut ::core::ffi::c_void) -> i32
@@ -143,14 +138,12 @@ where
     ::windows_targets::link!("dciman32.dll" "system" fn DCIEnum(hdc : super::super::Graphics::Gdi:: HDC, lprdst : *mut super::super::Foundation:: RECT, lprsrc : *mut super::super::Foundation:: RECT, lpfncallback : *mut ::core::ffi::c_void, lpcontext : *mut ::core::ffi::c_void) -> i32);
     DCIEnum(hdc.into_param().abi(), lprdst, lprsrc, lpfncallback, lpcontext)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DCIOpenProvider() -> super::super::Graphics::Gdi::HDC {
     ::windows_targets::link!("dciman32.dll" "system" fn DCIOpenProvider() -> super::super::Graphics::Gdi:: HDC);
     DCIOpenProvider()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DCISetClipList(pdci: *mut DCIOFFSCREEN, prd: *mut super::super::Graphics::Gdi::RGNDATA) -> i32 {
@@ -162,7 +155,6 @@ pub unsafe fn DCISetDestination(pdci: *mut DCIOFFSCREEN, dst: *mut super::super:
     ::windows_targets::link!("dciman32.dll" "system" fn DCISetDestination(pdci : *mut DCIOFFSCREEN, dst : *mut super::super::Foundation:: RECT, src : *mut super::super::Foundation:: RECT) -> i32);
     DCISetDestination(pdci, dst, src)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DCISetSrcDestClip(pdci: *mut DCIOFFSCREEN, srcrc: *mut super::super::Foundation::RECT, destrc: *mut super::super::Foundation::RECT, prd: *mut super::super::Graphics::Gdi::RGNDATA) -> i32 {
@@ -344,7 +336,6 @@ pub unsafe fn GetCurrentHwProfileW(lphwprofileinfo: *mut HW_PROFILE_INFOW) -> ::
     ::windows_targets::link!("advapi32.dll" "system" fn GetCurrentHwProfileW(lphwprofileinfo : *mut HW_PROFILE_INFOW) -> super::super::Foundation:: BOOL);
     GetCurrentHwProfileW(lphwprofileinfo).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetDCRegionData<P0>(hdc: P0, size: u32, prd: *mut super::super::Graphics::Gdi::RGNDATA) -> u32
@@ -607,7 +598,6 @@ where
     ::windows_targets::link!("advpack.dll" "system" fn GetVersionFromFileW(lpszfilename : ::windows_core::PCWSTR, pdwmsver : *mut u32, pdwlsver : *mut u32, bversion : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     GetVersionFromFileW(lpszfilename.into_param().abi(), pdwmsver, pdwlsver, bversion.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetWindowRegionData<P0>(hwnd: P0, size: u32, prd: *mut super::super::Graphics::Gdi::RGNDATA) -> u32
@@ -929,7 +919,6 @@ where
     ::windows_targets::link!("advpack.dll" "system" fn RegInstallW(hmod : super::super::Foundation:: HMODULE, pszsection : ::windows_core::PCWSTR, psttable : *const STRTABLEW) -> ::windows_core::HRESULT);
     RegInstallW(hmod.into_param().abi(), pszsection.into_param().abi(), psttable).ok()
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn RegRestoreAllA<P0, P1, P2>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2) -> ::windows_core::Result<()>
@@ -941,7 +930,6 @@ where
     ::windows_targets::link!("advpack.dll" "system" fn RegRestoreAllA(hwnd : super::super::Foundation:: HWND, psztitlestring : ::windows_core::PCSTR, hkbckupkey : super::Registry:: HKEY) -> ::windows_core::HRESULT);
     RegRestoreAllA(hwnd.into_param().abi(), psztitlestring.into_param().abi(), hkbckupkey.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn RegRestoreAllW<P0, P1, P2>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2) -> ::windows_core::Result<()>
@@ -953,7 +941,6 @@ where
     ::windows_targets::link!("advpack.dll" "system" fn RegRestoreAllW(hwnd : super::super::Foundation:: HWND, psztitlestring : ::windows_core::PCWSTR, hkbckupkey : super::Registry:: HKEY) -> ::windows_core::HRESULT);
     RegRestoreAllW(hwnd.into_param().abi(), psztitlestring.into_param().abi(), hkbckupkey.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn RegSaveRestoreA<P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2, pcszrootkey: P3, pcszsubkey: P4, pcszvaluename: P5, dwflags: u32) -> ::windows_core::Result<()>
@@ -968,7 +955,6 @@ where
     ::windows_targets::link!("advpack.dll" "system" fn RegSaveRestoreA(hwnd : super::super::Foundation:: HWND, psztitlestring : ::windows_core::PCSTR, hkbckupkey : super::Registry:: HKEY, pcszrootkey : ::windows_core::PCSTR, pcszsubkey : ::windows_core::PCSTR, pcszvaluename : ::windows_core::PCSTR, dwflags : u32) -> ::windows_core::HRESULT);
     RegSaveRestoreA(hwnd.into_param().abi(), psztitlestring.into_param().abi(), hkbckupkey.into_param().abi(), pcszrootkey.into_param().abi(), pcszsubkey.into_param().abi(), pcszvaluename.into_param().abi(), dwflags).ok()
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn RegSaveRestoreOnINFA<P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitle: P1, pszinf: P2, pszsection: P3, hhklmbackkey: P4, hhkcubackkey: P5, dwflags: u32) -> ::windows_core::Result<()>
@@ -983,7 +969,6 @@ where
     ::windows_targets::link!("advpack.dll" "system" fn RegSaveRestoreOnINFA(hwnd : super::super::Foundation:: HWND, psztitle : ::windows_core::PCSTR, pszinf : ::windows_core::PCSTR, pszsection : ::windows_core::PCSTR, hhklmbackkey : super::Registry:: HKEY, hhkcubackkey : super::Registry:: HKEY, dwflags : u32) -> ::windows_core::HRESULT);
     RegSaveRestoreOnINFA(hwnd.into_param().abi(), psztitle.into_param().abi(), pszinf.into_param().abi(), pszsection.into_param().abi(), hhklmbackkey.into_param().abi(), hhkcubackkey.into_param().abi(), dwflags).ok()
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn RegSaveRestoreOnINFW<P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitle: P1, pszinf: P2, pszsection: P3, hhklmbackkey: P4, hhkcubackkey: P5, dwflags: u32) -> ::windows_core::Result<()>
@@ -998,7 +983,6 @@ where
     ::windows_targets::link!("advpack.dll" "system" fn RegSaveRestoreOnINFW(hwnd : super::super::Foundation:: HWND, psztitle : ::windows_core::PCWSTR, pszinf : ::windows_core::PCWSTR, pszsection : ::windows_core::PCWSTR, hhklmbackkey : super::Registry:: HKEY, hhkcubackkey : super::Registry:: HKEY, dwflags : u32) -> ::windows_core::HRESULT);
     RegSaveRestoreOnINFW(hwnd.into_param().abi(), psztitle.into_param().abi(), pszinf.into_param().abi(), pszsection.into_param().abi(), hhklmbackkey.into_param().abi(), hhkcubackkey.into_param().abi(), dwflags).ok()
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn RegSaveRestoreW<P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2, pcszrootkey: P3, pcszsubkey: P4, pcszvaluename: P5, dwflags: u32) -> ::windows_core::Result<()>
@@ -1030,7 +1014,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn RequestDeviceWakeup(hdevice : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     RequestDeviceWakeup(hdevice.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlAnsiStringToUnicodeString<P0>(destinationstring: *mut super::super::Foundation::UNICODE_STRING, sourcestring: *mut super::Kernel::STRING, allocatedestinationstring: P0) -> super::super::Foundation::NTSTATUS
@@ -1045,14 +1028,12 @@ pub unsafe fn RtlCharToInteger(string: *mut i8, base: u32, value: *mut u32) -> s
     ::windows_targets::link!("ntdll.dll" "system" fn RtlCharToInteger(string : *mut i8, base : u32, value : *mut u32) -> super::super::Foundation:: NTSTATUS);
     RtlCharToInteger(string, base, value)
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlFreeAnsiString(ansistring: *mut super::Kernel::STRING) {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlFreeAnsiString(ansistring : *mut super::Kernel:: STRING));
     RtlFreeAnsiString(ansistring)
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlFreeOemString(oemstring: *mut super::Kernel::STRING) {
@@ -1069,28 +1050,24 @@ pub unsafe fn RtlGetReturnAddressHijackTarget() -> usize {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlGetReturnAddressHijackTarget() -> usize);
     RtlGetReturnAddressHijackTarget()
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlInitAnsiString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8) {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlInitAnsiString(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut i8));
     RtlInitAnsiString(destinationstring, sourcestring)
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlInitAnsiStringEx(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8) -> super::super::Foundation::NTSTATUS {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlInitAnsiStringEx(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut i8) -> super::super::Foundation:: NTSTATUS);
     RtlInitAnsiStringEx(destinationstring, sourcestring)
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlInitString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8) {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlInitString(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut i8));
     RtlInitString(destinationstring, sourcestring)
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlInitStringEx(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8) -> super::super::Foundation::NTSTATUS {
@@ -1105,7 +1082,6 @@ where
     ::windows_targets::link!("ntdll.dll" "system" fn RtlInitUnicodeString(destinationstring : *mut super::super::Foundation:: UNICODE_STRING, sourcestring : ::windows_core::PCWSTR));
     RtlInitUnicodeString(destinationstring, sourcestring.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlIsNameLegalDOS8Dot3(name: *mut super::super::Foundation::UNICODE_STRING, oemname: *mut super::Kernel::STRING, namecontainsspaces: *mut super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOLEAN {
@@ -1127,7 +1103,6 @@ pub unsafe fn RtlTimeToSecondsSince1970(time: *mut i64, elapsedseconds: *mut u32
     ::windows_targets::link!("ntdll.dll" "system" fn RtlTimeToSecondsSince1970(time : *mut i64, elapsedseconds : *mut u32) -> super::super::Foundation:: BOOLEAN);
     RtlTimeToSecondsSince1970(time, elapsedseconds)
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlUnicodeStringToAnsiString<P0>(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: P0) -> super::super::Foundation::NTSTATUS
@@ -1137,7 +1112,6 @@ where
     ::windows_targets::link!("ntdll.dll" "system" fn RtlUnicodeStringToAnsiString(destinationstring : *mut super::Kernel:: STRING, sourcestring : *mut super::super::Foundation:: UNICODE_STRING, allocatedestinationstring : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: NTSTATUS);
     RtlUnicodeStringToAnsiString(destinationstring, sourcestring, allocatedestinationstring.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlUnicodeStringToOemString<P0>(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: P0) -> super::super::Foundation::NTSTATUS
@@ -1405,7 +1379,6 @@ where
     ::windows_targets::link!("dciman32.dll" "system" fn WinWatchDidStatusChange(hww : HWINWATCH) -> super::super::Foundation:: BOOL);
     WinWatchDidStatusChange(hww.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn WinWatchGetClipList<P0>(hww: P0, prc: *mut super::super::Foundation::RECT, size: u32, prd: *mut super::super::Graphics::Gdi::RGNDATA) -> u32
@@ -1451,7 +1424,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     WldpCanExecuteFile(host, options, filehandle.into_param().abi(), auditinfo.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WldpCanExecuteStream<P0, P1>(host: *const ::windows_core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: P0, auditinfo: P1) -> ::windows_core::Result<WLDP_EXECUTION_POLICY>
@@ -1722,7 +1694,6 @@ impl ICameraUIControl {
     pub unsafe fn GetActiveItem(&self, pbstractiveitempath: ::core::option::Option<*mut ::windows_core::BSTR>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetActiveItem)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbstractiveitempath.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelectedItems(&self) -> ::windows_core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -1849,7 +1820,6 @@ pub struct IDeleteBrowsingHistory_Vtbl {
 ::windows_core::imp::com_interface!(IEditionUpgradeBroker, IEditionUpgradeBroker_Vtbl, 0xff19cbcf_9455_4937_b872_6b7929a460af);
 ::windows_core::imp::interface_hierarchy!(IEditionUpgradeBroker, ::windows_core::IUnknown);
 impl IEditionUpgradeBroker {
-    #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn InitializeParentWindow<P0>(&self, parenthandle: P0) -> ::windows_core::Result<()>
     where
@@ -4090,7 +4060,6 @@ impl ::core::default::Default for JIT_DEBUG_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct LDR_DATA_TABLE_ENTRY {
     pub Reserved1: [*mut ::core::ffi::c_void; 2],
@@ -4123,7 +4092,6 @@ impl ::core::default::Default for LDR_DATA_TABLE_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub union LDR_DATA_TABLE_ENTRY_0 {
     pub CheckSum: u32,
@@ -5293,7 +5261,6 @@ pub type PQUERYACTCTXW_FUNC = ::core::option::Option<unsafe extern "system" fn(d
 pub type PWINSTATIONQUERYINFORMATIONW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut ::core::ffi::c_void, param4: u32, param5: *mut u32) -> super::super::Foundation::BOOLEAN>;
 pub type PWLDP_CANEXECUTEBUFFER_API = ::core::option::Option<unsafe extern "system" fn(host: *const ::windows_core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, buffer: *const u8, buffersize: u32, auditinfo: ::windows_core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> ::windows_core::HRESULT>;
 pub type PWLDP_CANEXECUTEFILE_API = ::core::option::Option<unsafe extern "system" fn(host: *const ::windows_core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: super::super::Foundation::HANDLE, auditinfo: ::windows_core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub type PWLDP_CANEXECUTESTREAM_API = ::core::option::Option<unsafe extern "system" fn(host: *const ::windows_core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: ::core::option::Option<super::Com::IStream>, auditinfo: ::windows_core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> ::windows_core::HRESULT>;
 pub type PWLDP_ISAPPAPPROVEDBYPOLICY_API = ::core::option::Option<unsafe extern "system" fn(packagefamilyname: ::windows_core::PCWSTR, packageversion: u64) -> ::windows_core::HRESULT>;

@@ -1,10 +1,5 @@
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDClient,
-    INDClient_Vtbl,
-    0x3bd6781b_61b8_46e2_99a5_8abcb6b9f7d6
-);
+::windows_core::imp::com_interface!(INDClient, INDClient_Vtbl, 0x3bd6781b_61b8_46e2_99a5_8abcb6b9f7d6);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -68,12 +63,7 @@ pub struct INDClient_Vtbl {
     Close: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDClientFactory,
-    INDClientFactory_Vtbl,
-    0x3e53dd62_fee8_451f_b0d4_f706cca3e037
-);
+::windows_core::imp::com_interface!(INDClientFactory, INDClientFactory_Vtbl, 0x3e53dd62_fee8_451f_b0d4_f706cca3e037);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -85,17 +75,11 @@ pub struct INDClientFactory_Vtbl {
     CreateInstance: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDClosedCaptionDataReceivedEventArgs,
-    INDClosedCaptionDataReceivedEventArgs_Vtbl,
-    0x4738d29f_c345_4649_8468_b8c5fc357190
-);
+::windows_core::imp::com_interface!(INDClosedCaptionDataReceivedEventArgs, INDClosedCaptionDataReceivedEventArgs_Vtbl, 0x4738d29f_c345_4649_8468_b8c5fc357190);
 #[cfg(feature = "deprecated")]
 ::windows_core::imp::interface_hierarchy!(INDClosedCaptionDataReceivedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl INDClosedCaptionDataReceivedEventArgs {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ClosedCaptionDataFormat(&self) -> ::windows_core::Result<NDClosedCaptionFormat> {
         let this = self;
@@ -104,7 +88,6 @@ impl INDClosedCaptionDataReceivedEventArgs {
             (::windows_core::Interface::vtable(this).ClosedCaptionDataFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn PresentationTimestamp(&self) -> ::windows_core::Result<i64> {
         let this = self;
@@ -113,7 +96,6 @@ impl INDClosedCaptionDataReceivedEventArgs {
             (::windows_core::Interface::vtable(this).PresentationTimestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ClosedCaptionData(&self) -> ::windows_core::Result<::windows_core::Array<u8>> {
         let this = self;
@@ -146,17 +128,11 @@ pub struct INDClosedCaptionDataReceivedEventArgs_Vtbl {
     ClosedCaptionData: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDCustomData,
-    INDCustomData_Vtbl,
-    0xf5cb0fdc_2d09_4f19_b5e1_76a0b3ee9267
-);
+::windows_core::imp::com_interface!(INDCustomData, INDCustomData_Vtbl, 0xf5cb0fdc_2d09_4f19_b5e1_76a0b3ee9267);
 #[cfg(feature = "deprecated")]
 ::windows_core::imp::interface_hierarchy!(INDCustomData, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl INDCustomData {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn CustomDataTypeID(&self) -> ::windows_core::Result<::windows_core::Array<u8>> {
         let this = self;
@@ -165,7 +141,6 @@ impl INDCustomData {
             (::windows_core::Interface::vtable(this).CustomDataTypeID)(::windows_core::Interface::as_raw(this), ::windows_core::Array::<u8>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn CustomData(&self) -> ::windows_core::Result<::windows_core::Array<u8>> {
         let this = self;
@@ -194,12 +169,7 @@ pub struct INDCustomData_Vtbl {
     CustomData: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDCustomDataFactory,
-    INDCustomDataFactory_Vtbl,
-    0xd65405ab_3424_4833_8c9a_af5fdeb22872
-);
+::windows_core::imp::com_interface!(INDCustomDataFactory, INDCustomDataFactory_Vtbl, 0xd65405ab_3424_4833_8c9a_af5fdeb22872);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -211,17 +181,11 @@ pub struct INDCustomDataFactory_Vtbl {
     CreateInstance: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDDownloadEngine,
-    INDDownloadEngine_Vtbl,
-    0x2d223d65_c4b6_4438_8d46_b96e6d0fb21f
-);
+::windows_core::imp::com_interface!(INDDownloadEngine, INDDownloadEngine_Vtbl, 0x2d223d65_c4b6_4438_8d46_b96e6d0fb21f);
 #[cfg(feature = "deprecated")]
 ::windows_core::imp::interface_hierarchy!(INDDownloadEngine, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl INDDownloadEngine {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Open<P0>(&self, uri: P0, sessionidbytes: &[u8]) -> ::windows_core::Result<()>
     where
@@ -230,31 +194,26 @@ impl INDDownloadEngine {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Open)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr()).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Pause(&self) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Pause)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Resume(&self) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Resume)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Seek(&self, startposition: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Seek)(::windows_core::Interface::as_raw(this), startposition).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn CanSeek(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -263,7 +222,6 @@ impl INDDownloadEngine {
             (::windows_core::Interface::vtable(this).CanSeek)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn BufferFullMinThresholdInSamples(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -272,7 +230,6 @@ impl INDDownloadEngine {
             (::windows_core::Interface::vtable(this).BufferFullMinThresholdInSamples)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn BufferFullMaxThresholdInSamples(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -281,7 +238,6 @@ impl INDDownloadEngine {
             (::windows_core::Interface::vtable(this).BufferFullMaxThresholdInSamples)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Notifier(&self) -> ::windows_core::Result<NDDownloadEngineNotifier> {
         let this = self;
@@ -338,29 +294,21 @@ pub struct INDDownloadEngine_Vtbl {
     Notifier: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDDownloadEngineNotifier,
-    INDDownloadEngineNotifier_Vtbl,
-    0xd720b4d4_f4b8_4530_a809_9193a571e7fc
-);
+::windows_core::imp::com_interface!(INDDownloadEngineNotifier, INDDownloadEngineNotifier_Vtbl, 0xd720b4d4_f4b8_4530_a809_9193a571e7fc);
 #[cfg(feature = "deprecated")]
 ::windows_core::imp::interface_hierarchy!(INDDownloadEngineNotifier, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl INDDownloadEngineNotifier {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn OnStreamOpened(&self) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).OnStreamOpened)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn OnPlayReadyObjectReceived(&self, databytes: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).OnPlayReadyObjectReceived)(::windows_core::Interface::as_raw(this), databytes.len().try_into().unwrap(), databytes.as_ptr()).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn OnContentIDReceived<P0>(&self, licensefetchdescriptor: P0) -> ::windows_core::Result<()>
     where
@@ -369,19 +317,16 @@ impl INDDownloadEngineNotifier {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).OnContentIDReceived)(::windows_core::Interface::as_raw(this), licensefetchdescriptor.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn OnDataReceived(&self, databytes: &[u8], bytesreceived: u32) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).OnDataReceived)(::windows_core::Interface::as_raw(this), databytes.len().try_into().unwrap(), databytes.as_ptr(), bytesreceived).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn OnEndOfStream(&self) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).OnEndOfStream)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn OnNetworkError(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -423,17 +368,11 @@ pub struct INDDownloadEngineNotifier_Vtbl {
     OnNetworkError: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDLicenseFetchCompletedEventArgs,
-    INDLicenseFetchCompletedEventArgs_Vtbl,
-    0x1ee30a1a_11b2_4558_8865_e3a516922517
-);
+::windows_core::imp::com_interface!(INDLicenseFetchCompletedEventArgs, INDLicenseFetchCompletedEventArgs_Vtbl, 0x1ee30a1a_11b2_4558_8865_e3a516922517);
 #[cfg(feature = "deprecated")]
 ::windows_core::imp::interface_hierarchy!(INDLicenseFetchCompletedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl INDLicenseFetchCompletedEventArgs {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ResponseCustomData(&self) -> ::windows_core::Result<INDCustomData> {
         let this = self;
@@ -458,17 +397,11 @@ pub struct INDLicenseFetchCompletedEventArgs_Vtbl {
     ResponseCustomData: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDLicenseFetchDescriptor,
-    INDLicenseFetchDescriptor_Vtbl,
-    0x5498d33a_e686_4935_a567_7ca77ad20fa4
-);
+::windows_core::imp::com_interface!(INDLicenseFetchDescriptor, INDLicenseFetchDescriptor_Vtbl, 0x5498d33a_e686_4935_a567_7ca77ad20fa4);
 #[cfg(feature = "deprecated")]
 ::windows_core::imp::interface_hierarchy!(INDLicenseFetchDescriptor, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl INDLicenseFetchDescriptor {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ContentIDType(&self) -> ::windows_core::Result<NDContentIDType> {
         let this = self;
@@ -477,7 +410,6 @@ impl INDLicenseFetchDescriptor {
             (::windows_core::Interface::vtable(this).ContentIDType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ContentID(&self) -> ::windows_core::Result<::windows_core::Array<u8>> {
         let this = self;
@@ -486,7 +418,6 @@ impl INDLicenseFetchDescriptor {
             (::windows_core::Interface::vtable(this).ContentID)(::windows_core::Interface::as_raw(this), ::windows_core::Array::<u8>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn LicenseFetchChallengeCustomData(&self) -> ::windows_core::Result<INDCustomData> {
         let this = self;
@@ -495,7 +426,6 @@ impl INDLicenseFetchDescriptor {
             (::windows_core::Interface::vtable(this).LicenseFetchChallengeCustomData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SetLicenseFetchChallengeCustomData<P0>(&self, licensefetchchallengecustomdata: P0) -> ::windows_core::Result<()>
     where
@@ -532,12 +462,7 @@ pub struct INDLicenseFetchDescriptor_Vtbl {
     SetLicenseFetchChallengeCustomData: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDLicenseFetchDescriptorFactory,
-    INDLicenseFetchDescriptorFactory_Vtbl,
-    0xd0031202_cfac_4f00_ae6a_97af80b848f2
-);
+::windows_core::imp::com_interface!(INDLicenseFetchDescriptorFactory, INDLicenseFetchDescriptorFactory_Vtbl, 0xd0031202_cfac_4f00_ae6a_97af80b848f2);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -549,17 +474,11 @@ pub struct INDLicenseFetchDescriptorFactory_Vtbl {
     CreateInstance: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDLicenseFetchResult,
-    INDLicenseFetchResult_Vtbl,
-    0x21d39698_aa62_45ff_a5ff_8037e5433825
-);
+::windows_core::imp::com_interface!(INDLicenseFetchResult, INDLicenseFetchResult_Vtbl, 0x21d39698_aa62_45ff_a5ff_8037e5433825);
 #[cfg(feature = "deprecated")]
 ::windows_core::imp::interface_hierarchy!(INDLicenseFetchResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl INDLicenseFetchResult {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ResponseCustomData(&self) -> ::windows_core::Result<INDCustomData> {
         let this = self;
@@ -584,17 +503,11 @@ pub struct INDLicenseFetchResult_Vtbl {
     ResponseCustomData: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDMessenger,
-    INDMessenger_Vtbl,
-    0xd42df95d_a75b_47bf_8249_bc83820da38a
-);
+::windows_core::imp::com_interface!(INDMessenger, INDMessenger_Vtbl, 0xd42df95d_a75b_47bf_8249_bc83820da38a);
 #[cfg(feature = "deprecated")]
 ::windows_core::imp::interface_hierarchy!(INDMessenger, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl INDMessenger {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SendRegistrationRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
@@ -603,7 +516,6 @@ impl INDMessenger {
             (::windows_core::Interface::vtable(this).SendRegistrationRequestAsync)(::windows_core::Interface::as_raw(this), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), challengedatabytes.len().try_into().unwrap(), challengedatabytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SendProximityDetectionStartAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
@@ -612,7 +524,6 @@ impl INDMessenger {
             (::windows_core::Interface::vtable(this).SendProximityDetectionStartAsync)(::windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len().try_into().unwrap(), transmitterchannelbytes.as_ptr(), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), challengedatabytes.len().try_into().unwrap(), challengedatabytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SendProximityDetectionResponseAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
@@ -621,7 +532,6 @@ impl INDMessenger {
             (::windows_core::Interface::vtable(this).SendProximityDetectionResponseAsync)(::windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len().try_into().unwrap(), transmitterchannelbytes.as_ptr(), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), responsedatabytes.len().try_into().unwrap(), responsedatabytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SendLicenseFetchRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
@@ -658,17 +568,11 @@ pub struct INDMessenger_Vtbl {
     SendLicenseFetchRequestAsync: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDProximityDetectionCompletedEventArgs,
-    INDProximityDetectionCompletedEventArgs_Vtbl,
-    0x2a706328_da25_4f8c_9eb7_5d0fc3658bca
-);
+::windows_core::imp::com_interface!(INDProximityDetectionCompletedEventArgs, INDProximityDetectionCompletedEventArgs_Vtbl, 0x2a706328_da25_4f8c_9eb7_5d0fc3658bca);
 #[cfg(feature = "deprecated")]
 ::windows_core::imp::interface_hierarchy!(INDProximityDetectionCompletedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl INDProximityDetectionCompletedEventArgs {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ProximityDetectionRetryCount(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -693,17 +597,11 @@ pub struct INDProximityDetectionCompletedEventArgs_Vtbl {
     ProximityDetectionRetryCount: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDRegistrationCompletedEventArgs,
-    INDRegistrationCompletedEventArgs_Vtbl,
-    0x9e39b64d_ab5b_4905_acdc_787a77c6374d
-);
+::windows_core::imp::com_interface!(INDRegistrationCompletedEventArgs, INDRegistrationCompletedEventArgs_Vtbl, 0x9e39b64d_ab5b_4905_acdc_787a77c6374d);
 #[cfg(feature = "deprecated")]
 ::windows_core::imp::interface_hierarchy!(INDRegistrationCompletedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl INDRegistrationCompletedEventArgs {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ResponseCustomData(&self) -> ::windows_core::Result<INDCustomData> {
         let this = self;
@@ -712,7 +610,6 @@ impl INDRegistrationCompletedEventArgs {
             (::windows_core::Interface::vtable(this).ResponseCustomData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn TransmitterProperties(&self) -> ::windows_core::Result<INDTransmitterProperties> {
         let this = self;
@@ -721,7 +618,6 @@ impl INDRegistrationCompletedEventArgs {
             (::windows_core::Interface::vtable(this).TransmitterProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn TransmitterCertificateAccepted(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -730,7 +626,6 @@ impl INDRegistrationCompletedEventArgs {
             (::windows_core::Interface::vtable(this).TransmitterCertificateAccepted)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SetTransmitterCertificateAccepted(&self, accept: bool) -> ::windows_core::Result<()> {
         let this = self;
@@ -764,17 +659,11 @@ pub struct INDRegistrationCompletedEventArgs_Vtbl {
     SetTransmitterCertificateAccepted: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDSendResult,
-    INDSendResult_Vtbl,
-    0xe3685517_a584_479d_90b7_d689c7bf7c80
-);
+::windows_core::imp::com_interface!(INDSendResult, INDSendResult_Vtbl, 0xe3685517_a584_479d_90b7_d689c7bf7c80);
 #[cfg(feature = "deprecated")]
 ::windows_core::imp::interface_hierarchy!(INDSendResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl INDSendResult {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Response(&self) -> ::windows_core::Result<::windows_core::Array<u8>> {
         let this = self;
@@ -799,17 +688,11 @@ pub struct INDSendResult_Vtbl {
     Response: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDStartResult,
-    INDStartResult_Vtbl,
-    0x79f6e96e_f50f_4015_8ba4_c2bc344ebd4e
-);
+::windows_core::imp::com_interface!(INDStartResult, INDStartResult_Vtbl, 0x79f6e96e_f50f_4015_8ba4_c2bc344ebd4e);
 #[cfg(feature = "deprecated")]
 ::windows_core::imp::interface_hierarchy!(INDStartResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl INDStartResult {
-    #[doc = "Required features: `\"Media_Core\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
     pub fn MediaStreamSource(&self) -> ::windows_core::Result<super::super::Core::MediaStreamSource> {
         let this = self;
@@ -834,17 +717,11 @@ pub struct INDStartResult_Vtbl {
     MediaStreamSource: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDStorageFileHelper,
-    INDStorageFileHelper_Vtbl,
-    0xd8f0bef8_91d2_4d47_a3f9_eaff4edb729f
-);
+::windows_core::imp::com_interface!(INDStorageFileHelper, INDStorageFileHelper_Vtbl, 0xd8f0bef8_91d2_4d47_a3f9_eaff4edb729f);
 #[cfg(feature = "deprecated")]
 ::windows_core::imp::interface_hierarchy!(INDStorageFileHelper, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl INDStorageFileHelper {
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
     pub fn GetFileURLs<P0>(&self, file: P0) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>
     where
@@ -872,23 +749,16 @@ pub struct INDStorageFileHelper_Vtbl {
     GetFileURLs: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDStreamParser,
-    INDStreamParser_Vtbl,
-    0xe0baa198_9796_41c9_8695_59437e67e66a
-);
+::windows_core::imp::com_interface!(INDStreamParser, INDStreamParser_Vtbl, 0xe0baa198_9796_41c9_8695_59437e67e66a);
 #[cfg(feature = "deprecated")]
 ::windows_core::imp::interface_hierarchy!(INDStreamParser, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl INDStreamParser {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ParseData(&self, databytes: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).ParseData)(::windows_core::Interface::as_raw(this), databytes.len().try_into().unwrap(), databytes.as_ptr()).ok() }
     }
-    #[doc = "Required features: `\"Media_Core\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
     pub fn GetStreamInformation<P0>(&self, descriptor: P0, streamtype: &mut NDMediaStreamType) -> ::windows_core::Result<u32>
     where
@@ -900,19 +770,16 @@ impl INDStreamParser {
             (::windows_core::Interface::vtable(this).GetStreamInformation)(::windows_core::Interface::as_raw(this), descriptor.into_param().abi(), streamtype, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn BeginOfStream(&self) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).BeginOfStream)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn EndOfStream(&self) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).EndOfStream)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Notifier(&self) -> ::windows_core::Result<NDStreamParserNotifier> {
         let this = self;
@@ -953,17 +820,11 @@ pub struct INDStreamParser_Vtbl {
     Notifier: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDStreamParserNotifier,
-    INDStreamParserNotifier_Vtbl,
-    0xc167acd0_2ce6_426c_ace5_5e9275fea715
-);
+::windows_core::imp::com_interface!(INDStreamParserNotifier, INDStreamParserNotifier_Vtbl, 0xc167acd0_2ce6_426c_ace5_5e9275fea715);
 #[cfg(feature = "deprecated")]
 ::windows_core::imp::interface_hierarchy!(INDStreamParserNotifier, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl INDStreamParserNotifier {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn OnContentIDReceived<P0>(&self, licensefetchdescriptor: P0) -> ::windows_core::Result<()>
     where
@@ -972,7 +833,6 @@ impl INDStreamParserNotifier {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).OnContentIDReceived)(::windows_core::Interface::as_raw(this), licensefetchdescriptor.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Core\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
     pub fn OnMediaStreamDescriptorCreated<P0, P1>(&self, audiostreamdescriptors: P0, videostreamdescriptors: P1) -> ::windows_core::Result<()>
     where
@@ -982,7 +842,6 @@ impl INDStreamParserNotifier {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).OnMediaStreamDescriptorCreated)(::windows_core::Interface::as_raw(this), audiostreamdescriptors.into_param().abi(), videostreamdescriptors.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Media_Core\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
     pub fn OnSampleParsed<P0>(&self, streamid: u32, streamtype: NDMediaStreamType, streamsample: P0, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes: &[u8]) -> ::windows_core::Result<()>
     where
@@ -991,7 +850,6 @@ impl INDStreamParserNotifier {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).OnSampleParsed)(::windows_core::Interface::as_raw(this), streamid, streamtype, streamsample.into_param().abi(), pts, ccformat, ccdatabytes.len().try_into().unwrap(), ccdatabytes.as_ptr()).ok() }
     }
-    #[doc = "Required features: `\"Media_Core\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
     pub fn OnBeginSetupDecryptor<P0>(&self, descriptor: P0, keyid: ::windows_core::GUID, probytes: &[u8]) -> ::windows_core::Result<()>
     where
@@ -1028,12 +886,7 @@ pub struct INDStreamParserNotifier_Vtbl {
     OnBeginSetupDecryptor: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDTCPMessengerFactory,
-    INDTCPMessengerFactory_Vtbl,
-    0x7dd85cfe_1b99_4f68_8f82_8177f7cedf2b
-);
+::windows_core::imp::com_interface!(INDTCPMessengerFactory, INDTCPMessengerFactory_Vtbl, 0x7dd85cfe_1b99_4f68_8f82_8177f7cedf2b);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -1045,17 +898,11 @@ pub struct INDTCPMessengerFactory_Vtbl {
     CreateInstance: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    INDTransmitterProperties,
-    INDTransmitterProperties_Vtbl,
-    0xe536af23_ac4f_4adc_8c66_4ff7c2702dd6
-);
+::windows_core::imp::com_interface!(INDTransmitterProperties, INDTransmitterProperties_Vtbl, 0xe536af23_ac4f_4adc_8c66_4ff7c2702dd6);
 #[cfg(feature = "deprecated")]
 ::windows_core::imp::interface_hierarchy!(INDTransmitterProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl INDTransmitterProperties {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn CertificateType(&self) -> ::windows_core::Result<NDCertificateType> {
         let this = self;
@@ -1064,7 +911,6 @@ impl INDTransmitterProperties {
             (::windows_core::Interface::vtable(this).CertificateType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn PlatformIdentifier(&self) -> ::windows_core::Result<NDCertificatePlatformID> {
         let this = self;
@@ -1073,7 +919,6 @@ impl INDTransmitterProperties {
             (::windows_core::Interface::vtable(this).PlatformIdentifier)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SupportedFeatures(&self) -> ::windows_core::Result<::windows_core::Array<NDCertificateFeature>> {
         let this = self;
@@ -1082,7 +927,6 @@ impl INDTransmitterProperties {
             (::windows_core::Interface::vtable(this).SupportedFeatures)(::windows_core::Interface::as_raw(this), ::windows_core::Array::<NDCertificateFeature>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SecurityLevel(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -1091,7 +935,6 @@ impl INDTransmitterProperties {
             (::windows_core::Interface::vtable(this).SecurityLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SecurityVersion(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -1100,7 +943,6 @@ impl INDTransmitterProperties {
             (::windows_core::Interface::vtable(this).SecurityVersion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ExpirationDate(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -1109,7 +951,6 @@ impl INDTransmitterProperties {
             (::windows_core::Interface::vtable(this).ExpirationDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ClientID(&self) -> ::windows_core::Result<::windows_core::Array<u8>> {
         let this = self;
@@ -1118,7 +959,6 @@ impl INDTransmitterProperties {
             (::windows_core::Interface::vtable(this).ClientID)(::windows_core::Interface::as_raw(this), ::windows_core::Array::<u8>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ModelDigest(&self) -> ::windows_core::Result<::windows_core::Array<u8>> {
         let this = self;
@@ -1127,7 +967,6 @@ impl INDTransmitterProperties {
             (::windows_core::Interface::vtable(this).ModelDigest)(::windows_core::Interface::as_raw(this), ::windows_core::Array::<u8>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ModelManufacturerName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1136,7 +975,6 @@ impl INDTransmitterProperties {
             (::windows_core::Interface::vtable(this).ModelManufacturerName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ModelName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1145,7 +983,6 @@ impl INDTransmitterProperties {
             (::windows_core::Interface::vtable(this).ModelName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ModelNumber(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1616,7 +1453,6 @@ pub struct IPlayReadyLicenseSession_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IPlayReadyLicenseSession2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(IPlayReadyLicenseSession2, IPlayReadyLicenseSession);
 impl IPlayReadyLicenseSession2 {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateLicenseIterable<P0>(&self, contentheader: P0, fullyevaluated: bool) -> ::windows_core::Result<PlayReadyLicenseIterable>
     where
@@ -1978,7 +1814,6 @@ pub struct IPlayReadyStatics5_Vtbl {
     pub HardwareDRMDisabledUntilTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ResetHardwareDRMDisabled: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1987,7 +1822,6 @@ pub struct NDClient(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(NDClient, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 impl NDClient {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RegistrationCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -1999,13 +1833,11 @@ impl NDClient {
             (::windows_core::Interface::vtable(this).RegistrationCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RemoveRegistrationCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRegistrationCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ProximityDetectionCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -2017,13 +1849,11 @@ impl NDClient {
             (::windows_core::Interface::vtable(this).ProximityDetectionCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RemoveProximityDetectionCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveProximityDetectionCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn LicenseFetchCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -2035,13 +1865,11 @@ impl NDClient {
             (::windows_core::Interface::vtable(this).LicenseFetchCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RemoveLicenseFetchCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveLicenseFetchCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ReRegistrationNeeded<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -2053,13 +1881,11 @@ impl NDClient {
             (::windows_core::Interface::vtable(this).ReRegistrationNeeded)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RemoveReRegistrationNeeded(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveReRegistrationNeeded)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ClosedCaptionDataReceived<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -2071,13 +1897,11 @@ impl NDClient {
             (::windows_core::Interface::vtable(this).ClosedCaptionDataReceived)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RemoveClosedCaptionDataReceived(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveClosedCaptionDataReceived)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn StartAsync<P0, P1, P2>(&self, contenturl: P0, startasyncoptions: u32, registrationcustomdata: P1, licensefetchdescriptor: P2) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<INDStartResult>>
     where
@@ -2091,7 +1915,6 @@ impl NDClient {
             (::windows_core::Interface::vtable(this).StartAsync)(::windows_core::Interface::as_raw(this), contenturl.into_param().abi(), startasyncoptions, registrationcustomdata.into_param().abi(), licensefetchdescriptor.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn LicenseFetchAsync<P0>(&self, licensefetchdescriptor: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<INDLicenseFetchResult>>
     where
@@ -2103,7 +1926,6 @@ impl NDClient {
             (::windows_core::Interface::vtable(this).LicenseFetchAsync)(::windows_core::Interface::as_raw(this), licensefetchdescriptor.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ReRegistrationAsync<P0>(&self, registrationcustomdata: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -2115,13 +1937,11 @@ impl NDClient {
             (::windows_core::Interface::vtable(this).ReRegistrationAsync)(::windows_core::Interface::as_raw(this), registrationcustomdata.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn CreateInstance<P0, P1, P2>(downloadengine: P0, streamparser: P1, pmessenger: P2) -> ::windows_core::Result<NDClient>
     where
@@ -2154,7 +1974,6 @@ unsafe impl ::windows_core::Interface for NDClient {
 impl ::windows_core::RuntimeName for NDClient {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDClient";
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2165,7 +1984,6 @@ pub struct NDCustomData(::windows_core::IUnknown);
 ::windows_core::imp::required_hierarchy!(NDCustomData, INDCustomData);
 #[cfg(feature = "deprecated")]
 impl NDCustomData {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn CustomDataTypeID(&self) -> ::windows_core::Result<::windows_core::Array<u8>> {
         let this = self;
@@ -2174,7 +1992,6 @@ impl NDCustomData {
             (::windows_core::Interface::vtable(this).CustomDataTypeID)(::windows_core::Interface::as_raw(this), ::windows_core::Array::<u8>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn CustomData(&self) -> ::windows_core::Result<::windows_core::Array<u8>> {
         let this = self;
@@ -2183,7 +2000,6 @@ impl NDCustomData {
             (::windows_core::Interface::vtable(this).CustomData)(::windows_core::Interface::as_raw(this), ::windows_core::Array::<u8>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn CreateInstance(customdatatypeidbytes: &[u8], customdatabytes: &[u8]) -> ::windows_core::Result<NDCustomData> {
         Self::INDCustomDataFactory(|this| unsafe {
@@ -2211,7 +2027,6 @@ unsafe impl ::windows_core::Interface for NDCustomData {
 impl ::windows_core::RuntimeName for NDCustomData {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDCustomData";
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2229,19 +2044,16 @@ impl NDDownloadEngineNotifier {
         static SHARED: ::windows_core::imp::FactoryCache<NDDownloadEngineNotifier, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn OnStreamOpened(&self) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).OnStreamOpened)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn OnPlayReadyObjectReceived(&self, databytes: &[u8]) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).OnPlayReadyObjectReceived)(::windows_core::Interface::as_raw(this), databytes.len().try_into().unwrap(), databytes.as_ptr()).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn OnContentIDReceived<P0>(&self, licensefetchdescriptor: P0) -> ::windows_core::Result<()>
     where
@@ -2250,19 +2062,16 @@ impl NDDownloadEngineNotifier {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).OnContentIDReceived)(::windows_core::Interface::as_raw(this), licensefetchdescriptor.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn OnDataReceived(&self, databytes: &[u8], bytesreceived: u32) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).OnDataReceived)(::windows_core::Interface::as_raw(this), databytes.len().try_into().unwrap(), databytes.as_ptr(), bytesreceived).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn OnEndOfStream(&self) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).OnEndOfStream)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn OnNetworkError(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -2282,7 +2091,6 @@ unsafe impl ::windows_core::Interface for NDDownloadEngineNotifier {
 impl ::windows_core::RuntimeName for NDDownloadEngineNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDDownloadEngineNotifier";
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2293,7 +2101,6 @@ pub struct NDLicenseFetchDescriptor(::windows_core::IUnknown);
 ::windows_core::imp::required_hierarchy!(NDLicenseFetchDescriptor, INDLicenseFetchDescriptor);
 #[cfg(feature = "deprecated")]
 impl NDLicenseFetchDescriptor {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ContentIDType(&self) -> ::windows_core::Result<NDContentIDType> {
         let this = self;
@@ -2302,7 +2109,6 @@ impl NDLicenseFetchDescriptor {
             (::windows_core::Interface::vtable(this).ContentIDType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ContentID(&self) -> ::windows_core::Result<::windows_core::Array<u8>> {
         let this = self;
@@ -2311,7 +2117,6 @@ impl NDLicenseFetchDescriptor {
             (::windows_core::Interface::vtable(this).ContentID)(::windows_core::Interface::as_raw(this), ::windows_core::Array::<u8>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn LicenseFetchChallengeCustomData(&self) -> ::windows_core::Result<INDCustomData> {
         let this = self;
@@ -2320,7 +2125,6 @@ impl NDLicenseFetchDescriptor {
             (::windows_core::Interface::vtable(this).LicenseFetchChallengeCustomData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SetLicenseFetchChallengeCustomData<P0>(&self, licensefetchchallengecustomdata: P0) -> ::windows_core::Result<()>
     where
@@ -2329,7 +2133,6 @@ impl NDLicenseFetchDescriptor {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetLicenseFetchChallengeCustomData)(::windows_core::Interface::as_raw(this), licensefetchchallengecustomdata.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn CreateInstance<P0>(contentidtype: NDContentIDType, contentidbytes: &[u8], licensefetchchallengecustomdata: P0) -> ::windows_core::Result<NDLicenseFetchDescriptor>
     where
@@ -2360,7 +2163,6 @@ unsafe impl ::windows_core::Interface for NDLicenseFetchDescriptor {
 impl ::windows_core::RuntimeName for NDLicenseFetchDescriptor {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDLicenseFetchDescriptor";
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2378,7 +2180,6 @@ impl NDStorageFileHelper {
         static SHARED: ::windows_core::imp::FactoryCache<NDStorageFileHelper, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
     pub fn GetFileURLs<P0>(&self, file: P0) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>
     where
@@ -2404,7 +2205,6 @@ unsafe impl ::windows_core::Interface for NDStorageFileHelper {
 impl ::windows_core::RuntimeName for NDStorageFileHelper {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDStorageFileHelper";
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2422,7 +2222,6 @@ impl NDStreamParserNotifier {
         static SHARED: ::windows_core::imp::FactoryCache<NDStreamParserNotifier, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn OnContentIDReceived<P0>(&self, licensefetchdescriptor: P0) -> ::windows_core::Result<()>
     where
@@ -2431,7 +2230,6 @@ impl NDStreamParserNotifier {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).OnContentIDReceived)(::windows_core::Interface::as_raw(this), licensefetchdescriptor.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Core\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core", feature = "deprecated"))]
     pub fn OnMediaStreamDescriptorCreated<P0, P1>(&self, audiostreamdescriptors: P0, videostreamdescriptors: P1) -> ::windows_core::Result<()>
     where
@@ -2441,7 +2239,6 @@ impl NDStreamParserNotifier {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).OnMediaStreamDescriptorCreated)(::windows_core::Interface::as_raw(this), audiostreamdescriptors.into_param().abi(), videostreamdescriptors.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Media_Core\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
     pub fn OnSampleParsed<P0>(&self, streamid: u32, streamtype: NDMediaStreamType, streamsample: P0, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes: &[u8]) -> ::windows_core::Result<()>
     where
@@ -2450,7 +2247,6 @@ impl NDStreamParserNotifier {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).OnSampleParsed)(::windows_core::Interface::as_raw(this), streamid, streamtype, streamsample.into_param().abi(), pts, ccformat, ccdatabytes.len().try_into().unwrap(), ccdatabytes.as_ptr()).ok() }
     }
-    #[doc = "Required features: `\"Media_Core\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
     pub fn OnBeginSetupDecryptor<P0>(&self, descriptor: P0, keyid: ::windows_core::GUID, probytes: &[u8]) -> ::windows_core::Result<()>
     where
@@ -2473,7 +2269,6 @@ unsafe impl ::windows_core::Interface for NDStreamParserNotifier {
 impl ::windows_core::RuntimeName for NDStreamParserNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.NDStreamParserNotifier";
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2484,7 +2279,6 @@ pub struct NDTCPMessenger(::windows_core::IUnknown);
 ::windows_core::imp::required_hierarchy!(NDTCPMessenger, INDMessenger);
 #[cfg(feature = "deprecated")]
 impl NDTCPMessenger {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SendRegistrationRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
@@ -2493,7 +2287,6 @@ impl NDTCPMessenger {
             (::windows_core::Interface::vtable(this).SendRegistrationRequestAsync)(::windows_core::Interface::as_raw(this), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), challengedatabytes.len().try_into().unwrap(), challengedatabytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SendProximityDetectionStartAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
@@ -2502,7 +2295,6 @@ impl NDTCPMessenger {
             (::windows_core::Interface::vtable(this).SendProximityDetectionStartAsync)(::windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len().try_into().unwrap(), transmitterchannelbytes.as_ptr(), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), challengedatabytes.len().try_into().unwrap(), challengedatabytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SendProximityDetectionResponseAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
@@ -2511,7 +2303,6 @@ impl NDTCPMessenger {
             (::windows_core::Interface::vtable(this).SendProximityDetectionResponseAsync)(::windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len().try_into().unwrap(), transmitterchannelbytes.as_ptr(), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), responsedatabytes.len().try_into().unwrap(), responsedatabytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn SendLicenseFetchRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<INDSendResult>> {
         let this = self;
@@ -2520,7 +2311,6 @@ impl NDTCPMessenger {
             (::windows_core::Interface::vtable(this).SendLicenseFetchRequestAsync)(::windows_core::Interface::as_raw(this), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), challengedatabytes.len().try_into().unwrap(), challengedatabytes.as_ptr(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn CreateInstance(remotehostname: &::windows_core::HSTRING, remotehostport: u32) -> ::windows_core::Result<NDTCPMessenger> {
         Self::INDTCPMessengerFactory(|this| unsafe {
@@ -2766,7 +2556,6 @@ unsafe impl ::windows_core::Interface for PlayReadyDomain {
 impl ::windows_core::RuntimeName for PlayReadyDomain {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomain";
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2777,7 +2566,6 @@ pub struct PlayReadyDomainIterable(::windows_core::IUnknown);
 ::windows_core::imp::required_hierarchy!(PlayReadyDomainIterable, super::super::super::Foundation::Collections::IIterable::<IPlayReadyDomain>);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadyDomainIterable {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>> {
         let this = self;
@@ -2786,7 +2574,6 @@ impl PlayReadyDomainIterable {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateInstance(domainaccountid: ::windows_core::GUID) -> ::windows_core::Result<PlayReadyDomainIterable> {
         Self::IPlayReadyDomainIterableFactory(|this| unsafe {
@@ -2829,7 +2616,6 @@ impl ::core::iter::IntoIterator for &PlayReadyDomainIterable {
         self.First().unwrap()
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2840,7 +2626,6 @@ pub struct PlayReadyDomainIterator(::windows_core::IUnknown);
 ::windows_core::imp::required_hierarchy!(PlayReadyDomainIterator, super::super::super::Foundation::Collections::IIterator::<IPlayReadyDomain>);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadyDomainIterator {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Current(&self) -> ::windows_core::Result<IPlayReadyDomain> {
         let this = self;
@@ -2849,7 +2634,6 @@ impl PlayReadyDomainIterator {
             (::windows_core::Interface::vtable(this).Current)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HasCurrent(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -2858,7 +2642,6 @@ impl PlayReadyDomainIterator {
             (::windows_core::Interface::vtable(this).HasCurrent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MoveNext(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -2867,7 +2650,6 @@ impl PlayReadyDomainIterator {
             (::windows_core::Interface::vtable(this).MoveNext)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, items: &mut [::core::option::Option<IPlayReadyDomain>]) -> ::windows_core::Result<u32> {
         let this = self;
@@ -3153,7 +2935,6 @@ impl PlayReadyITADataGenerator {
         static SHARED: ::windows_core::imp::FactoryCache<PlayReadyITADataGenerator, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GenerateData<P0>(&self, guidcpsystemid: ::windows_core::GUID, countofstreams: u32, configuration: P0, format: PlayReadyITADataFormat) -> ::windows_core::Result<::windows_core::Array<u8>>
     where
@@ -3427,7 +3208,6 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
             (::windows_core::Interface::vtable(this).SessionId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateLicenseIterable<P0>(&self, contentheader: P0, fullyevaluated: bool) -> ::windows_core::Result<PlayReadyLicenseIterable>
     where
@@ -3510,7 +3290,6 @@ unsafe impl ::windows_core::Interface for PlayReadyLicenseAcquisitionServiceRequ
 impl ::windows_core::RuntimeName for PlayReadyLicenseAcquisitionServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest";
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3528,7 +3307,6 @@ impl PlayReadyLicenseIterable {
         static SHARED: ::windows_core::imp::FactoryCache<PlayReadyLicenseIterable, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>> {
         let this = self;
@@ -3537,7 +3315,6 @@ impl PlayReadyLicenseIterable {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateInstance<P0>(contentheader: P0, fullyevaluated: bool) -> ::windows_core::Result<PlayReadyLicenseIterable>
     where
@@ -3583,7 +3360,6 @@ impl ::core::iter::IntoIterator for &PlayReadyLicenseIterable {
         self.First().unwrap()
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3594,7 +3370,6 @@ pub struct PlayReadyLicenseIterator(::windows_core::IUnknown);
 ::windows_core::imp::required_hierarchy!(PlayReadyLicenseIterator, super::super::super::Foundation::Collections::IIterator::<IPlayReadyLicense>);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadyLicenseIterator {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Current(&self) -> ::windows_core::Result<IPlayReadyLicense> {
         let this = self;
@@ -3603,7 +3378,6 @@ impl PlayReadyLicenseIterator {
             (::windows_core::Interface::vtable(this).Current)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HasCurrent(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -3612,7 +3386,6 @@ impl PlayReadyLicenseIterator {
             (::windows_core::Interface::vtable(this).HasCurrent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MoveNext(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -3621,7 +3394,6 @@ impl PlayReadyLicenseIterator {
             (::windows_core::Interface::vtable(this).MoveNext)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, items: &mut [::core::option::Option<IPlayReadyLicense>]) -> ::windows_core::Result<u32> {
         let this = self;
@@ -3684,7 +3456,6 @@ impl PlayReadyLicenseSession {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).ConfigureMediaProtectionManager)(::windows_core::Interface::as_raw(this), mpm.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateLicenseIterable<P0>(&self, contentheader: P0, fullyevaluated: bool) -> ::windows_core::Result<PlayReadyLicenseIterable>
     where
@@ -3696,7 +3467,6 @@ impl PlayReadyLicenseSession {
             (::windows_core::Interface::vtable(this).CreateLicenseIterable)(::windows_core::Interface::as_raw(this), contentheader.into_param().abi(), fullyevaluated, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateInstance<P0>(configuration: P0) -> ::windows_core::Result<PlayReadyLicenseSession>
     where
@@ -3930,7 +3700,6 @@ unsafe impl ::windows_core::Interface for PlayReadyRevocationServiceRequest {
 impl ::windows_core::RuntimeName for PlayReadyRevocationServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyRevocationServiceRequest";
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3941,7 +3710,6 @@ pub struct PlayReadySecureStopIterable(::windows_core::IUnknown);
 ::windows_core::imp::required_hierarchy!(PlayReadySecureStopIterable, super::super::super::Foundation::Collections::IIterable::<IPlayReadySecureStopServiceRequest>);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadySecureStopIterable {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>> {
         let this = self;
@@ -3950,7 +3718,6 @@ impl PlayReadySecureStopIterable {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateInstance(publishercertbytes: &[u8]) -> ::windows_core::Result<PlayReadySecureStopIterable> {
         Self::IPlayReadySecureStopIterableFactory(|this| unsafe {
@@ -3993,7 +3760,6 @@ impl ::core::iter::IntoIterator for &PlayReadySecureStopIterable {
         self.First().unwrap()
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4004,7 +3770,6 @@ pub struct PlayReadySecureStopIterator(::windows_core::IUnknown);
 ::windows_core::imp::required_hierarchy!(PlayReadySecureStopIterator, super::super::super::Foundation::Collections::IIterator::<IPlayReadySecureStopServiceRequest>);
 #[cfg(feature = "Foundation_Collections")]
 impl PlayReadySecureStopIterator {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Current(&self) -> ::windows_core::Result<IPlayReadySecureStopServiceRequest> {
         let this = self;
@@ -4013,7 +3778,6 @@ impl PlayReadySecureStopIterator {
             (::windows_core::Interface::vtable(this).Current)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HasCurrent(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -4022,7 +3786,6 @@ impl PlayReadySecureStopIterator {
             (::windows_core::Interface::vtable(this).HasCurrent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MoveNext(&self) -> ::windows_core::Result<bool> {
         let this = self;
@@ -4031,7 +3794,6 @@ impl PlayReadySecureStopIterator {
             (::windows_core::Interface::vtable(this).MoveNext)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, items: &mut [::core::option::Option<IPlayReadySecureStopServiceRequest>]) -> ::windows_core::Result<u32> {
         let this = self;
@@ -4209,7 +3971,6 @@ impl PlayReadySoapMessage {
             (::windows_core::Interface::vtable(this).GetMessageBody)(::windows_core::Interface::as_raw(this), ::windows_core::Array::<u8>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MessageHeaders(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IPropertySet> {
         let this = self;
@@ -4360,7 +4121,6 @@ impl PlayReadyStatics {
 impl ::windows_core::RuntimeName for PlayReadyStatics {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyStatics";
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
@@ -4389,7 +4149,6 @@ impl ::core::fmt::Debug for NDCertificateFeature {
 impl ::windows_core::RuntimeType for NDCertificateFeature {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificateFeature;i4)");
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
@@ -4423,7 +4182,6 @@ impl ::core::fmt::Debug for NDCertificatePlatformID {
 impl ::windows_core::RuntimeType for NDCertificatePlatformID {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificatePlatformID;i4)");
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
@@ -4458,7 +4216,6 @@ impl ::core::fmt::Debug for NDCertificateType {
 impl ::windows_core::RuntimeType for NDCertificateType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificateType;i4)");
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
@@ -4483,7 +4240,6 @@ impl ::core::fmt::Debug for NDClosedCaptionFormat {
 impl ::windows_core::RuntimeType for NDClosedCaptionFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDClosedCaptionFormat;i4)");
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
@@ -4508,7 +4264,6 @@ impl ::core::fmt::Debug for NDContentIDType {
 impl ::windows_core::RuntimeType for NDContentIDType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDContentIDType;i4)");
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
@@ -4532,7 +4287,6 @@ impl ::core::fmt::Debug for NDMediaStreamType {
 impl ::windows_core::RuntimeType for NDMediaStreamType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDMediaStreamType;i4)");
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]
@@ -4557,7 +4311,6 @@ impl ::core::fmt::Debug for NDProximityDetectionType {
 impl ::windows_core::RuntimeType for NDProximityDetectionType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDProximityDetectionType;i4)");
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::marker::Copy, ::core::clone::Clone, ::core::default::Default)]

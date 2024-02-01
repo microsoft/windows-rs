@@ -138,7 +138,6 @@ pub struct IBitmapEncoderWithSoftwareBitmap_Vtbl {
 ::windows_core::imp::com_interface!(IBitmapFrame, IBitmapFrame_Vtbl, 0x72a49a1c_8081_438d_91bc_94ecfc8185c6);
 ::windows_core::imp::interface_hierarchy!(IBitmapFrame, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IBitmapFrame {
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetThumbnailAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
         let this = self;
@@ -279,7 +278,6 @@ impl IBitmapFrameWithSoftwareBitmap {
             (::windows_core::Interface::vtable(this).GetSoftwareBitmapTransformedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, transform.into_param().abi(), exiforientationmode, colormanagementmode, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetThumbnailAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
@@ -393,7 +391,6 @@ pub struct IBitmapProperties_Vtbl {
 ::windows_core::imp::com_interface!(IBitmapPropertiesView, IBitmapPropertiesView_Vtbl, 0x7e0fe87a_3a70_48f8_9c55_196cf5a545f5);
 ::windows_core::imp::interface_hierarchy!(IBitmapPropertiesView, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IBitmapPropertiesView {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetPropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>
     where
@@ -573,7 +570,6 @@ impl BitmapCodecInformation {
             (::windows_core::Interface::vtable(this).CodecId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FileExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -589,7 +585,6 @@ impl BitmapCodecInformation {
             (::windows_core::Interface::vtable(this).FriendlyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MimeTypes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -638,7 +633,6 @@ impl BitmapDecoder {
             (::windows_core::Interface::vtable(this).FrameCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetPreviewAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
         let this = self;
@@ -696,7 +690,6 @@ impl BitmapDecoder {
             (::windows_core::Interface::vtable(this).IcoDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetDecoderInformationEnumerator() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<BitmapCodecInformation>> {
         Self::IBitmapDecoderStatics(|this| unsafe {
@@ -704,7 +697,6 @@ impl BitmapDecoder {
             (::windows_core::Interface::vtable(this).GetDecoderInformationEnumerator)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateAsync<P0>(stream: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapDecoder>>
     where
@@ -715,7 +707,6 @@ impl BitmapDecoder {
             (::windows_core::Interface::vtable(this).CreateAsync)(::windows_core::Interface::as_raw(this), stream.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateWithIdAsync<P0>(decoderid: ::windows_core::GUID, stream: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapDecoder>>
     where
@@ -738,7 +729,6 @@ impl BitmapDecoder {
             (::windows_core::Interface::vtable(this).WebpDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetThumbnailAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
@@ -951,7 +941,6 @@ impl BitmapEncoder {
             (::windows_core::Interface::vtable(this).GoToNextFrameAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GoToNextFrameWithEncodingOptionsAsync<P0>(&self, encodingoptions: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1006,7 +995,6 @@ impl BitmapEncoder {
             (::windows_core::Interface::vtable(this).JpegXREncoderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetEncoderInformationEnumerator() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<BitmapCodecInformation>> {
         Self::IBitmapEncoderStatics(|this| unsafe {
@@ -1014,7 +1002,6 @@ impl BitmapEncoder {
             (::windows_core::Interface::vtable(this).GetEncoderInformationEnumerator)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateAsync<P0>(encoderid: ::windows_core::GUID, stream: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>
     where
@@ -1025,7 +1012,6 @@ impl BitmapEncoder {
             (::windows_core::Interface::vtable(this).CreateAsync)(::windows_core::Interface::as_raw(this), encoderid, stream.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn CreateWithEncodingOptionsAsync<P0, P1>(encoderid: ::windows_core::GUID, stream: P0, encodingoptions: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>
     where
@@ -1037,7 +1023,6 @@ impl BitmapEncoder {
             (::windows_core::Interface::vtable(this).CreateWithEncodingOptionsAsync)(::windows_core::Interface::as_raw(this), encoderid, stream.into_param().abi(), encodingoptions.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateForTranscodingAsync<P0, P1>(stream: P0, bitmapdecoder: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>
     where
@@ -1100,7 +1085,6 @@ pub struct BitmapFrame(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(BitmapFrame, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(BitmapFrame, IBitmapFrame, IBitmapFrameWithSoftwareBitmap);
 impl BitmapFrame {
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetThumbnailAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ImageStream>> {
         let this = self;
@@ -1232,7 +1216,6 @@ pub struct BitmapProperties(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(BitmapProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(BitmapProperties, IBitmapPropertiesView);
 impl BitmapProperties {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetPropertiesAsync<P0>(&self, propertiestoset: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1244,7 +1227,6 @@ impl BitmapProperties {
             (::windows_core::Interface::vtable(this).SetPropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoset.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetPropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>
     where
@@ -1275,7 +1257,6 @@ pub struct BitmapPropertiesView(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(BitmapPropertiesView, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(BitmapPropertiesView, IBitmapPropertiesView);
 impl BitmapPropertiesView {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetPropertiesAsync<P0>(&self, propertiestoretrieve: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapPropertySet>>
     where
@@ -1300,7 +1281,6 @@ impl ::windows_core::RuntimeName for BitmapPropertiesView {
 }
 unsafe impl ::core::marker::Send for BitmapPropertiesView {}
 unsafe impl ::core::marker::Sync for BitmapPropertiesView {}
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1318,7 +1298,6 @@ impl BitmapPropertySet {
         static SHARED: ::windows_core::imp::FactoryCache<BitmapPropertySet, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, BitmapTypedValue>>> {
         let this = &::windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, BitmapTypedValue>>>(self)?;
@@ -1327,7 +1306,6 @@ impl BitmapPropertySet {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Lookup(&self, key: &::windows_core::HSTRING) -> ::windows_core::Result<BitmapTypedValue> {
         let this = self;
@@ -1336,7 +1314,6 @@ impl BitmapPropertySet {
             (::windows_core::Interface::vtable(this).Lookup)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(key), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -1345,7 +1322,6 @@ impl BitmapPropertySet {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HasKey(&self, key: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
         let this = self;
@@ -1354,7 +1330,6 @@ impl BitmapPropertySet {
             (::windows_core::Interface::vtable(this).HasKey)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(key), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, BitmapTypedValue>> {
         let this = self;
@@ -1363,7 +1338,6 @@ impl BitmapPropertySet {
             (::windows_core::Interface::vtable(this).GetView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Insert<P0>(&self, key: &::windows_core::HSTRING, value: P0) -> ::windows_core::Result<bool>
     where
@@ -1375,13 +1349,11 @@ impl BitmapPropertySet {
             (::windows_core::Interface::vtable(this).Insert)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Remove(&self, key: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Remove)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(key)).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -1558,7 +1530,6 @@ impl ::windows_core::RuntimeName for BitmapTypedValue {
 }
 unsafe impl ::core::marker::Send for BitmapTypedValue {}
 unsafe impl ::core::marker::Sync for BitmapTypedValue {}
-#[doc = "Required features: `\"Storage_Streams\"`"]
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1573,7 +1544,6 @@ impl ImageStream {
         let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ContentType(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IContentTypeProvider>(self)?;
@@ -1582,7 +1552,6 @@ impl ImageStream {
             (::windows_core::Interface::vtable(this).ContentType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>
     where
@@ -1594,7 +1563,6 @@ impl ImageStream {
             (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), count, options, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteAsync<P0>(&self, buffer: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
@@ -1606,7 +1574,6 @@ impl ImageStream {
             (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
@@ -1615,7 +1582,6 @@ impl ImageStream {
             (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Size(&self) -> ::windows_core::Result<u64> {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -1624,13 +1590,11 @@ impl ImageStream {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetSize(&self, value: u64) -> ::windows_core::Result<()> {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSize)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetInputStreamAt(&self, position: u64) -> ::windows_core::Result<super::super::Storage::Streams::IInputStream> {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -1639,7 +1603,6 @@ impl ImageStream {
             (::windows_core::Interface::vtable(this).GetInputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetOutputStreamAt(&self, position: u64) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -1648,7 +1611,6 @@ impl ImageStream {
             (::windows_core::Interface::vtable(this).GetOutputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Position(&self) -> ::windows_core::Result<u64> {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -1657,13 +1619,11 @@ impl ImageStream {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Seek(&self, position: u64) -> ::windows_core::Result<()> {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Seek)(::windows_core::Interface::as_raw(this), position).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CloneStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -1672,7 +1632,6 @@ impl ImageStream {
             (::windows_core::Interface::vtable(this).CloneStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CanRead(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -1681,7 +1640,6 @@ impl ImageStream {
             (::windows_core::Interface::vtable(this).CanRead)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CanWrite(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
@@ -1814,7 +1772,6 @@ impl SoftwareBitmap {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).CopyTo)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CopyFromBuffer<P0>(&self, buffer: P0) -> ::windows_core::Result<()>
     where
@@ -1823,7 +1780,6 @@ impl SoftwareBitmap {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).CopyFromBuffer)(::windows_core::Interface::as_raw(this), buffer.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CopyToBuffer<P0>(&self, buffer: P0) -> ::windows_core::Result<()>
     where
@@ -1878,7 +1834,6 @@ impl SoftwareBitmap {
             (::windows_core::Interface::vtable(this).ConvertWithAlpha)(::windows_core::Interface::as_raw(this), source.into_param().abi(), format, alpha, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateCopyFromBuffer<P0>(source: P0, format: BitmapPixelFormat, width: i32, height: i32) -> ::windows_core::Result<SoftwareBitmap>
     where
@@ -1889,7 +1844,6 @@ impl SoftwareBitmap {
             (::windows_core::Interface::vtable(this).CreateCopyFromBuffer)(::windows_core::Interface::as_raw(this), source.into_param().abi(), format, width, height, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateCopyWithAlphaFromBuffer<P0>(source: P0, format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> ::windows_core::Result<SoftwareBitmap>
     where
@@ -1900,7 +1854,6 @@ impl SoftwareBitmap {
             (::windows_core::Interface::vtable(this).CreateCopyWithAlphaFromBuffer)(::windows_core::Interface::as_raw(this), source.into_param().abi(), format, width, height, alpha, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Graphics_DirectX_Direct3D11\"`"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn CreateCopyFromSurfaceAsync<P0>(surface: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
     where
@@ -1911,7 +1864,6 @@ impl SoftwareBitmap {
             (::windows_core::Interface::vtable(this).CreateCopyFromSurfaceAsync)(::windows_core::Interface::as_raw(this), surface.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Graphics_DirectX_Direct3D11\"`"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn CreateCopyWithAlphaFromSurfaceAsync<P0>(surface: P0, alpha: BitmapAlphaMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
     where

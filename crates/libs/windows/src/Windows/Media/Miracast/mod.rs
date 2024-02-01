@@ -330,7 +330,6 @@ impl MiracastReceiver {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStatusChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"ApplicationModel_Core\"`"]
     #[cfg(feature = "ApplicationModel_Core")]
     pub fn CreateSession<P0>(&self, view: P0) -> ::windows_core::Result<MiracastReceiverSession>
     where
@@ -342,7 +341,6 @@ impl MiracastReceiver {
             (::windows_core::Interface::vtable(this).CreateSession)(::windows_core::Interface::as_raw(this), view.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Core\"`"]
     #[cfg(feature = "ApplicationModel_Core")]
     pub fn CreateSessionAsync<P0>(&self, view: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MiracastReceiverSession>>
     where
@@ -542,7 +540,6 @@ impl MiracastReceiverCursorImageChannel {
             (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Graphics\"`"]
     #[cfg(feature = "Graphics")]
     pub fn MaxImageSize(&self) -> ::windows_core::Result<super::super::Graphics::SizeInt32> {
         let this = self;
@@ -551,7 +548,6 @@ impl MiracastReceiverCursorImageChannel {
             (::windows_core::Interface::vtable(this).MaxImageSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Graphics\"`"]
     #[cfg(feature = "Graphics")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::Graphics::PointInt32> {
         let this = self;
@@ -560,7 +556,6 @@ impl MiracastReceiverCursorImageChannel {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ImageStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         let this = self;
@@ -626,7 +621,6 @@ impl MiracastReceiverCursorImageChannelSettings {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIsEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Graphics\"`"]
     #[cfg(feature = "Graphics")]
     pub fn MaxImageSize(&self) -> ::windows_core::Result<super::super::Graphics::SizeInt32> {
         let this = self;
@@ -635,7 +629,6 @@ impl MiracastReceiverCursorImageChannelSettings {
             (::windows_core::Interface::vtable(this).MaxImageSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Graphics\"`"]
     #[cfg(feature = "Graphics")]
     pub fn SetMaxImageSize(&self, value: super::super::Graphics::SizeInt32) -> ::windows_core::Result<()> {
         let this = self;
@@ -848,7 +841,6 @@ impl MiracastReceiverMediaSourceCreatedEventArgs {
             (::windows_core::Interface::vtable(this).Connection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Media_Core\"`"]
     #[cfg(feature = "Media_Core")]
     pub fn MediaSource(&self) -> ::windows_core::Result<super::Core::MediaSource> {
         let this = self;
@@ -1123,7 +1115,6 @@ impl MiracastReceiverStatus {
             (::windows_core::Interface::vtable(this).MaxSimultaneousConnections)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn KnownTransmitters(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MiracastTransmitter>> {
         let this = self;
@@ -1210,7 +1201,6 @@ unsafe impl ::core::marker::Sync for MiracastReceiverStreamControl {}
 pub struct MiracastReceiverVideoStreamSettings(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(MiracastReceiverVideoStreamSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl MiracastReceiverVideoStreamSettings {
-    #[doc = "Required features: `\"Graphics\"`"]
     #[cfg(feature = "Graphics")]
     pub fn Size(&self) -> ::windows_core::Result<super::super::Graphics::SizeInt32> {
         let this = self;
@@ -1219,7 +1209,6 @@ impl MiracastReceiverVideoStreamSettings {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Graphics\"`"]
     #[cfg(feature = "Graphics")]
     pub fn SetSize(&self, value: super::super::Graphics::SizeInt32) -> ::windows_core::Result<()> {
         let this = self;
@@ -1276,7 +1265,6 @@ impl MiracastTransmitter {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAuthorizationStatus)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetConnections(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MiracastReceiverConnection>> {
         let this = self;

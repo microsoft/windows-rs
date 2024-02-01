@@ -1,8 +1,6 @@
 #[cfg(feature = "ApplicationModel_Calls_Background")]
-#[doc = "Required features: `\"ApplicationModel_Calls_Background\"`"]
 pub mod Background;
 #[cfg(feature = "ApplicationModel_Calls_Provider")]
-#[doc = "Required features: `\"ApplicationModel_Calls_Provider\"`"]
 pub mod Provider;
 ::windows_core::imp::com_interface!(ICallAnswerEventArgs, ICallAnswerEventArgs_Vtbl, 0xfd789617_2dd7_4c8c_b2bd_95d17a5bb733);
 #[repr(C)]
@@ -1079,7 +1077,6 @@ impl PhoneCallBlocking {
     pub fn SetBlockPrivateNumbers(value: bool) -> ::windows_core::Result<()> {
         Self::IPhoneCallBlockingStatics(|this| unsafe { (::windows_core::Interface::vtable(this).SetBlockPrivateNumbers)(::windows_core::Interface::as_raw(this), value).ok() })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetCallBlockingListAsync<P0>(phonenumberlist: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -1423,7 +1420,6 @@ impl PhoneCallHistoryEntryQueryOptions {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDesiredMedia)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SourceIds(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -1450,7 +1446,6 @@ unsafe impl ::core::marker::Sync for PhoneCallHistoryEntryQueryOptions {}
 pub struct PhoneCallHistoryEntryReader(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PhoneCallHistoryEntryReader, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PhoneCallHistoryEntryReader {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReadBatchAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PhoneCallHistoryEntry>>> {
         let this = self;
@@ -1480,7 +1475,6 @@ impl PhoneCallHistoryManager {
             (::windows_core::Interface::vtable(this).RequestStoreAsync)(::windows_core::Interface::as_raw(this), accesstype, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetForUser<P0>(user: P0) -> ::windows_core::Result<PhoneCallHistoryManagerForUser>
     where
@@ -1517,7 +1511,6 @@ impl PhoneCallHistoryManagerForUser {
             (::windows_core::Interface::vtable(this).RequestStoreAsync)(::windows_core::Interface::as_raw(this), accesstype, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
@@ -1588,7 +1581,6 @@ impl PhoneCallHistoryStore {
             (::windows_core::Interface::vtable(this).DeleteEntryAsync)(::windows_core::Interface::as_raw(this), callhistoryentry.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DeleteEntriesAsync<P0>(&self, callhistoryentries: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1610,7 +1602,6 @@ impl PhoneCallHistoryStore {
             (::windows_core::Interface::vtable(this).MarkEntryAsSeenAsync)(::windows_core::Interface::as_raw(this), callhistoryentry.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MarkEntriesAsSeenAsync<P0>(&self, callhistoryentries: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1636,7 +1627,6 @@ impl PhoneCallHistoryStore {
             (::windows_core::Interface::vtable(this).MarkAllAsSeenAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSourcesUnseenCountAsync<P0>(&self, sourceids: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>
     where
@@ -1648,7 +1638,6 @@ impl PhoneCallHistoryStore {
             (::windows_core::Interface::vtable(this).GetSourcesUnseenCountAsync)(::windows_core::Interface::as_raw(this), sourceids.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MarkSourcesAsSeenAsync<P0>(&self, sourceids: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1878,7 +1867,6 @@ impl PhoneCallsResult {
             (::windows_core::Interface::vtable(this).OperationStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllActivePhoneCalls(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PhoneCall>> {
         let this = self;
@@ -1934,7 +1922,6 @@ impl PhoneDialOptions {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDisplayName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn Contact(&self) -> ::windows_core::Result<super::Contacts::Contact> {
         let this = self;
@@ -1943,7 +1930,6 @@ impl PhoneDialOptions {
             (::windows_core::Interface::vtable(this).Contact)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn SetContact<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1952,7 +1938,6 @@ impl PhoneDialOptions {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetContact)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn ContactPhone(&self) -> ::windows_core::Result<super::Contacts::ContactPhone> {
         let this = self;
@@ -1961,7 +1946,6 @@ impl PhoneDialOptions {
             (::windows_core::Interface::vtable(this).ContactPhone)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Contacts\"`"]
     #[cfg(feature = "ApplicationModel_Contacts")]
     pub fn SetContactPhone<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2031,7 +2015,6 @@ impl PhoneLine {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn DisplayColor(&self) -> ::windows_core::Result<super::super::UI::Color> {
         let this = self;
@@ -2128,7 +2111,6 @@ impl PhoneLine {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).DialWithOptions)(::windows_core::Interface::as_raw(this), options.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn EnableTextReply(&self, value: bool) -> ::windows_core::Result<()> {
         let this = &::windows_core::Interface::cast::<IPhoneLine2>(self)?;
@@ -2258,7 +2240,6 @@ impl PhoneLineConfiguration {
             (::windows_core::Interface::vtable(this).IsVideoCallingEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ExtendedProperties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = self;
@@ -2331,7 +2312,6 @@ impl PhoneLineTransportDevice {
             (::windows_core::Interface::vtable(this).Transport)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Enumeration\"`"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn RequestAccessAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Devices::Enumeration::DeviceAccessStatus>> {
         let this = self;
@@ -2344,7 +2324,6 @@ impl PhoneLineTransportDevice {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RegisterApp)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn RegisterAppForUser<P0>(&self, user: P0) -> ::windows_core::Result<()>
     where
@@ -2357,7 +2336,6 @@ impl PhoneLineTransportDevice {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).UnregisterApp)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn UnregisterAppForUser<P0>(&self, user: P0) -> ::windows_core::Result<()>
     where

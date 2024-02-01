@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn StartXpsPrintJob<P0, P1, P2, P3, P4>(printername: P0, jobname: P1, outputfilename: P2, progressevent: P3, completionevent: P4, printablepageson: &[u8], xpsprintjob: *mut ::core::option::Option<IXpsPrintJob>, documentstream: *mut ::core::option::Option<IXpsPrintJobStream>, printticketstream: *mut ::core::option::Option<IXpsPrintJobStream>) -> ::windows_core::Result<()>
@@ -25,12 +24,7 @@ where
     StartXpsPrintJob1(printername.into_param().abi(), jobname.into_param().abi(), outputfilename.into_param().abi(), progressevent.into_param().abi(), completionevent.into_param().abi(), ::core::mem::transmute(xpsprintjob), ::core::mem::transmute(printcontentreceiver)).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IPrintDocumentPackageStatusEvent,
-    IPrintDocumentPackageStatusEvent_Vtbl,
-    0xed90c8ad_5c34_4d05_a1ec_0e8a9b3ad7af
-);
+::windows_core::imp::com_interface!(IPrintDocumentPackageStatusEvent, IPrintDocumentPackageStatusEvent_Vtbl, 0xed90c8ad_5c34_4d05_a1ec_0e8a9b3ad7af);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrintDocumentPackageStatusEvent, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -96,7 +90,6 @@ pub struct IPrintDocumentPackageTarget2_Vtbl {
 ::windows_core::imp::com_interface!(IPrintDocumentPackageTargetFactory, IPrintDocumentPackageTargetFactory_Vtbl, 0xd2959bf7_b31b_4a3d_9600_712eb1335ba4);
 ::windows_core::imp::interface_hierarchy!(IPrintDocumentPackageTargetFactory, ::windows_core::IUnknown);
 impl IPrintDocumentPackageTargetFactory {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDocumentPackageTargetForPrintJob<P0, P1, P2, P3>(&self, printername: P0, jobname: P1, joboutputstream: P2, jobprintticketstream: P3) -> ::windows_core::Result<IPrintDocumentPackageTarget>
     where
@@ -136,22 +129,15 @@ pub struct IXpsPrintJob_Vtbl {
     pub GetJobStatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut XPS_JOB_STATUS) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IXpsPrintJobStream,
-    IXpsPrintJobStream_Vtbl,
-    0x7a77dc5f_45d6_4dff_9307_d8cb846347ca
-);
+::windows_core::imp::com_interface!(IXpsPrintJobStream, IXpsPrintJobStream_Vtbl, 0x7a77dc5f_45d6_4dff_9307_d8cb846347ca);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXpsPrintJobStream, ::windows_core::IUnknown, super::super::super::System::Com::ISequentialStream);
 #[cfg(feature = "Win32_System_Com")]
 impl IXpsPrintJobStream {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).base__.Read)(::windows_core::Interface::as_raw(self), pv, cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())))
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32, pcbwritten: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).base__.Write)(::windows_core::Interface::as_raw(self), pv, cb, ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut())))

@@ -174,7 +174,6 @@ impl IGpioPinProvider_Vtbl {
         iid == &<IGpioPinProvider as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IGpioProvider_Impl: Sized {
     fn GetControllers(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IGpioControllerProvider>>;

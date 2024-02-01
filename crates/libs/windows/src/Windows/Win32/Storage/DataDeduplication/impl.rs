@@ -62,7 +62,6 @@ impl IDedupChunkLibrary_Vtbl {
         iid == &<IDedupChunkLibrary as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDedupDataPort_Impl: Sized {
     fn GetStatus(&self, pstatus: *mut DedupDataPortVolumeStatus, pdataheadroommb: *mut u32) -> ::windows_core::Result<()>;

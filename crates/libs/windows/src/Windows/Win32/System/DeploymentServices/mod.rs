@@ -144,7 +144,6 @@ where
     ::windows_targets::link!("wdspxe.dll" "system" fn PxeProviderQueryIndex(pszprovidername : ::windows_core::PCWSTR, puindex : *mut u32) -> u32);
     PxeProviderQueryIndex(pszprovidername.into_param().abi(), puindex)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PxeProviderRegister<P0, P1, P2>(pszprovidername: P0, pszmodulepath: P1, index: u32, biscritical: P2, phproviderkey: ::core::option::Option<*mut super::Registry::HKEY>) -> u32
@@ -709,12 +708,7 @@ where
     WdsTransportServerTraceV(hprovider.into_param().abi(), severity, pwszformat.into_param().abi(), params).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportCacheable,
-    IWdsTransportCacheable_Vtbl,
-    0x46ad894b_0bab_47dc_84b2_7b553f1d8f80
-);
+::windows_core::imp::com_interface!(IWdsTransportCacheable, IWdsTransportCacheable_Vtbl, 0x46ad894b_0bab_47dc_84b2_7b553f1d8f80);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportCacheable, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -744,17 +738,11 @@ pub struct IWdsTransportCacheable_Vtbl {
     pub Commit: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportClient,
-    IWdsTransportClient_Vtbl,
-    0xb5dbc93a_cabe_46ca_837f_3e44e93c6545
-);
+::windows_core::imp::com_interface!(IWdsTransportClient, IWdsTransportClient_Vtbl, 0xb5dbc93a_cabe_46ca_837f_3e44e93c6545);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportClient, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportClient {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Session(&self) -> ::windows_core::Result<IWdsTransportSession> {
         let mut result__ = ::std::mem::zeroed();
@@ -826,12 +814,7 @@ pub struct IWdsTransportClient_Vtbl {
     pub Disconnect: unsafe extern "system" fn(*mut ::core::ffi::c_void, WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportCollection,
-    IWdsTransportCollection_Vtbl,
-    0xb8ba4b1a_2ff4_43ab_996c_b2b10a91a6eb
-);
+::windows_core::imp::com_interface!(IWdsTransportCollection, IWdsTransportCollection_Vtbl, 0xb8ba4b1a_2ff4_43ab_996c_b2b10a91a6eb);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportCollection, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -840,7 +823,6 @@ impl IWdsTransportCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, ulindex: u32) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -864,23 +846,16 @@ pub struct IWdsTransportCollection_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportConfigurationManager,
-    IWdsTransportConfigurationManager_Vtbl,
-    0x84cc4779_42dd_4792_891e_1321d6d74b44
-);
+::windows_core::imp::com_interface!(IWdsTransportConfigurationManager, IWdsTransportConfigurationManager_Vtbl, 0x84cc4779_42dd_4792_891e_1321d6d74b44);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportConfigurationManager, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportConfigurationManager {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ServicePolicy(&self) -> ::windows_core::Result<IWdsTransportServicePolicy> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ServicePolicy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DiagnosticsPolicy(&self) -> ::windows_core::Result<IWdsTransportDiagnosticsPolicy> {
         let mut result__ = ::std::mem::zeroed();
@@ -934,23 +909,16 @@ pub struct IWdsTransportConfigurationManager_Vtbl {
     pub NotifyWdsTransportServices: unsafe extern "system" fn(*mut ::core::ffi::c_void, WDSTRANSPORT_SERVICE_NOTIFICATION) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportConfigurationManager2,
-    IWdsTransportConfigurationManager2_Vtbl,
-    0xd0d85caf_a153_4f1d_a9dd_96f431c50717
-);
+::windows_core::imp::com_interface!(IWdsTransportConfigurationManager2, IWdsTransportConfigurationManager2_Vtbl, 0xd0d85caf_a153_4f1d_a9dd_96f431c50717);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportConfigurationManager2, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportConfigurationManager);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportConfigurationManager2 {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ServicePolicy(&self) -> ::windows_core::Result<IWdsTransportServicePolicy> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ServicePolicy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DiagnosticsPolicy(&self) -> ::windows_core::Result<IWdsTransportDiagnosticsPolicy> {
         let mut result__ = ::std::mem::zeroed();
@@ -981,7 +949,6 @@ impl IWdsTransportConfigurationManager2 {
     pub unsafe fn NotifyWdsTransportServices(&self, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.NotifyWdsTransportServices)(::windows_core::Interface::as_raw(self), servicenotification).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MulticastSessionPolicy(&self) -> ::windows_core::Result<IWdsTransportMulticastSessionPolicy> {
         let mut result__ = ::std::mem::zeroed();
@@ -999,17 +966,11 @@ pub struct IWdsTransportConfigurationManager2_Vtbl {
     MulticastSessionPolicy: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportContent,
-    IWdsTransportContent_Vtbl,
-    0xd405d711_0296_4ab4_a860_ac7d32e65798
-);
+::windows_core::imp::com_interface!(IWdsTransportContent, IWdsTransportContent_Vtbl, 0xd405d711_0296_4ab4_a860_ac7d32e65798);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportContent, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportContent {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Namespace(&self) -> ::windows_core::Result<IWdsTransportNamespace> {
         let mut result__ = ::std::mem::zeroed();
@@ -1023,7 +984,6 @@ impl IWdsTransportContent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveSessions(&self) -> ::windows_core::Result<IWdsTransportCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -1051,12 +1011,7 @@ pub struct IWdsTransportContent_Vtbl {
     pub Terminate: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportContentProvider,
-    IWdsTransportContentProvider_Vtbl,
-    0xb9489f24_f219_4acf_aad7_265c7c08a6ae
-);
+::windows_core::imp::com_interface!(IWdsTransportContentProvider, IWdsTransportContentProvider_Vtbl, 0xb9489f24_f219_4acf_aad7_265c7c08a6ae);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportContentProvider, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1089,12 +1044,7 @@ pub struct IWdsTransportContentProvider_Vtbl {
     pub InitializationRoutine: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportDiagnosticsPolicy,
-    IWdsTransportDiagnosticsPolicy_Vtbl,
-    0x13b33efc_7856_4f61_9a59_8de67b6b87b6
-);
+::windows_core::imp::com_interface!(IWdsTransportDiagnosticsPolicy, IWdsTransportDiagnosticsPolicy_Vtbl, 0x13b33efc_7856_4f61_9a59_8de67b6b87b6);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportDiagnosticsPolicy, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportCacheable);
 #[cfg(feature = "Win32_System_Com")]
@@ -1141,17 +1091,11 @@ pub struct IWdsTransportDiagnosticsPolicy_Vtbl {
     pub SetComponents: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportManager,
-    IWdsTransportManager_Vtbl,
-    0x5b0d35f5_1b13_4afd_b878_6526dc340b5d
-);
+::windows_core::imp::com_interface!(IWdsTransportManager, IWdsTransportManager_Vtbl, 0x5b0d35f5_1b13_4afd_b878_6526dc340b5d);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportManager, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportManager {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWdsTransportServer<P0>(&self, bszservername: P0) -> ::windows_core::Result<IWdsTransportServer>
     where
@@ -1172,12 +1116,7 @@ pub struct IWdsTransportManager_Vtbl {
     GetWdsTransportServer: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportMulticastSessionPolicy,
-    IWdsTransportMulticastSessionPolicy_Vtbl,
-    0x4e5753cf_68ec_4504_a951_4a003266606b
-);
+::windows_core::imp::com_interface!(IWdsTransportMulticastSessionPolicy, IWdsTransportMulticastSessionPolicy_Vtbl, 0x4e5753cf_68ec_4504_a951_4a003266606b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportMulticastSessionPolicy, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportCacheable);
 #[cfg(feature = "Win32_System_Com")]
@@ -1242,12 +1181,7 @@ pub struct IWdsTransportMulticastSessionPolicy_Vtbl {
     pub SetSlowClientFallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportNamespace,
-    IWdsTransportNamespace_Vtbl,
-    0xfa561f57_fbef_4ed3_b056_127cb1b33b84
-);
+::windows_core::imp::com_interface!(IWdsTransportNamespace, IWdsTransportNamespace_Vtbl, 0xfa561f57_fbef_4ed3_b056_127cb1b33b84);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportNamespace, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1335,7 +1269,6 @@ impl IWdsTransportNamespace {
     {
         (::windows_core::Interface::vtable(self).Deregister)(::windows_core::Interface::as_raw(self), bterminatesessions.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IWdsTransportNamespace> {
         let mut result__ = ::std::mem::zeroed();
@@ -1344,7 +1277,6 @@ impl IWdsTransportNamespace {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows_core::Result<IWdsTransportCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -1385,12 +1317,7 @@ pub struct IWdsTransportNamespace_Vtbl {
     RetrieveContents: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportNamespaceAutoCast,
-    IWdsTransportNamespaceAutoCast_Vtbl,
-    0xad931a72_c4bd_4c41_8fbc_59c9c748df9e
-);
+::windows_core::imp::com_interface!(IWdsTransportNamespaceAutoCast, IWdsTransportNamespaceAutoCast_Vtbl, 0xad931a72_c4bd_4c41_8fbc_59c9c748df9e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportNamespaceAutoCast, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportNamespace);
 #[cfg(feature = "Win32_System_Com")]
@@ -1478,7 +1405,6 @@ impl IWdsTransportNamespaceAutoCast {
     {
         (::windows_core::Interface::vtable(self).base__.Deregister)(::windows_core::Interface::as_raw(self), bterminatesessions.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IWdsTransportNamespace> {
         let mut result__ = ::std::mem::zeroed();
@@ -1487,7 +1413,6 @@ impl IWdsTransportNamespaceAutoCast {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows_core::Result<IWdsTransportCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -1501,17 +1426,11 @@ pub struct IWdsTransportNamespaceAutoCast_Vtbl {
     pub base__: IWdsTransportNamespace_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportNamespaceManager,
-    IWdsTransportNamespaceManager_Vtbl,
-    0x3e22d9f6_3777_4d98_83e1_f98696717ba3
-);
+::windows_core::imp::com_interface!(IWdsTransportNamespaceManager, IWdsTransportNamespaceManager_Vtbl, 0x3e22d9f6_3777_4d98_83e1_f98696717ba3);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportNamespaceManager, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportNamespaceManager {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateNamespace<P0, P1, P2>(&self, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: P0, bszcontentprovider: P1, bszconfiguration: P2) -> ::windows_core::Result<IWdsTransportNamespace>
     where
@@ -1522,7 +1441,6 @@ impl IWdsTransportNamespaceManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateNamespace)(::windows_core::Interface::as_raw(self), namespacetype, bsznamespacename.into_param().abi(), bszcontentprovider.into_param().abi(), bszconfiguration.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveNamespace<P0>(&self, bsznamespacename: P0) -> ::windows_core::Result<IWdsTransportNamespace>
     where
@@ -1531,7 +1449,6 @@ impl IWdsTransportNamespaceManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RetrieveNamespace)(::windows_core::Interface::as_raw(self), bsznamespacename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveNamespaces<P0, P1, P2>(&self, bszcontentprovider: P0, bsznamespacename: P1, bincludetombstones: P2) -> ::windows_core::Result<IWdsTransportCollection>
     where
@@ -1562,12 +1479,7 @@ pub struct IWdsTransportNamespaceManager_Vtbl {
     RetrieveNamespaces: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportNamespaceScheduledCast,
-    IWdsTransportNamespaceScheduledCast_Vtbl,
-    0x3840cecf_d76c_416e_a4cc_31c741d2874b
-);
+::windows_core::imp::com_interface!(IWdsTransportNamespaceScheduledCast, IWdsTransportNamespaceScheduledCast_Vtbl, 0x3840cecf_d76c_416e_a4cc_31c741d2874b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportNamespaceScheduledCast, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportNamespace);
 #[cfg(feature = "Win32_System_Com")]
@@ -1655,7 +1567,6 @@ impl IWdsTransportNamespaceScheduledCast {
     {
         (::windows_core::Interface::vtable(self).base__.Deregister)(::windows_core::Interface::as_raw(self), bterminatesessions.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IWdsTransportNamespace> {
         let mut result__ = ::std::mem::zeroed();
@@ -1664,7 +1575,6 @@ impl IWdsTransportNamespaceScheduledCast {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows_core::Result<IWdsTransportCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -1682,12 +1592,7 @@ pub struct IWdsTransportNamespaceScheduledCast_Vtbl {
     pub StartTransmission: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportNamespaceScheduledCastAutoStart,
-    IWdsTransportNamespaceScheduledCastAutoStart_Vtbl,
-    0xd606af3d_ea9c_4219_961e_7491d618d9b9
-);
+::windows_core::imp::com_interface!(IWdsTransportNamespaceScheduledCastAutoStart, IWdsTransportNamespaceScheduledCastAutoStart_Vtbl, 0xd606af3d_ea9c_4219_961e_7491d618d9b9);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportNamespaceScheduledCastAutoStart, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportNamespace, IWdsTransportNamespaceScheduledCast);
 #[cfg(feature = "Win32_System_Com")]
@@ -1775,7 +1680,6 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     {
         (::windows_core::Interface::vtable(self).base__.base__.Deregister)(::windows_core::Interface::as_raw(self), bterminatesessions.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IWdsTransportNamespace> {
         let mut result__ = ::std::mem::zeroed();
@@ -1784,7 +1688,6 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows_core::Result<IWdsTransportCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -1819,12 +1722,7 @@ pub struct IWdsTransportNamespaceScheduledCastAutoStart_Vtbl {
     pub SetStartTime: unsafe extern "system" fn(*mut ::core::ffi::c_void, f64) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportNamespaceScheduledCastManualStart,
-    IWdsTransportNamespaceScheduledCastManualStart_Vtbl,
-    0x013e6e4c_e6a7_4fb5_b7ff_d9f5da805c31
-);
+::windows_core::imp::com_interface!(IWdsTransportNamespaceScheduledCastManualStart, IWdsTransportNamespaceScheduledCastManualStart_Vtbl, 0x013e6e4c_e6a7_4fb5_b7ff_d9f5da805c31);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportNamespaceScheduledCastManualStart, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportNamespace, IWdsTransportNamespaceScheduledCast);
 #[cfg(feature = "Win32_System_Com")]
@@ -1912,7 +1810,6 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     {
         (::windows_core::Interface::vtable(self).base__.base__.Deregister)(::windows_core::Interface::as_raw(self), bterminatesessions.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IWdsTransportNamespace> {
         let mut result__ = ::std::mem::zeroed();
@@ -1921,7 +1818,6 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveContents(&self) -> ::windows_core::Result<IWdsTransportCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -1938,12 +1834,7 @@ pub struct IWdsTransportNamespaceScheduledCastManualStart_Vtbl {
     pub base__: IWdsTransportNamespaceScheduledCast_Vtbl,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportServer,
-    IWdsTransportServer_Vtbl,
-    0x09ccd093_830d_4344_a30a_73ae8e8fca90
-);
+::windows_core::imp::com_interface!(IWdsTransportServer, IWdsTransportServer_Vtbl, 0x09ccd093_830d_4344_a30a_73ae8e8fca90);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportServer, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -1952,19 +1843,16 @@ impl IWdsTransportServer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetupManager(&self) -> ::windows_core::Result<IWdsTransportSetupManager> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetupManager)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConfigurationManager(&self) -> ::windows_core::Result<IWdsTransportConfigurationManager> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ConfigurationManager)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceManager(&self) -> ::windows_core::Result<IWdsTransportNamespaceManager> {
         let mut result__ = ::std::mem::zeroed();
@@ -1995,12 +1883,7 @@ pub struct IWdsTransportServer_Vtbl {
     pub DisconnectClient: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportServer2,
-    IWdsTransportServer2_Vtbl,
-    0x256e999f_6df4_4538_81b9_857b9ab8fb47
-);
+::windows_core::imp::com_interface!(IWdsTransportServer2, IWdsTransportServer2_Vtbl, 0x256e999f_6df4_4538_81b9_857b9ab8fb47);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportServer2, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportServer);
 #[cfg(feature = "Win32_System_Com")]
@@ -2009,19 +1892,16 @@ impl IWdsTransportServer2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetupManager(&self) -> ::windows_core::Result<IWdsTransportSetupManager> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SetupManager)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConfigurationManager(&self) -> ::windows_core::Result<IWdsTransportConfigurationManager> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ConfigurationManager)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceManager(&self) -> ::windows_core::Result<IWdsTransportNamespaceManager> {
         let mut result__ = ::std::mem::zeroed();
@@ -2030,7 +1910,6 @@ impl IWdsTransportServer2 {
     pub unsafe fn DisconnectClient(&self, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.DisconnectClient)(::windows_core::Interface::as_raw(self), ulclientid, disconnectiontype).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TftpManager(&self) -> ::windows_core::Result<IWdsTransportTftpManager> {
         let mut result__ = ::std::mem::zeroed();
@@ -2048,12 +1927,7 @@ pub struct IWdsTransportServer2_Vtbl {
     TftpManager: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportServicePolicy,
-    IWdsTransportServicePolicy_Vtbl,
-    0xb9468578_9f2b_48cc_b27a_a60799c2750c
-);
+::windows_core::imp::com_interface!(IWdsTransportServicePolicy, IWdsTransportServicePolicy_Vtbl, 0xb9468578_9f2b_48cc_b27a_a60799c2750c);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportServicePolicy, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportCacheable);
 #[cfg(feature = "Win32_System_Com")]
@@ -2139,12 +2013,7 @@ pub struct IWdsTransportServicePolicy_Vtbl {
     pub SetNetworkProfile: unsafe extern "system" fn(*mut ::core::ffi::c_void, WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportServicePolicy2,
-    IWdsTransportServicePolicy2_Vtbl,
-    0x65c19e5c_aa7e_4b91_8944_91e0e5572797
-);
+::windows_core::imp::com_interface!(IWdsTransportServicePolicy2, IWdsTransportServicePolicy2_Vtbl, 0x65c19e5c_aa7e_4b91_8944_91e0e5572797);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportServicePolicy2, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportCacheable, IWdsTransportServicePolicy);
 #[cfg(feature = "Win32_System_Com")]
@@ -2248,17 +2117,11 @@ pub struct IWdsTransportServicePolicy2_Vtbl {
     pub SetEnableTftpVariableWindowExtension: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportSession,
-    IWdsTransportSession_Vtbl,
-    0xf4efea88_65b1_4f30_a4b9_2793987796fb
-);
+::windows_core::imp::com_interface!(IWdsTransportSession, IWdsTransportSession_Vtbl, 0xf4efea88_65b1_4f30_a4b9_2793987796fb);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportSession, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportSession {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Content(&self) -> ::windows_core::Result<IWdsTransportContent> {
         let mut result__ = ::std::mem::zeroed();
@@ -2284,7 +2147,6 @@ impl IWdsTransportSession {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MasterClientId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveClients(&self) -> ::windows_core::Result<IWdsTransportCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -2315,12 +2177,7 @@ pub struct IWdsTransportSession_Vtbl {
     pub Terminate: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportSetupManager,
-    IWdsTransportSetupManager_Vtbl,
-    0xf7238425_efa8_40a4_aef9_c98d969c0b75
-);
+::windows_core::imp::com_interface!(IWdsTransportSetupManager, IWdsTransportSetupManager_Vtbl, 0xf7238425_efa8_40a4_aef9_c98d969c0b75);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportSetupManager, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2365,12 +2222,7 @@ pub struct IWdsTransportSetupManager_Vtbl {
     pub DeregisterContentProvider: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportSetupManager2,
-    IWdsTransportSetupManager2_Vtbl,
-    0x02be79da_7e9e_4366_8b6e_2aa9a91be47f
-);
+::windows_core::imp::com_interface!(IWdsTransportSetupManager2, IWdsTransportSetupManager2_Vtbl, 0x02be79da_7e9e_4366_8b6e_2aa9a91be47f);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportSetupManager2, ::windows_core::IUnknown, super::Com::IDispatch, IWdsTransportSetupManager);
 #[cfg(feature = "Win32_System_Com")]
@@ -2406,7 +2258,6 @@ impl IWdsTransportSetupManager2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TftpCapabilities)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ContentProviders(&self) -> ::windows_core::Result<IWdsTransportCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -2425,12 +2276,7 @@ pub struct IWdsTransportSetupManager2_Vtbl {
     ContentProviders: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportTftpClient,
-    IWdsTransportTftpClient_Vtbl,
-    0xb022d3ae_884d_4d85_b146_53320e76ef62
-);
+::windows_core::imp::com_interface!(IWdsTransportTftpClient, IWdsTransportTftpClient_Vtbl, 0xb022d3ae_884d_4d85_b146_53320e76ef62);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportTftpClient, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2478,17 +2324,11 @@ pub struct IWdsTransportTftpClient_Vtbl {
     pub WindowSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWdsTransportTftpManager,
-    IWdsTransportTftpManager_Vtbl,
-    0x1327a7c8_ae8a_4fb3_8150_136227c37e9a
-);
+::windows_core::imp::com_interface!(IWdsTransportTftpManager, IWdsTransportTftpManager_Vtbl, 0x1327a7c8_ae8a_4fb3_8150_136227c37e9a);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWdsTransportTftpManager, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWdsTransportTftpManager {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetrieveTftpClients(&self) -> ::windows_core::Result<IWdsTransportCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -3408,7 +3248,6 @@ impl ::core::default::Default for WDS_TRANSPORTCLIENT_REQUEST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub struct WDS_TRANSPORTPROVIDER_INIT_PARAMS {
     pub ulLength: u32,

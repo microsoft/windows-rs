@@ -1,5 +1,4 @@
 #[cfg(feature = "Devices_Adc_Provider")]
-#[doc = "Required features: `\"Devices_Adc_Provider\"`"]
 pub mod Provider;
 ::windows_core::imp::com_interface!(IAdcChannel, IAdcChannel_Vtbl, 0x040bf414_2588_4a56_abef_73a260acc60a);
 #[repr(C)]
@@ -143,7 +142,6 @@ impl AdcController {
             (::windows_core::Interface::vtable(this).OpenChannel)(::windows_core::Interface::as_raw(this), channelnumber, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Adc_Provider\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Foundation_Collections"))]
     pub fn GetControllersAsync<P0>(provider: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AdcController>>>
     where

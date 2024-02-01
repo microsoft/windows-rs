@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADs_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -154,7 +153,6 @@ impl IADs_Vtbl {
         iid == &<IADs as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsADSystemInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn UserName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -334,7 +332,6 @@ impl IADsADSystemInfo_Vtbl {
         iid == &<IADsADSystemInfo as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsAccessControlEntry_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AccessMask(&self) -> ::windows_core::Result<i32>;
@@ -491,7 +488,6 @@ impl IADsAccessControlEntry_Vtbl {
         iid == &<IADsAccessControlEntry as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsAccessControlList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AclRevision(&self) -> ::windows_core::Result<i32>;
@@ -588,7 +584,6 @@ impl IADsAccessControlList_Vtbl {
         iid == &<IADsAccessControlList as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsAcl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ProtectedAttrName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -746,7 +741,6 @@ impl IADsAggregator_Vtbl {
         iid == &<IADsAggregator as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsBackLink_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RemoteID(&self) -> ::windows_core::Result<i32>;
@@ -803,7 +797,6 @@ impl IADsBackLink_Vtbl {
         iid == &<IADsBackLink as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsCaseIgnoreList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CaseIgnoreList(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -840,7 +833,6 @@ impl IADsCaseIgnoreList_Vtbl {
         iid == &<IADsCaseIgnoreList as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsClass_Impl: Sized + IADs_Impl {
     fn PrimaryInterface(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1163,7 +1155,6 @@ impl IADsClass_Vtbl {
         iid == &<IADsClass as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -1220,7 +1211,6 @@ impl IADsCollection_Vtbl {
         iid == &<IADsCollection as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsComputer_Impl: Sized + IADs_Impl {
     fn ComputerID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1563,7 +1553,6 @@ impl IADsComputer_Vtbl {
         iid == &<IADsComputer as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsComputerOperations_Impl: Sized + IADs_Impl {
     fn Status(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
@@ -1596,7 +1585,6 @@ impl IADsComputerOperations_Vtbl {
         iid == &<IADsComputerOperations as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsContainer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -1738,7 +1726,6 @@ impl IADsContainer_Vtbl {
         iid == &<IADsContainer as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsDNWithBinary_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn BinaryValue(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -1795,7 +1782,6 @@ impl IADsDNWithBinary_Vtbl {
         iid == &<IADsDNWithBinary as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsDNWithString_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StringValue(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1852,7 +1838,6 @@ impl IADsDNWithString_Vtbl {
         iid == &<IADsDNWithString as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsDeleteOps_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DeleteObject(&self, lnflags: i32) -> ::windows_core::Result<()>;
@@ -1873,7 +1858,6 @@ impl IADsDeleteOps_Vtbl {
         iid == &<IADsDeleteOps as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsDomain_Impl: Sized + IADs_Impl {
     fn IsWorkgroup(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -2063,7 +2047,6 @@ impl IADsDomain_Vtbl {
         iid == &<IADsDomain as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsEmail_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Type(&self) -> ::windows_core::Result<i32>;
@@ -2120,7 +2103,6 @@ impl IADsEmail_Vtbl {
         iid == &<IADsEmail as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsExtension_Impl: Sized {
     fn Operate(&self, dwcode: u32, vardata1: &::windows_core::VARIANT, vardata2: &::windows_core::VARIANT, vardata3: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
@@ -2164,7 +2146,6 @@ impl IADsExtension_Vtbl {
         iid == &<IADsExtension as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsFaxNumber_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn TelephoneNumber(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2221,7 +2202,6 @@ impl IADsFaxNumber_Vtbl {
         iid == &<IADsFaxNumber as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsFileService_Impl: Sized + IADsService_Impl {
     fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2278,7 +2258,6 @@ impl IADsFileService_Vtbl {
         iid == &<IADsFileService as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID || iid == &<IADsService as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsFileServiceOperations_Impl: Sized + IADsServiceOperations_Impl {
     fn Sessions(&self) -> ::windows_core::Result<IADsCollection>;
@@ -2321,7 +2300,6 @@ impl IADsFileServiceOperations_Vtbl {
         iid == &<IADsFileServiceOperations as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID || iid == &<IADsServiceOperations as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsFileShare_Impl: Sized + IADs_Impl {
     fn CurrentUserCount(&self) -> ::windows_core::Result<i32>;
@@ -2431,7 +2409,6 @@ impl IADsFileShare_Vtbl {
         iid == &<IADsFileShare as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsGroup_Impl: Sized + IADs_Impl {
     fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2508,7 +2485,6 @@ impl IADsGroup_Vtbl {
         iid == &<IADsGroup as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsHold_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ObjectName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2565,7 +2541,6 @@ impl IADsHold_Vtbl {
         iid == &<IADsHold as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsLargeInteger_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn HighPart(&self) -> ::windows_core::Result<i32>;
@@ -2622,7 +2597,6 @@ impl IADsLargeInteger_Vtbl {
         iid == &<IADsLargeInteger as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsLocality_Impl: Sized + IADs_Impl {
     fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2719,7 +2693,6 @@ impl IADsLocality_Vtbl {
         iid == &<IADsLocality as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsMembers_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -2782,7 +2755,6 @@ impl IADsMembers_Vtbl {
         iid == &<IADsMembers as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsNameTranslate_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetChaseReferral(&self, lnchasereferral: i32) -> ::windows_core::Result<()>;
@@ -2860,7 +2832,6 @@ impl IADsNameTranslate_Vtbl {
         iid == &<IADsNameTranslate as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsNamespaces_Impl: Sized + IADs_Impl {
     fn DefaultContainer(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2897,7 +2868,6 @@ impl IADsNamespaces_Vtbl {
         iid == &<IADsNamespaces as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsNetAddress_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AddressType(&self) -> ::windows_core::Result<i32>;
@@ -2954,7 +2924,6 @@ impl IADsNetAddress_Vtbl {
         iid == &<IADsNetAddress as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsO_Impl: Sized + IADs_Impl {
     fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -3091,7 +3060,6 @@ impl IADsO_Vtbl {
         iid == &<IADsO as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsOU_Impl: Sized + IADs_Impl {
     fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -3248,7 +3216,6 @@ impl IADsOU_Vtbl {
         iid == &<IADsOU as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsObjectOptions_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetOption(&self, lnoption: i32) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -3285,7 +3252,6 @@ impl IADsObjectOptions_Vtbl {
         iid == &<IADsObjectOptions as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsOctetList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn OctetList(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -3322,7 +3288,6 @@ impl IADsOctetList_Vtbl {
         iid == &<IADsOctetList as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsOpenDSObject_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn OpenDSObject(&self, lpszdnname: &::windows_core::BSTR, lpszusername: &::windows_core::BSTR, lpszpassword: &::windows_core::BSTR, lnreserved: i32) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
@@ -3349,7 +3314,6 @@ impl IADsOpenDSObject_Vtbl {
         iid == &<IADsOpenDSObject as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsPath_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Type(&self) -> ::windows_core::Result<i32>;
@@ -3426,7 +3390,6 @@ impl IADsPath_Vtbl {
         iid == &<IADsPath as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsPathname_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Set(&self, bstradspath: &::windows_core::BSTR, lnsettype: i32) -> ::windows_core::Result<()>;
@@ -3556,7 +3519,6 @@ impl IADsPathname_Vtbl {
         iid == &<IADsPathname as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsPostalAddress_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn PostalAddress(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -3593,7 +3555,6 @@ impl IADsPostalAddress_Vtbl {
         iid == &<IADsPostalAddress as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsPrintJob_Impl: Sized + IADs_Impl {
     fn HostPrintQueue(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -3808,7 +3769,6 @@ impl IADsPrintJob_Vtbl {
         iid == &<IADsPrintJob as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsPrintJobOperations_Impl: Sized + IADs_Impl {
     fn Status(&self) -> ::windows_core::Result<i32>;
@@ -3898,7 +3858,6 @@ impl IADsPrintJobOperations_Vtbl {
         iid == &<IADsPrintJobOperations as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsPrintQueue_Impl: Sized + IADs_Impl {
     fn PrinterPath(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -4175,7 +4134,6 @@ impl IADsPrintQueue_Vtbl {
         iid == &<IADsPrintQueue as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsPrintQueueOperations_Impl: Sized + IADs_Impl {
     fn Status(&self) -> ::windows_core::Result<i32>;
@@ -4239,7 +4197,6 @@ impl IADsPrintQueueOperations_Vtbl {
         iid == &<IADsPrintQueueOperations as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsProperty_Impl: Sized + IADs_Impl {
     fn OID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -4369,7 +4326,6 @@ impl IADsProperty_Vtbl {
         iid == &<IADsProperty as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsPropertyEntry_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Clear(&self) -> ::windows_core::Result<()>;
@@ -4473,7 +4429,6 @@ impl IADsPropertyEntry_Vtbl {
         iid == &<IADsPropertyEntry as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsPropertyList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn PropertyCount(&self) -> ::windows_core::Result<i32>;
@@ -4571,7 +4526,6 @@ impl IADsPropertyList_Vtbl {
         iid == &<IADsPropertyList as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsPropertyValue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Clear(&self) -> ::windows_core::Result<()>;
@@ -4835,7 +4789,6 @@ impl IADsPropertyValue_Vtbl {
         iid == &<IADsPropertyValue as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsPropertyValue2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetObjectProperty(&self, lnadstype: *mut i32, pvprop: *mut ::windows_core::VARIANT) -> ::windows_core::Result<()>;
@@ -4866,7 +4819,6 @@ impl IADsPropertyValue2_Vtbl {
         iid == &<IADsPropertyValue2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsReplicaPointer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ServerName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -4983,7 +4935,6 @@ impl IADsReplicaPointer_Vtbl {
         iid == &<IADsReplicaPointer as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsResource_Impl: Sized + IADs_Impl {
     fn User(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -5052,7 +5003,6 @@ impl IADsResource_Vtbl {
         iid == &<IADsResource as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsSecurityDescriptor_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Revision(&self) -> ::windows_core::Result<i32>;
@@ -5282,7 +5232,6 @@ impl IADsSecurityDescriptor_Vtbl {
         iid == &<IADsSecurityDescriptor as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsSecurityUtility_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetSecurityDescriptor(&self, varpath: &::windows_core::VARIANT, lpathformat: i32, lformat: i32) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -5352,7 +5301,6 @@ impl IADsSecurityUtility_Vtbl {
         iid == &<IADsSecurityUtility as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsService_Impl: Sized + IADs_Impl {
     fn HostComputer(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -5609,7 +5557,6 @@ impl IADsService_Vtbl {
         iid == &<IADsService as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsServiceOperations_Impl: Sized + IADs_Impl {
     fn Status(&self) -> ::windows_core::Result<i32>;
@@ -5674,7 +5621,6 @@ impl IADsServiceOperations_Vtbl {
         iid == &<IADsServiceOperations as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsSession_Impl: Sized + IADs_Impl {
     fn User(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -5769,7 +5715,6 @@ impl IADsSession_Vtbl {
         iid == &<IADsSession as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsSyntax_Impl: Sized + IADs_Impl {
     fn OleAutoDataType(&self) -> ::windows_core::Result<i32>;
@@ -5806,7 +5751,6 @@ impl IADsSyntax_Vtbl {
         iid == &<IADsSyntax as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsTimestamp_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn WholeSeconds(&self) -> ::windows_core::Result<i32>;
@@ -5863,7 +5807,6 @@ impl IADsTimestamp_Vtbl {
         iid == &<IADsTimestamp as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsTypedName_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ObjectName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -5940,7 +5883,6 @@ impl IADsTypedName_Vtbl {
         iid == &<IADsTypedName as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsUser_Impl: Sized + IADs_Impl {
     fn BadLoginAddress(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -6882,7 +6824,6 @@ impl IADsUser_Vtbl {
         iid == &<IADsUser as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IADs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsWinNTSystemInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn UserName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -6951,7 +6892,6 @@ impl IADsWinNTSystemInfo_Vtbl {
         iid == &<IADsWinNTSystemInfo as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ICommonQuery_Impl: Sized {
     fn OpenQueryWindow(&self, hwndparent: super::super::Foundation::HWND, pquerywnd: *mut OPENQUERYWINDOW, ppdataobject: *mut ::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows_core::Result<()>;
@@ -6972,7 +6912,6 @@ impl ICommonQuery_Vtbl {
         iid == &<ICommonQuery as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDirectoryObject_Impl: Sized {
     fn GetObjectInformation(&self) -> ::windows_core::Result<*mut ADS_OBJECT_INFO>;
@@ -7200,7 +7139,6 @@ impl IDirectorySearch_Vtbl {
         iid == &<IDirectorySearch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDsAdminCreateObj_Impl: Sized {
     fn Initialize(&self, padscontainerobj: ::core::option::Option<&IADsContainer>, padscopysource: ::core::option::Option<&IADs>, lpszclassname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -7264,7 +7202,6 @@ impl IDsAdminNewObj_Vtbl {
         iid == &<IDsAdminNewObj as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Controls\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IDsAdminNewObjExt_Impl: Sized {
     fn Initialize(&self, padscontainerobj: ::core::option::Option<&IADsContainer>, padscopysource: ::core::option::Option<&IADs>, lpszclassname: &::windows_core::PCWSTR, pdsadminnewobj: ::core::option::Option<&IDsAdminNewObj>, pdispinfo: *mut DSA_NEWOBJ_DISPINFO) -> ::windows_core::Result<()>;
@@ -7350,7 +7287,6 @@ impl IDsAdminNewObjPrimarySite_Vtbl {
         iid == &<IDsAdminNewObjPrimarySite as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDsAdminNotifyHandler_Impl: Sized {
     fn Initialize(&self, pextrainfo: ::core::option::Option<&super::super::System::Com::IDataObject>, pueventflags: *mut u32) -> ::windows_core::Result<()>;
@@ -7443,7 +7379,6 @@ impl IDsBrowseDomainTree_Vtbl {
         iid == &<IDsBrowseDomainTree as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait IDsDisplaySpecifier_Impl: Sized {
     fn SetServer(&self, pszserver: &::windows_core::PCWSTR, pszusername: &::windows_core::PCWSTR, pszpassword: &::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::Result<()>;
@@ -7537,7 +7472,6 @@ impl IDsDisplaySpecifier_Vtbl {
         iid == &<IDsDisplaySpecifier as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDsObjectPicker_Impl: Sized {
     fn Initialize(&self, pinitinfo: *mut DSOP_INIT_INFO) -> ::windows_core::Result<()>;
@@ -7574,7 +7508,6 @@ impl IDsObjectPicker_Vtbl {
         iid == &<IDsObjectPicker as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDsObjectPickerCredentials_Impl: Sized + IDsObjectPicker_Impl {
     fn SetCredentials(&self, szusername: &::windows_core::PCWSTR, szpassword: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -7595,7 +7528,6 @@ impl IDsObjectPickerCredentials_Vtbl {
         iid == &<IDsObjectPickerCredentials as ::windows_core::Interface>::IID || iid == &<IDsObjectPicker as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPersistQuery_Impl: Sized + super::super::System::Com::IPersist_Impl {
     fn WriteString(&self, psection: &::windows_core::PCWSTR, pvaluename: &::windows_core::PCWSTR, pvalue: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -7661,7 +7593,6 @@ impl IPersistQuery_Vtbl {
         iid == &<IPersistQuery as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IPersist as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrivateDispatch_Impl: Sized {
     fn ADSIInitializeDispatchManager(&self, dwextensionid: i32) -> ::windows_core::Result<()>;
@@ -7758,7 +7689,6 @@ impl IPrivateUnknown_Vtbl {
         iid == &<IPrivateUnknown as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IQueryForm_Impl: Sized {
     fn Initialize(&self, hkform: super::super::System::Registry::HKEY) -> ::windows_core::Result<()>;

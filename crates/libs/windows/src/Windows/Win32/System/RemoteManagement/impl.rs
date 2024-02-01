@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWSMan_Impl: Sized + super::Com::IDispatch_Impl {
     fn CreateSession(&self, connection: &::windows_core::BSTR, flags: i32, connectionoptions: ::core::option::Option<&super::Com::IDispatch>) -> ::windows_core::Result<super::Com::IDispatch>;
@@ -67,7 +66,6 @@ impl IWSMan_Vtbl {
         iid == &<IWSMan as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWSManConnectionOptions_Impl: Sized + super::Com::IDispatch_Impl {
     fn UserName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -111,7 +109,6 @@ impl IWSManConnectionOptions_Vtbl {
         iid == &<IWSManConnectionOptions as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWSManConnectionOptionsEx_Impl: Sized + IWSManConnectionOptions_Impl {
     fn CertificateThumbprint(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -148,7 +145,6 @@ impl IWSManConnectionOptionsEx_Vtbl {
         iid == &<IWSManConnectionOptionsEx as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWSManConnectionOptions as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWSManConnectionOptionsEx2_Impl: Sized + IWSManConnectionOptionsEx_Impl {
     fn SetProxy(&self, accesstype: i32, authenticationmechanism: i32, username: &::windows_core::BSTR, password: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -263,7 +259,6 @@ impl IWSManConnectionOptionsEx2_Vtbl {
         iid == &<IWSManConnectionOptionsEx2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWSManConnectionOptions as ::windows_core::Interface>::IID || iid == &<IWSManConnectionOptionsEx as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWSManEnumerator_Impl: Sized + super::Com::IDispatch_Impl {
     fn ReadItem(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -319,7 +314,6 @@ impl IWSManEnumerator_Vtbl {
         iid == &<IWSManEnumerator as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWSManEx_Impl: Sized + IWSMan_Impl {
     fn CreateResourceLocator(&self, strresourcelocator: &::windows_core::BSTR) -> ::windows_core::Result<super::Com::IDispatch>;
@@ -596,7 +590,6 @@ impl IWSManEx_Vtbl {
         iid == &<IWSManEx as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWSMan as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWSManEx2_Impl: Sized + IWSManEx_Impl {
     fn SessionFlagUseClientCertificate(&self) -> ::windows_core::Result<i32>;
@@ -626,7 +619,6 @@ impl IWSManEx2_Vtbl {
         iid == &<IWSManEx2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWSMan as ::windows_core::Interface>::IID || iid == &<IWSManEx as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWSManEx3_Impl: Sized + IWSManEx2_Impl {
     fn SessionFlagUTF16(&self) -> ::windows_core::Result<i32>;
@@ -734,7 +726,6 @@ impl IWSManEx3_Vtbl {
         iid == &<IWSManEx3 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWSMan as ::windows_core::Interface>::IID || iid == &<IWSManEx as ::windows_core::Interface>::IID || iid == &<IWSManEx2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWSManInternal_Impl: Sized + super::Com::IDispatch_Impl {
     fn ConfigSDDL(&self, session: ::core::option::Option<&super::Com::IDispatch>, resourceuri: &::windows_core::VARIANT, flags: i32) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -761,7 +752,6 @@ impl IWSManInternal_Vtbl {
         iid == &<IWSManInternal as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWSManResourceLocator_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetResourceURI(&self, uri: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -909,7 +899,6 @@ impl IWSManResourceLocatorInternal_Vtbl {
         iid == &<IWSManResourceLocatorInternal as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWSManSession_Impl: Sized + super::Com::IDispatch_Impl {
     fn Get(&self, resourceuri: &::windows_core::VARIANT, flags: i32) -> ::windows_core::Result<::windows_core::BSTR>;

@@ -1,7 +1,6 @@
 ::windows_core::imp::com_interface!(IXMLGraphBuilder, IXMLGraphBuilder_Vtbl, 0x1bb05960_5fbf_11d2_a521_44df07c10000);
 ::windows_core::imp::interface_hierarchy!(IXMLGraphBuilder, ::windows_core::IUnknown);
 impl IXMLGraphBuilder {
-    #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn BuildFromXML<P0, P1>(&self, pgraph: P0, pxml: P1) -> ::windows_core::Result<()>
     where

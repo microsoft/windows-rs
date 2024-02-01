@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_UI_TextServices\"`"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn ActivateKeyboardLayout<P0>(hkl: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> ::windows_core::Result<super::super::TextServices::HKL>
@@ -79,14 +78,12 @@ pub unsafe fn GetKeyState(nvirtkey: i32) -> i16 {
     ::windows_targets::link!("user32.dll" "system" fn GetKeyState(nvirtkey : i32) -> i16);
     GetKeyState(nvirtkey)
 }
-#[doc = "Required features: `\"Win32_UI_TextServices\"`"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn GetKeyboardLayout(idthread: u32) -> super::super::TextServices::HKL {
     ::windows_targets::link!("user32.dll" "system" fn GetKeyboardLayout(idthread : u32) -> super::super::TextServices:: HKL);
     GetKeyboardLayout(idthread)
 }
-#[doc = "Required features: `\"Win32_UI_TextServices\"`"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn GetKeyboardLayoutList(lplist: ::core::option::Option<&mut [super::super::TextServices::HKL]>) -> i32 {
@@ -131,7 +128,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn IsWindowEnabled(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: BOOL);
     IsWindowEnabled(hwnd.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_UI_TextServices\"`"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn LoadKeyboardLayoutA<P0>(pwszklid: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> ::windows_core::Result<super::super::TextServices::HKL>
@@ -142,7 +138,6 @@ where
     let result__ = LoadKeyboardLayoutA(pwszklid.into_param().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_UI_TextServices\"`"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn LoadKeyboardLayoutW<P0>(pwszklid: P0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> ::windows_core::Result<super::super::TextServices::HKL>
@@ -158,7 +153,6 @@ pub unsafe fn MapVirtualKeyA(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE) -> u32 
     ::windows_targets::link!("user32.dll" "system" fn MapVirtualKeyA(ucode : u32, umaptype : MAP_VIRTUAL_KEY_TYPE) -> u32);
     MapVirtualKeyA(ucode, umaptype)
 }
-#[doc = "Required features: `\"Win32_UI_TextServices\"`"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn MapVirtualKeyExA<P0>(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: P0) -> u32
@@ -168,7 +162,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn MapVirtualKeyExA(ucode : u32, umaptype : MAP_VIRTUAL_KEY_TYPE, dwhkl : super::super::TextServices:: HKL) -> u32);
     MapVirtualKeyExA(ucode, umaptype, dwhkl.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_UI_TextServices\"`"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn MapVirtualKeyExW<P0>(ucode: u32, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: P0) -> u32
@@ -253,7 +246,6 @@ pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: ::core::option:
     ::windows_targets::link!("user32.dll" "system" fn ToAscii(uvirtkey : u32, uscancode : u32, lpkeystate : *const u8, lpchar : *mut u16, uflags : u32) -> i32);
     ToAscii(uvirtkey, uscancode, ::core::mem::transmute(lpkeystate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpchar, uflags)
 }
-#[doc = "Required features: `\"Win32_UI_TextServices\"`"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn ToAsciiEx<P0>(uvirtkey: u32, uscancode: u32, lpkeystate: ::core::option::Option<&[u8; 256]>, lpchar: *mut u16, uflags: u32, dwhkl: P0) -> i32
@@ -268,7 +260,6 @@ pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: ::core::optio
     ::windows_targets::link!("user32.dll" "system" fn ToUnicode(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : ::windows_core::PWSTR, cchbuff : i32, wflags : u32) -> i32);
     ToUnicode(wvirtkey, wscancode, ::core::mem::transmute(lpkeystate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pwszbuff.as_ptr()), pwszbuff.len().try_into().unwrap(), wflags)
 }
-#[doc = "Required features: `\"Win32_UI_TextServices\"`"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn ToUnicodeEx<P0>(wvirtkey: u32, wscancode: u32, lpkeystate: &[u8; 256], pwszbuff: &mut [u16], wflags: u32, dwhkl: P0) -> i32
@@ -283,7 +274,6 @@ pub unsafe fn TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> ::windows_c
     ::windows_targets::link!("user32.dll" "system" fn TrackMouseEvent(lpeventtrack : *mut TRACKMOUSEEVENT) -> super::super::super::Foundation:: BOOL);
     TrackMouseEvent(lpeventtrack).ok()
 }
-#[doc = "Required features: `\"Win32_UI_TextServices\"`"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn UnloadKeyboardLayout<P0>(hkl: P0) -> ::windows_core::Result<()>
@@ -306,7 +296,6 @@ pub unsafe fn VkKeyScanA(ch: i8) -> i16 {
     ::windows_targets::link!("user32.dll" "system" fn VkKeyScanA(ch : i8) -> i16);
     VkKeyScanA(ch)
 }
-#[doc = "Required features: `\"Win32_UI_TextServices\"`"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn VkKeyScanExA<P0>(ch: i8, dwhkl: P0) -> i16
@@ -316,7 +305,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn VkKeyScanExA(ch : i8, dwhkl : super::super::TextServices:: HKL) -> i16);
     VkKeyScanExA(ch, dwhkl.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_UI_TextServices\"`"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn VkKeyScanExW<P0>(ch: u16, dwhkl: P0) -> i16

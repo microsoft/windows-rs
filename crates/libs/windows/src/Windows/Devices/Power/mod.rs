@@ -133,7 +133,6 @@ impl BatteryReport {
             (::windows_core::Interface::vtable(this).RemainingCapacityInMilliwattHours)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System_Power\"`"]
     #[cfg(feature = "System_Power")]
     pub fn Status(&self) -> ::windows_core::Result<super::super::System::Power::BatteryStatus> {
         let this = self;

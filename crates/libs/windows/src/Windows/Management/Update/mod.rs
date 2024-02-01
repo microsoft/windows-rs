@@ -319,7 +319,6 @@ unsafe impl ::core::marker::Sync for PreviewBuildsManager {}
 pub struct PreviewBuildsState(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PreviewBuildsState, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PreviewBuildsState {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -676,7 +675,6 @@ impl WindowsUpdateAdministrator {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RevokeWindowsUpdateApproval)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(updateid)).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUpdates(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowsUpdate>> {
         let this = self;
@@ -1114,7 +1112,6 @@ impl WindowsUpdateManager {
             (::windows_core::Interface::vtable(this).LastSuccessfulScanTimestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetApplicableUpdates(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowsUpdate>> {
         let this = self;
@@ -1123,7 +1120,6 @@ impl WindowsUpdateManager {
             (::windows_core::Interface::vtable(this).GetApplicableUpdates)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMostRecentCompletedUpdates(&self, count: i32) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowsUpdateItem>> {
         let this = self;
@@ -1132,7 +1128,6 @@ impl WindowsUpdateManager {
             (::windows_core::Interface::vtable(this).GetMostRecentCompletedUpdates)(::windows_core::Interface::as_raw(this), count, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMostRecentCompletedUpdatesAsync(&self, count: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WindowsUpdateItem>>> {
         let this = self;
@@ -1346,7 +1341,6 @@ impl WindowsUpdateScanCompletedEventArgs {
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Updates(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowsUpdate>> {
         let this = self;

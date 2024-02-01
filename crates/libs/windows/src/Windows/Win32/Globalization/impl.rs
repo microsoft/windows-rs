@@ -300,7 +300,6 @@ impl IMLangConvertCharset_Vtbl {
         iid == &<IMLangConvertCharset as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IMLangFontLink_Impl: Sized + IMLangCodePages_Impl {
     fn GetFontCodePages(&self, hdc: super::Graphics::Gdi::HDC, hfont: super::Graphics::Gdi::HFONT, pdwcodepages: *mut u32) -> ::windows_core::Result<()>;
@@ -345,7 +344,6 @@ impl IMLangFontLink_Vtbl {
         iid == &<IMLangFontLink as ::windows_core::Interface>::IID || iid == &<IMLangCodePages as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IMLangFontLink2_Impl: Sized + IMLangCodePages_Impl {
     fn GetFontCodePages(&self, hdc: super::Graphics::Gdi::HDC, hfont: super::Graphics::Gdi::HFONT, pdwcodepages: *mut u32) -> ::windows_core::Result<()>;
@@ -880,7 +878,6 @@ impl IMultiLanguage_Vtbl {
         iid == &<IMultiLanguage as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMultiLanguage2_Impl: Sized {
     fn GetNumberOfCodePageInfo(&self) -> ::windows_core::Result<u32>;
@@ -1134,7 +1131,6 @@ impl IMultiLanguage2_Vtbl {
         iid == &<IMultiLanguage2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMultiLanguage3_Impl: Sized + IMultiLanguage2_Impl {
     fn DetectOutboundCodePage(&self, dwflags: u32, lpwidecharstr: &::windows_core::PCWSTR, cchwidechar: u32, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -1165,7 +1161,6 @@ impl IMultiLanguage3_Vtbl {
         iid == &<IMultiLanguage3 as ::windows_core::Interface>::IID || iid == &<IMultiLanguage2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOptionDescription_Impl: Sized {
     fn Id(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -1234,7 +1229,6 @@ impl IOptionDescription_Vtbl {
         iid == &<IOptionDescription as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpellCheckProvider_Impl: Sized {
     fn LanguageTag(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -1369,7 +1363,6 @@ impl ISpellCheckProvider_Vtbl {
         iid == &<ISpellCheckProvider as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpellCheckProviderFactory_Impl: Sized {
     fn SupportedLanguages(&self) -> ::windows_core::Result<super::System::Com::IEnumString>;
@@ -1425,7 +1418,6 @@ impl ISpellCheckProviderFactory_Vtbl {
         iid == &<ISpellCheckProviderFactory as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpellChecker_Impl: Sized {
     fn LanguageTag(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -1600,7 +1592,6 @@ impl ISpellChecker_Vtbl {
         iid == &<ISpellChecker as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpellChecker2_Impl: Sized + ISpellChecker_Impl {
     fn Remove(&self, word: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -1638,7 +1629,6 @@ impl ISpellCheckerChangedEventHandler_Vtbl {
         iid == &<ISpellCheckerChangedEventHandler as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISpellCheckerFactory_Impl: Sized {
     fn SupportedLanguages(&self) -> ::windows_core::Result<super::System::Com::IEnumString>;

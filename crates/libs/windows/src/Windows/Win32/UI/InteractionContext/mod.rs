@@ -6,7 +6,6 @@ where
     ::windows_targets::link!("ninput.dll" "system" fn AddPointerInteractionContext(interactioncontext : HINTERACTIONCONTEXT, pointerid : u32) -> ::windows_core::HRESULT);
     AddPointerInteractionContext(interactioncontext.into_param().abi(), pointerid).ok()
 }
-#[doc = "Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn BufferPointerPacketsInteractionContext<P0>(interactioncontext: P0, pointerinfo: &[super::Input::Pointer::POINTER_INFO]) -> ::windows_core::Result<()>
@@ -83,7 +82,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     GetPropertyInteractionContext(interactioncontext.into_param().abi(), contextproperty, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetStateInteractionContext<P0>(interactioncontext: P0, pointerinfo: ::core::option::Option<*const super::Input::Pointer::POINTER_INFO>) -> ::windows_core::Result<INTERACTION_STATE>
@@ -128,7 +126,6 @@ where
     ::windows_targets::link!("ninput.dll" "system" fn ProcessInertiaInteractionContext(interactioncontext : HINTERACTIONCONTEXT) -> ::windows_core::HRESULT);
     ProcessInertiaInteractionContext(interactioncontext.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn ProcessPointerFramesInteractionContext<P0>(interactioncontext: P0, entriescount: u32, pointercount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows_core::Result<()>
@@ -138,7 +135,6 @@ where
     ::windows_targets::link!("ninput.dll" "system" fn ProcessPointerFramesInteractionContext(interactioncontext : HINTERACTIONCONTEXT, entriescount : u32, pointercount : u32, pointerinfo : *const super::Input::Pointer:: POINTER_INFO) -> ::windows_core::HRESULT);
     ProcessPointerFramesInteractionContext(interactioncontext.into_param().abi(), entriescount, pointercount, pointerinfo).ok()
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn RegisterOutputCallbackInteractionContext<P0>(interactioncontext: P0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
@@ -148,7 +144,6 @@ where
     ::windows_targets::link!("ninput.dll" "system" fn RegisterOutputCallbackInteractionContext(interactioncontext : HINTERACTIONCONTEXT, outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     RegisterOutputCallbackInteractionContext(interactioncontext.into_param().abi(), outputcallback, ::core::mem::transmute(clientdata.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn RegisterOutputCallbackInteractionContext2<P0>(interactioncontext: P0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
@@ -764,7 +759,6 @@ impl ::core::default::Default for INTERACTION_CONTEXT_CONFIGURATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct INTERACTION_CONTEXT_OUTPUT {
     pub interactionId: INTERACTION_ID,
@@ -793,7 +787,6 @@ impl ::core::default::Default for INTERACTION_CONTEXT_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub union INTERACTION_CONTEXT_OUTPUT_0 {
     pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
@@ -819,7 +812,6 @@ impl ::core::default::Default for INTERACTION_CONTEXT_OUTPUT_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct INTERACTION_CONTEXT_OUTPUT2 {
     pub interactionId: INTERACTION_ID,
@@ -850,7 +842,6 @@ impl ::core::default::Default for INTERACTION_CONTEXT_OUTPUT2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub union INTERACTION_CONTEXT_OUTPUT2_0 {
     pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
@@ -940,9 +931,7 @@ impl ::core::default::Default for MANIPULATION_VELOCITY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(clientdata: *const ::core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT)>;
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK2 = ::core::option::Option<unsafe extern "system" fn(clientdata: *const ::core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT2)>;

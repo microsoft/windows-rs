@@ -110,7 +110,6 @@ impl DevicePortalConnection {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRequestReceived)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"ApplicationModel_AppService\"`"]
     #[cfg(feature = "ApplicationModel_AppService")]
     pub fn GetForAppServiceConnection<P0>(appserviceconnection: P0) -> ::windows_core::Result<DevicePortalConnection>
     where
@@ -121,7 +120,6 @@ impl DevicePortalConnection {
             (::windows_core::Interface::vtable(this).GetForAppServiceConnection)(::windows_core::Interface::as_raw(this), appserviceconnection.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Networking_Sockets\"`, `\"Web_Http\"`"]
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
     pub fn GetServerMessageWebSocketForRequest<P0>(&self, request: P0) -> ::windows_core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>
     where
@@ -133,7 +131,6 @@ impl DevicePortalConnection {
             (::windows_core::Interface::vtable(this).GetServerMessageWebSocketForRequest)(::windows_core::Interface::as_raw(this), request.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Networking_Sockets\"`, `\"Web_Http\"`"]
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
     pub fn GetServerMessageWebSocketForRequest2<P0>(&self, request: P0, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>
     where
@@ -145,7 +142,6 @@ impl DevicePortalConnection {
             (::windows_core::Interface::vtable(this).GetServerMessageWebSocketForRequest2)(::windows_core::Interface::as_raw(this), request.into_param().abi(), messagetype, ::core::mem::transmute_copy(protocol), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Networking_Sockets\"`, `\"Web_Http\"`"]
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
     pub fn GetServerMessageWebSocketForRequest3<P0>(&self, request: P0, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: &::windows_core::HSTRING, outboundbuffersizeinbytes: u32, maxmessagesize: u32, receivemode: super::super::super::Networking::Sockets::MessageWebSocketReceiveMode) -> ::windows_core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>
     where
@@ -157,7 +153,6 @@ impl DevicePortalConnection {
             (::windows_core::Interface::vtable(this).GetServerMessageWebSocketForRequest3)(::windows_core::Interface::as_raw(this), request.into_param().abi(), messagetype, ::core::mem::transmute_copy(protocol), outboundbuffersizeinbytes, maxmessagesize, receivemode, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Networking_Sockets\"`, `\"Web_Http\"`"]
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
     pub fn GetServerStreamWebSocketForRequest<P0>(&self, request: P0) -> ::windows_core::Result<super::super::super::Networking::Sockets::ServerStreamWebSocket>
     where
@@ -169,7 +164,6 @@ impl DevicePortalConnection {
             (::windows_core::Interface::vtable(this).GetServerStreamWebSocketForRequest)(::windows_core::Interface::as_raw(this), request.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Networking_Sockets\"`, `\"Web_Http\"`"]
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
     pub fn GetServerStreamWebSocketForRequest2<P0>(&self, request: P0, protocol: &::windows_core::HSTRING, outboundbuffersizeinbytes: u32, nodelay: bool) -> ::windows_core::Result<super::super::super::Networking::Sockets::ServerStreamWebSocket>
     where
@@ -229,7 +223,6 @@ unsafe impl ::core::marker::Sync for DevicePortalConnectionClosedEventArgs {}
 pub struct DevicePortalConnectionRequestReceivedEventArgs(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(DevicePortalConnectionRequestReceivedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DevicePortalConnectionRequestReceivedEventArgs {
-    #[doc = "Required features: `\"Web_Http\"`"]
     #[cfg(feature = "Web_Http")]
     pub fn RequestMessage(&self) -> ::windows_core::Result<super::super::super::Web::Http::HttpRequestMessage> {
         let this = self;
@@ -238,7 +231,6 @@ impl DevicePortalConnectionRequestReceivedEventArgs {
             (::windows_core::Interface::vtable(this).RequestMessage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Web_Http\"`"]
     #[cfg(feature = "Web_Http")]
     pub fn ResponseMessage(&self) -> ::windows_core::Result<super::super::super::Web::Http::HttpResponseMessage> {
         let this = self;
@@ -254,7 +246,6 @@ impl DevicePortalConnectionRequestReceivedEventArgs {
             (::windows_core::Interface::vtable(this).IsWebSocketUpgradeRequest)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn WebSocketProtocolsRequested(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = &::windows_core::Interface::cast::<IDevicePortalWebSocketConnectionRequestReceivedEventArgs>(self)?;

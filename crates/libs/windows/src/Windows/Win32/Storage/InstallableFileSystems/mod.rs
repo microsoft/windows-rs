@@ -27,7 +27,6 @@ where
     ::windows_targets::link!("fltlib.dll" "system" fn FilterClose(hfilter : HFILTER) -> ::windows_core::HRESULT);
     FilterClose(hfilter.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn FilterConnectCommunicationPort<P0>(lpportname: P0, dwoptions: u32, lpcontext: ::core::option::Option<*const ::core::ffi::c_void>, wsizeofcontext: u16, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -94,7 +93,6 @@ where
     ::windows_targets::link!("fltlib.dll" "system" fn FilterGetInformation(hfilter : HFILTER, dwinformationclass : FILTER_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> ::windows_core::HRESULT);
     FilterGetInformation(hfilter.into_param().abi(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn FilterGetMessage<P0>(hport: P0, lpmessagebuffer: *mut FILTER_MESSAGE_HEADER, dwmessagebuffersize: u32, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()>

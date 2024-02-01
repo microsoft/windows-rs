@@ -119,7 +119,6 @@ impl OnlineIdAuthenticator {
             (::windows_core::Interface::vtable(this).AuthenticateUserAsync)(::windows_core::Interface::as_raw(this), request.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AuthenticateUserAsyncAdvanced<P0>(&self, requests: P0, credentialprompttype: CredentialPromptType) -> ::windows_core::Result<UserAuthenticationOperation>
     where
@@ -272,7 +271,6 @@ impl OnlineIdSystemAuthenticator {
             (::windows_core::Interface::vtable(this).Default)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetForUser<P0>(user: P0) -> ::windows_core::Result<OnlineIdSystemAuthenticatorForUser>
     where
@@ -318,7 +316,6 @@ impl OnlineIdSystemAuthenticatorForUser {
             (::windows_core::Interface::vtable(this).ApplicationId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::super::System::User> {
         let this = self;
@@ -609,7 +606,6 @@ unsafe impl ::core::marker::Sync for UserAuthenticationOperation {}
 pub struct UserIdentity(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(UserIdentity, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl UserIdentity {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Tickets(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<OnlineIdServiceTicket>> {
         let this = self;

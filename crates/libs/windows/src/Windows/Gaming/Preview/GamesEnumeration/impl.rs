@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"ApplicationModel\"`, `\"Foundation_Collections\"`"]
 #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
 pub trait IGameListEntry_Impl: Sized {
     fn DisplayInfo(&self) -> ::windows_core::Result<super::super::super::ApplicationModel::AppDisplayInfo>;

@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`"]
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 pub trait IActiveIME_Impl: Sized {
     fn Inquire(&self, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: ::windows_core::PWSTR, pdwprivate: *mut u32) -> ::windows_core::Result<()>;
@@ -152,7 +151,6 @@ impl IActiveIME_Vtbl {
         iid == &<IActiveIME as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`"]
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 pub trait IActiveIME2_Impl: Sized + IActiveIME_Impl {
     fn Sleep(&self) -> ::windows_core::Result<()>;
@@ -179,7 +177,6 @@ impl IActiveIME2_Vtbl {
         iid == &<IActiveIME2 as ::windows_core::Interface>::IID || iid == &<IActiveIME as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_TextServices\"`"]
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_TextServices"))]
 pub trait IActiveIMMApp_Impl: Sized {
     fn AssociateContext(&self, hwnd: super::super::super::Foundation::HWND, hime: super::super::super::Globalization::HIMC) -> ::windows_core::Result<super::super::super::Globalization::HIMC>;
@@ -762,7 +759,6 @@ impl IActiveIMMApp_Vtbl {
         iid == &<IActiveIMMApp as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_TextServices\"`"]
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_TextServices"))]
 pub trait IActiveIMMIME_Impl: Sized {
     fn AssociateContext(&self, hwnd: super::super::super::Foundation::HWND, hime: super::super::super::Globalization::HIMC) -> ::windows_core::Result<super::super::super::Globalization::HIMC>;
@@ -1545,7 +1541,6 @@ impl IActiveIMMIME_Vtbl {
         iid == &<IActiveIMMIME as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait IActiveIMMMessagePumpOwner_Impl: Sized {
     fn Start(&self) -> ::windows_core::Result<()>;
@@ -1630,7 +1625,6 @@ impl IActiveIMMRegistrar_Vtbl {
         iid == &<IActiveIMMRegistrar as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Globalization\"`"]
 #[cfg(feature = "Win32_Globalization")]
 pub trait IEnumInputContext_Impl: Sized {
     fn Clone(&self) -> ::windows_core::Result<IEnumInputContext>;
@@ -1775,7 +1769,6 @@ impl IEnumRegisterWordW_Vtbl {
         iid == &<IEnumRegisterWordW as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFEClassFactory_Impl: Sized + super::super::super::System::Com::IClassFactory_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -2034,7 +2027,6 @@ impl IImePad_Vtbl {
         iid == &<IImePad as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait IImePadApplet_Impl: Sized {
     fn Initialize(&self, lpiimepad: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -2086,7 +2078,6 @@ impl IImePadApplet_Vtbl {
         iid == &<IImePadApplet as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IImePlugInDictDictionaryList_Impl: Sized {
     fn GetDictionariesInUse(&self, prgdictionaryguid: *mut *mut super::super::super::System::Com::SAFEARRAY, prgdatecreated: *mut *mut super::super::super::System::Com::SAFEARRAY, prgfencrypted: *mut *mut super::super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>;

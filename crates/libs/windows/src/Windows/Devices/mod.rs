@@ -1,94 +1,64 @@
 #[cfg(feature = "Devices_Adc")]
-#[doc = "Required features: `\"Devices_Adc\"`"]
 pub mod Adc;
 #[cfg(feature = "Devices_Background")]
-#[doc = "Required features: `\"Devices_Background\"`"]
 pub mod Background;
 #[cfg(feature = "Devices_Bluetooth")]
-#[doc = "Required features: `\"Devices_Bluetooth\"`"]
 pub mod Bluetooth;
 #[cfg(feature = "Devices_Custom")]
-#[doc = "Required features: `\"Devices_Custom\"`"]
 pub mod Custom;
 #[cfg(feature = "Devices_Display")]
-#[doc = "Required features: `\"Devices_Display\"`"]
 pub mod Display;
 #[cfg(feature = "Devices_Enumeration")]
-#[doc = "Required features: `\"Devices_Enumeration\"`"]
 pub mod Enumeration;
 #[cfg(feature = "Devices_Geolocation")]
-#[doc = "Required features: `\"Devices_Geolocation\"`"]
 pub mod Geolocation;
 #[cfg(feature = "Devices_Gpio")]
-#[doc = "Required features: `\"Devices_Gpio\"`"]
 pub mod Gpio;
 #[cfg(feature = "Devices_Haptics")]
-#[doc = "Required features: `\"Devices_Haptics\"`"]
 pub mod Haptics;
 #[cfg(feature = "Devices_HumanInterfaceDevice")]
-#[doc = "Required features: `\"Devices_HumanInterfaceDevice\"`"]
 pub mod HumanInterfaceDevice;
 #[cfg(feature = "Devices_I2c")]
-#[doc = "Required features: `\"Devices_I2c\"`"]
 pub mod I2c;
 #[cfg(feature = "Devices_Input")]
-#[doc = "Required features: `\"Devices_Input\"`"]
 pub mod Input;
 #[cfg(feature = "Devices_Lights")]
-#[doc = "Required features: `\"Devices_Lights\"`"]
 pub mod Lights;
 #[cfg(feature = "Devices_Midi")]
-#[doc = "Required features: `\"Devices_Midi\"`"]
 pub mod Midi;
 #[cfg(feature = "Devices_PointOfService")]
-#[doc = "Required features: `\"Devices_PointOfService\"`"]
 pub mod PointOfService;
 #[cfg(feature = "Devices_Portable")]
-#[doc = "Required features: `\"Devices_Portable\"`"]
 pub mod Portable;
 #[cfg(feature = "Devices_Power")]
-#[doc = "Required features: `\"Devices_Power\"`"]
 pub mod Power;
 #[cfg(feature = "Devices_Printers")]
-#[doc = "Required features: `\"Devices_Printers\"`"]
 pub mod Printers;
 #[cfg(feature = "Devices_Pwm")]
-#[doc = "Required features: `\"Devices_Pwm\"`"]
 pub mod Pwm;
 #[cfg(feature = "Devices_Radios")]
-#[doc = "Required features: `\"Devices_Radios\"`"]
 pub mod Radios;
 #[cfg(feature = "Devices_Scanners")]
-#[doc = "Required features: `\"Devices_Scanners\"`"]
 pub mod Scanners;
 #[cfg(feature = "Devices_Sensors")]
-#[doc = "Required features: `\"Devices_Sensors\"`"]
 pub mod Sensors;
 #[cfg(feature = "Devices_SerialCommunication")]
-#[doc = "Required features: `\"Devices_SerialCommunication\"`"]
 pub mod SerialCommunication;
 #[cfg(feature = "Devices_SmartCards")]
-#[doc = "Required features: `\"Devices_SmartCards\"`"]
 pub mod SmartCards;
 #[cfg(feature = "Devices_Sms")]
-#[doc = "Required features: `\"Devices_Sms\"`"]
 pub mod Sms;
 #[cfg(feature = "Devices_Spi")]
-#[doc = "Required features: `\"Devices_Spi\"`"]
 pub mod Spi;
 #[cfg(feature = "Devices_Usb")]
-#[doc = "Required features: `\"Devices_Usb\"`"]
 pub mod Usb;
 #[cfg(feature = "Devices_WiFi")]
-#[doc = "Required features: `\"Devices_WiFi\"`"]
 pub mod WiFi;
 #[cfg(feature = "Devices_WiFiDirect")]
-#[doc = "Required features: `\"Devices_WiFiDirect\"`"]
 pub mod WiFiDirect;
 ::windows_core::imp::com_interface!(ILowLevelDevicesAggregateProvider, ILowLevelDevicesAggregateProvider_Vtbl, 0xa73e561c_aac1_4ec7_a852_479f7060d01f);
 ::windows_core::imp::interface_hierarchy!(ILowLevelDevicesAggregateProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ILowLevelDevicesAggregateProvider {
-    #[doc = "Required features: `\"Devices_Adc_Provider\"`"]
     #[cfg(feature = "Devices_Adc_Provider")]
     pub fn AdcControllerProvider(&self) -> ::windows_core::Result<Adc::Provider::IAdcControllerProvider> {
         let this = self;
@@ -97,7 +67,6 @@ impl ILowLevelDevicesAggregateProvider {
             (::windows_core::Interface::vtable(this).AdcControllerProvider)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Pwm_Provider\"`"]
     #[cfg(feature = "Devices_Pwm_Provider")]
     pub fn PwmControllerProvider(&self) -> ::windows_core::Result<Pwm::Provider::IPwmControllerProvider> {
         let this = self;
@@ -106,7 +75,6 @@ impl ILowLevelDevicesAggregateProvider {
             (::windows_core::Interface::vtable(this).PwmControllerProvider)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Gpio_Provider\"`"]
     #[cfg(feature = "Devices_Gpio_Provider")]
     pub fn GpioControllerProvider(&self) -> ::windows_core::Result<Gpio::Provider::IGpioControllerProvider> {
         let this = self;
@@ -115,7 +83,6 @@ impl ILowLevelDevicesAggregateProvider {
             (::windows_core::Interface::vtable(this).GpioControllerProvider)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_I2c_Provider\"`"]
     #[cfg(feature = "Devices_I2c_Provider")]
     pub fn I2cControllerProvider(&self) -> ::windows_core::Result<I2c::Provider::II2cControllerProvider> {
         let this = self;
@@ -124,7 +91,6 @@ impl ILowLevelDevicesAggregateProvider {
             (::windows_core::Interface::vtable(this).I2cControllerProvider)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Spi_Provider\"`"]
     #[cfg(feature = "Devices_Spi_Provider")]
     pub fn SpiControllerProvider(&self) -> ::windows_core::Result<Spi::Provider::ISpiControllerProvider> {
         let this = self;
@@ -192,7 +158,6 @@ pub struct LowLevelDevicesAggregateProvider(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(LowLevelDevicesAggregateProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(LowLevelDevicesAggregateProvider, ILowLevelDevicesAggregateProvider);
 impl LowLevelDevicesAggregateProvider {
-    #[doc = "Required features: `\"Devices_Adc_Provider\"`"]
     #[cfg(feature = "Devices_Adc_Provider")]
     pub fn AdcControllerProvider(&self) -> ::windows_core::Result<Adc::Provider::IAdcControllerProvider> {
         let this = self;
@@ -201,7 +166,6 @@ impl LowLevelDevicesAggregateProvider {
             (::windows_core::Interface::vtable(this).AdcControllerProvider)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Pwm_Provider\"`"]
     #[cfg(feature = "Devices_Pwm_Provider")]
     pub fn PwmControllerProvider(&self) -> ::windows_core::Result<Pwm::Provider::IPwmControllerProvider> {
         let this = self;
@@ -210,7 +174,6 @@ impl LowLevelDevicesAggregateProvider {
             (::windows_core::Interface::vtable(this).PwmControllerProvider)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Gpio_Provider\"`"]
     #[cfg(feature = "Devices_Gpio_Provider")]
     pub fn GpioControllerProvider(&self) -> ::windows_core::Result<Gpio::Provider::IGpioControllerProvider> {
         let this = self;
@@ -219,7 +182,6 @@ impl LowLevelDevicesAggregateProvider {
             (::windows_core::Interface::vtable(this).GpioControllerProvider)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_I2c_Provider\"`"]
     #[cfg(feature = "Devices_I2c_Provider")]
     pub fn I2cControllerProvider(&self) -> ::windows_core::Result<I2c::Provider::II2cControllerProvider> {
         let this = self;
@@ -228,7 +190,6 @@ impl LowLevelDevicesAggregateProvider {
             (::windows_core::Interface::vtable(this).I2cControllerProvider)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Spi_Provider\"`"]
     #[cfg(feature = "Devices_Spi_Provider")]
     pub fn SpiControllerProvider(&self) -> ::windows_core::Result<Spi::Provider::ISpiControllerProvider> {
         let this = self;
@@ -237,7 +198,6 @@ impl LowLevelDevicesAggregateProvider {
             (::windows_core::Interface::vtable(this).SpiControllerProvider)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Adc_Provider\"`, `\"Devices_Gpio_Provider\"`, `\"Devices_I2c_Provider\"`, `\"Devices_Pwm_Provider\"`, `\"Devices_Spi_Provider\"`"]
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
     pub fn Create<P0, P1, P2, P3, P4>(adc: P0, pwm: P1, gpio: P2, i2c: P3, spi: P4) -> ::windows_core::Result<LowLevelDevicesAggregateProvider>
     where

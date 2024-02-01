@@ -125,7 +125,6 @@ impl IAdcControllerProvider_Vtbl {
         iid == &<IAdcControllerProvider as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IAdcProvider_Impl: Sized {
     fn GetControllers(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>>;

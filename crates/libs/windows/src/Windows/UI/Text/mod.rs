@@ -1,5 +1,4 @@
 #[cfg(feature = "UI_Text_Core")]
-#[doc = "Required features: `\"UI_Text_Core\"`"]
 pub mod Core;
 ::windows_core::imp::com_interface!(IContentLinkInfo, IContentLinkInfo_Vtbl, 0x1ed52525_1c5f_48cb_b335_78b50a2ee642);
 #[repr(C)]
@@ -533,7 +532,6 @@ impl ITextDocument {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).GetText)(::windows_core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStream<P0>(&self, options: TextSetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -546,7 +544,6 @@ impl ITextDocument {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Redo)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SaveToStream<P0>(&self, options: TextGetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -1181,7 +1178,6 @@ impl ITextRange {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).GetText)(::windows_core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetTextViaStream<P0>(&self, options: TextGetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -1200,7 +1196,6 @@ impl ITextRange {
             (::windows_core::Interface::vtable(this).InRange)(::windows_core::Interface::as_raw(this), range.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InsertImage<P0>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows_core::HSTRING, value: P0) -> ::windows_core::Result<()>
     where
@@ -1278,7 +1273,6 @@ impl ITextRange {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetText2)(::windows_core::Interface::as_raw(this), options, ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetTextViaStream<P0>(&self, options: TextSetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -1635,7 +1629,6 @@ impl ITextSelection {
         let this = &::windows_core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).GetText)(::windows_core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetTextViaStream<P0>(&self, options: TextGetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -1654,7 +1647,6 @@ impl ITextSelection {
             (::windows_core::Interface::vtable(this).InRange)(::windows_core::Interface::as_raw(this), range.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InsertImage<P0>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows_core::HSTRING, value: P0) -> ::windows_core::Result<()>
     where
@@ -1732,7 +1724,6 @@ impl ITextSelection {
         let this = &::windows_core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetText2)(::windows_core::Interface::as_raw(this), options, ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetTextViaStream<P0>(&self, options: TextSetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -2067,7 +2058,6 @@ impl RichEditTextDocument {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).GetText)(::windows_core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStream<P0>(&self, options: TextSetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -2080,7 +2070,6 @@ impl RichEditTextDocument {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Redo)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SaveToStream<P0>(&self, options: TextGetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -2385,7 +2374,6 @@ impl RichEditTextRange {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).GetText)(::windows_core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetTextViaStream<P0>(&self, options: TextGetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -2404,7 +2392,6 @@ impl RichEditTextRange {
             (::windows_core::Interface::vtable(this).InRange)(::windows_core::Interface::as_raw(this), range.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InsertImage<P0>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows_core::HSTRING, value: P0) -> ::windows_core::Result<()>
     where
@@ -2482,7 +2469,6 @@ impl RichEditTextRange {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetText2)(::windows_core::Interface::as_raw(this), options, ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetTextViaStream<P0>(&self, options: TextSetOptions, value: P0) -> ::windows_core::Result<()>
     where

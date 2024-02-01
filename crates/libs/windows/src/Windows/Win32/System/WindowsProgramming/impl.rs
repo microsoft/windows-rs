@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICameraUIControl_Impl: Sized {
     fn Show(&self, pwindow: ::core::option::Option<&::windows_core::IUnknown>, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: super::super::Foundation::BOOL, peventcallback: ::core::option::Option<&ICameraUIControlEventCallback>) -> ::windows_core::Result<()>;
@@ -211,7 +210,6 @@ impl IDeleteBrowsingHistory_Vtbl {
         iid == &<IDeleteBrowsingHistory as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Ole\"`"]
 #[cfg(feature = "Win32_System_Ole")]
 pub trait IEditionUpgradeBroker_Impl: Sized {
     fn InitializeParentWindow(&self, parenthandle: super::Ole::OLE_HANDLE) -> ::windows_core::Result<()>;

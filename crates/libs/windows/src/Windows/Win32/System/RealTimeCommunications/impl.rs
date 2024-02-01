@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub trait INetworkTransportSettings_Impl: Sized {
     fn ApplySetting(&self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> ::windows_core::Result<()>;
@@ -95,7 +94,6 @@ impl IRTCBuddy_Vtbl {
         iid == &<IRTCBuddy as ::windows_core::Interface>::IID || iid == &<IRTCPresenceContact as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCBuddy2_Impl: Sized + IRTCBuddy_Impl {
     fn Profile(&self) -> ::windows_core::Result<IRTCProfile2>;
@@ -210,7 +208,6 @@ impl IRTCBuddy2_Vtbl {
         iid == &<IRTCBuddy2 as ::windows_core::Interface>::IID || iid == &<IRTCPresenceContact as ::windows_core::Interface>::IID || iid == &<IRTCBuddy as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCBuddyEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Buddy(&self) -> ::windows_core::Result<IRTCBuddy>;
@@ -237,7 +234,6 @@ impl IRTCBuddyEvent_Vtbl {
         iid == &<IRTCBuddyEvent as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCBuddyEvent2_Impl: Sized + IRTCBuddyEvent_Impl {
     fn EventType(&self) -> ::windows_core::Result<RTC_BUDDY_EVENT_TYPE>;
@@ -293,7 +289,6 @@ impl IRTCBuddyEvent2_Vtbl {
         iid == &<IRTCBuddyEvent2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IRTCBuddyEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCBuddyGroup_Impl: Sized {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -403,7 +398,6 @@ impl IRTCBuddyGroup_Vtbl {
         iid == &<IRTCBuddyGroup as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCBuddyGroupEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn EventType(&self) -> ::windows_core::Result<RTC_GROUP_EVENT_TYPE>;
@@ -472,7 +466,6 @@ impl IRTCBuddyGroupEvent_Vtbl {
         iid == &<IRTCBuddyGroupEvent as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com"))]
 pub trait IRTCClient_Impl: Sized {
     fn Initialize(&self) -> ::windows_core::Result<()>;
@@ -909,7 +902,6 @@ impl IRTCClient_Vtbl {
         iid == &<IRTCClient as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com"))]
 pub trait IRTCClient2_Impl: Sized + IRTCClient_Impl {
     fn put_AnswerMode(&self, entype: RTC_SESSION_TYPE, enmode: RTC_ANSWER_MODE) -> ::windows_core::Result<()>;
@@ -1047,7 +1039,6 @@ impl IRTCClient2_Vtbl {
         iid == &<IRTCClient2 as ::windows_core::Interface>::IID || iid == &<IRTCClient as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCClientEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn EventType(&self) -> ::windows_core::Result<RTC_CLIENT_EVENT_TYPE>;
@@ -1124,7 +1115,6 @@ impl IRTCClientPortManagement_Vtbl {
         iid == &<IRTCClientPortManagement as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCClientPresence_Impl: Sized {
     fn EnablePresence(&self, fusestorage: super::super::Foundation::VARIANT_BOOL, varstorage: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
@@ -1327,7 +1317,6 @@ impl IRTCClientPresence_Vtbl {
         iid == &<IRTCClientPresence as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCClientPresence2_Impl: Sized + IRTCClientPresence_Impl {
     fn EnablePresenceEx(&self, pprofile: ::core::option::Option<&IRTCProfile>, varstorage: &::windows_core::VARIANT, lflags: i32) -> ::windows_core::Result<()>;
@@ -1497,7 +1486,6 @@ impl IRTCClientPresence2_Vtbl {
         iid == &<IRTCClientPresence2 as ::windows_core::Interface>::IID || iid == &<IRTCClientPresence as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCClientProvisioning_Impl: Sized {
     fn CreateProfile(&self, bstrprofilexml: &::windows_core::BSTR) -> ::windows_core::Result<IRTCProfile>;
@@ -1587,7 +1575,6 @@ impl IRTCClientProvisioning_Vtbl {
         iid == &<IRTCClientProvisioning as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCClientProvisioning2_Impl: Sized + IRTCClientProvisioning_Impl {
     fn EnableProfileEx(&self, pprofile: ::core::option::Option<&IRTCProfile>, lregisterflags: i32, lroamingflags: i32) -> ::windows_core::Result<()>;
@@ -1608,7 +1595,6 @@ impl IRTCClientProvisioning2_Vtbl {
         iid == &<IRTCClientProvisioning2 as ::windows_core::Interface>::IID || iid == &<IRTCClientProvisioning as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -1664,7 +1650,6 @@ impl IRTCCollection_Vtbl {
         iid == &<IRTCCollection as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCDispatchEventNotification_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -2007,7 +1992,6 @@ impl IRTCEnumWatchers_Vtbl {
         iid == &<IRTCEnumWatchers as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCEventNotification_Impl: Sized {
     fn Event(&self, rtcevent: RTC_EVENT, pevent: ::core::option::Option<&super::Com::IDispatch>) -> ::windows_core::Result<()>;
@@ -2028,7 +2012,6 @@ impl IRTCEventNotification_Vtbl {
         iid == &<IRTCEventNotification as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCInfoEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Session(&self) -> ::windows_core::Result<IRTCSession2>;
@@ -2097,7 +2080,6 @@ impl IRTCInfoEvent_Vtbl {
         iid == &<IRTCInfoEvent as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCIntensityEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Level(&self) -> ::windows_core::Result<i32>;
@@ -2166,7 +2148,6 @@ impl IRTCIntensityEvent_Vtbl {
         iid == &<IRTCIntensityEvent as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCMediaEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn MediaType(&self) -> ::windows_core::Result<i32>;
@@ -2222,7 +2203,6 @@ impl IRTCMediaEvent_Vtbl {
         iid == &<IRTCMediaEvent as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCMediaRequestEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Session(&self) -> ::windows_core::Result<IRTCSession2>;
@@ -2318,7 +2298,6 @@ impl IRTCMediaRequestEvent_Vtbl {
         iid == &<IRTCMediaRequestEvent as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCMessagingEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Session(&self) -> ::windows_core::Result<IRTCSession>;
@@ -2491,7 +2470,6 @@ impl IRTCParticipant_Vtbl {
         iid == &<IRTCParticipant as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCParticipantStateChangeEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Participant(&self) -> ::windows_core::Result<IRTCParticipant>;
@@ -2674,7 +2652,6 @@ impl IRTCPresenceContact_Vtbl {
         iid == &<IRTCPresenceContact as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCPresenceDataEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn StatusCode(&self) -> ::windows_core::Result<i32>;
@@ -2783,7 +2760,6 @@ impl IRTCPresenceDevice_Vtbl {
         iid == &<IRTCPresenceDevice as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCPresencePropertyEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn StatusCode(&self) -> ::windows_core::Result<i32>;
@@ -2852,7 +2828,6 @@ impl IRTCPresencePropertyEvent_Vtbl {
         iid == &<IRTCPresencePropertyEvent as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCPresenceStatusEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn StatusCode(&self) -> ::windows_core::Result<i32>;
@@ -3196,7 +3171,6 @@ impl IRTCProfile2_Vtbl {
         iid == &<IRTCProfile2 as ::windows_core::Interface>::IID || iid == &<IRTCProfile as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCProfileEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Profile(&self) -> ::windows_core::Result<IRTCProfile>;
@@ -3252,7 +3226,6 @@ impl IRTCProfileEvent_Vtbl {
         iid == &<IRTCProfileEvent as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCProfileEvent2_Impl: Sized + IRTCProfileEvent_Impl {
     fn EventType(&self) -> ::windows_core::Result<RTC_PROFILE_EVENT_TYPE>;
@@ -3279,7 +3252,6 @@ impl IRTCProfileEvent2_Vtbl {
         iid == &<IRTCProfileEvent2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IRTCProfileEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCReInviteEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Session(&self) -> ::windows_core::Result<IRTCSession2>;
@@ -3343,7 +3315,6 @@ impl IRTCReInviteEvent_Vtbl {
         iid == &<IRTCReInviteEvent as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCRegistrationStateChangeEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Profile(&self) -> ::windows_core::Result<IRTCProfile>;
@@ -3412,7 +3383,6 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
         iid == &<IRTCRegistrationStateChangeEvent as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCRoamingEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn EventType(&self) -> ::windows_core::Result<RTC_ROAMING_EVENT_TYPE>;
@@ -3481,7 +3451,6 @@ impl IRTCRoamingEvent_Vtbl {
         iid == &<IRTCRoamingEvent as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCSession_Impl: Sized {
     fn Client(&self) -> ::windows_core::Result<IRTCClient>;
@@ -3698,7 +3667,6 @@ impl IRTCSession_Vtbl {
         iid == &<IRTCSession as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCSession2_Impl: Sized + IRTCSession_Impl {
     fn SendInfo(&self, bstrinfoheader: &::windows_core::BSTR, bstrinfo: &::windows_core::BSTR, lcookie: isize) -> ::windows_core::Result<()>;
@@ -3883,7 +3851,6 @@ impl IRTCSessionDescriptionManager_Vtbl {
         iid == &<IRTCSessionDescriptionManager as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCSessionOperationCompleteEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Session(&self) -> ::windows_core::Result<IRTCSession>;
@@ -3952,7 +3919,6 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
         iid == &<IRTCSessionOperationCompleteEvent as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCSessionOperationCompleteEvent2_Impl: Sized + IRTCSessionOperationCompleteEvent_Impl {
     fn Participant(&self) -> ::windows_core::Result<IRTCParticipant>;
@@ -4006,7 +3972,6 @@ impl IRTCSessionPortManagement_Vtbl {
         iid == &<IRTCSessionPortManagement as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCSessionReferStatusEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Session(&self) -> ::windows_core::Result<IRTCSession2>;
@@ -4075,7 +4040,6 @@ impl IRTCSessionReferStatusEvent_Vtbl {
         iid == &<IRTCSessionReferStatusEvent as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCSessionReferredEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Session(&self) -> ::windows_core::Result<IRTCSession2>;
@@ -4165,7 +4129,6 @@ impl IRTCSessionReferredEvent_Vtbl {
         iid == &<IRTCSessionReferredEvent as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCSessionStateChangeEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Session(&self) -> ::windows_core::Result<IRTCSession>;
@@ -4234,7 +4197,6 @@ impl IRTCSessionStateChangeEvent_Vtbl {
         iid == &<IRTCSessionStateChangeEvent as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCSessionStateChangeEvent2_Impl: Sized + IRTCSessionStateChangeEvent_Impl {
     fn MediaTypes(&self) -> ::windows_core::Result<i32>;
@@ -4439,7 +4401,6 @@ impl IRTCUserSearchResult_Vtbl {
         iid == &<IRTCUserSearchResult as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCUserSearchResultsEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn EnumerateResults(&self) -> ::windows_core::Result<IRTCEnumUserSearchResults>;
@@ -4615,7 +4576,6 @@ impl IRTCWatcher2_Vtbl {
         iid == &<IRTCWatcher2 as ::windows_core::Interface>::IID || iid == &<IRTCPresenceContact as ::windows_core::Interface>::IID || iid == &<IRTCWatcher as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCWatcherEvent_Impl: Sized + super::Com::IDispatch_Impl {
     fn Watcher(&self) -> ::windows_core::Result<IRTCWatcher>;
@@ -4642,7 +4602,6 @@ impl IRTCWatcherEvent_Vtbl {
         iid == &<IRTCWatcherEvent as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCWatcherEvent2_Impl: Sized + IRTCWatcherEvent_Impl {
     fn EventType(&self) -> ::windows_core::Result<RTC_WATCHER_EVENT_TYPE>;
@@ -4685,7 +4644,6 @@ impl IRTCWatcherEvent2_Vtbl {
         iid == &<IRTCWatcherEvent2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IRTCWatcherEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub trait ITransportSettingsInternal_Impl: Sized {
     fn ApplySetting(&self, setting: *mut TRANSPORT_SETTING) -> ::windows_core::Result<()>;

@@ -53,7 +53,6 @@ impl AsyncIBackgroundCopyCallback_Vtbl {
         iid == &<AsyncIBackgroundCopyCallback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IBITSExtensionSetup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnableBITSUploads(&self) -> ::windows_core::Result<()>;
@@ -110,7 +109,6 @@ impl IBITSExtensionSetup_Vtbl {
         iid == &<IBITSExtensionSetup as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IBITSExtensionSetupFactory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetObject(&self, path: &::windows_core::BSTR) -> ::windows_core::Result<IBITSExtensionSetup>;

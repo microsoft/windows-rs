@@ -1,8 +1,6 @@
 #[cfg(feature = "UI_Notifications_Management")]
-#[doc = "Required features: `\"UI_Notifications_Management\"`"]
 pub mod Management;
 #[cfg(feature = "UI_Notifications_Preview")]
-#[doc = "Required features: `\"UI_Notifications_Preview\"`"]
 pub mod Preview;
 ::windows_core::imp::com_interface!(IAdaptiveNotificationContent, IAdaptiveNotificationContent_Vtbl, 0xeb0dbe66_7448_448d_9db8_d78acd2abba9);
 ::windows_core::imp::interface_hierarchy!(IAdaptiveNotificationContent, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -14,7 +12,6 @@ impl IAdaptiveNotificationContent {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Hints(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::HSTRING>> {
         let this = self;
@@ -804,7 +801,6 @@ impl AdaptiveNotificationText {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Hints(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::HSTRING>> {
         let this = &::windows_core::Interface::cast::<IAdaptiveNotificationContent>(self)?;
@@ -853,7 +849,6 @@ unsafe impl ::core::marker::Sync for AdaptiveNotificationText {}
 pub struct BadgeNotification(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(BadgeNotification, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl BadgeNotification {
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn Content(&self) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
@@ -876,7 +871,6 @@ impl BadgeNotification {
             (::windows_core::Interface::vtable(this).ExpirationTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn CreateBadgeNotification<P0>(content: P0) -> ::windows_core::Result<BadgeNotification>
     where
@@ -925,7 +919,6 @@ impl BadgeUpdateManager {
             (::windows_core::Interface::vtable(this).CreateBadgeUpdaterForSecondaryTile)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetTemplateContent(r#type: BadgeTemplateType) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         Self::IBadgeUpdateManagerStatics(|this| unsafe {
@@ -933,7 +926,6 @@ impl BadgeUpdateManager {
             (::windows_core::Interface::vtable(this).GetTemplateContent)(::windows_core::Interface::as_raw(this), r#type, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetForUser<P0>(user: P0) -> ::windows_core::Result<BadgeUpdateManagerForUser>
     where
@@ -984,7 +976,6 @@ impl BadgeUpdateManagerForUser {
             (::windows_core::Interface::vtable(this).CreateBadgeUpdaterForSecondaryTile)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
@@ -1322,7 +1313,6 @@ impl NotificationBinding {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Hints(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::HSTRING>> {
         let this = self;
@@ -1331,7 +1321,6 @@ impl NotificationBinding {
             (::windows_core::Interface::vtable(this).Hints)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetTextElements(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<AdaptiveNotificationText>> {
         let this = self;
@@ -1365,7 +1354,6 @@ impl NotificationData {
         static SHARED: ::windows_core::imp::FactoryCache<NotificationData, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Values(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::HSTRING>> {
         let this = self;
@@ -1385,7 +1373,6 @@ impl NotificationData {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSequenceNumber)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateNotificationDataWithValuesAndSequenceNumber<P0>(initialvalues: P0, sequencenumber: u32) -> ::windows_core::Result<NotificationData>
     where
@@ -1396,7 +1383,6 @@ impl NotificationData {
             (::windows_core::Interface::vtable(this).CreateNotificationDataWithValuesAndSequenceNumber)(::windows_core::Interface::as_raw(this), initialvalues.into_param().abi(), sequencenumber, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateNotificationDataWithValues<P0>(initialvalues: P0) -> ::windows_core::Result<NotificationData>
     where
@@ -1441,7 +1427,6 @@ impl NotificationVisual {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Bindings(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<NotificationBinding>> {
         let this = self;
@@ -1475,7 +1460,6 @@ unsafe impl ::core::marker::Sync for NotificationVisual {}
 pub struct ScheduledTileNotification(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(ScheduledTileNotification, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ScheduledTileNotification {
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn Content(&self) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
@@ -1527,7 +1511,6 @@ impl ScheduledTileNotification {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn CreateScheduledTileNotification<P0>(content: P0, deliverytime: super::super::Foundation::DateTime) -> ::windows_core::Result<ScheduledTileNotification>
     where
@@ -1561,7 +1544,6 @@ unsafe impl ::core::marker::Sync for ScheduledTileNotification {}
 pub struct ScheduledToastNotification(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(ScheduledToastNotification, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ScheduledToastNotification {
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn Content(&self) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
@@ -1671,7 +1653,6 @@ impl ScheduledToastNotification {
         let this = &::windows_core::Interface::cast::<IScheduledToastNotification4>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetExpirationTime)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn CreateScheduledToastNotification<P0>(content: P0, deliverytime: super::super::Foundation::DateTime) -> ::windows_core::Result<ScheduledToastNotification>
     where
@@ -1682,7 +1663,6 @@ impl ScheduledToastNotification {
             (::windows_core::Interface::vtable(this).CreateScheduledToastNotification)(::windows_core::Interface::as_raw(this), content.into_param().abi(), deliverytime, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn CreateScheduledToastNotificationRecurring<P0>(content: P0, deliverytime: super::super::Foundation::DateTime, snoozeinterval: super::super::Foundation::TimeSpan, maximumsnoozecount: u32) -> ::windows_core::Result<ScheduledToastNotification>
     where
@@ -1784,7 +1764,6 @@ unsafe impl ::core::marker::Sync for ShownTileNotification {}
 pub struct TileFlyoutNotification(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(TileFlyoutNotification, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl TileFlyoutNotification {
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn Content(&self) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
@@ -1807,7 +1786,6 @@ impl TileFlyoutNotification {
             (::windows_core::Interface::vtable(this).ExpirationTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn CreateTileFlyoutNotification<P0>(content: P0) -> ::windows_core::Result<TileFlyoutNotification>
     where
@@ -1856,7 +1834,6 @@ impl TileFlyoutUpdateManager {
             (::windows_core::Interface::vtable(this).CreateTileFlyoutUpdaterForSecondaryTile)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetTemplateContent(r#type: TileFlyoutTemplateType) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         Self::ITileFlyoutUpdateManagerStatics(|this| unsafe {
@@ -1930,7 +1907,6 @@ impl ::windows_core::RuntimeName for TileFlyoutUpdater {
 pub struct TileNotification(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(TileNotification, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl TileNotification {
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn Content(&self) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
@@ -1964,7 +1940,6 @@ impl TileNotification {
             (::windows_core::Interface::vtable(this).Tag)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn CreateTileNotification<P0>(content: P0) -> ::windows_core::Result<TileNotification>
     where
@@ -2013,7 +1988,6 @@ impl TileUpdateManager {
             (::windows_core::Interface::vtable(this).CreateTileUpdaterForSecondaryTile)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetTemplateContent(r#type: TileTemplateType) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         Self::ITileUpdateManagerStatics(|this| unsafe {
@@ -2021,7 +1995,6 @@ impl TileUpdateManager {
             (::windows_core::Interface::vtable(this).GetTemplateContent)(::windows_core::Interface::as_raw(this), r#type, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetForUser<P0>(user: P0) -> ::windows_core::Result<TileUpdateManagerForUser>
     where
@@ -2072,7 +2045,6 @@ impl TileUpdateManagerForUser {
             (::windows_core::Interface::vtable(this).CreateTileUpdaterForSecondaryTile)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
@@ -2135,7 +2107,6 @@ impl TileUpdater {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveFromSchedule)(::windows_core::Interface::as_raw(this), scheduledtile.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetScheduledTileNotifications(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ScheduledTileNotification>> {
         let this = self;
@@ -2162,7 +2133,6 @@ impl TileUpdater {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).StopPeriodicUpdate)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StartPeriodicUpdateBatch<P0>(&self, tilecontents: P0, requestedinterval: PeriodicUpdateRecurrence) -> ::windows_core::Result<()>
     where
@@ -2171,7 +2141,6 @@ impl TileUpdater {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).StartPeriodicUpdateBatch)(::windows_core::Interface::as_raw(this), tilecontents.into_param().abi(), requestedinterval).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StartPeriodicUpdateBatchAtTime<P0>(&self, tilecontents: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows_core::Result<()>
     where
@@ -2217,7 +2186,6 @@ impl ToastActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Arguments)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UserInput(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows_core::Interface::cast::<IToastActivatedEventArgs2>(self)?;
@@ -2327,7 +2295,6 @@ impl ToastCollectionManager {
             (::windows_core::Interface::vtable(this).SaveToastCollectionAsync)(::windows_core::Interface::as_raw(this), collection.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllToastCollectionsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ToastCollection>>> {
         let this = self;
@@ -2357,7 +2324,6 @@ impl ToastCollectionManager {
             (::windows_core::Interface::vtable(this).RemoveAllToastCollectionsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
@@ -2441,7 +2407,6 @@ unsafe impl ::core::marker::Sync for ToastFailedEventArgs {}
 pub struct ToastNotification(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(ToastNotification, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ToastNotification {
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn Content(&self) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
@@ -2597,7 +2562,6 @@ impl ToastNotification {
         let this = &::windows_core::Interface::cast::<IToastNotification6>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetExpiresOnReboot)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn CreateToastNotification<P0>(content: P0) -> ::windows_core::Result<ToastNotification>
     where
@@ -2638,7 +2602,6 @@ impl ToastNotificationActionTriggerDetail {
             (::windows_core::Interface::vtable(this).Argument)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UserInput(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -2691,7 +2654,6 @@ impl ToastNotificationHistory {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).ClearWithId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid)).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetHistory(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ToastNotification>> {
         let this = &::windows_core::Interface::cast::<IToastNotificationHistory2>(self)?;
@@ -2700,7 +2662,6 @@ impl ToastNotificationHistory {
             (::windows_core::Interface::vtable(this).GetHistory)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetHistoryWithId(&self, applicationid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ToastNotification>> {
         let this = &::windows_core::Interface::cast::<IToastNotificationHistory2>(self)?;
@@ -2764,7 +2725,6 @@ impl ToastNotificationManager {
             (::windows_core::Interface::vtable(this).CreateToastNotifierWithId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetTemplateContent(r#type: ToastTemplateType) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         Self::IToastNotificationManagerStatics(|this| unsafe {
@@ -2778,7 +2738,6 @@ impl ToastNotificationManager {
             (::windows_core::Interface::vtable(this).History)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetForUser<P0>(user: P0) -> ::windows_core::Result<ToastNotificationManagerForUser>
     where
@@ -2848,7 +2807,6 @@ impl ToastNotificationManagerForUser {
             (::windows_core::Interface::vtable(this).History)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
@@ -2959,7 +2917,6 @@ impl ToastNotifier {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveFromSchedule)(::windows_core::Interface::as_raw(this), scheduledtoast.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetScheduledToastNotifications(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ScheduledToastNotification>> {
         let this = self;
@@ -3027,7 +2984,6 @@ impl UserNotification {
             (::windows_core::Interface::vtable(this).Notification)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel\"`"]
     #[cfg(feature = "ApplicationModel")]
     pub fn AppInfo(&self) -> ::windows_core::Result<super::super::ApplicationModel::AppInfo> {
         let this = self;

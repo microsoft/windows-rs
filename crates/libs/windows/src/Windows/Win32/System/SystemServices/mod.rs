@@ -3673,7 +3673,6 @@ impl ::core::default::Default for FILE_NOTIFY_FULL_INFORMATION_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct GDI_NONREMOTE {
     pub fContext: i32,
@@ -3698,7 +3697,6 @@ impl ::core::default::Default for GDI_NONREMOTE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub union GDI_NONREMOTE_0 {
     pub hInproc: i32,
@@ -8708,7 +8706,6 @@ impl ::core::default::Default for SERVERSILO_BASIC_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct SE_TOKEN_USER {
     pub Anonymous1: SE_TOKEN_USER_0,
@@ -8733,7 +8730,6 @@ impl ::core::default::Default for SE_TOKEN_USER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub union SE_TOKEN_USER_0 {
     pub TokenUser: super::super::Security::TOKEN_USER,
@@ -8758,7 +8754,6 @@ impl ::core::default::Default for SE_TOKEN_USER_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub union SE_TOKEN_USER_1 {
     pub Sid: super::super::Security::SID,
@@ -9624,7 +9619,6 @@ impl ::core::default::Default for XSAVE_CET_U_FORMAT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct remoteMETAFILEPICT {
     pub mm: i32,
@@ -9778,7 +9772,6 @@ impl ::core::default::Default for userHBITMAP_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct userHENHMETAFILE {
     pub fContext: i32,
@@ -9803,7 +9796,6 @@ impl ::core::default::Default for userHENHMETAFILE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub union userHENHMETAFILE_0 {
     pub hInproc: i32,
@@ -9829,7 +9821,6 @@ impl ::core::default::Default for userHENHMETAFILE_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct userHGLOBAL {
     pub fContext: i32,
@@ -9854,7 +9845,6 @@ impl ::core::default::Default for userHGLOBAL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub union userHGLOBAL_0 {
     pub hInproc: i32,
@@ -9880,7 +9870,6 @@ impl ::core::default::Default for userHGLOBAL_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct userHMETAFILE {
     pub fContext: i32,
@@ -9905,7 +9894,6 @@ impl ::core::default::Default for userHMETAFILE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub union userHMETAFILE_0 {
     pub hInproc: i32,
@@ -9931,7 +9919,6 @@ impl ::core::default::Default for userHMETAFILE_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct userHMETAFILEPICT {
     pub fContext: i32,
@@ -9956,7 +9943,6 @@ impl ::core::default::Default for userHMETAFILEPICT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub union userHMETAFILEPICT_0 {
     pub hInproc: i32,
@@ -9982,7 +9968,6 @@ impl ::core::default::Default for userHMETAFILEPICT_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct userHPALETTE {
     pub fContext: i32,
@@ -10007,7 +9992,6 @@ impl ::core::default::Default for userHPALETTE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub union userHPALETTE_0 {
     pub hInproc: i32,
@@ -10032,16 +10016,13 @@ impl ::core::default::Default for userHPALETTE_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PEXCEPTION_FILTER = ::core::option::Option<unsafe extern "system" fn(exceptionpointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS, establisherframe: *const ::core::ffi::c_void) -> i32>;
 pub type PIMAGE_TLS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(dllhandle: *mut ::core::ffi::c_void, reason: u32, reserved: *mut ::core::ffi::c_void)>;
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> u32>;
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_RUNTIME_FUNCTION_ENTRY) -> u32>;

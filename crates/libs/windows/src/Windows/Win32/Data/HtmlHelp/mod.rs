@@ -54,28 +54,20 @@ pub struct IITDatabase_Vtbl {
     pub GetObjectPersistence: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR, u32, *mut *mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IITPropList,
-    IITPropList_Vtbl,
-    0x1f403bb1_9997_11d0_a850_00aa006c7d01
-);
+::windows_core::imp::com_interface!(IITPropList, IITPropList_Vtbl, 0x1f403bb1_9997_11d0_a850_00aa006c7d01);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IITPropList, ::windows_core::IUnknown, super::super::System::Com::IPersist, super::super::System::Com::IPersistStreamInit);
 #[cfg(feature = "Win32_System_Com")]
 impl IITPropList {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsDirty(&self) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).base__.IsDirty)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Load<P0>(&self, pstm: P0) -> ::windows_core::Result<()>
     where
@@ -83,7 +75,6 @@ impl IITPropList {
     {
         (::windows_core::Interface::vtable(self).base__.Load)(::windows_core::Interface::as_raw(self), pstm.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Save<P0, P1>(&self, pstm: P0, fcleardirty: P1) -> ::windows_core::Result<()>
     where
@@ -92,13 +83,11 @@ impl IITPropList {
     {
         (::windows_core::Interface::vtable(self).base__.Save)(::windows_core::Interface::as_raw(self), pstm.into_param().abi(), fcleardirty.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSizeMax(&self) -> ::windows_core::Result<u64> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSizeMax)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitNew(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.InitNew)(::windows_core::Interface::as_raw(self)).ok()
@@ -157,7 +146,6 @@ impl IITPropList {
     pub unsafe fn GetDataSize(&self, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, dwdatasize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDataSize)(::windows_core::Interface::as_raw(self), lpvheader, dwhdrsize, dwdatasize).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveDataToStream<P0>(&self, lpvheader: *mut ::core::ffi::c_void, dwhdrsize: u32, pstream: P0) -> ::windows_core::Result<()>
     where
@@ -381,7 +369,6 @@ impl IStemmerConfig {
     pub unsafe fn GetControlInfo(&self, pgrfstemflags: *mut u32, pdwreserved: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetControlInfo)(::windows_core::Interface::as_raw(self), pgrfstemflags, pdwreserved).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadExternalStemmerData<P0>(&self, pstream: P0, dwextdatatype: u32) -> ::windows_core::Result<()>
     where
@@ -424,7 +411,6 @@ impl IWordBreakerConfig {
     pub unsafe fn GetControlInfo(&self, pgrfbreakflags: *mut u32, pdwreserved: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetControlInfo)(::windows_core::Interface::as_raw(self), pgrfbreakflags, pdwreserved).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadExternalBreakerData<P0>(&self, pstream: P0, dwextdatatype: u32) -> ::windows_core::Result<()>
     where
@@ -432,7 +418,6 @@ impl IWordBreakerConfig {
     {
         (::windows_core::Interface::vtable(self).LoadExternalBreakerData)(::windows_core::Interface::as_raw(self), pstream.into_param().abi(), dwextdatatype).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Search\"`"]
     #[cfg(feature = "Win32_System_Search")]
     pub unsafe fn SetWordStemmer<P0>(&self, rclsid: *const ::windows_core::GUID, pstemmer: P0) -> ::windows_core::Result<()>
     where
@@ -440,7 +425,6 @@ impl IWordBreakerConfig {
     {
         (::windows_core::Interface::vtable(self).SetWordStemmer)(::windows_core::Interface::as_raw(self), rclsid, pstemmer.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Search\"`"]
     #[cfg(feature = "Win32_System_Search")]
     pub unsafe fn GetWordStemmer(&self) -> ::windows_core::Result<super::super::System::Search::IStemmer> {
         let mut result__ = ::std::mem::zeroed();
@@ -864,7 +848,6 @@ impl ::core::default::Default for CProperty_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_UI_Controls\"`"]
 #[cfg(feature = "Win32_UI_Controls")]
 pub struct HHNTRACK {
     pub hdr: super::super::UI::Controls::NMHDR,
@@ -905,7 +888,6 @@ impl ::core::default::Default for HHNTRACK {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_UI_Controls\"`"]
 #[cfg(feature = "Win32_UI_Controls")]
 pub struct HHN_NOTIFY {
     pub hdr: super::super::UI::Controls::NMHDR,

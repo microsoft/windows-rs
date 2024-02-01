@@ -28,7 +28,6 @@ impl PalmRejectionDelayZonePreview {
         let this = &::windows_core::Interface::cast::<super::super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"UI_Composition\"`"]
     #[cfg(feature = "UI_Composition")]
     pub fn CreateForVisual<P0>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect) -> ::windows_core::Result<PalmRejectionDelayZonePreview>
     where
@@ -39,7 +38,6 @@ impl PalmRejectionDelayZonePreview {
             (::windows_core::Interface::vtable(this).CreateForVisual)(::windows_core::Interface::as_raw(this), inputpanelvisual.into_param().abi(), inputpanelrect, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"UI_Composition\"`"]
     #[cfg(feature = "UI_Composition")]
     pub fn CreateForVisualWithViewportClip<P0, P1>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect, viewportvisual: P1, viewportrect: super::super::super::super::Foundation::Rect) -> ::windows_core::Result<PalmRejectionDelayZonePreview>
     where

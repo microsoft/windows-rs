@@ -99,7 +99,6 @@ pub struct IKnownDeviceTypesStatics_Vtbl {
 pub struct CustomDevice(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(CustomDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CustomDevice {
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
@@ -108,7 +107,6 @@ impl CustomDevice {
             (::windows_core::Interface::vtable(this).InputStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn OutputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
@@ -117,7 +115,6 @@ impl CustomDevice {
             (::windows_core::Interface::vtable(this).OutputStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SendIOControlAsync<P0, P1, P2>(&self, iocontrolcode: P0, inputbuffer: P1, outputbuffer: P2) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>
     where
@@ -131,7 +128,6 @@ impl CustomDevice {
             (::windows_core::Interface::vtable(this).SendIOControlAsync)(::windows_core::Interface::as_raw(this), iocontrolcode.into_param().abi(), inputbuffer.into_param().abi(), outputbuffer.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn TrySendIOControlAsync<P0, P1, P2>(&self, iocontrolcode: P0, inputbuffer: P1, outputbuffer: P2) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where

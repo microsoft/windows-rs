@@ -1,7 +1,6 @@
 ::windows_core::imp::com_interface!(IWICImageEncoder, IWICImageEncoder_Vtbl, 0x04c75bf8_3ce1_473b_acc5_3cc4f5e94999);
 ::windows_core::imp::interface_hierarchy!(IWICImageEncoder, ::windows_core::IUnknown);
 impl IWICImageEncoder {
-    #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn WriteFrame<P0, P1>(&self, pimage: P0, pframeencode: P1, pimageparameters: *const super::WICImageParameters) -> ::windows_core::Result<()>
     where
@@ -10,7 +9,6 @@ impl IWICImageEncoder {
     {
         (::windows_core::Interface::vtable(self).WriteFrame)(::windows_core::Interface::as_raw(self), pimage.into_param().abi(), pframeencode.into_param().abi(), pimageparameters).ok()
     }
-    #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn WriteFrameThumbnail<P0, P1>(&self, pimage: P0, pframeencode: P1, pimageparameters: *const super::WICImageParameters) -> ::windows_core::Result<()>
     where
@@ -19,7 +17,6 @@ impl IWICImageEncoder {
     {
         (::windows_core::Interface::vtable(self).WriteFrameThumbnail)(::windows_core::Interface::as_raw(self), pimage.into_param().abi(), pframeencode.into_param().abi(), pimageparameters).ok()
     }
-    #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn WriteThumbnail<P0, P1>(&self, pimage: P0, pencoder: P1, pimageparameters: *const super::WICImageParameters) -> ::windows_core::Result<()>
     where
@@ -56,7 +53,6 @@ impl IWICImagingFactory2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateDecoderFromFilename)(::windows_core::Interface::as_raw(self), wzfilename.into_param().abi(), ::core::mem::transmute(pguidvendor.unwrap_or(::std::ptr::null())), dwdesiredaccess, metadataoptions, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDecoderFromStream<P0>(&self, pistream: P0, pguidvendor: *const ::windows_core::GUID, metadataoptions: super::WICDecodeOptions) -> ::windows_core::Result<super::IWICBitmapDecoder>
     where
@@ -101,7 +97,6 @@ impl IWICImagingFactory2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateBitmapFlipRotator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateStream(&self) -> ::windows_core::Result<super::IWICStream> {
         let mut result__ = ::std::mem::zeroed();
@@ -137,7 +132,6 @@ impl IWICImagingFactory2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateBitmapFromMemory)(::windows_core::Interface::as_raw(self), uiwidth, uiheight, pixelformat, cbstride, pbbuffer.len().try_into().unwrap(), ::core::mem::transmute(pbbuffer.as_ptr()), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreateBitmapFromHBITMAP<P0, P1>(&self, hbitmap: P0, hpalette: P1, options: super::WICBitmapAlphaChannelOption) -> ::windows_core::Result<super::IWICBitmap>
     where
@@ -147,7 +141,6 @@ impl IWICImagingFactory2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateBitmapFromHBITMAP)(::windows_core::Interface::as_raw(self), hbitmap.into_param().abi(), hpalette.into_param().abi(), options, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn CreateBitmapFromHICON<P0>(&self, hicon: P0) -> ::windows_core::Result<super::IWICBitmap>
     where
@@ -156,7 +149,6 @@ impl IWICImagingFactory2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateBitmapFromHICON)(::windows_core::Interface::as_raw(self), hicon.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateComponentEnumerator(&self, componenttypes: u32, options: u32) -> ::windows_core::Result<super::super::super::System::Com::IEnumUnknown> {
         let mut result__ = ::std::mem::zeroed();
@@ -187,7 +179,6 @@ impl IWICImagingFactory2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateQueryWriterFromReader)(::windows_core::Interface::as_raw(self), piqueryreader.into_param().abi(), pguidvendor, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Graphics_Direct2D\"`"]
     #[cfg(feature = "Win32_Graphics_Direct2D")]
     pub unsafe fn CreateImageEncoder<P0>(&self, pd2ddevice: P0) -> ::windows_core::Result<IWICImageEncoder>
     where

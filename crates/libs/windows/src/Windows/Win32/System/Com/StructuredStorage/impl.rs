@@ -79,7 +79,6 @@ impl IEnumSTATPROPSETSTG_Vtbl {
         iid == &<IEnumSTATPROPSETSTG as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Variant\"`"]
 #[cfg(feature = "Win32_System_Variant")]
 pub trait IEnumSTATPROPSTG_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut STATPROPSTG, pceltfetched: *mut u32) -> ::windows_core::HRESULT;
@@ -418,7 +417,6 @@ impl IPropertyBag_Vtbl {
         iid == &<IPropertyBag as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Variant\"`"]
 #[cfg(feature = "Win32_System_Variant")]
 pub trait IPropertyBag2_Impl: Sized {
     fn Read(&self, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: ::core::option::Option<&super::IErrorLog>, pvarvalue: *mut ::windows_core::VARIANT, phrerror: *mut ::windows_core::HRESULT) -> ::windows_core::Result<()>;

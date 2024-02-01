@@ -504,7 +504,6 @@ impl ::core::default::Default for PSS_AUXILIARY_PAGES_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Memory\"`"]
 #[cfg(feature = "Win32_System_Memory")]
 pub struct PSS_AUXILIARY_PAGE_ENTRY {
     pub Address: *mut ::core::ffi::c_void,
@@ -1014,7 +1013,6 @@ impl ::core::default::Default for PSS_PROCESS_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct PSS_THREAD_ENTRY {
     pub ExitStatus: u32,

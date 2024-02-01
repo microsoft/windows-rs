@@ -210,7 +210,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     OleConvertIStorageToOLESTREAM(pstg.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn OleConvertIStorageToOLESTREAMEx<P0>(pstg: P0, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: *const super::STGMEDIUM) -> ::windows_core::Result<OLESTREAM>
@@ -229,7 +228,6 @@ where
     ::windows_targets::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorage(lpolestream : *const OLESTREAM, pstg : * mut::core::ffi::c_void, ptd : *const super:: DVTARGETDEVICE) -> ::windows_core::HRESULT);
     OleConvertOLESTREAMToIStorage(lpolestream, pstg.into_param().abi(), ptd).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn OleConvertOLESTREAMToIStorageEx<P0>(polestm: *const OLESTREAM, pstg: P0, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::STGMEDIUM) -> ::windows_core::Result<()>
@@ -248,7 +246,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     PropStgNameToFmtId(oszname.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_System_Variant\"`"]
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantChangeType(ppropvardest: *mut ::windows_core::PROPVARIANT, propvarsrc: *const ::windows_core::PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: super::super::Variant::VARENUM) -> ::windows_core::Result<()> {
@@ -391,7 +388,6 @@ pub unsafe fn PropVariantToDoubleWithDefault(propvarin: *const ::windows_core::P
     ::windows_targets::link!("propsys.dll" "system" fn PropVariantToDoubleWithDefault(propvarin : *const ::std::mem::MaybeUninit <::windows_core::PROPVARIANT >, dbldefault : f64) -> f64);
     PropVariantToDoubleWithDefault(::core::mem::transmute(propvarin), dbldefault)
 }
-#[doc = "Required features: `\"Win32_System_Variant\"`"]
 #[cfg(feature = "Win32_System_Variant")]
 #[inline]
 pub unsafe fn PropVariantToFileTime(propvar: *const ::windows_core::PROPVARIANT, pstfout: super::super::Variant::PSTIME_FLAGS) -> ::windows_core::Result<super::super::super::Foundation::FILETIME> {
@@ -664,7 +660,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     StgCreatePropStg(punk.into_param().abi(), fmtid, pclsid, grfflags, dwreserved, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn StgCreateStorageEx<P0, P1>(pwcsname: P0, grfmode: super::STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: ::core::option::Option<*mut STGOPTIONS>, psecuritydescriptor: P1, riid: *const ::windows_core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -752,7 +747,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     StgOpenStorage(pwcsname.into_param().abi(), pstgpriority.into_param().abi(), grfmode, ::core::mem::transmute(snbexclude.unwrap_or(::std::ptr::null())), reserved, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn StgOpenStorageEx<P0, P1>(pwcsname: P0, grfmode: super::STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: ::core::option::Option<*mut STGOPTIONS>, psecuritydescriptor: P1, riid: *const ::windows_core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -881,7 +875,6 @@ pub struct IEnumSTATPROPSETSTG_Vtbl {
 ::windows_core::imp::com_interface!(IEnumSTATPROPSTG, IEnumSTATPROPSTG_Vtbl, 0x00000139_0000_0000_c000_000000000046);
 ::windows_core::imp::interface_hierarchy!(IEnumSTATPROPSTG, ::windows_core::IUnknown);
 impl IEnumSTATPROPSTG {
-    #[doc = "Required features: `\"Win32_System_Variant\"`"]
     #[cfg(feature = "Win32_System_Variant")]
     pub unsafe fn Next(&self, rgelt: &mut [STATPROPSTG], pceltfetched: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched.unwrap_or(::std::ptr::null_mut())))
@@ -1114,7 +1107,6 @@ pub struct IPropertyBag_Vtbl {
 ::windows_core::imp::com_interface!(IPropertyBag2, IPropertyBag2_Vtbl, 0x22f55882_280b_11d0_a8a9_00a0c90c2004);
 ::windows_core::imp::interface_hierarchy!(IPropertyBag2, ::windows_core::IUnknown);
 impl IPropertyBag2 {
-    #[doc = "Required features: `\"Win32_System_Variant\"`"]
     #[cfg(feature = "Win32_System_Variant")]
     pub unsafe fn Read<P0>(&self, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: P0, pvarvalue: *mut ::windows_core::VARIANT, phrerror: *mut ::windows_core::HRESULT) -> ::windows_core::Result<()>
     where
@@ -1122,7 +1114,6 @@ impl IPropertyBag2 {
     {
         (::windows_core::Interface::vtable(self).Read)(::windows_core::Interface::as_raw(self), cproperties, ppropbag, perrlog.into_param().abi(), ::core::mem::transmute(pvarvalue), phrerror).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Variant\"`"]
     #[cfg(feature = "Win32_System_Variant")]
     pub unsafe fn Write(&self, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Write)(::windows_core::Interface::as_raw(self), cproperties, ppropbag, ::core::mem::transmute(pvarvalue)).ok()
@@ -1131,7 +1122,6 @@ impl IPropertyBag2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CountProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Variant\"`"]
     #[cfg(feature = "Win32_System_Variant")]
     pub unsafe fn GetPropertyInfo(&self, iproperty: u32, ppropbag: &mut [PROPBAG2], pcproperties: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPropertyInfo)(::windows_core::Interface::as_raw(self), iproperty, ppropbag.len().try_into().unwrap(), ::core::mem::transmute(ppropbag.as_ptr()), pcproperties).ok()
@@ -2402,7 +2392,6 @@ impl ::core::default::Default for OLESTREAMVTBL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Variant\"`"]
 #[cfg(feature = "Win32_System_Variant")]
 pub struct PROPBAG2 {
     pub dwType: u32,
@@ -2579,7 +2568,6 @@ impl ::core::default::Default for STATPROPSETSTG {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Variant\"`"]
 #[cfg(feature = "Win32_System_Variant")]
 pub struct STATPROPSTG {
     pub lpwstrName: ::windows_core::PWSTR,

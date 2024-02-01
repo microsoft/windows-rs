@@ -110,7 +110,6 @@ impl PdfDocument {
             (::windows_core::Interface::vtable(this).IsPasswordProtected)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn LoadFromFileAsync<P0>(file: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
     where
@@ -121,7 +120,6 @@ impl PdfDocument {
             (::windows_core::Interface::vtable(this).LoadFromFileAsync)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn LoadFromFileWithPasswordAsync<P0>(file: P0, password: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
     where
@@ -132,7 +130,6 @@ impl PdfDocument {
             (::windows_core::Interface::vtable(this).LoadFromFileWithPasswordAsync)(::windows_core::Interface::as_raw(this), file.into_param().abi(), ::core::mem::transmute_copy(password), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStreamAsync<P0>(inputstream: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
     where
@@ -143,7 +140,6 @@ impl PdfDocument {
             (::windows_core::Interface::vtable(this).LoadFromStreamAsync)(::windows_core::Interface::as_raw(this), inputstream.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStreamWithPasswordAsync<P0>(inputstream: P0, password: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
     where
@@ -182,7 +178,6 @@ impl PdfPage {
         let this = &::windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn RenderToStreamAsync<P0>(&self, outputstream: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -194,7 +189,6 @@ impl PdfPage {
             (::windows_core::Interface::vtable(this).RenderToStreamAsync)(::windows_core::Interface::as_raw(this), outputstream.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn RenderWithOptionsToStreamAsync<P0, P1>(&self, outputstream: P0, options: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -360,7 +354,6 @@ impl PdfPageRenderOptions {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDestinationHeight)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn BackgroundColor(&self) -> ::windows_core::Result<super::super::UI::Color> {
         let this = self;
@@ -369,7 +362,6 @@ impl PdfPageRenderOptions {
             (::windows_core::Interface::vtable(this).BackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn SetBackgroundColor(&self, value: super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;

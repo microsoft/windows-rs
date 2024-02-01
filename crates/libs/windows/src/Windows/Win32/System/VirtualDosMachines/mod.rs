@@ -245,7 +245,6 @@ impl ::core::default::Default for TEMP_BP_NOTE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct VDMCONTEXT {
@@ -341,7 +340,6 @@ impl ::core::default::Default for VDMCONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct VDMCONTEXT_WITHOUT_XSAVE {
     pub ContextFlags: u32,
@@ -586,7 +584,6 @@ impl ::core::default::Default for VDM_SEGINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Threading\"`"]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type DEBUGEVENTPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::Diagnostics::Debug::DEBUG_EVENT, param1: *mut ::core::ffi::c_void) -> u32>;
 pub type PROCESSENUMPROC = ::core::option::Option<unsafe extern "system" fn(dwprocessid: u32, dwattributes: u32, lpuserdefined: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
@@ -598,11 +595,9 @@ pub type VDMENUMPROCESSWOWPROC = ::core::option::Option<unsafe extern "system" f
 pub type VDMENUMTASKWOWEXPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: TASKENUMPROCEX, param2: super::super::Foundation::LPARAM) -> i32>;
 pub type VDMENUMTASKWOWPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: TASKENUMPROC, param2: super::super::Foundation::LPARAM) -> i32>;
 pub type VDMGETADDREXPRESSIONPROC = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR, param1: ::windows_core::PCSTR, param2: *mut u16, param3: *mut u32, param4: *mut u16) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type VDMGETCONTEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut VDMCONTEXT) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type VDMGETCONTEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut super::Diagnostics::Debug::CONTEXT) -> super::super::Foundation::BOOL>;
@@ -614,32 +609,24 @@ pub type VDMGETSELECTORMODULEPROC = ::core::option::Option<unsafe extern "system
 pub type VDMGETSYMBOLPROC = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR, param1: u16, param2: u32, param3: super::super::Foundation::BOOL, param4: super::super::Foundation::BOOL, param5: ::windows_core::PSTR, param6: *mut u32) -> super::super::Foundation::BOOL>;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub type VDMGETTHREADSELECTORENTRYPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: *mut VDMLDT_ENTRY) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub type VDMGETTHREADSELECTORENTRYPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: *mut super::Diagnostics::Debug::LDT_ENTRY) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Threading\"`"]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMGLOBALFIRSTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: DEBUGEVENTPROC, param5: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Threading\"`"]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMGLOBALNEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut GLOBALENTRY, param3: u16, param4: DEBUGEVENTPROC, param5: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type VDMISMODULELOADEDPROC = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR) -> super::super::Foundation::BOOL>;
 pub type VDMKILLWOWPROC = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Threading\"`"]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMMODULEFIRSTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: DEBUGEVENTPROC, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Threading\"`"]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMMODULENEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: DEBUGEVENTPROC, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Threading\"`"]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMPROCESSEXCEPTIONPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::Diagnostics::Debug::DEBUG_EVENT) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type VDMSETCONTEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut VDMCONTEXT) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type VDMSETCONTEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut super::Diagnostics::Debug::CONTEXT) -> super::super::Foundation::BOOL>;

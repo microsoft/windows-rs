@@ -134,7 +134,6 @@ pub struct IGpioPinProviderValueChangedEventArgsFactory_Vtbl {
 ::windows_core::imp::com_interface!(IGpioProvider, IGpioProvider_Vtbl, 0x44e82707_08ca_434a_afe0_d61580446f7e);
 ::windows_core::imp::interface_hierarchy!(IGpioProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IGpioProvider {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetControllers(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IGpioControllerProvider>> {
         let this = self;

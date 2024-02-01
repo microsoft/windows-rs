@@ -837,7 +837,6 @@ impl IContactProperties {
     {
         (::windows_core::Interface::vtable(self).GetDate)(::windows_core::Interface::as_raw(self), pszpropertyname.into_param().abi(), dwflags, pftdatetime).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBinary<P0>(&self, pszpropertyname: P0, dwflags: u32, pszcontenttype: &mut [u16], pdwcchcontenttyperequired: *mut u32, ppstream: *mut ::core::option::Option<super::Com::IStream>) -> ::windows_core::Result<()>
     where
@@ -864,7 +863,6 @@ impl IContactProperties {
     {
         (::windows_core::Interface::vtable(self).SetDate)(::windows_core::Interface::as_raw(self), pszpropertyname.into_param().abi(), dwflags, ::core::mem::transmute(ftdatetime)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetBinary<P0, P1, P2>(&self, pszpropertyname: P0, dwflags: u32, pszcontenttype: P1, pstream: P2) -> ::windows_core::Result<()>
     where

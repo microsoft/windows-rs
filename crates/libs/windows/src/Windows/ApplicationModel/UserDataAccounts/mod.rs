@@ -1,8 +1,6 @@
 #[cfg(feature = "ApplicationModel_UserDataAccounts_Provider")]
-#[doc = "Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`"]
 pub mod Provider;
 #[cfg(feature = "ApplicationModel_UserDataAccounts_SystemAccess")]
-#[doc = "Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`"]
 pub mod SystemAccess;
 ::windows_core::imp::com_interface!(IUserDataAccount, IUserDataAccount_Vtbl, 0xb9c4367e_b348_4910_be94_4ad4bba6dea7);
 #[repr(C)]
@@ -185,7 +183,6 @@ impl UserDataAccount {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetOtherAppReadAccess)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Icon(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -222,7 +219,6 @@ impl UserDataAccount {
             (::windows_core::Interface::vtable(this).DeleteAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Appointments\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "ApplicationModel_Appointments", feature = "Foundation_Collections"))]
     pub fn FindAppointmentCalendarsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Appointments::AppointmentCalendar>>> {
         let this = self;
@@ -231,7 +227,6 @@ impl UserDataAccount {
             (::windows_core::Interface::vtable(this).FindAppointmentCalendarsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Email\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "ApplicationModel_Email", feature = "Foundation_Collections"))]
     pub fn FindEmailMailboxesAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Email::EmailMailbox>>> {
         let this = self;
@@ -240,7 +235,6 @@ impl UserDataAccount {
             (::windows_core::Interface::vtable(this).FindEmailMailboxesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Contacts\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))]
     pub fn FindContactListsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Contacts::ContactList>>> {
         let this = self;
@@ -249,7 +243,6 @@ impl UserDataAccount {
             (::windows_core::Interface::vtable(this).FindContactListsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Contacts\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))]
     pub fn FindContactAnnotationListsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Contacts::ContactAnnotationList>>> {
         let this = self;
@@ -272,7 +265,6 @@ impl UserDataAccount {
             (::windows_core::Interface::vtable(this).IsProtectedUnderLock)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ExplictReadAccessPackageFamilyNames(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = &::windows_core::Interface::cast::<IUserDataAccount3>(self)?;
@@ -303,7 +295,6 @@ impl UserDataAccount {
         let this = &::windows_core::Interface::cast::<IUserDataAccount4>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetCanShowCreateContactGroup)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ProviderProperties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = &::windows_core::Interface::cast::<IUserDataAccount4>(self)?;
@@ -312,7 +303,6 @@ impl UserDataAccount {
             (::windows_core::Interface::vtable(this).ProviderProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_UserDataTasks\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "ApplicationModel_UserDataTasks", feature = "Foundation_Collections"))]
     pub fn FindUserDataTaskListsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::UserDataTasks::UserDataTaskList>>> {
         let this = &::windows_core::Interface::cast::<IUserDataAccount4>(self)?;
@@ -321,7 +311,6 @@ impl UserDataAccount {
             (::windows_core::Interface::vtable(this).FindUserDataTaskListsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Contacts\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))]
     pub fn FindContactGroupsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::Contacts::ContactGroup>>> {
         let this = &::windows_core::Interface::cast::<IUserDataAccount4>(self)?;
@@ -341,7 +330,6 @@ impl UserDataAccount {
         let this = &::windows_core::Interface::cast::<IUserDataAccount4>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetIsProtectedUnderLock)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetIcon<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -389,7 +377,6 @@ impl UserDataAccountManager {
             (::windows_core::Interface::vtable(this).ShowAccountErrorResolverAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetForUser<P0>(user: P0) -> ::windows_core::Result<UserDataAccountManagerForUser>
     where
@@ -426,7 +413,6 @@ impl UserDataAccountManagerForUser {
             (::windows_core::Interface::vtable(this).RequestStoreAsync)(::windows_core::Interface::as_raw(this), storeaccesstype, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
@@ -453,7 +439,6 @@ unsafe impl ::core::marker::Sync for UserDataAccountManagerForUser {}
 pub struct UserDataAccountStore(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(UserDataAccountStore, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl UserDataAccountStore {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAccountsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UserDataAccount>>> {
         let this = self;

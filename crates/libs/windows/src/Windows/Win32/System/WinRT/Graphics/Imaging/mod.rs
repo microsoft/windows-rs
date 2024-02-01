@@ -18,7 +18,6 @@ pub struct ISoftwareBitmapNative_Vtbl {
 ::windows_core::imp::com_interface!(ISoftwareBitmapNativeFactory, ISoftwareBitmapNativeFactory_Vtbl, 0xc3c181ec_2914_4791_af02_02d224a10b43);
 ::windows_core::imp::interface_hierarchy!(ISoftwareBitmapNativeFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ISoftwareBitmapNativeFactory {
-    #[doc = "Required features: `\"Win32_Graphics_Imaging\"`"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
     pub unsafe fn CreateFromWICBitmap<P0, P1, T>(&self, data: P0, forcereadonly: P1) -> ::windows_core::Result<T>
     where
@@ -29,7 +28,6 @@ impl ISoftwareBitmapNativeFactory {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).CreateFromWICBitmap)(::windows_core::Interface::as_raw(self), data.into_param().abi(), forcereadonly.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn CreateFromMF2DBuffer2<P0, P1, T>(&self, data: P0, subtype: *const ::windows_core::GUID, width: u32, height: u32, forcereadonly: P1, mindisplayaperture: ::core::option::Option<*const super::super::super::super::Media::MediaFoundation::MFVideoArea>) -> ::windows_core::Result<T>
     where

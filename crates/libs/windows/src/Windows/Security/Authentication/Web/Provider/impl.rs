@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Security_Authentication_Web_Core\"`"]
 #[cfg(feature = "Security_Authentication_Web_Core")]
 pub trait IWebAccountProviderBaseReportOperation_Impl: Sized {
     fn ReportCompleted(&self) -> ::windows_core::Result<()>;
@@ -56,7 +55,6 @@ impl IWebAccountProviderOperation_Vtbl {
         iid == &<IWebAccountProviderOperation as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Security_Authentication_Web_Core\"`"]
 #[cfg(feature = "Security_Authentication_Web_Core")]
 pub trait IWebAccountProviderSilentReportOperation_Impl: Sized + IWebAccountProviderBaseReportOperation_Impl {
     fn ReportUserInteractionRequired(&self) -> ::windows_core::Result<()>;
@@ -118,7 +116,6 @@ impl IWebAccountProviderTokenObjects_Vtbl {
         iid == &<IWebAccountProviderTokenObjects as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"System\"`"]
 #[cfg(feature = "System")]
 pub trait IWebAccountProviderTokenObjects2_Impl: Sized + IWebAccountProviderTokenObjects_Impl {
     fn User(&self) -> ::windows_core::Result<super::super::super::super::System::User>;
@@ -148,7 +145,6 @@ impl IWebAccountProviderTokenObjects2_Vtbl {
         iid == &<IWebAccountProviderTokenObjects2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IWebAccountProviderTokenOperation_Impl: Sized + IWebAccountProviderOperation_Impl {
     fn ProviderRequest(&self) -> ::windows_core::Result<WebProviderTokenRequest>;
@@ -215,7 +211,6 @@ impl IWebAccountProviderTokenOperation_Vtbl {
         iid == &<IWebAccountProviderTokenOperation as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Security_Authentication_Web_Core\"`"]
 #[cfg(feature = "Security_Authentication_Web_Core")]
 pub trait IWebAccountProviderUIReportOperation_Impl: Sized + IWebAccountProviderBaseReportOperation_Impl {
     fn ReportUserCanceled(&self) -> ::windows_core::Result<()>;

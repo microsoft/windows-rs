@@ -173,7 +173,6 @@ impl CredentialPickerOptions {
             (::windows_core::Interface::vtable(this).CustomAuthenticationProtocol)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetPreviousCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -182,7 +181,6 @@ impl CredentialPickerOptions {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPreviousCredential)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn PreviousCredential(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -261,7 +259,6 @@ impl CredentialPickerResults {
             (::windows_core::Interface::vtable(this).CredentialSaved)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Credential(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;

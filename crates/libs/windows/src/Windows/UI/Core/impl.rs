@@ -318,7 +318,6 @@ impl ICorePointerInputSource_Vtbl {
         iid == &<ICorePointerInputSource as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"System\"`"]
 #[cfg(feature = "System")]
 pub trait ICorePointerInputSource2_Impl: Sized + ICorePointerInputSource_Impl {
     fn DispatcherQueue(&self) -> ::windows_core::Result<super::super::System::DispatcherQueue>;
@@ -426,7 +425,6 @@ impl ICorePointerRedirector_Vtbl {
         iid == &<ICorePointerRedirector as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`, `\"System\"`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
 pub trait ICoreWindow_Impl: Sized {
     fn AutomationHostProvider(&self) -> ::windows_core::Result<::windows_core::IInspectable>;

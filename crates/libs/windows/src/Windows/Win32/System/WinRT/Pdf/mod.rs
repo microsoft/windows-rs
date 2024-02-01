@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_Graphics_Dxgi\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn PdfCreateRenderer<P0>(pdevice: P0) -> ::windows_core::Result<IPdfRendererNative>
@@ -12,7 +11,6 @@ where
 ::windows_core::imp::com_interface!(IPdfRendererNative, IPdfRendererNative_Vtbl, 0x7d9dcd91_d277_4947_8527_07a0daeda94a);
 ::windows_core::imp::interface_hierarchy!(IPdfRendererNative, ::windows_core::IUnknown);
 impl IPdfRendererNative {
-    #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi"))]
     pub unsafe fn RenderPageToSurface<P0, P1>(&self, pdfpage: P0, psurface: P1, offset: super::super::super::Foundation::POINT, prenderparams: ::core::option::Option<*const PDF_RENDER_PARAMS>) -> ::windows_core::Result<()>
     where
@@ -21,7 +19,6 @@ impl IPdfRendererNative {
     {
         (::windows_core::Interface::vtable(self).RenderPageToSurface)(::windows_core::Interface::as_raw(self), pdfpage.into_param().abi(), psurface.into_param().abi(), ::core::mem::transmute(offset), ::core::mem::transmute(prenderparams.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn RenderPageToDeviceContext<P0, P1>(&self, pdfpage: P0, pd2ddevicecontext: P1, prenderparams: ::core::option::Option<*const PDF_RENDER_PARAMS>) -> ::windows_core::Result<()>
     where
@@ -45,7 +42,6 @@ pub struct IPdfRendererNative_Vtbl {
     RenderPageToDeviceContext: usize,
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct PDF_RENDER_PARAMS {
     pub SourceRect: super::super::super::Graphics::Direct2D::Common::D2D_RECT_F,
@@ -86,7 +82,6 @@ impl ::core::default::Default for PDF_RENDER_PARAMS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Dxgi\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 pub type PFN_PDF_CREATE_RENDERER = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGIDevice>, param1: *mut ::core::option::Option<IPdfRendererNative>) -> ::windows_core::HRESULT>;
 #[cfg(feature = "implement")]

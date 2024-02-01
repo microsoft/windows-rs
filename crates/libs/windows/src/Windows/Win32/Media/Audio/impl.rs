@@ -1298,7 +1298,6 @@ impl IAudioStreamVolume_Vtbl {
         iid == &<IAudioStreamVolume as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IAudioSystemEffectsPropertyChangeNotificationClient_Impl: Sized {
     fn OnPropertyChanged(&self, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: &super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<()>;
@@ -1319,7 +1318,6 @@ impl IAudioSystemEffectsPropertyChangeNotificationClient_Vtbl {
         iid == &<IAudioSystemEffectsPropertyChangeNotificationClient as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IAudioSystemEffectsPropertyStore_Impl: Sized {
     fn OpenDefaultPropertyStore(&self, stgmaccess: u32) -> ::windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
@@ -1839,7 +1837,6 @@ impl IDeviceTopology_Vtbl {
         iid == &<IDeviceTopology as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IMMDevice_Impl: Sized {
     fn Activate(&self, iid: *const ::windows_core::GUID, dwclsctx: super::super::System::Com::CLSCTX, pactivationparams: *const ::windows_core::PROPVARIANT, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -2041,7 +2038,6 @@ impl IMMEndpoint_Vtbl {
         iid == &<IMMEndpoint as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IMMNotificationClient_Impl: Sized {
     fn OnDeviceStateChanged(&self, pwstrdeviceid: &::windows_core::PCWSTR, dwnewstate: DEVICE_STATE) -> ::windows_core::Result<()>;
@@ -2093,7 +2089,6 @@ impl IMMNotificationClient_Vtbl {
         iid == &<IMMNotificationClient as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMessageFilter_Impl: Sized {
     fn HandleInComingCall(&self, dwcalltype: u32, htaskcaller: super::HTASK, dwtickcount: u32, lpinterfaceinfo: *const super::super::System::Com::INTERFACEINFO) -> u32;

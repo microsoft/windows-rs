@@ -15,7 +15,6 @@ where
     ::windows_targets::link!("clfsw32.dll" "system" fn AddLogContainerSet(hlog : super::super::Foundation:: HANDLE, ccontainer : u16, pcbcontainer : *const u64, rgwszcontainerpath : *const ::windows_core::PCWSTR, preserved : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     AddLogContainerSet(hlog.into_param().abi(), rgwszcontainerpath.len().try_into().unwrap(), ::core::mem::transmute(pcbcontainer.unwrap_or(::std::ptr::null())), ::core::mem::transmute(rgwszcontainerpath.as_ptr()), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn AddUsersToEncryptedFile<P0>(lpfilename: P0, pencryptioncertificates: *const ENCRYPTION_CERTIFICATE_LIST) -> u32
@@ -25,7 +24,6 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn AddUsersToEncryptedFile(lpfilename : ::windows_core::PCWSTR, pencryptioncertificates : *const ENCRYPTION_CERTIFICATE_LIST) -> u32);
     AddUsersToEncryptedFile(lpfilename.into_param().abi(), pencryptioncertificates)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn AdvanceLogBase(pvmarshal: *mut ::core::ffi::c_void, plsnbase: *mut CLS_LSN, fflags: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()> {
@@ -287,7 +285,6 @@ pub unsafe fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32 {
     ::windows_targets::link!("kernel32.dll" "system" fn CopyLZFile(hfsource : i32, hfdest : i32) -> i32);
     CopyLZFile(hfsource, hfdest)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateDirectoryA<P0>(lppathname: P0, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows_core::Result<()>
@@ -297,7 +294,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn CreateDirectoryA(lppathname : ::windows_core::PCSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: BOOL);
     CreateDirectoryA(lppathname.into_param().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateDirectoryExA<P0, P1>(lptemplatedirectory: P0, lpnewdirectory: P1, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows_core::Result<()>
@@ -308,7 +304,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn CreateDirectoryExA(lptemplatedirectory : ::windows_core::PCSTR, lpnewdirectory : ::windows_core::PCSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: BOOL);
     CreateDirectoryExA(lptemplatedirectory.into_param().abi(), lpnewdirectory.into_param().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateDirectoryExW<P0, P1>(lptemplatedirectory: P0, lpnewdirectory: P1, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows_core::Result<()>
@@ -319,7 +314,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn CreateDirectoryExW(lptemplatedirectory : ::windows_core::PCWSTR, lpnewdirectory : ::windows_core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: BOOL);
     CreateDirectoryExW(lptemplatedirectory.into_param().abi(), lpnewdirectory.into_param().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateDirectoryFromAppW<P0>(lppathname: P0, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> super::super::Foundation::BOOL
@@ -329,7 +323,6 @@ where
     ::windows_targets::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CreateDirectoryFromAppW(lppathname : ::windows_core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: BOOL);
     CreateDirectoryFromAppW(lppathname.into_param().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateDirectoryTransactedA<P0, P1, P2>(lptemplatedirectory: P0, lpnewdirectory: P1, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, htransaction: P2) -> ::windows_core::Result<()>
@@ -341,7 +334,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn CreateDirectoryTransactedA(lptemplatedirectory : ::windows_core::PCSTR, lpnewdirectory : ::windows_core::PCSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     CreateDirectoryTransactedA(lptemplatedirectory.into_param().abi(), lpnewdirectory.into_param().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), htransaction.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateDirectoryTransactedW<P0, P1, P2>(lptemplatedirectory: P0, lpnewdirectory: P1, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, htransaction: P2) -> ::windows_core::Result<()>
@@ -353,7 +345,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn CreateDirectoryTransactedW(lptemplatedirectory : ::windows_core::PCWSTR, lpnewdirectory : ::windows_core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     CreateDirectoryTransactedW(lptemplatedirectory.into_param().abi(), lpnewdirectory.into_param().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), htransaction.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateDirectoryW<P0>(lppathname: P0, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows_core::Result<()>
@@ -363,7 +354,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn CreateDirectoryW(lppathname : ::windows_core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: BOOL);
     CreateDirectoryW(lppathname.into_param().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateEnlistment<P0, P1>(lpenlistmentattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerhandle: P0, transactionhandle: P1, notificationmask: u32, createoptions: u32, enlistmentkey: *mut ::core::ffi::c_void) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -375,7 +365,6 @@ where
     let result__ = CreateEnlistment(lpenlistmentattributes, resourcemanagerhandle.into_param().abi(), transactionhandle.into_param().abi(), notificationmask, createoptions, enlistmentkey);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateFile2<P0>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, dwcreationdisposition: FILE_CREATION_DISPOSITION, pcreateexparams: ::core::option::Option<*const CREATEFILE2_EXTENDED_PARAMETERS>) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -386,7 +375,6 @@ where
     let result__ = CreateFile2(lpfilename.into_param().abi(), dwdesiredaccess, dwsharemode, dwcreationdisposition, ::core::mem::transmute(pcreateexparams.unwrap_or(::std::ptr::null())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateFile2FromAppW<P0>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, dwcreationdisposition: u32, pcreateexparams: ::core::option::Option<*const CREATEFILE2_EXTENDED_PARAMETERS>) -> super::super::Foundation::HANDLE
@@ -396,7 +384,6 @@ where
     ::windows_targets::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CreateFile2FromAppW(lpfilename : ::windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, dwcreationdisposition : u32, pcreateexparams : *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation:: HANDLE);
     CreateFile2FromAppW(lpfilename.into_param().abi(), dwdesiredaccess, dwsharemode, dwcreationdisposition, ::core::mem::transmute(pcreateexparams.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateFileA<P0, P1>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P1) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -408,7 +395,6 @@ where
     let result__ = CreateFileA(lpfilename.into_param().abi(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), dwcreationdisposition, dwflagsandattributes, htemplatefile.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateFileFromAppW<P0, P1>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: u32, dwflagsandattributes: u32, htemplatefile: P1) -> super::super::Foundation::HANDLE
@@ -419,7 +405,6 @@ where
     ::windows_targets::link!("api-ms-win-core-file-fromapp-l1-1-0.dll" "system" fn CreateFileFromAppW(lpfilename : ::windows_core::PCWSTR, dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwcreationdisposition : u32, dwflagsandattributes : u32, htemplatefile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: HANDLE);
     CreateFileFromAppW(lpfilename.into_param().abi(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), dwcreationdisposition, dwflagsandattributes, htemplatefile.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateFileTransactedA<P0, P1, P2>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P1, htransaction: P2, pusminiversion: ::core::option::Option<*const TXFS_MINIVERSION>, lpextendedparameter: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -432,7 +417,6 @@ where
     let result__ = CreateFileTransactedA(lpfilename.into_param().abi(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), dwcreationdisposition, dwflagsandattributes, htemplatefile.into_param().abi(), htransaction.into_param().abi(), ::core::mem::transmute(pusminiversion.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpextendedparameter.unwrap_or(::std::ptr::null())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateFileTransactedW<P0, P1, P2>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P1, htransaction: P2, pusminiversion: ::core::option::Option<*const TXFS_MINIVERSION>, lpextendedparameter: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -445,7 +429,6 @@ where
     let result__ = CreateFileTransactedW(lpfilename.into_param().abi(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), dwcreationdisposition, dwflagsandattributes, htemplatefile.into_param().abi(), htransaction.into_param().abi(), ::core::mem::transmute(pusminiversion.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpextendedparameter.unwrap_or(::std::ptr::null())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateFileW<P0, P1>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P1) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -457,7 +440,6 @@ where
     let result__ = CreateFileW(lpfilename.into_param().abi(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), dwcreationdisposition, dwflagsandattributes, htemplatefile.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateHardLinkA<P0, P1>(lpfilename: P0, lpexistingfilename: P1, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows_core::Result<()>
@@ -468,7 +450,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn CreateHardLinkA(lpfilename : ::windows_core::PCSTR, lpexistingfilename : ::windows_core::PCSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: BOOL);
     CreateHardLinkA(lpfilename.into_param().abi(), lpexistingfilename.into_param().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateHardLinkTransactedA<P0, P1, P2>(lpfilename: P0, lpexistingfilename: P1, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, htransaction: P2) -> ::windows_core::Result<()>
@@ -480,7 +461,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn CreateHardLinkTransactedA(lpfilename : ::windows_core::PCSTR, lpexistingfilename : ::windows_core::PCSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     CreateHardLinkTransactedA(lpfilename.into_param().abi(), lpexistingfilename.into_param().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), htransaction.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateHardLinkTransactedW<P0, P1, P2>(lpfilename: P0, lpexistingfilename: P1, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, htransaction: P2) -> ::windows_core::Result<()>
@@ -492,7 +472,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn CreateHardLinkTransactedW(lpfilename : ::windows_core::PCWSTR, lpexistingfilename : ::windows_core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, htransaction : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     CreateHardLinkTransactedW(lpfilename.into_param().abi(), lpexistingfilename.into_param().abi(), ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), htransaction.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateHardLinkW<P0, P1>(lpfilename: P0, lpexistingfilename: P1, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows_core::Result<()>
@@ -509,7 +488,6 @@ pub unsafe fn CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_F
     let mut result__ = ::std::mem::zeroed();
     CreateIoRing(ioringversion, ::core::mem::transmute(flags), submissionqueuesize, completionqueuesize, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn CreateLogContainerScanContext<P0>(hlog: P0, cfromcontainer: u32, ccontainers: u32, escanmode: u8, pcxscan: *mut CLS_SCAN_CONTEXT, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()>
@@ -519,7 +497,6 @@ where
     ::windows_targets::link!("clfsw32.dll" "system" fn CreateLogContainerScanContext(hlog : super::super::Foundation:: HANDLE, cfromcontainer : u32, ccontainers : u32, escanmode : u8, pcxscan : *mut CLS_SCAN_CONTEXT, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     CreateLogContainerScanContext(hlog.into_param().abi(), cfromcontainer, ccontainers, escanmode, pcxscan, poverlapped).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateLogFile<P0>(pszlogfilename: P0, fdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, psalogfile: *mut super::super::Security::SECURITY_ATTRIBUTES, fcreatedisposition: FILE_CREATION_DISPOSITION, fflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -538,7 +515,6 @@ where
     ::windows_targets::link!("clfsw32.dll" "system" fn CreateLogMarshallingArea(hlog : super::super::Foundation:: HANDLE, pfnallocbuffer : CLFS_BLOCK_ALLOCATION, pfnfreebuffer : CLFS_BLOCK_DEALLOCATION, pvblockalloccontext : *mut ::core::ffi::c_void, cbmarshallingbuffer : u32, cmaxwritebuffers : u32, cmaxreadbuffers : u32, ppvmarshal : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     CreateLogMarshallingArea(hlog.into_param().abi(), pfnallocbuffer, pfnfreebuffer, pvblockalloccontext, cbmarshallingbuffer, cmaxwritebuffers, cmaxreadbuffers, ppvmarshal).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateResourceManager<P0, P1>(lpresourcemanagerattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerid: *mut ::windows_core::GUID, createoptions: u32, tmhandle: P0, description: P1) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -596,7 +572,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn CreateTapePartition(hdevice : super::super::Foundation:: HANDLE, dwpartitionmethod : CREATE_TAPE_PARTITION_METHOD, dwcount : u32, dwsize : u32) -> u32);
     CreateTapePartition(hdevice.into_param().abi(), dwpartitionmethod, dwcount, dwsize)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateTransaction<P0>(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, uow: *mut ::windows_core::GUID, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: u32, description: P0) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -607,7 +582,6 @@ where
     let result__ = CreateTransaction(lptransactionattributes, uow, createoptions, isolationlevel, isolationflags, timeout, description.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateTransactionManager<P0>(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, logfilename: P0, createoptions: u32, commitstrength: u32) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -739,7 +713,6 @@ where
     ::windows_targets::link!("clfsw32.dll" "system" fn DeregisterManageableLogClient(hlog : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     DeregisterManageableLogClient(hlog.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn DuplicateEncryptionInfoFile<P0, P1>(srcfilename: P0, dstfilename: P1, dwcreationdistribution: u32, dwattributes: u32, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> u32
@@ -1069,14 +1042,12 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn FlushFileBuffers(hfile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     FlushFileBuffers(hfile.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn FlushLogBuffers(pvmarshal: *const ::core::ffi::c_void, poverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("clfsw32.dll" "system" fn FlushLogBuffers(pvmarshal : *const ::core::ffi::c_void, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     FlushLogBuffers(pvmarshal, ::core::mem::transmute(poverlapped.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn FlushLogToLsn(pvmarshalcontext: *mut ::core::ffi::c_void, plsnflush: *mut CLS_LSN, plsnlastflushed: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()> {
@@ -1088,7 +1059,6 @@ pub unsafe fn FreeEncryptedFileMetadata(pbmetadata: *const u8) {
     ::windows_targets::link!("advapi32.dll" "system" fn FreeEncryptedFileMetadata(pbmetadata : *const u8));
     FreeEncryptedFileMetadata(pbmetadata)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn FreeEncryptionCertificateHashList(pusers: *const ENCRYPTION_CERTIFICATE_HASH_LIST) {
@@ -1590,7 +1560,6 @@ where
     ::windows_targets::link!("ktmw32.dll" "system" fn GetNotificationResourceManager(resourcemanagerhandle : super::super::Foundation:: HANDLE, transactionnotification : *mut TRANSACTION_NOTIFICATION, notificationlength : u32, dwmilliseconds : u32, returnlength : *mut u32) -> super::super::Foundation:: BOOL);
     GetNotificationResourceManager(resourcemanagerhandle.into_param().abi(), transactionnotification, notificationlength, dwmilliseconds, returnlength).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn GetNotificationResourceManagerAsync<P0>(resourcemanagerhandle: P0, transactionnotification: *mut TRANSACTION_NOTIFICATION, transactionnotificationlength: u32, returnlength: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()>
@@ -1892,7 +1861,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn LockFile(hfile : super::super::Foundation:: HANDLE, dwfileoffsetlow : u32, dwfileoffsethigh : u32, nnumberofbytestolocklow : u32, nnumberofbytestolockhigh : u32) -> super::super::Foundation:: BOOL);
     LockFile(hfile.into_param().abi(), dwfileoffsetlow, dwfileoffsethigh, nnumberofbytestolocklow, nnumberofbytestolockhigh).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn LockFileEx<P0>(hfile: P0, dwflags: LOCK_FILE_FLAGS, dwreserved: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()>
@@ -2247,7 +2215,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn OpenFile(lpfilename : ::windows_core::PCSTR, lpreopenbuff : *mut OFSTRUCT, ustyle : u32) -> i32);
     OpenFile(lpfilename.into_param().abi(), lpreopenbuff, ustyle)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn OpenFileById<P0>(hvolumehint: P0, lpfileid: *const FILE_ID_DESCRIPTOR, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -2376,7 +2343,6 @@ where
     ::windows_targets::link!("clfsw32.dll" "system" fn QueryLogPolicy(hlog : super::super::Foundation:: HANDLE, epolicytype : CLFS_MGMT_POLICY_TYPE, ppolicybuffer : *mut CLFS_MGMT_POLICY, pcbpolicybuffer : *mut u32) -> super::super::Foundation:: BOOL);
     QueryLogPolicy(hlog.into_param().abi(), epolicytype, ppolicybuffer, pcbpolicybuffer).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn QueryRecoveryAgentsOnEncryptedFile<P0>(lpfilename: P0, precoveryagents: *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32
@@ -2386,7 +2352,6 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn QueryRecoveryAgentsOnEncryptedFile(lpfilename : ::windows_core::PCWSTR, precoveryagents : *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32);
     QueryRecoveryAgentsOnEncryptedFile(lpfilename.into_param().abi(), precoveryagents)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn QueryUsersOnEncryptedFile<P0>(lpfilename: P0, pusers: *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32
@@ -2405,7 +2370,6 @@ where
     let result__ = ReOpenFile(horiginalfile.into_param().abi(), dwdesiredaccess, dwsharemode, dwflagsandattributes);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ReadDirectoryChangesExW<P0, P1>(hdirectory: P0, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: P1, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: ::core::option::Option<*mut u32>, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> ::windows_core::Result<()>
@@ -2416,7 +2380,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn ReadDirectoryChangesExW(hdirectory : super::super::Foundation:: HANDLE, lpbuffer : *mut ::core::ffi::c_void, nbufferlength : u32, bwatchsubtree : super::super::Foundation:: BOOL, dwnotifyfilter : FILE_NOTIFY_CHANGE, lpbytesreturned : *mut u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE, readdirectorynotifyinformationclass : READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> super::super::Foundation:: BOOL);
     ReadDirectoryChangesExW(hdirectory.into_param().abi(), lpbuffer, nbufferlength, bwatchsubtree.into_param().abi(), dwnotifyfilter, ::core::mem::transmute(lpbytesreturned.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut())), lpcompletionroutine, readdirectorynotifyinformationclass).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ReadDirectoryChangesW<P0, P1>(hdirectory: P0, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: P1, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: ::core::option::Option<*mut u32>, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> ::windows_core::Result<()>
@@ -2432,7 +2395,6 @@ pub unsafe fn ReadEncryptedFileRaw(pfexportcallback: PFE_EXPORT_FUNC, pvcallback
     ::windows_targets::link!("advapi32.dll" "system" fn ReadEncryptedFileRaw(pfexportcallback : PFE_EXPORT_FUNC, pvcallbackcontext : *const ::core::ffi::c_void, pvcontext : *const ::core::ffi::c_void) -> u32);
     ReadEncryptedFileRaw(pfexportcallback, ::core::mem::transmute(pvcallbackcontext.unwrap_or(::std::ptr::null())), pvcontext)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ReadFile<P0>(hfile: P0, lpbuffer: ::core::option::Option<&mut [u8]>, lpnumberofbytesread: ::core::option::Option<*mut u32>, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()>
@@ -2442,7 +2404,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn ReadFile(hfile : super::super::Foundation:: HANDLE, lpbuffer : *mut u8, nnumberofbytestoread : u32, lpnumberofbytesread : *mut u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     ReadFile(hfile.into_param().abi(), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(lpnumberofbytesread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ReadFileEx<P0>(hfile: P0, lpbuffer: ::core::option::Option<&mut [u8]>, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> ::windows_core::Result<()>
@@ -2452,7 +2413,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn ReadFileEx(hfile : super::super::Foundation:: HANDLE, lpbuffer : *mut u8, nnumberofbytestoread : u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation:: BOOL);
     ReadFileEx(hfile.into_param().abi(), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpoverlapped, lpcompletionroutine).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ReadFileScatter<P0>(hfile: P0, asegmentarray: *const FILE_SEGMENT_ELEMENT, nnumberofbytestoread: u32, lpreserved: ::core::option::Option<*const u32>, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()>
@@ -2467,7 +2427,6 @@ pub unsafe fn ReadLogArchiveMetadata(pvarchivecontext: *mut ::core::ffi::c_void,
     ::windows_targets::link!("clfsw32.dll" "system" fn ReadLogArchiveMetadata(pvarchivecontext : *mut ::core::ffi::c_void, cboffset : u32, cbbytestoread : u32, pbreadbuffer : *mut u8, pcbbytesread : *mut u32) -> super::super::Foundation:: BOOL);
     ReadLogArchiveMetadata(pvarchivecontext, cboffset, cbbytestoread, pbreadbuffer, pcbbytesread).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ReadLogNotification<P0>(hlog: P0, pnotification: *mut CLFS_MGMT_NOTIFICATION, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()>
@@ -2477,21 +2436,18 @@ where
     ::windows_targets::link!("clfsw32.dll" "system" fn ReadLogNotification(hlog : super::super::Foundation:: HANDLE, pnotification : *mut CLFS_MGMT_NOTIFICATION, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     ReadLogNotification(hlog.into_param().abi(), pnotification, lpoverlapped).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ReadLogRecord(pvmarshal: *mut ::core::ffi::c_void, plsnfirst: *mut CLS_LSN, econtextmode: CLFS_CONTEXT_MODE, ppvreadbuffer: *mut *mut ::core::ffi::c_void, pcbreadbuffer: *mut u32, perecordtype: *mut u8, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, ppvreadcontext: *mut *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()> {
     ::windows_targets::link!("clfsw32.dll" "system" fn ReadLogRecord(pvmarshal : *mut ::core::ffi::c_void, plsnfirst : *mut CLS_LSN, econtextmode : CLFS_CONTEXT_MODE, ppvreadbuffer : *mut *mut ::core::ffi::c_void, pcbreadbuffer : *mut u32, perecordtype : *mut u8, plsnundonext : *mut CLS_LSN, plsnprevious : *mut CLS_LSN, ppvreadcontext : *mut *mut ::core::ffi::c_void, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     ReadLogRecord(pvmarshal, plsnfirst, econtextmode, ppvreadbuffer, pcbreadbuffer, perecordtype, plsnundonext, plsnprevious, ppvreadcontext, poverlapped).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ReadLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, ppvrestartbuffer: *mut *mut ::core::ffi::c_void, pcbrestartbuffer: *mut u32, plsn: *mut CLS_LSN, ppvcontext: *mut *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()> {
     ::windows_targets::link!("clfsw32.dll" "system" fn ReadLogRestartArea(pvmarshal : *mut ::core::ffi::c_void, ppvrestartbuffer : *mut *mut ::core::ffi::c_void, pcbrestartbuffer : *mut u32, plsn : *mut CLS_LSN, ppvcontext : *mut *mut ::core::ffi::c_void, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     ReadLogRestartArea(pvmarshal, ppvrestartbuffer, pcbrestartbuffer, plsn, ppvcontext, poverlapped).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ReadNextLogRecord(pvreadcontext: *mut ::core::ffi::c_void, ppvbuffer: *mut *mut ::core::ffi::c_void, pcbbuffer: *mut u32, perecordtype: *mut u8, plsnuser: *mut CLS_LSN, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, plsnrecord: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()> {
@@ -2506,7 +2462,6 @@ where
     ::windows_targets::link!("ktmw32.dll" "system" fn ReadOnlyEnlistment(enlistmenthandle : super::super::Foundation:: HANDLE, tmvirtualclock : *mut i64) -> super::super::Foundation:: BOOL);
     ReadOnlyEnlistment(enlistmenthandle.into_param().abi(), tmvirtualclock).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ReadPreviousLogRestartArea(pvreadcontext: *mut ::core::ffi::c_void, ppvrestartbuffer: *mut *mut ::core::ffi::c_void, pcbrestartbuffer: *mut u32, plsnrestart: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()> {
@@ -2623,7 +2578,6 @@ where
     ::windows_targets::link!("clfsw32.dll" "system" fn RemoveLogPolicy(hlog : super::super::Foundation:: HANDLE, epolicytype : CLFS_MGMT_POLICY_TYPE) -> super::super::Foundation:: BOOL);
     RemoveLogPolicy(hlog.into_param().abi(), epolicytype).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn RemoveUsersFromEncryptedFile<P0>(lpfilename: P0, phashes: *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32
@@ -2671,14 +2625,12 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn ReplaceFileW(lpreplacedfilename : ::windows_core::PCWSTR, lpreplacementfilename : ::windows_core::PCWSTR, lpbackupfilename : ::windows_core::PCWSTR, dwreplaceflags : REPLACE_FILE_FLAGS, lpexclude : *const ::core::ffi::c_void, lpreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     ReplaceFileW(lpreplacedfilename.into_param().abi(), lpreplacementfilename.into_param().abi(), lpbackupfilename.into_param().abi(), dwreplaceflags, ::core::mem::transmute(lpexclude.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ReserveAndAppendLog(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()> {
     ::windows_targets::link!("clfsw32.dll" "system" fn ReserveAndAppendLog(pvmarshal : *mut ::core::ffi::c_void, rgwriteentries : *mut CLS_WRITE_ENTRY, cwriteentries : u32, plsnundonext : *mut CLS_LSN, plsnprevious : *mut CLS_LSN, creserverecords : u32, rgcbreservation : *mut i64, fflags : CLFS_FLAG, plsn : *mut CLS_LSN, poverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     ReserveAndAppendLog(pvmarshal, rgwriteentries, cwriteentries, plsnundonext, plsnprevious, creserverecords, rgcbreservation, fflags, plsn, poverlapped).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn ReserveAndAppendLogAligned(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, cbentryalignment: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()> {
@@ -2750,7 +2702,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn SearchPathW(lppath : ::windows_core::PCWSTR, lpfilename : ::windows_core::PCWSTR, lpextension : ::windows_core::PCWSTR, nbufferlength : u32, lpbuffer : ::windows_core::PWSTR, lpfilepart : *mut ::windows_core::PWSTR) -> u32);
     SearchPathW(lppath.into_param().abi(), lpfilename.into_param().abi(), lpextension.into_param().abi(), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lpfilepart.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn SetEncryptedFileMetadata<P0>(lpfilename: P0, pboldmetadata: ::core::option::Option<*const u8>, pbnewmetadata: *const u8, pownerhash: *const ENCRYPTION_CERTIFICATE_HASH, dwoperation: u32, pcertificatesadded: ::core::option::Option<*const ENCRYPTION_CERTIFICATE_HASH_LIST>) -> u32
@@ -2768,7 +2719,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn SetEndOfFile(hfile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     SetEndOfFile(hfile.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn SetEndOfLog<P0>(hlog: P0, plsnend: *mut CLS_LSN, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()>
@@ -2994,14 +2944,12 @@ where
     ::windows_targets::link!("ktmw32.dll" "system" fn SetTransactionInformation(transactionhandle : super::super::Foundation:: HANDLE, isolationlevel : u32, isolationflags : u32, timeout : u32, description : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     SetTransactionInformation(transactionhandle.into_param().abi(), isolationlevel, isolationflags, timeout, description.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn SetUserFileEncryptionKey(pencryptioncertificate: ::core::option::Option<*const ENCRYPTION_CERTIFICATE>) -> u32 {
     ::windows_targets::link!("advapi32.dll" "system" fn SetUserFileEncryptionKey(pencryptioncertificate : *const ENCRYPTION_CERTIFICATE) -> u32);
     SetUserFileEncryptionKey(::core::mem::transmute(pencryptioncertificate.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn SetUserFileEncryptionKeyEx(pencryptioncertificate: ::core::option::Option<*const ENCRYPTION_CERTIFICATE>, dwcapabilities: u32, dwflags: u32, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32 {
@@ -3070,7 +3018,6 @@ pub unsafe fn TerminateReadLog(pvcursorcontext: *mut ::core::ffi::c_void) -> ::w
     ::windows_targets::link!("clfsw32.dll" "system" fn TerminateReadLog(pvcursorcontext : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     TerminateReadLog(pvcursorcontext).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn TruncateLog(pvmarshal: *const ::core::ffi::c_void, plsnend: *const CLS_LSN, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()> {
@@ -3141,7 +3088,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn UnlockFile(hfile : super::super::Foundation:: HANDLE, dwfileoffsetlow : u32, dwfileoffsethigh : u32, nnumberofbytestounlocklow : u32, nnumberofbytestounlockhigh : u32) -> super::super::Foundation:: BOOL);
     UnlockFile(hfile.into_param().abi(), dwfileoffsetlow, dwfileoffsethigh, nnumberofbytestounlocklow, nnumberofbytestounlockhigh).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn UnlockFileEx<P0>(hfile: P0, dwreserved: u32, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()>
@@ -3151,7 +3097,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn UnlockFileEx(hfile : super::super::Foundation:: HANDLE, dwreserved : u32, nnumberofbytestounlocklow : u32, nnumberofbytestounlockhigh : u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     UnlockFileEx(hfile.into_param().abi(), dwreserved, nnumberofbytestounlocklow, nnumberofbytestounlockhigh, lpoverlapped).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn ValidateLog<P0>(pszlogfilename: P0, psalogfile: *mut super::super::Security::SECURITY_ATTRIBUTES, pinfobuffer: *mut CLS_INFORMATION, pcbbuffer: *mut u32) -> ::windows_core::Result<()>
@@ -3346,7 +3291,6 @@ pub unsafe fn WriteEncryptedFileRaw(pfimportcallback: PFE_IMPORT_FUNC, pvcallbac
     ::windows_targets::link!("advapi32.dll" "system" fn WriteEncryptedFileRaw(pfimportcallback : PFE_IMPORT_FUNC, pvcallbackcontext : *const ::core::ffi::c_void, pvcontext : *const ::core::ffi::c_void) -> u32);
     WriteEncryptedFileRaw(pfimportcallback, ::core::mem::transmute(pvcallbackcontext.unwrap_or(::std::ptr::null())), pvcontext)
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WriteFile<P0>(hfile: P0, lpbuffer: ::core::option::Option<&[u8]>, lpnumberofbyteswritten: ::core::option::Option<*mut u32>, lpoverlapped: ::core::option::Option<*mut super::super::System::IO::OVERLAPPED>) -> ::windows_core::Result<()>
@@ -3356,7 +3300,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn WriteFile(hfile : super::super::Foundation:: HANDLE, lpbuffer : *const u8, nnumberofbytestowrite : u32, lpnumberofbyteswritten : *mut u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     WriteFile(hfile.into_param().abi(), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(lpnumberofbyteswritten.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpoverlapped.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WriteFileEx<P0>(hfile: P0, lpbuffer: ::core::option::Option<&[u8]>, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> ::windows_core::Result<()>
@@ -3366,7 +3309,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn WriteFileEx(hfile : super::super::Foundation:: HANDLE, lpbuffer : *const u8, nnumberofbytestowrite : u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED, lpcompletionroutine : super::super::System::IO:: LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation:: BOOL);
     WriteFileEx(hfile.into_param().abi(), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpoverlapped, lpcompletionroutine).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WriteFileGather<P0>(hfile: P0, asegmentarray: *const FILE_SEGMENT_ELEMENT, nnumberofbytestowrite: u32, lpreserved: ::core::option::Option<*const u32>, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()>
@@ -3376,7 +3318,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn WriteFileGather(hfile : super::super::Foundation:: HANDLE, asegmentarray : *const FILE_SEGMENT_ELEMENT, nnumberofbytestowrite : u32, lpreserved : *const u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     WriteFileGather(hfile.into_param().abi(), asegmentarray, nnumberofbytestowrite, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())), lpoverlapped).ok()
 }
-#[doc = "Required features: `\"Win32_System_IO\"`"]
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WriteLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, pvrestartbuffer: *mut ::core::ffi::c_void, cbrestartbuffer: u32, plsnbase: *mut CLS_LSN, fflags: CLFS_FLAG, pcbwritten: *mut u32, plsnnext: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows_core::Result<()> {
@@ -3393,23 +3334,16 @@ where
     WriteTapemark(hdevice.into_param().abi(), dwtapemarktype, dwtapemarkcount, bimmediate.into_param().abi())
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IDiskQuotaControl,
-    IDiskQuotaControl_Vtbl,
-    0x7988b572_ec89_11cf_9c00_00aa00a14f56
-);
+::windows_core::imp::com_interface!(IDiskQuotaControl, IDiskQuotaControl_Vtbl, 0x7988b572_ec89_11cf_9c00_00aa00a14f56);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDiskQuotaControl, ::windows_core::IUnknown, super::super::System::Com::IConnectionPointContainer);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiskQuotaControl {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumConnectionPoints(&self) -> ::windows_core::Result<super::super::System::Com::IEnumConnectionPoints> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumConnectionPoints)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindConnectionPoint(&self, riid: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::IConnectionPoint> {
         let mut result__ = ::std::mem::zeroed();
@@ -7968,7 +7902,6 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0_5 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct CREATEFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
@@ -8260,7 +8193,6 @@ impl ::core::default::Default for EFS_HASH_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct EFS_KEY_INFO {
     pub dwVersion: u32,
@@ -8392,7 +8324,6 @@ impl ::core::default::Default for EFS_VERSION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct ENCRYPTED_FILE_METADATA_SIGNATURE {
     pub dwEfsAccessType: u32,
@@ -8433,7 +8364,6 @@ impl ::core::default::Default for ENCRYPTED_FILE_METADATA_SIGNATURE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct ENCRYPTION_CERTIFICATE {
     pub cbTotalLength: u32,
@@ -8473,7 +8403,6 @@ impl ::core::default::Default for ENCRYPTION_CERTIFICATE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct ENCRYPTION_CERTIFICATE_HASH {
     pub cbTotalLength: u32,
@@ -8514,7 +8443,6 @@ impl ::core::default::Default for ENCRYPTION_CERTIFICATE_HASH {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct ENCRYPTION_CERTIFICATE_HASH_LIST {
     pub nCert_Hash: u32,
@@ -8553,7 +8481,6 @@ impl ::core::default::Default for ENCRYPTION_CERTIFICATE_HASH_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct ENCRYPTION_CERTIFICATE_LIST {
     pub nUsers: u32,
@@ -8592,7 +8519,6 @@ impl ::core::default::Default for ENCRYPTION_CERTIFICATE_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct ENCRYPTION_PROTECTOR {
     pub cbTotalLength: u32,
@@ -8632,7 +8558,6 @@ impl ::core::default::Default for ENCRYPTION_PROTECTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct ENCRYPTION_PROTECTOR_LIST {
     pub nProtectors: u32,
@@ -12703,7 +12628,6 @@ impl ::core::default::Default for SHARE_INFO_1006 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct SHARE_INFO_1501 {
     pub shi1501_reserved: u32,
@@ -12839,7 +12763,6 @@ impl ::core::default::Default for SHARE_INFO_501 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct SHARE_INFO_502 {
     pub shi502_netname: ::windows_core::PWSTR,
@@ -12897,7 +12820,6 @@ impl ::core::default::Default for SHARE_INFO_502 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct SHARE_INFO_503 {
     pub shi503_netname: ::windows_core::PWSTR,
@@ -14499,7 +14421,6 @@ impl ::core::default::Default for WOF_FILE_COMPRESSION_INFO_V1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub type CACHE_ACCESS_CHECK = ::core::option::Option<unsafe extern "system" fn(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, hclienttoken: super::super::Foundation::HANDLE, dwdesiredaccess: u32, genericmapping: *mut super::super::Security::GENERIC_MAPPING, privilegeset: *mut super::super::Security::PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
 pub type CACHE_DESTROY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(cb: u32, lpb: *mut u8)>;

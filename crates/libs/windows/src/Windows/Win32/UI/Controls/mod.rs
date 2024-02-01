@@ -1,10 +1,7 @@
 #[cfg(feature = "Win32_UI_Controls_Dialogs")]
-#[doc = "Required features: `\"Win32_UI_Controls_Dialogs\"`"]
 pub mod Dialogs;
 #[cfg(feature = "Win32_UI_Controls_RichEdit")]
-#[doc = "Required features: `\"Win32_UI_Controls_RichEdit\"`"]
 pub mod RichEdit;
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn BeginBufferedAnimation<P0, P1>(hwnd: P0, hdctarget: P1, prctarget: *const super::super::Foundation::RECT, dwformat: BP_BUFFERFORMAT, ppaintparams: ::core::option::Option<*const BP_PAINTPARAMS>, panimationparams: *const BP_ANIMATIONPARAMS, phdcfrom: *mut super::super::Graphics::Gdi::HDC, phdcto: *mut super::super::Graphics::Gdi::HDC) -> isize
@@ -15,7 +12,6 @@ where
     ::windows_targets::link!("uxtheme.dll" "system" fn BeginBufferedAnimation(hwnd : super::super::Foundation:: HWND, hdctarget : super::super::Graphics::Gdi:: HDC, prctarget : *const super::super::Foundation:: RECT, dwformat : BP_BUFFERFORMAT, ppaintparams : *const BP_PAINTPARAMS, panimationparams : *const BP_ANIMATIONPARAMS, phdcfrom : *mut super::super::Graphics::Gdi:: HDC, phdcto : *mut super::super::Graphics::Gdi:: HDC) -> isize);
     BeginBufferedAnimation(hwnd.into_param().abi(), hdctarget.into_param().abi(), prctarget, dwformat, ::core::mem::transmute(ppaintparams.unwrap_or(::std::ptr::null())), panimationparams, phdcfrom, phdcto)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn BeginBufferedPaint<P0>(hdctarget: P0, prctarget: *const super::super::Foundation::RECT, dwformat: BP_BUFFERFORMAT, ppaintparams: ::core::option::Option<*const BP_PAINTPARAMS>, phdc: *mut super::super::Graphics::Gdi::HDC) -> isize
@@ -43,7 +39,6 @@ pub unsafe fn BufferedPaintInit() -> ::windows_core::Result<()> {
     ::windows_targets::link!("uxtheme.dll" "system" fn BufferedPaintInit() -> ::windows_core::HRESULT);
     BufferedPaintInit().ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn BufferedPaintRenderAnimation<P0, P1>(hwnd: P0, hdctarget: P1) -> super::super::Foundation::BOOL
@@ -96,7 +91,6 @@ where
     ::windows_targets::link!("uxtheme.dll" "system" fn CloseThemeData(htheme : HTHEME) -> ::windows_core::HRESULT);
     CloseThemeData(htheme.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CreateMappedBitmap<P0>(hinstance: P0, idbitmap: isize, wflags: u32, lpcolormap: ::core::option::Option<*const COLORMAP>, inummaps: i32) -> ::windows_core::Result<super::super::Graphics::Gdi::HBITMAP>
@@ -107,14 +101,12 @@ where
     let result__ = CreateMappedBitmap(hinstance.into_param().abi(), idbitmap, wflags, ::core::mem::transmute(lpcolormap.unwrap_or(::std::ptr::null())), inummaps);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn CreatePropertySheetPageA(constpropsheetpagepointer: *mut PROPSHEETPAGEA) -> HPROPSHEETPAGE {
     ::windows_targets::link!("comctl32.dll" "system" fn CreatePropertySheetPageA(constpropsheetpagepointer : *mut PROPSHEETPAGEA) -> HPROPSHEETPAGE);
     CreatePropertySheetPageA(constpropsheetpagepointer)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn CreatePropertySheetPageW(constpropsheetpagepointer: *mut PROPSHEETPAGEW) -> HPROPSHEETPAGE {
@@ -139,7 +131,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn CreateStatusWindowW(style : i32, lpsztext : ::windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, wid : u32) -> super::super::Foundation:: HWND);
     CreateStatusWindowW(style, lpsztext.into_param().abi(), hwndparent.into_param().abi(), wid)
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn CreateSyntheticPointerDevice(pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, maxcount: u32, mode: POINTER_FEEDBACK_MODE) -> ::windows_core::Result<HSYNTHETICPOINTERDEVICE> {
@@ -268,7 +259,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn DPA_InsertPtr(hdpa : HDPA, i : i32, p : *const ::core::ffi::c_void) -> i32);
     DPA_InsertPtr(hdpa.into_param().abi(), i, ::core::mem::transmute(p.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn DPA_LoadStream<P0>(phdpa: *mut HDPA, pfn: PFNDPASTREAM, pstream: P0, pvinstdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
@@ -288,7 +278,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn DPA_Merge(hdpadest : HDPA, hdpasrc : HDPA, dwflags : u32, pfncompare : PFNDACOMPARE, pfnmerge : PFNDPAMERGE, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
     DPA_Merge(hdpadest.into_param().abi(), hdpasrc.into_param().abi(), dwflags, pfncompare, pfnmerge, lparam.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn DPA_SaveStream<P0, P1>(hdpa: P0, pfn: PFNDPASTREAM, pstream: P1, pvinstdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
@@ -516,7 +505,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn DrawInsert(handparent : super::super::Foundation:: HWND, hlb : super::super::Foundation:: HWND, nitem : i32));
     DrawInsert(handparent.into_param().abi(), hlb.into_param().abi(), nitem)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawShadowText<P0, P1, P2>(hdc: P0, psztext: &[u16], prc: *const super::super::Foundation::RECT, dwflags: u32, crtext: P1, crshadow: P2, ixoffset: i32, iyoffset: i32) -> i32
@@ -528,7 +516,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn DrawShadowText(hdc : super::super::Graphics::Gdi:: HDC, psztext : ::windows_core::PCWSTR, cch : u32, prc : *const super::super::Foundation:: RECT, dwflags : u32, crtext : super::super::Foundation:: COLORREF, crshadow : super::super::Foundation:: COLORREF, ixoffset : i32, iyoffset : i32) -> i32);
     DrawShadowText(hdc.into_param().abi(), ::core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), prc, dwflags, crtext.into_param().abi(), crshadow.into_param().abi(), ixoffset, iyoffset)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawStatusTextA<P0, P1>(hdc: P0, lprc: *mut super::super::Foundation::RECT, psztext: P1, uflags: u32)
@@ -539,7 +526,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn DrawStatusTextA(hdc : super::super::Graphics::Gdi:: HDC, lprc : *mut super::super::Foundation:: RECT, psztext : ::windows_core::PCSTR, uflags : u32));
     DrawStatusTextA(hdc.into_param().abi(), lprc, psztext.into_param().abi(), uflags)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawStatusTextW<P0, P1>(hdc: P0, lprc: *mut super::super::Foundation::RECT, psztext: P1, uflags: u32)
@@ -550,7 +536,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn DrawStatusTextW(hdc : super::super::Graphics::Gdi:: HDC, lprc : *mut super::super::Foundation:: RECT, psztext : ::windows_core::PCWSTR, uflags : u32));
     DrawStatusTextW(hdc.into_param().abi(), lprc, psztext.into_param().abi(), uflags)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawThemeBackground<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, pcliprect: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows_core::Result<()>
@@ -561,7 +546,6 @@ where
     ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeBackground(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, pcliprect : *const super::super::Foundation:: RECT) -> ::windows_core::HRESULT);
     DrawThemeBackground(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, prect, ::core::mem::transmute(pcliprect.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawThemeBackgroundEx<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, poptions: ::core::option::Option<*const DTBGOPTS>) -> ::windows_core::Result<()>
@@ -572,7 +556,6 @@ where
     ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeBackgroundEx(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, poptions : *const DTBGOPTS) -> ::windows_core::HRESULT);
     DrawThemeBackgroundEx(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, prect, ::core::mem::transmute(poptions.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawThemeEdge<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, pdestrect: *const super::super::Foundation::RECT, uedge: super::super::Graphics::Gdi::DRAWEDGE_FLAGS, uflags: super::super::Graphics::Gdi::DRAW_EDGE_FLAGS, pcontentrect: ::core::option::Option<*mut super::super::Foundation::RECT>) -> ::windows_core::Result<()>
@@ -583,7 +566,6 @@ where
     ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeEdge(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, pdestrect : *const super::super::Foundation:: RECT, uedge : super::super::Graphics::Gdi:: DRAWEDGE_FLAGS, uflags : super::super::Graphics::Gdi:: DRAW_EDGE_FLAGS, pcontentrect : *mut super::super::Foundation:: RECT) -> ::windows_core::HRESULT);
     DrawThemeEdge(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, pdestrect, uedge, uflags, ::core::mem::transmute(pcontentrect.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawThemeIcon<P0, P1, P2>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, himl: P2, iimageindex: i32) -> ::windows_core::Result<()>
@@ -595,7 +577,6 @@ where
     ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeIcon(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, prect : *const super::super::Foundation:: RECT, himl : HIMAGELIST, iimageindex : i32) -> ::windows_core::HRESULT);
     DrawThemeIcon(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, prect, himl.into_param().abi(), iimageindex).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawThemeParentBackground<P0, P1>(hwnd: P0, hdc: P1, prc: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows_core::Result<()>
@@ -606,7 +587,6 @@ where
     ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeParentBackground(hwnd : super::super::Foundation:: HWND, hdc : super::super::Graphics::Gdi:: HDC, prc : *const super::super::Foundation:: RECT) -> ::windows_core::HRESULT);
     DrawThemeParentBackground(hwnd.into_param().abi(), hdc.into_param().abi(), ::core::mem::transmute(prc.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawThemeParentBackgroundEx<P0, P1>(hwnd: P0, hdc: P1, dwflags: DRAW_THEME_PARENT_BACKGROUND_FLAGS, prc: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows_core::Result<()>
@@ -617,7 +597,6 @@ where
     ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeParentBackgroundEx(hwnd : super::super::Foundation:: HWND, hdc : super::super::Graphics::Gdi:: HDC, dwflags : DRAW_THEME_PARENT_BACKGROUND_FLAGS, prc : *const super::super::Foundation:: RECT) -> ::windows_core::HRESULT);
     DrawThemeParentBackgroundEx(hwnd.into_param().abi(), hdc.into_param().abi(), dwflags, ::core::mem::transmute(prc.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawThemeText<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, dwtextflags2: u32, prect: *const super::super::Foundation::RECT) -> ::windows_core::Result<()>
@@ -628,7 +607,6 @@ where
     ::windows_targets::link!("uxtheme.dll" "system" fn DrawThemeText(htheme : HTHEME, hdc : super::super::Graphics::Gdi:: HDC, ipartid : i32, istateid : i32, psztext : ::windows_core::PCWSTR, cchtext : i32, dwtextflags : super::super::Graphics::Gdi:: DRAW_TEXT_FORMAT, dwtextflags2 : u32, prect : *const super::super::Foundation:: RECT) -> ::windows_core::HRESULT);
     DrawThemeText(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, ::core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), dwtextflags, dwtextflags2, prect).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DrawThemeTextEx<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, prect: *mut super::super::Foundation::RECT, poptions: ::core::option::Option<*const DTTOPTS>) -> ::windows_core::Result<()>
@@ -706,7 +684,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn FlatSB_EnableScrollBar(param0 : super::super::Foundation:: HWND, param1 : i32, param2 : u32) -> super::super::Foundation:: BOOL);
     FlatSB_EnableScrollBar(param0.into_param().abi(), param1, param2)
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn FlatSB_GetScrollInfo<P0>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: *mut super::WindowsAndMessaging::SCROLLINFO) -> super::super::Foundation::BOOL
@@ -716,7 +693,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn FlatSB_GetScrollInfo(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, param2 : *mut super::WindowsAndMessaging:: SCROLLINFO) -> super::super::Foundation:: BOOL);
     FlatSB_GetScrollInfo(param0.into_param().abi(), code, param2)
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn FlatSB_GetScrollPos<P0>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS) -> i32
@@ -734,7 +710,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn FlatSB_GetScrollProp(param0 : super::super::Foundation:: HWND, propindex : WSB_PROP, param2 : *mut i32) -> super::super::Foundation:: BOOL);
     FlatSB_GetScrollProp(param0.into_param().abi(), propindex, param2)
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn FlatSB_GetScrollRange<P0>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: *mut i32, param3: *mut i32) -> super::super::Foundation::BOOL
@@ -744,7 +719,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn FlatSB_GetScrollRange(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, param2 : *mut i32, param3 : *mut i32) -> super::super::Foundation:: BOOL);
     FlatSB_GetScrollRange(param0.into_param().abi(), code, param2, param3)
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn FlatSB_SetScrollInfo<P0, P1>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, psi: *mut super::WindowsAndMessaging::SCROLLINFO, fredraw: P1) -> i32
@@ -755,7 +729,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollInfo(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, psi : *mut super::WindowsAndMessaging:: SCROLLINFO, fredraw : super::super::Foundation:: BOOL) -> i32);
     FlatSB_SetScrollInfo(param0.into_param().abi(), code, psi, fredraw.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn FlatSB_SetScrollPos<P0, P1>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, pos: i32, fredraw: P1) -> i32
@@ -775,7 +748,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollProp(param0 : super::super::Foundation:: HWND, index : u32, newvalue : isize, param3 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     FlatSB_SetScrollProp(param0.into_param().abi(), index.0 as _, newvalue, param3.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn FlatSB_SetScrollRange<P0, P1>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, min: i32, max: i32, fredraw: P1) -> i32
@@ -786,7 +758,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn FlatSB_SetScrollRange(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, min : i32, max : i32, fredraw : super::super::Foundation:: BOOL) -> i32);
     FlatSB_SetScrollRange(param0.into_param().abi(), code, min, max, fredraw.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn FlatSB_ShowScrollBar<P0, P1>(param0: P0, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: P1) -> super::super::Foundation::BOOL
@@ -797,21 +768,18 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn FlatSB_ShowScrollBar(param0 : super::super::Foundation:: HWND, code : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, param2 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     FlatSB_ShowScrollBar(param0.into_param().abi(), code, param2.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetBufferedPaintBits(hbufferedpaint: isize, ppbbuffer: *mut *mut super::super::Graphics::Gdi::RGBQUAD, pcxrow: *mut i32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("uxtheme.dll" "system" fn GetBufferedPaintBits(hbufferedpaint : isize, ppbbuffer : *mut *mut super::super::Graphics::Gdi:: RGBQUAD, pcxrow : *mut i32) -> ::windows_core::HRESULT);
     GetBufferedPaintBits(hbufferedpaint, ppbbuffer, pcxrow).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetBufferedPaintDC(hbufferedpaint: isize) -> super::super::Graphics::Gdi::HDC {
     ::windows_targets::link!("uxtheme.dll" "system" fn GetBufferedPaintDC(hbufferedpaint : isize) -> super::super::Graphics::Gdi:: HDC);
     GetBufferedPaintDC(hbufferedpaint)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetBufferedPaintTargetDC(hbufferedpaint: isize) -> super::super::Graphics::Gdi::HDC {
@@ -879,7 +847,6 @@ pub unsafe fn GetThemeAppProperties() -> SET_THEME_APP_PROPERTIES_FLAGS {
     ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeAppProperties() -> SET_THEME_APP_PROPERTIES_FLAGS);
     GetThemeAppProperties()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetThemeBackgroundContentRect<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, pboundingrect: *const super::super::Foundation::RECT) -> ::windows_core::Result<super::super::Foundation::RECT>
@@ -891,7 +858,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     GetThemeBackgroundContentRect(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, pboundingrect, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetThemeBackgroundExtent<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, pcontentrect: *const super::super::Foundation::RECT) -> ::windows_core::Result<super::super::Foundation::RECT>
@@ -903,7 +869,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     GetThemeBackgroundExtent(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, pcontentrect, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetThemeBackgroundRegion<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT) -> ::windows_core::Result<super::super::Graphics::Gdi::HRGN>
@@ -915,7 +880,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     GetThemeBackgroundRegion(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, prect, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetThemeBitmap<P0>(htheme: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, dwflags: GET_THEME_BITMAP_FLAGS) -> ::windows_core::Result<super::super::Graphics::Gdi::HBITMAP>
@@ -970,7 +934,6 @@ where
     ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeFilename(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pszthemefilename : ::windows_core::PWSTR, cchmaxbuffchars : i32) -> ::windows_core::HRESULT);
     GetThemeFilename(htheme.into_param().abi(), ipartid, istateid, ipropid.0 as _, ::core::mem::transmute(pszthemefilename.as_ptr()), pszthemefilename.len().try_into().unwrap()).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetThemeFont<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, ipropid: i32, pfont: *mut super::super::Graphics::Gdi::LOGFONTW) -> ::windows_core::Result<()>
@@ -998,7 +961,6 @@ where
     ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeIntList(htheme : HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pintlist : *mut INTLIST) -> ::windows_core::HRESULT);
     GetThemeIntList(htheme.into_param().abi(), ipartid, istateid, ipropid.0 as _, pintlist).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetThemeMargins<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, prc: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows_core::Result<MARGINS>
@@ -1010,7 +972,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     GetThemeMargins(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, ipropid.0 as _, ::core::mem::transmute(prc.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetThemeMetric<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows_core::Result<i32>
@@ -1022,7 +983,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     GetThemeMetric(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, ipropid.0 as _, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetThemePartSize<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, prc: ::core::option::Option<*const super::super::Foundation::RECT>, esize: THEMESIZE) -> ::windows_core::Result<super::super::Foundation::SIZE>
@@ -1094,7 +1054,6 @@ where
     ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysColor(htheme : HTHEME, icolorid : i32) -> super::super::Foundation:: COLORREF);
     GetThemeSysColor(htheme.into_param().abi(), icolorid)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetThemeSysColorBrush<P0>(htheme: P0, icolorid: THEME_PROPERTY_SYMBOL_ID) -> super::super::Graphics::Gdi::HBRUSH
@@ -1104,7 +1063,6 @@ where
     ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysColorBrush(htheme : HTHEME, icolorid : i32) -> super::super::Graphics::Gdi:: HBRUSH);
     GetThemeSysColorBrush(htheme.into_param().abi(), icolorid.0 as _)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetThemeSysFont<P0>(htheme: P0, ifontid: THEME_PROPERTY_SYMBOL_ID, plf: *mut super::super::Graphics::Gdi::LOGFONTW) -> ::windows_core::Result<()>
@@ -1139,7 +1097,6 @@ where
     ::windows_targets::link!("uxtheme.dll" "system" fn GetThemeSysString(htheme : HTHEME, istringid : i32, pszstringbuff : ::windows_core::PWSTR, cchmaxstringchars : i32) -> ::windows_core::HRESULT);
     GetThemeSysString(htheme.into_param().abi(), istringid.0 as _, ::core::mem::transmute(pszstringbuff.as_ptr()), pszstringbuff.len().try_into().unwrap()).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetThemeTextExtent<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, psztext: &[u16], dwtextflags: super::super::Graphics::Gdi::DRAW_TEXT_FORMAT, pboundingrect: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows_core::Result<super::super::Foundation::RECT>
@@ -1151,7 +1108,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     GetThemeTextExtent(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, ::core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), dwtextflags, ::core::mem::transmute(pboundingrect.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetThemeTextMetrics<P0, P1>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, ptm: *mut super::super::Graphics::Gdi::TEXTMETRICW) -> ::windows_core::Result<()>
@@ -1203,7 +1159,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn HIMAGELIST_QueryInterface(himl : HIMAGELIST, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     HIMAGELIST_QueryInterface(himl.into_param().abi(), riid, ppv).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HitTestThemeBackground<P0, P1, P2>(htheme: P0, hdc: P1, ipartid: i32, istateid: i32, dwoptions: HIT_TEST_BACKGROUND_OPTIONS, prect: *const super::super::Foundation::RECT, hrgn: P2, pttest: super::super::Foundation::POINT) -> ::windows_core::Result<u16>
@@ -1216,7 +1171,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     HitTestThemeBackground(htheme.into_param().abi(), hdc.into_param().abi(), ipartid, istateid, dwoptions, prect, hrgn.into_param().abi(), ::core::mem::transmute(pttest), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ImageList_Add<P0, P1, P2>(himl: P0, hbmimage: P1, hbmmask: P2) -> i32
@@ -1228,7 +1182,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Add(himl : HIMAGELIST, hbmimage : super::super::Graphics::Gdi:: HBITMAP, hbmmask : super::super::Graphics::Gdi:: HBITMAP) -> i32);
     ImageList_Add(himl.into_param().abi(), hbmimage.into_param().abi(), hbmmask.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ImageList_AddMasked<P0, P1, P2>(himl: P0, hbmimage: P1, crmask: P2) -> i32
@@ -1309,7 +1262,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_DragShowNolock(fshow : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     ImageList_DragShowNolock(fshow.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ImageList_Draw<P0, P1>(himl: P0, i: i32, hdcdst: P1, x: i32, y: i32, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL
@@ -1320,7 +1272,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Draw(himl : HIMAGELIST, i : i32, hdcdst : super::super::Graphics::Gdi:: HDC, x : i32, y : i32, fstyle : IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation:: BOOL);
     ImageList_Draw(himl.into_param().abi(), i, hdcdst.into_param().abi(), x, y, fstyle)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ImageList_DrawEx<P0, P1, P2, P3>(himl: P0, i: i32, hdcdst: P1, x: i32, y: i32, dx: i32, dy: i32, rgbbk: P2, rgbfg: P3, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL
@@ -1333,7 +1284,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_DrawEx(himl : HIMAGELIST, i : i32, hdcdst : super::super::Graphics::Gdi:: HDC, x : i32, y : i32, dx : i32, dy : i32, rgbbk : super::super::Foundation:: COLORREF, rgbfg : super::super::Foundation:: COLORREF, fstyle : IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation:: BOOL);
     ImageList_DrawEx(himl.into_param().abi(), i, hdcdst.into_param().abi(), x, y, dx, dy, rgbbk.into_param().abi(), rgbfg.into_param().abi(), fstyle)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ImageList_DrawIndirect(pimldp: *const IMAGELISTDRAWPARAMS) -> super::super::Foundation::BOOL {
@@ -1366,7 +1316,6 @@ pub unsafe fn ImageList_GetDragImage(ppt: ::core::option::Option<*mut super::sup
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_GetDragImage(ppt : *mut super::super::Foundation:: POINT, ppthotspot : *mut super::super::Foundation:: POINT) -> HIMAGELIST);
     ImageList_GetDragImage(::core::mem::transmute(ppt.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppthotspot.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn ImageList_GetIcon<P0>(himl: P0, i: i32, flags: IMAGE_LIST_DRAW_STYLE) -> super::WindowsAndMessaging::HICON
@@ -1392,7 +1341,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_GetImageCount(himl : HIMAGELIST) -> i32);
     ImageList_GetImageCount(himl.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ImageList_GetImageInfo<P0>(himl: P0, i: i32, pimageinfo: *mut IMAGEINFO) -> super::super::Foundation::BOOL
@@ -1402,7 +1350,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_GetImageInfo(himl : HIMAGELIST, i : i32, pimageinfo : *mut IMAGEINFO) -> super::super::Foundation:: BOOL);
     ImageList_GetImageInfo(himl.into_param().abi(), i, pimageinfo)
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn ImageList_LoadImageA<P0, P1, P2>(hi: P0, lpbmp: P1, cx: i32, cgrow: i32, crmask: P2, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST
@@ -1414,7 +1361,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_LoadImageA(hi : super::super::Foundation:: HINSTANCE, lpbmp : ::windows_core::PCSTR, cx : i32, cgrow : i32, crmask : super::super::Foundation:: COLORREF, utype : u32, uflags : super::WindowsAndMessaging:: IMAGE_FLAGS) -> HIMAGELIST);
     ImageList_LoadImageA(hi.into_param().abi(), lpbmp.into_param().abi(), cx, cgrow, crmask.into_param().abi(), utype, uflags)
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn ImageList_LoadImageW<P0, P1, P2>(hi: P0, lpbmp: P1, cx: i32, cgrow: i32, crmask: P2, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST
@@ -1435,7 +1381,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Merge(himl1 : HIMAGELIST, i1 : i32, himl2 : HIMAGELIST, i2 : i32, dx : i32, dy : i32) -> HIMAGELIST);
     ImageList_Merge(himl1.into_param().abi(), i1, himl2.into_param().abi(), i2, dx, dy)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn ImageList_Read<P0>(pstm: P0) -> HIMAGELIST
@@ -1445,7 +1390,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Read(pstm : * mut::core::ffi::c_void) -> HIMAGELIST);
     ImageList_Read(pstm.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn ImageList_ReadEx<P0>(dwflags: u32, pstm: P0, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -1463,7 +1407,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Remove(himl : HIMAGELIST, i : i32) -> super::super::Foundation:: BOOL);
     ImageList_Remove(himl.into_param().abi(), i)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ImageList_Replace<P0, P1, P2>(himl: P0, i: i32, hbmimage: P1, hbmmask: P2) -> super::super::Foundation::BOOL
@@ -1475,7 +1418,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Replace(himl : HIMAGELIST, i : i32, hbmimage : super::super::Graphics::Gdi:: HBITMAP, hbmmask : super::super::Graphics::Gdi:: HBITMAP) -> super::super::Foundation:: BOOL);
     ImageList_Replace(himl.into_param().abi(), i, hbmimage.into_param().abi(), hbmmask.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn ImageList_ReplaceIcon<P0, P1>(himl: P0, i: i32, hicon: P1) -> i32
@@ -1527,7 +1469,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_SetOverlayImage(himl : HIMAGELIST, iimage : i32, ioverlay : i32) -> super::super::Foundation:: BOOL);
     ImageList_SetOverlayImage(himl.into_param().abi(), iimage, ioverlay)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn ImageList_Write<P0, P1>(himl: P0, pstm: P1) -> super::super::Foundation::BOOL
@@ -1538,7 +1479,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn ImageList_Write(himl : HIMAGELIST, pstm : * mut::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     ImageList_Write(himl.into_param().abi(), pstm.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn ImageList_WriteEx<P0, P1>(himl: P0, dwflags: IMAGE_LIST_WRITE_STREAM_FLAGS, pstm: P1) -> ::windows_core::Result<()>
@@ -1633,7 +1573,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn LBItemFromPt(hlb : super::super::Foundation:: HWND, pt : super::super::Foundation:: POINT, bautoscroll : super::super::Foundation:: BOOL) -> i32);
     LBItemFromPt(hlb.into_param().abi(), ::core::mem::transmute(pt), bautoscroll.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn LoadIconMetric<P0, P1>(hinst: P0, pszname: P1, lims: _LI_METRIC) -> ::windows_core::Result<super::WindowsAndMessaging::HICON>
@@ -1645,7 +1584,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     LoadIconMetric(hinst.into_param().abi(), pszname.into_param().abi(), lims, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn LoadIconWithScaleDown<P0, P1>(hinst: P0, pszname: P1, cx: i32, cy: i32) -> ::windows_core::Result<super::WindowsAndMessaging::HICON>
@@ -1665,7 +1603,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn MakeDragList(hlb : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
     MakeDragList(hlb.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn MenuHelp<P0, P1, P2, P3, P4>(umsg: u32, wparam: P0, lparam: P1, hmainmenu: P2, hinst: P3, hwndstatus: P4, lpwids: *const u32)
@@ -1702,14 +1639,12 @@ pub unsafe fn PackTouchHitTestingProximityEvaluation(phittestinginput: *const TO
     ::windows_targets::link!("user32.dll" "system" fn PackTouchHitTestingProximityEvaluation(phittestinginput : *const TOUCH_HIT_TESTING_INPUT, pproximityeval : *const TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation:: LRESULT);
     PackTouchHitTestingProximityEvaluation(phittestinginput, pproximityeval)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn PropertySheetA(param0: *mut PROPSHEETHEADERA_V2) -> isize {
     ::windows_targets::link!("comctl32.dll" "system" fn PropertySheetA(param0 : *mut PROPSHEETHEADERA_V2) -> isize);
     PropertySheetA(param0)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn PropertySheetW(param0: *mut PROPSHEETHEADERW_V2) -> isize {
@@ -1733,7 +1668,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn RegisterTouchHitTestingWindow(hwnd : super::super::Foundation:: HWND, value : u32) -> super::super::Foundation:: BOOL);
     RegisterTouchHitTestingWindow(hwnd.into_param().abi(), value).ok()
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn SetScrollInfo<P0, P1>(hwnd: P0, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, lpsi: *const super::WindowsAndMessaging::SCROLLINFO, redraw: P1) -> i32
@@ -1744,7 +1678,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn SetScrollInfo(hwnd : super::super::Foundation:: HWND, nbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, lpsi : *const super::WindowsAndMessaging:: SCROLLINFO, redraw : super::super::Foundation:: BOOL) -> i32);
     SetScrollInfo(hwnd.into_param().abi(), nbar, lpsi, redraw.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn SetScrollPos<P0, P1>(hwnd: P0, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, npos: i32, bredraw: P1) -> i32
@@ -1755,7 +1688,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn SetScrollPos(hwnd : super::super::Foundation:: HWND, nbar : super::WindowsAndMessaging:: SCROLLBAR_CONSTANTS, npos : i32, bredraw : super::super::Foundation:: BOOL) -> i32);
     SetScrollPos(hwnd.into_param().abi(), nbar, npos, bredraw.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn SetScrollRange<P0, P1>(hwnd: P0, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, nminpos: i32, nmaxpos: i32, bredraw: P1) -> ::windows_core::Result<()>
@@ -1805,7 +1737,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn ShowHideMenuCtl(hwnd : super::super::Foundation:: HWND, uflags : usize, lpinfo : *const i32) -> super::super::Foundation:: BOOL);
     ShowHideMenuCtl(hwnd.into_param().abi(), uflags, lpinfo)
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn ShowScrollBar<P0, P1>(hwnd: P0, wbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, bshow: P1) -> ::windows_core::Result<()>
@@ -1837,7 +1768,6 @@ where
     ::windows_targets::link!("comctl32.dll" "system" fn TaskDialog(hwndowner : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, pszwindowtitle : ::windows_core::PCWSTR, pszmaininstruction : ::windows_core::PCWSTR, pszcontent : ::windows_core::PCWSTR, dwcommonbuttons : TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon : ::windows_core::PCWSTR, pnbutton : *mut i32) -> ::windows_core::HRESULT);
     TaskDialog(hwndowner.into_param().abi(), hinstance.into_param().abi(), pszwindowtitle.into_param().abi(), pszmaininstruction.into_param().abi(), pszcontent.into_param().abi(), dwcommonbuttons, pszicon.into_param().abi(), ::core::mem::transmute(pnbutton.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn TaskDialogIndirect(ptaskconfig: *const TASKDIALOGCONFIG, pnbutton: ::core::option::Option<*mut i32>, pnradiobutton: ::core::option::Option<*mut i32>, pfverificationflagchecked: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()> {
@@ -1864,7 +1794,6 @@ where
 ::windows_core::imp::com_interface!(IImageList, IImageList_Vtbl, 0x46eb5926_582e_4017_9fdf_e8998daa0950);
 ::windows_core::imp::interface_hierarchy!(IImageList, ::windows_core::IUnknown);
 impl IImageList {
-    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn Add<P0, P1>(&self, hbmimage: P0, hbmmask: P1) -> ::windows_core::Result<i32>
     where
@@ -1874,7 +1803,6 @@ impl IImageList {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), hbmimage.into_param().abi(), hbmmask.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn ReplaceIcon<P0>(&self, i: i32, hicon: P0) -> ::windows_core::Result<i32>
     where
@@ -1886,7 +1814,6 @@ impl IImageList {
     pub unsafe fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOverlayImage)(::windows_core::Interface::as_raw(self), iimage, ioverlay).ok()
     }
-    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn Replace<P0, P1>(&self, i: i32, hbmimage: P0, hbmmask: P1) -> ::windows_core::Result<()>
     where
@@ -1895,7 +1822,6 @@ impl IImageList {
     {
         (::windows_core::Interface::vtable(self).Replace)(::windows_core::Interface::as_raw(self), i, hbmimage.into_param().abi(), hbmmask.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn AddMasked<P0, P1>(&self, hbmimage: P0, crmask: P1) -> ::windows_core::Result<i32>
     where
@@ -1905,7 +1831,6 @@ impl IImageList {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddMasked)(::windows_core::Interface::as_raw(self), hbmimage.into_param().abi(), crmask.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn Draw(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Draw)(::windows_core::Interface::as_raw(self), pimldp).ok()
@@ -1913,13 +1838,11 @@ impl IImageList {
     pub unsafe fn Remove(&self, i: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), i).ok()
     }
-    #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetIcon(&self, i: i32, flags: u32) -> ::windows_core::Result<super::WindowsAndMessaging::HICON> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIcon)(::windows_core::Interface::as_raw(self), i, flags, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetImageInfo(&self, i: i32, pimageinfo: *mut IMAGEINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetImageInfo)(::windows_core::Interface::as_raw(self), i, pimageinfo).ok()
@@ -2070,7 +1993,6 @@ pub struct IImageList_Vtbl {
 ::windows_core::imp::com_interface!(IImageList2, IImageList2_Vtbl, 0x192b9d83_50fc_457b_90a0_2b82a8b5dae1);
 ::windows_core::imp::interface_hierarchy!(IImageList2, ::windows_core::IUnknown, IImageList);
 impl IImageList2 {
-    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn Add<P0, P1>(&self, hbmimage: P0, hbmmask: P1) -> ::windows_core::Result<i32>
     where
@@ -2080,7 +2002,6 @@ impl IImageList2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Add)(::windows_core::Interface::as_raw(self), hbmimage.into_param().abi(), hbmmask.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn ReplaceIcon<P0>(&self, i: i32, hicon: P0) -> ::windows_core::Result<i32>
     where
@@ -2092,7 +2013,6 @@ impl IImageList2 {
     pub unsafe fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetOverlayImage)(::windows_core::Interface::as_raw(self), iimage, ioverlay).ok()
     }
-    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn Replace<P0, P1>(&self, i: i32, hbmimage: P0, hbmmask: P1) -> ::windows_core::Result<()>
     where
@@ -2101,7 +2021,6 @@ impl IImageList2 {
     {
         (::windows_core::Interface::vtable(self).base__.Replace)(::windows_core::Interface::as_raw(self), i, hbmimage.into_param().abi(), hbmmask.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn AddMasked<P0, P1>(&self, hbmimage: P0, crmask: P1) -> ::windows_core::Result<i32>
     where
@@ -2111,7 +2030,6 @@ impl IImageList2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AddMasked)(::windows_core::Interface::as_raw(self), hbmimage.into_param().abi(), crmask.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn Draw(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Draw)(::windows_core::Interface::as_raw(self), pimldp).ok()
@@ -2119,13 +2037,11 @@ impl IImageList2 {
     pub unsafe fn Remove(&self, i: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Remove)(::windows_core::Interface::as_raw(self), i).ok()
     }
-    #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetIcon(&self, i: i32, flags: u32) -> ::windows_core::Result<super::WindowsAndMessaging::HICON> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetIcon)(::windows_core::Interface::as_raw(self), i, flags, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetImageInfo(&self, i: i32, pimageinfo: *mut IMAGEINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetImageInfo)(::windows_core::Interface::as_raw(self), i, pimageinfo).ok()
@@ -2241,7 +2157,6 @@ impl IImageList2 {
     pub unsafe fn DiscardImages(&self, ifirstimage: i32, ilastimage: i32, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DiscardImages)(::windows_core::Interface::as_raw(self), ifirstimage, ilastimage, dwflags).ok()
     }
-    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn PreloadImages(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).PreloadImages)(::windows_core::Interface::as_raw(self), pimldp).ok()
@@ -2252,7 +2167,6 @@ impl IImageList2 {
     pub unsafe fn Initialize(&self, cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), cx, cy, flags, cinitial, cgrow).ok()
     }
-    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn Replace2<P0, P1, P2>(&self, i: i32, hbmimage: P0, hbmmask: P1, punk: P2, dwflags: u32) -> ::windows_core::Result<()>
     where
@@ -11670,7 +11584,6 @@ impl ::core::default::Default for BP_ANIMATIONPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct BP_PAINTPARAMS {
     pub cbSize: u32,
@@ -11774,7 +11687,6 @@ impl ::core::default::Default for BUTTON_SPLITINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct CCINFOA {
     pub szClass: [i8; 32],
@@ -11832,7 +11744,6 @@ impl ::core::default::Default for CCINFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct CCINFOW {
     pub szClass: [u16; 32],
@@ -12354,7 +12265,6 @@ impl ::core::default::Default for DRAGLISTINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct DRAWITEMSTRUCT {
     pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
@@ -12431,7 +12341,6 @@ impl ::core::default::Default for DTBGOPTS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct DTTOPTS {
     pub dwSize: u32,
@@ -12553,7 +12462,6 @@ impl ::core::default::Default for HDHITTESTINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct HDITEMA {
     pub mask: HDI_MASK,
@@ -12602,7 +12510,6 @@ impl ::core::default::Default for HDITEMA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct HDITEMW {
     pub mask: HDI_MASK,
@@ -12651,7 +12558,6 @@ impl ::core::default::Default for HDITEMW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct HDLAYOUT {
     pub prc: *mut super::super::Foundation::RECT,
@@ -12934,7 +12840,6 @@ impl ::windows_core::TypeKind for HTREEITEM {
     type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct IMAGEINFO {
     pub hbmImage: super::super::Graphics::Gdi::HBITMAP,
@@ -12976,7 +12881,6 @@ impl ::core::default::Default for IMAGEINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct IMAGELISTDRAWPARAMS {
     pub cbSize: u32,
@@ -13204,7 +13108,6 @@ impl ::core::default::Default for LITEM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct LVBKIMAGEA {
     pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
@@ -13247,7 +13150,6 @@ impl ::core::default::Default for LVBKIMAGEA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct LVBKIMAGEW {
     pub ulFlags: LIST_VIEW_BACKGROUND_IMAGE_FLAGS,
@@ -14400,7 +14302,6 @@ impl ::core::default::Default for NMCOMBOBOXEXW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NMCUSTOMDRAW {
     pub hdr: NMHDR,
@@ -14476,7 +14377,6 @@ impl ::core::default::Default for NMCUSTOMSPLITRECTINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NMCUSTOMTEXT {
     pub hdr: NMHDR,
@@ -14971,7 +14871,6 @@ impl ::core::default::Default for NMHDR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NMHEADERA {
     pub hdr: NMHDR,
@@ -15012,7 +14911,6 @@ impl ::core::default::Default for NMHEADERA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NMHEADERW {
     pub hdr: NMHDR,
@@ -15249,7 +15147,6 @@ impl ::core::default::Default for NMLVCACHEHINT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NMLVCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
@@ -16053,7 +15950,6 @@ impl ::core::default::Default for NMSELCHANGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NMTBCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
@@ -16573,7 +16469,6 @@ impl ::core::default::Default for NMTREEVIEWW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NMTTCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
@@ -16680,7 +16575,6 @@ impl ::core::default::Default for NMTTDISPINFOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NMTVASYNCDRAW {
     pub hdr: NMHDR,
@@ -16724,7 +16618,6 @@ impl ::core::default::Default for NMTVASYNCDRAW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NMTVCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
@@ -17159,7 +17052,6 @@ impl ::core::default::Default for POINTER_DEVICE_CURSOR_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct POINTER_DEVICE_INFO {
     pub displayOrientation: u32,
@@ -17239,7 +17131,6 @@ impl ::core::default::Default for POINTER_DEVICE_PROPERTY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct POINTER_TYPE_INFO {
     pub r#type: super::WindowsAndMessaging::POINTER_INPUT_TYPE,
@@ -17264,7 +17155,6 @@ impl ::core::default::Default for POINTER_TYPE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union POINTER_TYPE_INFO_0 {
     pub touchInfo: super::Input::Pointer::POINTER_TOUCH_INFO,
@@ -17289,7 +17179,6 @@ impl ::core::default::Default for POINTER_TYPE_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETHEADERA_V1 {
     pub dwSize: u32,
@@ -17322,7 +17211,6 @@ impl ::core::default::Default for PROPSHEETHEADERA_V1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V1_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -17347,7 +17235,6 @@ impl ::core::default::Default for PROPSHEETHEADERA_V1_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V1_1 {
     pub nStartPage: u32,
@@ -17372,7 +17259,6 @@ impl ::core::default::Default for PROPSHEETHEADERA_V1_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V1_2 {
     pub ppsp: *mut PROPSHEETPAGEA,
@@ -17397,7 +17283,6 @@ impl ::core::default::Default for PROPSHEETHEADERA_V1_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETHEADERA_V2 {
     pub dwSize: u32,
@@ -17433,7 +17318,6 @@ impl ::core::default::Default for PROPSHEETHEADERA_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V2_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -17458,7 +17342,6 @@ impl ::core::default::Default for PROPSHEETHEADERA_V2_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V2_1 {
     pub nStartPage: u32,
@@ -17483,7 +17366,6 @@ impl ::core::default::Default for PROPSHEETHEADERA_V2_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V2_2 {
     pub ppsp: *mut PROPSHEETPAGEA,
@@ -17508,7 +17390,6 @@ impl ::core::default::Default for PROPSHEETHEADERA_V2_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V2_3 {
     pub hbmWatermark: super::super::Graphics::Gdi::HBITMAP,
@@ -17533,7 +17414,6 @@ impl ::core::default::Default for PROPSHEETHEADERA_V2_3 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V2_4 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
@@ -17558,7 +17438,6 @@ impl ::core::default::Default for PROPSHEETHEADERA_V2_4 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETHEADERW_V1 {
     pub dwSize: u32,
@@ -17591,7 +17470,6 @@ impl ::core::default::Default for PROPSHEETHEADERW_V1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V1_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -17616,7 +17494,6 @@ impl ::core::default::Default for PROPSHEETHEADERW_V1_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V1_1 {
     pub nStartPage: u32,
@@ -17641,7 +17518,6 @@ impl ::core::default::Default for PROPSHEETHEADERW_V1_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V1_2 {
     pub ppsp: *mut PROPSHEETPAGEW,
@@ -17666,7 +17542,6 @@ impl ::core::default::Default for PROPSHEETHEADERW_V1_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETHEADERW_V2 {
     pub dwSize: u32,
@@ -17702,7 +17577,6 @@ impl ::core::default::Default for PROPSHEETHEADERW_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V2_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -17727,7 +17601,6 @@ impl ::core::default::Default for PROPSHEETHEADERW_V2_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V2_1 {
     pub nStartPage: u32,
@@ -17752,7 +17625,6 @@ impl ::core::default::Default for PROPSHEETHEADERW_V2_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V2_2 {
     pub ppsp: *mut PROPSHEETPAGEW,
@@ -17777,7 +17649,6 @@ impl ::core::default::Default for PROPSHEETHEADERW_V2_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V2_3 {
     pub hbmWatermark: super::super::Graphics::Gdi::HBITMAP,
@@ -17802,7 +17673,6 @@ impl ::core::default::Default for PROPSHEETHEADERW_V2_3 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V2_4 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
@@ -17827,7 +17697,6 @@ impl ::core::default::Default for PROPSHEETHEADERW_V2_4 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEA {
     pub dwSize: u32,
@@ -17864,7 +17733,6 @@ impl ::core::default::Default for PROPSHEETPAGEA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_0 {
     pub pszTemplate: ::windows_core::PCSTR,
@@ -17889,7 +17757,6 @@ impl ::core::default::Default for PROPSHEETPAGEA_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -17914,7 +17781,6 @@ impl ::core::default::Default for PROPSHEETPAGEA_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_2 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
@@ -17939,7 +17805,6 @@ impl ::core::default::Default for PROPSHEETPAGEA_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEA_V1 {
     pub dwSize: u32,
@@ -17972,7 +17837,6 @@ impl ::core::default::Default for PROPSHEETPAGEA_V1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V1_0 {
     pub pszTemplate: ::windows_core::PCSTR,
@@ -17997,7 +17861,6 @@ impl ::core::default::Default for PROPSHEETPAGEA_V1_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V1_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -18022,7 +17885,6 @@ impl ::core::default::Default for PROPSHEETPAGEA_V1_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEA_V2 {
     pub dwSize: u32,
@@ -18057,7 +17919,6 @@ impl ::core::default::Default for PROPSHEETPAGEA_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V2_0 {
     pub pszTemplate: ::windows_core::PCSTR,
@@ -18082,7 +17943,6 @@ impl ::core::default::Default for PROPSHEETPAGEA_V2_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V2_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -18107,7 +17967,6 @@ impl ::core::default::Default for PROPSHEETPAGEA_V2_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEA_V3 {
     pub dwSize: u32,
@@ -18143,7 +18002,6 @@ impl ::core::default::Default for PROPSHEETPAGEA_V3 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V3_0 {
     pub pszTemplate: ::windows_core::PCSTR,
@@ -18168,7 +18026,6 @@ impl ::core::default::Default for PROPSHEETPAGEA_V3_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V3_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -18193,7 +18050,6 @@ impl ::core::default::Default for PROPSHEETPAGEA_V3_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEW {
     pub dwSize: u32,
@@ -18230,7 +18086,6 @@ impl ::core::default::Default for PROPSHEETPAGEW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_0 {
     pub pszTemplate: ::windows_core::PCWSTR,
@@ -18255,7 +18110,6 @@ impl ::core::default::Default for PROPSHEETPAGEW_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -18280,7 +18134,6 @@ impl ::core::default::Default for PROPSHEETPAGEW_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_2 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
@@ -18305,7 +18158,6 @@ impl ::core::default::Default for PROPSHEETPAGEW_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEW_V1 {
     pub dwSize: u32,
@@ -18338,7 +18190,6 @@ impl ::core::default::Default for PROPSHEETPAGEW_V1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V1_0 {
     pub pszTemplate: ::windows_core::PCWSTR,
@@ -18363,7 +18214,6 @@ impl ::core::default::Default for PROPSHEETPAGEW_V1_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V1_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -18388,7 +18238,6 @@ impl ::core::default::Default for PROPSHEETPAGEW_V1_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEW_V2 {
     pub dwSize: u32,
@@ -18423,7 +18272,6 @@ impl ::core::default::Default for PROPSHEETPAGEW_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V2_0 {
     pub pszTemplate: ::windows_core::PCWSTR,
@@ -18448,7 +18296,6 @@ impl ::core::default::Default for PROPSHEETPAGEW_V2_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V2_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -18473,7 +18320,6 @@ impl ::core::default::Default for PROPSHEETPAGEW_V2_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEW_V3 {
     pub dwSize: u32,
@@ -18509,7 +18355,6 @@ impl ::core::default::Default for PROPSHEETPAGEW_V3 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V3_0 {
     pub pszTemplate: ::windows_core::PCWSTR,
@@ -18534,7 +18379,6 @@ impl ::core::default::Default for PROPSHEETPAGEW_V3_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V3_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -18620,7 +18464,6 @@ impl ::core::default::Default for RBHITTESTINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct REBARBANDINFOA {
     pub cbSize: u32,
@@ -18702,7 +18545,6 @@ impl ::core::default::Default for REBARBANDINFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct REBARBANDINFOW {
     pub cbSize: u32,
@@ -18815,7 +18657,6 @@ impl ::core::default::Default for REBARINFO {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct TASKDIALOGCONFIG {
     pub cbSize: u32,
@@ -18862,7 +18703,6 @@ impl ::core::default::Default for TASKDIALOGCONFIG {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub union TASKDIALOGCONFIG_0 {
     pub hMainIcon: super::WindowsAndMessaging::HICON,
@@ -18887,7 +18727,6 @@ impl ::core::default::Default for TASKDIALOGCONFIG_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub union TASKDIALOGCONFIG_1 {
     pub hFooterIcon: super::WindowsAndMessaging::HICON,
@@ -19420,7 +19259,6 @@ impl ::core::default::Default for TBREPLACEBITMAP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub struct TBSAVEPARAMSA {
     pub hkr: super::super::System::Registry::HKEY,
@@ -19460,7 +19298,6 @@ impl ::core::default::Default for TBSAVEPARAMSA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub struct TBSAVEPARAMSW {
     pub hkr: super::super::System::Registry::HKEY,
@@ -20355,30 +20192,23 @@ impl ::core::default::Default for WTA_OPTIONS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type DTT_CALLBACK_PROC = ::core::option::Option<unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC, psztext: ::windows_core::PWSTR, cchtext: i32, prc: *mut super::super::Foundation::RECT, dwflags: u32, lparam: super::super::Foundation::LPARAM) -> i32>;
 pub type EDITWORDBREAKPROCA = ::core::option::Option<unsafe extern "system" fn(lpch: ::windows_core::PCSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
 pub type EDITWORDBREAKPROCW = ::core::option::Option<unsafe extern "system" fn(lpch: ::windows_core::PCWSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
 pub type LPFNADDPROPSHEETPAGES = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: LPFNSVADDPROPSHEETPAGE, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type LPFNCCINFOA = ::core::option::Option<unsafe extern "system" fn(acci: *mut CCINFOA) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type LPFNCCINFOW = ::core::option::Option<unsafe extern "system" fn(acci: *mut CCINFOW) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type LPFNCCSIZETOTEXTA = ::core::option::Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: ::windows_core::PCSTR) -> i32>;
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type LPFNCCSIZETOTEXTW = ::core::option::Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: ::windows_core::PCWSTR) -> i32>;
 pub type LPFNCCSTYLEA = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEA) -> super::super::Foundation::BOOL>;
 pub type LPFNCCSTYLEW = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEW) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type LPFNPSPCALLBACKA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut PROPSHEETPAGEA) -> u32>;
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type LPFNPSPCALLBACKW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut PROPSHEETPAGEW) -> u32>;
 pub type LPFNSVADDPROPSHEETPAGE = ::core::option::Option<unsafe extern "system" fn(param0: HPROPSHEETPAGE, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
@@ -20388,7 +20218,6 @@ pub type PFNDAENUMCALLBACK = ::core::option::Option<unsafe extern "system" fn(p:
 pub type PFNDAENUMCALLBACKCONST = ::core::option::Option<unsafe extern "system" fn(p: *const ::core::ffi::c_void, pdata: *const ::core::ffi::c_void) -> i32>;
 pub type PFNDPAMERGE = ::core::option::Option<unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const ::core::ffi::c_void, pvsrc: *const ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut ::core::ffi::c_void>;
 pub type PFNDPAMERGECONST = ::core::option::Option<unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const ::core::ffi::c_void, pvsrc: *const ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut ::core::ffi::c_void>;
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub type PFNDPASTREAM = ::core::option::Option<unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: ::core::option::Option<super::super::System::Com::IStream>, pvinstdata: *const ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 pub type PFNLVCOMPARE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::LPARAM, param1: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> i32>;

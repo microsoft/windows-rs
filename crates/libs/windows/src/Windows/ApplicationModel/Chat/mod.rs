@@ -799,7 +799,6 @@ impl ChatConversation {
             (::windows_core::Interface::vtable(this).MostRecentMessageId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Participants(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -908,7 +907,6 @@ unsafe impl ::core::marker::Sync for ChatConversation {}
 pub struct ChatConversationReader(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(ChatConversationReader, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ChatConversationReader {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReadBatchAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatConversation>>> {
         let this = self;
@@ -917,7 +915,6 @@ impl ChatConversationReader {
             (::windows_core::Interface::vtable(this).ReadBatchAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReadBatchWithCountAsync(&self, count: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatConversation>>> {
         let this = self;
@@ -984,7 +981,6 @@ impl ChatConversationThreadingInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetConversationId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Participants(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -1037,7 +1033,6 @@ impl ChatMessage {
             (::windows_core::Interface::vtable(this).ItemKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Attachments(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ChatMessageAttachment>> {
         let this = self;
@@ -1106,7 +1101,6 @@ impl ChatMessage {
             (::windows_core::Interface::vtable(this).NetworkTimestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Recipients(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -1115,7 +1109,6 @@ impl ChatMessage {
             (::windows_core::Interface::vtable(this).Recipients)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RecipientSendStatuses(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ChatMessageStatus>> {
         let this = self;
@@ -1297,7 +1290,6 @@ impl ChatMessage {
         let this = &::windows_core::Interface::cast::<IChatMessage2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetThreadingInfo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RecipientsDeliveryInfos(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ChatRecipientDeliveryInfo>> {
         let this = &::windows_core::Interface::cast::<IChatMessage2>(self)?;
@@ -1342,7 +1334,6 @@ unsafe impl ::core::marker::Sync for ChatMessage {}
 pub struct ChatMessageAttachment(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(ChatMessageAttachment, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ChatMessageAttachment {
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn DataStreamReference(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -1351,7 +1342,6 @@ impl ChatMessageAttachment {
             (::windows_core::Interface::vtable(this).DataStreamReference)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetDataStreamReference<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1393,7 +1383,6 @@ impl ChatMessageAttachment {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Thumbnail(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows_core::Interface::cast::<IChatMessageAttachment2>(self)?;
@@ -1402,7 +1391,6 @@ impl ChatMessageAttachment {
             (::windows_core::Interface::vtable(this).Thumbnail)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetThumbnail<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1433,7 +1421,6 @@ impl ChatMessageAttachment {
         let this = &::windows_core::Interface::cast::<IChatMessageAttachment2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetOriginalFileName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateChatMessageAttachment<P0>(mimetype: &::windows_core::HSTRING, datastreamreference: P0) -> ::windows_core::Result<ChatMessageAttachment>
     where
@@ -1527,7 +1514,6 @@ impl ChatMessageChangeReader {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).AcceptChangesThrough)(::windows_core::Interface::as_raw(this), lastchangetoacknowledge.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReadBatchAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatMessageChange>>> {
         let this = self;
@@ -1643,7 +1629,6 @@ impl ChatMessageManager {
             (::windows_core::Interface::vtable(this).GetTransportAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(transportid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetTransportsAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatMessageTransport>>> {
         Self::IChatMessageManagerStatic(|this| unsafe {
@@ -1752,7 +1737,6 @@ unsafe impl ::core::marker::Sync for ChatMessageNotificationTriggerDetails {}
 pub struct ChatMessageReader(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(ChatMessageReader, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ChatMessageReader {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReadBatchAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatMessage>>> {
         let this = self;
@@ -1761,7 +1745,6 @@ impl ChatMessageReader {
             (::windows_core::Interface::vtable(this).ReadBatchAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReadBatchWithCountAsync(&self, count: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatMessage>>> {
         let this = &::windows_core::Interface::cast::<IChatMessageReader2>(self)?;
@@ -1878,7 +1861,6 @@ impl ChatMessageStore {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveMessageChanged)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ForwardMessageAsync<P0>(&self, localchatmessageid: &::windows_core::HSTRING, addresses: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ChatMessage>>
     where
@@ -1897,7 +1879,6 @@ impl ChatMessageStore {
             (::windows_core::Interface::vtable(this).GetConversationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(conversationid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetConversationForTransportsAsync<P0>(&self, conversationid: &::windows_core::HSTRING, transportids: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ChatConversation>>
     where
@@ -1926,7 +1907,6 @@ impl ChatMessageStore {
             (::windows_core::Interface::vtable(this).GetConversationReader)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetConversationForTransportsReader<P0>(&self, transportids: P0) -> ::windows_core::Result<ChatConversationReader>
     where
@@ -1952,7 +1932,6 @@ impl ChatMessageStore {
             (::windows_core::Interface::vtable(this).GetUnseenCountAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUnseenCountForTransportsReaderAsync<P0>(&self, transportids: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<i32>>
     where
@@ -1971,7 +1950,6 @@ impl ChatMessageStore {
             (::windows_core::Interface::vtable(this).MarkAsSeenAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MarkAsSeenForTransportsAsync<P0>(&self, transportids: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -2176,7 +2154,6 @@ impl ChatMessageTransportConfiguration {
             (::windows_core::Interface::vtable(this).MaxRecipientCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Media_MediaProperties\"`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn SupportedVideoFormat(&self) -> ::windows_core::Result<super::super::Media::MediaProperties::MediaEncodingProfile> {
         let this = self;
@@ -2185,7 +2162,6 @@ impl ChatMessageTransportConfiguration {
             (::windows_core::Interface::vtable(this).SupportedVideoFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ExtendedProperties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = self;
@@ -2393,7 +2369,6 @@ unsafe impl ::core::marker::Sync for ChatRecipientDeliveryInfo {}
 pub struct ChatSearchReader(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(ChatSearchReader, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ChatSearchReader {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReadBatchAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IChatItem>>> {
         let this = self;
@@ -2402,7 +2377,6 @@ impl ChatSearchReader {
             (::windows_core::Interface::vtable(this).ReadBatchAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReadBatchWithCountAsync(&self, count: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IChatItem>>> {
         let this = self;
@@ -2476,7 +2450,6 @@ impl ChatSyncManager {
             (::windows_core::Interface::vtable(this).Configuration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn AssociateAccountAsync<P0>(&self, webaccount: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -2495,7 +2468,6 @@ impl ChatSyncManager {
             (::windows_core::Interface::vtable(this).UnassociateAccountAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn IsAccountAssociated<P0>(&self, webaccount: P0) -> ::windows_core::Result<bool>
     where
@@ -2567,7 +2539,6 @@ impl RcsEndUserMessage {
             (::windows_core::Interface::vtable(this).IsPinRequired)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Actions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<RcsEndUserMessageAction>> {
         let this = self;
@@ -2738,7 +2709,6 @@ impl RcsManager {
             (::windows_core::Interface::vtable(this).GetEndUserMessageManager)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetTransportsAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<RcsTransport>>> {
         Self::IRcsManagerStatics(|this| unsafe {
@@ -2817,7 +2787,6 @@ unsafe impl ::core::marker::Sync for RcsServiceKindSupportedChangedEventArgs {}
 pub struct RcsTransport(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(RcsTransport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl RcsTransport {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ExtendedProperties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = self;

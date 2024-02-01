@@ -58,7 +58,6 @@ impl AppCapability {
             (::windows_core::Interface::vtable(this).CapabilityName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::super::System::User> {
         let this = self;
@@ -106,7 +105,6 @@ impl AppCapability {
         let this = &::windows_core::Interface::cast::<IAppCapability2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetDisplayMessage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestAccessForCapabilitiesAsync<P0>(capabilitynames: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, AppCapabilityAccessStatus>>>
     where
@@ -117,7 +115,6 @@ impl AppCapability {
             (::windows_core::Interface::vtable(this).RequestAccessForCapabilitiesAsync)(::windows_core::Interface::as_raw(this), capabilitynames.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"System\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
     pub fn RequestAccessForCapabilitiesForUserAsync<P0, P1>(user: P0, capabilitynames: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, AppCapabilityAccessStatus>>>
     where
@@ -135,7 +132,6 @@ impl AppCapability {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(capabilityname), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn CreateWithProcessIdForUser<P0>(user: P0, capabilityname: &::windows_core::HSTRING, pid: u32) -> ::windows_core::Result<AppCapability>
     where

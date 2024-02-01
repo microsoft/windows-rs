@@ -133,7 +133,6 @@ pub struct IStorageProviderItemPropertyDefinition_Vtbl {
 ::windows_core::imp::com_interface!(IStorageProviderItemPropertySource, IStorageProviderItemPropertySource_Vtbl, 0x8f6f9c3e_f632_4a9b_8d99_d2d7a11df56a);
 ::windows_core::imp::interface_hierarchy!(IStorageProviderItemPropertySource, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IStorageProviderItemPropertySource {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetItemProperties(&self, itempath: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>> {
         let this = self;
@@ -901,7 +900,6 @@ unsafe impl ::core::marker::Send for StorageProviderGetPathForContentUriResult {
 unsafe impl ::core::marker::Sync for StorageProviderGetPathForContentUriResult {}
 pub struct StorageProviderItemProperties;
 impl StorageProviderItemProperties {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAsync<P0, P1>(item: P0, itemproperties: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1097,7 +1095,6 @@ impl StorageProviderKnownFolderSyncInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetProviderDisplayName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn KnownFolderEntries(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<StorageProviderKnownFolderEntry>> {
         let this = self;
@@ -1138,7 +1135,6 @@ unsafe impl ::core::marker::Sync for StorageProviderKnownFolderSyncInfo {}
 pub struct StorageProviderKnownFolderSyncRequestArgs(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(StorageProviderKnownFolderSyncRequestArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl StorageProviderKnownFolderSyncRequestArgs {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn KnownFolders(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::GUID>> {
         let this = self;
@@ -1262,7 +1258,6 @@ impl StorageProviderQuotaUI {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetQuotaUsedLabel)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn QuotaUsedColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::UI::Color>> {
         let this = self;
@@ -1271,7 +1266,6 @@ impl StorageProviderQuotaUI {
             (::windows_core::Interface::vtable(this).QuotaUsedColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn SetQuotaUsedColor<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1397,7 +1391,6 @@ impl StorageProviderStatusUI {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetProviderPrimaryCommand)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ProviderSecondaryCommands(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<IStorageProviderUICommand>> {
         let this = self;
@@ -1406,7 +1399,6 @@ impl StorageProviderStatusUI {
             (::windows_core::Interface::vtable(this).ProviderSecondaryCommands)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetProviderSecondaryCommands<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1451,7 +1443,6 @@ impl StorageProviderSyncRootInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Context(&self) -> ::windows_core::Result<super::Streams::IBuffer> {
         let this = self;
@@ -1460,7 +1451,6 @@ impl StorageProviderSyncRootInfo {
             (::windows_core::Interface::vtable(this).Context)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetContext<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1604,7 +1594,6 @@ impl StorageProviderSyncRootInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAllowPinning)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StorageProviderItemPropertyDefinitions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<StorageProviderItemPropertyDefinition>> {
         let this = self;
@@ -1638,7 +1627,6 @@ impl StorageProviderSyncRootInfo {
         let this = &::windows_core::Interface::cast::<IStorageProviderSyncRootInfo2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetProviderId)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FallbackFileTypeInfo(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<StorageProviderFileTypeInfo>> {
         let this = &::windows_core::Interface::cast::<IStorageProviderSyncRootInfo3>(self)?;
@@ -1686,7 +1674,6 @@ impl StorageProviderSyncRootManager {
             (::windows_core::Interface::vtable(this).GetSyncRootInformationForId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCurrentSyncRoots() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<StorageProviderSyncRootInfo>> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe {

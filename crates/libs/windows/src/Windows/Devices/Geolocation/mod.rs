@@ -1,8 +1,6 @@
 #[cfg(feature = "Devices_Geolocation_Geofencing")]
-#[doc = "Required features: `\"Devices_Geolocation_Geofencing\"`"]
 pub mod Geofencing;
 #[cfg(feature = "Devices_Geolocation_Provider")]
-#[doc = "Required features: `\"Devices_Geolocation_Provider\"`"]
 pub mod Provider;
 ::windows_core::imp::com_interface!(ICivicAddress, ICivicAddress_Vtbl, 0xa8567a1a_64f4_4d48_bcea_f6b008eca34c);
 #[repr(C)]
@@ -470,7 +468,6 @@ impl GeoboundingBox {
             (::windows_core::Interface::vtable(this).CreateWithAltitudeReferenceAndSpatialReference)(::windows_core::Interface::as_raw(this), northwestcorner, southeastcorner, altitudereferencesystem, spatialreferenceid, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryCompute<P0>(positions: P0) -> ::windows_core::Result<GeoboundingBox>
     where
@@ -481,7 +478,6 @@ impl GeoboundingBox {
             (::windows_core::Interface::vtable(this).TryCompute)(::windows_core::Interface::as_raw(this), positions.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryComputeWithAltitudeReference<P0>(positions: P0, altituderefsystem: AltitudeReferenceSystem) -> ::windows_core::Result<GeoboundingBox>
     where
@@ -492,7 +488,6 @@ impl GeoboundingBox {
             (::windows_core::Interface::vtable(this).TryComputeWithAltitudeReference)(::windows_core::Interface::as_raw(this), positions.into_param().abi(), altituderefsystem, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryComputeWithAltitudeReferenceAndSpatialReference<P0>(positions: P0, altituderefsystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows_core::Result<GeoboundingBox>
     where
@@ -629,7 +624,6 @@ unsafe impl ::core::marker::Sync for Geocircle {}
 pub struct Geocoordinate(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(Geocoordinate, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl Geocoordinate {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Latitude(&self) -> ::windows_core::Result<f64> {
         let this = self;
@@ -638,7 +632,6 @@ impl Geocoordinate {
             (::windows_core::Interface::vtable(this).Latitude)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Longitude(&self) -> ::windows_core::Result<f64> {
         let this = self;
@@ -647,7 +640,6 @@ impl Geocoordinate {
             (::windows_core::Interface::vtable(this).Longitude)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Altitude(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -896,7 +888,6 @@ impl Geolocator {
             (::windows_core::Interface::vtable(this).RequestAccessAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetGeopositionHistoryAsync(starttime: super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>> {
         Self::IGeolocatorStatics(|this| unsafe {
@@ -904,7 +895,6 @@ impl Geolocator {
             (::windows_core::Interface::vtable(this).GetGeopositionHistoryAsync)(::windows_core::Interface::as_raw(this), starttime, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetGeopositionHistoryWithDurationAsync(starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>> {
         Self::IGeolocatorStatics(|this| unsafe {
@@ -973,7 +963,6 @@ pub struct Geopath(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(Geopath, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(Geopath, IGeoshape);
 impl Geopath {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Positions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<BasicGeoposition>> {
         let this = self;
@@ -982,7 +971,6 @@ impl Geopath {
             (::windows_core::Interface::vtable(this).Positions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create<P0>(positions: P0) -> ::windows_core::Result<Geopath>
     where
@@ -993,7 +981,6 @@ impl Geopath {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), positions.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithAltitudeReference<P0>(positions: P0, altitudereferencesystem: AltitudeReferenceSystem) -> ::windows_core::Result<Geopath>
     where
@@ -1004,7 +991,6 @@ impl Geopath {
             (::windows_core::Interface::vtable(this).CreateWithAltitudeReference)(::windows_core::Interface::as_raw(this), positions.into_param().abi(), altitudereferencesystem, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithAltitudeReferenceAndSpatialReference<P0>(positions: P0, altitudereferencesystem: AltitudeReferenceSystem, spatialreferenceid: u32) -> ::windows_core::Result<Geopath>
     where
@@ -1297,7 +1283,6 @@ unsafe impl ::core::marker::Sync for GeovisitStateChangedEventArgs {}
 pub struct GeovisitTriggerDetails(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(GeovisitTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GeovisitTriggerDetails {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReadReports(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<Geovisit>> {
         let this = self;

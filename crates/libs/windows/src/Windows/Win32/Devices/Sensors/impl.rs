@@ -31,7 +31,6 @@ impl ILocationPermissions_Vtbl {
         iid == &<ILocationPermissions as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISensor_Impl: Sized {
     fn GetID(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -292,7 +291,6 @@ impl ISensorCollection_Vtbl {
         iid == &<ISensorCollection as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(all(feature = "Win32_Devices_PortableDevices", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISensorDataReport_Impl: Sized {
     fn GetTimestamp(&self) -> ::windows_core::Result<super::super::Foundation::SYSTEMTIME>;
@@ -348,7 +346,6 @@ impl ISensorDataReport_Vtbl {
         iid == &<ISensorDataReport as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Devices_PortableDevices\"`"]
 #[cfg(feature = "Win32_Devices_PortableDevices")]
 pub trait ISensorEvents_Impl: Sized {
     fn OnStateChanged(&self, psensor: ::core::option::Option<&ISensor>, state: SensorState) -> ::windows_core::Result<()>;

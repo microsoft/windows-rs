@@ -381,7 +381,6 @@ impl GipGameControllerProvider {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SendReceiveMessage)(::windows_core::Interface::as_raw(this), messageclass, messageid, requestmessagebuffer.len().try_into().unwrap(), requestmessagebuffer.as_ptr(), responsemessagebuffer.len().try_into().unwrap(), responsemessagebuffer.as_mut_ptr()).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn UpdateFirmwareAsync<P0>(&self, firmwareimage: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<GipFirmwareUpdateResult, GipFirmwareUpdateProgress>>
     where

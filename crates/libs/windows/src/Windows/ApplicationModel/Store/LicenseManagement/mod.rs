@@ -45,7 +45,6 @@ pub struct ILicenseSatisfactionResult_Vtbl {
 }
 pub struct LicenseManager;
 impl LicenseManager {
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn AddLicenseAsync<P0>(license: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -56,7 +55,6 @@ impl LicenseManager {
             (::windows_core::Interface::vtable(this).AddLicenseAsync)(::windows_core::Interface::as_raw(this), license.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSatisfactionInfosAsync<P0, P1>(contentids: P0, keyids: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>>
     where
@@ -160,7 +158,6 @@ unsafe impl ::core::marker::Sync for LicenseSatisfactionInfo {}
 pub struct LicenseSatisfactionResult(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(LicenseSatisfactionResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl LicenseSatisfactionResult {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LicenseSatisfactionInfos(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, LicenseSatisfactionInfo>> {
         let this = self;

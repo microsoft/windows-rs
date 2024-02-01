@@ -114,7 +114,6 @@ impl IAVIFile_Vtbl {
         iid == &<IAVIFile as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAVIPersistFile_Impl: Sized + super::super::System::Com::IPersistFile_Impl {
     fn Reserved1(&self) -> ::windows_core::Result<()>;
@@ -248,7 +247,6 @@ impl IAVIStreaming_Vtbl {
         iid == &<IAVIStreaming as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IGetFrame_Impl: Sized {
     fn GetFrame(&self, lpos: i32) -> *mut ::core::ffi::c_void;

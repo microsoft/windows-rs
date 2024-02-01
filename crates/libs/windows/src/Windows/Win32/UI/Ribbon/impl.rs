@@ -129,7 +129,6 @@ impl IUICollectionChangedEvent_Vtbl {
         iid == &<IUICollectionChangedEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IUICommandHandler_Impl: Sized {
     fn Execute(&self, commandid: u32, verb: UI_EXECUTIONVERB, key: *const super::Shell::PropertiesSystem::PROPERTYKEY, currentvalue: *const ::windows_core::PROPVARIANT, commandexecutionproperties: ::core::option::Option<&IUISimplePropertySet>) -> ::windows_core::Result<()>;
@@ -217,7 +216,6 @@ impl IUIEventingManager_Vtbl {
         iid == &<IUIEventingManager as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IUIFramework_Impl: Sized {
     fn Initialize(&self, framewnd: super::super::Foundation::HWND, application: ::core::option::Option<&IUIApplication>) -> ::windows_core::Result<()>;
@@ -303,7 +301,6 @@ impl IUIFramework_Vtbl {
         iid == &<IUIFramework as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IUIImage_Impl: Sized {
     fn GetBitmap(&self) -> ::windows_core::Result<super::super::Graphics::Gdi::HBITMAP>;
@@ -330,7 +327,6 @@ impl IUIImage_Vtbl {
         iid == &<IUIImage as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IUIImageFromBitmap_Impl: Sized {
     fn CreateImage(&self, bitmap: super::super::Graphics::Gdi::HBITMAP, options: UI_OWNERSHIP) -> ::windows_core::Result<IUIImage>;
@@ -357,7 +353,6 @@ impl IUIImageFromBitmap_Vtbl {
         iid == &<IUIImageFromBitmap as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIRibbon_Impl: Sized {
     fn GetHeight(&self) -> ::windows_core::Result<u32>;
@@ -401,7 +396,6 @@ impl IUIRibbon_Vtbl {
         iid == &<IUIRibbon as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IUISimplePropertySet_Impl: Sized {
     fn GetValue(&self, key: *const super::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<::windows_core::PROPVARIANT>;

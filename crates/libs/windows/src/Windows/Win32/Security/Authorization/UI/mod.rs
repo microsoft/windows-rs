@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_UI_Controls\"`"]
 #[cfg(feature = "Win32_UI_Controls")]
 #[inline]
 pub unsafe fn CreateSecurityPage<P0>(psi: P0) -> ::windows_core::Result<super::super::super::UI::Controls::HPROPSHEETPAGE>
@@ -123,7 +122,6 @@ impl ISecurityInformation {
     pub unsafe fn GetInheritTypes(&self, ppinherittypes: *mut *mut SI_INHERIT_TYPE, pcinherittypes: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetInheritTypes)(::windows_core::Interface::as_raw(self), ppinherittypes, pcinherittypes).ok()
     }
-    #[doc = "Required features: `\"Win32_UI_Controls\"`"]
     #[cfg(feature = "Win32_UI_Controls")]
     pub unsafe fn PropertySheetPageCallback<P0>(&self, hwnd: P0, umsg: super::super::super::UI::Controls::PSPCB_MESSAGE, upage: SI_PAGE_TYPE) -> ::windows_core::Result<()>
     where
@@ -153,7 +151,6 @@ impl ISecurityInformation2 {
     pub unsafe fn IsDaclCanonical(&self, pdacl: *const super::super::ACL) -> super::super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsDaclCanonical)(::windows_core::Interface::as_raw(self), pdacl)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LookupSids(&self, csids: u32, rgpsids: *const super::super::super::Foundation::PSID) -> ::windows_core::Result<super::super::super::System::Com::IDataObject> {
         let mut result__ = ::std::mem::zeroed();

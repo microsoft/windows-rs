@@ -1,5 +1,4 @@
 #[cfg(feature = "Devices_Spi_Provider")]
-#[doc = "Required features: `\"Devices_Spi_Provider\"`"]
 pub mod Provider;
 ::windows_core::imp::com_interface!(ISpiBusInfo, ISpiBusInfo_Vtbl, 0x9929444a_54f2_48c6_b952_9c32fc02c669);
 #[repr(C)]
@@ -140,7 +139,6 @@ impl SpiBusInfo {
             (::windows_core::Interface::vtable(this).MaxClockFrequency)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedDataBitLengths(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i32>> {
         let this = self;
@@ -267,7 +265,6 @@ impl SpiController {
             (::windows_core::Interface::vtable(this).GetDefaultAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Devices_Spi_Provider\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "Devices_Spi_Provider", feature = "Foundation_Collections"))]
     pub fn GetControllersAsync<P0>(provider: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SpiController>>>
     where

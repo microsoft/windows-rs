@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumACDGroup_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITACDGroup>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -49,7 +48,6 @@ impl IEnumACDGroup_Vtbl {
         iid == &<IEnumACDGroup as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumAddress_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITAddress>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -100,7 +98,6 @@ impl IEnumAddress_Vtbl {
         iid == &<IEnumAddress as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumAgent_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITAgent>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -151,7 +148,6 @@ impl IEnumAgent_Vtbl {
         iid == &<IEnumAgent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumAgentHandler_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITAgentHandler>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -202,7 +198,6 @@ impl IEnumAgentHandler_Vtbl {
         iid == &<IEnumAgentHandler as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumAgentSession_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITAgentSession>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -300,7 +295,6 @@ impl IEnumBstr_Vtbl {
         iid == &<IEnumBstr as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumCall_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITCallInfo>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -351,7 +345,6 @@ impl IEnumCall_Vtbl {
         iid == &<IEnumCall as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumCallHub_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITCallHub>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -402,7 +395,6 @@ impl IEnumCallHub_Vtbl {
         iid == &<IEnumCallHub as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumCallingCard_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITCallingCard>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -500,7 +492,6 @@ impl IEnumDialableAddrs_Vtbl {
         iid == &<IEnumDialableAddrs as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumDirectory_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITDirectory>, pcfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -551,7 +542,6 @@ impl IEnumDirectory_Vtbl {
         iid == &<IEnumDirectory as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumDirectoryObject_Impl: Sized {
     fn Next(&self, celt: u32, pval: *mut ::core::option::Option<ITDirectoryObject>, pcfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -602,7 +592,6 @@ impl IEnumDirectoryObject_Vtbl {
         iid == &<IEnumDirectoryObject as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumLocation_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITLocationInfo>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -653,7 +642,6 @@ impl IEnumLocation_Vtbl {
         iid == &<IEnumLocation as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumMcastScope_Impl: Sized {
     fn Next(&self, celt: u32, ppscopes: *mut ::core::option::Option<IMcastScope>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -704,7 +692,6 @@ impl IEnumMcastScope_Vtbl {
         iid == &<IEnumMcastScope as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumPhone_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITPhone>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -755,7 +742,6 @@ impl IEnumPhone_Vtbl {
         iid == &<IEnumPhone as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumPluggableSuperclassInfo_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITPluggableTerminalSuperclassInfo>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -806,7 +792,6 @@ impl IEnumPluggableSuperclassInfo_Vtbl {
         iid == &<IEnumPluggableSuperclassInfo as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumPluggableTerminalClassInfo_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITPluggableTerminalClassInfo>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -857,7 +842,6 @@ impl IEnumPluggableTerminalClassInfo_Vtbl {
         iid == &<IEnumPluggableTerminalClassInfo as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumQueue_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITQueue>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -908,7 +892,6 @@ impl IEnumQueue_Vtbl {
         iid == &<IEnumQueue as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumStream_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITStream>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -959,7 +942,6 @@ impl IEnumStream_Vtbl {
         iid == &<IEnumStream as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumSubStream_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITSubStream>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -1010,7 +992,6 @@ impl IEnumSubStream_Vtbl {
         iid == &<IEnumSubStream as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumTerminal_Impl: Sized {
     fn Next(&self, celt: u32, ppelements: *mut ::core::option::Option<ITTerminal>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -1108,7 +1089,6 @@ impl IEnumTerminalClass_Vtbl {
         iid == &<IEnumTerminalClass as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMcastAddressAllocation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Scopes(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -1210,7 +1190,6 @@ impl IMcastAddressAllocation_Vtbl {
         iid == &<IMcastAddressAllocation as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMcastLeaseInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RequestID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1345,7 +1324,6 @@ impl IMcastLeaseInfo_Vtbl {
         iid == &<IMcastLeaseInfo as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMcastScope_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ScopeID(&self) -> ::windows_core::Result<i32>;
@@ -1427,7 +1405,6 @@ impl IMcastScope_Vtbl {
         iid == &<IMcastScope as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITACDGroup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1483,7 +1460,6 @@ impl ITACDGroup_Vtbl {
         iid == &<ITACDGroup as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITACDGroupEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Group(&self) -> ::windows_core::Result<ITACDGroup>;
@@ -1526,7 +1502,6 @@ impl ITACDGroupEvent_Vtbl {
         iid == &<ITACDGroupEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 pub trait ITAMMediaFormat_Impl: Sized {
     fn MediaFormat(&self) -> ::windows_core::Result<*mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE>;
@@ -1563,7 +1538,6 @@ impl ITAMMediaFormat_Vtbl {
         iid == &<ITAMMediaFormat as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITASRTerminalEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Terminal(&self) -> ::windows_core::Result<ITTerminal>;
@@ -1619,7 +1593,6 @@ impl ITASRTerminalEvent_Vtbl {
         iid == &<ITASRTerminalEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITAddress_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn State(&self) -> ::windows_core::Result<ADDRESS_STATE>;
@@ -1813,7 +1786,6 @@ impl ITAddress_Vtbl {
         iid == &<ITAddress as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITAddress2_Impl: Sized + ITAddress_Impl {
     fn Phones(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -1942,7 +1914,6 @@ impl ITAddress2_Vtbl {
         iid == &<ITAddress2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITAddress as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITAddressCapabilities_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn get_AddressCapability(&self, addresscap: ADDRESS_CAPABILITY) -> ::windows_core::Result<i32>;
@@ -2063,7 +2034,6 @@ impl ITAddressCapabilities_Vtbl {
         iid == &<ITAddressCapabilities as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITAddressDeviceSpecificEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Address(&self) -> ::windows_core::Result<ITAddress>;
@@ -2145,7 +2115,6 @@ impl ITAddressDeviceSpecificEvent_Vtbl {
         iid == &<ITAddressDeviceSpecificEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITAddressEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Address(&self) -> ::windows_core::Result<ITAddress>;
@@ -2201,7 +2170,6 @@ impl ITAddressEvent_Vtbl {
         iid == &<ITAddressEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITAddressTranslation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn TranslateAddress(&self, paddresstotranslate: &::windows_core::BSTR, lcard: i32, ltranslateoptions: i32) -> ::windows_core::Result<ITAddressTranslationInfo>;
@@ -2290,7 +2258,6 @@ impl ITAddressTranslation_Vtbl {
         iid == &<ITAddressTranslation as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITAddressTranslationInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DialableString(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2372,7 +2339,6 @@ impl ITAddressTranslationInfo_Vtbl {
         iid == &<ITAddressTranslationInfo as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITAgent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnumerateAgentSessions(&self) -> ::windows_core::Result<IEnumAgentSession>;
@@ -2598,7 +2564,6 @@ impl ITAgent_Vtbl {
         iid == &<ITAgent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITAgentEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Agent(&self) -> ::windows_core::Result<ITAgent>;
@@ -2641,7 +2606,6 @@ impl ITAgentEvent_Vtbl {
         iid == &<ITAgentEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITAgentHandler_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2749,7 +2713,6 @@ impl ITAgentHandler_Vtbl {
         iid == &<ITAgentHandler as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITAgentHandlerEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AgentHandler(&self) -> ::windows_core::Result<ITAgentHandler>;
@@ -2792,7 +2755,6 @@ impl ITAgentHandlerEvent_Vtbl {
         iid == &<ITAgentHandlerEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITAgentSession_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Agent(&self) -> ::windows_core::Result<ITAgent>;
@@ -3024,7 +2986,6 @@ impl ITAgentSession_Vtbl {
         iid == &<ITAgentSession as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITAgentSessionEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Session(&self) -> ::windows_core::Result<ITAgentSession>;
@@ -3067,7 +3028,6 @@ impl ITAgentSessionEvent_Vtbl {
         iid == &<ITAgentSessionEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
 #[cfg(feature = "Win32_Media_DirectShow")]
 pub trait ITAllocatorProperties_Impl: Sized {
     fn SetAllocatorProperties(&self, pallocproperties: *const super::super::Media::DirectShow::ALLOCATOR_PROPERTIES) -> ::windows_core::Result<()>;
@@ -3144,7 +3104,6 @@ impl ITAllocatorProperties_Vtbl {
         iid == &<ITAllocatorProperties as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITAutomatedPhoneControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StartTone(&self, tone: PHONE_TONE, lduration: i32) -> ::windows_core::Result<()>;
@@ -3475,7 +3434,6 @@ impl ITAutomatedPhoneControl_Vtbl {
         iid == &<ITAutomatedPhoneControl as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITBasicAudioTerminal_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetVolume(&self, lvolume: i32) -> ::windows_core::Result<()>;
@@ -3532,7 +3490,6 @@ impl ITBasicAudioTerminal_Vtbl {
         iid == &<ITBasicAudioTerminal as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITBasicCallControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Connect(&self, fsync: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -3681,7 +3638,6 @@ impl ITBasicCallControl_Vtbl {
         iid == &<ITBasicCallControl as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITBasicCallControl2_Impl: Sized + ITBasicCallControl_Impl {
     fn RequestTerminal(&self, bstrterminalclassguid: &::windows_core::BSTR, lmediatype: i32, direction: TERMINAL_DIRECTION) -> ::windows_core::Result<ITTerminal>;
@@ -3725,7 +3681,6 @@ impl ITBasicCallControl2_Vtbl {
         iid == &<ITBasicCallControl2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITBasicCallControl as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITCallHub_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Clear(&self) -> ::windows_core::Result<()>;
@@ -3801,7 +3756,6 @@ impl ITCallHub_Vtbl {
         iid == &<ITCallHub as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITCallHubEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Event(&self) -> ::windows_core::Result<CALLHUB_EVENT>;
@@ -3857,7 +3811,6 @@ impl ITCallHubEvent_Vtbl {
         iid == &<ITCallHubEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITCallInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Address(&self) -> ::windows_core::Result<ITAddress>;
@@ -4007,7 +3960,6 @@ impl ITCallInfo_Vtbl {
         iid == &<ITCallInfo as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITCallInfo2_Impl: Sized + ITCallInfo_Impl {
     fn get_EventFilter(&self, tapievent: TAPI_EVENT, lsubevent: i32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -4044,7 +3996,6 @@ impl ITCallInfo2_Vtbl {
         iid == &<ITCallInfo2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITCallInfo as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITCallInfoChangeEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> ::windows_core::Result<ITCallInfo>;
@@ -4100,7 +4051,6 @@ impl ITCallInfoChangeEvent_Vtbl {
         iid == &<ITCallInfoChangeEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITCallMediaEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> ::windows_core::Result<ITCallInfo>;
@@ -4195,7 +4145,6 @@ impl ITCallMediaEvent_Vtbl {
         iid == &<ITCallMediaEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITCallNotificationEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> ::windows_core::Result<ITCallInfo>;
@@ -4251,7 +4200,6 @@ impl ITCallNotificationEvent_Vtbl {
         iid == &<ITCallNotificationEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITCallStateEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> ::windows_core::Result<ITCallInfo>;
@@ -4320,7 +4268,6 @@ impl ITCallStateEvent_Vtbl {
         iid == &<ITCallStateEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITCallingCard_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn PermanentCardID(&self) -> ::windows_core::Result<i32>;
@@ -4428,7 +4375,6 @@ impl ITCallingCard_Vtbl {
         iid == &<ITCallingCard as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -4484,7 +4430,6 @@ impl ITCollection_Vtbl {
         iid == &<ITCollection as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITCollection2_Impl: Sized + ITCollection_Impl {
     fn Add(&self, index: i32, pvariant: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
@@ -4511,7 +4456,6 @@ impl ITCollection2_Vtbl {
         iid == &<ITCollection2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITCollection as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITCustomTone_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Frequency(&self) -> ::windows_core::Result<i32>;
@@ -4608,7 +4552,6 @@ impl ITCustomTone_Vtbl {
         iid == &<ITCustomTone as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITDetectTone_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AppSpecific(&self) -> ::windows_core::Result<i32>;
@@ -4685,7 +4628,6 @@ impl ITDetectTone_Vtbl {
         iid == &<ITDetectTone as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITDigitDetectionEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> ::windows_core::Result<ITCallInfo>;
@@ -4767,7 +4709,6 @@ impl ITDigitDetectionEvent_Vtbl {
         iid == &<ITDigitDetectionEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITDigitGenerationEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> ::windows_core::Result<ITCallInfo>;
@@ -4836,7 +4777,6 @@ impl ITDigitGenerationEvent_Vtbl {
         iid == &<ITDigitGenerationEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITDigitsGatheredEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> ::windows_core::Result<ITCallInfo>;
@@ -4918,7 +4858,6 @@ impl ITDigitsGatheredEvent_Vtbl {
         iid == &<ITDigitsGatheredEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITDirectory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DirectoryType(&self) -> ::windows_core::Result<DIRECTORY_TYPE>;
@@ -5069,7 +5008,6 @@ impl ITDirectory_Vtbl {
         iid == &<ITDirectory as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITDirectoryObject_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ObjectType(&self) -> ::windows_core::Result<DIRECTORY_OBJECT_TYPE>;
@@ -5165,7 +5103,6 @@ impl ITDirectoryObject_Vtbl {
         iid == &<ITDirectoryObject as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITDirectoryObjectConference_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Protocol(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -5335,7 +5272,6 @@ impl ITDirectoryObjectConference_Vtbl {
         iid == &<ITDirectoryObjectConference as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITDirectoryObjectUser_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn IPPhonePrimary(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -5372,7 +5308,6 @@ impl ITDirectoryObjectUser_Vtbl {
         iid == &<ITDirectoryObjectUser as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITDispatchMapper_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn QueryDispatchInterface(&self, piid: &::windows_core::BSTR, pinterfacetomap: ::core::option::Option<&super::super::System::Com::IDispatch>) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
@@ -5402,7 +5337,6 @@ impl ITDispatchMapper_Vtbl {
         iid == &<ITDispatchMapper as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITFileTerminalEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Terminal(&self) -> ::windows_core::Result<ITTerminal>;
@@ -5497,7 +5431,6 @@ impl ITFileTerminalEvent_Vtbl {
         iid == &<ITFileTerminalEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
 pub trait ITFileTrack_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Format(&self) -> ::windows_core::Result<*mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE>;
@@ -5580,7 +5513,6 @@ impl ITFileTrack_Vtbl {
         iid == &<ITFileTrack as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITForwardInformation_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetNumRingsNoAnswer(&self, lnumrings: i32) -> ::windows_core::Result<()>;
@@ -5664,7 +5596,6 @@ impl ITForwardInformation_Vtbl {
         iid == &<ITForwardInformation as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITForwardInformation2_Impl: Sized + ITForwardInformation_Impl {
     fn SetForwardType2(&self, forwardtype: i32, pdestaddress: &::windows_core::BSTR, destaddresstype: i32, pcalleraddress: &::windows_core::BSTR, calleraddresstype: i32) -> ::windows_core::Result<()>;
@@ -5721,7 +5652,6 @@ impl ITForwardInformation2_Vtbl {
         iid == &<ITForwardInformation2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITForwardInformation as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITILSConfig_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Port(&self) -> ::windows_core::Result<i32>;
@@ -5819,7 +5749,6 @@ impl ITLegacyAddressMediaControl2_Vtbl {
         iid == &<ITLegacyAddressMediaControl2 as ::windows_core::Interface>::IID || iid == &<ITLegacyAddressMediaControl as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITLegacyCallMediaControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DetectDigits(&self, digitmode: i32) -> ::windows_core::Result<()>;
@@ -5871,7 +5800,6 @@ impl ITLegacyCallMediaControl_Vtbl {
         iid == &<ITLegacyCallMediaControl as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITLegacyCallMediaControl2_Impl: Sized + ITLegacyCallMediaControl_Impl {
     fn GenerateDigits2(&self, pdigits: &::windows_core::BSTR, digitmode: i32, lduration: i32) -> ::windows_core::Result<()>;
@@ -5976,7 +5904,6 @@ impl ITLegacyCallMediaControl2_Vtbl {
         iid == &<ITLegacyCallMediaControl2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITLegacyCallMediaControl as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITLegacyWaveSupport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn IsFullDuplex(&self) -> ::windows_core::Result<FULLDUPLEX_SUPPORT>;
@@ -6003,7 +5930,6 @@ impl ITLegacyWaveSupport_Vtbl {
         iid == &<ITLegacyWaveSupport as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITLocationInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn PermanentLocationID(&self) -> ::windows_core::Result<i32>;
@@ -6224,7 +6150,6 @@ impl ITMSPAddress_Vtbl {
         iid == &<ITMSPAddress as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITMediaControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Start(&self) -> ::windows_core::Result<()>;
@@ -6275,7 +6200,6 @@ impl ITMediaControl_Vtbl {
         iid == &<ITMediaControl as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITMediaPlayback_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetPlayList(&self, playlistvariant: &::windows_core::VARIANT) -> ::windows_core::Result<()>;
@@ -6312,7 +6236,6 @@ impl ITMediaPlayback_Vtbl {
         iid == &<ITMediaPlayback as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITMediaRecord_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetFileName(&self, bstrfilename: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -6349,7 +6272,6 @@ impl ITMediaRecord_Vtbl {
         iid == &<ITMediaRecord as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITMediaSupport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn MediaTypes(&self) -> ::windows_core::Result<i32>;
@@ -6392,7 +6314,6 @@ impl ITMediaSupport_Vtbl {
         iid == &<ITMediaSupport as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITMultiTrackTerminal_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn TrackTerminals(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -6481,7 +6402,6 @@ impl ITMultiTrackTerminal_Vtbl {
         iid == &<ITMultiTrackTerminal as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITPhone_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Open(&self, privilege: PHONE_PRIVILEGE) -> ::windows_core::Result<()>;
@@ -6849,7 +6769,6 @@ impl ITPhone_Vtbl {
         iid == &<ITPhone as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITPhoneDeviceSpecificEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Phone(&self) -> ::windows_core::Result<ITPhone>;
@@ -6918,7 +6837,6 @@ impl ITPhoneDeviceSpecificEvent_Vtbl {
         iid == &<ITPhoneDeviceSpecificEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITPhoneEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Phone(&self) -> ::windows_core::Result<ITPhone>;
@@ -7052,7 +6970,6 @@ impl ITPhoneEvent_Vtbl {
         iid == &<ITPhoneEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITPluggableTerminalClassInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -7160,7 +7077,6 @@ impl ITPluggableTerminalClassInfo_Vtbl {
         iid == &<ITPluggableTerminalClassInfo as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITPluggableTerminalEventSink_Impl: Sized {
     fn FireEvent(&self, pmspeventinfo: *const MSP_EVENT_INFO) -> ::windows_core::Result<()>;
@@ -7208,7 +7124,6 @@ impl ITPluggableTerminalEventSinkRegistration_Vtbl {
         iid == &<ITPluggableTerminalEventSinkRegistration as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITPluggableTerminalSuperclassInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -7251,7 +7166,6 @@ impl ITPluggableTerminalSuperclassInfo_Vtbl {
         iid == &<ITPluggableTerminalSuperclassInfo as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITPrivateEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Address(&self) -> ::windows_core::Result<ITAddress>;
@@ -7333,7 +7247,6 @@ impl ITPrivateEvent_Vtbl {
         iid == &<ITPrivateEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITQOSEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> ::windows_core::Result<ITCallInfo>;
@@ -7389,7 +7302,6 @@ impl ITQOSEvent_Vtbl {
         iid == &<ITQOSEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITQueue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetMeasurementPeriod(&self, lperiod: i32) -> ::windows_core::Result<()>;
@@ -7556,7 +7468,6 @@ impl ITQueue_Vtbl {
         iid == &<ITQueue as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITQueueEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Queue(&self) -> ::windows_core::Result<ITQueue>;
@@ -7599,7 +7510,6 @@ impl ITQueueEvent_Vtbl {
         iid == &<ITQueueEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITRendezvous_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DefaultDirectories(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -7668,7 +7578,6 @@ impl ITRendezvous_Vtbl {
         iid == &<ITRendezvous as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITRequest_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn MakeCall(&self, pdestaddress: &::windows_core::BSTR, pappname: &::windows_core::BSTR, pcalledparty: &::windows_core::BSTR, pcomment: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -7689,7 +7598,6 @@ impl ITRequest_Vtbl {
         iid == &<ITRequest as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITRequestEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RegistrationInstance(&self) -> ::windows_core::Result<i32>;
@@ -7784,7 +7692,6 @@ impl ITRequestEvent_Vtbl {
         iid == &<ITRequestEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITScriptableAudioFormat_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Channels(&self) -> ::windows_core::Result<i32>;
@@ -7921,7 +7828,6 @@ impl ITScriptableAudioFormat_Vtbl {
         iid == &<ITScriptableAudioFormat as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITStaticAudioTerminal_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn WaveId(&self) -> ::windows_core::Result<i32>;
@@ -7948,7 +7854,6 @@ impl ITStaticAudioTerminal_Vtbl {
         iid == &<ITStaticAudioTerminal as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITStream_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn MediaType(&self) -> ::windows_core::Result<i32>;
@@ -8065,7 +7970,6 @@ impl ITStream_Vtbl {
         iid == &<ITStream as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITStreamControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CreateStream(&self, lmediatype: i32, td: TERMINAL_DIRECTION) -> ::windows_core::Result<ITStream>;
@@ -8128,7 +8032,6 @@ impl ITStreamControl_Vtbl {
         iid == &<ITStreamControl as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITSubStream_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StartSubStream(&self) -> ::windows_core::Result<()>;
@@ -8219,7 +8122,6 @@ impl ITSubStream_Vtbl {
         iid == &<ITSubStream as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITSubStreamControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn CreateSubStream(&self) -> ::windows_core::Result<ITSubStream>;
@@ -8282,7 +8184,6 @@ impl ITSubStreamControl_Vtbl {
         iid == &<ITSubStreamControl as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITTAPI_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Initialize(&self) -> ::windows_core::Result<()>;
@@ -8459,7 +8360,6 @@ impl ITTAPI_Vtbl {
         iid == &<ITTAPI as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITTAPI2_Impl: Sized + ITTAPI_Impl {
     fn Phones(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -8515,7 +8415,6 @@ impl ITTAPI2_Vtbl {
         iid == &<ITTAPI2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITTAPI as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITTAPICallCenter_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnumerateAgentHandlers(&self) -> ::windows_core::Result<IEnumAgentHandler>;
@@ -8558,7 +8457,6 @@ impl ITTAPICallCenter_Vtbl {
         iid == &<ITTAPICallCenter as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITTAPIDispatchEventNotification_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -8572,7 +8470,6 @@ impl ITTAPIDispatchEventNotification_Vtbl {
         iid == &<ITTAPIDispatchEventNotification as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITTAPIEventNotification_Impl: Sized {
     fn Event(&self, tapievent: TAPI_EVENT, pevent: ::core::option::Option<&super::super::System::Com::IDispatch>) -> ::windows_core::Result<()>;
@@ -8593,7 +8490,6 @@ impl ITTAPIEventNotification_Vtbl {
         iid == &<ITTAPIEventNotification as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITTAPIObjectEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn TAPIObject(&self) -> ::windows_core::Result<ITTAPI>;
@@ -8662,7 +8558,6 @@ impl ITTAPIObjectEvent_Vtbl {
         iid == &<ITTAPIObjectEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITTAPIObjectEvent2_Impl: Sized + ITTAPIObjectEvent_Impl {
     fn Phone(&self) -> ::windows_core::Result<ITPhone>;
@@ -8689,7 +8584,6 @@ impl ITTAPIObjectEvent2_Vtbl {
         iid == &<ITTAPIObjectEvent2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITTAPIObjectEvent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITTTSTerminalEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Terminal(&self) -> ::windows_core::Result<ITTerminal>;
@@ -8745,7 +8639,6 @@ impl ITTTSTerminalEvent_Vtbl {
         iid == &<ITTTSTerminalEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITTerminal_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -8840,7 +8733,6 @@ impl ITTerminal_Vtbl {
         iid == &<ITTerminal as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITTerminalSupport_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn StaticTerminals(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -8935,7 +8827,6 @@ impl ITTerminalSupport_Vtbl {
         iid == &<ITTerminalSupport as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITTerminalSupport2_Impl: Sized + ITTerminalSupport_Impl {
     fn PluggableSuperclasses(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -9004,7 +8895,6 @@ impl ITTerminalSupport2_Vtbl {
         iid == &<ITTerminalSupport2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<ITTerminalSupport as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITToneDetectionEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Call(&self) -> ::windows_core::Result<ITCallInfo>;
@@ -9073,7 +8963,6 @@ impl ITToneDetectionEvent_Vtbl {
         iid == &<ITToneDetectionEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITToneTerminalEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Terminal(&self) -> ::windows_core::Result<ITTerminal>;
@@ -9129,7 +9018,6 @@ impl ITToneTerminalEvent_Vtbl {
         iid == &<ITToneTerminalEvent as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_AddressBook\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 pub trait ITnef_Impl: Sized {
     fn AddProps(&self, ulflags: u32, ulelemid: u32, lpvdata: *mut ::core::ffi::c_void, lpproplist: *mut super::super::System::AddressBook::SPropTagArray) -> ::windows_core::Result<()>;

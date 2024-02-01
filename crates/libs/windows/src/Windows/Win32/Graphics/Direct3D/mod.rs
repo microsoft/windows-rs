@@ -1,8 +1,6 @@
 #[cfg(feature = "Win32_Graphics_Direct3D_Dxc")]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D_Dxc\"`"]
 pub mod Dxc;
 #[cfg(feature = "Win32_Graphics_Direct3D_Fxc")]
-#[doc = "Required features: `\"Win32_Graphics_Direct3D_Fxc\"`"]
 pub mod Fxc;
 ::windows_core::imp::com_interface!(ID3DBlob, ID3DBlob_Vtbl, 0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
 ::windows_core::imp::interface_hierarchy!(ID3DBlob, ::windows_core::IUnknown);

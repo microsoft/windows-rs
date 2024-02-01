@@ -41,7 +41,6 @@ impl ClosedCaptionProperties {
             (::windows_core::Interface::vtable(this).FontColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn ComputedFontColor() -> ::windows_core::Result<super::super::UI::Color> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
@@ -79,7 +78,6 @@ impl ClosedCaptionProperties {
             (::windows_core::Interface::vtable(this).BackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn ComputedBackgroundColor() -> ::windows_core::Result<super::super::UI::Color> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
@@ -99,7 +97,6 @@ impl ClosedCaptionProperties {
             (::windows_core::Interface::vtable(this).RegionColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn ComputedRegionColor() -> ::windows_core::Result<super::super::UI::Color> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {

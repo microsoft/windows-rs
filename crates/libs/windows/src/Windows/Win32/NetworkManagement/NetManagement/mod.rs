@@ -259,14 +259,12 @@ where
     ::windows_targets::link!("netapi32.dll" "system" fn NetErrorLogWrite(reserved1 : *const u8, code : u32, component : ::windows_core::PCWSTR, buffer : *const u8, numbytes : u32, msgbuf : *const u8, strcount : u32, reserved2 : *const u8) -> u32);
     NetErrorLogWrite(::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())), code, component.into_param().abi(), buffer, numbytes, msgbuf, strcount, ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn NetFreeAadJoinInformation(pjoininfo: ::core::option::Option<*const DSREG_JOIN_INFO>) {
     ::windows_targets::link!("netapi32.dll" "system" fn NetFreeAadJoinInformation(pjoininfo : *const DSREG_JOIN_INFO));
     NetFreeAadJoinInformation(::core::mem::transmute(pjoininfo.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn NetGetAadJoinInformation<P0>(pcsztenantid: P0) -> ::windows_core::Result<*mut DSREG_JOIN_INFO>
@@ -1759,7 +1757,6 @@ impl INetCfgComponent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDeviceStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Registry\"`"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn OpenParamKey(&self, phkey: ::core::option::Option<*mut super::super::System::Registry::HKEY>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OpenParamKey)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(phkey.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2197,7 +2194,6 @@ impl IProvisioningDomain {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pszwpathtofolder.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn Query<P0, P1, P2>(&self, pszwdomain: P0, pszwlanguage: P1, pszwxpathquery: P2) -> ::windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>
     where
@@ -5994,7 +5990,6 @@ impl ::core::default::Default for CONFIG_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct DSREG_JOIN_INFO {
     pub joinType: DSREG_JOIN_TYPE,
@@ -6603,7 +6598,6 @@ impl ::core::default::Default for LOCALGROUP_MEMBERS_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct LOCALGROUP_MEMBERS_INFO_1 {
     pub lgrmi1_sid: super::super::Foundation::PSID,
@@ -6643,7 +6637,6 @@ impl ::core::default::Default for LOCALGROUP_MEMBERS_INFO_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct LOCALGROUP_MEMBERS_INFO_2 {
     pub lgrmi2_sid: super::super::Foundation::PSID,

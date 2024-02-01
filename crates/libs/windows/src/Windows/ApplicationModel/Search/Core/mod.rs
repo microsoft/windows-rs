@@ -104,7 +104,6 @@ impl SearchSuggestion {
             (::windows_core::Interface::vtable(this).DetailText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Image(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -187,7 +186,6 @@ impl SearchSuggestionManager {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetQueryWithSearchQueryLinguisticDetails)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(querytext), ::core::mem::transmute_copy(language), linguisticdetails.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Suggestions(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IObservableVector<SearchSuggestion>> {
         let this = self;

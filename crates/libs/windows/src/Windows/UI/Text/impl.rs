@@ -522,7 +522,6 @@ impl ITextCharacterFormat_Vtbl {
         iid == &<ITextCharacterFormat as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Storage_Streams\"`"]
 #[cfg(feature = "Storage_Streams")]
 pub trait ITextDocument_Impl: Sized {
     fn CaretType(&self) -> ::windows_core::Result<CaretType>;
@@ -1315,7 +1314,6 @@ impl ITextParagraphFormat_Vtbl {
         iid == &<ITextParagraphFormat as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Storage_Streams\"`"]
 #[cfg(feature = "Storage_Streams")]
 pub trait ITextRange_Impl: Sized {
     fn Character(&self) -> ::windows_core::Result<u16>;
@@ -1854,7 +1852,6 @@ impl ITextRange_Vtbl {
         iid == &<ITextRange as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Storage_Streams\"`"]
 #[cfg(feature = "Storage_Streams")]
 pub trait ITextSelection_Impl: Sized + ITextRange_Impl {
     fn Options(&self) -> ::windows_core::Result<SelectionOptions>;

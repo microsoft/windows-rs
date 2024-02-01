@@ -1,7 +1,6 @@
 ::windows_core::imp::com_interface!(IDisplayDeviceInterop, IDisplayDeviceInterop_Vtbl, 0x64338358_366a_471b_bd56_dd8ef48e439b);
 ::windows_core::imp::interface_hierarchy!(IDisplayDeviceInterop, ::windows_core::IUnknown);
 impl IDisplayDeviceInterop {
-    #[doc = "Required features: `\"Win32_Security\"`"]
     #[cfg(feature = "Win32_Security")]
     pub unsafe fn CreateSharedHandle<P0>(&self, pobject: P0, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::HANDLE>
     where

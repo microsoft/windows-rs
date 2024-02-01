@@ -113,7 +113,6 @@ impl IPwmControllerProvider_Vtbl {
         iid == &<IPwmControllerProvider as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPwmProvider_Impl: Sized {
     fn GetControllers(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IPwmControllerProvider>>;

@@ -242,7 +242,6 @@ where
     ::windows_targets::link!("credui.dll" "system" fn CredUIParseUserNameW(username : ::windows_core::PCWSTR, user : ::windows_core::PWSTR, userbuffersize : u32, domain : ::windows_core::PWSTR, domainbuffersize : u32) -> u32);
     CredUIParseUserNameW(username.into_param().abi(), ::core::mem::transmute(user.as_ptr()), user.len().try_into().unwrap(), ::core::mem::transmute(domain.as_ptr()), domain.len().try_into().unwrap())
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CredUIPromptForCredentialsA<P0>(puiinfo: ::core::option::Option<*const CREDUI_INFOA>, psztargetname: P0, pcontext: ::core::option::Option<*const SecHandle>, dwautherror: u32, pszusername: &mut [u8], pszpassword: &mut [u8], save: ::core::option::Option<*mut super::super::Foundation::BOOL>, dwflags: CREDUI_FLAGS) -> u32
@@ -252,7 +251,6 @@ where
     ::windows_targets::link!("credui.dll" "system" fn CredUIPromptForCredentialsA(puiinfo : *const CREDUI_INFOA, psztargetname : ::windows_core::PCSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : ::windows_core::PSTR, ulusernamebuffersize : u32, pszpassword : ::windows_core::PSTR, ulpasswordbuffersize : u32, save : *mut super::super::Foundation:: BOOL, dwflags : CREDUI_FLAGS) -> u32);
     CredUIPromptForCredentialsA(::core::mem::transmute(puiinfo.unwrap_or(::std::ptr::null())), psztargetname.into_param().abi(), ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())), dwautherror, ::core::mem::transmute(pszusername.as_ptr()), pszusername.len().try_into().unwrap(), ::core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), ::core::mem::transmute(save.unwrap_or(::std::ptr::null_mut())), dwflags)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CredUIPromptForCredentialsW<P0>(puiinfo: ::core::option::Option<*const CREDUI_INFOW>, psztargetname: P0, pcontext: ::core::option::Option<*const SecHandle>, dwautherror: u32, pszusername: &mut [u16], pszpassword: &mut [u16], save: ::core::option::Option<*mut super::super::Foundation::BOOL>, dwflags: CREDUI_FLAGS) -> u32
@@ -262,14 +260,12 @@ where
     ::windows_targets::link!("credui.dll" "system" fn CredUIPromptForCredentialsW(puiinfo : *const CREDUI_INFOW, psztargetname : ::windows_core::PCWSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : ::windows_core::PWSTR, ulusernamebuffersize : u32, pszpassword : ::windows_core::PWSTR, ulpasswordbuffersize : u32, save : *mut super::super::Foundation:: BOOL, dwflags : CREDUI_FLAGS) -> u32);
     CredUIPromptForCredentialsW(::core::mem::transmute(puiinfo.unwrap_or(::std::ptr::null())), psztargetname.into_param().abi(), ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())), dwautherror, ::core::mem::transmute(pszusername.as_ptr()), pszusername.len().try_into().unwrap(), ::core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), ::core::mem::transmute(save.unwrap_or(::std::ptr::null_mut())), dwflags)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CredUIPromptForWindowsCredentialsA(puiinfo: ::core::option::Option<*const CREDUI_INFOA>, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: ::core::option::Option<*const ::core::ffi::c_void>, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut ::core::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: ::core::option::Option<*mut super::super::Foundation::BOOL>, dwflags: CREDUIWIN_FLAGS) -> u32 {
     ::windows_targets::link!("credui.dll" "system" fn CredUIPromptForWindowsCredentialsA(puiinfo : *const CREDUI_INFOA, dwautherror : u32, pulauthpackage : *mut u32, pvinauthbuffer : *const ::core::ffi::c_void, ulinauthbuffersize : u32, ppvoutauthbuffer : *mut *mut ::core::ffi::c_void, puloutauthbuffersize : *mut u32, pfsave : *mut super::super::Foundation:: BOOL, dwflags : CREDUIWIN_FLAGS) -> u32);
     CredUIPromptForWindowsCredentialsA(::core::mem::transmute(puiinfo.unwrap_or(::std::ptr::null())), dwautherror, pulauthpackage, ::core::mem::transmute(pvinauthbuffer.unwrap_or(::std::ptr::null())), ulinauthbuffersize, ppvoutauthbuffer, puloutauthbuffersize, ::core::mem::transmute(pfsave.unwrap_or(::std::ptr::null_mut())), dwflags)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CredUIPromptForWindowsCredentialsW(puiinfo: ::core::option::Option<*const CREDUI_INFOW>, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: ::core::option::Option<*const ::core::ffi::c_void>, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut ::core::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: ::core::option::Option<*mut super::super::Foundation::BOOL>, dwflags: CREDUIWIN_FLAGS) -> u32 {
@@ -865,14 +861,12 @@ pub unsafe fn SCardTransmit(hcard: usize, piosendpci: *const SCARD_IO_REQUEST, p
     ::windows_targets::link!("winscard.dll" "system" fn SCardTransmit(hcard : usize, piosendpci : *const SCARD_IO_REQUEST, pbsendbuffer : *const u8, cbsendlength : u32, piorecvpci : *mut SCARD_IO_REQUEST, pbrecvbuffer : *mut u8, pcbrecvlength : *mut u32) -> i32);
     SCardTransmit(hcard, piosendpci, ::core::mem::transmute(pbsendbuffer.as_ptr()), pbsendbuffer.len().try_into().unwrap(), ::core::mem::transmute(piorecvpci.unwrap_or(::std::ptr::null_mut())), pbrecvbuffer, pcbrecvlength)
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn SCardUIDlgSelectCardA(param0: *mut OPENCARDNAME_EXA) -> i32 {
     ::windows_targets::link!("scarddlg.dll" "system" fn SCardUIDlgSelectCardA(param0 : *mut OPENCARDNAME_EXA) -> i32);
     SCardUIDlgSelectCardA(param0)
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32 {
@@ -1894,7 +1888,6 @@ impl ::core::default::Default for CREDSSP_CRED_EX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct CREDUI_INFOA {
     pub cbSize: u32,
@@ -1936,7 +1929,6 @@ impl ::core::default::Default for CREDUI_INFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct CREDUI_INFOW {
     pub cbSize: u32,
@@ -2139,7 +2131,6 @@ impl ::core::default::Default for OPENCARDNAMEW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct OPENCARDNAME_EXA {
     pub dwStructSize: u32,
@@ -2204,7 +2195,6 @@ impl ::core::default::Default for OPENCARDNAME_EXA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct OPENCARDNAME_EXW {
     pub dwStructSize: u32,

@@ -1,11 +1,8 @@
 #[cfg(feature = "System_Diagnostics_DevicePortal")]
-#[doc = "Required features: `\"System_Diagnostics_DevicePortal\"`"]
 pub mod DevicePortal;
 #[cfg(feature = "System_Diagnostics_Telemetry")]
-#[doc = "Required features: `\"System_Diagnostics_Telemetry\"`"]
 pub mod Telemetry;
 #[cfg(feature = "System_Diagnostics_TraceReporting")]
-#[doc = "Required features: `\"System_Diagnostics_TraceReporting\"`"]
 pub mod TraceReporting;
 ::windows_core::imp::com_interface!(IDiagnosticActionResult, IDiagnosticActionResult_Vtbl, 0xc265a296_e73b_4097_b28f_3442f03dd831);
 #[repr(C)]
@@ -212,7 +209,6 @@ impl DiagnosticActionResult {
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Results(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -239,7 +235,6 @@ unsafe impl ::core::marker::Sync for DiagnosticActionResult {}
 pub struct DiagnosticInvoker(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(DiagnosticInvoker, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl DiagnosticInvoker {
-    #[doc = "Required features: `\"Data_Json\"`"]
     #[cfg(feature = "Data_Json")]
     pub fn RunDiagnosticActionAsync<P0>(&self, context: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>
     where
@@ -408,7 +403,6 @@ impl ProcessDiagnosticInfo {
             (::windows_core::Interface::vtable(this).CpuUsage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAppDiagnosticInfos(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::AppDiagnosticInfo>> {
         let this = &::windows_core::Interface::cast::<IProcessDiagnosticInfo2>(self)?;
@@ -424,7 +418,6 @@ impl ProcessDiagnosticInfo {
             (::windows_core::Interface::vtable(this).IsPackaged)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetForProcesses() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ProcessDiagnosticInfo>> {
         Self::IProcessDiagnosticInfoStatics(|this| unsafe {

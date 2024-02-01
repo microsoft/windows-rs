@@ -225,7 +225,6 @@ impl XboxLiveDeviceAddress {
             (::windows_core::Interface::vtable(this).GetSnapshotAsBase64)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetSnapshotAsBuffer(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -275,7 +274,6 @@ impl XboxLiveDeviceAddress {
             (::windows_core::Interface::vtable(this).CreateFromSnapshotBase64)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(base64), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromSnapshotBuffer<P0>(buffer: P0) -> ::windows_core::Result<XboxLiveDeviceAddress>
     where
@@ -618,7 +616,6 @@ impl XboxLiveEndpointPairTemplate {
             (::windows_core::Interface::vtable(this).AcceptorBoundPortRangeUpper)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EndpointPairs(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveEndpointPair>> {
         let this = self;
@@ -633,7 +630,6 @@ impl XboxLiveEndpointPairTemplate {
             (::windows_core::Interface::vtable(this).GetTemplateByName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Templates() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveEndpointPairTemplate>> {
         Self::IXboxLiveEndpointPairTemplateStatics(|this| unsafe {
@@ -703,7 +699,6 @@ impl XboxLiveQualityOfServiceMeasurement {
             (::windows_core::Interface::vtable(this).MeasureAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMetricResultsForDevice<P0>(&self, deviceaddress: P0) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>>
     where
@@ -715,7 +710,6 @@ impl XboxLiveQualityOfServiceMeasurement {
             (::windows_core::Interface::vtable(this).GetMetricResultsForDevice)(::windows_core::Interface::as_raw(this), deviceaddress.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMetricResultsForMetric(&self, metric: XboxLiveQualityOfServiceMetric) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>> {
         let this = self;
@@ -744,7 +738,6 @@ impl XboxLiveQualityOfServiceMeasurement {
             (::windows_core::Interface::vtable(this).GetPrivatePayloadResult)(::windows_core::Interface::as_raw(this), deviceaddress.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Metrics(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<XboxLiveQualityOfServiceMetric>> {
         let this = self;
@@ -753,7 +746,6 @@ impl XboxLiveQualityOfServiceMeasurement {
             (::windows_core::Interface::vtable(this).Metrics)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DeviceAddresses(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<XboxLiveDeviceAddress>> {
         let this = self;
@@ -802,7 +794,6 @@ impl XboxLiveQualityOfServiceMeasurement {
             (::windows_core::Interface::vtable(this).NumberOfResultsPending)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MetricResults(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServiceMetricResult>> {
         let this = self;
@@ -811,7 +802,6 @@ impl XboxLiveQualityOfServiceMeasurement {
             (::windows_core::Interface::vtable(this).MetricResults)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PrivatePayloadResults(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<XboxLiveQualityOfServicePrivatePayloadResult>> {
         let this = self;
@@ -853,7 +843,6 @@ impl XboxLiveQualityOfServiceMeasurement {
     pub fn SetIsSystemInboundBandwidthConstrained(value: bool) -> ::windows_core::Result<()> {
         Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe { (::windows_core::Interface::vtable(this).SetIsSystemInboundBandwidthConstrained)(::windows_core::Interface::as_raw(this), value).ok() })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn PublishedPrivatePayload() -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         Self::IXboxLiveQualityOfServiceMeasurementStatics(|this| unsafe {
@@ -861,7 +850,6 @@ impl XboxLiveQualityOfServiceMeasurement {
             (::windows_core::Interface::vtable(this).PublishedPrivatePayload)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetPublishedPrivatePayload<P0>(value: P0) -> ::windows_core::Result<()>
     where
@@ -958,7 +946,6 @@ impl XboxLiveQualityOfServicePrivatePayloadResult {
             (::windows_core::Interface::vtable(this).DeviceAddress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Value(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;

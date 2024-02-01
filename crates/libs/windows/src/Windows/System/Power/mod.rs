@@ -1,10 +1,5 @@
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    IBackgroundEnergyManagerStatics,
-    IBackgroundEnergyManagerStatics_Vtbl,
-    0xb3161d95_1180_4376_96e1_4095568147ce
-);
+::windows_core::imp::com_interface!(IBackgroundEnergyManagerStatics, IBackgroundEnergyManagerStatics_Vtbl, 0xb3161d95_1180_4376_96e1_4095568147ce);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -60,12 +55,7 @@ pub struct IBackgroundEnergyManagerStatics_Vtbl {
     RemoveRecentEnergyUsageReturnedToLow: usize,
 }
 #[cfg(feature = "deprecated")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"deprecated\"`"]
-    IForegroundEnergyManagerStatics,
-    IForegroundEnergyManagerStatics_Vtbl,
-    0x9ff86872_e677_4814_9a20_5337ca732b98
-);
+::windows_core::imp::com_interface!(IForegroundEnergyManagerStatics, IForegroundEnergyManagerStatics_Vtbl, 0x9ff86872_e677_4814_9a20_5337ca732b98);
 #[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
@@ -133,12 +123,10 @@ pub struct IPowerManagerStatics_Vtbl {
     pub RemainingDischargeTimeChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveRemainingDischargeTimeChanged: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 pub struct BackgroundEnergyManager;
 #[cfg(feature = "deprecated")]
 impl BackgroundEnergyManager {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn LowUsageLevel() -> ::windows_core::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
@@ -146,7 +134,6 @@ impl BackgroundEnergyManager {
             (::windows_core::Interface::vtable(this).LowUsageLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn NearMaxAcceptableUsageLevel() -> ::windows_core::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
@@ -154,7 +141,6 @@ impl BackgroundEnergyManager {
             (::windows_core::Interface::vtable(this).NearMaxAcceptableUsageLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn MaxAcceptableUsageLevel() -> ::windows_core::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
@@ -162,7 +148,6 @@ impl BackgroundEnergyManager {
             (::windows_core::Interface::vtable(this).MaxAcceptableUsageLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ExcessiveUsageLevel() -> ::windows_core::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
@@ -170,7 +155,6 @@ impl BackgroundEnergyManager {
             (::windows_core::Interface::vtable(this).ExcessiveUsageLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn NearTerminationUsageLevel() -> ::windows_core::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
@@ -178,7 +162,6 @@ impl BackgroundEnergyManager {
             (::windows_core::Interface::vtable(this).NearTerminationUsageLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn TerminationUsageLevel() -> ::windows_core::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
@@ -186,7 +169,6 @@ impl BackgroundEnergyManager {
             (::windows_core::Interface::vtable(this).TerminationUsageLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RecentEnergyUsage() -> ::windows_core::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
@@ -194,7 +176,6 @@ impl BackgroundEnergyManager {
             (::windows_core::Interface::vtable(this).RecentEnergyUsage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RecentEnergyUsageLevel() -> ::windows_core::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
@@ -202,7 +183,6 @@ impl BackgroundEnergyManager {
             (::windows_core::Interface::vtable(this).RecentEnergyUsageLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RecentEnergyUsageIncreased<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -213,12 +193,10 @@ impl BackgroundEnergyManager {
             (::windows_core::Interface::vtable(this).RecentEnergyUsageIncreased)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RemoveRecentEnergyUsageIncreased(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveRecentEnergyUsageIncreased)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RecentEnergyUsageReturnedToLow<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -229,7 +207,6 @@ impl BackgroundEnergyManager {
             (::windows_core::Interface::vtable(this).RecentEnergyUsageReturnedToLow)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RemoveRecentEnergyUsageReturnedToLow(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveRecentEnergyUsageReturnedToLow)(::windows_core::Interface::as_raw(this), token).ok() })
@@ -245,12 +222,10 @@ impl BackgroundEnergyManager {
 impl ::windows_core::RuntimeName for BackgroundEnergyManager {
     const NAME: &'static str = "Windows.System.Power.BackgroundEnergyManager";
 }
-#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 pub struct ForegroundEnergyManager;
 #[cfg(feature = "deprecated")]
 impl ForegroundEnergyManager {
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn LowUsageLevel() -> ::windows_core::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
@@ -258,7 +233,6 @@ impl ForegroundEnergyManager {
             (::windows_core::Interface::vtable(this).LowUsageLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn NearMaxAcceptableUsageLevel() -> ::windows_core::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
@@ -266,7 +240,6 @@ impl ForegroundEnergyManager {
             (::windows_core::Interface::vtable(this).NearMaxAcceptableUsageLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn MaxAcceptableUsageLevel() -> ::windows_core::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
@@ -274,7 +247,6 @@ impl ForegroundEnergyManager {
             (::windows_core::Interface::vtable(this).MaxAcceptableUsageLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ExcessiveUsageLevel() -> ::windows_core::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
@@ -282,7 +254,6 @@ impl ForegroundEnergyManager {
             (::windows_core::Interface::vtable(this).ExcessiveUsageLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RecentEnergyUsage() -> ::windows_core::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
@@ -290,7 +261,6 @@ impl ForegroundEnergyManager {
             (::windows_core::Interface::vtable(this).RecentEnergyUsage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RecentEnergyUsageLevel() -> ::windows_core::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
@@ -298,7 +268,6 @@ impl ForegroundEnergyManager {
             (::windows_core::Interface::vtable(this).RecentEnergyUsageLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RecentEnergyUsageIncreased<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -309,12 +278,10 @@ impl ForegroundEnergyManager {
             (::windows_core::Interface::vtable(this).RecentEnergyUsageIncreased)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RemoveRecentEnergyUsageIncreased(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveRecentEnergyUsageIncreased)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RecentEnergyUsageReturnedToLow<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -325,7 +292,6 @@ impl ForegroundEnergyManager {
             (::windows_core::Interface::vtable(this).RecentEnergyUsageReturnedToLow)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn RemoveRecentEnergyUsageReturnedToLow(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveRecentEnergyUsageReturnedToLow)(::windows_core::Interface::as_raw(this), token).ok() })

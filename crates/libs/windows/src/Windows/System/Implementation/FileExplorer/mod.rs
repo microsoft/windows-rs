@@ -71,7 +71,6 @@ pub struct ISysStorageProviderHandlerFactory_Vtbl {
 ::windows_core::imp::com_interface!(ISysStorageProviderHttpRequestProvider, ISysStorageProviderHttpRequestProvider_Vtbl, 0xcb6fefb6_e76a_5c25_a33e_3e78a6e0e0ce);
 ::windows_core::imp::interface_hierarchy!(ISysStorageProviderHttpRequestProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ISysStorageProviderHttpRequestProvider {
-    #[doc = "Required features: `\"Web_Http\"`"]
     #[cfg(feature = "Web_Http")]
     pub fn SendRequestAsync<P0>(&self, request: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>
     where

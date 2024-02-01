@@ -87,7 +87,6 @@ impl PnpObject {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = self;
@@ -103,7 +102,6 @@ impl PnpObject {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Update)(::windows_core::Interface::as_raw(this), updateinfo.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateFromIdAsync<P0>(r#type: PnpObjectType, id: &::windows_core::HSTRING, requestedproperties: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<PnpObject>>
     where
@@ -114,7 +112,6 @@ impl PnpObject {
             (::windows_core::Interface::vtable(this).CreateFromIdAsync)(::windows_core::Interface::as_raw(this), r#type, ::core::mem::transmute_copy(id), requestedproperties.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsync<P0>(r#type: PnpObjectType, requestedproperties: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>
     where
@@ -125,7 +122,6 @@ impl PnpObject {
             (::windows_core::Interface::vtable(this).FindAllAsync)(::windows_core::Interface::as_raw(this), r#type, requestedproperties.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsyncAqsFilter<P0>(r#type: PnpObjectType, requestedproperties: P0, aqsfilter: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>
     where
@@ -136,7 +132,6 @@ impl PnpObject {
             (::windows_core::Interface::vtable(this).FindAllAsyncAqsFilter)(::windows_core::Interface::as_raw(this), r#type, requestedproperties.into_param().abi(), ::core::mem::transmute_copy(aqsfilter), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWatcher<P0>(r#type: PnpObjectType, requestedproperties: P0) -> ::windows_core::Result<PnpObjectWatcher>
     where
@@ -147,7 +142,6 @@ impl PnpObject {
             (::windows_core::Interface::vtable(this).CreateWatcher)(::windows_core::Interface::as_raw(this), r#type, requestedproperties.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWatcherAqsFilter<P0>(r#type: PnpObjectType, requestedproperties: P0, aqsfilter: &::windows_core::HSTRING) -> ::windows_core::Result<PnpObjectWatcher>
     where
@@ -176,7 +170,6 @@ impl ::windows_core::RuntimeName for PnpObject {
 }
 unsafe impl ::core::marker::Send for PnpObject {}
 unsafe impl ::core::marker::Sync for PnpObject {}
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -187,7 +180,6 @@ pub struct PnpObjectCollection(::windows_core::IUnknown);
 ::windows_core::imp::required_hierarchy!(PnpObjectCollection, super::super::super::Foundation::Collections::IIterable::<PnpObject>, super::super::super::Foundation::Collections::IVectorView::<PnpObject>);
 #[cfg(feature = "Foundation_Collections")]
 impl PnpObjectCollection {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IIterator<PnpObject>> {
         let this = &::windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<PnpObject>>(self)?;
@@ -196,7 +188,6 @@ impl PnpObjectCollection {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<PnpObject> {
         let this = self;
@@ -205,7 +196,6 @@ impl PnpObjectCollection {
             (::windows_core::Interface::vtable(this).GetAt)(::windows_core::Interface::as_raw(this), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -214,7 +204,6 @@ impl PnpObjectCollection {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows_core::Result<bool>
     where
@@ -226,7 +215,6 @@ impl PnpObjectCollection {
             (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<PnpObject>]) -> ::windows_core::Result<u32> {
         let this = self;
@@ -288,7 +276,6 @@ impl PnpObjectUpdate {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = self;

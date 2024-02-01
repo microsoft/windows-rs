@@ -42,7 +42,6 @@ where
     ::windows_targets::link!("mscoree.dll" "system" fn CorBindToRuntime(pwszversion : ::windows_core::PCWSTR, pwszbuildflavor : ::windows_core::PCWSTR, rclsid : *const ::windows_core::GUID, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CorBindToRuntime(pwszversion.into_param().abi(), pwszbuildflavor.into_param().abi(), rclsid, riid, ppv).ok()
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CorBindToRuntimeByCfg<P0>(pcfgstream: P0, reserved: u32, startupflags: u32, rclsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -76,7 +75,6 @@ pub unsafe fn CorExitProcess(exitcode: i32) {
     ::windows_targets::link!("mscoree.dll" "system" fn CorExitProcess(exitcode : i32));
     CorExitProcess(exitcode)
 }
-#[doc = "Required features: `\"Win32_System_Threading\"`"]
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
 pub unsafe fn CorLaunchApplication<P0>(dwclickoncehost: HOST_TYPE, pwzappfullname: P0, dwmanifestpaths: u32, ppwzmanifestpaths: *const ::windows_core::PCWSTR, dwactivationdata: u32, ppwzactivationdata: *const ::windows_core::PCWSTR, lpprocessinformation: *mut super::Threading::PROCESS_INFORMATION) -> ::windows_core::Result<()>
@@ -291,7 +289,6 @@ impl ICLRAssemblyIdentityManager {
     {
         (::windows_core::Interface::vtable(self).GetBindingIdentityFromFile)(::windows_core::Interface::as_raw(self), pwzfilepath.into_param().abi(), dwflags, ::core::mem::transmute(pwzbuffer), pcchbuffersize).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBindingIdentityFromStream<P0>(&self, pstream: P0, dwflags: u32, pwzbuffer: ::windows_core::PWSTR, pcchbuffersize: *mut u32) -> ::windows_core::Result<()>
     where
@@ -307,7 +304,6 @@ impl ICLRAssemblyIdentityManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReferencedAssembliesFromFile)(::windows_core::Interface::as_raw(self), pwzfilepath.into_param().abi(), dwflags, pexcludeassemblieslist.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetReferencedAssembliesFromStream<P0, P1>(&self, pstream: P0, dwflags: u32, pexcludeassemblieslist: P1) -> ::windows_core::Result<ICLRReferenceAssemblyEnum>
     where
@@ -409,12 +405,10 @@ impl ICLRDebugManager {
     pub unsafe fn EndConnection(&self, dwconnectionid: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EndConnection)(::windows_core::Interface::as_raw(self), dwconnectionid).ok()
     }
-    #[doc = "Required features: `\"Win32_Security\"`"]
     #[cfg(feature = "Win32_Security")]
     pub unsafe fn SetDacl(&self, pacl: *const super::super::Security::ACL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDacl)(::windows_core::Interface::as_raw(self), pacl).ok()
     }
-    #[doc = "Required features: `\"Win32_Security\"`"]
     #[cfg(feature = "Win32_Security")]
     pub unsafe fn GetDacl(&self) -> ::windows_core::Result<*mut super::super::Security::ACL> {
         let mut result__ = ::std::mem::zeroed();
@@ -656,13 +650,11 @@ impl ICLRMetaHost {
     {
         (::windows_core::Interface::vtable(self).GetVersionFromFile)(::windows_core::Interface::as_raw(self), pwzfilepath.into_param().abi(), ::core::mem::transmute(pwzbuffer), pcchbuffer).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumerateInstalledRuntimes(&self) -> ::windows_core::Result<super::Com::IEnumUnknown> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumerateInstalledRuntimes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumerateLoadedRuntimes<P0>(&self, hndprocess: P0) -> ::windows_core::Result<super::Com::IEnumUnknown>
     where
@@ -706,7 +698,6 @@ pub struct ICLRMetaHost_Vtbl {
 ::windows_core::imp::com_interface!(ICLRMetaHostPolicy, ICLRMetaHostPolicy_Vtbl, 0xe2190695_77b2_492e_8e14_c4b3a7fdd593);
 ::windows_core::imp::interface_hierarchy!(ICLRMetaHostPolicy, ::windows_core::IUnknown);
 impl ICLRMetaHostPolicy {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRequestedRuntime<P0, P1, T>(&self, dwpolicyflags: METAHOST_POLICY_FLAGS, pwzbinary: P0, pcfgstream: P1, pwzversion: ::windows_core::PWSTR, pcchversion: *mut u32, pwzimageversion: ::windows_core::PWSTR, pcchimageversion: *mut u32, pdwconfigflags: *mut u32) -> ::windows_core::Result<T>
     where
@@ -1539,7 +1530,6 @@ pub struct ICorRuntimeHost_Vtbl {
 ::windows_core::imp::com_interface!(ICorThreadpool, ICorThreadpool_Vtbl, 0x84680d3a_b2c1_46e8_acc2_dbc0a359159a);
 ::windows_core::imp::interface_hierarchy!(ICorThreadpool, ::windows_core::IUnknown);
 impl ICorThreadpool {
-    #[doc = "Required features: `\"Win32_System_Threading\"`"]
     #[cfg(feature = "Win32_System_Threading")]
     pub unsafe fn CorRegisterWaitForSingleObject<P0, P1>(&self, phnewwaitobject: *const super::super::Foundation::HANDLE, hwaitobject: P0, callback: super::Threading::WAITORTIMERCALLBACK, context: *const ::core::ffi::c_void, timeout: u32, executeonlyonce: P1) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -1557,7 +1547,6 @@ impl ICorThreadpool {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CorUnregisterWait)(::windows_core::Interface::as_raw(self), hwaitobject.into_param().abi(), completionevent.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Threading\"`"]
     #[cfg(feature = "Win32_System_Threading")]
     pub unsafe fn CorQueueUserWorkItem<P0>(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const ::core::ffi::c_void, executeonlyonce: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -1566,7 +1555,6 @@ impl ICorThreadpool {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CorQueueUserWorkItem)(::windows_core::Interface::as_raw(self), function, context, executeonlyonce.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Threading\"`"]
     #[cfg(feature = "Win32_System_Threading")]
     pub unsafe fn CorCreateTimer(&self, phnewtimer: *const super::super::Foundation::HANDLE, callback: super::Threading::WAITORTIMERCALLBACK, parameter: *const ::core::ffi::c_void, duetime: u32, period: u32) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1587,7 +1575,6 @@ impl ICorThreadpool {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CorDeleteTimer)(::windows_core::Interface::as_raw(self), timer.into_param().abi(), completionevent.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_IO\"`"]
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn CorBindIoCompletionCallback<P0>(&self, filehandle: P0, callback: super::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> ::windows_core::Result<()>
     where
@@ -1595,7 +1582,6 @@ impl ICorThreadpool {
     {
         (::windows_core::Interface::vtable(self).CorBindIoCompletionCallback)(::windows_core::Interface::as_raw(self), filehandle.into_param().abi(), callback).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Threading\"`"]
     #[cfg(feature = "Win32_System_Threading")]
     pub unsafe fn CorCallOrQueueUserWorkItem(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const ::core::ffi::c_void) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1790,12 +1776,10 @@ pub struct IHostAssemblyManager_Vtbl {
 ::windows_core::imp::com_interface!(IHostAssemblyStore, IHostAssemblyStore_Vtbl, 0x7b102a88_3f7f_496d_8fa2_c35374e01af3);
 ::windows_core::imp::interface_hierarchy!(IHostAssemblyStore, ::windows_core::IUnknown);
 impl IHostAssemblyStore {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ProvideAssembly(&self, pbindinfo: *const AssemblyBindInfo, passemblyid: *mut u64, pcontext: *mut u64, ppstmassemblyimage: *mut ::core::option::Option<super::Com::IStream>, ppstmpdb: *mut ::core::option::Option<super::Com::IStream>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ProvideAssembly)(::windows_core::Interface::as_raw(self), pbindinfo, passemblyid, pcontext, ::core::mem::transmute(ppstmassemblyimage), ::core::mem::transmute(ppstmpdb)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ProvideModule(&self, pbindinfo: *const ModuleBindInfo, pdwmoduleid: *mut u32, ppstmmoduleimage: *mut ::core::option::Option<super::Com::IStream>, ppstmpdb: *mut ::core::option::Option<super::Com::IStream>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ProvideModule)(::windows_core::Interface::as_raw(self), pbindinfo, pdwmoduleid, ::core::mem::transmute(ppstmmoduleimage), ::core::mem::transmute(ppstmpdb)).ok()
@@ -2268,7 +2252,6 @@ impl IHostTaskManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentTask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Threading\"`"]
     #[cfg(feature = "Win32_System_Threading")]
     pub unsafe fn CreateTask(&self, dwstacksize: u32, pstartaddress: super::Threading::LPTHREAD_START_ROUTINE, pparameter: *const ::core::ffi::c_void) -> ::windows_core::Result<IHostTask> {
         let mut result__ = ::std::mem::zeroed();
@@ -2357,7 +2340,6 @@ pub struct IHostTaskManager_Vtbl {
 ::windows_core::imp::com_interface!(IHostThreadpoolManager, IHostThreadpoolManager_Vtbl, 0x983d50e2_cb15_466b_80fc_845dc6e8c5fd);
 ::windows_core::imp::interface_hierarchy!(IHostThreadpoolManager, ::windows_core::IUnknown);
 impl IHostThreadpoolManager {
-    #[doc = "Required features: `\"Win32_System_Threading\"`"]
     #[cfg(feature = "Win32_System_Threading")]
     pub unsafe fn QueueUserWorkItem(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const ::core::ffi::c_void, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueueUserWorkItem)(::windows_core::Interface::as_raw(self), function, context, flags).ok()
@@ -3363,7 +3345,6 @@ impl ::core::default::Default for ModuleBindInfo {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct StackOverflowInfo {
     pub soType: StackOverflowType,

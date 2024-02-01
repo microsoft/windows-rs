@@ -29,7 +29,6 @@ impl DesktopWindowTarget {
             (::windows_core::Interface::vtable(this).Compositor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI_Core\"`"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows_core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows_core::Interface::cast::<super::ICompositionObject>(self)?;
@@ -95,7 +94,6 @@ impl DesktopWindowTarget {
         let this = &::windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).StopAnimationGroup)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows_core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows_core::Interface::cast::<super::ICompositionObject3>(self)?;

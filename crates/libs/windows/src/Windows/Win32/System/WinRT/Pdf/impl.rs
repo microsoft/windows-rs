@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi"))]
 pub trait IPdfRendererNative_Impl: Sized {
     fn RenderPageToSurface(&self, pdfpage: ::core::option::Option<&::windows_core::IUnknown>, psurface: ::core::option::Option<&super::super::super::Graphics::Dxgi::IDXGISurface>, offset: &super::super::super::Foundation::POINT, prenderparams: *const PDF_RENDER_PARAMS) -> ::windows_core::Result<()>;

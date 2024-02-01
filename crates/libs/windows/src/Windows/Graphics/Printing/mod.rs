@@ -1,14 +1,10 @@
 #[cfg(feature = "Graphics_Printing_OptionDetails")]
-#[doc = "Required features: `\"Graphics_Printing_OptionDetails\"`"]
 pub mod OptionDetails;
 #[cfg(feature = "Graphics_Printing_PrintSupport")]
-#[doc = "Required features: `\"Graphics_Printing_PrintSupport\"`"]
 pub mod PrintSupport;
 #[cfg(feature = "Graphics_Printing_PrintTicket")]
-#[doc = "Required features: `\"Graphics_Printing_PrintTicket\"`"]
 pub mod PrintTicket;
 #[cfg(feature = "Graphics_Printing_Workflow")]
-#[doc = "Required features: `\"Graphics_Printing_Workflow\"`"]
 pub mod Workflow;
 ::windows_core::imp::com_interface!(IPrintDocumentSource, IPrintDocumentSource_Vtbl, 0xdedc0c30_f1eb_47df_aae6_ed5427511f01);
 ::windows_core::imp::interface_hierarchy!(IPrintDocumentSource, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -340,7 +336,6 @@ pub struct IPrintTaskOptionsCoreProperties_Vtbl {
 ::windows_core::imp::com_interface!(IPrintTaskOptionsCoreUIConfiguration, IPrintTaskOptionsCoreUIConfiguration_Vtbl, 0x62e69e23_9a1e_4336_b74f_3cc7f4cff709);
 ::windows_core::imp::interface_hierarchy!(IPrintTaskOptionsCoreUIConfiguration, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IPrintTaskOptionsCoreUIConfiguration {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DisplayedOptions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -696,7 +691,6 @@ unsafe impl ::core::marker::Sync for PrintPageRangeOptions {}
 pub struct PrintTask(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PrintTask, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PrintTask {
-    #[doc = "Required features: `\"ApplicationModel_DataTransfer\"`"]
     #[cfg(feature = "ApplicationModel_DataTransfer")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::ApplicationModel::DataTransfer::DataPackagePropertySet> {
         let this = self;
@@ -863,7 +857,6 @@ impl PrintTaskOptions {
             (::windows_core::Interface::vtable(this).Bordering)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetPagePrintTicket<P0>(&self, printpageinfo: P0) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStream>
     where
@@ -882,7 +875,6 @@ impl PrintTaskOptions {
             (::windows_core::Interface::vtable(this).PageRangeOptions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CustomPageRanges(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<PrintPageRange>> {
         let this = &::windows_core::Interface::cast::<IPrintTaskOptions2>(self)?;
@@ -1033,7 +1025,6 @@ impl PrintTaskOptions {
             (::windows_core::Interface::vtable(this).NumberOfCopies)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DisplayedOptions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = &::windows_core::Interface::cast::<IPrintTaskOptionsCoreUIConfiguration>(self)?;

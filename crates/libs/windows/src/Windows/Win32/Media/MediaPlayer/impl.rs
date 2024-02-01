@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFeed_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Xml(&self, count: i32, sortproperty: FEEDS_XML_SORT_PROPERTY, sortorder: FEEDS_XML_SORT_ORDER, filterflags: FEEDS_XML_FILTER_FLAGS, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -509,7 +508,6 @@ impl IFeed_Vtbl {
         iid == &<IFeed as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFeed2_Impl: Sized + IFeed_Impl {
     fn GetItemByEffectiveId(&self, itemeffectiveid: i32) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
@@ -592,7 +590,6 @@ impl IFeed2_Vtbl {
         iid == &<IFeed2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IFeed as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFeedEnclosure_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Url(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -754,7 +751,6 @@ impl IFeedEnclosure_Vtbl {
         iid == &<IFeedEnclosure as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFeedEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Error(&self) -> ::windows_core::Result<()>;
@@ -827,7 +823,6 @@ impl IFeedEvents_Vtbl {
         iid == &<IFeedEvents as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFeedFolder_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Feeds(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
@@ -1060,7 +1055,6 @@ impl IFeedFolder_Vtbl {
         iid == &<IFeedFolder as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFeedFolderEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Error(&self) -> ::windows_core::Result<()>;
@@ -1189,7 +1183,6 @@ impl IFeedFolderEvents_Vtbl {
         iid == &<IFeedFolderEvents as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFeedItem_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Xml(&self, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1415,7 +1408,6 @@ impl IFeedItem_Vtbl {
         iid == &<IFeedItem as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFeedItem2_Impl: Sized + IFeedItem_Impl {
     fn EffectiveId(&self) -> ::windows_core::Result<i32>;
@@ -1442,7 +1434,6 @@ impl IFeedItem2_Vtbl {
         iid == &<IFeedItem2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IFeedItem as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait IFeedsEnum_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -1498,7 +1489,6 @@ impl IFeedsEnum_Vtbl {
         iid == &<IFeedsEnum as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFeedsManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn RootFolder(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
@@ -1720,7 +1710,6 @@ impl IWMPAudioRenderConfig_Vtbl {
         iid == &<IWMPAudioRenderConfig as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPCdrom_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn driveSpecifier(&self, pbstrdrive: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -1764,7 +1753,6 @@ impl IWMPCdrom_Vtbl {
         iid == &<IWMPCdrom as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPCdromBurn_Impl: Sized {
     fn isAvailable(&self, bstritem: &::windows_core::BSTR, pisavailable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -1885,7 +1873,6 @@ impl IWMPCdromBurn_Vtbl {
         iid == &<IWMPCdromBurn as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPCdromCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn count(&self, plcount: *mut i32) -> ::windows_core::Result<()>;
@@ -1976,7 +1963,6 @@ impl IWMPCdromRip_Vtbl {
         iid == &<IWMPCdromRip as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPClosedCaption_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SAMIStyle(&self, pbstrsamistyle: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -2049,7 +2035,6 @@ impl IWMPClosedCaption_Vtbl {
         iid == &<IWMPClosedCaption as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPClosedCaption2_Impl: Sized + IWMPClosedCaption_Impl {
     fn SAMILangCount(&self, plcount: *mut i32) -> ::windows_core::Result<()>;
@@ -2244,7 +2229,6 @@ impl IWMPContentContainerList_Vtbl {
         iid == &<IWMPContentContainerList as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPContentPartner_Impl: Sized {
     fn SetCallback(&self, pcallback: ::core::option::Option<&IWMPContentPartnerCallback>) -> ::windows_core::Result<()>;
@@ -2550,7 +2534,6 @@ impl IWMPContentPartnerCallback_Vtbl {
         iid == &<IWMPContentPartnerCallback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPControls_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn get_isAvailable(&self, bstritem: &::windows_core::BSTR, pisavailable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -2685,7 +2668,6 @@ impl IWMPControls_Vtbl {
         iid == &<IWMPControls as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPControls2_Impl: Sized + IWMPControls_Impl {
     fn step(&self, lstep: i32) -> ::windows_core::Result<()>;
@@ -2706,7 +2688,6 @@ impl IWMPControls2_Vtbl {
         iid == &<IWMPControls2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWMPControls as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPControls3_Impl: Sized + IWMPControls2_Impl {
     fn audioLanguageCount(&self, plcount: *mut i32) -> ::windows_core::Result<()>;
@@ -2820,7 +2801,6 @@ impl IWMPConvert_Vtbl {
         iid == &<IWMPConvert as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPCore_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn close(&self) -> ::windows_core::Result<()>;
@@ -3044,7 +3024,6 @@ impl IWMPCore_Vtbl {
         iid == &<IWMPCore as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPCore2_Impl: Sized + IWMPCore_Impl {
     fn dvd(&self) -> ::windows_core::Result<IWMPDVD>;
@@ -3071,7 +3050,6 @@ impl IWMPCore2_Vtbl {
         iid == &<IWMPCore2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWMPCore as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPCore3_Impl: Sized + IWMPCore2_Impl {
     fn newPlaylist(&self, bstrname: &::windows_core::BSTR, bstrurl: &::windows_core::BSTR) -> ::windows_core::Result<IWMPPlaylist>;
@@ -3114,7 +3092,6 @@ impl IWMPCore3_Vtbl {
         iid == &<IWMPCore3 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWMPCore as ::windows_core::Interface>::IID || iid == &<IWMPCore2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPDVD_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn get_isAvailable(&self, bstritem: &::windows_core::BSTR, pisavailable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -3173,7 +3150,6 @@ impl IWMPDVD_Vtbl {
         iid == &<IWMPDVD as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPDownloadCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn id(&self, plid: *mut i32) -> ::windows_core::Result<()>;
@@ -3244,7 +3220,6 @@ impl IWMPDownloadCollection_Vtbl {
         iid == &<IWMPDownloadCollection as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPDownloadItem_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn sourceURL(&self, pbstrurl: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -3317,7 +3292,6 @@ impl IWMPDownloadItem_Vtbl {
         iid == &<IWMPDownloadItem as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPDownloadItem2_Impl: Sized + IWMPDownloadItem_Impl {
     fn getItemInfo(&self, bstritemname: &::windows_core::BSTR, pbstrval: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -3338,7 +3312,6 @@ impl IWMPDownloadItem2_Vtbl {
         iid == &<IWMPDownloadItem2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWMPDownloadItem as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPDownloadManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn getDownloadCollection(&self, lcollectionid: i32) -> ::windows_core::Result<IWMPDownloadCollection>;
@@ -3381,7 +3354,6 @@ impl IWMPDownloadManager_Vtbl {
         iid == &<IWMPDownloadManager as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IWMPEffects_Impl: Sized {
     fn Render(&self, plevels: *mut TimedLevel, hdc: super::super::Graphics::Gdi::HDC, prc: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()>;
@@ -3475,7 +3447,6 @@ impl IWMPEffects_Vtbl {
         iid == &<IWMPEffects as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IWMPEffects2_Impl: Sized + IWMPEffects_Impl {
     fn SetCore(&self, pplayer: ::core::option::Option<&IWMPCore>) -> ::windows_core::Result<()>;
@@ -3534,7 +3505,6 @@ impl IWMPEffects2_Vtbl {
         iid == &<IWMPEffects2 as ::windows_core::Interface>::IID || iid == &<IWMPEffects as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPError_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn clearErrorQueue(&self) -> ::windows_core::Result<()>;
@@ -3585,7 +3555,6 @@ impl IWMPError_Vtbl {
         iid == &<IWMPError as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPErrorItem_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn errorCode(&self, phr: *mut i32) -> ::windows_core::Result<()>;
@@ -3637,7 +3606,6 @@ impl IWMPErrorItem_Vtbl {
         iid == &<IWMPErrorItem as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPErrorItem2_Impl: Sized + IWMPErrorItem_Impl {
     fn condition(&self, plcondition: *mut i32) -> ::windows_core::Result<()>;
@@ -3658,7 +3626,6 @@ impl IWMPErrorItem2_Vtbl {
         iid == &<IWMPErrorItem2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWMPErrorItem as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPEvents_Impl: Sized {
     fn OpenStateChange(&self, newstate: i32);
@@ -3990,7 +3957,6 @@ impl IWMPEvents_Vtbl {
         iid == &<IWMPEvents as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPEvents2_Impl: Sized + IWMPEvents_Impl {
     fn DeviceConnect(&self, pdevice: ::core::option::Option<&IWMPSyncDevice>);
@@ -4049,7 +4015,6 @@ impl IWMPEvents2_Vtbl {
         iid == &<IWMPEvents2 as ::windows_core::Interface>::IID || iid == &<IWMPEvents as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPEvents3_Impl: Sized + IWMPEvents2_Impl {
     fn CdromRipStateChange(&self, pcdromrip: ::core::option::Option<&IWMPCdromRip>, wmprs: WMPRipState);
@@ -4143,7 +4108,6 @@ impl IWMPEvents3_Vtbl {
         iid == &<IWMPEvents3 as ::windows_core::Interface>::IID || iid == &<IWMPEvents as ::windows_core::Interface>::IID || iid == &<IWMPEvents2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPEvents4_Impl: Sized + IWMPEvents3_Impl {
     fn DeviceEstimation(&self, pdevice: ::core::option::Option<&IWMPSyncDevice>, hrresult: ::windows_core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64);
@@ -4288,7 +4252,6 @@ impl IWMPGraphCreation_Vtbl {
         iid == &<IWMPGraphCreation as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPLibrary_Impl: Sized {
     fn name(&self, pbstrname: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -4339,7 +4302,6 @@ impl IWMPLibrary_Vtbl {
         iid == &<IWMPLibrary as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPLibrary2_Impl: Sized + IWMPLibrary_Impl {
     fn getItemInfo(&self, bstritemname: &::windows_core::BSTR, pbstrval: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -4427,7 +4389,6 @@ impl IWMPLibrarySharingServices_Vtbl {
         iid == &<IWMPLibrarySharingServices as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPMedia_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn get_isIdentical(&self, piwmpmedia: ::core::option::Option<&IWMPMedia>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -4570,7 +4531,6 @@ impl IWMPMedia_Vtbl {
         iid == &<IWMPMedia as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPMedia2_Impl: Sized + IWMPMedia_Impl {
     fn error(&self) -> ::windows_core::Result<IWMPErrorItem>;
@@ -4597,7 +4557,6 @@ impl IWMPMedia2_Vtbl {
         iid == &<IWMPMedia2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWMPMedia as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPMedia3_Impl: Sized + IWMPMedia2_Impl {
     fn getAttributeCountByType(&self, bstrtype: &::windows_core::BSTR, bstrlanguage: &::windows_core::BSTR, plcount: *mut i32) -> ::windows_core::Result<()>;
@@ -4628,7 +4587,6 @@ impl IWMPMedia3_Vtbl {
         iid == &<IWMPMedia3 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWMPMedia as ::windows_core::Interface>::IID || iid == &<IWMPMedia2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPMediaCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn add(&self, bstrurl: &::windows_core::BSTR) -> ::windows_core::Result<IWMPMedia>;
@@ -4777,7 +4735,6 @@ impl IWMPMediaCollection_Vtbl {
         iid == &<IWMPMediaCollection as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPMediaCollection2_Impl: Sized + IWMPMediaCollection_Impl {
     fn createQuery(&self) -> ::windows_core::Result<IWMPQuery>;
@@ -4873,7 +4830,6 @@ impl IWMPMediaPluginRegistrar_Vtbl {
         iid == &<IWMPMediaPluginRegistrar as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPMetadataPicture_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn mimeType(&self, pbstrmimetype: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -4918,7 +4874,6 @@ impl IWMPMetadataPicture_Vtbl {
         iid == &<IWMPMetadataPicture as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPMetadataText_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn description(&self, pbstrdescription: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -4949,7 +4904,6 @@ impl IWMPMetadataText_Vtbl {
         iid == &<IWMPMetadataText as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPNetwork_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn bandWidth(&self, plbandwidth: *mut i32) -> ::windows_core::Result<()>;
@@ -5332,7 +5286,6 @@ impl IWMPNodeWindowlessHost_Vtbl {
         iid == &<IWMPNodeWindowlessHost as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPPlayer_Impl: Sized + IWMPCore_Impl {
     fn enabled(&self, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -5405,7 +5358,6 @@ impl IWMPPlayer_Vtbl {
         iid == &<IWMPPlayer as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWMPCore as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPPlayer2_Impl: Sized + IWMPCore_Impl {
     fn enabled(&self, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -5506,7 +5458,6 @@ impl IWMPPlayer2_Vtbl {
         iid == &<IWMPPlayer2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWMPCore as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPPlayer3_Impl: Sized + IWMPCore2_Impl {
     fn enabled(&self, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -5607,7 +5558,6 @@ impl IWMPPlayer3_Vtbl {
         iid == &<IWMPPlayer3 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWMPCore as ::windows_core::Interface>::IID || iid == &<IWMPCore2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPPlayer4_Impl: Sized + IWMPCore3_Impl {
     fn enabled(&self, pbenabled: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -5735,7 +5685,6 @@ impl IWMPPlayer4_Vtbl {
         iid == &<IWMPPlayer4 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWMPCore as ::windows_core::Interface>::IID || iid == &<IWMPCore2 as ::windows_core::Interface>::IID || iid == &<IWMPCore3 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPPlayerApplication_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn switchToPlayerApplication(&self) -> ::windows_core::Result<()>;
@@ -5834,7 +5783,6 @@ impl IWMPPlayerServices2_Vtbl {
         iid == &<IWMPPlayerServices2 as ::windows_core::Interface>::IID || iid == &<IWMPPlayerServices as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPPlaylist_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn count(&self, plcount: *mut i32) -> ::windows_core::Result<()>;
@@ -5955,7 +5903,6 @@ impl IWMPPlaylist_Vtbl {
         iid == &<IWMPPlaylist as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPPlaylistArray_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn count(&self, plcount: *mut i32) -> ::windows_core::Result<()>;
@@ -5992,7 +5939,6 @@ impl IWMPPlaylistArray_Vtbl {
         iid == &<IWMPPlaylistArray as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPPlaylistCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn newPlaylist(&self, bstrname: &::windows_core::BSTR) -> ::windows_core::Result<IWMPPlaylist>;
@@ -6164,7 +6110,6 @@ impl IWMPPluginEnable_Vtbl {
         iid == &<IWMPPluginEnable as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWMPPluginUI_Impl: Sized {
     fn SetCore(&self, pcore: ::core::option::Option<&IWMPCore>) -> ::windows_core::Result<()>;
@@ -6230,7 +6175,6 @@ impl IWMPPluginUI_Vtbl {
         iid == &<IWMPPluginUI as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPQuery_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn addCondition(&self, bstrattribute: &::windows_core::BSTR, bstroperator: &::windows_core::BSTR, bstrvalue: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -6261,7 +6205,6 @@ impl IWMPQuery_Vtbl {
         iid == &<IWMPQuery as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPRemoteMediaServices_Impl: Sized {
     fn GetServiceType(&self, pbstrtype: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -6360,7 +6303,6 @@ impl IWMPServices_Vtbl {
         iid == &<IWMPServices as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPSettings_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn get_isAvailable(&self, bstritem: &::windows_core::BSTR, pisavailable: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -6538,7 +6480,6 @@ impl IWMPSettings_Vtbl {
         iid == &<IWMPSettings as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPSettings2_Impl: Sized + IWMPSettings_Impl {
     fn defaultAudioLanguage(&self, pllangid: *mut i32) -> ::windows_core::Result<()>;
@@ -6593,7 +6534,6 @@ impl IWMPSkinManager_Vtbl {
         iid == &<IWMPSkinManager as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPStringCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn count(&self, plcount: *mut i32) -> ::windows_core::Result<()>;
@@ -6624,7 +6564,6 @@ impl IWMPStringCollection_Vtbl {
         iid == &<IWMPStringCollection as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPStringCollection2_Impl: Sized + IWMPStringCollection_Impl {
     fn isIdentical(&self, piwmpstringcollection2: ::core::option::Option<&IWMPStringCollection2>, pvbool: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -6669,7 +6608,6 @@ impl IWMPStringCollection2_Vtbl {
         iid == &<IWMPStringCollection2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWMPStringCollection as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPSubscriptionService_Impl: Sized {
     fn allowPlay(&self, hwnd: super::super::Foundation::HWND, pmedia: ::core::option::Option<&IWMPMedia>, pfallowplay: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -6714,7 +6652,6 @@ impl IWMPSubscriptionService_Vtbl {
         iid == &<IWMPSubscriptionService as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPSubscriptionService2_Impl: Sized + IWMPSubscriptionService_Impl {
     fn stopBackgroundProcessing(&self) -> ::windows_core::Result<()>;
@@ -6918,7 +6855,6 @@ impl IWMPSyncDevice2_Vtbl {
         iid == &<IWMPSyncDevice2 as ::windows_core::Interface>::IID || iid == &<IWMPSyncDevice as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMPSyncDevice3_Impl: Sized + IWMPSyncDevice2_Impl {
     fn estimateSyncSize(&self, pnonruleplaylist: ::core::option::Option<&IWMPPlaylist>, prulesplaylist: ::core::option::Option<&IWMPPlaylist>) -> ::windows_core::Result<()>;
@@ -7016,7 +6952,6 @@ impl IWMPUserEventSink_Vtbl {
         iid == &<IWMPUserEventSink as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 pub trait IWMPVideoRenderConfig_Impl: Sized {
     fn SetpresenterActivate(&self, pactivate: ::core::option::Option<&super::MediaFoundation::IMFActivate>) -> ::windows_core::Result<()>;
@@ -7054,7 +6989,6 @@ impl IWMPWindowMessageSink_Vtbl {
         iid == &<IWMPWindowMessageSink as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXFeed_Impl: Sized {
     fn Xml(&self, uiitemcount: u32, sortproperty: FEEDS_XML_SORT_PROPERTY, sortorder: FEEDS_XML_SORT_ORDER, filterflags: FEEDS_XML_FILTER_FLAGS, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> ::windows_core::Result<super::super::System::Com::IStream>;
@@ -7547,7 +7481,6 @@ impl IXFeed_Vtbl {
         iid == &<IXFeed as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXFeed2_Impl: Sized + IXFeed_Impl {
     fn GetItemByEffectiveId(&self, uieffectiveid: u32, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -8151,7 +8084,6 @@ impl IXFeedFolderEvents_Vtbl {
         iid == &<IXFeedFolderEvents as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXFeedItem_Impl: Sized {
     fn Xml(&self, fxif: FEEDS_XML_INCLUDE_FLAGS) -> ::windows_core::Result<super::super::System::Com::IStream>;
@@ -8365,7 +8297,6 @@ impl IXFeedItem_Vtbl {
         iid == &<IXFeedItem as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXFeedItem2_Impl: Sized + IXFeedItem_Impl {
     fn EffectiveId(&self) -> ::windows_core::Result<u32>;
@@ -8421,7 +8352,6 @@ impl IXFeedsEnum_Vtbl {
         iid == &<IXFeedsEnum as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXFeedsManager_Impl: Sized {
     fn RootFolder(&self, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -8592,7 +8522,6 @@ impl IXFeedsManager_Vtbl {
         iid == &<IXFeedsManager as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait _WMPOCXEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(feature = "Win32_System_Com")]

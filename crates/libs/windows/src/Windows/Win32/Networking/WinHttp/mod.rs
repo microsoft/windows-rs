@@ -323,12 +323,7 @@ where
     WinHttpWriteProxySettings(hsession, fforceupdate.into_param().abi(), pwinhttpproxysettings)
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWinHttpRequest,
-    IWinHttpRequest_Vtbl,
-    0x016fe2ec_b2c8_45f8_b23b_39e53a75396b
-);
+::windows_core::imp::com_interface!(IWinHttpRequest, IWinHttpRequest_Vtbl, 0x016fe2ec_b2c8_45f8_b23b_39e53a75396b);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWinHttpRequest, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -466,7 +461,6 @@ impl IWinHttpRequestEvents {
     {
         (::windows_core::Interface::vtable(self).OnResponseStart)(::windows_core::Interface::as_raw(self), status, contenttype.into_param().abi())
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnResponseDataAvailable(&self, data: *const *const super::super::System::Com::SAFEARRAY) {
         (::windows_core::Interface::vtable(self).OnResponseDataAvailable)(::windows_core::Interface::as_raw(self), data)
@@ -1623,7 +1617,6 @@ impl ::core::default::Default for WINHTTP_CONNECTION_GROUP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WINHTTP_CONNECTION_INFO {
@@ -1654,7 +1647,6 @@ impl ::core::default::Default for WINHTTP_CONNECTION_INFO {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WINHTTP_CONNECTION_INFO {

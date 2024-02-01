@@ -332,7 +332,6 @@ impl LampArrayBitmapRequestedEventArgs {
             (::windows_core::Interface::vtable(this).SinceStarted)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Graphics_Imaging\"`"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn UpdateBitmap<P0>(&self, bitmap: P0) -> ::windows_core::Result<()>
     where
@@ -360,7 +359,6 @@ pub struct LampArrayBlinkEffect(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(LampArrayBlinkEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(LampArrayBlinkEffect, ILampArrayEffect);
 impl LampArrayBlinkEffect {
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn Color(&self) -> ::windows_core::Result<super::super::super::UI::Color> {
         let this = self;
@@ -369,7 +367,6 @@ impl LampArrayBlinkEffect {
             (::windows_core::Interface::vtable(this).Color)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn SetColor(&self, value: super::super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
@@ -496,7 +493,6 @@ pub struct LampArrayColorRampEffect(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(LampArrayColorRampEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(LampArrayColorRampEffect, ILampArrayEffect);
 impl LampArrayColorRampEffect {
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn Color(&self) -> ::windows_core::Result<super::super::super::UI::Color> {
         let this = self;
@@ -505,7 +501,6 @@ impl LampArrayColorRampEffect {
             (::windows_core::Interface::vtable(this).Color)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn SetColor(&self, value: super::super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
@@ -676,7 +671,6 @@ impl LampArrayEffectPlaylist {
         static SHARED: ::windows_core::imp::FactoryCache<LampArrayEffectPlaylist, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IIterator<ILampArrayEffect>> {
         let this = &::windows_core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<ILampArrayEffect>>(self)?;
@@ -741,7 +735,6 @@ impl LampArrayEffectPlaylist {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetRepetitionMode)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StartAll<P0>(value: P0) -> ::windows_core::Result<()>
     where
@@ -749,7 +742,6 @@ impl LampArrayEffectPlaylist {
     {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows_core::Interface::vtable(this).StartAll)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StopAll<P0>(value: P0) -> ::windows_core::Result<()>
     where
@@ -757,7 +749,6 @@ impl LampArrayEffectPlaylist {
     {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows_core::Interface::vtable(this).StopAll)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PauseAll<P0>(value: P0) -> ::windows_core::Result<()>
     where
@@ -765,7 +756,6 @@ impl LampArrayEffectPlaylist {
     {
         Self::ILampArrayEffectPlaylistStatics(|this| unsafe { (::windows_core::Interface::vtable(this).PauseAll)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<ILampArrayEffect> {
         let this = &::windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
@@ -774,7 +764,6 @@ impl LampArrayEffectPlaylist {
             (::windows_core::Interface::vtable(this).GetAt)(::windows_core::Interface::as_raw(this), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
@@ -783,7 +772,6 @@ impl LampArrayEffectPlaylist {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows_core::Result<bool>
     where
@@ -795,7 +783,6 @@ impl LampArrayEffectPlaylist {
             (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<ILampArrayEffect>]) -> ::windows_core::Result<u32> {
         let this = &::windows_core::Interface::cast::<super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>>(self)?;
@@ -855,7 +842,6 @@ impl LampArraySolidEffect {
         let this = &::windows_core::Interface::cast::<ILampArrayEffect>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetZIndex)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn Color(&self) -> ::windows_core::Result<super::super::super::UI::Color> {
         let this = self;
@@ -864,7 +850,6 @@ impl LampArraySolidEffect {
             (::windows_core::Interface::vtable(this).Color)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn SetColor(&self, value: super::super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
@@ -942,25 +927,21 @@ impl LampArrayUpdateRequestedEventArgs {
             (::windows_core::Interface::vtable(this).SinceStarted)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn SetColor(&self, desiredcolor: super::super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetColor)(::windows_core::Interface::as_raw(this), desiredcolor).ok() }
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn SetColorForIndex(&self, lampindex: i32, desiredcolor: super::super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetColorForIndex)(::windows_core::Interface::as_raw(this), lampindex, desiredcolor).ok() }
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn SetSingleColorForIndices(&self, desiredcolor: super::super::super::UI::Color, lampindexes: &[i32]) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSingleColorForIndices)(::windows_core::Interface::as_raw(this), desiredcolor, lampindexes.len().try_into().unwrap(), lampindexes.as_ptr()).ok() }
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn SetColorsForIndices(&self, desiredcolors: &[super::super::super::UI::Color], lampindexes: &[i32]) -> ::windows_core::Result<()> {
         let this = self;

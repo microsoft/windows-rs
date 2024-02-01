@@ -248,7 +248,6 @@ impl CastingDevice {
             (::windows_core::Interface::vtable(this).FriendlyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Icon(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         let this = self;
@@ -292,7 +291,6 @@ impl CastingDevice {
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Devices_Enumeration\"`"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceInfoSupportsCastingAsync<P0>(device: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -340,7 +338,6 @@ impl CastingDevicePicker {
             (::windows_core::Interface::vtable(this).Filter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Enumeration\"`"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn Appearance(&self) -> ::windows_core::Result<super::super::Devices::Enumeration::DevicePickerAppearance> {
         let this = self;
@@ -381,7 +378,6 @@ impl CastingDevicePicker {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Show)(::windows_core::Interface::as_raw(this), selection).ok() }
     }
-    #[doc = "Required features: `\"UI_Popups\"`"]
     #[cfg(feature = "UI_Popups")]
     pub fn ShowWithPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows_core::Result<()> {
         let this = self;
@@ -442,7 +438,6 @@ impl CastingDevicePickerFilter {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSupportsPictures)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCastingSources(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<CastingSource>> {
         let this = self;

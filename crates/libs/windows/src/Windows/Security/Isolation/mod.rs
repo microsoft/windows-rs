@@ -386,7 +386,6 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).TerminateWithTelemetryAsync)(::windows_core::Interface::as_raw(this), telemetryparameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterMessageReceiver<P0>(&self, receiverid: ::windows_core::GUID, messagereceivedcallback: P0) -> ::windows_core::Result<()>
     where
@@ -399,7 +398,6 @@ impl IsolatedWindowsEnvironment {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).UnregisterMessageReceiver)(::windows_core::Interface::as_raw(this), receiverid).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PostMessageToReceiverAsync<P0>(&self, receiverid: ::windows_core::GUID, message: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
     where
@@ -411,7 +409,6 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).PostMessageToReceiverAsync)(::windows_core::Interface::as_raw(this), receiverid, message.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PostMessageToReceiverWithTelemetryAsync<P0, P1>(&self, receiverid: ::windows_core::GUID, message: P0, telemetryparameters: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
     where
@@ -481,7 +478,6 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).GetById)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(environmentid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindByOwnerId(environmentownerid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironment>> {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
@@ -608,7 +604,6 @@ impl IsolatedWindowsEnvironmentHost {
             (::windows_core::Interface::vtable(this).IsReady)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HostErrors() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironmentHostError>> {
         Self::IIsolatedWindowsEnvironmentHostStatics(|this| unsafe {
@@ -863,7 +858,6 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
         static SHARED: ::windows_core::imp::FactoryCache<IsolatedWindowsEnvironmentOwnerRegistrationData, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ShareableFolders(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -872,7 +866,6 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
             (::windows_core::Interface::vtable(this).ShareableFolders)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ProcessesRunnableAsSystem(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -881,7 +874,6 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
             (::windows_core::Interface::vtable(this).ProcessesRunnableAsSystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ProcessesRunnableAsUser(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -890,7 +882,6 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
             (::windows_core::Interface::vtable(this).ProcessesRunnableAsUser)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ActivationFileExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -1289,7 +1280,6 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentUserInfo {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentUserInfo {}
 pub struct IsolatedWindowsHostMessenger;
 impl IsolatedWindowsHostMessenger {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PostMessageToReceiver<P0>(receiverid: ::windows_core::GUID, message: P0) -> ::windows_core::Result<()>
     where
@@ -1303,7 +1293,6 @@ impl IsolatedWindowsHostMessenger {
             (::windows_core::Interface::vtable(this).GetFileId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterHostMessageReceiver<P0>(receiverid: ::windows_core::GUID, hostmessagereceivedcallback: P0) -> ::windows_core::Result<()>
     where
@@ -1787,19 +1776,13 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentCreateProgress {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
-    HostMessageReceivedCallback,
-    HostMessageReceivedCallback_Vtbl,
-    0xfaf26ffa_8ce1_4cc1_b278_322d31a5e4a3
-);
+::windows_core::imp::com_interface!(HostMessageReceivedCallback, HostMessageReceivedCallback_Vtbl, 0xfaf26ffa_8ce1_4cc1_b278_322d31a5e4a3);
 #[cfg(feature = "Foundation_Collections")]
 impl HostMessageReceivedCallback {
     pub fn new<F: FnMut(&::windows_core::GUID, ::core::option::Option<&super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = HostMessageReceivedCallbackBox::<F> { vtable: &HostMessageReceivedCallbackBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Invoke<P0>(&self, receiverid: ::windows_core::GUID, message: P0) -> ::windows_core::Result<()>
     where
@@ -1867,19 +1850,13 @@ pub struct HostMessageReceivedCallback_Vtbl {
     Invoke: usize,
 }
 #[cfg(feature = "Foundation_Collections")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
-    MessageReceivedCallback,
-    MessageReceivedCallback_Vtbl,
-    0xf5b4c8ff_1d9d_4995_9fea_4d15257c0757
-);
+::windows_core::imp::com_interface!(MessageReceivedCallback, MessageReceivedCallback_Vtbl, 0xf5b4c8ff_1d9d_4995_9fea_4d15257c0757);
 #[cfg(feature = "Foundation_Collections")]
 impl MessageReceivedCallback {
     pub fn new<F: FnMut(&::windows_core::GUID, ::core::option::Option<&super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
         let com = MessageReceivedCallbackBox::<F> { vtable: &MessageReceivedCallbackBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Invoke<P0>(&self, receiverid: ::windows_core::GUID, message: P0) -> ::windows_core::Result<()>
     where

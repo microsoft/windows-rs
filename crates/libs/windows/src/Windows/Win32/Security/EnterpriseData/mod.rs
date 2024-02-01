@@ -26,7 +26,6 @@ pub unsafe fn SrpDisablePermissiveModeFileEncryption() -> ::windows_core::Result
     ::windows_targets::link!("srpapi.dll" "system" fn SrpDisablePermissiveModeFileEncryption() -> ::windows_core::HRESULT);
     SrpDisablePermissiveModeFileEncryption().ok()
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Appx\"`"]
 #[cfg(feature = "Win32_Storage_Packaging_Appx")]
 #[inline]
 pub unsafe fn SrpDoesPolicyAllowAppExecution(packageid: *const super::super::Storage::Packaging::Appx::PACKAGE_ID) -> ::windows_core::Result<super::super::Foundation::BOOL> {

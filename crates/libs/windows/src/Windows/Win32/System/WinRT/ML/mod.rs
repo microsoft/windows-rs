@@ -1,7 +1,6 @@
 ::windows_core::imp::com_interface!(ILearningModelDeviceFactoryNative, ILearningModelDeviceFactoryNative_Vtbl, 0x1e9b31a1_662e_4ae0_af67_f63bb337e634);
 ::windows_core::imp::interface_hierarchy!(ILearningModelDeviceFactoryNative, ::windows_core::IUnknown);
 impl ILearningModelDeviceFactoryNative {
-    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateFromD3D12CommandQueue<P0>(&self, value: P0) -> ::windows_core::Result<::windows_core::IUnknown>
     where
@@ -23,7 +22,6 @@ pub struct ILearningModelDeviceFactoryNative_Vtbl {
 ::windows_core::imp::com_interface!(ILearningModelOperatorProviderNative, ILearningModelOperatorProviderNative_Vtbl, 0x1adaa23a_eb67_41f3_aad8_5d984e9bacd4);
 ::windows_core::imp::interface_hierarchy!(ILearningModelOperatorProviderNative, ::windows_core::IUnknown);
 impl ILearningModelOperatorProviderNative {
-    #[doc = "Required features: `\"Win32_AI_MachineLearning_WinML\"`"]
     #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
     pub unsafe fn GetRegistry(&self) -> ::windows_core::Result<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry> {
         let mut result__ = ::std::mem::zeroed();
@@ -71,7 +69,6 @@ impl ITensorNative {
     pub unsafe fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetBuffer)(::windows_core::Interface::as_raw(self), value, capacity).ok()
     }
-    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetD3D12Resource(&self) -> ::windows_core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource> {
         let mut result__ = ::std::mem::zeroed();
@@ -91,7 +88,6 @@ pub struct ITensorNative_Vtbl {
 ::windows_core::imp::com_interface!(ITensorStaticsNative, ITensorStaticsNative_Vtbl, 0x39d055a4_66f6_4ebc_95d9_7a29ebe7690a);
 ::windows_core::imp::interface_hierarchy!(ITensorStaticsNative, ::windows_core::IUnknown);
 impl ITensorStaticsNative {
-    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateFromD3D12Resource<P0>(&self, value: P0, shape: *mut i64, shapecount: i32, result: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>
     where

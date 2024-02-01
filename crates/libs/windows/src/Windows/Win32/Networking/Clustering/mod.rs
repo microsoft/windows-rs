@@ -898,7 +898,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegCloseBatchNotifyPort(hbatchnotifyport : HREGBATCHPORT) -> i32);
     ClusterRegCloseBatchNotifyPort(hbatchnotifyport.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegCloseKey<P0>(hkey: P0) -> i32
@@ -932,7 +931,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegCloseReadBatchReply(hregreadbatchreply : HREGREADBATCHREPLY) -> i32);
     ClusterRegCloseReadBatchReply(hregreadbatchreply.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegCreateBatch<P0>(hkey: P0, phregbatch: *mut HREGBATCH) -> i32
@@ -942,7 +940,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegCreateBatch(hkey : super::super::System::Registry:: HKEY, phregbatch : *mut HREGBATCH) -> i32);
     ClusterRegCreateBatch(hkey.into_param().abi(), phregbatch)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegCreateBatchNotifyPort<P0>(hkey: P0, phbatchnotifyport: *mut HREGBATCHPORT) -> i32
@@ -952,7 +949,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegCreateBatchNotifyPort(hkey : super::super::System::Registry:: HKEY, phbatchnotifyport : *mut HREGBATCHPORT) -> i32);
     ClusterRegCreateBatchNotifyPort(hkey.into_param().abi(), phbatchnotifyport)
 }
-#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_System_Registry\"`"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ClusterRegCreateKey<P0, P1>(hkey: P0, lpszsubkey: P1, dwoptions: u32, samdesired: u32, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut super::super::System::Registry::HKEY, lpdwdisposition: ::core::option::Option<*mut u32>) -> i32
@@ -963,7 +959,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegCreateKey(hkey : super::super::System::Registry:: HKEY, lpszsubkey : ::windows_core::PCWSTR, dwoptions : u32, samdesired : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut super::super::System::Registry:: HKEY, lpdwdisposition : *mut u32) -> i32);
     ClusterRegCreateKey(hkey.into_param().abi(), lpszsubkey.into_param().abi(), dwoptions, samdesired, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), phkresult, ::core::mem::transmute(lpdwdisposition.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_System_Registry\"`"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ClusterRegCreateKeyEx<P0, P1, P2>(hkey: P0, lpsubkey: P1, dwoptions: u32, samdesired: u32, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut super::super::System::Registry::HKEY, lpdwdisposition: ::core::option::Option<*mut u32>, lpszreason: P2) -> i32
@@ -975,7 +970,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegCreateKeyEx(hkey : super::super::System::Registry:: HKEY, lpsubkey : ::windows_core::PCWSTR, dwoptions : u32, samdesired : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut super::super::System::Registry:: HKEY, lpdwdisposition : *mut u32, lpszreason : ::windows_core::PCWSTR) -> i32);
     ClusterRegCreateKeyEx(hkey.into_param().abi(), lpsubkey.into_param().abi(), dwoptions, samdesired, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), phkresult, ::core::mem::transmute(lpdwdisposition.unwrap_or(::std::ptr::null_mut())), lpszreason.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegCreateReadBatch<P0>(hkey: P0, phregreadbatch: *mut HREGREADBATCH) -> i32
@@ -985,7 +979,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegCreateReadBatch(hkey : super::super::System::Registry:: HKEY, phregreadbatch : *mut HREGREADBATCH) -> i32);
     ClusterRegCreateReadBatch(hkey.into_param().abi(), phregreadbatch)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegDeleteKey<P0, P1>(hkey: P0, lpszsubkey: P1) -> i32
@@ -996,7 +989,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegDeleteKey(hkey : super::super::System::Registry:: HKEY, lpszsubkey : ::windows_core::PCWSTR) -> i32);
     ClusterRegDeleteKey(hkey.into_param().abi(), lpszsubkey.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegDeleteKeyEx<P0, P1, P2>(hkey: P0, lpsubkey: P1, lpszreason: P2) -> i32
@@ -1008,7 +1000,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegDeleteKeyEx(hkey : super::super::System::Registry:: HKEY, lpsubkey : ::windows_core::PCWSTR, lpszreason : ::windows_core::PCWSTR) -> i32);
     ClusterRegDeleteKeyEx(hkey.into_param().abi(), lpsubkey.into_param().abi(), lpszreason.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegDeleteValue<P0, P1>(hkey: P0, lpszvaluename: P1) -> u32
@@ -1019,7 +1010,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegDeleteValue(hkey : super::super::System::Registry:: HKEY, lpszvaluename : ::windows_core::PCWSTR) -> u32);
     ClusterRegDeleteValue(hkey.into_param().abi(), lpszvaluename.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegDeleteValueEx<P0, P1, P2>(hkey: P0, lpszvaluename: P1, lpszreason: P2) -> u32
@@ -1031,7 +1021,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegDeleteValueEx(hkey : super::super::System::Registry:: HKEY, lpszvaluename : ::windows_core::PCWSTR, lpszreason : ::windows_core::PCWSTR) -> u32);
     ClusterRegDeleteValueEx(hkey.into_param().abi(), lpszvaluename.into_param().abi(), lpszreason.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegEnumKey<P0>(hkey: P0, dwindex: u32, lpszname: ::windows_core::PWSTR, lpcchname: *mut u32, lpftlastwritetime: ::core::option::Option<*mut super::super::Foundation::FILETIME>) -> i32
@@ -1041,7 +1030,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegEnumKey(hkey : super::super::System::Registry:: HKEY, dwindex : u32, lpszname : ::windows_core::PWSTR, lpcchname : *mut u32, lpftlastwritetime : *mut super::super::Foundation:: FILETIME) -> i32);
     ClusterRegEnumKey(hkey.into_param().abi(), dwindex, ::core::mem::transmute(lpszname), lpcchname, ::core::mem::transmute(lpftlastwritetime.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegEnumValue<P0>(hkey: P0, dwindex: u32, lpszvaluename: ::windows_core::PWSTR, lpcchvaluename: *mut u32, lpdwtype: ::core::option::Option<*mut u32>, lpdata: ::core::option::Option<*mut u8>, lpcbdata: ::core::option::Option<*mut u32>) -> u32
@@ -1059,7 +1047,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegGetBatchNotification(hbatchnotify : HREGBATCHPORT, phbatchnotification : *mut HREGBATCHNOTIFICATION) -> i32);
     ClusterRegGetBatchNotification(hbatchnotify.into_param().abi(), phbatchnotification)
 }
-#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_System_Registry\"`"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ClusterRegGetKeySecurity<P0>(hkey: P0, requestedinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> i32
@@ -1069,7 +1056,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegGetKeySecurity(hkey : super::super::System::Registry:: HKEY, requestedinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> i32);
     ClusterRegGetKeySecurity(hkey.into_param().abi(), requestedinformation, psecuritydescriptor, lpcbsecuritydescriptor)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegOpenKey<P0, P1>(hkey: P0, lpszsubkey: P1, samdesired: u32, phkresult: *mut super::super::System::Registry::HKEY) -> i32
@@ -1080,7 +1066,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegOpenKey(hkey : super::super::System::Registry:: HKEY, lpszsubkey : ::windows_core::PCWSTR, samdesired : u32, phkresult : *mut super::super::System::Registry:: HKEY) -> i32);
     ClusterRegOpenKey(hkey.into_param().abi(), lpszsubkey.into_param().abi(), samdesired, phkresult)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegQueryInfoKey<P0>(hkey: P0, lpcsubkeys: *const u32, lpcchmaxsubkeylen: *const u32, lpcvalues: *const u32, lpcchmaxvaluenamelen: *const u32, lpcbmaxvaluelen: *const u32, lpcbsecuritydescriptor: *const u32, lpftlastwritetime: *const super::super::Foundation::FILETIME) -> i32
@@ -1090,7 +1075,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegQueryInfoKey(hkey : super::super::System::Registry:: HKEY, lpcsubkeys : *const u32, lpcchmaxsubkeylen : *const u32, lpcvalues : *const u32, lpcchmaxvaluenamelen : *const u32, lpcbmaxvaluelen : *const u32, lpcbsecuritydescriptor : *const u32, lpftlastwritetime : *const super::super::Foundation:: FILETIME) -> i32);
     ClusterRegQueryInfoKey(hkey.into_param().abi(), lpcsubkeys, lpcchmaxsubkeylen, lpcvalues, lpcchmaxvaluenamelen, lpcbmaxvaluelen, lpcbsecuritydescriptor, lpftlastwritetime)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegQueryValue<P0, P1>(hkey: P0, lpszvaluename: P1, lpdwvaluetype: ::core::option::Option<*mut u32>, lpdata: ::core::option::Option<*mut u8>, lpcbdata: ::core::option::Option<*mut u32>) -> i32
@@ -1119,7 +1103,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegReadBatchReplyNextCommand(hregreadbatchreply : HREGREADBATCHREPLY, pbatchcommand : *mut CLUSTER_READ_BATCH_COMMAND) -> i32);
     ClusterRegReadBatchReplyNextCommand(hregreadbatchreply.into_param().abi(), pbatchcommand)
 }
-#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_System_Registry\"`"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ClusterRegSetKeySecurity<P0, P1>(hkey: P0, securityinformation: u32, psecuritydescriptor: P1) -> i32
@@ -1130,7 +1113,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegSetKeySecurity(hkey : super::super::System::Registry:: HKEY, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> i32);
     ClusterRegSetKeySecurity(hkey.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_System_Registry\"`"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ClusterRegSetKeySecurityEx<P0, P1, P2>(hkey: P0, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P1, lpszreason: P2) -> i32
@@ -1142,7 +1124,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegSetKeySecurityEx(hkey : super::super::System::Registry:: HKEY, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, lpszreason : ::windows_core::PCWSTR) -> i32);
     ClusterRegSetKeySecurityEx(hkey.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi(), lpszreason.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegSetValue<P0, P1>(hkey: P0, lpszvaluename: P1, dwtype: u32, lpdata: *const u8, cbdata: u32) -> u32
@@ -1153,7 +1134,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn ClusterRegSetValue(hkey : super::super::System::Registry:: HKEY, lpszvaluename : ::windows_core::PCWSTR, dwtype : u32, lpdata : *const u8, cbdata : u32) -> u32);
     ClusterRegSetValue(hkey.into_param().abi(), lpszvaluename.into_param().abi(), dwtype, lpdata, cbdata)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegSetValueEx<P0, P1, P2>(hkey: P0, lpszvaluename: P1, dwtype: u32, lpdata: *const u8, cbdata: u32, lpszreason: P2) -> u32
@@ -1744,7 +1724,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn GetClusterFromResource(hresource : HRESOURCE) -> HCLUSTER);
     GetClusterFromResource(hresource.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn GetClusterGroupKey<P0>(hgroup: P0, samdesired: u32) -> ::windows_core::Result<super::super::System::Registry::HKEY>
@@ -1771,7 +1750,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn GetClusterInformation(hcluster : HCLUSTER, lpszclustername : ::windows_core::PWSTR, lpcchclustername : *mut u32, lpclusterinfo : *mut CLUSTERVERSIONINFO) -> u32);
     GetClusterInformation(hcluster.into_param().abi(), ::core::mem::transmute(lpszclustername), lpcchclustername, ::core::mem::transmute(lpclusterinfo.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn GetClusterKey<P0>(hcluster: P0, samdesired: u32) -> ::windows_core::Result<super::super::System::Registry::HKEY>
@@ -1792,7 +1770,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn GetClusterNetInterface(hcluster : HCLUSTER, lpsznodename : ::windows_core::PCWSTR, lpsznetworkname : ::windows_core::PCWSTR, lpszinterfacename : ::windows_core::PWSTR, lpcchinterfacename : *mut u32) -> u32);
     GetClusterNetInterface(hcluster.into_param().abi(), lpsznodename.into_param().abi(), lpsznetworkname.into_param().abi(), ::core::mem::transmute(lpszinterfacename), lpcchinterfacename)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn GetClusterNetInterfaceKey<P0>(hnetinterface: P0, samdesired: u32) -> ::windows_core::Result<super::super::System::Registry::HKEY>
@@ -1819,7 +1796,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn GetClusterNetworkId(hnetwork : HNETWORK, lpsznetworkid : ::windows_core::PWSTR, lpcchname : *mut u32) -> u32);
     GetClusterNetworkId(hnetwork.into_param().abi(), ::core::mem::transmute(lpsznetworkid), lpcchname)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn GetClusterNetworkKey<P0>(hnetwork: P0, samdesired: u32) -> ::windows_core::Result<super::super::System::Registry::HKEY>
@@ -1846,7 +1822,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn GetClusterNodeId(hnode : HNODE, lpsznodeid : ::windows_core::PWSTR, lpcchname : *mut u32) -> u32);
     GetClusterNodeId(hnode.into_param().abi(), ::core::mem::transmute(lpsznodeid), lpcchname)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn GetClusterNodeKey<P0>(hnode: P0, samdesired: u32) -> ::windows_core::Result<super::super::System::Registry::HKEY>
@@ -1912,7 +1887,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn GetClusterResourceDependencyExpression(hresource : HRESOURCE, lpszdependencyexpression : ::windows_core::PWSTR, lpcchdependencyexpression : *mut u32) -> u32);
     GetClusterResourceDependencyExpression(hresource.into_param().abi(), ::core::mem::transmute(lpszdependencyexpression), lpcchdependencyexpression)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn GetClusterResourceKey<P0>(hresource: P0, samdesired: u32) -> ::windows_core::Result<super::super::System::Registry::HKEY>
@@ -1939,7 +1913,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn GetClusterResourceState(hresource : HRESOURCE, lpsznodename : ::windows_core::PWSTR, lpcchnodename : *mut u32, lpszgroupname : ::windows_core::PWSTR, lpcchgroupname : *mut u32) -> CLUSTER_RESOURCE_STATE);
     GetClusterResourceState(hresource.into_param().abi(), ::core::mem::transmute(lpsznodename), ::core::mem::transmute(lpcchnodename.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpszgroupname), ::core::mem::transmute(lpcchgroupname.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn GetClusterResourceTypeKey<P0, P1>(hcluster: P0, lpsztypename: P1, samdesired: u32) -> ::windows_core::Result<super::super::System::Registry::HKEY>
@@ -2471,7 +2444,6 @@ where
     ::windows_targets::link!("clusapi.dll" "system" fn RemoveResourceFromClusterSharedVolumes(hresource : HRESOURCE) -> u32);
     RemoveResourceFromClusterSharedVolumes(hresource.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilAddUnknownProperties<P0>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, pcboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32
@@ -2536,7 +2508,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilEnumGroupsEx(hcluster : HCLUSTER, hself : HGROUP, grouptype : CLUSGROUP_TYPE, prescallback : LPGROUP_CALLBACK_EX, pparameter : *mut ::core::ffi::c_void) -> u32);
     ResUtilEnumGroupsEx(hcluster.into_param().abi(), hself.into_param().abi(), grouptype, prescallback, pparameter)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilEnumPrivateProperties<P0>(hkeyclusterkey: P0, pszoutproperties: ::windows_core::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32
@@ -2679,7 +2650,6 @@ pub unsafe fn ResUtilFreeParameterBlock(poutparams: *mut u8, pinparams: *const u
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilFreeParameterBlock(poutparams : *mut u8, pinparams : *const u8, ppropertytable : *const RESUTIL_PROPERTY_ITEM));
     ResUtilFreeParameterBlock(poutparams, pinparams, ppropertytable)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilGetAllProperties<P0>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32
@@ -2694,7 +2664,6 @@ pub unsafe fn ResUtilGetBinaryProperty(ppboutvalue: *mut *mut u8, pcboutvaluesiz
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilGetBinaryProperty(ppboutvalue : *mut *mut u8, pcboutvaluesize : *mut u32, pvaluestruct : *const CLUSPROP_BINARY, pboldvalue : *const u8, cboldvaluesize : u32, pppropertylist : *mut *mut u8, pcbpropertylistsize : *mut u32) -> u32);
     ResUtilGetBinaryProperty(ppboutvalue, pcboutvaluesize, pvaluestruct, ::core::mem::transmute(pboldvalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pboldvalue.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pppropertylist, pcbpropertylistsize)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilGetBinaryValue<P0, P1>(hkeyclusterkey: P0, pszvaluename: P1, ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32
@@ -2758,7 +2727,6 @@ pub unsafe fn ResUtilGetDwordProperty(pdwoutvalue: *mut u32, pvaluestruct: *cons
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilGetDwordProperty(pdwoutvalue : *mut u32, pvaluestruct : *const CLUSPROP_DWORD, dwoldvalue : u32, dwminimum : u32, dwmaximum : u32, pppropertylist : *mut *mut u8, pcbpropertylistsize : *mut u32) -> u32);
     ResUtilGetDwordProperty(pdwoutvalue, pvaluestruct, dwoldvalue, dwminimum, dwmaximum, pppropertylist, pcbpropertylistsize)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilGetDwordValue<P0, P1>(hkeyclusterkey: P0, pszvaluename: P1, pdwoutvalue: *mut u32, dwdefaultvalue: u32) -> u32
@@ -2795,7 +2763,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilGetMultiSzProperty(ppszoutvalue : *mut ::windows_core::PWSTR, pcboutvaluesize : *mut u32, pvaluestruct : *const CLUSPROP_SZ, pszoldvalue : ::windows_core::PCWSTR, cboldvaluesize : u32, pppropertylist : *mut *mut u8, pcbpropertylistsize : *mut u32) -> u32);
     ResUtilGetMultiSzProperty(ppszoutvalue, pcboutvaluesize, pvaluestruct, pszoldvalue.into_param().abi(), cboldvaluesize, pppropertylist, pcbpropertylistsize)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilGetPrivateProperties<P0>(hkeyclusterkey: P0, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32
@@ -2805,7 +2772,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilGetPrivateProperties(hkeyclusterkey : super::super::System::Registry:: HKEY, poutpropertylist : *mut ::core::ffi::c_void, cboutpropertylistsize : u32, pcbbytesreturned : *mut u32, pcbrequired : *mut u32) -> u32);
     ResUtilGetPrivateProperties(hkeyclusterkey.into_param().abi(), poutpropertylist, cboutpropertylistsize, pcbbytesreturned, pcbrequired)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilGetProperties<P0>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32
@@ -2815,7 +2781,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilGetProperties(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, poutpropertylist : *mut ::core::ffi::c_void, cboutpropertylistsize : u32, pcbbytesreturned : *mut u32, pcbrequired : *mut u32) -> u32);
     ResUtilGetProperties(hkeyclusterkey.into_param().abi(), ppropertytable, poutpropertylist, cboutpropertylistsize, pcbbytesreturned, pcbrequired)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilGetPropertiesToParameterBlock<P0, P1>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutparams: *mut u8, bcheckforrequiredproperties: P1, psznameofpropinerror: *mut ::windows_core::PWSTR) -> u32
@@ -2826,7 +2791,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilGetPropertiesToParameterBlock(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, poutparams : *mut u8, bcheckforrequiredproperties : super::super::Foundation:: BOOL, psznameofpropinerror : *mut ::windows_core::PWSTR) -> u32);
     ResUtilGetPropertiesToParameterBlock(hkeyclusterkey.into_param().abi(), ppropertytable, poutparams, bcheckforrequiredproperties.into_param().abi(), psznameofpropinerror)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilGetProperty<P0>(hkeyclusterkey: P0, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, poutpropertyitem: *mut *mut ::core::ffi::c_void, pcboutpropertyitemsize: *mut u32) -> u32
@@ -2841,7 +2805,6 @@ pub unsafe fn ResUtilGetPropertyFormats(ppropertytable: *const RESUTIL_PROPERTY_
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilGetPropertyFormats(ppropertytable : *const RESUTIL_PROPERTY_ITEM, poutpropertyformatlist : *mut ::core::ffi::c_void, cbpropertyformatlistsize : u32, pcbbytesreturned : *mut u32, pcbrequired : *mut u32) -> u32);
     ResUtilGetPropertyFormats(ppropertytable, poutpropertyformatlist, cbpropertyformatlistsize, pcbbytesreturned, pcbrequired)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilGetPropertySize<P0>(hkeyclusterkey: P0, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, pcboutpropertylistsize: *mut u32, pnpropertycount: *mut u32) -> u32
@@ -2851,7 +2814,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilGetPropertySize(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytableitem : *const RESUTIL_PROPERTY_ITEM, pcboutpropertylistsize : *mut u32, pnpropertycount : *mut u32) -> u32);
     ResUtilGetPropertySize(hkeyclusterkey.into_param().abi(), ppropertytableitem, pcboutpropertylistsize, pnpropertycount)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilGetQwordValue<P0, P1>(hkeyclusterkey: P0, pszvaluename: P1, pqwoutvalue: *mut u64, qwdefaultvalue: u64) -> u32
@@ -2964,7 +2926,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilGetSzProperty(ppszoutvalue : *mut ::windows_core::PWSTR, pvaluestruct : *const CLUSPROP_SZ, pszoldvalue : ::windows_core::PCWSTR, pppropertylist : *mut *mut u8, pcbpropertylistsize : *mut u32) -> u32);
     ResUtilGetSzProperty(ppszoutvalue, pvaluestruct, pszoldvalue.into_param().abi(), pppropertylist, pcbpropertylistsize)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilGetSzValue<P0, P1>(hkeyclusterkey: P0, pszvaluename: P1) -> ::windows_core::PWSTR
@@ -3057,7 +3018,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilResourcesEqual(hself : HRESOURCE, hresource : HRESOURCE) -> super::super::Foundation:: BOOL);
     ResUtilResourcesEqual(hself.into_param().abi(), hresource.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilSetBinaryValue<P0, P1>(hkeyclusterkey: P0, pszvaluename: P1, pbnewvalue: &[u8], ppboutvalue: ::core::option::Option<*mut *mut u8>, pcboutvaluesize: *mut u32) -> u32
@@ -3068,7 +3028,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilSetBinaryValue(hkeyclusterkey : super::super::System::Registry:: HKEY, pszvaluename : ::windows_core::PCWSTR, pbnewvalue : *const u8, cbnewvaluesize : u32, ppboutvalue : *mut *mut u8, pcboutvaluesize : *mut u32) -> u32);
     ResUtilSetBinaryValue(hkeyclusterkey.into_param().abi(), pszvaluename.into_param().abi(), ::core::mem::transmute(pbnewvalue.as_ptr()), pbnewvalue.len().try_into().unwrap(), ::core::mem::transmute(ppboutvalue.unwrap_or(::std::ptr::null_mut())), pcboutvaluesize)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilSetDwordValue<P0, P1>(hkeyclusterkey: P0, pszvaluename: P1, dwnewvalue: u32, pdwoutvalue: *mut u32) -> u32
@@ -3079,7 +3038,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilSetDwordValue(hkeyclusterkey : super::super::System::Registry:: HKEY, pszvaluename : ::windows_core::PCWSTR, dwnewvalue : u32, pdwoutvalue : *mut u32) -> u32);
     ResUtilSetDwordValue(hkeyclusterkey.into_param().abi(), pszvaluename.into_param().abi(), dwnewvalue, pdwoutvalue)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilSetExpandSzValue<P0, P1, P2>(hkeyclusterkey: P0, pszvaluename: P1, psznewvalue: P2, ppszoutstring: ::core::option::Option<*mut ::windows_core::PWSTR>) -> u32
@@ -3091,7 +3049,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilSetExpandSzValue(hkeyclusterkey : super::super::System::Registry:: HKEY, pszvaluename : ::windows_core::PCWSTR, psznewvalue : ::windows_core::PCWSTR, ppszoutstring : *mut ::windows_core::PWSTR) -> u32);
     ResUtilSetExpandSzValue(hkeyclusterkey.into_param().abi(), pszvaluename.into_param().abi(), psznewvalue.into_param().abi(), ::core::mem::transmute(ppszoutstring.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilSetMultiSzValue<P0, P1, P2>(hkeyclusterkey: P0, pszvaluename: P1, psznewvalue: P2, cbnewvaluesize: u32, ppszoutvalue: ::core::option::Option<*mut ::windows_core::PWSTR>, pcboutvaluesize: ::core::option::Option<*mut u32>) -> u32
@@ -3103,7 +3060,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilSetMultiSzValue(hkeyclusterkey : super::super::System::Registry:: HKEY, pszvaluename : ::windows_core::PCWSTR, psznewvalue : ::windows_core::PCWSTR, cbnewvaluesize : u32, ppszoutvalue : *mut ::windows_core::PWSTR, pcboutvaluesize : *mut u32) -> u32);
     ResUtilSetMultiSzValue(hkeyclusterkey.into_param().abi(), pszvaluename.into_param().abi(), psznewvalue.into_param().abi(), cbnewvaluesize, ::core::mem::transmute(ppszoutvalue.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcboutvaluesize.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilSetPrivatePropertyList<P0>(hkeyclusterkey: P0, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32
@@ -3113,7 +3069,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilSetPrivatePropertyList(hkeyclusterkey : super::super::System::Registry:: HKEY, pinpropertylist : *const ::core::ffi::c_void, cbinpropertylistsize : u32) -> u32);
     ResUtilSetPrivatePropertyList(hkeyclusterkey.into_param().abi(), pinpropertylist, cbinpropertylistsize)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilSetPropertyParameterBlock<P0>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32
@@ -3123,7 +3078,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilSetPropertyParameterBlock(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, reserved : *mut ::core::ffi::c_void, pinparams : *const u8, pinpropertylist : *const ::core::ffi::c_void, cbinpropertylistsize : u32, poutparams : *mut u8) -> u32);
     ResUtilSetPropertyParameterBlock(hkeyclusterkey.into_param().abi(), ppropertytable, reserved, pinparams, pinpropertylist, cbinpropertylistsize, poutparams)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilSetPropertyParameterBlockEx<P0, P1>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: P1, poutparams: *mut u8) -> u32
@@ -3134,7 +3088,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilSetPropertyParameterBlockEx(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, reserved : *mut ::core::ffi::c_void, pinparams : *const u8, pinpropertylist : *const ::core::ffi::c_void, cbinpropertylistsize : u32, bforcewrite : super::super::Foundation:: BOOL, poutparams : *mut u8) -> u32);
     ResUtilSetPropertyParameterBlockEx(hkeyclusterkey.into_param().abi(), ppropertytable, reserved, pinparams, pinpropertylist, cbinpropertylistsize, bforcewrite.into_param().abi(), poutparams)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilSetPropertyTable<P0, P1>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: ::core::option::Option<*const ::core::ffi::c_void>, ballowunknownproperties: P1, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, poutparams: ::core::option::Option<*mut u8>) -> u32
@@ -3145,7 +3098,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilSetPropertyTable(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, reserved : *const ::core::ffi::c_void, ballowunknownproperties : super::super::Foundation:: BOOL, pinpropertylist : *const ::core::ffi::c_void, cbinpropertylistsize : u32, poutparams : *mut u8) -> u32);
     ResUtilSetPropertyTable(hkeyclusterkey.into_param().abi(), ppropertytable, ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())), ballowunknownproperties.into_param().abi(), pinpropertylist, cbinpropertylistsize, ::core::mem::transmute(poutparams.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilSetPropertyTableEx<P0, P1, P2>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, ballowunknownproperties: P1, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: P2, poutparams: *mut u8) -> u32
@@ -3157,7 +3109,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilSetPropertyTableEx(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, reserved : *mut ::core::ffi::c_void, ballowunknownproperties : super::super::Foundation:: BOOL, pinpropertylist : *const ::core::ffi::c_void, cbinpropertylistsize : u32, bforcewrite : super::super::Foundation:: BOOL, poutparams : *mut u8) -> u32);
     ResUtilSetPropertyTableEx(hkeyclusterkey.into_param().abi(), ppropertytable, reserved, ballowunknownproperties.into_param().abi(), pinpropertylist, cbinpropertylistsize, bforcewrite.into_param().abi(), poutparams)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilSetQwordValue<P0, P1>(hkeyclusterkey: P0, pszvaluename: P1, qwnewvalue: u64, pqwoutvalue: ::core::option::Option<*mut u64>) -> u32
@@ -3177,7 +3128,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilSetResourceServiceEnvironment(pszservicename : ::windows_core::PCWSTR, hresource : HRESOURCE, pfnlogevent : PLOG_EVENT_ROUTINE, hresourcehandle : isize) -> u32);
     ResUtilSetResourceServiceEnvironment(pszservicename.into_param().abi(), hresource.into_param().abi(), pfnlogevent, hresourcehandle)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn ResUtilSetResourceServiceStartParameters<P0, P1>(pszservicename: P0, schscmhandle: P1, phservice: *mut super::super::Security::SC_HANDLE, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32
@@ -3188,7 +3138,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilSetResourceServiceStartParameters(pszservicename : ::windows_core::PCWSTR, schscmhandle : super::super::Security:: SC_HANDLE, phservice : *mut super::super::Security:: SC_HANDLE, pfnlogevent : PLOG_EVENT_ROUTINE, hresourcehandle : isize) -> u32);
     ResUtilSetResourceServiceStartParameters(pszservicename.into_param().abi(), schscmhandle.into_param().abi(), phservice, pfnlogevent, hresourcehandle)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn ResUtilSetResourceServiceStartParametersEx<P0, P1>(pszservicename: P0, schscmhandle: P1, phservice: *mut super::super::Security::SC_HANDLE, dwdesiredaccess: u32, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32
@@ -3199,7 +3148,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilSetResourceServiceStartParametersEx(pszservicename : ::windows_core::PCWSTR, schscmhandle : super::super::Security:: SC_HANDLE, phservice : *mut super::super::Security:: SC_HANDLE, dwdesiredaccess : u32, pfnlogevent : PLOG_EVENT_ROUTINE, hresourcehandle : isize) -> u32);
     ResUtilSetResourceServiceStartParametersEx(pszservicename.into_param().abi(), schscmhandle.into_param().abi(), phservice, dwdesiredaccess, pfnlogevent, hresourcehandle)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilSetSzValue<P0, P1, P2>(hkeyclusterkey: P0, pszvaluename: P1, psznewvalue: P2, ppszoutstring: ::core::option::Option<*mut ::windows_core::PWSTR>) -> u32
@@ -3211,7 +3159,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilSetSzValue(hkeyclusterkey : super::super::System::Registry:: HKEY, pszvaluename : ::windows_core::PCWSTR, psznewvalue : ::windows_core::PCWSTR, ppszoutstring : *mut ::windows_core::PWSTR) -> u32);
     ResUtilSetSzValue(hkeyclusterkey.into_param().abi(), pszvaluename.into_param().abi(), psznewvalue.into_param().abi(), ::core::mem::transmute(ppszoutstring.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilSetUnknownProperties<P0>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32
@@ -3221,7 +3168,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilSetUnknownProperties(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, pinpropertylist : *const ::core::ffi::c_void, cbinpropertylistsize : u32) -> u32);
     ResUtilSetUnknownProperties(hkeyclusterkey.into_param().abi(), ppropertytable, pinpropertylist, cbinpropertylistsize)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilSetValueEx<P0, P1>(hkeyclusterkey: P0, valuename: P1, valuetype: u32, valuedata: &[u8], flags: u32) -> u32
@@ -3232,7 +3178,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilSetValueEx(hkeyclusterkey : super::super::System::Registry:: HKEY, valuename : ::windows_core::PCWSTR, valuetype : u32, valuedata : *const u8, valuesize : u32, flags : u32) -> u32);
     ResUtilSetValueEx(hkeyclusterkey.into_param().abi(), valuename.into_param().abi(), valuetype, ::core::mem::transmute(valuedata.as_ptr()), valuedata.len().try_into().unwrap(), flags)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn ResUtilStartResourceService<P0>(pszservicename: P0, phservicehandle: *mut super::super::Security::SC_HANDLE) -> u32
@@ -3250,7 +3195,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilStopResourceService(pszservicename : ::windows_core::PCWSTR) -> u32);
     ResUtilStopResourceService(pszservicename.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn ResUtilStopService<P0>(hservicehandle: P0) -> u32
@@ -3289,7 +3233,6 @@ where
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilVerifyResourceService(pszservicename : ::windows_core::PCWSTR) -> u32);
     ResUtilVerifyResourceService(pszservicename.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn ResUtilVerifyService<P0>(hservicehandle: P0) -> u32
@@ -3304,7 +3247,6 @@ pub unsafe fn ResUtilVerifyShutdownSafe(flags: u32, reason: u32, presult: *mut u
     ::windows_targets::link!("resutils.dll" "system" fn ResUtilVerifyShutdownSafe(flags : u32, reason : u32, presult : *mut u32) -> u32);
     ResUtilVerifyShutdownSafe(flags, reason, presult)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilsDeleteKeyTree<P0, P1, P2>(key: P0, keyname: P1, treatnokeyaserror: P2) -> u32
@@ -3677,12 +3619,10 @@ impl IGetClusterUIInfo {
     pub unsafe fn GetLocale(&self) -> u32 {
         (::windows_core::Interface::vtable(self).GetLocale)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetFont(&self) -> super::super::Graphics::Gdi::HFONT {
         (::windows_core::Interface::vtable(self).GetFont)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetIcon(&self) -> super::super::UI::WindowsAndMessaging::HICON {
         (::windows_core::Interface::vtable(self).GetIcon)(::windows_core::Interface::as_raw(self))
@@ -3704,23 +3644,16 @@ pub struct IGetClusterUIInfo_Vtbl {
     GetIcon: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusApplication,
-    ISClusApplication_Vtbl,
-    0xf2e606e6_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusApplication, ISClusApplication_Vtbl, 0xf2e606e6_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusApplication, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusApplication {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DomainNames(&self) -> ::windows_core::Result<ISDomainNames> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DomainNames)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ClusterNames<P0>(&self, bstrdomainname: P0) -> ::windows_core::Result<ISClusterNames>
     where
@@ -3729,7 +3662,6 @@ impl ISClusApplication {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_ClusterNames)(::windows_core::Interface::as_raw(self), bstrdomainname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenCluster<P0>(&self, bstrclustername: P0) -> ::windows_core::Result<ISCluster>
     where
@@ -3758,12 +3690,7 @@ pub struct ISClusApplication_Vtbl {
     OpenCluster: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusCryptoKeys,
-    ISClusCryptoKeys_Vtbl,
-    0xf2e6072c_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusCryptoKeys, ISClusCryptoKeys_Vtbl, 0xf2e6072c_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusCryptoKeys, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3812,12 +3739,7 @@ pub struct ISClusCryptoKeys_Vtbl {
     pub RemoveItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusDisk,
-    ISClusDisk_Vtbl,
-    0xf2e60724_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusDisk, ISClusDisk_Vtbl, 0xf2e60724_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusDisk, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3826,7 +3748,6 @@ impl ISClusDisk {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Signature)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ScsiAddress(&self) -> ::windows_core::Result<ISClusScsiAddress> {
         let mut result__ = ::std::mem::zeroed();
@@ -3836,7 +3757,6 @@ impl ISClusDisk {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DiskNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Partitions(&self) -> ::windows_core::Result<ISClusPartitions> {
         let mut result__ = ::std::mem::zeroed();
@@ -3860,12 +3780,7 @@ pub struct ISClusDisk_Vtbl {
     Partitions: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusDisks,
-    ISClusDisks_Vtbl,
-    0xf2e60726_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusDisks, ISClusDisks_Vtbl, 0xf2e60726_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusDisks, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3878,7 +3793,6 @@ impl ISClusDisks {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ISClusDisk>
     where
@@ -3901,35 +3815,26 @@ pub struct ISClusDisks_Vtbl {
     get_Item: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusNetInterface,
-    ISClusNetInterface_Vtbl,
-    0xf2e606ee_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusNetInterface, ISClusNetInterface_Vtbl, 0xf2e606ee_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusNetInterface, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetInterface {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
@@ -3947,7 +3852,6 @@ impl ISClusNetInterface {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).State)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cluster(&self) -> ::windows_core::Result<ISCluster> {
         let mut result__ = ::std::mem::zeroed();
@@ -3984,12 +3888,7 @@ pub struct ISClusNetInterface_Vtbl {
     Cluster: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusNetInterfaces,
-    ISClusNetInterfaces_Vtbl,
-    0xf2e606f0_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusNetInterfaces, ISClusNetInterfaces_Vtbl, 0xf2e606f0_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusNetInterfaces, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4005,7 +3904,6 @@ impl ISClusNetInterfaces {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ISClusNetInterface>
     where
@@ -4029,35 +3927,26 @@ pub struct ISClusNetInterfaces_Vtbl {
     get_Item: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusNetwork,
-    ISClusNetwork_Vtbl,
-    0xf2e606f2_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusNetwork, ISClusNetwork_Vtbl, 0xf2e606f2_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusNetwork, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetwork {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
@@ -4085,13 +3974,11 @@ impl ISClusNetwork {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).State)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NetInterfaces(&self) -> ::windows_core::Result<ISClusNetworkNetInterfaces> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NetInterfaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cluster(&self) -> ::windows_core::Result<ISCluster> {
         let mut result__ = ::std::mem::zeroed();
@@ -4134,12 +4021,7 @@ pub struct ISClusNetwork_Vtbl {
     Cluster: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusNetworkNetInterfaces,
-    ISClusNetworkNetInterfaces_Vtbl,
-    0xf2e606f6_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusNetworkNetInterfaces, ISClusNetworkNetInterfaces_Vtbl, 0xf2e606f6_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusNetworkNetInterfaces, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4155,7 +4037,6 @@ impl ISClusNetworkNetInterfaces {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ISClusNetInterface>
     where
@@ -4179,12 +4060,7 @@ pub struct ISClusNetworkNetInterfaces_Vtbl {
     get_Item: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusNetworks,
-    ISClusNetworks_Vtbl,
-    0xf2e606f4_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusNetworks, ISClusNetworks_Vtbl, 0xf2e606f4_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusNetworks, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4200,7 +4076,6 @@ impl ISClusNetworks {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ISClusNetwork>
     where
@@ -4224,35 +4099,26 @@ pub struct ISClusNetworks_Vtbl {
     get_Item: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusNode,
-    ISClusNode_Vtbl,
-    0xf2e606f8_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusNode, ISClusNode_Vtbl, 0xf2e606f8_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusNode, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNode {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
@@ -4283,19 +4149,16 @@ impl ISClusNode {
     pub unsafe fn Evict(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Evict)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResourceGroups(&self) -> ::windows_core::Result<ISClusResGroups> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ResourceGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cluster(&self) -> ::windows_core::Result<ISCluster> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Cluster)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NetInterfaces(&self) -> ::windows_core::Result<ISClusNodeNetInterfaces> {
         let mut result__ = ::std::mem::zeroed();
@@ -4344,12 +4207,7 @@ pub struct ISClusNode_Vtbl {
     NetInterfaces: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusNodeNetInterfaces,
-    ISClusNodeNetInterfaces_Vtbl,
-    0xf2e606fc_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusNodeNetInterfaces, ISClusNodeNetInterfaces_Vtbl, 0xf2e606fc_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusNodeNetInterfaces, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4365,7 +4223,6 @@ impl ISClusNodeNetInterfaces {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ISClusNetInterface>
     where
@@ -4389,12 +4246,7 @@ pub struct ISClusNodeNetInterfaces_Vtbl {
     get_Item: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusNodes,
-    ISClusNodes_Vtbl,
-    0xf2e606fa_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusNodes, ISClusNodes_Vtbl, 0xf2e606fa_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusNodes, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4410,7 +4262,6 @@ impl ISClusNodes {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ISClusNode>
     where
@@ -4434,12 +4285,7 @@ pub struct ISClusNodes_Vtbl {
     get_Item: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusPartition,
-    ISClusPartition_Vtbl,
-    0xf2e60720_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusPartition, ISClusPartition_Vtbl, 0xf2e60720_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusPartition, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4487,12 +4333,7 @@ pub struct ISClusPartition_Vtbl {
     pub FileSystem: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusPartitionEx,
-    ISClusPartitionEx_Vtbl,
-    0x8802d4fe_b32e_4ad1_9dbd_64f18e1166ce
-);
+::windows_core::imp::com_interface!(ISClusPartitionEx, ISClusPartitionEx_Vtbl, 0x8802d4fe_b32e_4ad1_9dbd_64f18e1166ce);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusPartitionEx, ::windows_core::IUnknown, super::super::System::Com::IDispatch, ISClusPartition);
 #[cfg(feature = "Win32_System_Com")]
@@ -4558,12 +4399,7 @@ pub struct ISClusPartitionEx_Vtbl {
     pub VolumeGuid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusPartitions,
-    ISClusPartitions_Vtbl,
-    0xf2e60722_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusPartitions, ISClusPartitions_Vtbl, 0xf2e60722_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusPartitions, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4576,7 +4412,6 @@ impl ISClusPartitions {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ISClusPartition>
     where
@@ -4599,12 +4434,7 @@ pub struct ISClusPartitions_Vtbl {
     get_Item: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusProperties,
-    ISClusProperties_Vtbl,
-    0xf2e60700_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusProperties, ISClusProperties_Vtbl, 0xf2e60700_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusProperties, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4620,7 +4450,6 @@ impl ISClusProperties {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ISClusProperty>
     where
@@ -4629,7 +4458,6 @@ impl ISClusProperties {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), varindex.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateItem<P0, P1>(&self, bstrname: P0, varvalue: P1) -> ::windows_core::Result<ISClusProperty>
     where
@@ -4690,12 +4518,7 @@ pub struct ISClusProperties_Vtbl {
     pub Modified: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusProperty,
-    ISClusProperty_Vtbl,
-    0xf2e606fe_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusProperty, ISClusProperty_Vtbl, 0xf2e606fe_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusProperty, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4712,7 +4535,6 @@ impl ISClusProperty {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ValueCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Values(&self) -> ::windows_core::Result<ISClusPropertyValues> {
         let mut result__ = ::std::mem::zeroed();
@@ -4787,12 +4609,7 @@ pub struct ISClusProperty_Vtbl {
     pub UseDefaultValue: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusPropertyValue,
-    ISClusPropertyValue_Vtbl,
-    0xf2e6071a_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusPropertyValue, ISClusPropertyValue_Vtbl, 0xf2e6071a_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusPropertyValue, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4829,7 +4646,6 @@ impl ISClusPropertyValue {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DataCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Data(&self) -> ::windows_core::Result<ISClusPropertyValueData> {
         let mut result__ = ::std::mem::zeroed();
@@ -4855,12 +4671,7 @@ pub struct ISClusPropertyValue_Vtbl {
     Data: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusPropertyValueData,
-    ISClusPropertyValueData_Vtbl,
-    0xf2e6071e_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusPropertyValueData, ISClusPropertyValueData_Vtbl, 0xf2e6071e_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusPropertyValueData, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4906,12 +4717,7 @@ pub struct ISClusPropertyValueData_Vtbl {
     pub RemoveItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusPropertyValues,
-    ISClusPropertyValues_Vtbl,
-    0xf2e6071c_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusPropertyValues, ISClusPropertyValues_Vtbl, 0xf2e6071c_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusPropertyValues, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4924,7 +4730,6 @@ impl ISClusPropertyValues {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ISClusPropertyValue>
     where
@@ -4933,7 +4738,6 @@ impl ISClusPropertyValues {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), varindex.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateItem<P0, P1>(&self, bstrname: P0, varvalue: P1) -> ::windows_core::Result<ISClusPropertyValue>
     where
@@ -4968,12 +4772,7 @@ pub struct ISClusPropertyValues_Vtbl {
     pub RemoveItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusRefObject,
-    ISClusRefObject_Vtbl,
-    0xf2e60702_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusRefObject, ISClusRefObject_Vtbl, 0xf2e60702_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusRefObject, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4991,12 +4790,7 @@ pub struct ISClusRefObject_Vtbl {
     pub Handle: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut usize) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusRegistryKeys,
-    ISClusRegistryKeys_Vtbl,
-    0xf2e6072a_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusRegistryKeys, ISClusRegistryKeys_Vtbl, 0xf2e6072a_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusRegistryKeys, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5045,12 +4839,7 @@ pub struct ISClusRegistryKeys_Vtbl {
     pub RemoveItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusResDependencies,
-    ISClusResDependencies_Vtbl,
-    0xf2e60704_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusResDependencies, ISClusResDependencies_Vtbl, 0xf2e60704_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResDependencies, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5066,7 +4855,6 @@ impl ISClusResDependencies {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ISClusResource>
     where
@@ -5075,7 +4863,6 @@ impl ISClusResDependencies {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), varindex.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateItem<P0, P1>(&self, bstrresourcename: P0, bstrresourcetype: P1, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows_core::Result<ISClusResource>
     where
@@ -5091,7 +4878,6 @@ impl ISClusResDependencies {
     {
         (::windows_core::Interface::vtable(self).DeleteItem)(::windows_core::Interface::as_raw(self), varindex.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddItem<P0>(&self, presource: P0) -> ::windows_core::Result<()>
     where
@@ -5130,12 +4916,7 @@ pub struct ISClusResDependencies_Vtbl {
     pub RemoveItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusResDependents,
-    ISClusResDependents_Vtbl,
-    0xf2e6072e_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusResDependents, ISClusResDependents_Vtbl, 0xf2e6072e_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResDependents, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5151,7 +4932,6 @@ impl ISClusResDependents {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ISClusResource>
     where
@@ -5160,7 +4940,6 @@ impl ISClusResDependents {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), varindex.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateItem<P0, P1>(&self, bstrresourcename: P0, bstrresourcetype: P1, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows_core::Result<ISClusResource>
     where
@@ -5176,7 +4955,6 @@ impl ISClusResDependents {
     {
         (::windows_core::Interface::vtable(self).DeleteItem)(::windows_core::Interface::as_raw(self), varindex.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddItem<P0>(&self, presource: P0) -> ::windows_core::Result<()>
     where
@@ -5215,35 +4993,26 @@ pub struct ISClusResDependents_Vtbl {
     pub RemoveItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusResGroup,
-    ISClusResGroup_Vtbl,
-    0xf2e60706_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusResGroup, ISClusResGroup_Vtbl, 0xf2e60706_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResGroup, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroup {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
@@ -5267,19 +5036,16 @@ impl ISClusResGroup {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).State)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OwnerNode(&self) -> ::windows_core::Result<ISClusNode> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OwnerNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Resources(&self) -> ::windows_core::Result<ISClusResGroupResources> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Resources)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PreferredOwnerNodes(&self) -> ::windows_core::Result<ISClusResGroupPreferredOwnerNodes> {
         let mut result__ = ::std::mem::zeroed();
@@ -5311,7 +5077,6 @@ impl ISClusResGroup {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Offline)(::windows_core::Interface::as_raw(self), vartimeout.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cluster(&self) -> ::windows_core::Result<ISCluster> {
         let mut result__ = ::std::mem::zeroed();
@@ -5365,12 +5130,7 @@ pub struct ISClusResGroup_Vtbl {
     Cluster: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusResGroupPreferredOwnerNodes,
-    ISClusResGroupPreferredOwnerNodes_Vtbl,
-    0xf2e606e8_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusResGroupPreferredOwnerNodes, ISClusResGroupPreferredOwnerNodes_Vtbl, 0xf2e606e8_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResGroupPreferredOwnerNodes, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5386,7 +5146,6 @@ impl ISClusResGroupPreferredOwnerNodes {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ISClusNode>
     where
@@ -5395,7 +5154,6 @@ impl ISClusResGroupPreferredOwnerNodes {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), varindex.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertItem<P0>(&self, pnode: P0, nposition: i32) -> ::windows_core::Result<()>
     where
@@ -5416,7 +5174,6 @@ impl ISClusResGroupPreferredOwnerNodes {
     pub unsafe fn SaveChanges(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SaveChanges)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddItem<P0>(&self, pnode: P0) -> ::windows_core::Result<()>
     where
@@ -5450,12 +5207,7 @@ pub struct ISClusResGroupPreferredOwnerNodes_Vtbl {
     AddItem: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusResGroupResources,
-    ISClusResGroupResources_Vtbl,
-    0xf2e606ea_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusResGroupResources, ISClusResGroupResources_Vtbl, 0xf2e606ea_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResGroupResources, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5471,7 +5223,6 @@ impl ISClusResGroupResources {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ISClusResource>
     where
@@ -5480,7 +5231,6 @@ impl ISClusResGroupResources {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), varindex.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateItem<P0, P1>(&self, bstrresourcename: P0, bstrresourcetype: P1, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows_core::Result<ISClusResource>
     where
@@ -5516,12 +5266,7 @@ pub struct ISClusResGroupResources_Vtbl {
     pub DeleteItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusResGroups,
-    ISClusResGroups_Vtbl,
-    0xf2e60708_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusResGroups, ISClusResGroups_Vtbl, 0xf2e60708_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResGroups, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5537,7 +5282,6 @@ impl ISClusResGroups {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ISClusResGroup>
     where
@@ -5546,7 +5290,6 @@ impl ISClusResGroups {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), varindex.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateItem<P0>(&self, bstrresourcegroupname: P0) -> ::windows_core::Result<ISClusResGroup>
     where
@@ -5581,12 +5324,7 @@ pub struct ISClusResGroups_Vtbl {
     pub DeleteItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusResPossibleOwnerNodes,
-    ISClusResPossibleOwnerNodes_Vtbl,
-    0xf2e6070e_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusResPossibleOwnerNodes, ISClusResPossibleOwnerNodes_Vtbl, 0xf2e6070e_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResPossibleOwnerNodes, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5602,7 +5340,6 @@ impl ISClusResPossibleOwnerNodes {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ISClusNode>
     where
@@ -5611,7 +5348,6 @@ impl ISClusResPossibleOwnerNodes {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), varindex.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddItem<P0>(&self, pnode: P0) -> ::windows_core::Result<()>
     where
@@ -5650,35 +5386,26 @@ pub struct ISClusResPossibleOwnerNodes_Vtbl {
     pub Modified: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusResType,
-    ISClusResType_Vtbl,
-    0xf2e60710_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusResType, ISClusResType_Vtbl, 0xf2e60710_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResType, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResType {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
@@ -5691,25 +5418,21 @@ impl ISClusResType {
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cluster(&self) -> ::windows_core::Result<ISCluster> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Cluster)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Resources(&self) -> ::windows_core::Result<ISClusResTypeResources> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Resources)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PossibleOwnerNodes(&self) -> ::windows_core::Result<ISClusResTypePossibleOwnerNodes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PossibleOwnerNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AvailableDisks(&self) -> ::windows_core::Result<ISClusDisks> {
         let mut result__ = ::std::mem::zeroed();
@@ -5757,12 +5480,7 @@ pub struct ISClusResType_Vtbl {
     AvailableDisks: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusResTypePossibleOwnerNodes,
-    ISClusResTypePossibleOwnerNodes_Vtbl,
-    0xf2e60718_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusResTypePossibleOwnerNodes, ISClusResTypePossibleOwnerNodes_Vtbl, 0xf2e60718_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResTypePossibleOwnerNodes, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5778,7 +5496,6 @@ impl ISClusResTypePossibleOwnerNodes {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ISClusNode>
     where
@@ -5802,12 +5519,7 @@ pub struct ISClusResTypePossibleOwnerNodes_Vtbl {
     get_Item: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusResTypeResources,
-    ISClusResTypeResources_Vtbl,
-    0xf2e60714_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusResTypeResources, ISClusResTypeResources_Vtbl, 0xf2e60714_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResTypeResources, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5823,7 +5535,6 @@ impl ISClusResTypeResources {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ISClusResource>
     where
@@ -5832,7 +5543,6 @@ impl ISClusResTypeResources {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), varindex.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateItem<P0, P1>(&self, bstrresourcename: P0, bstrgroupname: P1, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows_core::Result<ISClusResource>
     where
@@ -5868,12 +5578,7 @@ pub struct ISClusResTypeResources_Vtbl {
     pub DeleteItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusResTypes,
-    ISClusResTypes_Vtbl,
-    0xf2e60712_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusResTypes, ISClusResTypes_Vtbl, 0xf2e60712_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResTypes, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5889,7 +5594,6 @@ impl ISClusResTypes {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ISClusResType>
     where
@@ -5898,7 +5602,6 @@ impl ISClusResTypes {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), varindex.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateItem<P0, P1, P2>(&self, bstrresourcetypename: P0, bstrdisplayname: P1, bstrresourcetypedll: P2, dwlooksalivepollinterval: i32, dwisalivepollinterval: i32) -> ::windows_core::Result<ISClusResType>
     where
@@ -5935,35 +5638,26 @@ pub struct ISClusResTypes_Vtbl {
     pub DeleteItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusResource,
-    ISClusResource_Vtbl,
-    0xf2e6070a_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusResource, ISClusResource_Vtbl, 0xf2e6070a_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResource, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResource {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
@@ -6011,7 +5705,6 @@ impl ISClusResource {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Offline)(::windows_core::Interface::as_raw(self), ntimeout, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ChangeResourceGroup<P0>(&self, presourcegroup: P0) -> ::windows_core::Result<()>
     where
@@ -6019,7 +5712,6 @@ impl ISClusResource {
     {
         (::windows_core::Interface::vtable(self).ChangeResourceGroup)(::windows_core::Interface::as_raw(self), presourcegroup.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddResourceNode<P0>(&self, pnode: P0) -> ::windows_core::Result<()>
     where
@@ -6027,7 +5719,6 @@ impl ISClusResource {
     {
         (::windows_core::Interface::vtable(self).AddResourceNode)(::windows_core::Interface::as_raw(self), pnode.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RemoveResourceNode<P0>(&self, pnode: P0) -> ::windows_core::Result<()>
     where
@@ -6035,7 +5726,6 @@ impl ISClusResource {
     {
         (::windows_core::Interface::vtable(self).RemoveResourceNode)(::windows_core::Interface::as_raw(self), pnode.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CanResourceBeDependent<P0>(&self, presource: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
@@ -6044,37 +5734,31 @@ impl ISClusResource {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CanResourceBeDependent)(::windows_core::Interface::as_raw(self), presource.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PossibleOwnerNodes(&self) -> ::windows_core::Result<ISClusResPossibleOwnerNodes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PossibleOwnerNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Dependencies(&self) -> ::windows_core::Result<ISClusResDependencies> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Dependencies)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Dependents(&self) -> ::windows_core::Result<ISClusResDependents> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Dependents)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Group(&self) -> ::windows_core::Result<ISClusResGroup> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Group)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OwnerNode(&self) -> ::windows_core::Result<ISClusNode> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OwnerNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cluster(&self) -> ::windows_core::Result<ISCluster> {
         let mut result__ = ::std::mem::zeroed();
@@ -6084,19 +5768,16 @@ impl ISClusResource {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ClassInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Disk(&self) -> ::windows_core::Result<ISClusDisk> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Disk)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RegistryKeys(&self) -> ::windows_core::Result<ISClusRegistryKeys> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RegistryKeys)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CryptoKeys(&self) -> ::windows_core::Result<ISClusCryptoKeys> {
         let mut result__ = ::std::mem::zeroed();
@@ -6106,7 +5787,6 @@ impl ISClusResource {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TypeName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Type(&self) -> ::windows_core::Result<ISClusResType> {
         let mut result__ = ::std::mem::zeroed();
@@ -6216,12 +5896,7 @@ pub struct ISClusResource_Vtbl {
     pub SetMaintenanceMode: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusResources,
-    ISClusResources_Vtbl,
-    0xf2e6070c_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusResources, ISClusResources_Vtbl, 0xf2e6070c_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusResources, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6237,7 +5912,6 @@ impl ISClusResources {
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Refresh)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, varindex: P0) -> ::windows_core::Result<ISClusResource>
     where
@@ -6246,7 +5920,6 @@ impl ISClusResources {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), varindex.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateItem<P0, P1, P2>(&self, bstrresourcename: P0, bstrresourcetype: P1, bstrgroupname: P2, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> ::windows_core::Result<ISClusResource>
     where
@@ -6283,12 +5956,7 @@ pub struct ISClusResources_Vtbl {
     pub DeleteItem: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusScsiAddress,
-    ISClusScsiAddress_Vtbl,
-    0xf2e60728_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusScsiAddress, ISClusScsiAddress_Vtbl, 0xf2e60728_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusScsiAddress, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6321,12 +5989,7 @@ pub struct ISClusScsiAddress_Vtbl {
     pub Lun: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusVersion,
-    ISClusVersion_Vtbl,
-    0xf2e60716_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusVersion, ISClusVersion_Vtbl, 0xf2e60716_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusVersion, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6389,35 +6052,26 @@ pub struct ISClusVersion_Vtbl {
     pub MixedVersion: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISCluster,
-    ISCluster_Vtbl,
-    0xf2e606e4_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISCluster, ISCluster_Vtbl, 0xf2e606e4_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISCluster, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISCluster {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
         let mut result__ = ::std::mem::zeroed();
@@ -6443,13 +6097,11 @@ impl ISCluster {
     {
         (::windows_core::Interface::vtable(self).SetName)(::windows_core::Interface::as_raw(self), bstrclustername.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Version(&self) -> ::windows_core::Result<ISClusVersion> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Version)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetQuorumResource<P0>(&self, pclusterresource: P0) -> ::windows_core::Result<()>
     where
@@ -6457,7 +6109,6 @@ impl ISCluster {
     {
         (::windows_core::Interface::vtable(self).SetQuorumResource)(::windows_core::Interface::as_raw(self), pclusterresource.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QuorumResource(&self) -> ::windows_core::Result<ISClusResource> {
         let mut result__ = ::std::mem::zeroed();
@@ -6480,37 +6131,31 @@ impl ISCluster {
     {
         (::windows_core::Interface::vtable(self).SetQuorumPath)(::windows_core::Interface::as_raw(self), ppath.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Nodes(&self) -> ::windows_core::Result<ISClusNodes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Nodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResourceGroups(&self) -> ::windows_core::Result<ISClusResGroups> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ResourceGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Resources(&self) -> ::windows_core::Result<ISClusResources> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Resources)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResourceTypes(&self) -> ::windows_core::Result<ISClusResTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ResourceTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Networks(&self) -> ::windows_core::Result<ISClusNetworks> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Networks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NetInterfaces(&self) -> ::windows_core::Result<ISClusNetInterfaces> {
         let mut result__ = ::std::mem::zeroed();
@@ -6584,12 +6229,7 @@ pub struct ISCluster_Vtbl {
     NetInterfaces: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISClusterNames,
-    ISClusterNames_Vtbl,
-    0xf2e606ec_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISClusterNames, ISClusterNames_Vtbl, 0xf2e606ec_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISClusterNames, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -6629,12 +6269,7 @@ pub struct ISClusterNames_Vtbl {
     pub DomainName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISDomainNames,
-    ISDomainNames_Vtbl,
-    0xf2e606e2_2631_11d1_89f1_00a0c90d061e
-);
+::windows_core::imp::com_interface!(ISDomainNames, ISDomainNames_Vtbl, 0xf2e606e2_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISDomainNames, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -9724,7 +9359,6 @@ impl ::core::default::Default for CLRES_CALLBACK_FUNCTION_TABLE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub struct CLRES_FUNCTION_TABLE {
     pub TableSize: u32,
@@ -9750,7 +9384,6 @@ impl ::core::default::Default for CLRES_FUNCTION_TABLE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub union CLRES_FUNCTION_TABLE_0 {
     pub V1Functions: CLRES_V1_FUNCTIONS,
@@ -9777,7 +9410,6 @@ impl ::core::default::Default for CLRES_FUNCTION_TABLE_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub struct CLRES_V1_FUNCTIONS {
     pub Open: POPEN_ROUTINE,
@@ -9817,7 +9449,6 @@ impl ::core::default::Default for CLRES_V1_FUNCTIONS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub struct CLRES_V2_FUNCTIONS {
     pub Open: POPEN_V2_ROUTINE,
@@ -9858,7 +9489,6 @@ impl ::core::default::Default for CLRES_V2_FUNCTIONS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub struct CLRES_V3_FUNCTIONS {
     pub Open: POPEN_V2_ROUTINE,
@@ -9899,7 +9529,6 @@ impl ::core::default::Default for CLRES_V3_FUNCTIONS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub struct CLRES_V4_FUNCTIONS {
     pub Open: POPEN_V2_ROUTINE,
@@ -10077,7 +9706,6 @@ impl ::core::default::Default for CLUSPROP_BINARY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub union CLUSPROP_BUFFER_HELPER {
     pub pb: *mut u8,
@@ -10376,7 +10004,6 @@ impl ::core::default::Default for CLUSPROP_SCSI_ADDRESS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct CLUSPROP_SECURITY_DESCRIPTOR {
     pub Base: CLUSPROP_VALUE,
@@ -10401,7 +10028,6 @@ impl ::core::default::Default for CLUSPROP_SECURITY_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub union CLUSPROP_SECURITY_DESCRIPTOR_0 {
     pub sd: super::super::Security::SECURITY_DESCRIPTOR_RELATIVE,
@@ -14268,58 +13894,40 @@ pub type PCLUSAPI_CLUSTER_NODE_OPEN_ENUM = ::core::option::Option<unsafe extern 
 pub type PCLUSAPI_CLUSTER_NODE_OPEN_ENUM_EX = ::core::option::Option<unsafe extern "system" fn(hnode: HNODE, dwtype: u32, poptions: *const ::core::ffi::c_void) -> HNODEENUMEX>;
 pub type PCLUSAPI_CLUSTER_OPEN_ENUM = ::core::option::Option<unsafe extern "system" fn(hcluster: HCLUSTER, dwtype: u32) -> HCLUSENUM>;
 pub type PCLUSAPI_CLUSTER_OPEN_ENUM_EX = ::core::option::Option<unsafe extern "system" fn(hcluster: HCLUSTER, dwtype: u32, poptions: *const ::core::ffi::c_void) -> HCLUSENUMEX>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_CLOSE_KEY = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY) -> i32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_CREATE_BATCH = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, phregbatch: *mut HREGBATCH) -> i32>;
-#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_System_Registry\"`"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_CLUSTER_REG_CREATE_KEY = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: ::windows_core::PCWSTR, dwoptions: u32, samdesired: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut super::super::System::Registry::HKEY, lpdwdisposition: *mut u32) -> i32>;
-#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_System_Registry\"`"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_CLUSTER_REG_CREATE_KEY_EX = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: ::windows_core::PCWSTR, dwoptions: u32, samdesired: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut super::super::System::Registry::HKEY, lpdwdisposition: *mut u32, lpszreason: ::windows_core::PCWSTR) -> i32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_DELETE_KEY = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: ::windows_core::PCWSTR) -> i32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_DELETE_KEY_EX = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpsubkey: ::windows_core::PCWSTR, lpszreason: ::windows_core::PCWSTR) -> i32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_DELETE_VALUE = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: ::windows_core::PCWSTR) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_DELETE_VALUE_EX = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: ::windows_core::PCWSTR, lpszreason: ::windows_core::PCWSTR) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_ENUM_KEY = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, dwindex: u32, lpszname: ::windows_core::PWSTR, lpcchname: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> i32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_ENUM_VALUE = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, dwindex: u32, lpszvaluename: ::windows_core::PWSTR, lpcchvaluename: *mut u32, lpdwtype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> u32>;
-#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_System_Registry\"`"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_CLUSTER_REG_GET_KEY_SECURITY = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, requestedinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> i32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_OPEN_KEY = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: ::windows_core::PCWSTR, samdesired: u32, phkresult: *mut super::super::System::Registry::HKEY) -> i32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_QUERY_INFO_KEY = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpcsubkeys: *mut u32, lpcbmaxsubkeylen: *mut u32, lpcvalues: *mut u32, lpcbmaxvaluenamelen: *mut u32, lpcbmaxvaluelen: *mut u32, lpcbsecuritydescriptor: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> i32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_QUERY_VALUE = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: ::windows_core::PCWSTR, lpdwvaluetype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> i32>;
-#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_System_Registry\"`"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> i32>;
-#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_System_Registry\"`"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY_EX = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, lpszreason: ::windows_core::PCWSTR) -> i32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_SET_VALUE = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: ::windows_core::PCWSTR, dwtype: u32, lpdata: *const u8, cbdata: u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_SET_VALUE_EX = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: ::windows_core::PCWSTR, dwtype: u32, lpdata: *const u8, cbdata: u32, lpszreason: ::windows_core::PCWSTR) -> u32>;
 pub type PCLUSAPI_CLUSTER_REG_SYNC_DATABASE = ::core::option::Option<unsafe extern "system" fn(hcluster: HCLUSTER, flags: u32) -> i32>;
@@ -14383,26 +13991,21 @@ pub type PCLUSAPI_GET_CLUSTER_FROM_NETWORK = ::core::option::Option<unsafe exter
 pub type PCLUSAPI_GET_CLUSTER_FROM_NET_INTERFACE = ::core::option::Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE) -> HCLUSTER>;
 pub type PCLUSAPI_GET_CLUSTER_FROM_NODE = ::core::option::Option<unsafe extern "system" fn(hnode: HNODE) -> HCLUSTER>;
 pub type PCLUSAPI_GET_CLUSTER_FROM_RESOURCE = ::core::option::Option<unsafe extern "system" fn(hresource: HRESOURCE) -> HCLUSTER>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_GET_CLUSTER_GROUP_KEY = ::core::option::Option<unsafe extern "system" fn(hgroup: HGROUP, samdesired: u32) -> super::super::System::Registry::HKEY>;
 pub type PCLUSAPI_GET_CLUSTER_GROUP_STATE = ::core::option::Option<unsafe extern "system" fn(hgroup: HGROUP, lpsznodename: ::windows_core::PWSTR, lpcchnodename: *mut u32) -> CLUSTER_GROUP_STATE>;
 pub type PCLUSAPI_GET_CLUSTER_INFORMATION = ::core::option::Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszclustername: ::windows_core::PWSTR, lpcchclustername: *mut u32, lpclusterinfo: *mut CLUSTERVERSIONINFO) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_GET_CLUSTER_KEY = ::core::option::Option<unsafe extern "system" fn(hcluster: HCLUSTER, samdesired: u32) -> super::super::System::Registry::HKEY>;
 pub type PCLUSAPI_GET_CLUSTER_NETWORK_ID = ::core::option::Option<unsafe extern "system" fn(hnetwork: HNETWORK, lpsznetworkid: ::windows_core::PWSTR, lpcchname: *mut u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_GET_CLUSTER_NETWORK_KEY = ::core::option::Option<unsafe extern "system" fn(hnetwork: HNETWORK, samdesired: u32) -> super::super::System::Registry::HKEY>;
 pub type PCLUSAPI_GET_CLUSTER_NETWORK_STATE = ::core::option::Option<unsafe extern "system" fn(hnetwork: HNETWORK) -> CLUSTER_NETWORK_STATE>;
 pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE = ::core::option::Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsznodename: ::windows_core::PCWSTR, lpsznetworkname: ::windows_core::PCWSTR, lpszinterfacename: ::windows_core::PWSTR, lpcchinterfacename: *mut u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE_KEY = ::core::option::Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE, samdesired: u32) -> super::super::System::Registry::HKEY>;
 pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE_STATE = ::core::option::Option<unsafe extern "system" fn(hnetinterface: HNETINTERFACE) -> CLUSTER_NETINTERFACE_STATE>;
 pub type PCLUSAPI_GET_CLUSTER_NODE_ID = ::core::option::Option<unsafe extern "system" fn(hnode: HNODE, lpsznodeid: ::windows_core::PWSTR, lpcchname: *mut u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_GET_CLUSTER_NODE_KEY = ::core::option::Option<unsafe extern "system" fn(hnode: HNODE, samdesired: u32) -> super::super::System::Registry::HKEY>;
 pub type PCLUSAPI_GET_CLUSTER_NODE_STATE = ::core::option::Option<unsafe extern "system" fn(hnode: HNODE) -> CLUSTER_NODE_STATE>;
@@ -14410,12 +14013,10 @@ pub type PCLUSAPI_GET_CLUSTER_NOTIFY = ::core::option::Option<unsafe extern "sys
 pub type PCLUSAPI_GET_CLUSTER_NOTIFY_V2 = ::core::option::Option<unsafe extern "system" fn(hchange: HCHANGE, lpdwnotifykey: *mut usize, pfilterandtype: *mut NOTIFY_FILTER_AND_TYPE, buffer: *mut u8, lpcchbuffersize: *mut u32, lpszobjectid: ::windows_core::PWSTR, lpcchobjectid: *mut u32, lpszparentid: ::windows_core::PWSTR, lpcchparentid: *mut u32, lpszname: ::windows_core::PWSTR, lpcchname: *mut u32, lpsztype: ::windows_core::PWSTR, lpcchtype: *mut u32, dwmilliseconds: u32) -> u32>;
 pub type PCLUSAPI_GET_CLUSTER_QUORUM_RESOURCE = ::core::option::Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpszresourcename: ::windows_core::PWSTR, lpcchresourcename: *mut u32, lpszdevicename: ::windows_core::PWSTR, lpcchdevicename: *mut u32, lpdwmaxquorumlogsize: *mut u32) -> u32>;
 pub type PCLUSAPI_GET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION = ::core::option::Option<unsafe extern "system" fn(hresource: HRESOURCE, lpszdependencyexpression: ::windows_core::PWSTR, lpcchdependencyexpression: *mut u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_GET_CLUSTER_RESOURCE_KEY = ::core::option::Option<unsafe extern "system" fn(hresource: HRESOURCE, samdesired: u32) -> super::super::System::Registry::HKEY>;
 pub type PCLUSAPI_GET_CLUSTER_RESOURCE_NETWORK_NAME = ::core::option::Option<unsafe extern "system" fn(hresource: HRESOURCE, lpbuffer: ::windows_core::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL>;
 pub type PCLUSAPI_GET_CLUSTER_RESOURCE_STATE = ::core::option::Option<unsafe extern "system" fn(hresource: HRESOURCE, lpsznodename: ::windows_core::PWSTR, lpcchnodename: *mut u32, lpszgroupname: ::windows_core::PWSTR, lpcchgroupname: *mut u32) -> CLUSTER_RESOURCE_STATE>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_GET_CLUSTER_RESOURCE_TYPE_KEY = ::core::option::Option<unsafe extern "system" fn(hcluster: HCLUSTER, lpsztypename: ::windows_core::PCWSTR, samdesired: u32) -> super::super::System::Registry::HKEY>;
 pub type PCLUSAPI_GET_NODE_CLUSTER_STATE = ::core::option::Option<unsafe extern "system" fn(lpsznodename: ::windows_core::PCWSTR, pdwclusterstate: *mut u32) -> u32>;
@@ -14501,10 +14102,8 @@ pub type PCLUSTER_REG_CLOSE_BATCH_NOTIFY_PORT = ::core::option::Option<unsafe ex
 pub type PCLUSTER_REG_CLOSE_READ_BATCH = ::core::option::Option<unsafe extern "system" fn(hregreadbatch: HREGREADBATCH, phregreadbatchreply: *mut HREGREADBATCHREPLY) -> i32>;
 pub type PCLUSTER_REG_CLOSE_READ_BATCH_EX = ::core::option::Option<unsafe extern "system" fn(hregreadbatch: HREGREADBATCH, flags: u32, phregreadbatchreply: *mut HREGREADBATCHREPLY) -> i32>;
 pub type PCLUSTER_REG_CLOSE_READ_BATCH_REPLY = ::core::option::Option<unsafe extern "system" fn(hregreadbatchreply: HREGREADBATCHREPLY) -> i32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSTER_REG_CREATE_BATCH_NOTIFY_PORT = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, phbatchnotifyport: *mut HREGBATCHPORT) -> i32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSTER_REG_CREATE_READ_BATCH = ::core::option::Option<unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, phregreadbatch: *mut HREGREADBATCH) -> i32>;
 pub type PCLUSTER_REG_GET_BATCH_NOTIFICATION = ::core::option::Option<unsafe extern "system" fn(hbatchnotify: HREGBATCHPORT, phbatchnotification: *mut HREGBATCHNOTIFICATION) -> i32>;
@@ -14527,10 +14126,8 @@ pub type PONLINE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(reso
 pub type PONLINE_V2_ROUTINE = ::core::option::Option<unsafe extern "system" fn(resource: *const ::core::ffi::c_void, eventhandle: *mut super::super::Foundation::HANDLE, onlineflags: u32, inbuffer: *const u8, inbuffersize: u32, reserved: u32) -> u32>;
 pub type POPEN_CLUSTER_CRYPT_PROVIDER = ::core::option::Option<unsafe extern "system" fn(lpszresource: ::windows_core::PCWSTR, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> HCLUSCRYPTPROVIDER>;
 pub type POPEN_CLUSTER_CRYPT_PROVIDEREX = ::core::option::Option<unsafe extern "system" fn(lpszresource: ::windows_core::PCWSTR, lpszkeyname: ::windows_core::PCWSTR, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> HCLUSCRYPTPROVIDER>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type POPEN_ROUTINE = ::core::option::Option<unsafe extern "system" fn(resourcename: ::windows_core::PCWSTR, resourcekey: super::super::System::Registry::HKEY, resourcehandle: isize) -> *mut ::core::ffi::c_void>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type POPEN_V2_ROUTINE = ::core::option::Option<unsafe extern "system" fn(resourcename: ::windows_core::PCWSTR, resourcekey: super::super::System::Registry::HKEY, resourcehandle: isize, openflags: u32) -> *mut ::core::ffi::c_void>;
 pub type PQUERY_APPINSTANCE_VERSION = ::core::option::Option<unsafe extern "system" fn(appinstanceid: *const ::windows_core::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut super::super::Foundation::NTSTATUS) -> u32>;
@@ -14543,13 +14140,11 @@ pub type PREQUEST_DUMP_ROUTINE = ::core::option::Option<unsafe extern "system" f
 pub type PRESET_ALL_APPINSTANCE_VERSIONS = ::core::option::Option<unsafe extern "system" fn() -> u32>;
 pub type PRESOURCE_CONTROL_ROUTINE = ::core::option::Option<unsafe extern "system" fn(resource: *mut ::core::ffi::c_void, controlcode: u32, inbuffer: *mut ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32) -> u32>;
 pub type PRESOURCE_TYPE_CONTROL_ROUTINE = ::core::option::Option<unsafe extern "system" fn(resourcetypename: ::windows_core::PCWSTR, controlcode: u32, inbuffer: *mut ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_ADD_UNKNOWN_PROPERTIES = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, pcboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
 pub type PRESUTIL_CREATE_DIRECTORY_TREE = ::core::option::Option<unsafe extern "system" fn(pszpath: ::windows_core::PCWSTR) -> u32>;
 pub type PRESUTIL_DUP_PARAMETER_BLOCK = ::core::option::Option<unsafe extern "system" fn(poutparams: *mut u8, pinparams: *const u8, ppropertytable: *const RESUTIL_PROPERTY_ITEM) -> u32>;
 pub type PRESUTIL_DUP_STRING = ::core::option::Option<unsafe extern "system" fn(pszinstring: ::windows_core::PCWSTR) -> ::windows_core::PWSTR>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_ENUM_PRIVATE_PROPERTIES = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszoutproperties: ::windows_core::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
 pub type PRESUTIL_ENUM_PROPERTIES = ::core::option::Option<unsafe extern "system" fn(ppropertytable: *const RESUTIL_PROPERTY_ITEM, pszoutproperties: ::windows_core::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
@@ -14569,43 +14164,33 @@ pub type PRESUTIL_FIND_SZ_PROPERTY = ::core::option::Option<unsafe extern "syste
 pub type PRESUTIL_FIND_ULARGEINTEGER_PROPERTY = ::core::option::Option<unsafe extern "system" fn(ppropertylist: *const ::core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: ::windows_core::PCWSTR, plpropertyvalue: *mut u64) -> u32>;
 pub type PRESUTIL_FREE_ENVIRONMENT = ::core::option::Option<unsafe extern "system" fn(lpenvironment: *mut ::core::ffi::c_void) -> u32>;
 pub type PRESUTIL_FREE_PARAMETER_BLOCK = ::core::option::Option<unsafe extern "system" fn(poutparams: *mut u8, pinparams: *const u8, ppropertytable: *const RESUTIL_PROPERTY_ITEM)>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_GET_ALL_PROPERTIES = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
 pub type PRESUTIL_GET_BINARY_PROPERTY = ::core::option::Option<unsafe extern "system" fn(ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_BINARY, pboldvalue: *const u8, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_GET_BINARY_VALUE = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: ::windows_core::PCWSTR, ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32>;
 pub type PRESUTIL_GET_CORE_CLUSTER_RESOURCES = ::core::option::Option<unsafe extern "system" fn(hcluster: HCLUSTER, phclusternameresource: *mut HRESOURCE, phclusteripaddressresource: *mut HRESOURCE, phclusterquorumresource: *mut HRESOURCE) -> u32>;
 pub type PRESUTIL_GET_CORE_CLUSTER_RESOURCES_EX = ::core::option::Option<unsafe extern "system" fn(hclusterin: HCLUSTER, phclusternameresourceout: *mut HRESOURCE, phclusteripaddressresourceout: *mut HRESOURCE, phclusterquorumresourceout: *mut HRESOURCE, dwdesiredaccess: u32) -> u32>;
 pub type PRESUTIL_GET_DWORD_PROPERTY = ::core::option::Option<unsafe extern "system" fn(pdwoutvalue: *mut u32, pvaluestruct: *const CLUSPROP_DWORD, dwoldvalue: u32, dwminimum: u32, dwmaximum: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_GET_DWORD_VALUE = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: ::windows_core::PCWSTR, pdwoutvalue: *mut u32, dwdefaultvalue: u32) -> u32>;
 pub type PRESUTIL_GET_ENVIRONMENT_WITH_NET_NAME = ::core::option::Option<unsafe extern "system" fn(hresource: HRESOURCE) -> *mut ::core::ffi::c_void>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_GET_EXPAND_SZ_VALUE = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: ::windows_core::PCWSTR, bexpand: super::super::Foundation::BOOL) -> ::windows_core::PWSTR>;
 pub type PRESUTIL_GET_FILETIME_PROPERTY = ::core::option::Option<unsafe extern "system" fn(pftoutvalue: *mut super::super::Foundation::FILETIME, pvaluestruct: *const CLUSPROP_FILETIME, ftoldvalue: super::super::Foundation::FILETIME, ftminimum: super::super::Foundation::FILETIME, ftmaximum: super::super::Foundation::FILETIME, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32>;
 pub type PRESUTIL_GET_LONG_PROPERTY = ::core::option::Option<unsafe extern "system" fn(ploutvalue: *mut i32, pvaluestruct: *const CLUSPROP_LONG, loldvalue: i32, lminimum: i32, lmaximum: i32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32>;
 pub type PRESUTIL_GET_MULTI_SZ_PROPERTY = ::core::option::Option<unsafe extern "system" fn(ppszoutvalue: *mut ::windows_core::PWSTR, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: ::windows_core::PCWSTR, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_GET_PRIVATE_PROPERTIES = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_GET_PROPERTIES = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::core::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_GET_PROPERTIES_TO_PARAMETER_BLOCK = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutparams: *mut u8, bcheckforrequiredproperties: super::super::Foundation::BOOL, psznameofpropinerror: *mut ::windows_core::PWSTR) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_GET_PROPERTY = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, poutpropertyitem: *mut *mut ::core::ffi::c_void, pcboutpropertyitemsize: *mut u32) -> u32>;
 pub type PRESUTIL_GET_PROPERTY_FORMATS = ::core::option::Option<unsafe extern "system" fn(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertyformatlist: *mut ::core::ffi::c_void, cbpropertyformatlistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_GET_PROPERTY_SIZE = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, pcboutpropertylistsize: *mut u32, pnpropertycount: *mut u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_GET_QWORD_VALUE = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: ::windows_core::PCWSTR, pqwoutvalue: *mut u64, qwdefaultvalue: u64) -> u32>;
 pub type PRESUTIL_GET_RESOURCE_DEPENDENCY = ::core::option::Option<unsafe extern "system" fn(hself: super::super::Foundation::HANDLE, lpszresourcetype: ::windows_core::PCWSTR) -> HRESOURCE>;
@@ -14619,7 +14204,6 @@ pub type PRESUTIL_GET_RESOURCE_NAME = ::core::option::Option<unsafe extern "syst
 pub type PRESUTIL_GET_RESOURCE_NAME_DEPENDENCY = ::core::option::Option<unsafe extern "system" fn(lpszresourcename: ::windows_core::PCWSTR, lpszresourcetype: ::windows_core::PCWSTR) -> HRESOURCE>;
 pub type PRESUTIL_GET_RESOURCE_NAME_DEPENDENCY_EX = ::core::option::Option<unsafe extern "system" fn(lpszresourcename: ::windows_core::PCWSTR, lpszresourcetype: ::windows_core::PCWSTR, dwdesiredaccess: u32) -> HRESOURCE>;
 pub type PRESUTIL_GET_SZ_PROPERTY = ::core::option::Option<unsafe extern "system" fn(ppszoutvalue: *mut ::windows_core::PWSTR, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: ::windows_core::PCWSTR, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_GET_SZ_VALUE = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: ::windows_core::PCWSTR) -> ::windows_core::PWSTR>;
 pub type PRESUTIL_IS_PATH_VALID = ::core::option::Option<unsafe extern "system" fn(pszpath: ::windows_core::PCWSTR) -> super::super::Foundation::BOOL>;
@@ -14628,61 +14212,44 @@ pub type PRESUTIL_PROPERTY_LIST_FROM_PARAMETER_BLOCK = ::core::option::Option<un
 pub type PRESUTIL_REMOVE_RESOURCE_SERVICE_ENVIRONMENT = ::core::option::Option<unsafe extern "system" fn(pszservicename: ::windows_core::PCWSTR, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32>;
 pub type PRESUTIL_RESOURCES_EQUAL = ::core::option::Option<unsafe extern "system" fn(hself: HRESOURCE, hresource: HRESOURCE) -> super::super::Foundation::BOOL>;
 pub type PRESUTIL_RESOURCE_TYPES_EQUAL = ::core::option::Option<unsafe extern "system" fn(lpszresourcetypename: ::windows_core::PCWSTR, hresource: HRESOURCE) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_SET_BINARY_VALUE = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: ::windows_core::PCWSTR, pbnewvalue: *const u8, cbnewvaluesize: u32, ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_SET_DWORD_VALUE = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: ::windows_core::PCWSTR, dwnewvalue: u32, pdwoutvalue: *mut u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_SET_EXPAND_SZ_VALUE = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: ::windows_core::PCWSTR, psznewvalue: ::windows_core::PCWSTR, ppszoutstring: *mut ::windows_core::PWSTR) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_SET_MULTI_SZ_VALUE = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: ::windows_core::PCWSTR, psznewvalue: ::windows_core::PCWSTR, cbnewvaluesize: u32, ppszoutvalue: *mut ::windows_core::PWSTR, pcboutvaluesize: *mut u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_SET_PRIVATE_PROPERTY_LIST = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK_EX = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: super::super::Foundation::BOOL, poutparams: *mut u8) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_SET_PROPERTY_TABLE = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *const ::core::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_SET_PROPERTY_TABLE_EX = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::core::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: super::super::Foundation::BOOL, poutparams: *mut u8) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_SET_QWORD_VALUE = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: ::windows_core::PCWSTR, qwnewvalue: u64, pqwoutvalue: *mut u64) -> u32>;
 pub type PRESUTIL_SET_RESOURCE_SERVICE_ENVIRONMENT = ::core::option::Option<unsafe extern "system" fn(pszservicename: ::windows_core::PCWSTR, hresource: HRESOURCE, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32>;
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub type PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS = ::core::option::Option<unsafe extern "system" fn(pszservicename: ::windows_core::PCWSTR, schscmhandle: super::super::Security::SC_HANDLE, phservice: *mut super::super::Security::SC_HANDLE, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32>;
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub type PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS_EX = ::core::option::Option<unsafe extern "system" fn(pszservicename: ::windows_core::PCWSTR, schscmhandle: super::super::Security::SC_HANDLE, phservice: *mut super::super::Security::SC_HANDLE, dwdesiredaccess: u32, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_SET_SZ_VALUE = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: ::windows_core::PCWSTR, psznewvalue: ::windows_core::PCWSTR, ppszoutstring: *mut ::windows_core::PWSTR) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_SET_UNKNOWN_PROPERTIES = ::core::option::Option<unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32>;
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub type PRESUTIL_START_RESOURCE_SERVICE = ::core::option::Option<unsafe extern "system" fn(pszservicename: ::windows_core::PCWSTR, phservicehandle: *mut super::super::Security::SC_HANDLE) -> u32>;
 pub type PRESUTIL_STOP_RESOURCE_SERVICE = ::core::option::Option<unsafe extern "system" fn(pszservicename: ::windows_core::PCWSTR) -> u32>;
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub type PRESUTIL_STOP_SERVICE = ::core::option::Option<unsafe extern "system" fn(hservicehandle: super::super::Security::SC_HANDLE) -> u32>;
 pub type PRESUTIL_TERMINATE_SERVICE_PROCESS_FROM_RES_DLL = ::core::option::Option<unsafe extern "system" fn(dwservicepid: u32, boffline: super::super::Foundation::BOOL, pdwresourcestate: *mut u32, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32>;
 pub type PRESUTIL_VERIFY_PRIVATE_PROPERTY_LIST = ::core::option::Option<unsafe extern "system" fn(pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32) -> u32>;
 pub type PRESUTIL_VERIFY_PROPERTY_TABLE = ::core::option::Option<unsafe extern "system" fn(ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *const ::core::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const ::core::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32>;
 pub type PRESUTIL_VERIFY_RESOURCE_SERVICE = ::core::option::Option<unsafe extern "system" fn(pszservicename: ::windows_core::PCWSTR) -> u32>;
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub type PRESUTIL_VERIFY_SERVICE = ::core::option::Option<unsafe extern "system" fn(hservicehandle: super::super::Security::SC_HANDLE) -> u32>;
 pub type PRES_UTIL_VERIFY_SHUTDOWN_SAFE = ::core::option::Option<unsafe extern "system" fn(flags: u32, reason: u32, presult: *mut u32) -> u32>;
@@ -14694,10 +14261,8 @@ pub type PSET_RESOURCE_STATUS_ROUTINE = ::core::option::Option<unsafe extern "sy
 pub type PSET_RESOURCE_STATUS_ROUTINE_EX = ::core::option::Option<unsafe extern "system" fn(resourcehandle: isize, resourcestatus: *mut RESOURCE_STATUS_EX) -> u32>;
 pub type PSET_RESOURCE_WPR_POLICY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(resourcehandle: isize, wprpolicyflags: u32) -> u32>;
 pub type PSIGNAL_FAILURE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(resourcehandle: isize, failuretype: FAILURE_TYPE, applicationspecificerrorcode: u32) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PSTARTUP_EX_ROUTINE = ::core::option::Option<unsafe extern "system" fn(resourcetype: ::windows_core::PCWSTR, minversionsupported: u32, maxversionsupported: u32, monitorcallbackfunctions: *mut CLRES_CALLBACK_FUNCTION_TABLE, resourcedllinterfacefunctions: *mut *mut CLRES_FUNCTION_TABLE) -> u32>;
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PSTARTUP_ROUTINE = ::core::option::Option<unsafe extern "system" fn(resourcetype: ::windows_core::PCWSTR, minversionsupported: u32, maxversionsupported: u32, setresourcestatus: PSET_RESOURCE_STATUS_ROUTINE, logevent: PLOG_EVENT_ROUTINE, functiontable: *mut *mut CLRES_FUNCTION_TABLE) -> u32>;
 pub type PTERMINATE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(resource: *mut ::core::ffi::c_void)>;

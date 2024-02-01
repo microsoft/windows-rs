@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IInkAnalysisNode_Impl: Sized {
     fn Id(&self) -> ::windows_core::Result<u32>;

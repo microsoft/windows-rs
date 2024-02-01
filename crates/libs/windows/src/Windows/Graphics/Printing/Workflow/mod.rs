@@ -421,7 +421,6 @@ unsafe impl ::core::marker::Sync for PrintWorkflowBackgroundSession {}
 pub struct PrintWorkflowBackgroundSetupRequestedEventArgs(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PrintWorkflowBackgroundSetupRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PrintWorkflowBackgroundSetupRequestedEventArgs {
-    #[doc = "Required features: `\"Graphics_Printing_PrintTicket\"`"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub fn GetUserPrintTicketAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
         let this = self;
@@ -566,7 +565,6 @@ unsafe impl ::core::marker::Sync for PrintWorkflowForegroundSession {}
 pub struct PrintWorkflowForegroundSetupRequestedEventArgs(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PrintWorkflowForegroundSetupRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PrintWorkflowForegroundSetupRequestedEventArgs {
-    #[doc = "Required features: `\"Graphics_Printing_PrintTicket\"`"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub fn GetUserPrintTicketAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
         let this = self;
@@ -609,7 +607,6 @@ pub struct PrintWorkflowJobActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 ::windows_core::imp::required_hierarchy!(PrintWorkflowJobActivatedEventArgs, super::super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
 impl PrintWorkflowJobActivatedEventArgs {
-    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -618,7 +615,6 @@ impl PrintWorkflowJobActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -627,7 +623,6 @@ impl PrintWorkflowJobActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -636,7 +631,6 @@ impl PrintWorkflowJobActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::super::System::User> {
         let this = &::windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -773,7 +767,6 @@ impl PrintWorkflowJobStartingEventArgs {
             (::windows_core::Interface::vtable(this).Configuration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Printers\"`"]
     #[cfg(feature = "Devices_Printers")]
     pub fn Printer(&self) -> ::windows_core::Result<super::super::super::Devices::Printers::IppPrintDevice> {
         let this = self;
@@ -893,7 +886,6 @@ unsafe impl ::core::marker::Sync for PrintWorkflowJobUISession {}
 pub struct PrintWorkflowObjectModelSourceFileContent(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PrintWorkflowObjectModelSourceFileContent, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PrintWorkflowObjectModelSourceFileContent {
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateInstance<P0>(xpsstream: P0) -> ::windows_core::Result<PrintWorkflowObjectModelSourceFileContent>
     where
@@ -944,7 +936,6 @@ unsafe impl ::core::marker::Sync for PrintWorkflowObjectModelTargetPackage {}
 pub struct PrintWorkflowPdlConverter(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PrintWorkflowPdlConverter, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PrintWorkflowPdlConverter {
-    #[doc = "Required features: `\"Graphics_Printing_PrintTicket\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
     pub fn ConvertPdlAsync<P0, P1, P2>(&self, printticket: P0, inputstream: P1, outputstream: P2) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -958,7 +949,6 @@ impl PrintWorkflowPdlConverter {
             (::windows_core::Interface::vtable(this).ConvertPdlAsync)(::windows_core::Interface::as_raw(this), printticket.into_param().abi(), inputstream.into_param().abi(), outputstream.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Graphics_Printing_PrintTicket\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
     pub fn ConvertPdlAsync2<P0, P1, P2>(&self, printticket: P0, inputstream: P1, outputstream: P2, hostbasedprocessingoperations: PdlConversionHostBasedProcessingOperations) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -1071,7 +1061,6 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
             (::windows_core::Interface::vtable(this).CreateJobOnPrinter)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(targetcontenttype), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Printers\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
     pub fn CreateJobOnPrinterWithAttributes<P0>(&self, jobattributes: P0, targetcontenttype: &::windows_core::HSTRING) -> ::windows_core::Result<PrintWorkflowPdlTargetStream>
     where
@@ -1083,7 +1072,6 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
             (::windows_core::Interface::vtable(this).CreateJobOnPrinterWithAttributes)(::windows_core::Interface::as_raw(this), jobattributes.into_param().abi(), ::core::mem::transmute_copy(targetcontenttype), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateJobOnPrinterWithAttributesBuffer<P0>(&self, jobattributesbuffer: P0, targetcontenttype: &::windows_core::HSTRING) -> ::windows_core::Result<PrintWorkflowPdlTargetStream>
     where
@@ -1109,7 +1097,6 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Printers\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
     pub fn CreateJobOnPrinterWithAttributes2<P0, P1>(&self, jobattributes: P0, targetcontenttype: &::windows_core::HSTRING, operationattributes: P1, jobattributesmergepolicy: PrintWorkflowAttributesMergePolicy, operationattributesmergepolicy: PrintWorkflowAttributesMergePolicy) -> ::windows_core::Result<PrintWorkflowPdlTargetStream>
     where
@@ -1122,7 +1109,6 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
             (::windows_core::Interface::vtable(this).CreateJobOnPrinterWithAttributes)(::windows_core::Interface::as_raw(this), jobattributes.into_param().abi(), ::core::mem::transmute_copy(targetcontenttype), operationattributes.into_param().abi(), jobattributesmergepolicy, operationattributesmergepolicy, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateJobOnPrinterWithAttributesBuffer2<P0, P1>(&self, jobattributesbuffer: P0, targetcontenttype: &::windows_core::HSTRING, operationattributesbuffer: P1, jobattributesmergepolicy: PrintWorkflowAttributesMergePolicy, operationattributesmergepolicy: PrintWorkflowAttributesMergePolicy) -> ::windows_core::Result<PrintWorkflowPdlTargetStream>
     where
@@ -1160,7 +1146,6 @@ impl PrintWorkflowPdlSourceContent {
             (::windows_core::Interface::vtable(this).ContentType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetInputStream(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IInputStream> {
         let this = self;
@@ -1169,7 +1154,6 @@ impl PrintWorkflowPdlSourceContent {
             (::windows_core::Interface::vtable(this).GetInputStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn GetContentFileAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::StorageFile>> {
         let this = self;
@@ -1196,7 +1180,6 @@ unsafe impl ::core::marker::Sync for PrintWorkflowPdlSourceContent {}
 pub struct PrintWorkflowPdlTargetStream(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PrintWorkflowPdlTargetStream, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PrintWorkflowPdlTargetStream {
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetOutputStream(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IOutputStream> {
         let this = self;
@@ -1234,7 +1217,6 @@ impl PrintWorkflowPrinterJob {
             (::windows_core::Interface::vtable(this).JobId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Printers\"`"]
     #[cfg(feature = "Devices_Printers")]
     pub fn Printer(&self) -> ::windows_core::Result<super::super::super::Devices::Printers::IppPrintDevice> {
         let this = self;
@@ -1250,7 +1232,6 @@ impl PrintWorkflowPrinterJob {
             (::windows_core::Interface::vtable(this).GetJobStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Graphics_Printing_PrintTicket\"`"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub fn GetJobPrintTicket(&self) -> ::windows_core::Result<super::PrintTicket::WorkflowPrintTicket> {
         let this = self;
@@ -1259,7 +1240,6 @@ impl PrintWorkflowPrinterJob {
             (::windows_core::Interface::vtable(this).GetJobPrintTicket)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GetJobAttributesAsBuffer<P0>(&self, attributenames: P0) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer>
     where
@@ -1271,7 +1251,6 @@ impl PrintWorkflowPrinterJob {
             (::windows_core::Interface::vtable(this).GetJobAttributesAsBuffer)(::windows_core::Interface::as_raw(this), attributenames.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Printers\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
     pub fn GetJobAttributes<P0>(&self, attributenames: P0) -> ::windows_core::Result<super::super::super::Foundation::Collections::IMap<::windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>
     where
@@ -1283,7 +1262,6 @@ impl PrintWorkflowPrinterJob {
             (::windows_core::Interface::vtable(this).GetJobAttributes)(::windows_core::Interface::as_raw(this), attributenames.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Printers\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Devices_Printers", feature = "Storage_Streams"))]
     pub fn SetJobAttributesFromBuffer<P0>(&self, jobattributesbuffer: P0) -> ::windows_core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>
     where
@@ -1295,7 +1273,6 @@ impl PrintWorkflowPrinterJob {
             (::windows_core::Interface::vtable(this).SetJobAttributesFromBuffer)(::windows_core::Interface::as_raw(this), jobattributesbuffer.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Printers\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
     pub fn SetJobAttributes<P0>(&self, jobattributes: P0) -> ::windows_core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>
     where
@@ -1325,7 +1302,6 @@ unsafe impl ::core::marker::Sync for PrintWorkflowPrinterJob {}
 pub struct PrintWorkflowSourceContent(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PrintWorkflowSourceContent, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PrintWorkflowSourceContent {
-    #[doc = "Required features: `\"Graphics_Printing_PrintTicket\"`"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub fn GetJobPrintTicketAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
         let this = self;
@@ -1366,7 +1342,6 @@ unsafe impl ::core::marker::Sync for PrintWorkflowSourceContent {}
 pub struct PrintWorkflowSpoolStreamContent(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PrintWorkflowSpoolStreamContent, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PrintWorkflowSpoolStreamContent {
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetInputStream(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IInputStream> {
         let this = self;
@@ -1393,7 +1368,6 @@ unsafe impl ::core::marker::Sync for PrintWorkflowSpoolStreamContent {}
 pub struct PrintWorkflowStreamTarget(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PrintWorkflowStreamTarget, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PrintWorkflowStreamTarget {
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetOutputStream(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IOutputStream> {
         let this = self;
@@ -1427,7 +1401,6 @@ impl PrintWorkflowSubmittedEventArgs {
             (::windows_core::Interface::vtable(this).Operation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Graphics_Printing_PrintTicket\"`"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub fn GetTarget<P0>(&self, jobprintticket: P0) -> ::windows_core::Result<PrintWorkflowTarget>
     where
@@ -1559,7 +1532,6 @@ pub struct PrintWorkflowUIActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 ::windows_core::imp::required_hierarchy!(PrintWorkflowUIActivatedEventArgs, super::super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
 impl PrintWorkflowUIActivatedEventArgs {
-    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1568,7 +1540,6 @@ impl PrintWorkflowUIActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1577,7 +1548,6 @@ impl PrintWorkflowUIActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1586,7 +1556,6 @@ impl PrintWorkflowUIActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::super::System::User> {
         let this = &::windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;

@@ -12,7 +12,6 @@ pub unsafe fn ApplicationRecoveryInProgress() -> ::windows_core::Result<super::s
     let mut result__ = ::std::mem::zeroed();
     ApplicationRecoveryInProgress(&mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn GetApplicationRecoveryCallback<P0>(hprocess: P0, precoverycallback: *mut super::WindowsProgramming::APPLICATION_RECOVERY_CALLBACK, ppvparameter: ::core::option::Option<*mut *mut ::core::ffi::c_void>, pdwpinginterval: ::core::option::Option<*mut u32>, pdwflags: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT
@@ -30,7 +29,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetApplicationRestartSettings(hprocess : super::super::Foundation:: HANDLE, pwzcommandline : ::windows_core::PWSTR, pcchsize : *mut u32, pdwflags : *mut u32) -> ::windows_core::HRESULT);
     GetApplicationRestartSettings(hprocess.into_param().abi(), ::core::mem::transmute(pwzcommandline), pcchsize, ::core::mem::transmute(pdwflags.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn RegisterApplicationRecoveryCallback(precoveycallback: super::WindowsProgramming::APPLICATION_RECOVERY_CALLBACK, pvparameter: ::core::option::Option<*const ::core::ffi::c_void>, dwpinginterval: u32, dwflags: u32) -> ::windows_core::Result<()> {

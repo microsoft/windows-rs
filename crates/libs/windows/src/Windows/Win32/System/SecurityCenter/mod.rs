@@ -14,7 +14,6 @@ pub unsafe fn WscQueryAntiMalwareUri() -> ::windows_core::Result<()> {
     ::windows_targets::link!("wscapi.dll" "system" fn WscQueryAntiMalwareUri() -> ::windows_core::HRESULT);
     WscQueryAntiMalwareUri().ok()
 }
-#[doc = "Required features: `\"Win32_System_Threading\"`"]
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
 pub unsafe fn WscRegisterForChanges(reserved: *mut ::core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -35,12 +34,7 @@ where
     WscUnRegisterChanges(hregistrationhandle.into_param().abi()).ok()
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWSCDefaultProduct,
-    IWSCDefaultProduct_Vtbl,
-    0x0476d69c_f21a_11e5_9ce9_5e5517507c66
-);
+::windows_core::imp::com_interface!(IWSCDefaultProduct, IWSCDefaultProduct_Vtbl, 0x0476d69c_f21a_11e5_9ce9_5e5517507c66);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWSCDefaultProduct, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -60,12 +54,7 @@ pub struct IWSCDefaultProduct_Vtbl {
     pub SetDefaultProduct: unsafe extern "system" fn(*mut ::core::ffi::c_void, SECURITY_PRODUCT_TYPE, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWSCProductList,
-    IWSCProductList_Vtbl,
-    0x722a338c_6e8e_4e72_ac27_1417fb0c81c2
-);
+::windows_core::imp::com_interface!(IWSCProductList, IWSCProductList_Vtbl, 0x722a338c_6e8e_4e72_ac27_1417fb0c81c2);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWSCProductList, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -77,7 +66,6 @@ impl IWSCProductList {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: u32) -> ::windows_core::Result<IWscProduct> {
         let mut result__ = ::std::mem::zeroed();
@@ -97,12 +85,7 @@ pub struct IWSCProductList_Vtbl {
     get_Item: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWscProduct,
-    IWscProduct_Vtbl,
-    0x8c38232e_3a45_4a27_92b0_1a16a975f669
-);
+::windows_core::imp::com_interface!(IWscProduct, IWscProduct_Vtbl, 0x8c38232e_3a45_4a27_92b0_1a16a975f669);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWscProduct, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -150,12 +133,7 @@ pub struct IWscProduct_Vtbl {
     pub ProductIsDefault: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWscProduct2,
-    IWscProduct2_Vtbl,
-    0xf896ca54_fe09_4403_86d4_23cb488d81d8
-);
+::windows_core::imp::com_interface!(IWscProduct2, IWscProduct2_Vtbl, 0xf896ca54_fe09_4403_86d4_23cb488d81d8);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWscProduct2, ::windows_core::IUnknown, super::Com::IDispatch, IWscProduct);
 #[cfg(feature = "Win32_System_Com")]
@@ -226,12 +204,7 @@ pub struct IWscProduct2_Vtbl {
     pub FirewallPublicProfileSubstatus: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IWscProduct3,
-    IWscProduct3_Vtbl,
-    0x55536524_d1d1_4726_8c7c_04996a1904e7
-);
+::windows_core::imp::com_interface!(IWscProduct3, IWscProduct3_Vtbl, 0x55536524_d1d1_4726_8c7c_04996a1904e7);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWscProduct3, ::windows_core::IUnknown, super::Com::IDispatch, IWscProduct, IWscProduct2);
 #[cfg(feature = "Win32_System_Com")]

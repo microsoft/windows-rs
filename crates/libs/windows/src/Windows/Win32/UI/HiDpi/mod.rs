@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn AdjustWindowRectExForDpi<P0>(lprect: *mut super::super::Foundation::RECT, dwstyle: super::WindowsAndMessaging::WINDOW_STYLE, bmenu: P0, dwexstyle: super::WindowsAndMessaging::WINDOW_EX_STYLE, dpi: u32) -> ::windows_core::Result<()>
@@ -57,7 +56,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetDpiAwarenessContextForProcess(hprocess : super::super::Foundation:: HANDLE) -> DPI_AWARENESS_CONTEXT);
     GetDpiAwarenessContextForProcess(hprocess.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetDpiForMonitor<P0>(hmonitor: P0, dpitype: MONITOR_DPI_TYPE, dpix: *mut u32, dpiy: *mut u32) -> ::windows_core::Result<()>
@@ -105,7 +103,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetSystemDpiForProcess(hprocess : super::super::Foundation:: HANDLE) -> u32);
     GetSystemDpiForProcess(hprocess.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn GetSystemMetricsForDpi(nindex: super::WindowsAndMessaging::SYSTEM_METRICS_INDEX, dpi: u32) -> i32 {
@@ -154,7 +151,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn LogicalToPhysicalPointForPerMonitorDPI(hwnd : super::super::Foundation:: HWND, lppoint : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
     LogicalToPhysicalPointForPerMonitorDPI(hwnd.into_param().abi(), lppoint)
 }
-#[doc = "Required features: `\"Win32_UI_Controls\"`"]
 #[cfg(feature = "Win32_UI_Controls")]
 #[inline]
 pub unsafe fn OpenThemeDataForDpi<P0, P1>(hwnd: P0, pszclasslist: P1, dpi: u32) -> super::Controls::HTHEME

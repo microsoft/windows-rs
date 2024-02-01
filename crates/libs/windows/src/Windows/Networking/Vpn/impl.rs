@@ -20,7 +20,6 @@ impl IVpnChannelStatics_Vtbl {
         iid == &<IVpnChannelStatics as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Security_Credentials\"`, `\"Security_Cryptography_Certificates\"`"]
 #[cfg(all(feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
 pub trait IVpnCredential_Impl: Sized {
     fn PasskeyCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
@@ -247,7 +246,6 @@ impl IVpnCustomPromptElement_Vtbl {
         iid == &<IVpnCustomPromptElement as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVpnDomainNameInfoFactory_Impl: Sized {
     fn CreateVpnDomainNameInfo(&self, name: &::windows_core::HSTRING, nametype: VpnDomainNameType, dnsserverlist: ::core::option::Option<&super::super::Foundation::Collections::IIterable<super::HostName>>, proxyserverlist: ::core::option::Option<&super::super::Foundation::Collections::IIterable<super::HostName>>) -> ::windows_core::Result<VpnDomainNameInfo>;
@@ -309,7 +307,6 @@ impl IVpnInterfaceIdFactory_Vtbl {
         iid == &<IVpnInterfaceIdFactory as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVpnNamespaceInfoFactory_Impl: Sized {
     fn CreateVpnNamespaceInfo(&self, name: &::windows_core::HSTRING, dnsserverlist: ::core::option::Option<&super::super::Foundation::Collections::IVector<super::HostName>>, proxyserverlist: ::core::option::Option<&super::super::Foundation::Collections::IVector<super::HostName>>) -> ::windows_core::Result<VpnNamespaceInfo>;
@@ -421,7 +418,6 @@ impl IVpnPlugIn_Vtbl {
         iid == &<IVpnPlugIn as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVpnProfile_Impl: Sized {
     fn ProfileName(&self) -> ::windows_core::Result<::windows_core::HSTRING>;

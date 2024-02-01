@@ -2875,7 +2875,6 @@ impl IWMReaderAdvanced_Vtbl {
         iid == &<IWMReaderAdvanced as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMReaderAdvanced2_Impl: Sized + IWMReaderAdvanced_Impl {
     fn SetPlayMode(&self, mode: WMT_PLAY_MODE) -> ::windows_core::Result<()>;
@@ -3015,7 +3014,6 @@ impl IWMReaderAdvanced2_Vtbl {
         iid == &<IWMReaderAdvanced2 as ::windows_core::Interface>::IID || iid == &<IWMReaderAdvanced as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMReaderAdvanced3_Impl: Sized + IWMReaderAdvanced2_Impl {
     fn StopNetStreaming(&self) -> ::windows_core::Result<()>;
@@ -3046,7 +3044,6 @@ impl IWMReaderAdvanced3_Vtbl {
         iid == &<IWMReaderAdvanced3 as ::windows_core::Interface>::IID || iid == &<IWMReaderAdvanced as ::windows_core::Interface>::IID || iid == &<IWMReaderAdvanced2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMReaderAdvanced4_Impl: Sized + IWMReaderAdvanced3_Impl {
     fn GetLanguageCount(&self, dwoutputnum: u32) -> ::windows_core::Result<u16>;
@@ -3150,7 +3147,6 @@ impl IWMReaderAdvanced4_Vtbl {
         iid == &<IWMReaderAdvanced4 as ::windows_core::Interface>::IID || iid == &<IWMReaderAdvanced as ::windows_core::Interface>::IID || iid == &<IWMReaderAdvanced2 as ::windows_core::Interface>::IID || iid == &<IWMReaderAdvanced3 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMReaderAdvanced5_Impl: Sized + IWMReaderAdvanced4_Impl {
     fn SetPlayerHook(&self, dwoutputnum: u32, phook: ::core::option::Option<&IWMPlayerHook>) -> ::windows_core::Result<()>;
@@ -3171,7 +3167,6 @@ impl IWMReaderAdvanced5_Vtbl {
         iid == &<IWMReaderAdvanced5 as ::windows_core::Interface>::IID || iid == &<IWMReaderAdvanced as ::windows_core::Interface>::IID || iid == &<IWMReaderAdvanced2 as ::windows_core::Interface>::IID || iid == &<IWMReaderAdvanced3 as ::windows_core::Interface>::IID || iid == &<IWMReaderAdvanced4 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMReaderAdvanced6_Impl: Sized + IWMReaderAdvanced5_Impl {
     fn SetProtectStreamSamples(&self, pbcertificate: *const u8, cbcertificate: u32, dwcertificatetype: u32, dwflags: u32, pbinitializationvector: *mut u8, pcbinitializationvector: *mut u32) -> ::windows_core::Result<()>;
@@ -4726,7 +4721,6 @@ impl IWMStreamPrioritization_Vtbl {
         iid == &<IWMStreamPrioritization as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMSyncReader_Impl: Sized {
     fn Open(&self, pwszfilename: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -4950,7 +4944,6 @@ impl IWMSyncReader_Vtbl {
         iid == &<IWMSyncReader as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWMSyncReader2_Impl: Sized + IWMSyncReader_Impl {
     fn SetRangeByTimecode(&self, wstreamnum: u16, pstart: *const WMT_TIMECODE_EXTENSION_DATA, pend: *const WMT_TIMECODE_EXTENSION_DATA) -> ::windows_core::Result<()>;

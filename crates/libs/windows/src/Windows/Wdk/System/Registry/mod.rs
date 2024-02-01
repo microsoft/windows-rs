@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn NtNotifyChangeMultipleKeys<P0, P1, P2, P3>(masterkeyhandle: P0, subordinateobjects: ::core::option::Option<&[super::super::Foundation::OBJECT_ATTRIBUTES]>, event: P1, apcroutine: super::super::super::Win32::System::IO::PIO_APC_ROUTINE, apccontext: ::core::option::Option<*const ::core::ffi::c_void>, iostatusblock: *mut super::super::super::Win32::System::IO::IO_STATUS_BLOCK, completionfilter: u32, watchtree: P2, buffer: ::core::option::Option<*mut ::core::ffi::c_void>, buffersize: u32, asynchronous: P3) -> super::super::super::Win32::Foundation::NTSTATUS

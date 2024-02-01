@@ -1,5 +1,4 @@
 #[cfg(feature = "Devices_Gpio_Provider")]
-#[doc = "Required features: `\"Devices_Gpio_Provider\"`"]
 pub mod Provider;
 ::windows_core::imp::com_interface!(IGpioChangeCounter, IGpioChangeCounter_Vtbl, 0xcb5ec0de_6801_43ff_803d_4576628a8b26);
 #[repr(C)]
@@ -263,7 +262,6 @@ impl GpioChangeReader {
             (::windows_core::Interface::vtable(this).PeekNextItem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAllItems(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<GpioChangeRecord>> {
         let this = self;
@@ -354,7 +352,6 @@ impl GpioController {
             (::windows_core::Interface::vtable(this).GetDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Devices_Gpio_Provider\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "Devices_Gpio_Provider", feature = "Foundation_Collections"))]
     pub fn GetControllersAsync<P0>(provider: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<GpioController>>>
     where

@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
 pub trait IContactInformation_Impl: Sized {
     fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING>;

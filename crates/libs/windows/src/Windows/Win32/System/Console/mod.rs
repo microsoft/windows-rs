@@ -41,7 +41,6 @@ pub unsafe fn ConsoleControl(command: CONSOLECONTROL, consoleinformation: *const
     ::windows_targets::link!("user32.dll" "system" fn ConsoleControl(command : CONSOLECONTROL, consoleinformation : *const ::core::ffi::c_void, consoleinformationlength : u32) -> super::super::Foundation:: NTSTATUS);
     ConsoleControl(command, consoleinformation, consoleinformationlength)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateConsoleScreenBuffer(dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwflags: u32, lpscreenbufferdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<super::super::Foundation::HANDLE> {

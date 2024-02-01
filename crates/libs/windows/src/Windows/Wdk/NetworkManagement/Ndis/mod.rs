@@ -11,7 +11,6 @@ pub unsafe fn NdisAllocateMemoryWithTag(virtualaddress: *mut *mut ::core::ffi::c
     ::windows_targets::link!("ndis.sys" "system" fn NdisAllocateMemoryWithTag(virtualaddress : *mut *mut ::core::ffi::c_void, length : u32, tag : u32) -> i32);
     NdisAllocateMemoryWithTag(virtualaddress, length, tag)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisCancelTimer(timer: *const NDIS_TIMER) -> super::super::super::Win32::Foundation::BOOLEAN {
@@ -180,7 +179,6 @@ pub unsafe fn NdisCoGetTapiCallId(ndisvchandle: *const ::core::ffi::c_void, tapi
     ::windows_targets::link!("ndis.sys" "system" fn NdisCoGetTapiCallId(ndisvchandle : *const ::core::ffi::c_void, tapicallid : *mut VAR_STRING) -> i32);
     NdisCoGetTapiCallId(ndisvchandle, tapicallid)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn NdisCompleteDmaTransfer<P0>(status: *mut i32, ndisdmahandle: *mut ::core::ffi::c_void, buffer: *mut super::super::Foundation::MDL, offset: u32, length: u32, writetodevice: P0)
@@ -190,7 +188,6 @@ where
     ::windows_targets::link!("ndis.sys" "system" fn NdisCompleteDmaTransfer(status : *mut i32, ndisdmahandle : *mut ::core::ffi::c_void, buffer : *mut super::super::Foundation:: MDL, offset : u32, length : u32, writetodevice : super::super::super::Win32::Foundation:: BOOLEAN));
     NdisCompleteDmaTransfer(status, ndisdmahandle, buffer, offset, length, writetodevice.into_param().abi())
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn NdisCopyBuffer(status: *mut i32, buffer: *mut *mut super::super::Foundation::MDL, poolhandle: *const ::core::ffi::c_void, memorydescriptor: *const ::core::ffi::c_void, offset: u32, length: u32) {
@@ -264,7 +261,6 @@ pub unsafe fn NdisIMInitializeDeviceInstanceEx(driverhandle: *const ::core::ffi:
     ::windows_targets::link!("ndis.sys" "system" fn NdisIMInitializeDeviceInstanceEx(driverhandle : *const ::core::ffi::c_void, driverinstance : *const super::super::super::Win32::Foundation:: UNICODE_STRING, devicecontext : *const ::core::ffi::c_void) -> i32);
     NdisIMInitializeDeviceInstanceEx(driverhandle, driverinstance, ::core::mem::transmute(devicecontext.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisInitializeEvent() -> NDIS_EVENT {
@@ -283,7 +279,6 @@ pub unsafe fn NdisInitializeString(destination: *mut super::super::super::Win32:
     ::windows_targets::link!("ndis.sys" "system" fn NdisInitializeString(destination : *mut super::super::super::Win32::Foundation:: UNICODE_STRING, source : *const u8));
     NdisInitializeString(destination, source)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisInitializeTimer(timer: *mut NDIS_TIMER, timerfunction: PNDIS_TIMER_FUNCTION, functioncontext: ::core::option::Option<*const ::core::ffi::c_void>) {
@@ -306,7 +301,6 @@ where
     ::windows_targets::link!("ndis.sys" "system" fn NdisMAllocateSharedMemoryAsync(miniportadapterhandle : *const ::core::ffi::c_void, length : u32, cached : super::super::super::Win32::Foundation:: BOOLEAN, context : *const ::core::ffi::c_void) -> i32);
     NdisMAllocateSharedMemoryAsync(miniportadapterhandle, length, cached.into_param().abi(), context)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisMCancelTimer(timer: *const NDIS_MINIPORT_TIMER) -> super::super::super::Win32::Foundation::BOOLEAN {
@@ -383,7 +377,6 @@ where
     ::windows_targets::link!("ndis.sys" "system" fn NdisMFreeSharedMemory(miniportadapterhandle : *const ::core::ffi::c_void, length : u32, cached : super::super::super::Win32::Foundation:: BOOLEAN, virtualaddress : *const ::core::ffi::c_void, physicaladdress : i64));
     NdisMFreeSharedMemory(miniportadapterhandle, length, cached.into_param().abi(), virtualaddress, physicaladdress)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_Storage_FileSystem\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Power\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
 pub unsafe fn NdisMGetDeviceProperty(miniportadapterhandle: *const ::core::ffi::c_void, physicaldeviceobject: ::core::option::Option<*mut *mut super::super::Foundation::DEVICE_OBJECT>, functionaldeviceobject: ::core::option::Option<*mut *mut super::super::Foundation::DEVICE_OBJECT>, nextdeviceobject: ::core::option::Option<*mut *mut super::super::Foundation::DEVICE_OBJECT>, allocatedresources: ::core::option::Option<*mut *mut super::super::System::SystemServices::CM_RESOURCE_LIST>, allocatedresourcestranslated: ::core::option::Option<*mut *mut super::super::System::SystemServices::CM_RESOURCE_LIST>) {
@@ -395,7 +388,6 @@ pub unsafe fn NdisMGetDmaAlignment(miniportadapterhandle: *const ::core::ffi::c_
     ::windows_targets::link!("ndis.sys" "system" fn NdisMGetDmaAlignment(miniportadapterhandle : *const ::core::ffi::c_void) -> u32);
     NdisMGetDmaAlignment(miniportadapterhandle)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisMInitializeTimer(timer: *const NDIS_MINIPORT_TIMER, miniportadapterhandle: *const ::core::ffi::c_void, timerfunction: PNDIS_TIMER_FUNCTION, functioncontext: *const ::core::ffi::c_void) {
@@ -417,7 +409,6 @@ pub unsafe fn NdisMReadDmaCounter(miniportdmahandle: *const ::core::ffi::c_void)
     ::windows_targets::link!("ndis.sys" "system" fn NdisMReadDmaCounter(miniportdmahandle : *const ::core::ffi::c_void) -> u32);
     NdisMReadDmaCounter(miniportdmahandle)
 }
-#[doc = "Required features: `\"Wdk_System_SystemServices\"`"]
 #[cfg(feature = "Wdk_System_SystemServices")]
 #[inline]
 pub unsafe fn NdisMRegisterDmaChannel<P0>(miniportdmahandle: *mut *mut ::core::ffi::c_void, miniportadapterhandle: *const ::core::ffi::c_void, dmachannel: u32, dma32bitaddresses: P0, dmadescription: *const NDIS_DMA_DESCRIPTION, maximumlength: u32) -> i32
@@ -437,7 +428,6 @@ pub unsafe fn NdisMRemoveMiniport(miniporthandle: *const ::core::ffi::c_void) ->
     ::windows_targets::link!("ndis.sys" "system" fn NdisMRemoveMiniport(miniporthandle : *const ::core::ffi::c_void) -> i32);
     NdisMRemoveMiniport(miniporthandle)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisMSetPeriodicTimer(timer: *const NDIS_MINIPORT_TIMER, millisecondperiod: u32) {
@@ -514,42 +504,36 @@ pub unsafe fn NdisReleaseReadWriteLock(lock: *mut NDIS_RW_LOCK, lockstate: *cons
     ::windows_targets::link!("ndis.sys" "system" fn NdisReleaseReadWriteLock(lock : *mut NDIS_RW_LOCK, lockstate : *const LOCK_STATE));
     NdisReleaseReadWriteLock(lock, lockstate)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisResetEvent(event: *const NDIS_EVENT) {
     ::windows_targets::link!("ndis.sys" "system" fn NdisResetEvent(event : *const NDIS_EVENT));
     NdisResetEvent(event)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisSetEvent(event: *const NDIS_EVENT) {
     ::windows_targets::link!("ndis.sys" "system" fn NdisSetEvent(event : *const NDIS_EVENT));
     NdisSetEvent(event)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisSetPeriodicTimer(ndistimer: *const NDIS_TIMER, millisecondsperiod: u32) {
     ::windows_targets::link!("ndis.sys" "system" fn NdisSetPeriodicTimer(ndistimer : *const NDIS_TIMER, millisecondsperiod : u32));
     NdisSetPeriodicTimer(ndistimer, millisecondsperiod)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisSetTimer(timer: *const NDIS_TIMER, millisecondstodelay: u32) {
     ::windows_targets::link!("ndis.sys" "system" fn NdisSetTimer(timer : *const NDIS_TIMER, millisecondstodelay : u32));
     NdisSetTimer(timer, millisecondstodelay)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisSetTimerEx(ndistimer: *const NDIS_TIMER, millisecondstodelay: u32, functioncontext: *const ::core::ffi::c_void) {
     ::windows_targets::link!("ndis.sys" "system" fn NdisSetTimerEx(ndistimer : *const NDIS_TIMER, millisecondstodelay : u32, functioncontext : *const ::core::ffi::c_void));
     NdisSetTimerEx(ndistimer, millisecondstodelay, functioncontext)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`"]
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
 pub unsafe fn NdisSetupDmaTransfer<P0>(status: *mut i32, ndisdmahandle: *mut ::core::ffi::c_void, buffer: *mut super::super::Foundation::MDL, offset: u32, length: u32, writetodevice: P0)
@@ -574,7 +558,6 @@ pub unsafe fn NdisUpdateSharedMemory(ndisadapterhandle: *mut ::core::ffi::c_void
     ::windows_targets::link!("ndis.sys" "system" fn NdisUpdateSharedMemory(ndisadapterhandle : *mut ::core::ffi::c_void, length : u32, virtualaddress : *mut ::core::ffi::c_void, physicaladdress : i64));
     NdisUpdateSharedMemory(ndisadapterhandle, length, virtualaddress, physicaladdress)
 }
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn NdisWaitEvent(event: *const NDIS_EVENT, mstowait: u32) -> super::super::super::Win32::Foundation::BOOLEAN {
@@ -3496,7 +3479,6 @@ impl ::core::default::Default for CO_ADDRESS_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct CO_CALL_MANAGER_PARAMETERS {
     pub Transmit: super::super::super::Win32::Networking::WinSock::FLOWSPEC,
@@ -4920,7 +4902,6 @@ impl ::core::default::Default for NDIS_CO_LINK_SPEED {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 pub struct NDIS_DMA_BLOCK {
     pub MapRegisterBase: *mut ::core::ffi::c_void,
@@ -4948,7 +4929,6 @@ impl ::core::default::Default for NDIS_DMA_BLOCK {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Wdk_System_SystemServices\"`"]
 #[cfg(feature = "Wdk_System_SystemServices")]
 pub struct NDIS_DMA_DESCRIPTION {
     pub DemandMode: super::super::super::Win32::Foundation::BOOLEAN,
@@ -4992,7 +4972,6 @@ impl ::core::default::Default for NDIS_DMA_DESCRIPTION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 pub struct NDIS_EVENT {
     pub Event: super::super::Foundation::KEVENT,
@@ -5242,7 +5221,6 @@ impl ::core::default::Default for NDIS_IPSEC_OFFLOAD_V1_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct NDIS_IP_OPER_STATE {
     pub Header: NDIS_OBJECT_HEADER,
@@ -5282,7 +5260,6 @@ impl ::core::default::Default for NDIS_IP_OPER_STATE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct NDIS_IP_OPER_STATUS {
     pub AddressFamily: u32,
@@ -5322,7 +5299,6 @@ impl ::core::default::Default for NDIS_IP_OPER_STATUS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct NDIS_IP_OPER_STATUS_INFO {
     pub Header: NDIS_OBJECT_HEADER,
@@ -5393,7 +5369,6 @@ impl ::core::default::Default for NDIS_IRDA_PACKET_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct NDIS_LINK_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
@@ -5466,7 +5441,6 @@ impl ::core::default::Default for NDIS_LINK_SPEED {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct NDIS_LINK_STATE {
     pub Header: NDIS_OBJECT_HEADER,
@@ -5532,7 +5506,6 @@ impl ::windows_core::TypeKind for NDIS_MINIPORT_BLOCK {
     type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 pub struct NDIS_MINIPORT_TIMER {
     pub Timer: super::super::System::SystemServices::KTIMER,
@@ -5725,7 +5698,6 @@ impl ::windows_core::TypeKind for NDIS_OPEN_BLOCK {
     type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct NDIS_OPER_STATE {
     pub Header: NDIS_OBJECT_HEADER,
@@ -6099,7 +6071,6 @@ impl ::windows_core::TypeKind for NDIS_POLL_HANDLE {
     type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct NDIS_PORT {
     pub Next: *mut NDIS_PORT,
@@ -6141,7 +6112,6 @@ impl ::core::default::Default for NDIS_PORT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct NDIS_PORT_ARRAY {
     pub Header: NDIS_OBJECT_HEADER,
@@ -6216,7 +6186,6 @@ impl ::core::default::Default for NDIS_PORT_AUTHENTICATION_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct NDIS_PORT_CHARACTERISTICS {
     pub Header: NDIS_OBJECT_HEADER,
@@ -6278,7 +6247,6 @@ impl ::core::default::Default for NDIS_PORT_CHARACTERISTICS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct NDIS_PORT_STATE {
     pub Header: NDIS_OBJECT_HEADER,
@@ -7245,7 +7213,6 @@ impl ::core::default::Default for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Wdk_Foundation\"`, `\"Wdk_System_SystemServices\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_System_Kernel"))]
 pub struct NDIS_TIMER {
     pub Timer: super::super::System::SystemServices::KTIMER,
@@ -7683,7 +7650,6 @@ impl ::core::default::Default for NDIS_WLAN_BSSID_EX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct NDIS_WMI_ENUM_ADAPTER {
     pub Header: NDIS_OBJECT_HEADER,
@@ -7711,7 +7677,6 @@ impl ::core::default::Default for NDIS_WMI_ENUM_ADAPTER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct NDIS_WMI_EVENT_HEADER {
     pub Header: NDIS_OBJECT_HEADER,
@@ -7876,7 +7841,6 @@ impl ::core::default::Default for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct NDIS_WMI_METHOD_HEADER {
     pub Header: NDIS_OBJECT_HEADER,
@@ -7971,7 +7935,6 @@ impl ::core::default::Default for NDIS_WMI_OUTPUT_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct NDIS_WMI_SET_HEADER {
     pub Header: NDIS_OBJECT_HEADER,

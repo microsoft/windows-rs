@@ -1946,7 +1946,6 @@ impl IUIAnimationVariable_Vtbl {
         iid == &<IUIAnimationVariable as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_DirectComposition\"`"]
 #[cfg(feature = "Win32_Graphics_DirectComposition")]
 pub trait IUIAnimationVariable2_Impl: Sized {
     fn GetDimension(&self) -> ::windows_core::Result<u32>;

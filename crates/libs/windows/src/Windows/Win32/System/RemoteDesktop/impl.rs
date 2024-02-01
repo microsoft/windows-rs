@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IADsTSUserEx_Impl: Sized + super::Com::IDispatch_Impl {
     fn TerminalServicesProfilePath(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -368,7 +367,6 @@ impl IAudioDeviceEndpoint_Vtbl {
         iid == &<IAudioDeviceEndpoint as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IAudioEndpoint_Impl: Sized {
     fn GetFrameFormat(&self) -> ::windows_core::Result<*mut super::super::Media::Audio::WAVEFORMATEX>;
@@ -513,7 +511,6 @@ impl IAudioEndpointRT_Vtbl {
         iid == &<IAudioEndpointRT as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_Audio_Apo\"`"]
 #[cfg(feature = "Win32_Media_Audio_Apo")]
 pub trait IAudioInputEndpointRT_Impl: Sized {
     fn GetInputDataPointer(&self, pconnectionproperty: *mut super::super::Media::Audio::Apo::APO_CONNECTION_PROPERTY, paetimestamp: *mut AE_CURRENT_POSITION);
@@ -551,7 +548,6 @@ impl IAudioInputEndpointRT_Vtbl {
         iid == &<IAudioInputEndpointRT as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_Audio_Apo\"`"]
 #[cfg(feature = "Win32_Media_Audio_Apo")]
 pub trait IAudioOutputEndpointRT_Impl: Sized {
     fn GetOutputDataPointer(&self, u32framecount: u32, paetimestamp: *const AE_CURRENT_POSITION) -> usize;
@@ -589,7 +585,6 @@ impl IAudioOutputEndpointRT_Vtbl {
         iid == &<IAudioOutputEndpointRT as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRemoteDesktopClient_Impl: Sized + super::Com::IDispatch_Impl {
     fn Connect(&self) -> ::windows_core::Result<()>;
@@ -694,7 +689,6 @@ impl IRemoteDesktopClient_Vtbl {
         iid == &<IRemoteDesktopClient as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRemoteDesktopClientActions_Impl: Sized + super::Com::IDispatch_Impl {
     fn SuspendScreenUpdates(&self) -> ::windows_core::Result<()>;
@@ -745,7 +739,6 @@ impl IRemoteDesktopClientActions_Vtbl {
         iid == &<IRemoteDesktopClientActions as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRemoteDesktopClientSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn ApplySettings(&self, rdpfilecontents: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -802,7 +795,6 @@ impl IRemoteDesktopClientSettings_Vtbl {
         iid == &<IRemoteDesktopClientSettings as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRemoteDesktopClientTouchPointer_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -1104,7 +1096,6 @@ impl ITsSbBaseNotifySink_Vtbl {
         iid == &<ITsSbBaseNotifySink as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbClientConnection_Impl: Sized {
     fn UserName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1304,7 +1295,6 @@ impl ITsSbClientConnection_Vtbl {
         iid == &<ITsSbClientConnection as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbClientConnectionPropertySet_Impl: Sized + ITsSbPropertySet_Impl {}
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -1318,7 +1308,6 @@ impl ITsSbClientConnectionPropertySet_Vtbl {
         iid == &<ITsSbClientConnectionPropertySet as ::windows_core::Interface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as ::windows_core::Interface>::IID || iid == &<ITsSbPropertySet as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbEnvironment_Impl: Sized {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1381,7 +1370,6 @@ impl ITsSbEnvironment_Vtbl {
         iid == &<ITsSbEnvironment as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbEnvironmentPropertySet_Impl: Sized + ITsSbPropertySet_Impl {}
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -1395,7 +1383,6 @@ impl ITsSbEnvironmentPropertySet_Vtbl {
         iid == &<ITsSbEnvironmentPropertySet as ::windows_core::Interface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as ::windows_core::Interface>::IID || iid == &<ITsSbPropertySet as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbFilterPluginStore_Impl: Sized {
     fn SaveProperties(&self, ppropertyset: ::core::option::Option<&ITsSbPropertySet>) -> ::windows_core::Result<()>;
@@ -1472,7 +1459,6 @@ impl ITsSbGenericNotifySink_Vtbl {
         iid == &<ITsSbGenericNotifySink as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITsSbGlobalStore_Impl: Sized {
     fn QueryTarget(&self, providername: &::windows_core::BSTR, targetname: &::windows_core::BSTR, farmname: &::windows_core::BSTR) -> ::windows_core::Result<ITsSbTarget>;
@@ -1573,7 +1559,6 @@ impl ITsSbLoadBalanceResult_Vtbl {
         iid == &<ITsSbLoadBalanceResult as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbLoadBalancing_Impl: Sized + ITsSbPlugin_Impl {
     fn GetMostSuitableTarget(&self, pconnection: ::core::option::Option<&ITsSbClientConnection>, plbsink: ::core::option::Option<&ITsSbLoadBalancingNotifySink>) -> ::windows_core::Result<()>;
@@ -1611,7 +1596,6 @@ impl ITsSbLoadBalancingNotifySink_Vtbl {
         iid == &<ITsSbLoadBalancingNotifySink as ::windows_core::Interface>::IID || iid == &<ITsSbBaseNotifySink as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbOrchestration_Impl: Sized + ITsSbPlugin_Impl {
     fn PrepareTargetForConnect(&self, pconnection: ::core::option::Option<&ITsSbClientConnection>, porchestrationnotifysink: ::core::option::Option<&ITsSbOrchestrationNotifySink>) -> ::windows_core::Result<()>;
@@ -1649,7 +1633,6 @@ impl ITsSbOrchestrationNotifySink_Vtbl {
         iid == &<ITsSbOrchestrationNotifySink as ::windows_core::Interface>::IID || iid == &<ITsSbBaseNotifySink as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbPlacement_Impl: Sized + ITsSbPlugin_Impl {
     fn QueryEnvironmentForTarget(&self, pconnection: ::core::option::Option<&ITsSbClientConnection>, pplacementsink: ::core::option::Option<&ITsSbPlacementNotifySink>) -> ::windows_core::Result<()>;
@@ -1690,7 +1673,6 @@ impl ITsSbPlacementNotifySink_Vtbl {
         iid == &<ITsSbPlacementNotifySink as ::windows_core::Interface>::IID || iid == &<ITsSbBaseNotifySink as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbPlugin_Impl: Sized {
     fn Initialize(&self, pprovider: ::core::option::Option<&ITsSbProvider>, pnotifysink: ::core::option::Option<&ITsSbPluginNotifySink>, ppropertyset: ::core::option::Option<&ITsSbPluginPropertySet>) -> ::windows_core::Result<()>;
@@ -1748,7 +1730,6 @@ impl ITsSbPluginNotifySink_Vtbl {
         iid == &<ITsSbPluginNotifySink as ::windows_core::Interface>::IID || iid == &<ITsSbBaseNotifySink as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbPluginPropertySet_Impl: Sized + ITsSbPropertySet_Impl {}
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -1762,7 +1743,6 @@ impl ITsSbPluginPropertySet_Vtbl {
         iid == &<ITsSbPluginPropertySet as ::windows_core::Interface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as ::windows_core::Interface>::IID || iid == &<ITsSbPropertySet as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbPropertySet_Impl: Sized + super::Com::StructuredStorage::IPropertyBag_Impl {}
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -1776,7 +1756,6 @@ impl ITsSbPropertySet_Vtbl {
         iid == &<ITsSbPropertySet as ::windows_core::Interface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbProvider_Impl: Sized {
     fn CreateTargetObject(&self, targetname: &::windows_core::BSTR, environmentname: &::windows_core::BSTR) -> ::windows_core::Result<ITsSbTarget>;
@@ -1937,7 +1916,6 @@ impl ITsSbProvider_Vtbl {
         iid == &<ITsSbProvider as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbProvisioning_Impl: Sized + ITsSbPlugin_Impl {
     fn CreateVirtualMachines(&self, jobxmlstring: &::windows_core::BSTR, jobguid: &::windows_core::BSTR, psink: ::core::option::Option<&ITsSbProvisioningPluginNotifySink>) -> ::windows_core::Result<()>;
@@ -2105,7 +2083,6 @@ impl ITsSbResourceNotificationEx_Vtbl {
         iid == &<ITsSbResourceNotificationEx as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbResourcePlugin_Impl: Sized + ITsSbPlugin_Impl {}
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -2119,7 +2096,6 @@ impl ITsSbResourcePlugin_Vtbl {
         iid == &<ITsSbResourcePlugin as ::windows_core::Interface>::IID || iid == &<ITsSbPlugin as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITsSbResourcePluginStore_Impl: Sized {
     fn QueryTarget(&self, targetname: &::windows_core::BSTR, farmname: &::windows_core::BSTR) -> ::windows_core::Result<ITsSbTarget>;
@@ -2593,7 +2569,6 @@ impl ITsSbSession_Vtbl {
         iid == &<ITsSbSession as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbTarget_Impl: Sized {
     fn TargetName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2803,7 +2778,6 @@ impl ITsSbTarget_Vtbl {
         iid == &<ITsSbTarget as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbTargetPropertySet_Impl: Sized + ITsSbPropertySet_Impl {}
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -2817,7 +2791,6 @@ impl ITsSbTargetPropertySet_Vtbl {
         iid == &<ITsSbTargetPropertySet as ::windows_core::Interface>::IID || iid == &<super::Com::StructuredStorage::IPropertyBag as ::windows_core::Interface>::IID || iid == &<ITsSbPropertySet as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITsSbTaskInfo_Impl: Sized {
     fn TargetId(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2951,7 +2924,6 @@ impl ITsSbTaskInfo_Vtbl {
         iid == &<ITsSbTaskInfo as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait ITsSbTaskPlugin_Impl: Sized + ITsSbPlugin_Impl {
     fn InitializeTaskPlugin(&self, pitssbtaskpluginnotifysink: ::core::option::Option<&ITsSbTaskPluginNotifySink>) -> ::windows_core::Result<()>;
@@ -2982,7 +2954,6 @@ impl ITsSbTaskPlugin_Vtbl {
         iid == &<ITsSbTaskPlugin as ::windows_core::Interface>::IID || iid == &<ITsSbPlugin as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITsSbTaskPluginNotifySink_Impl: Sized + ITsSbBaseNotifySink_Impl {
     fn OnSetTaskTime(&self, sztargetname: &::windows_core::BSTR, taskstarttime: &super::super::Foundation::FILETIME, taskendtime: &super::super::Foundation::FILETIME, taskdeadline: &super::super::Foundation::FILETIME, sztasklabel: &::windows_core::BSTR, sztaskidentifier: &::windows_core::BSTR, sztaskplugin: &::windows_core::BSTR, dwtaskstatus: u32, sacontext: *const super::Com::SAFEARRAY) -> ::windows_core::Result<()>;
@@ -3938,7 +3909,6 @@ impl IWTSBitmapRendererCallback_Vtbl {
         iid == &<IWTSBitmapRendererCallback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub trait IWTSListener_Impl: Sized {
     fn GetConfiguration(&self) -> ::windows_core::Result<super::Com::StructuredStorage::IPropertyBag>;
@@ -4698,7 +4668,6 @@ impl IWTSVirtualChannelManager_Vtbl {
         iid == &<IWTSVirtualChannelManager as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWorkspace_Impl: Sized {
     fn GetWorkspaceNames(&self) -> ::windows_core::Result<*mut super::Com::SAFEARRAY>;
@@ -4748,7 +4717,6 @@ impl IWorkspace_Vtbl {
         iid == &<IWorkspace as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWorkspace2_Impl: Sized + IWorkspace_Impl {
     fn StartRemoteApplicationEx(&self, bstrworkspaceid: &::windows_core::BSTR, bstrrequestingappid: &::windows_core::BSTR, bstrrequestingappfamilyname: &::windows_core::BSTR, blaunchintoimmersiveclient: super::super::Foundation::VARIANT_BOOL, bstrimmersiveclientactivationcontext: &::windows_core::BSTR, psaparams: *const super::Com::SAFEARRAY) -> ::windows_core::Result<()>;
@@ -4769,7 +4737,6 @@ impl IWorkspace2_Vtbl {
         iid == &<IWorkspace2 as ::windows_core::Interface>::IID || iid == &<IWorkspace as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWorkspace3_Impl: Sized + IWorkspace2_Impl {
     fn GetClaimsToken2(&self, bstrclaimshint: &::windows_core::BSTR, bstruserhint: &::windows_core::BSTR, claimcookie: u32, hwndcreduiparent: u32, rectcreduiparent: &super::super::Foundation::RECT) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -4952,7 +4919,6 @@ impl IWorkspaceReportMessage_Vtbl {
         iid == &<IWorkspaceReportMessage as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWorkspaceResTypeRegistry_Impl: Sized + super::Com::IDispatch_Impl {
     fn AddResourceType(&self, fmachinewide: super::super::Foundation::VARIANT_BOOL, bstrfileextension: &::windows_core::BSTR, bstrlauncher: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -5016,7 +4982,6 @@ impl IWorkspaceResTypeRegistry_Vtbl {
         iid == &<IWorkspaceResTypeRegistry as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWorkspaceScriptable_Impl: Sized + super::Com::IDispatch_Impl {
     fn DisconnectWorkspace(&self, bstrworkspaceid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -5094,7 +5059,6 @@ impl IWorkspaceScriptable_Vtbl {
         iid == &<IWorkspaceScriptable as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWorkspaceScriptable2_Impl: Sized + IWorkspaceScriptable_Impl {
     fn StartWorkspaceEx(&self, bstrworkspaceid: &::windows_core::BSTR, bstrworkspacefriendlyname: &::windows_core::BSTR, bstrredirectorname: &::windows_core::BSTR, bstrusername: &::windows_core::BSTR, bstrpassword: &::windows_core::BSTR, bstrappcontainer: &::windows_core::BSTR, bstrworkspaceparams: &::windows_core::BSTR, ltimeout: i32, lflags: i32) -> ::windows_core::Result<()>;
@@ -5125,7 +5089,6 @@ impl IWorkspaceScriptable2_Vtbl {
         iid == &<IWorkspaceScriptable2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWorkspaceScriptable as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWorkspaceScriptable3_Impl: Sized + IWorkspaceScriptable2_Impl {
     fn StartWorkspaceEx2(&self, bstrworkspaceid: &::windows_core::BSTR, bstrworkspacefriendlyname: &::windows_core::BSTR, bstrredirectorname: &::windows_core::BSTR, bstrusername: &::windows_core::BSTR, bstrpassword: &::windows_core::BSTR, bstrappcontainer: &::windows_core::BSTR, bstrworkspaceparams: &::windows_core::BSTR, ltimeout: i32, lflags: i32, bstreventloguploadaddress: &::windows_core::BSTR, correlationid: &::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -5274,7 +5237,6 @@ impl ItsPubPlugin2_Vtbl {
         iid == &<ItsPubPlugin2 as ::windows_core::Interface>::IID || iid == &<ItsPubPlugin as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait _ITSWkspEvents_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(feature = "Win32_System_Com")]

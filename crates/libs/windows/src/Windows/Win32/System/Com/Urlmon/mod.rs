@@ -164,14 +164,12 @@ pub unsafe fn CompatFlagsFromClsid(pclsid: *const ::windows_core::GUID, pdwcompa
     ::windows_targets::link!("urlmon.dll" "system" fn CompatFlagsFromClsid(pclsid : *const ::windows_core::GUID, pdwcompatflags : *mut u32, pdwmiscstatusflags : *mut u32) -> ::windows_core::HRESULT);
     CompatFlagsFromClsid(pclsid, pdwcompatflags, pdwmiscstatusflags).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn CopyBindInfo(pcbisrc: *const super::BINDINFO, pbidest: *mut super::BINDINFO) -> ::windows_core::Result<()> {
     ::windows_targets::link!("urlmon.dll" "system" fn CopyBindInfo(pcbisrc : *const super:: BINDINFO, pbidest : *mut super:: BINDINFO) -> ::windows_core::HRESULT);
     CopyBindInfo(pcbisrc, pbidest).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM) -> ::windows_core::Result<super::STGMEDIUM> {
@@ -452,7 +450,6 @@ pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows_core::
     ::windows_targets::link!("urlmon.dll" "system" fn RegisterMediaTypes(ctypes : u32, rgsztypes : *const ::windows_core::PCSTR, rgcftypes : *mut u16) -> ::windows_core::HRESULT);
     RegisterMediaTypes(ctypes, rgsztypes, rgcftypes).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO) {
@@ -876,7 +873,6 @@ pub struct IInternet_Vtbl {
 ::windows_core::imp::com_interface!(IInternetBindInfo, IInternetBindInfo_Vtbl, 0x79eac9e1_baf9_11ce_8c82_00aa004ba90b);
 ::windows_core::imp::interface_hierarchy!(IInternetBindInfo, ::windows_core::IUnknown);
 impl IInternetBindInfo {
-    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetBindInfo)(::windows_core::Interface::as_raw(self), grfbindf, pbindinfo).ok()
@@ -898,7 +894,6 @@ pub struct IInternetBindInfo_Vtbl {
 ::windows_core::imp::com_interface!(IInternetBindInfoEx, IInternetBindInfoEx_Vtbl, 0xa3e015b7_a82c_4dcd_a150_569aeeed36ab);
 ::windows_core::imp::interface_hierarchy!(IInternetBindInfoEx, ::windows_core::IUnknown, IInternetBindInfo);
 impl IInternetBindInfoEx {
-    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetBindInfo)(::windows_core::Interface::as_raw(self), grfbindf, pbindinfo).ok()
@@ -906,7 +901,6 @@ impl IInternetBindInfoEx {
     pub unsafe fn GetBindString(&self, ulstringtype: u32, ppwzstr: *mut ::windows_core::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetBindString)(::windows_core::Interface::as_raw(self), ulstringtype, ppwzstr, cel, pcelfetched).ok()
     }
-    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetBindInfoEx)(::windows_core::Interface::as_raw(self), grfbindf, pbindinfo, grfbindf2, pdwreserved).ok()
@@ -1783,7 +1777,6 @@ pub struct IPersistMoniker_Vtbl {
 ::windows_core::imp::com_interface!(ISoftDistExt, ISoftDistExt_Vtbl, 0xb15b8dc1_c7e1_11d0_8680_00aa00bdcb71);
 ::windows_core::imp::interface_hierarchy!(ISoftDistExt, ::windows_core::IUnknown);
 impl ISoftDistExt {
-    #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`"]
     #[cfg(feature = "Win32_Data_Xml_MsXml")]
     pub unsafe fn ProcessSoftDist<P0, P1>(&self, szcdfurl: P0, psoftdistelement: P1, lpsdi: *mut SOFTDISTINFO) -> ::windows_core::Result<()>
     where

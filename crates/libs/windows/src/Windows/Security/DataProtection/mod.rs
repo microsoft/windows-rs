@@ -96,7 +96,6 @@ impl UserDataBufferUnprotectResult {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn UnprotectedBuffer(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -123,7 +122,6 @@ unsafe impl ::core::marker::Sync for UserDataBufferUnprotectResult {}
 pub struct UserDataProtectionManager(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(UserDataProtectionManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl UserDataProtectionManager {
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn ProtectStorageItemAsync<P0>(&self, storageitem: P0, availability: UserDataAvailability) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>>
     where
@@ -135,7 +133,6 @@ impl UserDataProtectionManager {
             (::windows_core::Interface::vtable(this).ProtectStorageItemAsync)(::windows_core::Interface::as_raw(this), storageitem.into_param().abi(), availability, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn GetStorageItemProtectionInfoAsync<P0>(&self, storageitem: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>>
     where
@@ -147,7 +144,6 @@ impl UserDataProtectionManager {
             (::windows_core::Interface::vtable(this).GetStorageItemProtectionInfoAsync)(::windows_core::Interface::as_raw(this), storageitem.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ProtectBufferAsync<P0>(&self, unprotectedbuffer: P0, availability: UserDataAvailability) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
@@ -159,7 +155,6 @@ impl UserDataProtectionManager {
             (::windows_core::Interface::vtable(this).ProtectBufferAsync)(::windows_core::Interface::as_raw(this), unprotectedbuffer.into_param().abi(), availability, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn UnprotectBufferAsync<P0>(&self, protectedbuffer: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>>
     where
@@ -198,7 +193,6 @@ impl UserDataProtectionManager {
             (::windows_core::Interface::vtable(this).TryGetDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn TryGetForUser<P0>(user: P0) -> ::windows_core::Result<UserDataProtectionManager>
     where

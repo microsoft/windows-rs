@@ -50,7 +50,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn CloseWindowStation(hwinsta : HWINSTA) -> super::super::Foundation:: BOOL);
     CloseWindowStation(hwinsta.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDesktopA<P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: ::core::option::Option<*const super::super::Graphics::Gdi::DEVMODEA>, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: u32, lpsa: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows_core::Result<HDESK>
@@ -62,7 +61,6 @@ where
     let result__ = CreateDesktopA(lpszdesktop.into_param().abi(), lpszdevice.into_param().abi(), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa.unwrap_or(::std::ptr::null())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDesktopExA<P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: ::core::option::Option<*const super::super::Graphics::Gdi::DEVMODEA>, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: u32, lpsa: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, ulheapsize: u32, pvoid: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<HDESK>
@@ -74,7 +72,6 @@ where
     let result__ = CreateDesktopExA(lpszdesktop.into_param().abi(), lpszdevice.into_param().abi(), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa.unwrap_or(::std::ptr::null())), ulheapsize, ::core::mem::transmute(pvoid.unwrap_or(::std::ptr::null())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDesktopExW<P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: ::core::option::Option<*const super::super::Graphics::Gdi::DEVMODEW>, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: u32, lpsa: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, ulheapsize: u32, pvoid: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<HDESK>
@@ -86,7 +83,6 @@ where
     let result__ = CreateDesktopExW(lpszdesktop.into_param().abi(), lpszdevice.into_param().abi(), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa.unwrap_or(::std::ptr::null())), ulheapsize, ::core::mem::transmute(pvoid.unwrap_or(::std::ptr::null())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDesktopW<P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: ::core::option::Option<*const super::super::Graphics::Gdi::DEVMODEW>, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: u32, lpsa: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows_core::Result<HDESK>
@@ -98,7 +94,6 @@ where
     let result__ = CreateDesktopW(lpszdesktop.into_param().abi(), lpszdevice.into_param().abi(), ::core::mem::transmute(pdevmode.unwrap_or(::std::ptr::null())), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa.unwrap_or(::std::ptr::null())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateWindowStationA<P0>(lpwinsta: P0, dwflags: u32, dwdesiredaccess: u32, lpsa: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows_core::Result<HWINSTA>
@@ -109,7 +104,6 @@ where
     let result__ = CreateWindowStationA(lpwinsta.into_param().abi(), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa.unwrap_or(::std::ptr::null())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CreateWindowStationW<P0>(lpwinsta: P0, dwflags: u32, dwdesiredaccess: u32, lpsa: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows_core::Result<HWINSTA>
@@ -120,7 +114,6 @@ where
     let result__ = CreateWindowStationW(lpwinsta.into_param().abi(), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa.unwrap_or(::std::ptr::null())));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn EnumDesktopWindows<P0, P1>(hdesktop: P0, lpfn: super::super::UI::WindowsAndMessaging::WNDENUMPROC, lparam: P1) -> ::windows_core::Result<()>

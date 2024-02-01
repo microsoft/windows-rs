@@ -180,7 +180,6 @@ impl IBackgroundTaskInstance2_Vtbl {
         iid == &<IBackgroundTaskInstance2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"System\"`"]
 #[cfg(feature = "System")]
 pub trait IBackgroundTaskInstance4_Impl: Sized + IBackgroundTaskInstance_Impl {
     fn User(&self) -> ::windows_core::Result<super::super::System::User>;

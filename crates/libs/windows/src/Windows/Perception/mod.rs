@@ -1,11 +1,8 @@
 #[cfg(feature = "Perception_Automation")]
-#[doc = "Required features: `\"Perception_Automation\"`"]
 pub mod Automation;
 #[cfg(feature = "Perception_People")]
-#[doc = "Required features: `\"Perception_People\"`"]
 pub mod People;
 #[cfg(feature = "Perception_Spatial")]
-#[doc = "Required features: `\"Perception_Spatial\"`"]
 pub mod Spatial;
 ::windows_core::imp::com_interface!(IPerceptionTimestamp, IPerceptionTimestamp_Vtbl, 0x87c24804_a22e_4adb_ba26_d78ef639bcf4);
 #[repr(C)]

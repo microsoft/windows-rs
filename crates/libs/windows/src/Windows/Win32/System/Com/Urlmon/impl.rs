@@ -316,7 +316,6 @@ impl IInternet_Vtbl {
         iid == &<IInternet as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IInternetBindInfo_Impl: Sized {
     fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows_core::Result<()>;
@@ -347,7 +346,6 @@ impl IInternetBindInfo_Vtbl {
         iid == &<IInternetBindInfo as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IInternetBindInfoEx_Impl: Sized + IInternetBindInfo_Impl {
     fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows_core::Result<()>;
@@ -1180,7 +1178,6 @@ impl IPersistMoniker_Vtbl {
         iid == &<IPersistMoniker as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`"]
 #[cfg(feature = "Win32_Data_Xml_MsXml")]
 pub trait ISoftDistExt_Impl: Sized {
     fn ProcessSoftDist(&self, szcdfurl: &::windows_core::PCWSTR, psoftdistelement: ::core::option::Option<&super::super::super::Data::Xml::MsXml::IXMLElement>, lpsdi: *mut SOFTDISTINFO) -> ::windows_core::Result<()>;

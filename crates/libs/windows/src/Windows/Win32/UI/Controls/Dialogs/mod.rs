@@ -8,14 +8,12 @@ pub unsafe fn ChooseColorW(param0: *mut CHOOSECOLORW) -> super::super::super::Fo
     ::windows_targets::link!("comdlg32.dll" "system" fn ChooseColorW(param0 : *mut CHOOSECOLORW) -> super::super::super::Foundation:: BOOL);
     ChooseColorW(param0)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ChooseFontA(param0: *mut CHOOSEFONTA) -> super::super::super::Foundation::BOOL {
     ::windows_targets::link!("comdlg32.dll" "system" fn ChooseFontA(param0 : *mut CHOOSEFONTA) -> super::super::super::Foundation:: BOOL);
     ChooseFontA(param0)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ChooseFontW(param0: *mut CHOOSEFONTW) -> super::super::super::Foundation::BOOL {
@@ -83,28 +81,24 @@ pub unsafe fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> super::super::super::
     ::windows_targets::link!("comdlg32.dll" "system" fn PageSetupDlgW(param0 : *mut PAGESETUPDLGW) -> super::super::super::Foundation:: BOOL);
     PageSetupDlgW(param0)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation::BOOL {
     ::windows_targets::link!("comdlg32.dll" "system" fn PrintDlgA(ppd : *mut PRINTDLGA) -> super::super::super::Foundation:: BOOL);
     PrintDlgA(ppd)
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows_core::Result<()> {
     ::windows_targets::link!("comdlg32.dll" "system" fn PrintDlgExA(ppd : *mut PRINTDLGEXA) -> ::windows_core::HRESULT);
     PrintDlgExA(ppd).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows_core::Result<()> {
     ::windows_targets::link!("comdlg32.dll" "system" fn PrintDlgExW(ppd : *mut PRINTDLGEXW) -> ::windows_core::HRESULT);
     PrintDlgExW(ppd).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn PrintDlgW(ppd: *mut PRINTDLGW) -> super::super::super::Foundation::BOOL {
@@ -150,7 +144,6 @@ pub struct IPrintDialogCallback_Vtbl {
 ::windows_core::imp::com_interface!(IPrintDialogServices, IPrintDialogServices_Vtbl, 0x509aaeda_5639_11d1_b6a1_0000f8757bf9);
 ::windows_core::imp::interface_hierarchy!(IPrintDialogServices, ::windows_core::IUnknown);
 impl IPrintDialogServices {
-    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetCurrentDevMode(&self, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCurrentDevMode)(::windows_core::Interface::as_raw(self), pdevmode, pcbsize).ok()
@@ -941,7 +934,6 @@ impl ::core::default::Default for CHOOSECOLORW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct CHOOSEFONTA {
@@ -985,7 +977,6 @@ impl ::core::default::Default for CHOOSEFONTA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct CHOOSEFONTA {
@@ -1029,7 +1020,6 @@ impl ::core::default::Default for CHOOSEFONTA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct CHOOSEFONTW {
@@ -1073,7 +1063,6 @@ impl ::core::default::Default for CHOOSEFONTW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct CHOOSEFONTW {
@@ -1997,7 +1986,6 @@ impl ::core::default::Default for PAGESETUPDLGW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PRINTDLGA {
@@ -2044,7 +2032,6 @@ impl ::core::default::Default for PRINTDLGA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PRINTDLGA {
@@ -2091,7 +2078,6 @@ impl ::core::default::Default for PRINTDLGA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PRINTDLGEXA {
@@ -2137,7 +2123,6 @@ impl ::core::default::Default for PRINTDLGEXA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PRINTDLGEXA {
@@ -2176,7 +2161,6 @@ impl ::core::default::Default for PRINTDLGEXA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PRINTDLGEXW {
@@ -2222,7 +2206,6 @@ impl ::core::default::Default for PRINTDLGEXW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PRINTDLGEXW {
@@ -2261,7 +2244,6 @@ impl ::core::default::Default for PRINTDLGEXW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PRINTDLGW {
@@ -2308,7 +2290,6 @@ impl ::core::default::Default for PRINTDLGW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PRINTDLGW {

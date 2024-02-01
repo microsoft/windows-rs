@@ -107,7 +107,6 @@ impl UserDataAccountProviderAddAccountOperation {
             (::windows_core::Interface::vtable(this).ContentKinds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PartnerAccountInfos(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<UserDataAccountPartnerAccountInfo>> {
         let this = self;

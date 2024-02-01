@@ -306,7 +306,6 @@ impl TargetedContentCollection {
             (::windows_core::Interface::vtable(this).Path)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, TargetedContentValue>> {
         let this = self;
@@ -315,7 +314,6 @@ impl TargetedContentCollection {
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Collections(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>> {
         let this = self;
@@ -324,7 +322,6 @@ impl TargetedContentCollection {
             (::windows_core::Interface::vtable(this).Collections)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentItem>> {
         let this = self;
@@ -410,7 +407,6 @@ impl ::windows_core::RuntimeName for TargetedContentContainer {
 }
 unsafe impl ::core::marker::Send for TargetedContentContainer {}
 unsafe impl ::core::marker::Sync for TargetedContentContainer {}
-#[doc = "Required features: `\"Storage_Streams\"`"]
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -421,7 +417,6 @@ pub struct TargetedContentFile(::windows_core::IUnknown);
 ::windows_core::imp::required_hierarchy!(TargetedContentFile, super::super::Storage::Streams::IRandomAccessStreamReference);
 #[cfg(feature = "Storage_Streams")]
 impl TargetedContentFile {
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn OpenReadAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = self;
@@ -455,7 +450,6 @@ pub struct TargetedContentImage(::windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 ::windows_core::imp::required_hierarchy!(TargetedContentImage, super::super::Storage::Streams::IRandomAccessStreamReference);
 impl TargetedContentImage {
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn OpenReadAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStreamReference>(self)?;
@@ -518,7 +512,6 @@ impl TargetedContentItem {
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, TargetedContentValue>> {
         let this = self;
@@ -527,7 +520,6 @@ impl TargetedContentItem {
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Collections(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>> {
         let this = self;
@@ -766,7 +758,6 @@ impl TargetedContentSubscriptionOptions {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAllowPartialContentAvailability)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CloudQueryParameters(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::HSTRING>> {
         let this = self;
@@ -775,7 +766,6 @@ impl TargetedContentSubscriptionOptions {
             (::windows_core::Interface::vtable(this).CloudQueryParameters)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LocalFilters(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -848,7 +838,6 @@ impl TargetedContentValue {
             (::windows_core::Interface::vtable(this).Boolean)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn File(&self) -> ::windows_core::Result<TargetedContentFile> {
         let this = self;
@@ -871,7 +860,6 @@ impl TargetedContentValue {
             (::windows_core::Interface::vtable(this).Action)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Strings(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -880,7 +868,6 @@ impl TargetedContentValue {
             (::windows_core::Interface::vtable(this).Strings)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Uris(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>> {
         let this = self;
@@ -889,7 +876,6 @@ impl TargetedContentValue {
             (::windows_core::Interface::vtable(this).Uris)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Numbers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<f64>> {
         let this = self;
@@ -898,7 +884,6 @@ impl TargetedContentValue {
             (::windows_core::Interface::vtable(this).Numbers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Booleans(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<bool>> {
         let this = self;
@@ -907,7 +892,6 @@ impl TargetedContentValue {
             (::windows_core::Interface::vtable(this).Booleans)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn Files(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentFile>> {
         let this = self;
@@ -916,7 +900,6 @@ impl TargetedContentValue {
             (::windows_core::Interface::vtable(this).Files)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ImageFiles(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentImage>> {
         let this = self;
@@ -925,7 +908,6 @@ impl TargetedContentValue {
             (::windows_core::Interface::vtable(this).ImageFiles)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Actions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<TargetedContentAction>> {
         let this = self;

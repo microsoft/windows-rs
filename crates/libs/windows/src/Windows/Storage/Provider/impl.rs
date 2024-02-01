@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IStorageProviderItemPropertySource_Impl: Sized {
     fn GetItemProperties(&self, itempath: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>;

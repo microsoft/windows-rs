@@ -83,7 +83,6 @@ impl ICLRAppDomainResourceMonitor_Vtbl {
         iid == &<ICLRAppDomainResourceMonitor as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICLRAssemblyIdentityManager_Impl: Sized {
     fn GetCLRAssemblyReferenceList(&self, ppwzassemblyreferences: *const ::windows_core::PCWSTR, dwnumofreferences: u32) -> ::windows_core::Result<ICLRAssemblyReferenceList>;
@@ -233,7 +232,6 @@ impl ICLRControl_Vtbl {
         iid == &<ICLRControl as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub trait ICLRDebugManager_Impl: Sized {
     fn BeginConnection(&self, dwconnectionid: u32, szconnectionname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -561,7 +559,6 @@ impl ICLRMemoryNotificationCallback_Vtbl {
         iid == &<ICLRMemoryNotificationCallback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICLRMetaHost_Impl: Sized {
     fn GetRuntime(&self, pwzversion: &::windows_core::PCWSTR, riid: *const ::windows_core::GUID, ppruntime: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -639,7 +636,6 @@ impl ICLRMetaHost_Vtbl {
         iid == &<ICLRMetaHost as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICLRMetaHostPolicy_Impl: Sized {
     fn GetRequestedRuntime(&self, dwpolicyflags: METAHOST_POLICY_FLAGS, pwzbinary: &::windows_core::PCWSTR, pcfgstream: ::core::option::Option<&super::Com::IStream>, pwzversion: &::windows_core::PWSTR, pcchversion: *mut u32, pwzimageversion: ::windows_core::PWSTR, pcchimageversion: *mut u32, pdwconfigflags: *mut u32, riid: *const ::windows_core::GUID, ppruntime: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -1839,7 +1835,6 @@ impl ICorRuntimeHost_Vtbl {
         iid == &<ICorRuntimeHost as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_IO\"`, `\"Win32_System_Threading\"`"]
 #[cfg(all(feature = "Win32_System_IO", feature = "Win32_System_Threading"))]
 pub trait ICorThreadpool_Impl: Sized {
     fn CorRegisterWaitForSingleObject(&self, phnewwaitobject: *const super::super::Foundation::HANDLE, hwaitobject: super::super::Foundation::HANDLE, callback: super::Threading::WAITORTIMERCALLBACK, context: *const ::core::ffi::c_void, timeout: u32, executeonlyonce: super::super::Foundation::BOOL) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -2187,7 +2182,6 @@ impl IHostAssemblyManager_Vtbl {
         iid == &<IHostAssemblyManager as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IHostAssemblyStore_Impl: Sized {
     fn ProvideAssembly(&self, pbindinfo: *const AssemblyBindInfo, passemblyid: *mut u64, pcontext: *mut u64, ppstmassemblyimage: *mut ::core::option::Option<super::Com::IStream>, ppstmpdb: *mut ::core::option::Option<super::Com::IStream>) -> ::windows_core::Result<()>;
@@ -2974,7 +2968,6 @@ impl IHostTask_Vtbl {
         iid == &<IHostTask as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Threading\"`"]
 #[cfg(feature = "Win32_System_Threading")]
 pub trait IHostTaskManager_Impl: Sized {
     fn GetCurrentTask(&self) -> ::windows_core::Result<IHostTask>;
@@ -3141,7 +3134,6 @@ impl IHostTaskManager_Vtbl {
         iid == &<IHostTaskManager as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Threading\"`"]
 #[cfg(feature = "Win32_System_Threading")]
 pub trait IHostThreadpoolManager_Impl: Sized {
     fn QueueUserWorkItem(&self, function: super::Threading::LPTHREAD_START_ROUTINE, context: *const ::core::ffi::c_void, flags: u32) -> ::windows_core::Result<()>;

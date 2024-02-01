@@ -1,5 +1,4 @@
 #[cfg(feature = "Devices_Printers_Extensions")]
-#[doc = "Required features: `\"Devices_Printers_Extensions\"`"]
 pub mod Extensions;
 ::windows_core::imp::com_interface!(IIppAttributeError, IIppAttributeError_Vtbl, 0x750feda1_9eef_5c39_93e4_46149bbcef27);
 #[repr(C)]
@@ -390,7 +389,6 @@ impl IppAttributeError {
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUnsupportedValues(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<IppAttributeValue>> {
         let this = self;
@@ -424,7 +422,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetIntegerArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<i32>> {
         let this = self;
@@ -433,7 +430,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).GetIntegerArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetBooleanArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<bool>> {
         let this = self;
@@ -442,7 +438,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).GetBooleanArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetEnumArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<i32>> {
         let this = self;
@@ -451,7 +446,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).GetEnumArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GetOctetStringArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>> {
         let this = self;
@@ -460,7 +454,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).GetOctetStringArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetDateTimeArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::DateTime>> {
         let this = self;
@@ -469,7 +462,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).GetDateTimeArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetResolutionArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<IppResolution>> {
         let this = self;
@@ -478,7 +470,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).GetResolutionArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetRangeOfIntegerArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<IppIntegerRange>> {
         let this = self;
@@ -487,7 +478,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).GetRangeOfIntegerArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCollectionArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, IppAttributeValue>>> {
         let this = self;
@@ -496,7 +486,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).GetCollectionArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetTextWithLanguageArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<IppTextWithLanguage>> {
         let this = self;
@@ -505,7 +494,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).GetTextWithLanguageArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetNameWithLanguageArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<IppTextWithLanguage>> {
         let this = self;
@@ -514,7 +502,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).GetNameWithLanguageArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetTextWithoutLanguageArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -523,7 +510,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).GetTextWithoutLanguageArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetNameWithoutLanguageArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -532,7 +518,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).GetNameWithoutLanguageArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetKeywordArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -541,7 +526,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).GetKeywordArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUriArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
@@ -550,7 +534,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).GetUriArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUriSchemaArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -559,7 +542,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).GetUriSchemaArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCharsetArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -568,7 +550,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).GetCharsetArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetNaturalLanguageArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -577,7 +558,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).GetNaturalLanguageArray)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMimeMediaTypeArray(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -610,7 +590,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateInteger)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateIntegerArray<P0>(values: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -627,7 +606,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateBoolean)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateBooleanArray<P0>(values: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -644,7 +622,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateEnum)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateEnumArray<P0>(values: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -655,7 +632,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateEnumArray)(::windows_core::Interface::as_raw(this), values.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateOctetString<P0>(value: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -666,7 +642,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateOctetString)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn CreateOctetStringArray<P0>(values: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -683,7 +658,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateDateTime)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDateTimeArray<P0>(values: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -703,7 +677,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateResolution)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateResolutionArray<P0>(values: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -723,7 +696,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateRangeOfInteger)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateRangeOfIntegerArray<P0>(values: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -734,7 +706,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateRangeOfIntegerArray)(::windows_core::Interface::as_raw(this), values.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateCollection<P0>(memberattributes: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -745,7 +716,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateCollection)(::windows_core::Interface::as_raw(this), memberattributes.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateCollectionArray<P0>(memberattributesarray: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -765,7 +735,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateTextWithLanguage)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateTextWithLanguageArray<P0>(values: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -785,7 +754,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateNameWithLanguage)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateNameWithLanguageArray<P0>(values: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -802,7 +770,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateTextWithoutLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateTextWithoutLanguageArray<P0>(values: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -819,7 +786,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateNameWithoutLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateNameWithoutLanguageArray<P0>(values: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -836,7 +802,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateKeyword)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateKeywordArray<P0>(values: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -856,7 +821,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateUri)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateUriArray<P0>(values: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -873,7 +837,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateUriSchema)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateUriSchemaArray<P0>(values: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -890,7 +853,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateCharset)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateCharsetArray<P0>(values: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -907,7 +869,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateNaturalLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateNaturalLanguageArray<P0>(values: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -924,7 +885,6 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateMimeMedia)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateMimeMediaArray<P0>(values: P0) -> ::windows_core::Result<IppAttributeValue>
     where
@@ -1015,7 +975,6 @@ impl IppPrintDevice {
             (::windows_core::Interface::vtable(this).PrinterUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GetPrinterAttributesAsBuffer<P0>(&self, attributenames: P0) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer>
     where
@@ -1027,7 +986,6 @@ impl IppPrintDevice {
             (::windows_core::Interface::vtable(this).GetPrinterAttributesAsBuffer)(::windows_core::Interface::as_raw(this), attributenames.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetPrinterAttributes<P0>(&self, attributenames: P0) -> ::windows_core::Result<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, IppAttributeValue>>
     where
@@ -1039,7 +997,6 @@ impl IppPrintDevice {
             (::windows_core::Interface::vtable(this).GetPrinterAttributes)(::windows_core::Interface::as_raw(this), attributenames.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetPrinterAttributesFromBuffer<P0>(&self, printerattributesbuffer: P0) -> ::windows_core::Result<IppSetAttributesResult>
     where
@@ -1051,7 +1008,6 @@ impl IppPrintDevice {
             (::windows_core::Interface::vtable(this).SetPrinterAttributesFromBuffer)(::windows_core::Interface::as_raw(this), printerattributesbuffer.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetPrinterAttributes<P0>(&self, printerattributes: P0) -> ::windows_core::Result<IppSetAttributesResult>
     where
@@ -1195,7 +1151,6 @@ impl IppSetAttributesResult {
             (::windows_core::Interface::vtable(this).Succeeded)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AttributeErrors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, IppAttributeError>> {
         let this = self;
@@ -1312,7 +1267,6 @@ unsafe impl ::core::marker::Sync for PageConfigurationSettings {}
 pub struct PdlPassthroughProvider(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PdlPassthroughProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PdlPassthroughProvider {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedPdlContentTypes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -1321,7 +1275,6 @@ impl PdlPassthroughProvider {
             (::windows_core::Interface::vtable(this).SupportedPdlContentTypes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Graphics_Printing\"`"]
     #[cfg(feature = "Graphics_Printing")]
     pub fn StartPrintJobWithTaskOptions<P0, P1>(&self, jobname: &::windows_core::HSTRING, pdlcontenttype: &::windows_core::HSTRING, taskoptions: P0, pageconfigurationsettings: P1) -> ::windows_core::Result<PdlPassthroughTarget>
     where
@@ -1334,7 +1287,6 @@ impl PdlPassthroughProvider {
             (::windows_core::Interface::vtable(this).StartPrintJobWithTaskOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(jobname), ::core::mem::transmute_copy(pdlcontenttype), taskoptions.into_param().abi(), pageconfigurationsettings.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn StartPrintJobWithPrintTicket<P0, P1>(&self, jobname: &::windows_core::HSTRING, pdlcontenttype: &::windows_core::HSTRING, printticket: P0, pageconfigurationsettings: P1) -> ::windows_core::Result<PdlPassthroughTarget>
     where
@@ -1377,7 +1329,6 @@ impl PdlPassthroughTarget {
             (::windows_core::Interface::vtable(this).PrintJobId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetOutputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
@@ -1450,7 +1401,6 @@ unsafe impl ::core::marker::Sync for Print3DDevice {}
 pub struct PrintSchema(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(PrintSchema, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl PrintSchema {
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetDefaultPrintTicketAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = self;
@@ -1459,7 +1409,6 @@ impl PrintSchema {
             (::windows_core::Interface::vtable(this).GetDefaultPrintTicketAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetCapabilitiesAsync<P0>(&self, constrainticket: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>
     where
@@ -1471,7 +1420,6 @@ impl PrintSchema {
             (::windows_core::Interface::vtable(this).GetCapabilitiesAsync)(::windows_core::Interface::as_raw(this), constrainticket.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn MergeAndValidateWithDefaultPrintTicketAsync<P0>(&self, deltaticket: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>
     where

@@ -138,7 +138,6 @@ pub unsafe fn CreateActCtxW(pactctx: *const ACTCTXW) -> ::windows_core::Result<s
     let result__ = CreateActCtxW(pactctx);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn CreateDeltaA<P0, P1, P2, P3, P4>(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: P0, lptargetname: P1, lpsourceoptionsname: P2, lptargetoptionsname: P3, globaloptions: DELTA_INPUT, lptargetfiletime: ::core::option::Option<*const super::super::Foundation::FILETIME>, hashalgid: super::super::Security::Cryptography::ALG_ID, lpdeltaname: P4) -> super::super::Foundation::BOOL
@@ -152,14 +151,12 @@ where
     ::windows_targets::link!("msdelta.dll" "system" fn CreateDeltaA(filetypeset : i64, setflags : i64, resetflags : i64, lpsourcename : ::windows_core::PCSTR, lptargetname : ::windows_core::PCSTR, lpsourceoptionsname : ::windows_core::PCSTR, lptargetoptionsname : ::windows_core::PCSTR, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdeltaname : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     CreateDeltaA(filetypeset, setflags, resetflags, lpsourcename.into_param().abi(), lptargetname.into_param().abi(), lpsourceoptionsname.into_param().abi(), lptargetoptionsname.into_param().abi(), ::core::mem::transmute(globaloptions), ::core::mem::transmute(lptargetfiletime.unwrap_or(::std::ptr::null())), hashalgid, lpdeltaname.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn CreateDeltaB(filetypeset: i64, setflags: i64, resetflags: i64, source: DELTA_INPUT, target: DELTA_INPUT, sourceoptions: DELTA_INPUT, targetoptions: DELTA_INPUT, globaloptions: DELTA_INPUT, lptargetfiletime: ::core::option::Option<*const super::super::Foundation::FILETIME>, hashalgid: super::super::Security::Cryptography::ALG_ID, lpdelta: *mut DELTA_OUTPUT) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("msdelta.dll" "system" fn CreateDeltaB(filetypeset : i64, setflags : i64, resetflags : i64, source : DELTA_INPUT, target : DELTA_INPUT, sourceoptions : DELTA_INPUT, targetoptions : DELTA_INPUT, globaloptions : DELTA_INPUT, lptargetfiletime : *const super::super::Foundation:: FILETIME, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpdelta : *mut DELTA_OUTPUT) -> super::super::Foundation:: BOOL);
     CreateDeltaB(filetypeset, setflags, resetflags, ::core::mem::transmute(source), ::core::mem::transmute(target), ::core::mem::transmute(sourceoptions), ::core::mem::transmute(targetoptions), ::core::mem::transmute(globaloptions), ::core::mem::transmute(lptargetfiletime.unwrap_or(::std::ptr::null())), hashalgid, lpdelta)
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn CreateDeltaW<P0, P1, P2, P3, P4>(filetypeset: i64, setflags: i64, resetflags: i64, lpsourcename: P0, lptargetname: P1, lpsourceoptionsname: P2, lptargetoptionsname: P3, globaloptions: DELTA_INPUT, lptargetfiletime: ::core::option::Option<*const super::super::Foundation::FILETIME>, hashalgid: super::super::Security::Cryptography::ALG_ID, lpdeltaname: P4) -> super::super::Foundation::BOOL
@@ -272,14 +269,12 @@ where
     ::windows_targets::link!("mspatchc.dll" "system" fn ExtractPatchHeaderToFileW(patchfilename : ::windows_core::PCWSTR, patchheaderfilename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     ExtractPatchHeaderToFileW(patchfilename.into_param().abi(), patchheaderfilename.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FindActCtxSectionGuid(dwflags: u32, lpextensionguid: ::core::option::Option<*const ::windows_core::GUID>, ulsectionid: u32, lpguidtofind: ::core::option::Option<*const ::windows_core::GUID>, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn FindActCtxSectionGuid(dwflags : u32, lpextensionguid : *const ::windows_core::GUID, ulsectionid : u32, lpguidtofind : *const ::windows_core::GUID, returneddata : *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation:: BOOL);
     FindActCtxSectionGuid(dwflags, ::core::mem::transmute(lpextensionguid.unwrap_or(::std::ptr::null())), ulsectionid, ::core::mem::transmute(lpguidtofind.unwrap_or(::std::ptr::null())), returneddata).ok()
 }
-#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FindActCtxSectionStringA<P0>(dwflags: u32, lpextensionguid: ::core::option::Option<*const ::windows_core::GUID>, ulsectionid: u32, lpstringtofind: P0, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> ::windows_core::Result<()>
@@ -289,7 +284,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn FindActCtxSectionStringA(dwflags : u32, lpextensionguid : *const ::windows_core::GUID, ulsectionid : u32, lpstringtofind : ::windows_core::PCSTR, returneddata : *mut ACTCTX_SECTION_KEYED_DATA) -> super::super::Foundation:: BOOL);
     FindActCtxSectionStringA(dwflags, ::core::mem::transmute(lpextensionguid.unwrap_or(::std::ptr::null())), ulsectionid, lpstringtofind.into_param().abi(), returneddata).ok()
 }
-#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FindActCtxSectionStringW<P0>(dwflags: u32, lpextensionguid: ::core::option::Option<*const ::windows_core::GUID>, ulsectionid: u32, lpstringtofind: P0, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> ::windows_core::Result<()>
@@ -304,7 +298,6 @@ pub unsafe fn GetCurrentActCtx(lphactctx: *mut super::super::Foundation::HANDLE)
     ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentActCtx(lphactctx : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     GetCurrentActCtx(lphactctx).ok()
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn GetDeltaInfoA<P0>(lpdeltaname: P0, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL
@@ -314,14 +307,12 @@ where
     ::windows_targets::link!("msdelta.dll" "system" fn GetDeltaInfoA(lpdeltaname : ::windows_core::PCSTR, lpheaderinfo : *mut DELTA_HEADER_INFO) -> super::super::Foundation:: BOOL);
     GetDeltaInfoA(lpdeltaname.into_param().abi(), lpheaderinfo)
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn GetDeltaInfoB(delta: DELTA_INPUT, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("msdelta.dll" "system" fn GetDeltaInfoB(delta : DELTA_INPUT, lpheaderinfo : *mut DELTA_HEADER_INFO) -> super::super::Foundation:: BOOL);
     GetDeltaInfoB(::core::mem::transmute(delta), lpheaderinfo)
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn GetDeltaInfoW<P0>(lpdeltaname: P0, lpheaderinfo: *mut DELTA_HEADER_INFO) -> super::super::Foundation::BOOL
@@ -331,7 +322,6 @@ where
     ::windows_targets::link!("msdelta.dll" "system" fn GetDeltaInfoW(lpdeltaname : ::windows_core::PCWSTR, lpheaderinfo : *mut DELTA_HEADER_INFO) -> super::super::Foundation:: BOOL);
     GetDeltaInfoW(lpdeltaname.into_param().abi(), lpheaderinfo)
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn GetDeltaSignatureA<P0>(filetypeset: i64, hashalgid: super::super::Security::Cryptography::ALG_ID, lpsourcename: P0, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL
@@ -341,14 +331,12 @@ where
     ::windows_targets::link!("msdelta.dll" "system" fn GetDeltaSignatureA(filetypeset : i64, hashalgid : super::super::Security::Cryptography:: ALG_ID, lpsourcename : ::windows_core::PCSTR, lphash : *mut DELTA_HASH) -> super::super::Foundation:: BOOL);
     GetDeltaSignatureA(filetypeset, hashalgid, lpsourcename.into_param().abi(), lphash)
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn GetDeltaSignatureB(filetypeset: i64, hashalgid: super::super::Security::Cryptography::ALG_ID, source: DELTA_INPUT, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("msdelta.dll" "system" fn GetDeltaSignatureB(filetypeset : i64, hashalgid : super::super::Security::Cryptography:: ALG_ID, source : DELTA_INPUT, lphash : *mut DELTA_HASH) -> super::super::Foundation:: BOOL);
     GetDeltaSignatureB(filetypeset, hashalgid, ::core::mem::transmute(source), lphash)
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn GetDeltaSignatureW<P0>(filetypeset: i64, hashalgid: super::super::Security::Cryptography::ALG_ID, lpsourcename: P0, lphash: *mut DELTA_HASH) -> super::super::Foundation::BOOL
@@ -468,7 +456,6 @@ where
     ::windows_targets::link!("msi.dll" "system" fn MsiAdvertiseProductW(szpackagepath : ::windows_core::PCWSTR, szscriptfilepath : ::windows_core::PCWSTR, sztransforms : ::windows_core::PCWSTR, lgidlanguage : u16) -> u32);
     MsiAdvertiseProductW(szpackagepath.into_param().abi(), szscriptfilepath.into_param().abi(), sztransforms.into_param().abi(), lgidlanguage)
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn MsiAdvertiseScriptA<P0, P1>(szscriptfile: P0, dwflags: u32, phregdata: ::core::option::Option<*const super::Registry::HKEY>, fremoveitems: P1) -> u32
@@ -479,7 +466,6 @@ where
     ::windows_targets::link!("msi.dll" "system" fn MsiAdvertiseScriptA(szscriptfile : ::windows_core::PCSTR, dwflags : u32, phregdata : *const super::Registry:: HKEY, fremoveitems : super::super::Foundation:: BOOL) -> u32);
     MsiAdvertiseScriptA(szscriptfile.into_param().abi(), dwflags, ::core::mem::transmute(phregdata.unwrap_or(::std::ptr::null())), fremoveitems.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn MsiAdvertiseScriptW<P0, P1>(szscriptfile: P0, dwflags: u32, phregdata: ::core::option::Option<*const super::Registry::HKEY>, fremoveitems: P1) -> u32
@@ -1335,7 +1321,6 @@ where
     ::windows_targets::link!("msi.dll" "system" fn MsiGetFileHashW(szfilepath : ::windows_core::PCWSTR, dwoptions : u32, phash : *mut MSIFILEHASHINFO) -> u32);
     MsiGetFileHashW(szfilepath.into_param().abi(), dwoptions, phash)
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn MsiGetFileSignatureInformationA<P0>(szsignedobjectpath: P0, dwflags: u32, ppccertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: ::core::option::Option<*mut u8>, pcbhashdata: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -1345,7 +1330,6 @@ where
     ::windows_targets::link!("msi.dll" "system" fn MsiGetFileSignatureInformationA(szsignedobjectpath : ::windows_core::PCSTR, dwflags : u32, ppccertcontext : *mut *mut super::super::Security::Cryptography:: CERT_CONTEXT, pbhashdata : *mut u8, pcbhashdata : *mut u32) -> ::windows_core::HRESULT);
     MsiGetFileSignatureInformationA(szsignedobjectpath.into_param().abi(), dwflags, ppccertcontext, ::core::mem::transmute(pbhashdata.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbhashdata.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
 pub unsafe fn MsiGetFileSignatureInformationW<P0>(szsignedobjectpath: P0, dwflags: u32, ppccertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: ::core::option::Option<*mut u8>, pcbhashdata: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -1858,7 +1842,6 @@ where
     ::windows_targets::link!("msi.dll" "system" fn MsiPreviewDialogW(hpreview : MSIHANDLE, szdialogname : ::windows_core::PCWSTR) -> u32);
     MsiPreviewDialogW(hpreview.into_param().abi(), szdialogname.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn MsiProcessAdvertiseScriptA<P0, P1, P2, P3, P4>(szscriptfile: P0, sziconfolder: P1, hregdata: P2, fshortcuts: P3, fremoveitems: P4) -> u32
@@ -1872,7 +1855,6 @@ where
     ::windows_targets::link!("msi.dll" "system" fn MsiProcessAdvertiseScriptA(szscriptfile : ::windows_core::PCSTR, sziconfolder : ::windows_core::PCSTR, hregdata : super::Registry:: HKEY, fshortcuts : super::super::Foundation:: BOOL, fremoveitems : super::super::Foundation:: BOOL) -> u32);
     MsiProcessAdvertiseScriptA(szscriptfile.into_param().abi(), sziconfolder.into_param().abi(), hregdata.into_param().abi(), fshortcuts.into_param().abi(), fremoveitems.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn MsiProcessAdvertiseScriptW<P0, P1, P2, P3, P4>(szscriptfile: P0, sziconfolder: P1, hregdata: P2, fshortcuts: P3, fremoveitems: P4) -> u32
@@ -2833,7 +2815,6 @@ where
     ::windows_targets::link!("sfc.dll" "system" fn SfcIsFileProtected(rpchandle : super::super::Foundation:: HANDLE, protfilename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     SfcIsFileProtected(rpchandle.into_param().abi(), protfilename.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn SfcIsKeyProtected<P0, P1>(keyhandle: P0, subkeyname: P1, keysam: u32) -> super::super::Foundation::BOOL
@@ -2937,7 +2918,6 @@ pub struct IAssemblyCache_Vtbl {
 ::windows_core::imp::com_interface!(IAssemblyCacheItem, IAssemblyCacheItem_Vtbl, 0x9e3aaeb4_d1cd_11d2_bab9_00c04f8eceae);
 ::windows_core::imp::interface_hierarchy!(IAssemblyCacheItem, ::windows_core::IUnknown);
 impl IAssemblyCacheItem {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateStream<P0>(&self, dwflags: u32, pszstreamname: P0, dwformat: u32, dwformatflags: u32, ppistream: *mut ::core::option::Option<super::Com::IStream>, pulimaxsize: *mut u64) -> ::windows_core::Result<()>
     where
@@ -3020,7 +3000,6 @@ pub struct IAssemblyName_Vtbl {
 ::windows_core::imp::com_interface!(IEnumMsmDependency, IEnumMsmDependency_Vtbl, 0x0adda82c_2c26_11d2_ad65_00a0c9af11a6);
 ::windows_core::imp::interface_hierarchy!(IEnumMsmDependency, ::windows_core::IUnknown);
 impl IEnumMsmDependency {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, cfetch: u32, rgmsmdependencies: *mut ::core::option::Option<IMsmDependency>, pcfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), cfetch, ::core::mem::transmute(rgmsmdependencies), pcfetched).ok()
@@ -3051,7 +3030,6 @@ pub struct IEnumMsmDependency_Vtbl {
 ::windows_core::imp::com_interface!(IEnumMsmError, IEnumMsmError_Vtbl, 0x0adda829_2c26_11d2_ad65_00a0c9af11a6);
 ::windows_core::imp::interface_hierarchy!(IEnumMsmError, ::windows_core::IUnknown);
 impl IEnumMsmError {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, cfetch: u32, rgmsmerrors: *mut ::core::option::Option<IMsmError>, pcfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), cfetch, ::core::mem::transmute(rgmsmerrors), pcfetched).ok()
@@ -3106,17 +3084,11 @@ pub struct IEnumMsmString_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMsmDependencies,
-    IMsmDependencies_Vtbl,
-    0x0adda82d_2c26_11d2_ad65_00a0c9af11a6
-);
+::windows_core::imp::com_interface!(IMsmDependencies, IMsmDependencies_Vtbl, 0x0adda82d_2c26_11d2_ad65_00a0c9af11a6);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMsmDependencies, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMsmDependencies {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, item: i32) -> ::windows_core::Result<IMsmDependency> {
         let mut result__ = ::std::mem::zeroed();
@@ -3143,12 +3115,7 @@ pub struct IMsmDependencies_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMsmDependency,
-    IMsmDependency_Vtbl,
-    0x0adda82b_2c26_11d2_ad65_00a0c9af11a6
-);
+::windows_core::imp::com_interface!(IMsmDependency, IMsmDependency_Vtbl, 0x0adda82b_2c26_11d2_ad65_00a0c9af11a6);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMsmDependency, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3173,12 +3140,7 @@ pub struct IMsmDependency_Vtbl {
     pub Version: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMsmError,
-    IMsmError_Vtbl,
-    0x0adda828_2c26_11d2_ad65_00a0c9af11a6
-);
+::windows_core::imp::com_interface!(IMsmError, IMsmError_Vtbl, 0x0adda828_2c26_11d2_ad65_00a0c9af11a6);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMsmError, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3195,7 +3157,6 @@ impl IMsmError {
     pub unsafe fn DatabaseTable(&self, errortable: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DatabaseTable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(errortable)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DatabaseKeys(&self) -> ::windows_core::Result<IMsmStrings> {
         let mut result__ = ::std::mem::zeroed();
@@ -3204,7 +3165,6 @@ impl IMsmError {
     pub unsafe fn ModuleTable(&self, errortable: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ModuleTable)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(errortable)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ModuleKeys(&self) -> ::windows_core::Result<IMsmStrings> {
         let mut result__ = ::std::mem::zeroed();
@@ -3231,17 +3191,11 @@ pub struct IMsmError_Vtbl {
     ModuleKeys: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMsmErrors,
-    IMsmErrors_Vtbl,
-    0x0adda82a_2c26_11d2_ad65_00a0c9af11a6
-);
+::windows_core::imp::com_interface!(IMsmErrors, IMsmErrors_Vtbl, 0x0adda82a_2c26_11d2_ad65_00a0c9af11a6);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMsmErrors, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMsmErrors {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, item: i32) -> ::windows_core::Result<IMsmError> {
         let mut result__ = ::std::mem::zeroed();
@@ -3268,17 +3222,11 @@ pub struct IMsmErrors_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMsmGetFiles,
-    IMsmGetFiles_Vtbl,
-    0x7041ae26_2d78_11d2_888a_00a0c981b015
-);
+::windows_core::imp::com_interface!(IMsmGetFiles, IMsmGetFiles_Vtbl, 0x7041ae26_2d78_11d2_888a_00a0c981b015);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMsmGetFiles, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMsmGetFiles {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ModuleFiles(&self) -> ::windows_core::Result<IMsmStrings> {
         let mut result__ = ::std::mem::zeroed();
@@ -3296,12 +3244,7 @@ pub struct IMsmGetFiles_Vtbl {
     ModuleFiles: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMsmMerge,
-    IMsmMerge_Vtbl,
-    0x0adda82e_2c26_11d2_ad65_00a0c9af11a6
-);
+::windows_core::imp::com_interface!(IMsmMerge, IMsmMerge_Vtbl, 0x0adda82e_2c26_11d2_ad65_00a0c9af11a6);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMsmMerge, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3342,13 +3285,11 @@ impl IMsmMerge {
     {
         (::windows_core::Interface::vtable(self).Log)(::windows_core::Interface::as_raw(self), message.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Errors(&self) -> ::windows_core::Result<IMsmErrors> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Errors)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Dependencies(&self) -> ::windows_core::Result<IMsmDependencies> {
         let mut result__ = ::std::mem::zeroed();
@@ -3406,12 +3347,7 @@ pub struct IMsmMerge_Vtbl {
     pub ExtractFiles: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMsmStrings,
-    IMsmStrings_Vtbl,
-    0x0adda827_2c26_11d2_ad65_00a0c9af11a6
-);
+::windows_core::imp::com_interface!(IMsmStrings, IMsmStrings_Vtbl, 0x0adda827_2c26_11d2_ad65_00a0c9af11a6);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMsmStrings, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3959,7 +3895,6 @@ impl IPMDeploymentManager {
     pub unsafe fn RevokeLicense(&self, productid: ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RevokeLicense)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(productid)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RebindMdilBinaries(&self, productid: ::windows_core::GUID, filenames: *const super::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RebindMdilBinaries)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(productid), filenames).ok()
@@ -3967,7 +3902,6 @@ impl IPMDeploymentManager {
     pub unsafe fn RebindAllMdilBinaries(&self, productid: ::windows_core::GUID, instanceid: ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RebindAllMdilBinaries)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(productid), ::core::mem::transmute(instanceid)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RegenerateXbf(&self, productid: ::windows_core::GUID, assemblypaths: *const super::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RegenerateXbf)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(productid), assemblypaths).ok()
@@ -7293,7 +7227,6 @@ impl ::core::default::Default for ACTCTXW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_WindowsProgramming\"`"]
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 pub struct ACTCTX_SECTION_KEYED_DATA {
     pub cbSize: u32,
@@ -7711,7 +7644,6 @@ impl ::core::default::Default for DELTA_HASH {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct DELTA_HEADER_INFO {
     pub FileTypeSet: i64,

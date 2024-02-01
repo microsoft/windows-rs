@@ -109,7 +109,6 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
             (::windows_core::Interface::vtable(this).UpdateWnsChannelAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(useraccountid), ::core::mem::transmute_copy(channeluri), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSessionsAsync<P0>(&self, useraccountidlist: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorGetSessionsResult>>
     where
@@ -121,7 +120,6 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
             (::windows_core::Interface::vtable(this).GetSessionsAsync)(::windows_core::Interface::as_raw(this), useraccountidlist.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSessionsAndUnregisteredAccountsAsync<P0>(&self, useraccountidlist: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>>
     where
@@ -196,7 +194,6 @@ unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorAuthenticationMa
 pub struct MicrosoftAccountMultiFactorGetSessionsResult(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(MicrosoftAccountMultiFactorGetSessionsResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl MicrosoftAccountMultiFactorGetSessionsResult {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Sessions(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>> {
         let this = self;
@@ -343,7 +340,6 @@ unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorSessionInfo {}
 pub struct MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Sessions(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>> {
         let this = self;
@@ -352,7 +348,6 @@ impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
             (::windows_core::Interface::vtable(this).Sessions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UnregisteredAccounts(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;

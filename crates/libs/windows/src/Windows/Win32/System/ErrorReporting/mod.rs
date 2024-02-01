@@ -14,7 +14,6 @@ where
     ::windows_targets::link!("faultrep.dll" "system" fn AddERExcludedApplicationW(wszapplication : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     AddERExcludedApplicationW(wszapplication.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ReportFault(pep: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, dwopt: u32) -> EFaultRepRetVal {
@@ -104,7 +103,6 @@ where
     ::windows_targets::link!("wer.dll" "system" fn WerRemoveExcludedApplication(pwzexename : ::windows_core::PCWSTR, ballusers : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     WerRemoveExcludedApplication(pwzexename.into_param().abi(), ballusers.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn WerReportAddDump<P0, P1, P2>(hreporthandle: P0, hprocess: P1, hthread: P2, dumptype: WER_DUMP_TYPE, pexceptionparam: ::core::option::Option<*const WER_EXCEPTION_INFORMATION>, pdumpcustomoptions: ::core::option::Option<*const WER_DUMP_CUSTOM_OPTIONS>, dwflags: u32) -> ::windows_core::Result<()>
@@ -920,7 +918,6 @@ impl ::core::default::Default for WER_DUMP_CUSTOM_OPTIONS_V3 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct WER_EXCEPTION_INFORMATION {
     pub pExceptionPointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS,
@@ -1363,7 +1360,6 @@ impl ::core::default::Default for WER_REPORT_SIGNATURE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub struct WER_RUNTIME_EXCEPTION_INFORMATION {
     pub dwSize: u32,
@@ -1393,17 +1389,13 @@ impl ::core::default::Default for WER_RUNTIME_EXCEPTION_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut super::super::Foundation::BOOL, pwszdebuggerlaunch: ::windows_core::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbownershipclaimed: *mut super::super::Foundation::BOOL, pwszeventname: ::windows_core::PWSTR, pchsize: *mut u32, pdwsignaturecount: *mut u32) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, dwindex: u32, pwszname: ::windows_core::PWSTR, pchname: *mut u32, pwszvalue: ::windows_core::PWSTR, pchvalue: *mut u32) -> ::windows_core::HRESULT>;
 pub type pfn_ADDEREXCLUDEDAPPLICATIONA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR) -> EFaultRepRetVal>;
 pub type pfn_ADDEREXCLUDEDAPPLICATIONW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR) -> EFaultRepRetVal>;
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type pfn_REPORTFAULT = ::core::option::Option<unsafe extern "system" fn(param0: *const super::Diagnostics::Debug::EXCEPTION_POINTERS, param1: u32) -> EFaultRepRetVal>;

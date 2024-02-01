@@ -285,7 +285,6 @@ impl BackgroundAudioTrack {
             (::windows_core::Interface::vtable(this).TrimmedDuration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UserData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::HSTRING>> {
         let this = self;
@@ -323,7 +322,6 @@ impl BackgroundAudioTrack {
             (::windows_core::Interface::vtable(this).Clone)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Media_MediaProperties\"`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetAudioEncodingProperties(&self) -> ::windows_core::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = self;
@@ -332,7 +330,6 @@ impl BackgroundAudioTrack {
             (::windows_core::Interface::vtable(this).GetAudioEncodingProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Effects\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
     pub fn AudioEffectDefinitions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = self;
@@ -350,7 +347,6 @@ impl BackgroundAudioTrack {
             (::windows_core::Interface::vtable(this).CreateFromEmbeddedAudioTrack)(::windows_core::Interface::as_raw(this), embeddedaudiotrack.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn CreateFromFileAsync<P0>(file: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>>
     where
@@ -384,7 +380,6 @@ unsafe impl ::core::marker::Sync for BackgroundAudioTrack {}
 pub struct EmbeddedAudioTrack(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(EmbeddedAudioTrack, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl EmbeddedAudioTrack {
-    #[doc = "Required features: `\"Media_MediaProperties\"`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetAudioEncodingProperties(&self) -> ::windows_core::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = self;
@@ -447,7 +442,6 @@ impl MediaClip {
             (::windows_core::Interface::vtable(this).TrimmedDuration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UserData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::HSTRING>> {
         let this = self;
@@ -477,7 +471,6 @@ impl MediaClip {
             (::windows_core::Interface::vtable(this).EndTimeInComposition)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EmbeddedAudioTracks(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<EmbeddedAudioTrack>> {
         let this = self;
@@ -508,7 +501,6 @@ impl MediaClip {
             (::windows_core::Interface::vtable(this).Volume)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Media_MediaProperties\"`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetVideoEncodingProperties(&self) -> ::windows_core::Result<super::MediaProperties::VideoEncodingProperties> {
         let this = self;
@@ -517,7 +509,6 @@ impl MediaClip {
             (::windows_core::Interface::vtable(this).GetVideoEncodingProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Effects\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
     pub fn AudioEffectDefinitions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = self;
@@ -526,7 +517,6 @@ impl MediaClip {
             (::windows_core::Interface::vtable(this).AudioEffectDefinitions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Effects\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))]
     pub fn VideoEffectDefinitions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::Effects::IVideoEffectDefinition>> {
         let this = self;
@@ -535,7 +525,6 @@ impl MediaClip {
             (::windows_core::Interface::vtable(this).VideoEffectDefinitions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn CreateFromColor(color: super::super::UI::Color, originalduration: super::super::Foundation::TimeSpan) -> ::windows_core::Result<MediaClip> {
         Self::IMediaClipStatics(|this| unsafe {
@@ -543,7 +532,6 @@ impl MediaClip {
             (::windows_core::Interface::vtable(this).CreateFromColor)(::windows_core::Interface::as_raw(this), color, originalduration, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn CreateFromFileAsync<P0>(file: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MediaClip>>
     where
@@ -554,7 +542,6 @@ impl MediaClip {
             (::windows_core::Interface::vtable(this).CreateFromFileAsync)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn CreateFromImageFileAsync<P0>(file: P0, originalduration: super::super::Foundation::TimeSpan) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MediaClip>>
     where
@@ -565,7 +552,6 @@ impl MediaClip {
             (::windows_core::Interface::vtable(this).CreateFromImageFileAsync)(::windows_core::Interface::as_raw(this), file.into_param().abi(), originalduration, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Graphics_DirectX_Direct3D11\"`"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn CreateFromSurface<P0>(surface: P0, originalduration: super::super::Foundation::TimeSpan) -> ::windows_core::Result<MediaClip>
     where
@@ -618,7 +604,6 @@ impl MediaComposition {
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clips(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<MediaClip>> {
         let this = self;
@@ -627,7 +612,6 @@ impl MediaComposition {
             (::windows_core::Interface::vtable(this).Clips)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn BackgroundAudioTracks(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<BackgroundAudioTrack>> {
         let this = self;
@@ -636,7 +620,6 @@ impl MediaComposition {
             (::windows_core::Interface::vtable(this).BackgroundAudioTracks)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UserData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::HSTRING>> {
         let this = self;
@@ -652,7 +635,6 @@ impl MediaComposition {
             (::windows_core::Interface::vtable(this).Clone)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn SaveAsync<P0>(&self, file: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -664,7 +646,6 @@ impl MediaComposition {
             (::windows_core::Interface::vtable(this).SaveAsync)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Graphics_Imaging\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Graphics_Imaging", feature = "Storage_Streams"))]
     pub fn GetThumbnailAsync(&self, timefromstart: super::super::Foundation::TimeSpan, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>> {
         let this = self;
@@ -673,7 +654,6 @@ impl MediaComposition {
             (::windows_core::Interface::vtable(this).GetThumbnailAsync)(::windows_core::Interface::as_raw(this), timefromstart, scaledwidth, scaledheight, frameprecision, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Graphics_Imaging\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "Storage_Streams"))]
     pub fn GetThumbnailsAsync<P0>(&self, timesfromstart: P0, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>>
     where
@@ -685,7 +665,6 @@ impl MediaComposition {
             (::windows_core::Interface::vtable(this).GetThumbnailsAsync)(::windows_core::Interface::as_raw(this), timesfromstart.into_param().abi(), scaledwidth, scaledheight, frameprecision, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Media_Transcoding\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Media_Transcoding", feature = "Storage"))]
     pub fn RenderToFileAsync<P0>(&self, destination: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
     where
@@ -697,7 +676,6 @@ impl MediaComposition {
             (::windows_core::Interface::vtable(this).RenderToFileAsync)(::windows_core::Interface::as_raw(this), destination.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Media_Transcoding\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Media_Transcoding", feature = "Storage"))]
     pub fn RenderToFileWithTrimmingPreferenceAsync<P0>(&self, destination: P0, trimmingpreference: MediaTrimmingPreference) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
     where
@@ -709,7 +687,6 @@ impl MediaComposition {
             (::windows_core::Interface::vtable(this).RenderToFileWithTrimmingPreferenceAsync)(::windows_core::Interface::as_raw(this), destination.into_param().abi(), trimmingpreference, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Media_MediaProperties\"`, `\"Media_Transcoding\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage"))]
     pub fn RenderToFileWithProfileAsync<P0, P1>(&self, destination: P0, trimmingpreference: MediaTrimmingPreference, encodingprofile: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
     where
@@ -722,7 +699,6 @@ impl MediaComposition {
             (::windows_core::Interface::vtable(this).RenderToFileWithProfileAsync)(::windows_core::Interface::as_raw(this), destination.into_param().abi(), trimmingpreference, encodingprofile.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Media_MediaProperties\"`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn CreateDefaultEncodingProfile(&self) -> ::windows_core::Result<super::MediaProperties::MediaEncodingProfile> {
         let this = self;
@@ -731,7 +707,6 @@ impl MediaComposition {
             (::windows_core::Interface::vtable(this).CreateDefaultEncodingProfile)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Media_Core\"`"]
     #[cfg(feature = "Media_Core")]
     pub fn GenerateMediaStreamSource(&self) -> ::windows_core::Result<super::Core::MediaStreamSource> {
         let this = self;
@@ -740,7 +715,6 @@ impl MediaComposition {
             (::windows_core::Interface::vtable(this).GenerateMediaStreamSource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Media_Core\"`, `\"Media_MediaProperties\"`"]
     #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties"))]
     pub fn GenerateMediaStreamSourceWithProfile<P0>(&self, encodingprofile: P0) -> ::windows_core::Result<super::Core::MediaStreamSource>
     where
@@ -752,7 +726,6 @@ impl MediaComposition {
             (::windows_core::Interface::vtable(this).GenerateMediaStreamSourceWithProfile)(::windows_core::Interface::as_raw(this), encodingprofile.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Media_Core\"`"]
     #[cfg(feature = "Media_Core")]
     pub fn GeneratePreviewMediaStreamSource(&self, scaledwidth: i32, scaledheight: i32) -> ::windows_core::Result<super::Core::MediaStreamSource> {
         let this = self;
@@ -761,7 +734,6 @@ impl MediaComposition {
             (::windows_core::Interface::vtable(this).GeneratePreviewMediaStreamSource)(::windows_core::Interface::as_raw(this), scaledwidth, scaledheight, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn OverlayLayers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<MediaOverlayLayer>> {
         let this = &::windows_core::Interface::cast::<IMediaComposition2>(self)?;
@@ -770,7 +742,6 @@ impl MediaComposition {
             (::windows_core::Interface::vtable(this).OverlayLayers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn LoadAsync<P0>(file: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MediaComposition>>
     where
@@ -917,7 +888,6 @@ impl MediaOverlayLayer {
             (::windows_core::Interface::vtable(this).Clone)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Overlays(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<MediaOverlay>> {
         let this = self;
@@ -926,7 +896,6 @@ impl MediaOverlayLayer {
             (::windows_core::Interface::vtable(this).Overlays)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Media_Effects\"`"]
     #[cfg(feature = "Media_Effects")]
     pub fn CustomCompositorDefinition(&self) -> ::windows_core::Result<super::Effects::IVideoCompositorDefinition> {
         let this = self;
@@ -935,7 +904,6 @@ impl MediaOverlayLayer {
             (::windows_core::Interface::vtable(this).CustomCompositorDefinition)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Media_Effects\"`"]
     #[cfg(feature = "Media_Effects")]
     pub fn CreateWithCompositorDefinition<P0>(compositordefinition: P0) -> ::windows_core::Result<MediaOverlayLayer>
     where

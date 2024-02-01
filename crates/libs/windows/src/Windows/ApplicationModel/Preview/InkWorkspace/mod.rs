@@ -20,7 +20,6 @@ pub struct IInkWorkspaceHostedAppManagerStatics_Vtbl {
 pub struct InkWorkspaceHostedAppManager(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(InkWorkspaceHostedAppManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl InkWorkspaceHostedAppManager {
-    #[doc = "Required features: `\"Graphics_Imaging\"`"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetThumbnailAsync<P0>(&self, bitmap: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where

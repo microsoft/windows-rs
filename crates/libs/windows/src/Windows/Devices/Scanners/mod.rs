@@ -430,7 +430,6 @@ impl ImageScanner {
             (::windows_core::Interface::vtable(this).IsPreviewSupported)(::windows_core::Interface::as_raw(this), scansource, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ScanPreviewToStreamAsync<P0>(&self, scansource: ImageScannerScanSource, targetstream: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ImageScannerPreviewResult>>
     where
@@ -442,7 +441,6 @@ impl ImageScanner {
             (::windows_core::Interface::vtable(this).ScanPreviewToStreamAsync)(::windows_core::Interface::as_raw(this), scansource, targetstream.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn ScanFilesToFolderAsync<P0>(&self, scansource: ImageScannerScanSource, storagefolder: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>>
     where
@@ -552,7 +550,6 @@ impl ImageScannerFeederConfiguration {
         let this = &::windows_core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetAutoDetectPageSize)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Graphics_Printing\"`"]
     #[cfg(feature = "Graphics_Printing")]
     pub fn PageSize(&self) -> ::windows_core::Result<super::super::Graphics::Printing::PrintMediaSize> {
         let this = &::windows_core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
@@ -561,13 +558,11 @@ impl ImageScannerFeederConfiguration {
             (::windows_core::Interface::vtable(this).PageSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Graphics_Printing\"`"]
     #[cfg(feature = "Graphics_Printing")]
     pub fn SetPageSize(&self, value: super::super::Graphics::Printing::PrintMediaSize) -> ::windows_core::Result<()> {
         let this = &::windows_core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetPageSize)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Graphics_Printing\"`"]
     #[cfg(feature = "Graphics_Printing")]
     pub fn PageOrientation(&self) -> ::windows_core::Result<super::super::Graphics::Printing::PrintOrientation> {
         let this = &::windows_core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
@@ -576,7 +571,6 @@ impl ImageScannerFeederConfiguration {
             (::windows_core::Interface::vtable(this).PageOrientation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Graphics_Printing\"`"]
     #[cfg(feature = "Graphics_Printing")]
     pub fn SetPageOrientation(&self, value: super::super::Graphics::Printing::PrintOrientation) -> ::windows_core::Result<()> {
         let this = &::windows_core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
@@ -589,7 +583,6 @@ impl ImageScannerFeederConfiguration {
             (::windows_core::Interface::vtable(this).PageSizeDimensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Graphics_Printing\"`"]
     #[cfg(feature = "Graphics_Printing")]
     pub fn IsPageSizeSupported(&self, pagesize: super::super::Graphics::Printing::PrintMediaSize, pageorientation: super::super::Graphics::Printing::PrintOrientation) -> ::windows_core::Result<bool> {
         let this = &::windows_core::Interface::cast::<IImageScannerFeederConfiguration>(self)?;
@@ -1134,7 +1127,6 @@ unsafe impl ::core::marker::Sync for ImageScannerPreviewResult {}
 pub struct ImageScannerScanResult(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(ImageScannerScanResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ImageScannerScanResult {
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn ScannedFiles(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
         let this = self;

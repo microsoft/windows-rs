@@ -738,7 +738,6 @@ impl BarcodeScannerProviderConnection {
             (::windows_core::Interface::vtable(this).VideoDeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedSymbologies(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<u32>> {
         let this = self;
@@ -941,7 +940,6 @@ impl BarcodeScannerProviderConnection {
             (::windows_core::Interface::vtable(this).CreateFrameReaderAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Graphics_Imaging\"`"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn CreateFrameReaderWithFormatAsync(&self, preferredformat: super::super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>> {
         let this = &::windows_core::Interface::cast::<IBarcodeScannerProviderConnection2>(self)?;
@@ -950,7 +948,6 @@ impl BarcodeScannerProviderConnection {
             (::windows_core::Interface::vtable(this).CreateFrameReaderWithFormatAsync)(::windows_core::Interface::as_raw(this), preferredformat, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Graphics_Imaging\"`"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn CreateFrameReaderWithFormatAndSizeAsync(&self, preferredformat: super::super::super::Graphics::Imaging::BitmapPixelFormat, preferredsize: super::super::super::Graphics::Imaging::BitmapSize) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>> {
         let this = &::windows_core::Interface::cast::<IBarcodeScannerProviderConnection2>(self)?;
@@ -1006,7 +1003,6 @@ unsafe impl ::core::marker::Sync for BarcodeScannerProviderTriggerDetails {}
 pub struct BarcodeScannerSetActiveSymbologiesRequest(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(BarcodeScannerSetActiveSymbologiesRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl BarcodeScannerSetActiveSymbologiesRequest {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Symbologies(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
@@ -1342,7 +1338,6 @@ pub struct BarcodeScannerVideoFrame(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(BarcodeScannerVideoFrame, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(BarcodeScannerVideoFrame, super::super::super::Foundation::IClosable);
 impl BarcodeScannerVideoFrame {
-    #[doc = "Required features: `\"Graphics_Imaging\"`"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn Format(&self) -> ::windows_core::Result<super::super::super::Graphics::Imaging::BitmapPixelFormat> {
         let this = self;
@@ -1365,7 +1360,6 @@ impl BarcodeScannerVideoFrame {
             (::windows_core::Interface::vtable(this).Height)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn PixelData(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;

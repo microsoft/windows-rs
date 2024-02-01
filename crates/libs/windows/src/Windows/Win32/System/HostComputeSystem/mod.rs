@@ -59,7 +59,6 @@ where
     ::windows_targets::link!("computecore.dll" "system" fn HcsCrashComputeSystem(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     HcsCrashComputeSystem(computesystem.into_param().abi(), operation.into_param().abi(), options.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn HcsCreateComputeSystem<P0, P1, P2>(id: P0, configuration: P1, operation: P2, securitydescriptor: ::core::option::Option<*const super::super::Security::SECURITY_DESCRIPTOR>) -> ::windows_core::Result<HCS_SYSTEM>
@@ -110,7 +109,6 @@ pub unsafe fn HcsCreateOperationWithNotifications(eventtypes: HCS_OPERATION_OPTI
     ::windows_targets::link!("computecore.dll" "system" fn HcsCreateOperationWithNotifications(eventtypes : HCS_OPERATION_OPTIONS, context : *const ::core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> HCS_OPERATION);
     HcsCreateOperationWithNotifications(eventtypes, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), callback)
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn HcsCreateProcess<P0, P1, P2>(computesystem: P0, processparameters: P1, operation: P2, securitydescriptor: ::core::option::Option<*const super::super::Security::SECURITY_DESCRIPTOR>) -> ::windows_core::Result<HCS_PROCESS>
@@ -810,7 +808,6 @@ impl ::core::fmt::Debug for HCS_RESOURCE_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct HCS_CREATE_OPTIONS_1 {
     pub Version: HCS_CREATE_OPTIONS,

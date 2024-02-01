@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IABContainer_Impl: Sized + IMAPIContainer_Impl {
     fn CreateEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32) -> ::windows_core::Result<IMAPIProp>;
@@ -55,7 +54,6 @@ impl IABContainer_Vtbl {
         iid == &<IABContainer as ::windows_core::Interface>::IID || iid == &<IMAPIProp as ::windows_core::Interface>::IID || iid == &<IMAPIContainer as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAddrBook_Impl: Sized + IMAPIProp_Impl {
     fn OpenEntry(&self, cbentryid: u32, lpentryid: *mut ENTRYID, lpinterface: *mut ::windows_core::GUID, ulflags: u32, lpulobjtype: *mut u32, lppunk: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -198,7 +196,6 @@ impl IAddrBook_Vtbl {
         iid == &<IAddrBook as ::windows_core::Interface>::IID || iid == &<IMAPIProp as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAttach_Impl: Sized + IMAPIProp_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -212,7 +209,6 @@ impl IAttach_Vtbl {
         iid == &<IAttach as ::windows_core::Interface>::IID || iid == &<IMAPIProp as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDistList_Impl: Sized + IMAPIContainer_Impl {
     fn CreateEntry(&self, cbentryid: u32, lpentryid: *const ENTRYID, ulcreateflags: u32) -> ::windows_core::Result<IMAPIProp>;
@@ -269,7 +265,6 @@ impl IDistList_Vtbl {
         iid == &<IDistList as ::windows_core::Interface>::IID || iid == &<IMAPIProp as ::windows_core::Interface>::IID || iid == &<IMAPIContainer as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMAPIAdviseSink_Impl: Sized {
     fn OnNotify(&self, cnotif: u32, lpnotifications: *mut NOTIFICATION) -> u32;
@@ -290,7 +285,6 @@ impl IMAPIAdviseSink_Vtbl {
         iid == &<IMAPIAdviseSink as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMAPIContainer_Impl: Sized + IMAPIProp_Impl {
     fn GetContentsTable(&self, ulflags: u32) -> ::windows_core::Result<IMAPITable>;
@@ -394,7 +388,6 @@ impl IMAPIControl_Vtbl {
         iid == &<IMAPIControl as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMAPIFolder_Impl: Sized + IMAPIContainer_Impl {
     fn CreateMessage(&self, lpinterface: *mut ::windows_core::GUID, ulflags: u32, lppmessage: *mut ::core::option::Option<IMessage>) -> ::windows_core::Result<()>;
@@ -554,7 +547,6 @@ impl IMAPIProgress_Vtbl {
         iid == &<IMAPIProgress as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMAPIProp_Impl: Sized {
     fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()>;
@@ -648,7 +640,6 @@ impl IMAPIProp_Vtbl {
         iid == &<IMAPIProp as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMAPIStatus_Impl: Sized + IMAPIProp_Impl {
     fn ValidateState(&self, uluiparam: usize, ulflags: u32) -> ::windows_core::Result<()>;
@@ -693,7 +684,6 @@ impl IMAPIStatus_Vtbl {
         iid == &<IMAPIStatus as ::windows_core::Interface>::IID || iid == &<IMAPIProp as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMAPITable_Impl: Sized {
     fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()>;
@@ -871,7 +861,6 @@ impl IMAPITable_Vtbl {
         iid == &<IMAPITable as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMailUser_Impl: Sized + IMAPIProp_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -885,7 +874,6 @@ impl IMailUser_Vtbl {
         iid == &<IMailUser as ::windows_core::Interface>::IID || iid == &<IMAPIProp as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMessage_Impl: Sized + IMAPIProp_Impl {
     fn GetAttachmentTable(&self, ulflags: u32) -> ::windows_core::Result<IMAPITable>;
@@ -976,7 +964,6 @@ impl IMessage_Vtbl {
         iid == &<IMessage as ::windows_core::Interface>::IID || iid == &<IMAPIProp as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMsgStore_Impl: Sized + IMAPIProp_Impl {
     fn Advise(&self, cbentryid: u32, lpentryid: *const ENTRYID, uleventmask: u32, lpadvisesink: ::core::option::Option<&IMAPIAdviseSink>) -> ::windows_core::Result<u32>;
@@ -1108,7 +1095,6 @@ impl IMsgStore_Vtbl {
         iid == &<IMsgStore as ::windows_core::Interface>::IID || iid == &<IMAPIProp as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IProfSect_Impl: Sized + IMAPIProp_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -1122,7 +1108,6 @@ impl IProfSect_Vtbl {
         iid == &<IProfSect as ::windows_core::Interface>::IID || iid == &<IMAPIProp as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPropData_Impl: Sized + IMAPIProp_Impl {
     fn HrSetObjAccess(&self, ulaccess: u32) -> ::windows_core::Result<()>;
@@ -1167,7 +1152,6 @@ impl IPropData_Vtbl {
         iid == &<IPropData as ::windows_core::Interface>::IID || iid == &<IMAPIProp as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IProviderAdmin_Impl: Sized {
     fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32) -> ::windows_core::Result<*mut MAPIERROR>;
@@ -1243,7 +1227,6 @@ impl IProviderAdmin_Vtbl {
         iid == &<IProviderAdmin as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITableData_Impl: Sized {
     fn HrGetView(&self, lpssortorderset: *mut SSortOrderSet, lpfcallerrelease: *mut CALLERRELEASE, ulcallerdata: u32, lppmapitable: *mut ::core::option::Option<IMAPITable>) -> ::windows_core::Result<()>;

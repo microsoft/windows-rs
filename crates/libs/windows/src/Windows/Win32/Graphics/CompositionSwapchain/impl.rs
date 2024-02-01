@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ICompositionFramePresentStatistics_Impl: Sized + IPresentStatistics_Impl {
     fn GetContentTag(&self) -> usize;
@@ -374,7 +373,6 @@ impl IPresentationManager_Vtbl {
         iid == &<IPresentationManager as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IPresentationSurface_Impl: Sized + IPresentationContent_Impl {
     fn SetBuffer(&self, presentationbuffer: ::core::option::Option<&IPresentationBuffer>) -> ::windows_core::Result<()>;

@@ -157,7 +157,6 @@ impl InjectedInputGamepadInfo {
         static SHARED: ::windows_core::imp::FactoryCache<InjectedInputGamepadInfo, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Gaming_Input\"`"]
     #[cfg(feature = "Gaming_Input")]
     pub fn Buttons(&self) -> ::windows_core::Result<super::super::super::super::Gaming::Input::GamepadButtons> {
         let this = self;
@@ -166,7 +165,6 @@ impl InjectedInputGamepadInfo {
             (::windows_core::Interface::vtable(this).Buttons)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Gaming_Input\"`"]
     #[cfg(feature = "Gaming_Input")]
     pub fn SetButtons(&self, value: super::super::super::super::Gaming::Input::GamepadButtons) -> ::windows_core::Result<()> {
         let this = self;
@@ -238,7 +236,6 @@ impl InjectedInputGamepadInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetRightTrigger)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Gaming_Input\"`"]
     #[cfg(feature = "Gaming_Input")]
     pub fn CreateInstanceFromGamepadReading(reading: super::super::super::super::Gaming::Input::GamepadReading) -> ::windows_core::Result<InjectedInputGamepadInfo> {
         Self::IInjectedInputGamepadInfoFactory(|this| unsafe {
@@ -579,7 +576,6 @@ impl ::windows_core::RuntimeName for InjectedInputTouchInfo {
 pub struct InputInjector(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(InputInjector, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl InputInjector {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InjectKeyboardInput<P0>(&self, input: P0) -> ::windows_core::Result<()>
     where
@@ -588,7 +584,6 @@ impl InputInjector {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).InjectKeyboardInput)(::windows_core::Interface::as_raw(this), input.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InjectMouseInput<P0>(&self, input: P0) -> ::windows_core::Result<()>
     where
@@ -601,7 +596,6 @@ impl InputInjector {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).InitializeTouchInjection)(::windows_core::Interface::as_raw(this), visualmode).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InjectTouchInput<P0>(&self, input: P0) -> ::windows_core::Result<()>
     where

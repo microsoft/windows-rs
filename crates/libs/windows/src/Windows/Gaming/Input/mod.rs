@@ -1,11 +1,8 @@
 #[cfg(feature = "Gaming_Input_Custom")]
-#[doc = "Required features: `\"Gaming_Input_Custom\"`"]
 pub mod Custom;
 #[cfg(feature = "Gaming_Input_ForceFeedback")]
-#[doc = "Required features: `\"Gaming_Input_ForceFeedback\"`"]
 pub mod ForceFeedback;
 #[cfg(feature = "Gaming_Input_Preview")]
-#[doc = "Required features: `\"Gaming_Input_Preview\"`"]
 pub mod Preview;
 ::windows_core::imp::com_interface!(IArcadeStick, IArcadeStick_Vtbl, 0xb14a539d_befb_4c81_8051_15ecf3b13036);
 #[repr(C)]
@@ -91,7 +88,6 @@ impl IGameController {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveHeadsetDisconnected)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn UserChanged<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -121,7 +117,6 @@ impl IGameController {
             (::windows_core::Interface::vtable(this).IsWireless)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
@@ -157,7 +152,6 @@ pub struct IGameController_Vtbl {
 ::windows_core::imp::com_interface!(IGameControllerBatteryInfo, IGameControllerBatteryInfo_Vtbl, 0xdcecc681_3963_4da6_955d_553f3b6f6161);
 ::windows_core::imp::interface_hierarchy!(IGameControllerBatteryInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl IGameControllerBatteryInfo {
-    #[doc = "Required features: `\"Devices_Power\"`"]
     #[cfg(feature = "Devices_Power")]
     pub fn TryGetBatteryReport(&self) -> ::windows_core::Result<super::super::Devices::Power::BatteryReport> {
         let this = self;
@@ -381,7 +375,6 @@ impl ArcadeStick {
     pub fn RemoveArcadeStickRemoved(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IArcadeStickStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveArcadeStickRemoved)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ArcadeSticks() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ArcadeStick>> {
         Self::IArcadeStickStatics(|this| unsafe {
@@ -426,7 +419,6 @@ impl ArcadeStick {
         let this = &::windows_core::Interface::cast::<IGameController>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveHeadsetDisconnected)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn UserChanged<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -456,7 +448,6 @@ impl ArcadeStick {
             (::windows_core::Interface::vtable(this).IsWireless)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::Interface::cast::<IGameController>(self)?;
@@ -465,7 +456,6 @@ impl ArcadeStick {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Power\"`"]
     #[cfg(feature = "Devices_Power")]
     pub fn TryGetBatteryReport(&self) -> ::windows_core::Result<super::super::Devices::Power::BatteryReport> {
         let this = &::windows_core::Interface::cast::<IGameControllerBatteryInfo>(self)?;
@@ -548,7 +538,6 @@ impl FlightStick {
     pub fn RemoveFlightStickRemoved(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IFlightStickStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveFlightStickRemoved)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FlightSticks() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<FlightStick>> {
         Self::IFlightStickStatics(|this| unsafe {
@@ -593,7 +582,6 @@ impl FlightStick {
         let this = &::windows_core::Interface::cast::<IGameController>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveHeadsetDisconnected)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn UserChanged<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -623,7 +611,6 @@ impl FlightStick {
             (::windows_core::Interface::vtable(this).IsWireless)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::Interface::cast::<IGameController>(self)?;
@@ -632,7 +619,6 @@ impl FlightStick {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Power\"`"]
     #[cfg(feature = "Devices_Power")]
     pub fn TryGetBatteryReport(&self) -> ::windows_core::Result<super::super::Devices::Power::BatteryReport> {
         let this = &::windows_core::Interface::cast::<IGameControllerBatteryInfo>(self)?;
@@ -693,7 +679,6 @@ impl Gamepad {
         let this = &::windows_core::Interface::cast::<IGameController>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveHeadsetDisconnected)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn UserChanged<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -723,7 +708,6 @@ impl Gamepad {
             (::windows_core::Interface::vtable(this).IsWireless)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::Interface::cast::<IGameController>(self)?;
@@ -732,7 +716,6 @@ impl Gamepad {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Power\"`"]
     #[cfg(feature = "Devices_Power")]
     pub fn TryGetBatteryReport(&self) -> ::windows_core::Result<super::super::Devices::Power::BatteryReport> {
         let this = &::windows_core::Interface::cast::<IGameControllerBatteryInfo>(self)?;
@@ -790,7 +773,6 @@ impl Gamepad {
     pub fn RemoveGamepadRemoved(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IGamepadStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveGamepadRemoved)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Gamepads() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<Gamepad>> {
         Self::IGamepadStatics(|this| unsafe {
@@ -836,7 +818,6 @@ pub struct Headset(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(Headset, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(Headset, IGameControllerBatteryInfo);
 impl Headset {
-    #[doc = "Required features: `\"Devices_Power\"`"]
     #[cfg(feature = "Devices_Power")]
     pub fn TryGetBatteryReport(&self) -> ::windows_core::Result<super::super::Devices::Power::BatteryReport> {
         let this = &::windows_core::Interface::cast::<IGameControllerBatteryInfo>(self)?;
@@ -906,7 +887,6 @@ impl RacingWheel {
         let this = &::windows_core::Interface::cast::<IGameController>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveHeadsetDisconnected)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn UserChanged<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -936,7 +916,6 @@ impl RacingWheel {
             (::windows_core::Interface::vtable(this).IsWireless)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::Interface::cast::<IGameController>(self)?;
@@ -945,7 +924,6 @@ impl RacingWheel {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Power\"`"]
     #[cfg(feature = "Devices_Power")]
     pub fn TryGetBatteryReport(&self) -> ::windows_core::Result<super::super::Devices::Power::BatteryReport> {
         let this = &::windows_core::Interface::cast::<IGameControllerBatteryInfo>(self)?;
@@ -989,7 +967,6 @@ impl RacingWheel {
             (::windows_core::Interface::vtable(this).MaxWheelAngle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Gaming_Input_ForceFeedback\"`"]
     #[cfg(feature = "Gaming_Input_ForceFeedback")]
     pub fn WheelMotor(&self) -> ::windows_core::Result<ForceFeedback::ForceFeedbackMotor> {
         let this = self;
@@ -1036,7 +1013,6 @@ impl RacingWheel {
     pub fn RemoveRacingWheelRemoved(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IRacingWheelStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveRacingWheelRemoved)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RacingWheels() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<RacingWheel>> {
         Self::IRacingWheelStatics(|this| unsafe {
@@ -1110,7 +1086,6 @@ impl RawGameController {
         let this = &::windows_core::Interface::cast::<IGameController>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveHeadsetDisconnected)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn UserChanged<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1140,7 +1115,6 @@ impl RawGameController {
             (::windows_core::Interface::vtable(this).IsWireless)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::Interface::cast::<IGameController>(self)?;
@@ -1149,7 +1123,6 @@ impl RawGameController {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Power\"`"]
     #[cfg(feature = "Devices_Power")]
     pub fn TryGetBatteryReport(&self) -> ::windows_core::Result<super::super::Devices::Power::BatteryReport> {
         let this = &::windows_core::Interface::cast::<IGameControllerBatteryInfo>(self)?;
@@ -1172,7 +1145,6 @@ impl RawGameController {
             (::windows_core::Interface::vtable(this).ButtonCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Gaming_Input_ForceFeedback\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Gaming_Input_ForceFeedback"))]
     pub fn ForceFeedbackMotors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ForceFeedback::ForceFeedbackMotor>> {
         let this = self;
@@ -1223,7 +1195,6 @@ impl RawGameController {
             (::windows_core::Interface::vtable(this).GetSwitchKind)(::windows_core::Interface::as_raw(this), switchindex, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Haptics\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "Devices_Haptics", feature = "Foundation_Collections"))]
     pub fn SimpleHapticsControllers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Devices::Haptics::SimpleHapticsController>> {
         let this = &::windows_core::Interface::cast::<IRawGameController2>(self)?;
@@ -1270,7 +1241,6 @@ impl RawGameController {
     pub fn RemoveRawGameControllerRemoved(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IRawGameControllerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveRawGameControllerRemoved)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RawGameControllers() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<RawGameController>> {
         Self::IRawGameControllerStatics(|this| unsafe {
@@ -1339,7 +1309,6 @@ impl UINavigationController {
         let this = &::windows_core::Interface::cast::<IGameController>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveHeadsetDisconnected)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn UserChanged<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1369,7 +1338,6 @@ impl UINavigationController {
             (::windows_core::Interface::vtable(this).IsWireless)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::Interface::cast::<IGameController>(self)?;
@@ -1378,7 +1346,6 @@ impl UINavigationController {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Power\"`"]
     #[cfg(feature = "Devices_Power")]
     pub fn TryGetBatteryReport(&self) -> ::windows_core::Result<super::super::Devices::Power::BatteryReport> {
         let this = &::windows_core::Interface::cast::<IGameControllerBatteryInfo>(self)?;
@@ -1432,7 +1399,6 @@ impl UINavigationController {
     pub fn RemoveUINavigationControllerRemoved(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IUINavigationControllerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveUINavigationControllerRemoved)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UINavigationControllers() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UINavigationController>> {
         Self::IUINavigationControllerStatics(|this| unsafe {

@@ -915,7 +915,6 @@ impl IEnumSyncChanges_Vtbl {
         iid == &<IEnumSyncChanges as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IEnumSyncProviderConfigUIInfos_Impl: Sized {
     fn Next(&self, cfactories: u32, ppsyncproviderconfiguiinfo: *mut ::core::option::Option<ISyncProviderConfigUIInfo>, pcfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -966,7 +965,6 @@ impl IEnumSyncProviderConfigUIInfos_Vtbl {
         iid == &<IEnumSyncProviderConfigUIInfos as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IEnumSyncProviderInfos_Impl: Sized {
     fn Next(&self, cinstances: u32, ppsyncproviderinfo: *mut ::core::option::Option<ISyncProviderInfo>, pcfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -1464,7 +1462,6 @@ impl IRecoverableErrorData_Vtbl {
         iid == &<IRecoverableErrorData as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IRegisteredSyncProvider_Impl: Sized {
     fn Init(&self, pguidinstanceid: *const ::windows_core::GUID, pguidcontenttype: *const ::windows_core::GUID, pcontextpropertystore: ::core::option::Option<&super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows_core::Result<()>;
@@ -3112,7 +3109,6 @@ impl ISyncProvider_Vtbl {
         iid == &<ISyncProvider as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait ISyncProviderConfigUI_Impl: Sized {
     fn Init(&self, pguidinstanceid: *const ::windows_core::GUID, pguidcontenttype: *const ::windows_core::GUID, pconfigurationproperties: ::core::option::Option<&super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> ::windows_core::Result<()>;
@@ -3169,7 +3165,6 @@ impl ISyncProviderConfigUI_Vtbl {
         iid == &<ISyncProviderConfigUI as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait ISyncProviderConfigUIInfo_Impl: Sized + super::super::UI::Shell::PropertiesSystem::IPropertyStore_Impl {
     fn GetSyncProviderConfigUI(&self, dwclscontext: u32) -> ::windows_core::Result<ISyncProviderConfigUI>;
@@ -3199,7 +3194,6 @@ impl ISyncProviderConfigUIInfo_Vtbl {
         iid == &<ISyncProviderConfigUIInfo as ::windows_core::Interface>::IID || iid == &<super::super::UI::Shell::PropertiesSystem::IPropertyStore as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait ISyncProviderInfo_Impl: Sized + super::super::UI::Shell::PropertiesSystem::IPropertyStore_Impl {
     fn GetSyncProvider(&self, dwclscontext: u32) -> ::windows_core::Result<IRegisteredSyncProvider>;
@@ -3229,7 +3223,6 @@ impl ISyncProviderInfo_Vtbl {
         iid == &<ISyncProviderInfo as ::windows_core::Interface>::IID || iid == &<super::super::UI::Shell::PropertiesSystem::IPropertyStore as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait ISyncProviderRegistration_Impl: Sized {
     fn CreateSyncProviderConfigUIRegistrationInstance(&self, pconfiguiconfig: *const SyncProviderConfigUIConfiguration) -> ::windows_core::Result<ISyncProviderConfigUIInfo>;

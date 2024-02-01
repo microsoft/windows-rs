@@ -25,7 +25,6 @@ impl IPrintManagerInterop_Vtbl {
         iid == &<IPrintManagerInterop as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
 pub trait IPrintWorkflowConfigurationNative_Impl: Sized {
     fn PrinterQueue(&self) -> ::windows_core::Result<super::super::super::Graphics::Printing::IPrinterQueue>;
@@ -81,7 +80,6 @@ impl IPrintWorkflowConfigurationNative_Vtbl {
         iid == &<IPrintWorkflowConfigurationNative as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Xps\"`"]
 #[cfg(feature = "Win32_Storage_Xps")]
 pub trait IPrintWorkflowObjectModelSourceFileContentNative_Impl: Sized {
     fn StartXpsOMGeneration(&self, receiver: ::core::option::Option<&IPrintWorkflowXpsReceiver>) -> ::windows_core::Result<()>;
@@ -118,7 +116,6 @@ impl IPrintWorkflowObjectModelSourceFileContentNative_Vtbl {
         iid == &<IPrintWorkflowObjectModelSourceFileContentNative as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Xps\"`"]
 #[cfg(feature = "Win32_Storage_Xps")]
 pub trait IPrintWorkflowXpsObjectModelTargetPackageNative_Impl: Sized {
     fn DocumentPackageTarget(&self) -> ::windows_core::Result<super::super::super::Storage::Xps::IXpsDocumentPackageTarget>;
@@ -145,7 +142,6 @@ impl IPrintWorkflowXpsObjectModelTargetPackageNative_Vtbl {
         iid == &<IPrintWorkflowXpsObjectModelTargetPackageNative as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 pub trait IPrintWorkflowXpsReceiver_Impl: Sized {
     fn SetDocumentSequencePrintTicket(&self, documentsequenceprintticket: ::core::option::Option<&super::super::Com::IStream>) -> ::windows_core::Result<()>;
@@ -197,7 +193,6 @@ impl IPrintWorkflowXpsReceiver_Vtbl {
         iid == &<IPrintWorkflowXpsReceiver as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Xps\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Xps", feature = "Win32_System_Com"))]
 pub trait IPrintWorkflowXpsReceiver2_Impl: Sized + IPrintWorkflowXpsReceiver_Impl {
     fn Failed(&self, xpserror: ::windows_core::HRESULT) -> ::windows_core::Result<()>;

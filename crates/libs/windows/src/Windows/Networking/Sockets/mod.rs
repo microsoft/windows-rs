@@ -676,7 +676,6 @@ pub struct IStreamWebSocketControl2_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IWebSocket, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(IWebSocket, super::super::Foundation::IClosable);
 impl IWebSocket {
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn OutputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
@@ -761,7 +760,6 @@ impl IWebSocketControl {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetOutboundBufferSizeInBytes)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
@@ -770,7 +768,6 @@ impl IWebSocketControl {
             (::windows_core::Interface::vtable(this).ServerCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetServerCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -779,7 +776,6 @@ impl IWebSocketControl {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetServerCredential)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ProxyCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
@@ -788,7 +784,6 @@ impl IWebSocketControl {
             (::windows_core::Interface::vtable(this).ProxyCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetProxyCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -797,7 +792,6 @@ impl IWebSocketControl {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetProxyCredential)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedProtocols(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -841,7 +835,6 @@ pub struct IWebSocketControl_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IWebSocketControl2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(IWebSocketControl2, IWebSocketControl);
 impl IWebSocketControl2 {
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn IgnorableServerCertificateErrors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = self;
@@ -861,7 +854,6 @@ impl IWebSocketControl2 {
         let this = &::windows_core::Interface::cast::<IWebSocketControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetOutboundBufferSizeInBytes)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows_core::Interface::cast::<IWebSocketControl>(self)?;
@@ -870,7 +862,6 @@ impl IWebSocketControl2 {
             (::windows_core::Interface::vtable(this).ServerCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetServerCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -879,7 +870,6 @@ impl IWebSocketControl2 {
         let this = &::windows_core::Interface::cast::<IWebSocketControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetServerCredential)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ProxyCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows_core::Interface::cast::<IWebSocketControl>(self)?;
@@ -888,7 +878,6 @@ impl IWebSocketControl2 {
             (::windows_core::Interface::vtable(this).ProxyCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetProxyCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -897,7 +886,6 @@ impl IWebSocketControl2 {
         let this = &::windows_core::Interface::cast::<IWebSocketControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetProxyCredential)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedProtocols(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = &::windows_core::Interface::cast::<IWebSocketControl>(self)?;
@@ -969,7 +957,6 @@ pub struct IWebSocketInformation_Vtbl {
 ::windows_core::imp::interface_hierarchy!(IWebSocketInformation2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(IWebSocketInformation2, IWebSocketInformation);
 impl IWebSocketInformation2 {
-    #[doc = "Required features: `\"Security_Cryptography_Certificates\"`"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn ServerCertificate(&self) -> ::windows_core::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = self;
@@ -985,7 +972,6 @@ impl IWebSocketInformation2 {
             (::windows_core::Interface::vtable(this).ServerCertificateErrorSeverity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn ServerCertificateErrors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = self;
@@ -994,7 +980,6 @@ impl IWebSocketInformation2 {
             (::windows_core::Interface::vtable(this).ServerCertificateErrors)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn ServerIntermediateCertificates(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = self;
@@ -1109,7 +1094,6 @@ impl ControlChannelTrigger {
             (::windows_core::Interface::vtable(this).TransportObject)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Background\"`"]
     #[cfg(feature = "ApplicationModel_Background")]
     pub fn KeepAliveTrigger(&self) -> ::windows_core::Result<super::super::ApplicationModel::Background::IBackgroundTrigger> {
         let this = self;
@@ -1118,7 +1102,6 @@ impl ControlChannelTrigger {
             (::windows_core::Interface::vtable(this).KeepAliveTrigger)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"ApplicationModel_Background\"`"]
     #[cfg(feature = "ApplicationModel_Background")]
     pub fn PushNotificationTrigger(&self) -> ::windows_core::Result<super::super::ApplicationModel::Background::IBackgroundTrigger> {
         let this = self;
@@ -1217,7 +1200,6 @@ impl DatagramSocket {
             (::windows_core::Interface::vtable(this).Information)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn OutputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
@@ -1270,7 +1252,6 @@ impl DatagramSocket {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).JoinMulticastGroup)(::windows_core::Interface::as_raw(this), host.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetOutputStreamAsync<P0>(&self, remotehostname: P0, remoteservicename: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>
     where
@@ -1282,7 +1263,6 @@ impl DatagramSocket {
             (::windows_core::Interface::vtable(this).GetOutputStreamAsync)(::windows_core::Interface::as_raw(this), remotehostname.into_param().abi(), ::core::mem::transmute_copy(remoteservicename), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetOutputStreamWithEndpointPairAsync<P0>(&self, endpointpair: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>
     where
@@ -1308,7 +1288,6 @@ impl DatagramSocket {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveMessageReceived)(::windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    #[doc = "Required features: `\"Networking_Connectivity\"`"]
     #[cfg(feature = "Networking_Connectivity")]
     pub fn BindServiceNameAndAdapterAsync<P0>(&self, localservicename: &::windows_core::HSTRING, adapter: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1353,7 +1332,6 @@ impl DatagramSocket {
         let this = &::windows_core::Interface::cast::<IDatagramSocket3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).TransferOwnershipWithContextAndKeepAliveTime)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(socketid), data.into_param().abi(), keepalivetime).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetEndpointPairsAsync<P0>(remotehostname: P0, remoteservicename: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>
     where
@@ -1364,7 +1342,6 @@ impl DatagramSocket {
             (::windows_core::Interface::vtable(this).GetEndpointPairsAsync)(::windows_core::Interface::as_raw(this), remotehostname.into_param().abi(), ::core::mem::transmute_copy(remoteservicename), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetEndpointPairsWithSortOptionsAsync<P0>(remotehostname: P0, remoteservicename: &::windows_core::HSTRING, sortoptions: super::HostNameSortOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>
     where
@@ -1538,7 +1515,6 @@ impl DatagramSocketMessageReceivedEventArgs {
             (::windows_core::Interface::vtable(this).LocalAddress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetDataReader(&self) -> ::windows_core::Result<super::super::Storage::Streams::DataReader> {
         let this = self;
@@ -1547,7 +1523,6 @@ impl DatagramSocketMessageReceivedEventArgs {
             (::windows_core::Interface::vtable(this).GetDataReader)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetDataStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
@@ -1628,7 +1603,6 @@ impl MessageWebSocket {
         let this = &::windows_core::Interface::cast::<IMessageWebSocket2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveServerCustomValidationRequested)(::windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SendNonfinalFrameAsync<P0>(&self, data: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
@@ -1640,7 +1614,6 @@ impl MessageWebSocket {
             (::windows_core::Interface::vtable(this).SendNonfinalFrameAsync)(::windows_core::Interface::as_raw(this), data.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SendFinalFrameAsync<P0>(&self, data: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
@@ -1652,7 +1625,6 @@ impl MessageWebSocket {
             (::windows_core::Interface::vtable(this).SendFinalFrameAsync)(::windows_core::Interface::as_raw(this), data.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn OutputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = &::windows_core::Interface::cast::<IWebSocket>(self)?;
@@ -1763,7 +1735,6 @@ impl MessageWebSocketControl {
         let this = &::windows_core::Interface::cast::<IMessageWebSocketControl2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetReceiveMode)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Security_Cryptography_Certificates\"`"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn ClientCertificate(&self) -> ::windows_core::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = &::windows_core::Interface::cast::<IMessageWebSocketControl2>(self)?;
@@ -1772,7 +1743,6 @@ impl MessageWebSocketControl {
             (::windows_core::Interface::vtable(this).ClientCertificate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Security_Cryptography_Certificates\"`"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn SetClientCertificate<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1792,7 +1762,6 @@ impl MessageWebSocketControl {
         let this = &::windows_core::Interface::cast::<IWebSocketControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetOutboundBufferSizeInBytes)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows_core::Interface::cast::<IWebSocketControl>(self)?;
@@ -1801,7 +1770,6 @@ impl MessageWebSocketControl {
             (::windows_core::Interface::vtable(this).ServerCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetServerCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1810,7 +1778,6 @@ impl MessageWebSocketControl {
         let this = &::windows_core::Interface::cast::<IWebSocketControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetServerCredential)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ProxyCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows_core::Interface::cast::<IWebSocketControl>(self)?;
@@ -1819,7 +1786,6 @@ impl MessageWebSocketControl {
             (::windows_core::Interface::vtable(this).ProxyCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetProxyCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1828,7 +1794,6 @@ impl MessageWebSocketControl {
         let this = &::windows_core::Interface::cast::<IWebSocketControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetProxyCredential)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedProtocols(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = &::windows_core::Interface::cast::<IWebSocketControl>(self)?;
@@ -1837,7 +1802,6 @@ impl MessageWebSocketControl {
             (::windows_core::Interface::vtable(this).SupportedProtocols)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn IgnorableServerCertificateErrors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = &::windows_core::Interface::cast::<IWebSocketControl2>(self)?;
@@ -1886,7 +1850,6 @@ impl MessageWebSocketInformation {
             (::windows_core::Interface::vtable(this).Protocol)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Security_Cryptography_Certificates\"`"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn ServerCertificate(&self) -> ::windows_core::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = &::windows_core::Interface::cast::<IWebSocketInformation2>(self)?;
@@ -1902,7 +1865,6 @@ impl MessageWebSocketInformation {
             (::windows_core::Interface::vtable(this).ServerCertificateErrorSeverity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn ServerCertificateErrors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = &::windows_core::Interface::cast::<IWebSocketInformation2>(self)?;
@@ -1911,7 +1873,6 @@ impl MessageWebSocketInformation {
             (::windows_core::Interface::vtable(this).ServerCertificateErrors)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn ServerIntermediateCertificates(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = &::windows_core::Interface::cast::<IWebSocketInformation2>(self)?;
@@ -1945,7 +1906,6 @@ impl MessageWebSocketMessageReceivedEventArgs {
             (::windows_core::Interface::vtable(this).MessageType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetDataReader(&self) -> ::windows_core::Result<super::super::Storage::Streams::DataReader> {
         let this = self;
@@ -1954,7 +1914,6 @@ impl MessageWebSocketMessageReceivedEventArgs {
             (::windows_core::Interface::vtable(this).GetDataReader)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetDataStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
@@ -2021,7 +1980,6 @@ impl ServerMessageWebSocket {
             (::windows_core::Interface::vtable(this).Information)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn OutputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
@@ -2146,7 +2104,6 @@ impl ServerStreamWebSocket {
             (::windows_core::Interface::vtable(this).Information)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
@@ -2155,7 +2112,6 @@ impl ServerStreamWebSocket {
             (::windows_core::Interface::vtable(this).InputStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn OutputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
@@ -2239,7 +2195,6 @@ unsafe impl ::core::marker::Sync for ServerStreamWebSocketInformation {}
 pub struct SocketActivityContext(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(SocketActivityContext, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl SocketActivityContext {
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Data(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2248,7 +2203,6 @@ impl SocketActivityContext {
             (::windows_core::Interface::vtable(this).Data)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Create<P0>(data: P0) -> ::windows_core::Result<SocketActivityContext>
     where
@@ -2331,7 +2285,6 @@ impl SocketActivityInformation {
             (::windows_core::Interface::vtable(this).StreamSocketListener)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllSockets() -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, SocketActivityInformation>> {
         Self::ISocketActivityInformationStatics(|this| unsafe {
@@ -2437,7 +2390,6 @@ impl StreamSocket {
             (::windows_core::Interface::vtable(this).Information)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
@@ -2446,7 +2398,6 @@ impl StreamSocket {
             (::windows_core::Interface::vtable(this).InputStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn OutputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
@@ -2505,7 +2456,6 @@ impl StreamSocket {
             (::windows_core::Interface::vtable(this).UpgradeToSslAsync)(::windows_core::Interface::as_raw(this), protectionlevel, validationhostname.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Networking_Connectivity\"`"]
     #[cfg(feature = "Networking_Connectivity")]
     pub fn ConnectWithProtectionLevelAndAdapterAsync<P0, P1>(&self, remotehostname: P0, remoteservicename: &::windows_core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -2551,7 +2501,6 @@ impl StreamSocket {
         let this = &::windows_core::Interface::cast::<IStreamSocket3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).TransferOwnershipWithContextAndKeepAliveTime)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(socketid), data.into_param().abi(), keepalivetime).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetEndpointPairsAsync<P0>(remotehostname: P0, remoteservicename: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>
     where
@@ -2562,7 +2511,6 @@ impl StreamSocket {
             (::windows_core::Interface::vtable(this).GetEndpointPairsAsync)(::windows_core::Interface::as_raw(this), remotehostname.into_param().abi(), ::core::mem::transmute_copy(remoteservicename), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetEndpointPairsWithSortOptionsAsync<P0>(remotehostname: P0, remoteservicename: &::windows_core::HSTRING, sortoptions: super::HostNameSortOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>
     where
@@ -2651,7 +2599,6 @@ impl StreamSocketControl {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetOutboundUnicastHopLimit)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn IgnorableServerCertificateErrors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = &::windows_core::Interface::cast::<IStreamSocketControl2>(self)?;
@@ -2671,7 +2618,6 @@ impl StreamSocketControl {
         let this = &::windows_core::Interface::cast::<IStreamSocketControl3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSerializeConnectionAttempts)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Security_Cryptography_Certificates\"`"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn ClientCertificate(&self) -> ::windows_core::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = &::windows_core::Interface::cast::<IStreamSocketControl3>(self)?;
@@ -2680,7 +2626,6 @@ impl StreamSocketControl {
             (::windows_core::Interface::vtable(this).ClientCertificate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Security_Cryptography_Certificates\"`"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn SetClientCertificate<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2781,7 +2726,6 @@ impl StreamSocketInformation {
             (::windows_core::Interface::vtable(this).ProtectionLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SessionKey(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2797,7 +2741,6 @@ impl StreamSocketInformation {
             (::windows_core::Interface::vtable(this).ServerCertificateErrorSeverity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn ServerCertificateErrors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = &::windows_core::Interface::cast::<IStreamSocketInformation2>(self)?;
@@ -2806,7 +2749,6 @@ impl StreamSocketInformation {
             (::windows_core::Interface::vtable(this).ServerCertificateErrors)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Security_Cryptography_Certificates\"`"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn ServerCertificate(&self) -> ::windows_core::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = &::windows_core::Interface::cast::<IStreamSocketInformation2>(self)?;
@@ -2815,7 +2757,6 @@ impl StreamSocketInformation {
             (::windows_core::Interface::vtable(this).ServerCertificate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn ServerIntermediateCertificates(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = &::windows_core::Interface::cast::<IStreamSocketInformation2>(self)?;
@@ -2906,7 +2847,6 @@ impl StreamSocketListener {
             (::windows_core::Interface::vtable(this).BindServiceNameWithProtectionLevelAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(localservicename), protectionlevel, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Networking_Connectivity\"`"]
     #[cfg(feature = "Networking_Connectivity")]
     pub fn BindServiceNameWithProtectionLevelAndAdapterAsync<P0>(&self, localservicename: &::windows_core::HSTRING, protectionlevel: SocketProtectionLevel, adapter: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -3111,7 +3051,6 @@ impl StreamWebSocket {
             (::windows_core::Interface::vtable(this).Information)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
@@ -3134,7 +3073,6 @@ impl StreamWebSocket {
         let this = &::windows_core::Interface::cast::<IStreamWebSocket2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveServerCustomValidationRequested)(::windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn OutputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = &::windows_core::Interface::cast::<IWebSocket>(self)?;
@@ -3223,7 +3161,6 @@ impl StreamWebSocketControl {
             (::windows_core::Interface::vtable(this).ActualUnsolicitedPongInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Security_Cryptography_Certificates\"`"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn ClientCertificate(&self) -> ::windows_core::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = &::windows_core::Interface::cast::<IStreamWebSocketControl2>(self)?;
@@ -3232,7 +3169,6 @@ impl StreamWebSocketControl {
             (::windows_core::Interface::vtable(this).ClientCertificate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Security_Cryptography_Certificates\"`"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn SetClientCertificate<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3252,7 +3188,6 @@ impl StreamWebSocketControl {
         let this = &::windows_core::Interface::cast::<IWebSocketControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetOutboundBufferSizeInBytes)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows_core::Interface::cast::<IWebSocketControl>(self)?;
@@ -3261,7 +3196,6 @@ impl StreamWebSocketControl {
             (::windows_core::Interface::vtable(this).ServerCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetServerCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3270,7 +3204,6 @@ impl StreamWebSocketControl {
         let this = &::windows_core::Interface::cast::<IWebSocketControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetServerCredential)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ProxyCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows_core::Interface::cast::<IWebSocketControl>(self)?;
@@ -3279,7 +3212,6 @@ impl StreamWebSocketControl {
             (::windows_core::Interface::vtable(this).ProxyCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetProxyCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3288,7 +3220,6 @@ impl StreamWebSocketControl {
         let this = &::windows_core::Interface::cast::<IWebSocketControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetProxyCredential)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedProtocols(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = &::windows_core::Interface::cast::<IWebSocketControl>(self)?;
@@ -3297,7 +3228,6 @@ impl StreamWebSocketControl {
             (::windows_core::Interface::vtable(this).SupportedProtocols)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn IgnorableServerCertificateErrors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = &::windows_core::Interface::cast::<IWebSocketControl2>(self)?;
@@ -3346,7 +3276,6 @@ impl StreamWebSocketInformation {
             (::windows_core::Interface::vtable(this).Protocol)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Security_Cryptography_Certificates\"`"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn ServerCertificate(&self) -> ::windows_core::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = &::windows_core::Interface::cast::<IWebSocketInformation2>(self)?;
@@ -3362,7 +3291,6 @@ impl StreamWebSocketInformation {
             (::windows_core::Interface::vtable(this).ServerCertificateErrorSeverity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn ServerCertificateErrors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = &::windows_core::Interface::cast::<IWebSocketInformation2>(self)?;
@@ -3371,7 +3299,6 @@ impl StreamWebSocketInformation {
             (::windows_core::Interface::vtable(this).ServerCertificateErrors)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn ServerIntermediateCertificates(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = &::windows_core::Interface::cast::<IWebSocketInformation2>(self)?;
@@ -3427,7 +3354,6 @@ unsafe impl ::core::marker::Send for WebSocketClosedEventArgs {}
 unsafe impl ::core::marker::Sync for WebSocketClosedEventArgs {}
 pub struct WebSocketError;
 impl WebSocketError {
-    #[doc = "Required features: `\"Web\"`"]
     #[cfg(feature = "Web")]
     pub fn GetStatus(hresult: i32) -> ::windows_core::Result<super::super::Web::WebErrorStatus> {
         Self::IWebSocketErrorStatics(|this| unsafe {
@@ -3444,7 +3370,6 @@ impl WebSocketError {
 impl ::windows_core::RuntimeName for WebSocketError {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketError";
 }
-#[doc = "Required features: `\"ApplicationModel_Background\"`"]
 #[cfg(feature = "ApplicationModel_Background")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3462,7 +3387,6 @@ impl WebSocketKeepAlive {
         static SHARED: ::windows_core::imp::FactoryCache<WebSocketKeepAlive, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"ApplicationModel_Background\"`"]
     #[cfg(feature = "ApplicationModel_Background")]
     pub fn Run<P0>(&self, taskinstance: P0) -> ::windows_core::Result<()>
     where
@@ -3494,7 +3418,6 @@ unsafe impl ::core::marker::Sync for WebSocketKeepAlive {}
 pub struct WebSocketServerCustomValidationRequestedEventArgs(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(WebSocketServerCustomValidationRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl WebSocketServerCustomValidationRequestedEventArgs {
-    #[doc = "Required features: `\"Security_Cryptography_Certificates\"`"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn ServerCertificate(&self) -> ::windows_core::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = self;
@@ -3510,7 +3433,6 @@ impl WebSocketServerCustomValidationRequestedEventArgs {
             (::windows_core::Interface::vtable(this).ServerCertificateErrorSeverity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn ServerCertificateErrors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>> {
         let this = self;
@@ -3519,7 +3441,6 @@ impl WebSocketServerCustomValidationRequestedEventArgs {
             (::windows_core::Interface::vtable(this).ServerCertificateErrors)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn ServerIntermediateCertificates(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = self;

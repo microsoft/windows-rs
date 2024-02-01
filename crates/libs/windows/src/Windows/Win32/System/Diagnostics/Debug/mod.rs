@@ -1,17 +1,13 @@
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`"]
 pub mod ActiveScript;
 #[cfg(feature = "Win32_System_Diagnostics_Debug_Extensions")]
-#[doc = "Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`"]
 pub mod Extensions;
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn AddVectoredContinueHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut ::core::ffi::c_void {
     ::windows_targets::link!("kernel32.dll" "system" fn AddVectoredContinueHandler(first : u32, handler : PVECTORED_EXCEPTION_HANDLER) -> *mut ::core::ffi::c_void);
     AddVectoredContinueHandler(first, handler)
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn AddVectoredExceptionHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut ::core::ffi::c_void {
@@ -51,7 +47,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn CheckRemoteDebuggerPresent(hprocess : super::super::super::Foundation:: HANDLE, pbdebuggerpresent : *mut super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
     CheckRemoteDebuggerPresent(hprocess.into_param().abi(), pbdebuggerpresent).ok()
 }
-#[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
@@ -59,7 +54,6 @@ pub unsafe fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filele
     ::windows_targets::link!("imagehlp.dll" "system" fn CheckSumMappedFile(baseaddress : *const ::core::ffi::c_void, filelength : u32, headersum : *mut u32, checksum : *mut u32) -> *mut IMAGE_NT_HEADERS64);
     CheckSumMappedFile(baseaddress, filelength, headersum, checksum)
 }
-#[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
@@ -80,7 +74,6 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn ContinueDebugEvent(dwprocessid : u32, dwthreadid : u32, dwcontinuestatus : super::super::super::Foundation:: NTSTATUS) -> super::super::super::Foundation:: BOOL);
     ContinueDebugEvent(dwprocessid, dwthreadid, dwcontinuestatus.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn CopyContext(destination: *mut CONTEXT, contextflags: CONTEXT_FLAGS, source: *const CONTEXT) -> ::windows_core::Result<()> {
@@ -361,7 +354,6 @@ pub unsafe fn GetErrorMode() -> u32 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetErrorMode() -> u32);
     GetErrorMode()
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
@@ -369,7 +361,6 @@ pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imagec
     ::windows_targets::link!("imagehlp.dll" "system" fn GetImageConfigInformation(loadedimage : *const LOADED_IMAGE, imageconfiginformation : *mut IMAGE_LOAD_CONFIG_DIRECTORY64) -> super::super::super::Foundation:: BOOL);
     GetImageConfigInformation(loadedimage, imageconfiginformation).ok()
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
@@ -377,7 +368,6 @@ pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imagec
     ::windows_targets::link!("imagehlp.dll" "system" fn GetImageConfigInformation(loadedimage : *const LOADED_IMAGE, imageconfiginformation : *mut IMAGE_LOAD_CONFIG_DIRECTORY32) -> super::super::super::Foundation:: BOOL);
     GetImageConfigInformation(loadedimage, imageconfiginformation).ok()
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`"]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn GetImageUnusedHeaderBytes(loadedimage: *const LOADED_IMAGE, sizeunusedheaderbytes: *mut u32) -> u32 {
@@ -389,7 +379,6 @@ pub unsafe fn GetSymLoadError() -> u32 {
     ::windows_targets::link!("dbghelp.dll" "system" fn GetSymLoadError() -> u32);
     GetSymLoadError()
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn GetThreadContext<P0>(hthread: P0, lpcontext: *mut CONTEXT) -> ::windows_core::Result<()>
@@ -425,7 +414,6 @@ where
     ::windows_targets::link!("dbghelp.dll" "system" fn GetTimestampForLoadedLibrary(module : super::super::super::Foundation:: HMODULE) -> u32);
     GetTimestampForLoadedLibrary(module.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
@@ -433,7 +421,6 @@ pub unsafe fn GetXStateFeaturesMask(context: *const CONTEXT, featuremask: *mut u
     ::windows_targets::link!("kernel32.dll" "system" fn GetXStateFeaturesMask(context : *const CONTEXT, featuremask : *mut u64) -> super::super::super::Foundation:: BOOL);
     GetXStateFeaturesMask(context, featuremask)
 }
-#[doc = "Required features: `\"Win32_Security_WinTrust\"`"]
 #[cfg(feature = "Win32_Security_WinTrust")]
 #[inline]
 pub unsafe fn ImageAddCertificate<P0>(filehandle: P0, certificate: *const super::super::super::Security::WinTrust::WIN_CERTIFICATE, index: *mut u32) -> ::windows_core::Result<()>
@@ -467,7 +454,6 @@ where
     ::windows_targets::link!("imagehlp.dll" "system" fn ImageEnumerateCertificates(filehandle : super::super::super::Foundation:: HANDLE, typefilter : u16, certificatecount : *mut u32, indices : *mut u32, indexcount : u32) -> super::super::super::Foundation:: BOOL);
     ImageEnumerateCertificates(filehandle.into_param().abi(), typefilter, certificatecount, ::core::mem::transmute(indices.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), indices.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
 }
-#[doc = "Required features: `\"Win32_Security_WinTrust\"`"]
 #[cfg(feature = "Win32_Security_WinTrust")]
 #[inline]
 pub unsafe fn ImageGetCertificateData<P0>(filehandle: P0, certificateindex: u32, certificate: *mut super::super::super::Security::WinTrust::WIN_CERTIFICATE, requiredlength: *mut u32) -> ::windows_core::Result<()>
@@ -477,7 +463,6 @@ where
     ::windows_targets::link!("imagehlp.dll" "system" fn ImageGetCertificateData(filehandle : super::super::super::Foundation:: HANDLE, certificateindex : u32, certificate : *mut super::super::super::Security::WinTrust:: WIN_CERTIFICATE, requiredlength : *mut u32) -> super::super::super::Foundation:: BOOL);
     ImageGetCertificateData(filehandle.into_param().abi(), certificateindex, certificate, requiredlength).ok()
 }
-#[doc = "Required features: `\"Win32_Security_WinTrust\"`"]
 #[cfg(feature = "Win32_Security_WinTrust")]
 #[inline]
 pub unsafe fn ImageGetCertificateHeader<P0>(filehandle: P0, certificateindex: u32, certificateheader: *mut super::super::super::Security::WinTrust::WIN_CERTIFICATE) -> ::windows_core::Result<()>
@@ -495,7 +480,6 @@ where
     ::windows_targets::link!("imagehlp.dll" "system" fn ImageGetDigestStream(filehandle : super::super::super::Foundation:: HANDLE, digestlevel : u32, digestfunction : DIGEST_FUNCTION, digesthandle : *const ::core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
     ImageGetDigestStream(filehandle.into_param().abi(), digestlevel, digestfunction, digesthandle).ok()
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`"]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn ImageLoad<P0, P1>(dllname: P0, dllpath: P1) -> *mut LOADED_IMAGE
@@ -506,7 +490,6 @@ where
     ::windows_targets::link!("imagehlp.dll" "system" fn ImageLoad(dllname : ::windows_core::PCSTR, dllpath : ::windows_core::PCSTR) -> *mut LOADED_IMAGE);
     ImageLoad(dllname.into_param().abi(), dllpath.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
@@ -514,7 +497,6 @@ pub unsafe fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_H
     ::windows_targets::link!("dbghelp.dll" "system" fn ImageNtHeader(base : *const ::core::ffi::c_void) -> *mut IMAGE_NT_HEADERS64);
     ImageNtHeader(base)
 }
-#[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
@@ -530,7 +512,6 @@ where
     ::windows_targets::link!("imagehlp.dll" "system" fn ImageRemoveCertificate(filehandle : super::super::super::Foundation:: HANDLE, index : u32) -> super::super::super::Foundation:: BOOL);
     ImageRemoveCertificate(filehandle.into_param().abi(), index).ok()
 }
-#[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
@@ -538,7 +519,6 @@ pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS64, base: *con
     ::windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToSection(ntheaders : *const IMAGE_NT_HEADERS64, base : *const ::core::ffi::c_void, rva : u32) -> *mut IMAGE_SECTION_HEADER);
     ImageRvaToSection(ntheaders, base, rva)
 }
-#[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
@@ -546,7 +526,6 @@ pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS32, base: *con
     ::windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToSection(ntheaders : *const IMAGE_NT_HEADERS32, base : *const ::core::ffi::c_void, rva : u32) -> *mut IMAGE_SECTION_HEADER);
     ImageRvaToSection(ntheaders, base, rva)
 }
-#[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
@@ -554,7 +533,6 @@ pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS64, base: *const ::
     ::windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToVa(ntheaders : *const IMAGE_NT_HEADERS64, base : *const ::core::ffi::c_void, rva : u32, lastrvasection : *const *const IMAGE_SECTION_HEADER) -> *mut ::core::ffi::c_void);
     ImageRvaToVa(ntheaders, base, rva, ::core::mem::transmute(lastrvasection.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
@@ -562,7 +540,6 @@ pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS32, base: *const ::
     ::windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToVa(ntheaders : *const IMAGE_NT_HEADERS32, base : *const ::core::ffi::c_void, rva : u32, lastrvasection : *const *const IMAGE_SECTION_HEADER) -> *mut ::core::ffi::c_void);
     ImageRvaToVa(ntheaders, base, rva, ::core::mem::transmute(lastrvasection.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`"]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn ImageUnload(loadedimage: *mut LOADED_IMAGE) -> ::windows_core::Result<()> {
@@ -579,14 +556,12 @@ pub unsafe fn ImagehlpApiVersionEx(appversion: *const API_VERSION) -> *mut API_V
     ::windows_targets::link!("dbghelp.dll" "system" fn ImagehlpApiVersionEx(appversion : *const API_VERSION) -> *mut API_VERSION);
     ImagehlpApiVersionEx(appversion)
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InitializeContext(buffer: ::core::option::Option<*mut ::core::ffi::c_void>, contextflags: CONTEXT_FLAGS, context: *mut *mut CONTEXT, contextlength: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn InitializeContext(buffer : *mut ::core::ffi::c_void, contextflags : CONTEXT_FLAGS, context : *mut *mut CONTEXT, contextlength : *mut u32) -> super::super::super::Foundation:: BOOL);
     InitializeContext(::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), contextflags, context, contextlength).ok()
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn InitializeContext2(buffer: ::core::option::Option<*mut ::core::ffi::c_void>, contextflags: CONTEXT_FLAGS, context: *mut *mut CONTEXT, contextlength: *mut u32, xstatecompactionmask: u64) -> ::windows_core::Result<()> {
@@ -598,7 +573,6 @@ pub unsafe fn IsDebuggerPresent() -> super::super::super::Foundation::BOOL {
     ::windows_targets::link!("kernel32.dll" "system" fn IsDebuggerPresent() -> super::super::super::Foundation:: BOOL);
     IsDebuggerPresent()
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
@@ -614,7 +588,6 @@ where
     ::windows_targets::link!("dbghelp.dll" "system" fn MakeSureDirectoryPathExists(dirpath : ::windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
     MakeSureDirectoryPathExists(dirpath.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`"]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn MapAndLoad<P0, P1, P2, P3>(imagename: P0, dllpath: P1, loadedimage: *mut LOADED_IMAGE, dotdll: P2, readonly: P3) -> ::windows_core::Result<()>
@@ -643,7 +616,6 @@ where
     ::windows_targets::link!("imagehlp.dll" "system" fn MapFileAndCheckSumW(filename : ::windows_core::PCWSTR, headersum : *mut u32, checksum : *mut u32) -> u32);
     MapFileAndCheckSumW(filename.into_param().abi(), headersum, checksum)
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn MessageBeep(utype: super::super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE) -> ::windows_core::Result<()> {
@@ -655,7 +627,6 @@ pub unsafe fn MiniDumpReadDumpStream(baseofdump: *const ::core::ffi::c_void, str
     ::windows_targets::link!("dbghelp.dll" "system" fn MiniDumpReadDumpStream(baseofdump : *const ::core::ffi::c_void, streamnumber : u32, dir : *mut *mut MINIDUMP_DIRECTORY, streampointer : *mut *mut ::core::ffi::c_void, streamsize : *mut u32) -> super::super::super::Foundation:: BOOL);
     MiniDumpReadDumpStream(baseofdump, streamnumber, dir, streampointer, ::core::mem::transmute(streamsize.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Memory\"`"]
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 #[inline]
 pub unsafe fn MiniDumpWriteDump<P0, P1>(hprocess: P0, processid: u32, hfile: P1, dumptype: MINIDUMP_TYPE, exceptionparam: ::core::option::Option<*const MINIDUMP_EXCEPTION_INFORMATION>, userstreamparam: ::core::option::Option<*const MINIDUMP_USER_STREAM_INFORMATION>, callbackparam: ::core::option::Option<*const MINIDUMP_CALLBACK_INFORMATION>) -> ::windows_core::Result<()>
@@ -692,7 +663,6 @@ pub unsafe fn RaiseException(dwexceptioncode: u32, dwexceptionflags: u32, lpargu
     ::windows_targets::link!("kernel32.dll" "system" fn RaiseException(dwexceptioncode : u32, dwexceptionflags : u32, nnumberofarguments : u32, lparguments : *const usize));
     RaiseException(dwexceptioncode, dwexceptionflags, lparguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(lparguments.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RaiseFailFastException(pexceptionrecord: ::core::option::Option<*const EXCEPTION_RECORD>, pcontextrecord: ::core::option::Option<*const CONTEXT>, dwflags: u32) {
@@ -820,14 +790,12 @@ pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut ::core::ffi::c
     ::windows_targets::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut ::core::ffi::c_void, functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
     RtlAddGrowableFunctionTable(dynamictable, ::core::mem::transmute(functiontable.as_ptr()), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend)
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlCaptureContext(contextrecord: *mut CONTEXT) {
     ::windows_targets::link!("kernel32.dll" "system" fn RtlCaptureContext(contextrecord : *mut CONTEXT));
     RtlCaptureContext(contextrecord)
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
@@ -904,7 +872,6 @@ pub unsafe fn RtlRaiseException(exceptionrecord: *const EXCEPTION_RECORD) {
     ::windows_targets::link!("kernel32.dll" "system" fn RtlRaiseException(exceptionrecord : *const EXCEPTION_RECORD));
     RtlRaiseException(exceptionrecord)
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlRestoreContext(contextrecord: *const CONTEXT, exceptionrecord: ::core::option::Option<*const EXCEPTION_RECORD>) {
@@ -916,7 +883,6 @@ pub unsafe fn RtlUnwind(targetframe: ::core::option::Option<*const ::core::ffi::
     ::windows_targets::link!("kernel32.dll" "system" fn RtlUnwind(targetframe : *const ::core::ffi::c_void, targetip : *const ::core::ffi::c_void, exceptionrecord : *const EXCEPTION_RECORD, returnvalue : *const ::core::ffi::c_void));
     RtlUnwind(::core::mem::transmute(targetframe.unwrap_or(::std::ptr::null())), ::core::mem::transmute(targetip.unwrap_or(::std::ptr::null())), ::core::mem::transmute(exceptionrecord.unwrap_or(::std::ptr::null())), returnvalue)
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
@@ -924,7 +890,6 @@ pub unsafe fn RtlUnwindEx(targetframe: ::core::option::Option<*const ::core::ffi
     ::windows_targets::link!("kernel32.dll" "system" fn RtlUnwindEx(targetframe : *const ::core::ffi::c_void, targetip : *const ::core::ffi::c_void, exceptionrecord : *const EXCEPTION_RECORD, returnvalue : *const ::core::ffi::c_void, contextrecord : *const CONTEXT, historytable : *const UNWIND_HISTORY_TABLE));
     RtlUnwindEx(::core::mem::transmute(targetframe.unwrap_or(::std::ptr::null())), ::core::mem::transmute(targetip.unwrap_or(::std::ptr::null())), ::core::mem::transmute(exceptionrecord.unwrap_or(::std::ptr::null())), returnvalue, contextrecord, ::core::mem::transmute(historytable.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
@@ -932,7 +897,6 @@ pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, ima
     ::windows_targets::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase : usize, controlpc : usize, functionentry : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord : *mut CONTEXT, handlerdata : *mut *mut ::core::ffi::c_void, establisherframe : *mut usize, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64) -> super::super::Kernel:: EXCEPTION_ROUTINE);
     RtlVirtualUnwind(handlertype, imagebase, controlpc, functionentry, contextrecord, handlerdata, establisherframe, ::core::mem::transmute(contextpointers.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
@@ -968,7 +932,6 @@ pub unsafe fn SetErrorMode(umode: THREAD_ERROR_MODE) -> u32 {
     ::windows_targets::link!("kernel32.dll" "system" fn SetErrorMode(umode : THREAD_ERROR_MODE) -> u32);
     SetErrorMode(umode)
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
@@ -976,7 +939,6 @@ pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imagecon
     ::windows_targets::link!("imagehlp.dll" "system" fn SetImageConfigInformation(loadedimage : *mut LOADED_IMAGE, imageconfiginformation : *const IMAGE_LOAD_CONFIG_DIRECTORY64) -> super::super::super::Foundation:: BOOL);
     SetImageConfigInformation(loadedimage, imageconfiginformation).ok()
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
@@ -989,7 +951,6 @@ pub unsafe fn SetSymLoadError(error: u32) {
     ::windows_targets::link!("dbghelp.dll" "system" fn SetSymLoadError(error : u32));
     SetSymLoadError(error)
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn SetThreadContext<P0>(hthread: P0, lpcontext: *const CONTEXT) -> ::windows_core::Result<()>
@@ -1004,14 +965,12 @@ pub unsafe fn SetThreadErrorMode(dwnewmode: THREAD_ERROR_MODE, lpoldmode: ::core
     ::windows_targets::link!("kernel32.dll" "system" fn SetThreadErrorMode(dwnewmode : THREAD_ERROR_MODE, lpoldmode : *mut THREAD_ERROR_MODE) -> super::super::super::Foundation:: BOOL);
     SetThreadErrorMode(dwnewmode, ::core::mem::transmute(lpoldmode.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER {
     ::windows_targets::link!("kernel32.dll" "system" fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter : LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER);
     SetUnhandledExceptionFilter(lptoplevelexceptionfilter)
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
@@ -2570,21 +2529,18 @@ where
     ::windows_targets::link!("dbghelp.dll" "system" fn UnDecorateSymbolNameW(name : ::windows_core::PCWSTR, outputstring : ::windows_core::PWSTR, maxstringlength : u32, flags : u32) -> u32);
     UnDecorateSymbolNameW(name.into_param().abi(), ::core::mem::transmute(outputstring.as_ptr()), outputstring.len().try_into().unwrap(), flags)
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`"]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 #[inline]
 pub unsafe fn UnMapAndLoad(loadedimage: *mut LOADED_IMAGE) -> ::windows_core::Result<()> {
     ::windows_targets::link!("imagehlp.dll" "system" fn UnMapAndLoad(loadedimage : *mut LOADED_IMAGE) -> super::super::super::Foundation:: BOOL);
     UnMapAndLoad(loadedimage).ok()
 }
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn UnhandledExceptionFilter(exceptioninfo: *const EXCEPTION_POINTERS) -> i32 {
     ::windows_targets::link!("kernel32.dll" "system" fn UnhandledExceptionFilter(exceptioninfo : *const EXCEPTION_POINTERS) -> i32);
     UnhandledExceptionFilter(exceptioninfo)
 }
-#[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn UpdateDebugInfoFile<P0, P1>(imagefilename: P0, symbolpath: P1, debugfilepath: ::windows_core::PSTR, ntheaders: *const IMAGE_NT_HEADERS32) -> ::windows_core::Result<()>
@@ -2595,7 +2551,6 @@ where
     ::windows_targets::link!("imagehlp.dll" "system" fn UpdateDebugInfoFile(imagefilename : ::windows_core::PCSTR, symbolpath : ::windows_core::PCSTR, debugfilepath : ::windows_core::PSTR, ntheaders : *const IMAGE_NT_HEADERS32) -> super::super::super::Foundation:: BOOL);
     UpdateDebugInfoFile(imagefilename.into_param().abi(), symbolpath.into_param().abi(), ::core::mem::transmute(debugfilepath), ntheaders).ok()
 }
-#[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn UpdateDebugInfoFileEx<P0, P1>(imagefilename: P0, symbolpath: P1, debugfilepath: ::windows_core::PSTR, ntheaders: *const IMAGE_NT_HEADERS32, oldchecksum: u32) -> super::super::super::Foundation::BOOL
@@ -2606,14 +2561,12 @@ where
     ::windows_targets::link!("imagehlp.dll" "system" fn UpdateDebugInfoFileEx(imagefilename : ::windows_core::PCSTR, symbolpath : ::windows_core::PCSTR, debugfilepath : ::windows_core::PSTR, ntheaders : *const IMAGE_NT_HEADERS32, oldchecksum : u32) -> super::super::super::Foundation:: BOOL);
     UpdateDebugInfoFileEx(imagefilename.into_param().abi(), symbolpath.into_param().abi(), ::core::mem::transmute(debugfilepath), ntheaders, oldchecksum)
 }
-#[doc = "Required features: `\"Win32_System_Threading\"`"]
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
 pub unsafe fn WaitForDebugEvent(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn WaitForDebugEvent(lpdebugevent : *mut DEBUG_EVENT, dwmilliseconds : u32) -> super::super::super::Foundation:: BOOL);
     WaitForDebugEvent(lpdebugevent, dwmilliseconds).ok()
 }
-#[doc = "Required features: `\"Win32_System_Threading\"`"]
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
 pub unsafe fn WaitForDebugEventEx(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> ::windows_core::Result<()> {
@@ -2675,7 +2628,6 @@ impl IDebugExtendedProperty {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetParent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn GetExtendedPropertyInfo(&self, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetExtendedPropertyInfo)(::windows_core::Interface::as_raw(self), dwfieldspec, nradix, pextendedpropertyinfo).ok()
@@ -2798,7 +2750,6 @@ pub struct IDebugPropertyEnumType_Registers_Vtbl {
 ::windows_core::imp::com_interface!(IEnumDebugExtendedPropertyInfo, IEnumDebugExtendedPropertyInfo_Vtbl, 0x51973c53_cb0c_11d0_b5c9_00a0244a0e7a);
 ::windows_core::imp::interface_hierarchy!(IEnumDebugExtendedPropertyInfo, ::windows_core::IUnknown);
 impl IEnumDebugExtendedPropertyInfo {
-    #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Next(&self, rgextendedpropertyinfo: &mut [ExtendedDebugPropertyInfo], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgextendedpropertyinfo.len().try_into().unwrap(), ::core::mem::transmute(rgextendedpropertyinfo.as_ptr()), pceltfetched).ok()
@@ -2890,7 +2841,6 @@ impl IPerPropertyBrowsing2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MapPropertyToPage)(::windows_core::Interface::as_raw(self), dispid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetPredefinedStrings(&self, dispid: i32, pcastrings: *mut super::super::Ole::CALPOLESTR, pcacookies: *mut super::super::Ole::CADWORD) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPredefinedStrings)(::windows_core::Interface::as_raw(self), dispid, pcastrings, pcacookies).ok()
@@ -5789,7 +5739,6 @@ impl ::core::default::Default for AER_ROOTPORT_DESCRIPTOR_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct APC_CALLBACK_DATA {
     pub Parameter: usize,
@@ -6071,7 +6020,6 @@ impl ::core::default::Default for ARM64_NT_NEON128_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT {
@@ -6111,7 +6059,6 @@ impl ::core::default::Default for CONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub union CONTEXT_0 {
@@ -6141,7 +6088,6 @@ impl ::core::default::Default for CONTEXT_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT_0_0 {
@@ -6249,7 +6195,6 @@ impl ::core::default::Default for CONTEXT_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT {
@@ -6323,7 +6268,6 @@ impl ::core::default::Default for CONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub union CONTEXT_0 {
@@ -6353,7 +6297,6 @@ impl ::core::default::Default for CONTEXT_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT_0_0 {
@@ -6435,7 +6378,6 @@ impl ::core::default::Default for CONTEXT_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT {
@@ -6557,7 +6499,6 @@ impl ::core::default::Default for CPU_INFORMATION_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Threading\"`"]
 #[cfg(feature = "Win32_System_Threading")]
 pub struct CREATE_PROCESS_DEBUG_INFO {
     pub hFile: super::super::super::Foundation::HANDLE,
@@ -6596,7 +6537,6 @@ impl ::core::default::Default for CREATE_PROCESS_DEBUG_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Threading\"`"]
 #[cfg(feature = "Win32_System_Threading")]
 pub struct CREATE_THREAD_DEBUG_INFO {
     pub hThread: super::super::super::Foundation::HANDLE,
@@ -6658,7 +6598,6 @@ impl ::core::default::Default for DBGHELP_DATA_REPORT_STRUCT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Threading\"`"]
 #[cfg(feature = "Win32_System_Threading")]
 pub struct DEBUG_EVENT {
     pub dwDebugEventCode: DEBUG_EVENT_CODE,
@@ -6685,7 +6624,6 @@ impl ::core::default::Default for DEBUG_EVENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Threading\"`"]
 #[cfg(feature = "Win32_System_Threading")]
 pub union DEBUG_EVENT_0 {
     pub Exception: EXCEPTION_DEBUG_INFO,
@@ -6717,7 +6655,6 @@ impl ::core::default::Default for DEBUG_EVENT_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct DISPATCHER_CONTEXT {
@@ -6776,7 +6713,6 @@ impl ::core::default::Default for DISPATCHER_CONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct DISPATCHER_CONTEXT {
@@ -7080,7 +7016,6 @@ impl ::core::default::Default for EXCEPTION_DEBUG_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct EXCEPTION_POINTERS {
     pub ExceptionRecord: *mut EXCEPTION_RECORD,
@@ -7280,7 +7215,6 @@ impl ::core::default::Default for EXIT_THREAD_DEBUG_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub struct ExtendedDebugPropertyInfo {
     pub dwValidFields: u32,
@@ -8828,7 +8762,6 @@ impl ::core::default::Default for IMAGE_DEBUG_DIRECTORY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct IMAGE_DEBUG_INFORMATION {
@@ -8966,7 +8899,6 @@ impl ::core::default::Default for IMAGE_DEBUG_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(feature = "Win32_System_SystemInformation")]
 pub struct IMAGE_FILE_HEADER {
     pub Machine: super::super::SystemInformation::IMAGE_FILE_MACHINE,
@@ -9353,7 +9285,6 @@ impl ::core::default::Default for IMAGE_LOAD_CONFIG_DIRECTORY64 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(feature = "Win32_System_SystemInformation")]
 pub struct IMAGE_NT_HEADERS32 {
     pub Signature: u32,
@@ -9393,7 +9324,6 @@ impl ::core::default::Default for IMAGE_NT_HEADERS32 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(feature = "Win32_System_SystemInformation")]
 pub struct IMAGE_NT_HEADERS64 {
     pub Signature: u32,
@@ -9587,7 +9517,6 @@ impl ::core::default::Default for IMAGE_OPTIONAL_HEADER64 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(feature = "Win32_System_SystemInformation")]
 pub struct IMAGE_ROM_HEADERS {
     pub FileHeader: IMAGE_FILE_HEADER,
@@ -10322,7 +10251,6 @@ impl ::core::default::Default for LDT_ENTRY_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 pub struct LOADED_IMAGE {
@@ -10396,7 +10324,6 @@ impl ::core::default::Default for LOADED_IMAGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`, `\"Win32_System_SystemInformation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 pub struct LOADED_IMAGE {
@@ -10534,7 +10461,6 @@ impl ::core::default::Default for M128A {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Memory\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
@@ -10564,7 +10490,6 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Memory\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
@@ -10594,7 +10519,6 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_INFORMATION {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_CALLBACK_INPUT {
     pub ProcessId: u32,
@@ -10621,7 +10545,6 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Kernel\"`"]
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
 pub union MINIDUMP_CALLBACK_INPUT_0 {
     pub Status: ::windows_core::HRESULT,
@@ -10656,7 +10579,6 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_INPUT_0 {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_System_Memory\"`"]
 #[cfg(feature = "Win32_System_Memory")]
 pub struct MINIDUMP_CALLBACK_OUTPUT {
     pub Anonymous: MINIDUMP_CALLBACK_OUTPUT_0,
@@ -10680,7 +10602,6 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Memory\"`"]
 #[cfg(feature = "Win32_System_Memory")]
 pub union MINIDUMP_CALLBACK_OUTPUT_0 {
     pub ModuleWriteFlags: u32,
@@ -10713,7 +10634,6 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0 {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_System_Memory\"`"]
 #[cfg(feature = "Win32_System_Memory")]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_0 {
     pub MemoryBase: u64,
@@ -10738,7 +10658,6 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Memory\"`"]
 #[cfg(feature = "Win32_System_Memory")]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_1 {
     pub CheckCancel: super::super::super::Foundation::BOOL,
@@ -10777,7 +10696,6 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Memory\"`"]
 #[cfg(feature = "Win32_System_Memory")]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_2 {
     pub VmRegion: MINIDUMP_MEMORY_INFO,
@@ -10802,7 +10720,6 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Memory\"`"]
 #[cfg(feature = "Win32_System_Memory")]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_3 {
     pub VmQueryStatus: ::windows_core::HRESULT,
@@ -10827,7 +10744,6 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0_3 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Memory\"`"]
 #[cfg(feature = "Win32_System_Memory")]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_4 {
     pub VmReadStatus: ::windows_core::HRESULT,
@@ -10909,7 +10825,6 @@ impl ::core::default::Default for MINIDUMP_EXCEPTION {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct MINIDUMP_EXCEPTION_INFORMATION {
@@ -10940,7 +10855,6 @@ impl ::core::default::Default for MINIDUMP_EXCEPTION_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct MINIDUMP_EXCEPTION_INFORMATION {
@@ -11366,7 +11280,6 @@ impl ::core::default::Default for MINIDUMP_MEMORY_DESCRIPTOR64 {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_System_Memory\"`"]
 #[cfg(feature = "Win32_System_Memory")]
 pub struct MINIDUMP_MEMORY_INFO {
     pub BaseAddress: u64,
@@ -11488,7 +11401,6 @@ impl ::core::default::Default for MINIDUMP_MISC_INFO_2 {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub struct MINIDUMP_MISC_INFO_3 {
     pub SizeOfInfo: u32,
@@ -11527,7 +11439,6 @@ impl ::core::default::Default for MINIDUMP_MISC_INFO_3 {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub struct MINIDUMP_MISC_INFO_4 {
     pub SizeOfInfo: u32,
@@ -11568,7 +11479,6 @@ impl ::core::default::Default for MINIDUMP_MISC_INFO_4 {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_System_Time\"`"]
 #[cfg(feature = "Win32_System_Time")]
 pub struct MINIDUMP_MISC_INFO_5 {
     pub SizeOfInfo: u32,
@@ -11611,7 +11521,6 @@ impl ::core::default::Default for MINIDUMP_MISC_INFO_5 {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct MINIDUMP_MODULE {
     pub BaseOfImage: u64,
@@ -11644,7 +11553,6 @@ impl ::core::default::Default for MINIDUMP_MODULE {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct MINIDUMP_MODULE_CALLBACK {
     pub FullPath: ::windows_core::PWSTR,
@@ -11677,7 +11585,6 @@ impl ::core::default::Default for MINIDUMP_MODULE_CALLBACK {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct MINIDUMP_MODULE_LIST {
     pub NumberOfModules: u32,
@@ -11881,7 +11788,6 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(feature = "Win32_System_SystemInformation")]
 pub struct MINIDUMP_SYSTEM_INFO {
     pub ProcessorArchitecture: super::super::SystemInformation::PROCESSOR_ARCHITECTURE,
@@ -11915,7 +11821,6 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(feature = "Win32_System_SystemInformation")]
 pub union MINIDUMP_SYSTEM_INFO_0 {
     pub Reserved0: u16,
@@ -11940,7 +11845,6 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(feature = "Win32_System_SystemInformation")]
 pub struct MINIDUMP_SYSTEM_INFO_0_0 {
     pub NumberOfProcessors: u8,
@@ -11979,7 +11883,6 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_INFO_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(feature = "Win32_System_SystemInformation")]
 pub union MINIDUMP_SYSTEM_INFO_1 {
     pub Reserved1: u32,
@@ -12004,7 +11907,6 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_INFO_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_SystemInformation\"`"]
 #[cfg(feature = "Win32_System_SystemInformation")]
 pub struct MINIDUMP_SYSTEM_INFO_1_0 {
     pub SuiteMask: u16,
@@ -12185,7 +12087,6 @@ impl ::core::default::Default for MINIDUMP_THREAD {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct MINIDUMP_THREAD_CALLBACK {
@@ -12220,7 +12121,6 @@ impl ::core::default::Default for MINIDUMP_THREAD_CALLBACK {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct MINIDUMP_THREAD_CALLBACK {
@@ -12279,7 +12179,6 @@ impl ::core::default::Default for MINIDUMP_THREAD_EX {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
@@ -12316,7 +12215,6 @@ impl ::core::default::Default for MINIDUMP_THREAD_EX_CALLBACK {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
@@ -15450,10 +15348,8 @@ impl ::core::default::Default for XSTATE_FEATURE {
 }
 pub type DIGEST_FUNCTION = ::core::option::Option<unsafe extern "system" fn(refdata: *mut ::core::ffi::c_void, pdata: *mut u8, dwlength: u32) -> super::super::super::Foundation::BOOL>;
 pub type LPCALL_BACK_USER_INTERRUPT_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> u32>;
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type LPTOP_LEVEL_EXCEPTION_FILTER = ::core::option::Option<unsafe extern "system" fn(exceptioninfo: *const EXCEPTION_POINTERS) -> i32>;
-#[doc = "Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Kernel\"`, `\"Win32_System_Memory\"`"]
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 pub type MINIDUMP_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn(callbackparam: *mut ::core::ffi::c_void, callbackinput: *const MINIDUMP_CALLBACK_INPUT, callbackoutput: *mut MINIDUMP_CALLBACK_OUTPUT) -> super::super::super::Foundation::BOOL>;
 pub type PCOGETACTIVATIONSTATE = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::GUID, param1: u32, param2: *mut u32) -> ::windows_core::HRESULT>;
@@ -15548,7 +15444,6 @@ pub type PSYM_ENUMSYMBOLS_CALLBACKW = ::core::option::Option<unsafe extern "syst
 #[cfg(target_arch = "x86")]
 pub type PTRANSLATE_ADDRESS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *mut ADDRESS) -> u32>;
 pub type PTRANSLATE_ADDRESS_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *const ADDRESS64) -> u64>;
-#[doc = "Required features: `\"Win32_System_Kernel\"`"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type PVECTORED_EXCEPTION_HANDLER = ::core::option::Option<unsafe extern "system" fn(exceptioninfo: *mut EXCEPTION_POINTERS) -> i32>;
 pub type PWAITCHAINCALLBACK = ::core::option::Option<unsafe extern "system" fn(wcthandle: *mut ::core::ffi::c_void, context: usize, callbackstatus: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut super::super::super::Foundation::BOOL)>;

@@ -116,7 +116,6 @@ impl II2cDeviceProvider_Vtbl {
         iid == &<II2cDeviceProvider as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait II2cProvider_Impl: Sized {
     fn GetControllersAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>>;

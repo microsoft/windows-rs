@@ -15,7 +15,6 @@ impl IAudioFrameNative_Vtbl {
         iid == &<IAudioFrameNative as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 pub trait IAudioFrameNativeFactory_Impl: Sized {
     fn CreateFromMFSample(&self, data: ::core::option::Option<&super::super::super::Media::MediaFoundation::IMFSample>, forcereadonly: super::super::super::Foundation::BOOL, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -66,7 +65,6 @@ impl IVideoFrameNative_Vtbl {
         iid == &<IVideoFrameNative as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 pub trait IVideoFrameNativeFactory_Impl: Sized {
     fn CreateFromMFSample(&self, data: ::core::option::Option<&super::super::super::Media::MediaFoundation::IMFSample>, subtype: *const ::windows_core::GUID, width: u32, height: u32, forcereadonly: super::super::super::Foundation::BOOL, mindisplayaperture: *const super::super::super::Media::MediaFoundation::MFVideoArea, device: ::core::option::Option<&super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager>, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;

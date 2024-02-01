@@ -66,7 +66,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     KsCreateTopologyNode2(parenthandle.into_param().abi(), nodecreate, desiredaccess, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 #[inline]
 pub unsafe fn KsGetMediaType<P0>(position: i32, ammediatype: *mut super::MediaFoundation::AM_MEDIA_TYPE, filterhandle: P0, pinfactoryid: u32) -> ::windows_core::Result<()>
@@ -276,7 +275,6 @@ pub struct IKsControl_Vtbl {
 ::windows_core::imp::com_interface!(IKsDataTypeCompletion, IKsDataTypeCompletion_Vtbl, 0x827d1a0e_0f73_11d2_b27a_00a0c9223196);
 ::windows_core::imp::interface_hierarchy!(IKsDataTypeCompletion, ::windows_core::IUnknown);
 impl IKsDataTypeCompletion {
-    #[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn KsCompleteMediaType<P0>(&self, filterhandle: P0, pinfactoryid: u32, ammediatype: *mut super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()>
     where
@@ -297,7 +295,6 @@ pub struct IKsDataTypeCompletion_Vtbl {
 ::windows_core::imp::com_interface!(IKsDataTypeHandler, IKsDataTypeHandler_Vtbl, 0x5ffbaa02_49a3_11d0_9f36_00aa00a216a1);
 ::windows_core::imp::interface_hierarchy!(IKsDataTypeHandler, ::windows_core::IUnknown);
 impl IKsDataTypeHandler {
-    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsCompleteIoOperation<P0, P1>(&self, sample: P0, streamheader: *mut ::core::ffi::c_void, iooperation: KSIOOPERATION, cancelled: P1) -> ::windows_core::Result<()>
     where
@@ -309,7 +306,6 @@ impl IKsDataTypeHandler {
     pub unsafe fn KsIsMediaTypeInRanges(&self, dataranges: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).KsIsMediaTypeInRanges)(::windows_core::Interface::as_raw(self), dataranges).ok()
     }
-    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsPrepareIoOperation<P0>(&self, sample: P0, streamheader: *mut ::core::ffi::c_void, iooperation: KSIOOPERATION) -> ::windows_core::Result<()>
     where
@@ -321,7 +317,6 @@ impl IKsDataTypeHandler {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).KsQueryExtendedSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn KsSetMediaType(&self, ammediatype: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).KsSetMediaType)(::windows_core::Interface::as_raw(self), ammediatype).ok()
@@ -373,7 +368,6 @@ impl IKsInterfaceHandler {
     {
         (::windows_core::Interface::vtable(self).KsSetPin)(::windows_core::Interface::as_raw(self), kspin.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsProcessMediaSamples<P0>(&self, ksdatatypehandler: P0, samplelist: *const ::core::option::Option<super::DirectShow::IMediaSample>, samplecount: *mut i32, iooperation: KSIOOPERATION, streamsegment: *mut *mut KSSTREAM_SEGMENT) -> ::windows_core::Result<()>
     where
@@ -542,7 +536,6 @@ impl IKsPin {
     pub unsafe fn KsPropagateAcquire(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).KsPropagateAcquire)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsDeliver<P0>(&self, sample: P0, flags: u32) -> ::windows_core::Result<()>
     where
@@ -553,12 +546,10 @@ impl IKsPin {
     pub unsafe fn KsMediaSamplesCompleted(&self, streamsegment: *const KSSTREAM_SEGMENT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).KsMediaSamplesCompleted)(::windows_core::Interface::as_raw(self), streamsegment).ok()
     }
-    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsPeekAllocator(&self, operation: KSPEEKOPERATION) -> ::core::option::Option<super::DirectShow::IMemAllocator> {
         (::windows_core::Interface::vtable(self).KsPeekAllocator)(::windows_core::Interface::as_raw(self), operation)
     }
-    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsReceiveAllocator<P0>(&self, memallocator: P0) -> ::windows_core::Result<()>
     where
@@ -626,7 +617,6 @@ impl IKsPinEx {
     pub unsafe fn KsPropagateAcquire(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.KsPropagateAcquire)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsDeliver<P0>(&self, sample: P0, flags: u32) -> ::windows_core::Result<()>
     where
@@ -637,12 +627,10 @@ impl IKsPinEx {
     pub unsafe fn KsMediaSamplesCompleted(&self, streamsegment: *const KSSTREAM_SEGMENT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.KsMediaSamplesCompleted)(::windows_core::Interface::as_raw(self), streamsegment).ok()
     }
-    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsPeekAllocator(&self, operation: KSPEEKOPERATION) -> ::core::option::Option<super::DirectShow::IMemAllocator> {
         (::windows_core::Interface::vtable(self).base__.KsPeekAllocator)(::windows_core::Interface::as_raw(self), operation)
     }
-    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsReceiveAllocator<P0>(&self, memallocator: P0) -> ::windows_core::Result<()>
     where
@@ -662,7 +650,6 @@ impl IKsPinEx {
     pub unsafe fn KsQualityNotify(&self, proportion: u32, timedelta: i64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.KsQualityNotify)(::windows_core::Interface::as_raw(self), proportion, timedelta).ok()
     }
-    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsNotifyError<P0>(&self, sample: P0, hr: ::windows_core::HRESULT)
     where
@@ -703,7 +690,6 @@ impl IKsPinPipe {
     pub unsafe fn KsSetPinFramingCache(&self, framingex: *const KSALLOCATOR_FRAMING_EX, framingprop: *const FRAMING_PROP, option: FRAMING_CACHE_OPS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).KsSetPinFramingCache)(::windows_core::Interface::as_raw(self), framingex, framingprop, option).ok()
     }
-    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsGetConnectedPin(&self) -> ::core::option::Option<super::DirectShow::IPin> {
         (::windows_core::Interface::vtable(self).KsGetConnectedPin)(::windows_core::Interface::as_raw(self))
@@ -919,13 +905,10 @@ pub const CLSID_KsIBasicAudioInterfaceHandler: ::windows_core::GUID = ::windows_
 pub const CLSID_Proxy: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17cca71b_ecd7_11d0_b908_00a0c9223196);
 pub const CONSTRICTOR_OPTION_DISABLE: CONSTRICTOR_OPTION = CONSTRICTOR_OPTION(0i32);
 pub const CONSTRICTOR_OPTION_MUTE: CONSTRICTOR_OPTION = CONSTRICTOR_OPTION(1i32);
-#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 3 };
-#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_KsAudio_PacketSize_Constraints: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 2 };
-#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_KsAudio_PacketSize_Constraints2: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x9404f781_7191_409b_8b0b_80bf6ec229ae), pid: 2 };
 pub const DIRECT_FORM: KSDS3D_HRTF_FILTER_METHOD = KSDS3D_HRTF_FILTER_METHOD(0i32);

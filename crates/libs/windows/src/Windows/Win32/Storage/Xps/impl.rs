@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsDocumentPackageTarget_Impl: Sized {
     fn GetXpsOMPackageWriter(&self, documentsequencepartname: ::core::option::Option<&super::Packaging::Opc::IOpcPartUri>, discardcontrolpartname: ::core::option::Option<&super::Packaging::Opc::IOpcPartUri>) -> ::windows_core::Result<IXpsOMPackageWriter>;
@@ -54,7 +53,6 @@ impl IXpsDocumentPackageTarget_Vtbl {
         iid == &<IXpsDocumentPackageTarget as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsDocumentPackageTarget3D_Impl: Sized {
     fn GetXpsOMPackageWriter3D(&self, documentsequencepartname: ::core::option::Option<&super::Packaging::Opc::IOpcPartUri>, discardcontrolpartname: ::core::option::Option<&super::Packaging::Opc::IOpcPartUri>, modelpartname: ::core::option::Option<&super::Packaging::Opc::IOpcPartUri>, modeldata: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows_core::Result<IXpsOMPackageWriter3D>;
@@ -130,7 +128,6 @@ impl IXpsOMBrush_Vtbl {
         iid == &<IXpsOMBrush as ::windows_core::Interface>::IID || iid == &<IXpsOMShareable as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXpsOMCanvas_Impl: Sized + IXpsOMVisual_Impl {
     fn GetVisuals(&self) -> ::windows_core::Result<IXpsOMVisualCollection>;
@@ -286,7 +283,6 @@ impl IXpsOMCanvas_Vtbl {
         iid == &<IXpsOMCanvas as ::windows_core::Interface>::IID || iid == &<IXpsOMShareable as ::windows_core::Interface>::IID || iid == &<IXpsOMVisual as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMColorProfileResource_Impl: Sized + IXpsOMResource_Impl {
     fn GetStream(&self) -> ::windows_core::Result<super::super::System::Com::IStream>;
@@ -323,7 +319,6 @@ impl IXpsOMColorProfileResource_Vtbl {
         iid == &<IXpsOMColorProfileResource as ::windows_core::Interface>::IID || iid == &<IXpsOMPart as ::windows_core::Interface>::IID || iid == &<IXpsOMResource as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMColorProfileResourceCollection_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<u32>;
@@ -407,7 +402,6 @@ impl IXpsOMColorProfileResourceCollection_Vtbl {
         iid == &<IXpsOMColorProfileResourceCollection as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMCoreProperties_Impl: Sized + IXpsOMPart_Impl {
     fn GetOwner(&self) -> ::windows_core::Result<IXpsOMPackage>;
@@ -956,7 +950,6 @@ impl IXpsOMDictionary_Vtbl {
         iid == &<IXpsOMDictionary as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMDocument_Impl: Sized + IXpsOMPart_Impl {
     fn GetOwner(&self) -> ::windows_core::Result<IXpsOMDocumentSequence>;
@@ -1132,7 +1125,6 @@ impl IXpsOMDocumentCollection_Vtbl {
         iid == &<IXpsOMDocumentCollection as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMDocumentSequence_Impl: Sized + IXpsOMPart_Impl {
     fn GetOwner(&self) -> ::windows_core::Result<IXpsOMPackage>;
@@ -1195,7 +1187,6 @@ impl IXpsOMDocumentSequence_Vtbl {
         iid == &<IXpsOMDocumentSequence as ::windows_core::Interface>::IID || iid == &<IXpsOMPart as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMDocumentStructureResource_Impl: Sized + IXpsOMResource_Impl {
     fn GetOwner(&self) -> ::windows_core::Result<IXpsOMDocument>;
@@ -1245,7 +1236,6 @@ impl IXpsOMDocumentStructureResource_Vtbl {
         iid == &<IXpsOMDocumentStructureResource as ::windows_core::Interface>::IID || iid == &<IXpsOMPart as ::windows_core::Interface>::IID || iid == &<IXpsOMResource as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMFontResource_Impl: Sized + IXpsOMResource_Impl {
     fn GetStream(&self) -> ::windows_core::Result<super::super::System::Com::IStream>;
@@ -1295,7 +1285,6 @@ impl IXpsOMFontResource_Vtbl {
         iid == &<IXpsOMFontResource as ::windows_core::Interface>::IID || iid == &<IXpsOMPart as ::windows_core::Interface>::IID || iid == &<IXpsOMResource as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMFontResourceCollection_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<u32>;
@@ -1724,7 +1713,6 @@ impl IXpsOMGeometryFigureCollection_Vtbl {
         iid == &<IXpsOMGeometryFigureCollection as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXpsOMGlyphs_Impl: Sized + IXpsOMVisual_Impl {
     fn GetUnicodeString(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -2544,7 +2532,6 @@ impl IXpsOMImageBrush_Vtbl {
         iid == &<IXpsOMImageBrush as ::windows_core::Interface>::IID || iid == &<IXpsOMShareable as ::windows_core::Interface>::IID || iid == &<IXpsOMBrush as ::windows_core::Interface>::IID || iid == &<IXpsOMTileBrush as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMImageResource_Impl: Sized + IXpsOMResource_Impl {
     fn GetStream(&self) -> ::windows_core::Result<super::super::System::Com::IStream>;
@@ -2594,7 +2581,6 @@ impl IXpsOMImageResource_Vtbl {
         iid == &<IXpsOMImageResource as ::windows_core::Interface>::IID || iid == &<IXpsOMPart as ::windows_core::Interface>::IID || iid == &<IXpsOMResource as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMImageResourceCollection_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<u32>;
@@ -2829,7 +2815,6 @@ impl IXpsOMNameCollection_Vtbl {
         iid == &<IXpsOMNameCollection as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMObjectFactory_Impl: Sized {
     fn CreatePackage(&self) -> ::windows_core::Result<IXpsOMPackage>;
@@ -3338,7 +3323,6 @@ impl IXpsOMObjectFactory_Vtbl {
         iid == &<IXpsOMObjectFactory as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMObjectFactory1_Impl: Sized + IXpsOMObjectFactory_Impl {
     fn GetDocumentTypeFromFile(&self, filename: &::windows_core::PCWSTR) -> ::windows_core::Result<XPS_DOCUMENT_TYPE>;
@@ -3511,7 +3495,6 @@ impl IXpsOMObjectFactory1_Vtbl {
         iid == &<IXpsOMObjectFactory1 as ::windows_core::Interface>::IID || iid == &<IXpsOMObjectFactory as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPackage_Impl: Sized {
     fn GetDocumentSequence(&self) -> ::windows_core::Result<IXpsOMDocumentSequence>;
@@ -3622,7 +3605,6 @@ impl IXpsOMPackage_Vtbl {
         iid == &<IXpsOMPackage as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Security\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPackage1_Impl: Sized + IXpsOMPackage_Impl {
     fn GetDocumentType(&self) -> ::windows_core::Result<XPS_DOCUMENT_TYPE>;
@@ -3666,7 +3648,6 @@ impl IXpsOMPackage1_Vtbl {
         iid == &<IXpsOMPackage1 as ::windows_core::Interface>::IID || iid == &<IXpsOMPackage as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPackageTarget_Impl: Sized {
     fn CreateXpsOMPackageWriter(&self, documentsequencepartname: ::core::option::Option<&super::Packaging::Opc::IOpcPartUri>, documentsequenceprintticket: ::core::option::Option<&IXpsOMPrintTicketResource>, discardcontrolpartname: ::core::option::Option<&super::Packaging::Opc::IOpcPartUri>) -> ::windows_core::Result<IXpsOMPackageWriter>;
@@ -3693,7 +3674,6 @@ impl IXpsOMPackageTarget_Vtbl {
         iid == &<IXpsOMPackageTarget as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPackageWriter_Impl: Sized {
     fn StartNewDocument(&self, documentpartname: ::core::option::Option<&super::Packaging::Opc::IOpcPartUri>, documentprintticket: ::core::option::Option<&IXpsOMPrintTicketResource>, documentstructure: ::core::option::Option<&IXpsOMDocumentStructureResource>, signatureblockresources: ::core::option::Option<&IXpsOMSignatureBlockResourceCollection>, restrictedfonts: ::core::option::Option<&IXpsOMPartUriCollection>) -> ::windows_core::Result<()>;
@@ -3751,7 +3731,6 @@ impl IXpsOMPackageWriter_Vtbl {
         iid == &<IXpsOMPackageWriter as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPackageWriter3D_Impl: Sized + IXpsOMPackageWriter_Impl {
     fn AddModelTexture(&self, texturepartname: ::core::option::Option<&super::Packaging::Opc::IOpcPartUri>, texturedata: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows_core::Result<()>;
@@ -3782,7 +3761,6 @@ impl IXpsOMPackageWriter3D_Vtbl {
         iid == &<IXpsOMPackageWriter3D as ::windows_core::Interface>::IID || iid == &<IXpsOMPackageWriter as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPage_Impl: Sized + IXpsOMPart_Impl {
     fn GetOwner(&self) -> ::windows_core::Result<IXpsOMPageReference>;
@@ -4031,7 +4009,6 @@ impl IXpsOMPage_Vtbl {
         iid == &<IXpsOMPage as ::windows_core::Interface>::IID || iid == &<IXpsOMPart as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPage1_Impl: Sized + IXpsOMPage_Impl {
     fn GetDocumentType(&self) -> ::windows_core::Result<XPS_DOCUMENT_TYPE>;
@@ -4333,7 +4310,6 @@ impl IXpsOMPageReferenceCollection_Vtbl {
         iid == &<IXpsOMPageReferenceCollection as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPart_Impl: Sized {
     fn GetPartName(&self) -> ::windows_core::Result<super::Packaging::Opc::IOpcPartUri>;
@@ -4435,7 +4411,6 @@ impl IXpsOMPartResources_Vtbl {
         iid == &<IXpsOMPartResources as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPartUriCollection_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<u32>;
@@ -4506,7 +4481,6 @@ impl IXpsOMPartUriCollection_Vtbl {
         iid == &<IXpsOMPartUriCollection as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXpsOMPath_Impl: Sized + IXpsOMVisual_Impl {
     fn GetGeometry(&self) -> ::windows_core::Result<IXpsOMGeometry>;
@@ -4908,7 +4882,6 @@ impl IXpsOMPath_Vtbl {
         iid == &<IXpsOMPath as ::windows_core::Interface>::IID || iid == &<IXpsOMShareable as ::windows_core::Interface>::IID || iid == &<IXpsOMVisual as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMPrintTicketResource_Impl: Sized + IXpsOMResource_Impl {
     fn GetStream(&self) -> ::windows_core::Result<super::super::System::Com::IStream>;
@@ -5031,7 +5004,6 @@ impl IXpsOMRadialGradientBrush_Vtbl {
         iid == &<IXpsOMRadialGradientBrush as ::windows_core::Interface>::IID || iid == &<IXpsOMShareable as ::windows_core::Interface>::IID || iid == &<IXpsOMBrush as ::windows_core::Interface>::IID || iid == &<IXpsOMGradientBrush as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMRemoteDictionaryResource_Impl: Sized + IXpsOMResource_Impl {
     fn GetDictionary(&self) -> ::windows_core::Result<IXpsOMDictionary>;
@@ -5068,7 +5040,6 @@ impl IXpsOMRemoteDictionaryResource_Vtbl {
         iid == &<IXpsOMRemoteDictionaryResource as ::windows_core::Interface>::IID || iid == &<IXpsOMPart as ::windows_core::Interface>::IID || iid == &<IXpsOMResource as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMRemoteDictionaryResource1_Impl: Sized + IXpsOMRemoteDictionaryResource_Impl {
     fn GetDocumentType(&self) -> ::windows_core::Result<XPS_DOCUMENT_TYPE>;
@@ -5105,7 +5076,6 @@ impl IXpsOMRemoteDictionaryResource1_Vtbl {
         iid == &<IXpsOMRemoteDictionaryResource1 as ::windows_core::Interface>::IID || iid == &<IXpsOMPart as ::windows_core::Interface>::IID || iid == &<IXpsOMResource as ::windows_core::Interface>::IID || iid == &<IXpsOMRemoteDictionaryResource as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMRemoteDictionaryResourceCollection_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<u32>;
@@ -5189,7 +5159,6 @@ impl IXpsOMRemoteDictionaryResourceCollection_Vtbl {
         iid == &<IXpsOMRemoteDictionaryResourceCollection as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMResource_Impl: Sized + IXpsOMPart_Impl {}
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
@@ -5242,7 +5211,6 @@ impl IXpsOMShareable_Vtbl {
         iid == &<IXpsOMShareable as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMSignatureBlockResource_Impl: Sized + IXpsOMResource_Impl {
     fn GetOwner(&self) -> ::windows_core::Result<IXpsOMDocument>;
@@ -5292,7 +5260,6 @@ impl IXpsOMSignatureBlockResource_Vtbl {
         iid == &<IXpsOMSignatureBlockResource as ::windows_core::Interface>::IID || iid == &<IXpsOMPart as ::windows_core::Interface>::IID || iid == &<IXpsOMResource as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMSignatureBlockResourceCollection_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<u32>;
@@ -5422,7 +5389,6 @@ impl IXpsOMSolidColorBrush_Vtbl {
         iid == &<IXpsOMSolidColorBrush as ::windows_core::Interface>::IID || iid == &<IXpsOMShareable as ::windows_core::Interface>::IID || iid == &<IXpsOMBrush as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMStoryFragmentsResource_Impl: Sized + IXpsOMResource_Impl {
     fn GetOwner(&self) -> ::windows_core::Result<IXpsOMPageReference>;
@@ -5472,7 +5438,6 @@ impl IXpsOMStoryFragmentsResource_Vtbl {
         iid == &<IXpsOMStoryFragmentsResource as ::windows_core::Interface>::IID || iid == &<IXpsOMPart as ::windows_core::Interface>::IID || iid == &<IXpsOMResource as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsOMThumbnailGenerator_Impl: Sized {
     fn GenerateThumbnail(&self, page: ::core::option::Option<&IXpsOMPage>, thumbnailtype: XPS_IMAGE_TYPE, thumbnailsize: XPS_THUMBNAIL_SIZE, imageresourcepartname: ::core::option::Option<&super::Packaging::Opc::IOpcPartUri>) -> ::windows_core::Result<IXpsOMImageResource>;
@@ -5625,7 +5590,6 @@ impl IXpsOMTileBrush_Vtbl {
         iid == &<IXpsOMTileBrush as ::windows_core::Interface>::IID || iid == &<IXpsOMShareable as ::windows_core::Interface>::IID || iid == &<IXpsOMBrush as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXpsOMVisual_Impl: Sized + IXpsOMShareable_Impl {
     fn GetTransform(&self) -> ::windows_core::Result<IXpsOMMatrixTransform>;
@@ -6047,7 +6011,6 @@ impl IXpsOMVisualCollection_Vtbl {
         iid == &<IXpsOMVisualCollection as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsSignature_Impl: Sized {
     fn GetSignatureId(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -6202,7 +6165,6 @@ impl IXpsSignature_Vtbl {
         iid == &<IXpsSignature as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsSignatureBlock_Impl: Sized {
     fn GetRequests(&self) -> ::windows_core::Result<IXpsSignatureRequestCollection>;
@@ -6376,7 +6338,6 @@ impl IXpsSignatureCollection_Vtbl {
         iid == &<IXpsSignatureCollection as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Security_Cryptography", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsSignatureManager_Impl: Sized {
     fn LoadPackageFile(&self, filename: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -6506,7 +6467,6 @@ impl IXpsSignatureManager_Vtbl {
         iid == &<IXpsSignatureManager as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsSignatureRequest_Impl: Sized {
     fn GetIntent(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -6689,7 +6649,6 @@ impl IXpsSignatureRequestCollection_Vtbl {
         iid == &<IXpsSignatureRequestCollection as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
 pub trait IXpsSigningOptions_Impl: Sized {
     fn GetSignatureId(&self) -> ::windows_core::Result<::windows_core::PWSTR>;

@@ -33,7 +33,6 @@ impl ICoreApplicationUnhandledError_Vtbl {
         iid == &<ICoreApplicationUnhandledError as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"UI_Core\"`"]
 #[cfg(feature = "UI_Core")]
 pub trait IFrameworkView_Impl: Sized {
     fn Initialize(&self, applicationview: ::core::option::Option<&CoreApplicationView>) -> ::windows_core::Result<()>;

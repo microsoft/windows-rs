@@ -248,7 +248,6 @@ pub struct IVariablePhotoSequenceController_Vtbl {
 pub struct CameraIntrinsics(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(CameraIntrinsics, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl CameraIntrinsics {
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn FocalLength(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -257,7 +256,6 @@ impl CameraIntrinsics {
             (::windows_core::Interface::vtable(this).FocalLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn PrincipalPoint(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -266,7 +264,6 @@ impl CameraIntrinsics {
             (::windows_core::Interface::vtable(this).PrincipalPoint)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RadialDistortion(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -275,7 +272,6 @@ impl CameraIntrinsics {
             (::windows_core::Interface::vtable(this).RadialDistortion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TangentialDistortion(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -298,7 +294,6 @@ impl CameraIntrinsics {
             (::windows_core::Interface::vtable(this).ImageHeight)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn ProjectOntoFrame(&self, coordinate: super::super::super::Foundation::Numerics::Vector3) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -307,7 +302,6 @@ impl CameraIntrinsics {
             (::windows_core::Interface::vtable(this).ProjectOntoFrame)(::windows_core::Interface::as_raw(this), coordinate, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn UnprojectAtUnitDepth(&self, pixelcoordinate: super::super::super::Foundation::Point) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -316,19 +310,16 @@ impl CameraIntrinsics {
             (::windows_core::Interface::vtable(this).UnprojectAtUnitDepth)(::windows_core::Interface::as_raw(this), pixelcoordinate, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn ProjectManyOntoFrame(&self, coordinates: &[super::super::super::Foundation::Numerics::Vector3], results: &mut [super::super::super::Foundation::Point]) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).ProjectManyOntoFrame)(::windows_core::Interface::as_raw(this), coordinates.len().try_into().unwrap(), coordinates.as_ptr(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn UnprojectPixelsAtUnitDepth(&self, pixelcoordinates: &[super::super::super::Foundation::Point], results: &mut [super::super::super::Foundation::Numerics::Vector2]) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).UnprojectPixelsAtUnitDepth)(::windows_core::Interface::as_raw(this), pixelcoordinates.len().try_into().unwrap(), pixelcoordinates.as_ptr(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn UndistortedProjectionTransform(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Matrix4x4> {
         let this = &::windows_core::Interface::cast::<ICameraIntrinsics2>(self)?;
@@ -359,7 +350,6 @@ impl CameraIntrinsics {
         let this = &::windows_core::Interface::cast::<ICameraIntrinsics2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).UndistortPoints)(::windows_core::Interface::as_raw(this), inputs.len().try_into().unwrap(), inputs.as_ptr(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Create(focallength: super::super::super::Foundation::Numerics::Vector2, principalpoint: super::super::super::Foundation::Numerics::Vector2, radialdistortion: super::super::super::Foundation::Numerics::Vector3, tangentialdistortion: super::super::super::Foundation::Numerics::Vector2, imagewidth: u32, imageheight: u32) -> ::windows_core::Result<CameraIntrinsics> {
         Self::ICameraIntrinsicsFactory(|this| unsafe {
@@ -395,7 +385,6 @@ impl DepthCorrelatedCoordinateMapper {
         let this = &::windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn UnprojectPoint<P0>(&self, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: P0) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector3>
     where
@@ -407,7 +396,6 @@ impl DepthCorrelatedCoordinateMapper {
             (::windows_core::Interface::vtable(this).UnprojectPoint)(::windows_core::Interface::as_raw(this), sourcepoint, targetcoordinatesystem.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn UnprojectPoints<P0>(&self, sourcepoints: &[super::super::super::Foundation::Point], targetcoordinatesystem: P0, results: &mut [super::super::super::Foundation::Numerics::Vector3]) -> ::windows_core::Result<()>
     where
@@ -416,7 +404,6 @@ impl DepthCorrelatedCoordinateMapper {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).UnprojectPoints)(::windows_core::Interface::as_raw(this), sourcepoints.len().try_into().unwrap(), sourcepoints.as_ptr(), targetcoordinatesystem.into_param().abi(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
     }
-    #[doc = "Required features: `\"Perception_Spatial\"`"]
     #[cfg(feature = "Perception_Spatial")]
     pub fn MapPoint<P0, P1>(&self, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: P0, targetcameraintrinsics: P1) -> ::windows_core::Result<super::super::super::Foundation::Point>
     where
@@ -429,7 +416,6 @@ impl DepthCorrelatedCoordinateMapper {
             (::windows_core::Interface::vtable(this).MapPoint)(::windows_core::Interface::as_raw(this), sourcepoint, targetcoordinatesystem.into_param().abi(), targetcameraintrinsics.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Perception_Spatial\"`"]
     #[cfg(feature = "Perception_Spatial")]
     pub fn MapPoints<P0, P1>(&self, sourcepoints: &[super::super::super::Foundation::Point], targetcoordinatesystem: P0, targetcameraintrinsics: P1, results: &mut [super::super::super::Foundation::Point]) -> ::windows_core::Result<()>
     where
@@ -1029,7 +1015,6 @@ impl VariablePhotoSequenceController {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPhotosPerSecondLimit)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Media_MediaProperties\"`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetHighestConcurrentFrameRate<P0>(&self, captureproperties: P0) -> ::windows_core::Result<super::super::MediaProperties::MediaRatio>
     where
@@ -1041,7 +1026,6 @@ impl VariablePhotoSequenceController {
             (::windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(::windows_core::Interface::as_raw(this), captureproperties.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Media_MediaProperties\"`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetCurrentFrameRate(&self) -> ::windows_core::Result<super::super::MediaProperties::MediaRatio> {
         let this = self;
@@ -1057,7 +1041,6 @@ impl VariablePhotoSequenceController {
             (::windows_core::Interface::vtable(this).FrameCapabilities)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DesiredFrameControllers(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<FrameController>> {
         let this = self;

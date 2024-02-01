@@ -21,7 +21,6 @@ where
     ::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateDNSIncident(hostname : ::windows_core::PCWSTR, querytype : u16, handle : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     NdfCreateDNSIncident(hostname.into_param().abi(), querytype, handle).ok()
 }
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
 pub unsafe fn NdfCreateGroupingIncident<P0, P1, P2, P3, P4>(cloudname: P0, groupname: P1, identity: P2, invitation: P3, addresses: ::core::option::Option<*const super::super::Networking::WinSock::SOCKET_ADDRESS_LIST>, appid: P4, handle: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -85,7 +84,6 @@ where
     ::windows_targets::link!("ndfapi.dll" "system" fn NdfCreateWebIncidentEx(url : ::windows_core::PCWSTR, usewinhttp : super::super::Foundation:: BOOL, modulename : ::windows_core::PCWSTR, handle : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     NdfCreateWebIncidentEx(url.into_param().abi(), usewinhttp.into_param().abi(), modulename.into_param().abi(), handle).ok()
 }
-#[doc = "Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Security\"`"]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NdfCreateWinSockIncident<P0, P1, P2>(sock: P0, host: P1, port: u16, appid: P2, userid: ::core::option::Option<*const super::super::Security::SID>, handle: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>

@@ -1542,7 +1542,6 @@ impl ITransactionDispenser_Vtbl {
         iid == &<ITransactionDispenser as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITransactionEnlistmentAsync_Impl: Sized {
     fn PrepareRequestDone(&self, hr: ::windows_core::HRESULT, pmk: ::core::option::Option<&super::Com::IMoniker>, pboidreason: *const BOID) -> ::windows_core::Result<()>;

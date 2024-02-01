@@ -1,29 +1,20 @@
 #[cfg(feature = "Networking_BackgroundTransfer")]
-#[doc = "Required features: `\"Networking_BackgroundTransfer\"`"]
 pub mod BackgroundTransfer;
 #[cfg(feature = "Networking_Connectivity")]
-#[doc = "Required features: `\"Networking_Connectivity\"`"]
 pub mod Connectivity;
 #[cfg(feature = "Networking_NetworkOperators")]
-#[doc = "Required features: `\"Networking_NetworkOperators\"`"]
 pub mod NetworkOperators;
 #[cfg(feature = "Networking_Proximity")]
-#[doc = "Required features: `\"Networking_Proximity\"`"]
 pub mod Proximity;
 #[cfg(feature = "Networking_PushNotifications")]
-#[doc = "Required features: `\"Networking_PushNotifications\"`"]
 pub mod PushNotifications;
 #[cfg(feature = "Networking_ServiceDiscovery")]
-#[doc = "Required features: `\"Networking_ServiceDiscovery\"`"]
 pub mod ServiceDiscovery;
 #[cfg(feature = "Networking_Sockets")]
-#[doc = "Required features: `\"Networking_Sockets\"`"]
 pub mod Sockets;
 #[cfg(feature = "Networking_Vpn")]
-#[doc = "Required features: `\"Networking_Vpn\"`"]
 pub mod Vpn;
 #[cfg(feature = "Networking_XboxLive")]
-#[doc = "Required features: `\"Networking_XboxLive\"`"]
 pub mod XboxLive;
 ::windows_core::imp::com_interface!(IEndpointPair, IEndpointPair_Vtbl, 0x33a0aa36_f8fa_4b30_b856_76517c3bd06d);
 #[repr(C)]
@@ -164,7 +155,6 @@ pub struct HostName(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(HostName, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(HostName, super::Foundation::IStringable);
 impl HostName {
-    #[doc = "Required features: `\"Networking_Connectivity\"`"]
     #[cfg(feature = "Networking_Connectivity")]
     pub fn IPInformation(&self) -> ::windows_core::Result<Connectivity::IPInformation> {
         let this = self;

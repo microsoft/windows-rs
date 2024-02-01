@@ -402,7 +402,6 @@ impl IMetaDataDispenser_Vtbl {
         iid == &<IMetaDataDispenser as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMetaDataDispenserEx_Impl: Sized + IMetaDataDispenser_Impl {
     fn SetOption(&self, optionid: *const ::windows_core::GUID, value: *const ::windows_core::VARIANT) -> ::windows_core::Result<()>;
@@ -467,7 +466,6 @@ impl IMetaDataDispenserEx_Vtbl {
         iid == &<IMetaDataDispenserEx as ::windows_core::Interface>::IID || iid == &<IMetaDataDispenser as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMetaDataEmit_Impl: Sized {
     fn SetModuleProps(&self, szname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -841,7 +839,6 @@ impl IMetaDataEmit_Vtbl {
         iid == &<IMetaDataEmit as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMetaDataEmit2_Impl: Sized + IMetaDataEmit_Impl {
     fn DefineMethodSpec(&self, tkparent: u32, pvsigblob: *mut u8, cbsigblob: u32, pmi: *mut u32) -> ::windows_core::Result<()>;

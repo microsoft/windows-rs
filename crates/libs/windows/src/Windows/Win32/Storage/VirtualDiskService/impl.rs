@@ -1830,7 +1830,6 @@ impl IVdsMaintenance_Vtbl {
         iid == &<IVdsMaintenance as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
 #[cfg(feature = "Win32_Storage_Vhd")]
 pub trait IVdsOpenVDisk_Impl: Sized {
     fn Attach(&self, pstringsecuritydescriptor: &::windows_core::PCWSTR, flags: super::Vhd::ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, timeoutinms: u32) -> ::windows_core::Result<IVdsAsync>;
@@ -2998,7 +2997,6 @@ impl IVdsSwProvider_Vtbl {
         iid == &<IVdsSwProvider as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
 #[cfg(feature = "Win32_Storage_Vhd")]
 pub trait IVdsVDisk_Impl: Sized {
     fn Open(&self, accessmask: super::Vhd::VIRTUAL_DISK_ACCESS_MASK, flags: super::Vhd::OPEN_VIRTUAL_DISK_FLAG, readwritedepth: u32) -> ::windows_core::Result<IVdsOpenVDisk>;
@@ -3061,7 +3059,6 @@ impl IVdsVDisk_Vtbl {
         iid == &<IVdsVDisk as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
 #[cfg(feature = "Win32_Storage_Vhd")]
 pub trait IVdsVdProvider_Impl: Sized {
     fn QueryVDisks(&self) -> ::windows_core::Result<IEnumVdsObject>;

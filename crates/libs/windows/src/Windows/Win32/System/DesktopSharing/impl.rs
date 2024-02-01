@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPIApplication_Impl: Sized + super::Com::IDispatch_Impl {
     fn Windows(&self) -> ::windows_core::Result<IRDPSRAPIWindowList>;
@@ -87,7 +86,6 @@ impl IRDPSRAPIApplication_Vtbl {
         iid == &<IRDPSRAPIApplication as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPIApplicationFilter_Impl: Sized + super::Com::IDispatch_Impl {
     fn Applications(&self) -> ::windows_core::Result<IRDPSRAPIApplicationList>;
@@ -150,7 +148,6 @@ impl IRDPSRAPIApplicationFilter_Vtbl {
         iid == &<IRDPSRAPIApplicationFilter as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPIApplicationList_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -193,7 +190,6 @@ impl IRDPSRAPIApplicationList_Vtbl {
         iid == &<IRDPSRAPIApplicationList as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPIAttendee_Impl: Sized + super::Com::IDispatch_Impl {
     fn Id(&self) -> ::windows_core::Result<i32>;
@@ -302,7 +298,6 @@ impl IRDPSRAPIAttendee_Vtbl {
         iid == &<IRDPSRAPIAttendee as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPIAttendeeDisconnectInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn Attendee(&self) -> ::windows_core::Result<IRDPSRAPIAttendee>;
@@ -358,7 +353,6 @@ impl IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
         iid == &<IRDPSRAPIAttendeeDisconnectInfo as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPIAttendeeManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -455,7 +449,6 @@ impl IRDPSRAPIAudioStream_Vtbl {
         iid == &<IRDPSRAPIAudioStream as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPIClipboardUseEvents_Impl: Sized {
     fn OnPasteFromClipboard(&self, clipboardformat: u32, pattendee: ::core::option::Option<&super::Com::IDispatch>) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -515,7 +508,6 @@ impl IRDPSRAPIDebug_Vtbl {
         iid == &<IRDPSRAPIDebug as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPIFrameBuffer_Impl: Sized + super::Com::IDispatch_Impl {
     fn Width(&self) -> ::windows_core::Result<i32>;
@@ -584,7 +576,6 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
         iid == &<IRDPSRAPIFrameBuffer as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPIInvitation_Impl: Sized + super::Com::IDispatch_Impl {
     fn ConnectionString(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -680,7 +671,6 @@ impl IRDPSRAPIInvitation_Vtbl {
         iid == &<IRDPSRAPIInvitation as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPIInvitationManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -789,7 +779,6 @@ impl IRDPSRAPIPerfCounterLoggingManager_Vtbl {
         iid == &<IRDPSRAPIPerfCounterLoggingManager as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPISessionProperties_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Property(&self, propertyname: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -826,7 +815,6 @@ impl IRDPSRAPISessionProperties_Vtbl {
         iid == &<IRDPSRAPISessionProperties as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPISharingSession_Impl: Sized + super::Com::IDispatch_Impl {
     fn Open(&self) -> ::windows_core::Result<()>;
@@ -977,7 +965,6 @@ impl IRDPSRAPISharingSession_Vtbl {
         iid == &<IRDPSRAPISharingSession as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPISharingSession2_Impl: Sized + IRDPSRAPISharingSession_Impl {
     fn ConnectUsingTransportStream(&self, pstream: ::core::option::Option<&IRDPSRAPITransportStream>, bstrgroup: &::windows_core::BSTR, bstrauthenticatedattendeename: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -1021,7 +1008,6 @@ impl IRDPSRAPISharingSession2_Vtbl {
         iid == &<IRDPSRAPISharingSession2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IRDPSRAPISharingSession as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPITcpConnectionInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn Protocol(&self) -> ::windows_core::Result<i32>;
@@ -1317,7 +1303,6 @@ impl IRDPSRAPITransportStreamEvents_Vtbl {
         iid == &<IRDPSRAPITransportStreamEvents as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPIViewer_Impl: Sized + super::Com::IDispatch_Impl {
     fn Connect(&self, bstrconnectionstring: &::windows_core::BSTR, bstrname: &::windows_core::BSTR, bstrpassword: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -1480,7 +1465,6 @@ impl IRDPSRAPIViewer_Vtbl {
         iid == &<IRDPSRAPIViewer as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPIVirtualChannel_Impl: Sized + super::Com::IDispatch_Impl {
     fn SendData(&self, bstrdata: &::windows_core::BSTR, lattendeeid: i32, channelsendflags: u32) -> ::windows_core::Result<()>;
@@ -1550,7 +1534,6 @@ impl IRDPSRAPIVirtualChannel_Vtbl {
         iid == &<IRDPSRAPIVirtualChannel as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPIVirtualChannelManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -1606,7 +1589,6 @@ impl IRDPSRAPIVirtualChannelManager_Vtbl {
         iid == &<IRDPSRAPIVirtualChannelManager as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPIWindow_Impl: Sized + super::Com::IDispatch_Impl {
     fn Id(&self) -> ::windows_core::Result<i32>;
@@ -1702,7 +1684,6 @@ impl IRDPSRAPIWindow_Vtbl {
         iid == &<IRDPSRAPIWindow as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPIWindowList_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -1814,7 +1795,6 @@ impl IRDPViewerInputSink_Vtbl {
         iid == &<IRDPViewerInputSink as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait _IRDPSessionEvents_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(feature = "Win32_System_Com")]

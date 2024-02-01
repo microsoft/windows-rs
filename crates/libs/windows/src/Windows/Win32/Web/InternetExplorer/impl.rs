@@ -93,7 +93,6 @@ impl IActiveXUIHandlerSite3_Vtbl {
         iid == &<IActiveXUIHandlerSite3 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAnchorClick_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ProcOnClick(&self) -> ::windows_core::Result<()>;
@@ -171,7 +170,6 @@ impl ICaretPositionProvider_Vtbl {
         iid == &<ICaretPositionProvider as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDeviceRect_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -185,7 +183,6 @@ impl IDeviceRect_Vtbl {
         iid == &<IDeviceRect as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDithererImpl_Impl: Sized {
     fn SetDestColorTable(&self, ncolors: u32, prgbcolors: *const super::super::Graphics::Gdi::RGBQUAD) -> ::windows_core::Result<()>;
@@ -216,7 +213,6 @@ impl IDithererImpl_Vtbl {
         iid == &<IDithererImpl as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
 pub trait IDocObjectService_Impl: Sized {
     fn FireBeforeNavigate2(&self, pdispatch: ::core::option::Option<&super::super::System::Com::IDispatch>, lpszurl: &::windows_core::PCWSTR, dwflags: u32, lpszframename: &::windows_core::PCWSTR, ppostdata: *const u8, cbpostdata: u32, lpszheaders: &::windows_core::PCWSTR, fplaynavsound: super::super::Foundation::BOOL) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -327,7 +323,6 @@ impl IDocObjectService_Vtbl {
         iid == &<IDocObjectService as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDownloadBehavior_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn startDownload(&self, bstrurl: &::windows_core::BSTR, pdispcallback: ::core::option::Option<&super::super::System::Com::IDispatch>) -> ::windows_core::Result<()>;
@@ -348,7 +343,6 @@ impl IDownloadBehavior_Vtbl {
         iid == &<IDownloadBehavior as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IDownloadManager_Impl: Sized {
     fn Download(&self, pmk: ::core::option::Option<&super::super::System::Com::IMoniker>, pbc: ::core::option::Option<&super::super::System::Com::IBindCtx>, dwbindverb: u32, grfbindf: i32, pbindinfo: *const super::super::System::Com::BINDINFO, pszheaders: &::windows_core::PCWSTR, pszredir: &::windows_core::PCWSTR, uicp: u32) -> ::windows_core::Result<()>;
@@ -577,7 +571,6 @@ impl IEnumSTATURL_Vtbl {
         iid == &<IEnumSTATURL as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_Web_MsHtml\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_Web_MsHtml"))]
 pub trait IExtensionValidation_Impl: Sized {
     fn Validate(&self, extensionguid: *const ::windows_core::GUID, extensionmodulepath: &::windows_core::PCWSTR, extensionfileversionms: u32, extensionfileversionls: u32, htmldocumenttop: ::core::option::Option<&super::MsHtml::IHTMLDocument2>, htmldocumentsubframe: ::core::option::Option<&super::MsHtml::IHTMLDocument2>, htmlelement: ::core::option::Option<&super::MsHtml::IHTMLElement>, contexts: ExtensionValidationContexts) -> ::windows_core::Result<ExtensionValidationResults>;
@@ -672,7 +665,6 @@ impl IHTMLPersistData_Vtbl {
         iid == &<IHTMLPersistData as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IHTMLPersistDataOM_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn XMLDocument(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
@@ -729,7 +721,6 @@ impl IHTMLPersistDataOM_Vtbl {
         iid == &<IHTMLPersistDataOM as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IHTMLUserDataOM_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn XMLDocument(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
@@ -820,7 +811,6 @@ impl IHTMLUserDataOM_Vtbl {
         iid == &<IHTMLUserDataOM as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IHeaderFooter_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn htmlHead(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1063,7 +1053,6 @@ impl IHeaderFooter_Vtbl {
         iid == &<IHeaderFooter as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IHeaderFooter2_Impl: Sized + IHeaderFooter_Impl {
     fn Setfont(&self, v: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -1096,7 +1085,6 @@ impl IHeaderFooter2_Vtbl {
         iid == &<IHeaderFooter2 as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IHeaderFooter as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IHomePage_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn navigateHomePage(&self) -> ::windows_core::Result<()>;
@@ -1180,7 +1168,6 @@ impl IHomePageSetting_Vtbl {
         iid == &<IHomePageSetting as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IIEWebDriverManager_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ExecuteCommand(&self, command: &::windows_core::PCWSTR) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -1207,7 +1194,6 @@ impl IIEWebDriverManager_Vtbl {
         iid == &<IIEWebDriverManager as ::windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IIEWebDriverSite_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn WindowOperation(&self, operationcode: u32, hwnd: u32) -> ::windows_core::Result<()>;
@@ -1335,7 +1321,6 @@ impl IImageDecodeEventSink2_Vtbl {
         iid == &<IImageDecodeEventSink2 as ::windows_core::Interface>::IID || iid == &<IImageDecodeEventSink as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IImageDecodeFilter_Impl: Sized {
     fn Initialize(&self, peventsink: ::core::option::Option<&IImageDecodeEventSink>) -> ::windows_core::Result<()>;
@@ -1373,7 +1358,6 @@ impl IImageDecodeFilter_Vtbl {
         iid == &<IImageDecodeFilter as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IIntelliForms_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn enabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -1450,7 +1434,6 @@ impl IInternetExplorerManager2_Vtbl {
         iid == &<IInternetExplorerManager2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ILayoutRect_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetnextRect(&self, bstrelementid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -1687,7 +1670,6 @@ impl IOpenService_Vtbl {
         iid == &<IOpenService as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait IOpenServiceActivity_Impl: Sized + IOpenService_Impl {
     fn Execute(&self, pinput: ::core::option::Option<&IOpenServiceActivityInput>, poutput: ::core::option::Option<&IOpenServiceActivityOutputContext>) -> ::windows_core::Result<()>;
@@ -2109,7 +2091,6 @@ impl IOpenServiceActivityManager_Vtbl {
         iid == &<IOpenServiceActivityManager as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IOpenServiceActivityOutputContext_Impl: Sized {
     fn Navigate(&self, pwzuri: &::windows_core::PCWSTR, pwzmethod: &::windows_core::PCWSTR, pwzheaders: &::windows_core::PCWSTR, ppostdata: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows_core::Result<()>;
@@ -2202,7 +2183,6 @@ impl IPeerFactory_Vtbl {
         iid == &<IPeerFactory as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPersistHistory_Impl: Sized + super::super::System::Com::IPersist_Impl {
     fn LoadHistory(&self, pstream: ::core::option::Option<&super::super::System::Com::IStream>, pbc: ::core::option::Option<&super::super::System::Com::IBindCtx>) -> ::windows_core::Result<()>;
@@ -2347,7 +2327,6 @@ impl IScrollableContextMenu2_Vtbl {
         iid == &<IScrollableContextMenu2 as ::windows_core::Interface>::IID || iid == &<IScrollableContextMenu as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISniffStream_Impl: Sized {
     fn Init(&self, pstream: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows_core::Result<()>;
@@ -2401,7 +2380,6 @@ impl ISurfacePresenterFlip_Vtbl {
         iid == &<ISurfacePresenterFlip as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ISurfacePresenterFlip2_Impl: Sized {
     fn SetRotation(&self, dxgirotation: super::super::Graphics::Dxgi::Common::DXGI_MODE_ROTATION) -> ::windows_core::Result<()>;
@@ -2449,7 +2427,6 @@ impl ISurfacePresenterFlipBuffer_Vtbl {
         iid == &<ISurfacePresenterFlipBuffer as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Ole\"`"]
 #[cfg(feature = "Win32_System_Ole")]
 pub trait ITargetContainer_Impl: Sized {
     fn GetFrameUrl(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -2515,7 +2492,6 @@ impl ITargetEmbedding_Vtbl {
         iid == &<ITargetEmbedding as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Ole\"`"]
 #[cfg(feature = "Win32_System_Ole")]
 pub trait ITargetFrame_Impl: Sized {
     fn SetFrameName(&self, pszframename: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -2666,7 +2642,6 @@ impl ITargetFrame_Vtbl {
         iid == &<ITargetFrame as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Ole\"`"]
 #[cfg(feature = "Win32_System_Ole")]
 pub trait ITargetFrame2_Impl: Sized {
     fn SetFrameName(&self, pszframename: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -2809,7 +2784,6 @@ impl ITargetFrame2_Vtbl {
         iid == &<ITargetFrame2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITargetFramePriv_Impl: Sized {
     fn FindFrameDownwards(&self, psztargetname: &::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -2886,7 +2860,6 @@ impl ITargetFramePriv_Vtbl {
         iid == &<ITargetFramePriv as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITargetFramePriv2_Impl: Sized + ITargetFramePriv_Impl {
     fn AggregatedNavigation2(&self, grfhlnf: u32, pbc: ::core::option::Option<&super::super::System::Com::IBindCtx>, pibsc: ::core::option::Option<&super::super::System::Com::IBindStatusCallback>, psztargetname: &::windows_core::PCWSTR, puri: ::core::option::Option<&super::super::System::Com::IUri>, pszlocation: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -3107,7 +3080,6 @@ impl ITridentTouchInput_Vtbl {
         iid == &<ITridentTouchInput as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Web_MsHtml\"`"]
 #[cfg(feature = "Win32_Web_MsHtml")]
 pub trait ITridentTouchInputSite_Impl: Sized {
     fn SetManipulationMode(&self, mstouchaction: super::MsHtml::styleMsTouchAction) -> ::windows_core::Result<()>;
@@ -3138,7 +3110,6 @@ impl ITridentTouchInputSite_Vtbl {
         iid == &<ITridentTouchInputSite as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Ole\"`"]
 #[cfg(feature = "Win32_System_Ole")]
 pub trait IUrlHistoryNotify_Impl: Sized + super::super::System::Ole::IOleCommandTarget_Impl {}
 #[cfg(feature = "Win32_System_Ole")]
@@ -3206,7 +3177,6 @@ impl IUrlHistoryStg_Vtbl {
         iid == &<IUrlHistoryStg as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Ole\"`"]
 #[cfg(feature = "Win32_System_Ole")]
 pub trait IUrlHistoryStg2_Impl: Sized + IUrlHistoryStg_Impl {
     fn AddUrlAndNotify(&self, pocsurl: &::windows_core::PCWSTR, pocstitle: &::windows_core::PCWSTR, dwflags: u32, fwritehistory: super::super::Foundation::BOOL, poctnotify: ::core::option::Option<&super::super::System::Ole::IOleCommandTarget>, punkisfolder: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -3288,7 +3258,6 @@ impl IViewObjectPresentFlip2_Vtbl {
         iid == &<IViewObjectPresentFlip2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Web_MsHtml\"`"]
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Web_MsHtml"))]
 pub trait IViewObjectPresentFlipSite_Impl: Sized {
     fn CreateSurfacePresenterFlip(&self, pdevice: ::core::option::Option<&::windows_core::IUnknown>, width: u32, height: u32, backbuffercount: u32, format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT, mode: super::MsHtml::VIEW_OBJECT_ALPHA_MODE) -> ::windows_core::Result<ISurfacePresenterFlip>;
@@ -3391,7 +3360,6 @@ impl IViewObjectPresentFlipSite_Vtbl {
         iid == &<IViewObjectPresentFlipSite as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait IViewObjectPresentFlipSite2_Impl: Sized {
     fn GetRotationForCurrentOutput(&self) -> ::windows_core::Result<super::super::Graphics::Dxgi::Common::DXGI_MODE_ROTATION>;
@@ -3498,7 +3466,6 @@ impl IWebBrowserEventsUrlService_Vtbl {
         iid == &<IWebBrowserEventsUrlService as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait Iwfolders_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn navigate(&self, bstrurl: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::BSTR>;

@@ -14,7 +14,6 @@ where
     ::windows_targets::link!("comsvcs.dll" "system" fn CoEnterServiceDomain(pconfigobject : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     CoEnterServiceDomain(pconfigobject.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -59,12 +58,7 @@ where
     SafeRef(rid, punk.into_param().abi())
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ContextInfo,
-    ContextInfo_Vtbl,
-    0x19a5a02c_0ac8_11d2_b286_00c04f8ef934
-);
+::windows_core::imp::com_interface!(ContextInfo, ContextInfo_Vtbl, 0x19a5a02c_0ac8_11d2_b286_00c04f8ef934);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ContextInfo, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -102,12 +96,7 @@ pub struct ContextInfo_Vtbl {
     pub GetContextId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ContextInfo2,
-    ContextInfo2_Vtbl,
-    0xc99d6e75_2375_11d4_8331_00c04f605588
-);
+::windows_core::imp::com_interface!(ContextInfo2, ContextInfo2_Vtbl, 0xc99d6e75_2375_11d4_8331_00c04f605588);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ContextInfo2, ::windows_core::IUnknown, super::Com::IDispatch, ContextInfo);
 #[cfg(feature = "Win32_System_Com")]
@@ -155,12 +144,7 @@ pub struct ContextInfo2_Vtbl {
     pub GetApplicationInstanceId: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IAppDomainHelper,
-    IAppDomainHelper_Vtbl,
-    0xc7b67079_8255_42c6_9ec0_6994a3548780
-);
+::windows_core::imp::com_interface!(IAppDomainHelper, IAppDomainHelper_Vtbl, 0xc7b67079_8255_42c6_9ec0_6994a3548780);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IAppDomainHelper, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -187,17 +171,11 @@ pub struct IAppDomainHelper_Vtbl {
     pub DoCallback: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void, isize, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IAssemblyLocator,
-    IAssemblyLocator_Vtbl,
-    0x391ffbb9_a8ee_432a_abc8_baa238dab90f
-);
+::windows_core::imp::com_interface!(IAssemblyLocator, IAssemblyLocator_Vtbl, 0x391ffbb9_a8ee_432a_abc8_baa238dab90f);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IAssemblyLocator, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAssemblyLocator {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetModules<P0, P1, P2>(&self, applicationdir: P0, applicationname: P1, assemblyname: P2) -> ::windows_core::Result<*mut super::Com::SAFEARRAY>
     where
@@ -233,17 +211,11 @@ pub struct IAsyncErrorNotify_Vtbl {
     pub OnError: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ICOMAdminCatalog,
-    ICOMAdminCatalog_Vtbl,
-    0xdd662187_dfc2_11d1_a2cf_00805fc79235
-);
+::windows_core::imp::com_interface!(ICOMAdminCatalog, ICOMAdminCatalog_Vtbl, 0xdd662187_dfc2_11d1_a2cf_00805fc79235);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICOMAdminCatalog, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ICOMAdminCatalog {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCollection<P0>(&self, bstrcollname: P0) -> ::windows_core::Result<super::Com::IDispatch>
     where
@@ -252,7 +224,6 @@ impl ICOMAdminCatalog {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCollection)(::windows_core::Interface::as_raw(self), bstrcollname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Connect<P0>(&self, bstrcatalogservername: P0) -> ::windows_core::Result<super::Com::IDispatch>
     where
@@ -269,7 +240,6 @@ impl ICOMAdminCatalog {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MinorVersion)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCollectionByQuery<P0>(&self, bstrcollname: P0, ppsavarquery: *const *const super::Com::SAFEARRAY) -> ::windows_core::Result<super::Com::IDispatch>
     where
@@ -332,7 +302,6 @@ impl ICOMAdminCatalog {
     pub unsafe fn Reserved2(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reserved2)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InstallMultipleComponents<P0>(&self, bstrapplidorname: P0, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *const *const super::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -340,7 +309,6 @@ impl ICOMAdminCatalog {
     {
         (::windows_core::Interface::vtable(self).InstallMultipleComponents)(::windows_core::Interface::as_raw(self), bstrapplidorname.into_param().abi(), ppsavarfilenames, ppsavarclsids).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMultipleComponentsInfo<P0>(&self, bstrapplidorname: P0, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *mut *mut super::Com::SAFEARRAY, ppsavarclassnames: *mut *mut super::Com::SAFEARRAY, ppsavarfileflags: *mut *mut super::Com::SAFEARRAY, ppsavarcomponentflags: *mut *mut super::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -363,7 +331,6 @@ impl ICOMAdminCatalog {
     {
         (::windows_core::Interface::vtable(self).RestoreREGDB)(::windows_core::Interface::as_raw(self), bstrbackupfilepath.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryApplicationFile<P0>(&self, bstrapplicationfile: P0, pbstrapplicationname: *mut ::windows_core::BSTR, pbstrapplicationdescription: *mut ::windows_core::BSTR, pbhasusers: *mut super::super::Foundation::VARIANT_BOOL, pbisproxy: *mut super::super::Foundation::VARIANT_BOOL, ppsavarfilenames: *mut *mut super::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -381,7 +348,6 @@ impl ICOMAdminCatalog {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ServiceCheck)(::windows_core::Interface::as_raw(self), lservice, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InstallMultipleEventClasses<P0>(&self, bstrapplidorname: P0, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *const *const super::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -398,7 +364,6 @@ impl ICOMAdminCatalog {
     {
         (::windows_core::Interface::vtable(self).InstallEventClass)(::windows_core::Interface::as_raw(self), bstrapplidorname.into_param().abi(), bstrdll.into_param().abi(), bstrtlb.into_param().abi(), bstrpsdll.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEventClassesForIID<P0>(&self, bstriid: P0, ppsavarclsids: *mut *mut super::Com::SAFEARRAY, ppsavarprogids: *mut *mut super::Com::SAFEARRAY, ppsavardescriptions: *mut *mut super::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -464,17 +429,11 @@ pub struct ICOMAdminCatalog_Vtbl {
     GetEventClassesForIID: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ICOMAdminCatalog2,
-    ICOMAdminCatalog2_Vtbl,
-    0x790c6e0b_9194_4cc9_9426_a48a63185696
-);
+::windows_core::imp::com_interface!(ICOMAdminCatalog2, ICOMAdminCatalog2_Vtbl, 0x790c6e0b_9194_4cc9_9426_a48a63185696);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICOMAdminCatalog2, ::windows_core::IUnknown, super::Com::IDispatch, ICOMAdminCatalog);
 #[cfg(feature = "Win32_System_Com")]
 impl ICOMAdminCatalog2 {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCollection<P0>(&self, bstrcollname: P0) -> ::windows_core::Result<super::Com::IDispatch>
     where
@@ -483,7 +442,6 @@ impl ICOMAdminCatalog2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCollection)(::windows_core::Interface::as_raw(self), bstrcollname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Connect<P0>(&self, bstrcatalogservername: P0) -> ::windows_core::Result<super::Com::IDispatch>
     where
@@ -500,7 +458,6 @@ impl ICOMAdminCatalog2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MinorVersion)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCollectionByQuery<P0>(&self, bstrcollname: P0, ppsavarquery: *const *const super::Com::SAFEARRAY) -> ::windows_core::Result<super::Com::IDispatch>
     where
@@ -563,7 +520,6 @@ impl ICOMAdminCatalog2 {
     pub unsafe fn Reserved2(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Reserved2)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InstallMultipleComponents<P0>(&self, bstrapplidorname: P0, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *const *const super::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -571,7 +527,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows_core::Interface::vtable(self).base__.InstallMultipleComponents)(::windows_core::Interface::as_raw(self), bstrapplidorname.into_param().abi(), ppsavarfilenames, ppsavarclsids).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMultipleComponentsInfo<P0>(&self, bstrapplidorname: P0, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *mut *mut super::Com::SAFEARRAY, ppsavarclassnames: *mut *mut super::Com::SAFEARRAY, ppsavarfileflags: *mut *mut super::Com::SAFEARRAY, ppsavarcomponentflags: *mut *mut super::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -594,7 +549,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows_core::Interface::vtable(self).base__.RestoreREGDB)(::windows_core::Interface::as_raw(self), bstrbackupfilepath.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryApplicationFile<P0>(&self, bstrapplicationfile: P0, pbstrapplicationname: *mut ::windows_core::BSTR, pbstrapplicationdescription: *mut ::windows_core::BSTR, pbhasusers: *mut super::super::Foundation::VARIANT_BOOL, pbisproxy: *mut super::super::Foundation::VARIANT_BOOL, ppsavarfilenames: *mut *mut super::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -612,7 +566,6 @@ impl ICOMAdminCatalog2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ServiceCheck)(::windows_core::Interface::as_raw(self), lservice, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InstallMultipleEventClasses<P0>(&self, bstrapplidorname: P0, ppsavarfilenames: *const *const super::Com::SAFEARRAY, ppsavarclsids: *const *const super::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -629,7 +582,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows_core::Interface::vtable(self).base__.InstallEventClass)(::windows_core::Interface::as_raw(self), bstrapplidorname.into_param().abi(), bstrdll.into_param().abi(), bstrtlb.into_param().abi(), bstrpsdll.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEventClassesForIID<P0>(&self, bstriid: P0, ppsavarclsids: *mut *mut super::Com::SAFEARRAY, ppsavarprogids: *mut *mut super::Com::SAFEARRAY, ppsavardescriptions: *mut *mut super::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -637,7 +589,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows_core::Interface::vtable(self).base__.GetEventClassesForIID)(::windows_core::Interface::as_raw(self), bstriid.into_param().abi(), ppsavarclsids, ppsavarprogids, ppsavardescriptions).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCollectionByQuery2<P0>(&self, bstrcollectionname: P0, pvarquerystrings: *const ::windows_core::VARIANT) -> ::windows_core::Result<super::Com::IDispatch>
     where
@@ -809,7 +760,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows_core::Interface::vtable(self).InstallPartition)(::windows_core::Interface::as_raw(self), bstrfilename.into_param().abi(), bstrdestdirectory.into_param().abi(), loptions, bstruserid.into_param().abi(), bstrpassword.into_param().abi(), bstrrsn.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryApplicationFile2<P0>(&self, bstrapplicationfile: P0) -> ::windows_core::Result<super::Com::IDispatch>
     where
@@ -895,12 +845,7 @@ pub struct ICOMLBArguments_Vtbl {
     pub SetMachineName: unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ICatalogCollection,
-    ICatalogCollection_Vtbl,
-    0x6eb22872_8a19_11d0_81b6_00a0c9231c29
-);
+::windows_core::imp::com_interface!(ICatalogCollection, ICatalogCollection_Vtbl, 0x6eb22872_8a19_11d0_81b6_00a0c9231c29);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICatalogCollection, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -909,7 +854,6 @@ impl ICatalogCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -922,7 +866,6 @@ impl ICatalogCollection {
     pub unsafe fn Remove(&self, lindex: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), lindex).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -935,7 +878,6 @@ impl ICatalogCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SaveChanges)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCollection<P0, P1>(&self, bstrcollname: P0, varobjectkey: P1) -> ::windows_core::Result<super::Com::IDispatch>
     where
@@ -957,7 +899,6 @@ impl ICatalogCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RemoveEnabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetUtilInterface(&self) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -971,7 +912,6 @@ impl ICatalogCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DataStoreMinorVersion)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PopulateByKey(&self, psakeys: *const super::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).PopulateByKey)(::windows_core::Interface::as_raw(self), psakeys).ok()
@@ -1021,12 +961,7 @@ pub struct ICatalogCollection_Vtbl {
     pub PopulateByQuery: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ICatalogObject,
-    ICatalogObject_Vtbl,
-    0x6eb22871_8a19_11d0_81b6_00a0c9231c29
-);
+::windows_core::imp::com_interface!(ICatalogObject, ICatalogObject_Vtbl, 0x6eb22871_8a19_11d0_81b6_00a0c9231c29);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICatalogObject, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2177,7 +2112,6 @@ pub struct ICreateWithTipTransactionEx_Vtbl {
 ::windows_core::imp::com_interface!(ICreateWithTransactionEx, ICreateWithTransactionEx_Vtbl, 0x455acf57_5345_11d2_99cf_00c04f797bc9);
 ::windows_core::imp::interface_hierarchy!(ICreateWithTransactionEx, ::windows_core::IUnknown);
 impl ICreateWithTransactionEx {
-    #[doc = "Required features: `\"Win32_System_DistributedTransactionCoordinator\"`"]
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
     pub unsafe fn CreateInstance<P0, T>(&self, ptransaction: P0, rclsid: *const ::windows_core::GUID) -> ::windows_core::Result<T>
     where
@@ -2209,7 +2143,6 @@ impl ICrmCompensator {
     pub unsafe fn BeginPrepare(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).BeginPrepare)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrepareRecord(&self, crmlogrec: CrmLogRecordRead) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2225,7 +2158,6 @@ impl ICrmCompensator {
     {
         (::windows_core::Interface::vtable(self).BeginCommit)(::windows_core::Interface::as_raw(self), frecovery.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitRecord(&self, crmlogrec: CrmLogRecordRead) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2240,7 +2172,6 @@ impl ICrmCompensator {
     {
         (::windows_core::Interface::vtable(self).BeginAbort)(::windows_core::Interface::as_raw(self), frecovery.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AbortRecord(&self, crmlogrec: CrmLogRecordRead) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2347,7 +2278,6 @@ impl ICrmFormatLogRecords {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetColumnHeaders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetColumn(&self, crmlogrec: CrmLogRecordRead) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -2399,7 +2329,6 @@ impl ICrmLogControl {
     pub unsafe fn ForceTransactionToAbort(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ForceTransactionToAbort)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn WriteLogRecord(&self, rgblob: &[super::Com::BLOB]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).WriteLogRecord)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rgblob.as_ptr()), rgblob.len().try_into().unwrap()).ok()
@@ -2423,7 +2352,6 @@ pub struct ICrmLogControl_Vtbl {
 ::windows_core::imp::com_interface!(ICrmMonitor, ICrmMonitor_Vtbl, 0x70c8e443_c7ed_11d1_82fb_00a0c91eede9);
 ::windows_core::imp::interface_hierarchy!(ICrmMonitor, ::windows_core::IUnknown);
 impl ICrmMonitor {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClerks(&self) -> ::windows_core::Result<ICrmMonitorClerks> {
         let mut result__ = ::std::mem::zeroed();
@@ -2448,12 +2376,7 @@ pub struct ICrmMonitor_Vtbl {
     pub HoldClerk: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ICrmMonitorClerks,
-    ICrmMonitorClerks_Vtbl,
-    0x70c8e442_c7ed_11d1_82fb_00a0c91eede9
-);
+::windows_core::imp::com_interface!(ICrmMonitorClerks, ICrmMonitorClerks_Vtbl, 0x70c8e442_c7ed_11d1_82fb_00a0c91eede9);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICrmMonitorClerks, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2530,7 +2453,6 @@ impl ICrmMonitorLogRecords {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StructuredRecords)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetLogRecord(&self, dwindex: u32, pcrmlogrec: *mut CrmLogRecordRead) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLogRecord)(::windows_core::Interface::as_raw(self), dwindex, pcrmlogrec).ok()
@@ -2641,12 +2563,7 @@ pub struct IEnumNames_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IEventServerTrace,
-    IEventServerTrace_Vtbl,
-    0x9a9f12b8_80af_47ab_a579_35ea57725370
-);
+::windows_core::imp::com_interface!(IEventServerTrace, IEventServerTrace_Vtbl, 0x9a9f12b8_80af_47ab_a579_35ea57725370);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IEventServerTrace, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -2743,17 +2660,11 @@ pub struct IGetContextProperties_Vtbl {
     pub EnumNames: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IGetSecurityCallContext,
-    IGetSecurityCallContext_Vtbl,
-    0xcafc823f_b441_11d1_b82b_0000f8757e2a
-);
+::windows_core::imp::com_interface!(IGetSecurityCallContext, IGetSecurityCallContext_Vtbl, 0xcafc823f_b441_11d1_b82b_0000f8757e2a);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IGetSecurityCallContext, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IGetSecurityCallContext {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSecurityCallContext(&self) -> ::windows_core::Result<ISecurityCallContext> {
         let mut result__ = ::std::mem::zeroed();
@@ -2899,12 +2810,7 @@ pub struct IMTSCall_Vtbl {
     pub OnCall: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMTSLocator,
-    IMTSLocator_Vtbl,
-    0xd19b8bfd_7f88_11d0_b16e_00aa00ba3258
-);
+::windows_core::imp::com_interface!(IMTSLocator, IMTSLocator_Vtbl, 0xd19b8bfd_7f88_11d0_b16e_00aa00ba3258);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMTSLocator, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3009,12 +2915,7 @@ pub struct IManagedPooledObj_Vtbl {
     pub SetHeld: unsafe extern "system" fn(*mut ::core::ffi::c_void, super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMessageMover,
-    IMessageMover_Vtbl,
-    0x588a085a_b795_11d1_8054_00c04fc340ee
-);
+::windows_core::imp::com_interface!(IMessageMover, IMessageMover_Vtbl, 0x588a085a_b795_11d1_8054_00c04fc340ee);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMessageMover, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3065,12 +2966,7 @@ pub struct IMessageMover_Vtbl {
     pub MoveMessages: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMtsEventInfo,
-    IMtsEventInfo_Vtbl,
-    0xd56c3dc1_8482_11d0_b170_00aa00ba3258
-);
+::windows_core::imp::com_interface!(IMtsEventInfo, IMtsEventInfo_Vtbl, 0xd56c3dc1_8482_11d0_b170_00aa00ba3258);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMtsEventInfo, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3111,12 +3007,7 @@ pub struct IMtsEventInfo_Vtbl {
     pub get_Value: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMtsEvents,
-    IMtsEvents_Vtbl,
-    0xbacedf4d_74ab_11d0_b162_00aa00ba3258
-);
+::windows_core::imp::com_interface!(IMtsEvents, IMtsEvents_Vtbl, 0xbacedf4d_74ab_11d0_b162_00aa00ba3258);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMtsEvents, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3153,12 +3044,7 @@ pub struct IMtsEvents_Vtbl {
     pub GetProcessID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IMtsGrp,
-    IMtsGrp_Vtbl,
-    0x4b2e958c_0393_11d1_b1ab_00aa00ba3258
-);
+::windows_core::imp::com_interface!(IMtsGrp, IMtsGrp_Vtbl, 0x4b2e958c_0393_11d1_b1ab_00aa00ba3258);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMtsGrp, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3227,7 +3113,6 @@ pub struct IObjPool_Vtbl {
 ::windows_core::imp::com_interface!(IObjectConstruct, IObjectConstruct_Vtbl, 0x41c4f8b3_7439_11d2_98cb_00c04f8ee1c4);
 ::windows_core::imp::interface_hierarchy!(IObjectConstruct, ::windows_core::IUnknown);
 impl IObjectConstruct {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Construct<P0>(&self, pctorobj: P0) -> ::windows_core::Result<()>
     where
@@ -3246,12 +3131,7 @@ pub struct IObjectConstruct_Vtbl {
     Construct: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IObjectConstructString,
-    IObjectConstructString_Vtbl,
-    0x41c4f8b2_7439_11d2_98cb_00c04f8ee1c4
-);
+::windows_core::imp::com_interface!(IObjectConstructString, IObjectConstructString_Vtbl, 0x41c4f8b2_7439_11d2_98cb_00c04f8ee1c4);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IObjectConstructString, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3443,12 +3323,7 @@ pub struct IPlaybackControl_Vtbl {
     pub FinalServerRetry: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    IPoolManager,
-    IPoolManager_Vtbl,
-    0x0a469861_5a91_43a0_99b6_d5e179bb0631
-);
+::windows_core::imp::com_interface!(IPoolManager, IPoolManager_Vtbl, 0x0a469861_5a91_43a0_99b6_d5e179bb0631);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPoolManager, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3488,12 +3363,7 @@ pub struct IProcessInitializer_Vtbl {
     pub Shutdown: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISecurityCallContext,
-    ISecurityCallContext_Vtbl,
-    0xcafc823e_b441_11d1_b82b_0000f8757e2a
-);
+::windows_core::imp::com_interface!(ISecurityCallContext, ISecurityCallContext_Vtbl, 0xcafc823e_b441_11d1_b82b_0000f8757e2a);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISecurityCallContext, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3545,12 +3415,7 @@ pub struct ISecurityCallContext_Vtbl {
     pub IsUserInRole: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::std::mem::MaybeUninit<::windows_core::VARIANT>, ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISecurityCallersColl,
-    ISecurityCallersColl_Vtbl,
-    0xcafc823d_b441_11d1_b82b_0000f8757e2a
-);
+::windows_core::imp::com_interface!(ISecurityCallersColl, ISecurityCallersColl_Vtbl, 0xcafc823d_b441_11d1_b82b_0000f8757e2a);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISecurityCallersColl, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3559,7 +3424,6 @@ impl ISecurityCallersColl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows_core::Result<ISecurityIdentityColl> {
         let mut result__ = ::std::mem::zeroed();
@@ -3583,12 +3447,7 @@ pub struct ISecurityCallersColl_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISecurityIdentityColl,
-    ISecurityIdentityColl_Vtbl,
-    0xcafc823c_b441_11d1_b82b_0000f8757e2a
-);
+::windows_core::imp::com_interface!(ISecurityIdentityColl, ISecurityIdentityColl_Vtbl, 0xcafc823c_b441_11d1_b82b_0000f8757e2a);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISecurityIdentityColl, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -3841,7 +3700,6 @@ impl IServicePoolConfig {
     pub unsafe fn TransactionAffinity(&self, pftxaffinity: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).TransactionAffinity)(::windows_core::Interface::as_raw(self), pftxaffinity).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetClassFactory<P0>(&self, pfactory: P0) -> ::windows_core::Result<()>
     where
@@ -3849,7 +3707,6 @@ impl IServicePoolConfig {
     {
         (::windows_core::Interface::vtable(self).SetClassFactory)(::windows_core::Interface::as_raw(self), pfactory.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClassFactory(&self) -> ::windows_core::Result<super::Com::IClassFactory> {
         let mut result__ = ::std::mem::zeroed();
@@ -3941,7 +3798,6 @@ impl IServiceSysTxnConfig {
     {
         (::windows_core::Interface::vtable(self).base__.base__.NewTransactionDescription)(::windows_core::Interface::as_raw(self), sztxdesc.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_DistributedTransactionCoordinator\"`"]
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
     pub unsafe fn ConfigureBYOT<P0>(&self, pitxbyot: P0) -> ::windows_core::Result<()>
     where
@@ -4020,7 +3876,6 @@ impl IServiceTransactionConfig {
     {
         (::windows_core::Interface::vtable(self).base__.NewTransactionDescription)(::windows_core::Interface::as_raw(self), sztxdesc.into_param().abi()).ok()
     }
-    #[doc = "Required features: `\"Win32_System_DistributedTransactionCoordinator\"`"]
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
     pub unsafe fn ConfigureBYOT<P0>(&self, pitxbyot: P0) -> ::windows_core::Result<()>
     where
@@ -4074,12 +3929,7 @@ pub struct IServiceTransactionConfigBase_Vtbl {
     pub NewTransactionDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISharedProperty,
-    ISharedProperty_Vtbl,
-    0x2a005c01_a5de_11cf_9e66_00aa00a3f464
-);
+::windows_core::imp::com_interface!(ISharedProperty, ISharedProperty_Vtbl, 0x2a005c01_a5de_11cf_9e66_00aa00a3f464);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISharedProperty, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4104,28 +3954,20 @@ pub struct ISharedProperty_Vtbl {
     pub SetValue: unsafe extern "system" fn(*mut ::core::ffi::c_void, ::std::mem::MaybeUninit<::windows_core::VARIANT>) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISharedPropertyGroup,
-    ISharedPropertyGroup_Vtbl,
-    0x2a005c07_a5de_11cf_9e66_00aa00a3f464
-);
+::windows_core::imp::com_interface!(ISharedPropertyGroup, ISharedPropertyGroup_Vtbl, 0x2a005c07_a5de_11cf_9e66_00aa00a3f464);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISharedPropertyGroup, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISharedPropertyGroup {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePropertyByPosition(&self, index: i32, fexists: *mut super::super::Foundation::VARIANT_BOOL, ppprop: *mut ::core::option::Option<ISharedProperty>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreatePropertyByPosition)(::windows_core::Interface::as_raw(self), index, fexists, ::core::mem::transmute(ppprop)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_PropertyByPosition(&self, index: i32) -> ::windows_core::Result<ISharedProperty> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_PropertyByPosition)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateProperty<P0>(&self, name: P0, fexists: *mut super::super::Foundation::VARIANT_BOOL, ppprop: *mut ::core::option::Option<ISharedProperty>) -> ::windows_core::Result<()>
     where
@@ -4133,7 +3975,6 @@ impl ISharedPropertyGroup {
     {
         (::windows_core::Interface::vtable(self).CreateProperty)(::windows_core::Interface::as_raw(self), name.into_param().abi(), fexists, ::core::mem::transmute(ppprop)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Property<P0>(&self, name: P0) -> ::windows_core::Result<ISharedProperty>
     where
@@ -4166,17 +4007,11 @@ pub struct ISharedPropertyGroup_Vtbl {
     get_Property: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ISharedPropertyGroupManager,
-    ISharedPropertyGroupManager_Vtbl,
-    0x2a005c0d_a5de_11cf_9e66_00aa00a3f464
-);
+::windows_core::imp::com_interface!(ISharedPropertyGroupManager, ISharedPropertyGroupManager_Vtbl, 0x2a005c0d_a5de_11cf_9e66_00aa00a3f464);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISharedPropertyGroupManager, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISharedPropertyGroupManager {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePropertyGroup<P0>(&self, name: P0, dwisomode: *mut i32, dwrelmode: *mut i32, fexists: *mut super::super::Foundation::VARIANT_BOOL, ppgroup: *mut ::core::option::Option<ISharedPropertyGroup>) -> ::windows_core::Result<()>
     where
@@ -4184,7 +4019,6 @@ impl ISharedPropertyGroupManager {
     {
         (::windows_core::Interface::vtable(self).CreatePropertyGroup)(::windows_core::Interface::as_raw(self), name.into_param().abi(), dwisomode, dwrelmode, fexists, ::core::mem::transmute(ppgroup)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Group<P0>(&self, name: P0) -> ::windows_core::Result<ISharedPropertyGroup>
     where
@@ -4283,12 +4117,7 @@ pub struct IThreadPoolKnobs_Vtbl {
     pub SetQueueDepth: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ITransactionContext,
-    ITransactionContext_Vtbl,
-    0x7999fc21_d3c6_11cf_acab_00a024a55aef
-);
+::windows_core::imp::com_interface!(ITransactionContext, ITransactionContext_Vtbl, 0x7999fc21_d3c6_11cf_acab_00a024a55aef);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ITransactionContext, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4432,13 +4261,11 @@ impl ITransactionProxy {
     pub unsafe fn Abort(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Abort)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `\"Win32_System_DistributedTransactionCoordinator\"`"]
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
     pub unsafe fn Promote(&self) -> ::windows_core::Result<super::DistributedTransactionCoordinator::ITransaction> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Promote)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_DistributedTransactionCoordinator\"`"]
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
     pub unsafe fn CreateVoter<P0>(&self, ptxasync: P0) -> ::windows_core::Result<super::DistributedTransactionCoordinator::ITransactionVoterBallotAsync2>
     where
@@ -4531,12 +4358,7 @@ pub struct ITxProxyHolder_Vtbl {
     pub GetIdentifier: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID),
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    ObjectContext,
-    ObjectContext_Vtbl,
-    0x74c08646_cedb_11cf_8b49_00aa00b8a790
-);
+::windows_core::imp::com_interface!(ObjectContext, ObjectContext_Vtbl, 0x74c08646_cedb_11cf_8b49_00aa00b8a790);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ObjectContext, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -4590,13 +4412,11 @@ impl ObjectContext {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Security(&self) -> ::windows_core::Result<SecurityProperty> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Security)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ContextInfo(&self) -> ::windows_core::Result<ContextInfo> {
         let mut result__ = ::std::mem::zeroed();
@@ -4650,12 +4470,7 @@ pub struct ObjectControl_Vtbl {
     pub CanBePooled: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-::windows_core::imp::com_interface!(
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
-    SecurityProperty,
-    SecurityProperty_Vtbl,
-    0xe74a7215_014d_11d1_a63c_00a0c911b4e0
-);
+::windows_core::imp::com_interface!(SecurityProperty, SecurityProperty_Vtbl, 0xe74a7215_014d_11d1_a63c_00a0c911b4e0);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(SecurityProperty, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
@@ -5976,7 +5791,6 @@ impl ::core::default::Default for ComponentSummary {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct CrmLogRecordRead {
     pub dwCrmFlags: u32,

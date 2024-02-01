@@ -181,7 +181,6 @@ impl LocalLocation {
             (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Geolocation\"`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn Point(&self) -> ::windows_core::Result<super::super::super::Devices::Geolocation::Geopoint> {
         let this = self;
@@ -218,7 +217,6 @@ impl LocalLocation {
             (::windows_core::Interface::vtable(this).RatingInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HoursOfOperation(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<LocalLocationHoursOfOperationItem>> {
         let this = &::windows_core::Interface::cast::<ILocalLocation2>(self)?;
@@ -242,7 +240,6 @@ unsafe impl ::core::marker::Send for LocalLocation {}
 unsafe impl ::core::marker::Sync for LocalLocation {}
 pub struct LocalLocationFinder;
 impl LocalLocationFinder {
-    #[doc = "Required features: `\"Devices_Geolocation\"`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn FindLocalLocationsAsync<P0>(searchterm: &::windows_core::HSTRING, searcharea: P0, localcategory: &::windows_core::HSTRING, maxresults: u32) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>
     where
@@ -267,7 +264,6 @@ impl ::windows_core::RuntimeName for LocalLocationFinder {
 pub struct LocalLocationFinderResult(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(LocalLocationFinderResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl LocalLocationFinderResult {
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LocalLocations(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<LocalLocation>> {
         let this = self;
@@ -301,7 +297,6 @@ unsafe impl ::core::marker::Sync for LocalLocationFinderResult {}
 pub struct LocalLocationHoursOfOperationItem(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(LocalLocationHoursOfOperationItem, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl LocalLocationHoursOfOperationItem {
-    #[doc = "Required features: `\"Globalization\"`"]
     #[cfg(feature = "Globalization")]
     pub fn Day(&self) -> ::windows_core::Result<super::super::super::Globalization::DayOfWeek> {
         let this = self;

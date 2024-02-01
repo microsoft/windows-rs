@@ -1281,7 +1281,6 @@ pub struct ITransactionDispenser_Vtbl {
 ::windows_core::imp::com_interface!(ITransactionEnlistmentAsync, ITransactionEnlistmentAsync_Vtbl, 0x0fb15081_af41_11ce_bd2b_204c4f4f5020);
 ::windows_core::imp::interface_hierarchy!(ITransactionEnlistmentAsync, ::windows_core::IUnknown);
 impl ITransactionEnlistmentAsync {
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrepareRequestDone<P0>(&self, hr: ::windows_core::HRESULT, pmk: P0, pboidreason: *const BOID) -> ::windows_core::Result<()>
     where

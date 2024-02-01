@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAutomaticUpdates_Impl: Sized + super::Com::IDispatch_Impl {
     fn DetectNow(&self) -> ::windows_core::Result<()>;
@@ -76,7 +75,6 @@ impl IAutomaticUpdates_Vtbl {
         iid == &<IAutomaticUpdates as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAutomaticUpdates2_Impl: Sized + IAutomaticUpdates_Impl {
     fn Results(&self) -> ::windows_core::Result<IAutomaticUpdatesResults>;
@@ -103,7 +101,6 @@ impl IAutomaticUpdates2_Vtbl {
         iid == &<IAutomaticUpdates2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IAutomaticUpdates as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAutomaticUpdatesResults_Impl: Sized + super::Com::IDispatch_Impl {
     fn LastSearchSuccessDate(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -146,7 +143,6 @@ impl IAutomaticUpdatesResults_Vtbl {
         iid == &<IAutomaticUpdatesResults as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAutomaticUpdatesSettings_Impl: Sized + super::Com::IDispatch_Impl {
     fn NotificationLevel(&self) -> ::windows_core::Result<AutomaticUpdatesNotificationLevel>;
@@ -263,7 +259,6 @@ impl IAutomaticUpdatesSettings_Vtbl {
         iid == &<IAutomaticUpdatesSettings as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAutomaticUpdatesSettings2_Impl: Sized + IAutomaticUpdatesSettings_Impl {
     fn IncludeRecommendedUpdates(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -313,7 +308,6 @@ impl IAutomaticUpdatesSettings2_Vtbl {
         iid == &<IAutomaticUpdatesSettings2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IAutomaticUpdatesSettings as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAutomaticUpdatesSettings3_Impl: Sized + IAutomaticUpdatesSettings2_Impl {
     fn NonAdministratorsElevated(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -370,7 +364,6 @@ impl IAutomaticUpdatesSettings3_Vtbl {
         iid == &<IAutomaticUpdatesSettings3 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IAutomaticUpdatesSettings as ::windows_core::Interface>::IID || iid == &<IAutomaticUpdatesSettings2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICategory_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -504,7 +497,6 @@ impl ICategory_Vtbl {
         iid == &<ICategory as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICategoryCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, index: i32) -> ::windows_core::Result<ICategory>;
@@ -560,7 +552,6 @@ impl ICategoryCollection_Vtbl {
         iid == &<ICategoryCollection as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDownloadCompletedCallback_Impl: Sized {
     fn Invoke(&self, downloadjob: ::core::option::Option<&IDownloadJob>, callbackargs: ::core::option::Option<&IDownloadCompletedCallbackArgs>) -> ::windows_core::Result<()>;
@@ -581,7 +572,6 @@ impl IDownloadCompletedCallback_Vtbl {
         iid == &<IDownloadCompletedCallback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDownloadCompletedCallbackArgs_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -595,7 +585,6 @@ impl IDownloadCompletedCallbackArgs_Vtbl {
         iid == &<IDownloadCompletedCallbackArgs as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDownloadJob_Impl: Sized + super::Com::IDispatch_Impl {
     fn AsyncState(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -678,7 +667,6 @@ impl IDownloadJob_Vtbl {
         iid == &<IDownloadJob as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDownloadProgress_Impl: Sized + super::Com::IDispatch_Impl {
     fn CurrentUpdateBytesDownloaded(&self) -> ::windows_core::Result<super::super::Foundation::DECIMAL>;
@@ -812,7 +800,6 @@ impl IDownloadProgress_Vtbl {
         iid == &<IDownloadProgress as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDownloadProgressChangedCallback_Impl: Sized {
     fn Invoke(&self, downloadjob: ::core::option::Option<&IDownloadJob>, callbackargs: ::core::option::Option<&IDownloadProgressChangedCallbackArgs>) -> ::windows_core::Result<()>;
@@ -833,7 +820,6 @@ impl IDownloadProgressChangedCallback_Vtbl {
         iid == &<IDownloadProgressChangedCallback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDownloadProgressChangedCallbackArgs_Impl: Sized + super::Com::IDispatch_Impl {
     fn Progress(&self) -> ::windows_core::Result<IDownloadProgress>;
@@ -860,7 +846,6 @@ impl IDownloadProgressChangedCallbackArgs_Vtbl {
         iid == &<IDownloadProgressChangedCallbackArgs as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDownloadResult_Impl: Sized + super::Com::IDispatch_Impl {
     fn HResult(&self) -> ::windows_core::Result<i32>;
@@ -916,7 +901,6 @@ impl IDownloadResult_Vtbl {
         iid == &<IDownloadResult as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IImageInformation_Impl: Sized + super::Com::IDispatch_Impl {
     fn AltText(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -985,7 +969,6 @@ impl IImageInformation_Vtbl {
         iid == &<IImageInformation as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInstallationAgent_Impl: Sized + super::Com::IDispatch_Impl {
     fn RecordInstallationResult(&self, installationresultcookie: &::windows_core::BSTR, hresult: i32, extendedreportingdata: ::core::option::Option<&IStringCollection>) -> ::windows_core::Result<()>;
@@ -1009,7 +992,6 @@ impl IInstallationAgent_Vtbl {
         iid == &<IInstallationAgent as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInstallationBehavior_Impl: Sized + super::Com::IDispatch_Impl {
     fn CanRequestUserInput(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -1078,7 +1060,6 @@ impl IInstallationBehavior_Vtbl {
         iid == &<IInstallationBehavior as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInstallationCompletedCallback_Impl: Sized {
     fn Invoke(&self, installationjob: ::core::option::Option<&IInstallationJob>, callbackargs: ::core::option::Option<&IInstallationCompletedCallbackArgs>) -> ::windows_core::Result<()>;
@@ -1099,7 +1080,6 @@ impl IInstallationCompletedCallback_Vtbl {
         iid == &<IInstallationCompletedCallback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInstallationCompletedCallbackArgs_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -1113,7 +1093,6 @@ impl IInstallationCompletedCallbackArgs_Vtbl {
         iid == &<IInstallationCompletedCallbackArgs as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInstallationJob_Impl: Sized + super::Com::IDispatch_Impl {
     fn AsyncState(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -1196,7 +1175,6 @@ impl IInstallationJob_Vtbl {
         iid == &<IInstallationJob as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInstallationProgress_Impl: Sized + super::Com::IDispatch_Impl {
     fn CurrentUpdateIndex(&self) -> ::windows_core::Result<i32>;
@@ -1265,7 +1243,6 @@ impl IInstallationProgress_Vtbl {
         iid == &<IInstallationProgress as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInstallationProgressChangedCallback_Impl: Sized {
     fn Invoke(&self, installationjob: ::core::option::Option<&IInstallationJob>, callbackargs: ::core::option::Option<&IInstallationProgressChangedCallbackArgs>) -> ::windows_core::Result<()>;
@@ -1286,7 +1263,6 @@ impl IInstallationProgressChangedCallback_Vtbl {
         iid == &<IInstallationProgressChangedCallback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInstallationProgressChangedCallbackArgs_Impl: Sized + super::Com::IDispatch_Impl {
     fn Progress(&self) -> ::windows_core::Result<IInstallationProgress>;
@@ -1313,7 +1289,6 @@ impl IInstallationProgressChangedCallbackArgs_Vtbl {
         iid == &<IInstallationProgressChangedCallbackArgs as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInstallationResult_Impl: Sized + super::Com::IDispatch_Impl {
     fn HResult(&self) -> ::windows_core::Result<i32>;
@@ -1382,7 +1357,6 @@ impl IInstallationResult_Vtbl {
         iid == &<IInstallationResult as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInvalidProductLicenseException_Impl: Sized + IUpdateException_Impl {
     fn Product(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1409,7 +1383,6 @@ impl IInvalidProductLicenseException_Vtbl {
         iid == &<IInvalidProductLicenseException as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdateException as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISearchCompletedCallback_Impl: Sized {
     fn Invoke(&self, searchjob: ::core::option::Option<&ISearchJob>, callbackargs: ::core::option::Option<&ISearchCompletedCallbackArgs>) -> ::windows_core::Result<()>;
@@ -1430,7 +1403,6 @@ impl ISearchCompletedCallback_Vtbl {
         iid == &<ISearchCompletedCallback as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISearchCompletedCallbackArgs_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -1444,7 +1416,6 @@ impl ISearchCompletedCallbackArgs_Vtbl {
         iid == &<ISearchCompletedCallbackArgs as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISearchJob_Impl: Sized + super::Com::IDispatch_Impl {
     fn AsyncState(&self) -> ::windows_core::Result<::windows_core::VARIANT>;
@@ -1501,7 +1472,6 @@ impl ISearchJob_Vtbl {
         iid == &<ISearchJob as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISearchResult_Impl: Sized + super::Com::IDispatch_Impl {
     fn ResultCode(&self) -> ::windows_core::Result<OperationResultCode>;
@@ -1570,7 +1540,6 @@ impl ISearchResult_Vtbl {
         iid == &<ISearchResult as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IStringCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, index: i32) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1693,7 +1662,6 @@ impl IStringCollection_Vtbl {
         iid == &<IStringCollection as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISystemInformation_Impl: Sized + super::Com::IDispatch_Impl {
     fn OemHardwareSupportLink(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1736,7 +1704,6 @@ impl ISystemInformation_Vtbl {
         iid == &<ISystemInformation as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdate_Impl: Sized + super::Com::IDispatch_Impl {
     fn Title(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2320,7 +2287,6 @@ impl IUpdate_Vtbl {
         iid == &<IUpdate as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdate2_Impl: Sized + IUpdate_Impl {
     fn RebootRequired(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -2383,7 +2349,6 @@ impl IUpdate2_Vtbl {
         iid == &<IUpdate2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdate as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdate3_Impl: Sized + IUpdate2_Impl {
     fn BrowseOnly(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -2410,7 +2375,6 @@ impl IUpdate3_Vtbl {
         iid == &<IUpdate3 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdate as ::windows_core::Interface>::IID || iid == &<IUpdate2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdate4_Impl: Sized + IUpdate3_Impl {
     fn PerUser(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -2437,7 +2401,6 @@ impl IUpdate4_Vtbl {
         iid == &<IUpdate4 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdate as ::windows_core::Interface>::IID || iid == &<IUpdate2 as ::windows_core::Interface>::IID || iid == &<IUpdate3 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdate5_Impl: Sized + IUpdate4_Impl {
     fn AutoSelection(&self) -> ::windows_core::Result<AutoSelectionMode>;
@@ -2480,7 +2443,6 @@ impl IUpdate5_Vtbl {
         iid == &<IUpdate5 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdate as ::windows_core::Interface>::IID || iid == &<IUpdate2 as ::windows_core::Interface>::IID || iid == &<IUpdate3 as ::windows_core::Interface>::IID || iid == &<IUpdate4 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, index: i32) -> ::windows_core::Result<IUpdate>;
@@ -2603,7 +2565,6 @@ impl IUpdateCollection_Vtbl {
         iid == &<IUpdateCollection as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateDownloadContent_Impl: Sized + super::Com::IDispatch_Impl {
     fn DownloadUrl(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2630,7 +2591,6 @@ impl IUpdateDownloadContent_Vtbl {
         iid == &<IUpdateDownloadContent as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateDownloadContent2_Impl: Sized + IUpdateDownloadContent_Impl {
     fn IsDeltaCompressedContent(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -2660,7 +2620,6 @@ impl IUpdateDownloadContent2_Vtbl {
         iid == &<IUpdateDownloadContent2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdateDownloadContent as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateDownloadContentCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, index: i32) -> ::windows_core::Result<IUpdateDownloadContent>;
@@ -2716,7 +2675,6 @@ impl IUpdateDownloadContentCollection_Vtbl {
         iid == &<IUpdateDownloadContentCollection as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateDownloadResult_Impl: Sized + super::Com::IDispatch_Impl {
     fn HResult(&self) -> ::windows_core::Result<i32>;
@@ -2759,7 +2717,6 @@ impl IUpdateDownloadResult_Vtbl {
         iid == &<IUpdateDownloadResult as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateDownloader_Impl: Sized + super::Com::IDispatch_Impl {
     fn ClientApplicationID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2895,7 +2852,6 @@ impl IUpdateDownloader_Vtbl {
         iid == &<IUpdateDownloader as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateException_Impl: Sized + super::Com::IDispatch_Impl {
     fn Message(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2951,7 +2907,6 @@ impl IUpdateException_Vtbl {
         iid == &<IUpdateException as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateExceptionCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, index: i32) -> ::windows_core::Result<IUpdateException>;
@@ -3007,7 +2962,6 @@ impl IUpdateExceptionCollection_Vtbl {
         iid == &<IUpdateExceptionCollection as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateHistoryEntry_Impl: Sized + super::Com::IDispatch_Impl {
     fn Operation(&self) -> ::windows_core::Result<UpdateOperation>;
@@ -3206,7 +3160,6 @@ impl IUpdateHistoryEntry_Vtbl {
         iid == &<IUpdateHistoryEntry as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateHistoryEntry2_Impl: Sized + IUpdateHistoryEntry_Impl {
     fn Categories(&self) -> ::windows_core::Result<ICategoryCollection>;
@@ -3233,7 +3186,6 @@ impl IUpdateHistoryEntry2_Vtbl {
         iid == &<IUpdateHistoryEntry2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdateHistoryEntry as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateHistoryEntryCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, index: i32) -> ::windows_core::Result<IUpdateHistoryEntry>;
@@ -3289,7 +3241,6 @@ impl IUpdateHistoryEntryCollection_Vtbl {
         iid == &<IUpdateHistoryEntryCollection as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateIdentity_Impl: Sized + super::Com::IDispatch_Impl {
     fn RevisionNumber(&self) -> ::windows_core::Result<i32>;
@@ -3332,7 +3283,6 @@ impl IUpdateIdentity_Vtbl {
         iid == &<IUpdateIdentity as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateInstallationResult_Impl: Sized + super::Com::IDispatch_Impl {
     fn HResult(&self) -> ::windows_core::Result<i32>;
@@ -3388,7 +3338,6 @@ impl IUpdateInstallationResult_Vtbl {
         iid == &<IUpdateInstallationResult as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateInstaller_Impl: Sized + super::Com::IDispatch_Impl {
     fn ClientApplicationID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -3642,7 +3591,6 @@ impl IUpdateInstaller_Vtbl {
         iid == &<IUpdateInstaller as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateInstaller2_Impl: Sized + IUpdateInstaller_Impl {
     fn ForceQuiet(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -3679,7 +3627,6 @@ impl IUpdateInstaller2_Vtbl {
         iid == &<IUpdateInstaller2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdateInstaller as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateInstaller3_Impl: Sized + IUpdateInstaller2_Impl {
     fn AttemptCloseAppsIfNecessary(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -3716,7 +3663,6 @@ impl IUpdateInstaller3_Vtbl {
         iid == &<IUpdateInstaller3 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdateInstaller as ::windows_core::Interface>::IID || iid == &<IUpdateInstaller2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateInstaller4_Impl: Sized + IUpdateInstaller3_Impl {
     fn Commit(&self, dwflags: u32) -> ::windows_core::Result<()>;
@@ -3754,7 +3700,6 @@ impl IUpdateLockdown_Vtbl {
         iid == &<IUpdateLockdown as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateSearcher_Impl: Sized + super::Com::IDispatch_Impl {
     fn CanAutomaticallyUpgradeService(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -3969,7 +3914,6 @@ impl IUpdateSearcher_Vtbl {
         iid == &<IUpdateSearcher as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateSearcher2_Impl: Sized + IUpdateSearcher_Impl {
     fn IgnoreDownloadPriority(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -4006,7 +3950,6 @@ impl IUpdateSearcher2_Vtbl {
         iid == &<IUpdateSearcher2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdateSearcher as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateSearcher3_Impl: Sized + IUpdateSearcher2_Impl {
     fn SearchScope(&self) -> ::windows_core::Result<SearchScope>;
@@ -4043,7 +3986,6 @@ impl IUpdateSearcher3_Vtbl {
         iid == &<IUpdateSearcher3 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdateSearcher as ::windows_core::Interface>::IID || iid == &<IUpdateSearcher2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateService_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -4229,7 +4171,6 @@ impl IUpdateService_Vtbl {
         iid == &<IUpdateService as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateService2_Impl: Sized + IUpdateService_Impl {
     fn IsDefaultAUService(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -4256,7 +4197,6 @@ impl IUpdateService2_Vtbl {
         iid == &<IUpdateService2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdateService as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateServiceCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, index: i32) -> ::windows_core::Result<IUpdateService>;
@@ -4312,7 +4252,6 @@ impl IUpdateServiceCollection_Vtbl {
         iid == &<IUpdateServiceCollection as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateServiceManager_Impl: Sized + super::Com::IDispatch_Impl {
     fn Services(&self) -> ::windows_core::Result<IUpdateServiceCollection>;
@@ -4396,7 +4335,6 @@ impl IUpdateServiceManager_Vtbl {
         iid == &<IUpdateServiceManager as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateServiceManager2_Impl: Sized + IUpdateServiceManager_Impl {
     fn ClientApplicationID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -4459,7 +4397,6 @@ impl IUpdateServiceManager2_Vtbl {
         iid == &<IUpdateServiceManager2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdateServiceManager as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateServiceRegistration_Impl: Sized + super::Com::IDispatch_Impl {
     fn RegistrationState(&self) -> ::windows_core::Result<UpdateServiceRegistrationState>;
@@ -4528,7 +4465,6 @@ impl IUpdateServiceRegistration_Vtbl {
         iid == &<IUpdateServiceRegistration as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateSession_Impl: Sized + super::Com::IDispatch_Impl {
     fn ClientApplicationID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -4637,7 +4573,6 @@ impl IUpdateSession_Vtbl {
         iid == &<IUpdateSession as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateSession2_Impl: Sized + IUpdateSession_Impl {
     fn UserLocale(&self) -> ::windows_core::Result<u32>;
@@ -4674,7 +4609,6 @@ impl IUpdateSession2_Vtbl {
         iid == &<IUpdateSession2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdateSession as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUpdateSession3_Impl: Sized + IUpdateSession2_Impl {
     fn CreateUpdateServiceManager(&self) -> ::windows_core::Result<IUpdateServiceManager2>;
@@ -4717,7 +4651,6 @@ impl IUpdateSession3_Vtbl {
         iid == &<IUpdateSession3 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdateSession as ::windows_core::Interface>::IID || iid == &<IUpdateSession2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWebProxy_Impl: Sized + super::Com::IDispatch_Impl {
     fn Address(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -4868,7 +4801,6 @@ impl IWebProxy_Vtbl {
         iid == &<IWebProxy as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWindowsDriverUpdate_Impl: Sized + IUpdate_Impl {
     fn DriverClass(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -4989,7 +4921,6 @@ impl IWindowsDriverUpdate_Vtbl {
         iid == &<IWindowsDriverUpdate as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdate as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWindowsDriverUpdate2_Impl: Sized + IWindowsDriverUpdate_Impl {
     fn RebootRequired(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -5052,7 +4983,6 @@ impl IWindowsDriverUpdate2_Vtbl {
         iid == &<IWindowsDriverUpdate2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdate as ::windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWindowsDriverUpdate3_Impl: Sized + IWindowsDriverUpdate2_Impl {
     fn BrowseOnly(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -5079,7 +5009,6 @@ impl IWindowsDriverUpdate3_Vtbl {
         iid == &<IWindowsDriverUpdate3 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdate as ::windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate as ::windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate2 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWindowsDriverUpdate4_Impl: Sized + IWindowsDriverUpdate3_Impl {
     fn WindowsDriverUpdateEntries(&self) -> ::windows_core::Result<IWindowsDriverUpdateEntryCollection>;
@@ -5122,7 +5051,6 @@ impl IWindowsDriverUpdate4_Vtbl {
         iid == &<IWindowsDriverUpdate4 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdate as ::windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate as ::windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate2 as ::windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate3 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWindowsDriverUpdate5_Impl: Sized + IWindowsDriverUpdate4_Impl {
     fn AutoSelection(&self) -> ::windows_core::Result<AutoSelectionMode>;
@@ -5165,7 +5093,6 @@ impl IWindowsDriverUpdate5_Vtbl {
         iid == &<IWindowsDriverUpdate5 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IUpdate as ::windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate as ::windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate2 as ::windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate3 as ::windows_core::Interface>::IID || iid == &<IWindowsDriverUpdate4 as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWindowsDriverUpdateEntry_Impl: Sized + super::Com::IDispatch_Impl {
     fn DriverClass(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -5286,7 +5213,6 @@ impl IWindowsDriverUpdateEntry_Vtbl {
         iid == &<IWindowsDriverUpdateEntry as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWindowsDriverUpdateEntryCollection_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, index: i32) -> ::windows_core::Result<IWindowsDriverUpdateEntry>;
@@ -5342,7 +5268,6 @@ impl IWindowsDriverUpdateEntryCollection_Vtbl {
         iid == &<IWindowsDriverUpdateEntryCollection as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWindowsUpdateAgentInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetInfo(&self, varinfoidentifier: &::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::VARIANT>;

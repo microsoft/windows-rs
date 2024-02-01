@@ -1,8 +1,6 @@
 #[cfg(feature = "UI_Core_AnimationMetrics")]
-#[doc = "Required features: `\"UI_Core_AnimationMetrics\"`"]
 pub mod AnimationMetrics;
 #[cfg(feature = "UI_Core_Preview")]
-#[doc = "Required features: `\"UI_Core_Preview\"`"]
 pub mod Preview;
 ::windows_core::imp::com_interface!(IAcceleratorKeyEventArgs, IAcceleratorKeyEventArgs_Vtbl, 0xff1c4c4a_9287_470b_836e_9086e3126ade);
 #[repr(C)]
@@ -417,7 +415,6 @@ pub struct ICorePointerInputSource_Vtbl {
 ::windows_core::imp::interface_hierarchy!(ICorePointerInputSource2, ::windows_core::IUnknown, ::windows_core::IInspectable);
 ::windows_core::imp::required_hierarchy!(ICorePointerInputSource2, ICorePointerInputSource);
 impl ICorePointerInputSource2 {
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows_core::Result<super::super::System::DispatcherQueue> {
         let this = self;
@@ -658,7 +655,6 @@ impl ICoreWindow {
             (::windows_core::Interface::vtable(this).Bounds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CustomProperties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
@@ -732,7 +728,6 @@ impl ICoreWindow {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetAsyncKeyState(&self, virtualkey: super::super::System::VirtualKey) -> ::windows_core::Result<CoreVirtualKeyStates> {
         let this = self;
@@ -741,7 +736,6 @@ impl ICoreWindow {
             (::windows_core::Interface::vtable(this).GetAsyncKeyState)(::windows_core::Interface::as_raw(this), virtualkey, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetKeyState(&self, virtualkey: super::super::System::VirtualKey) -> ::windows_core::Result<CoreVirtualKeyStates> {
         let this = self;
@@ -1391,7 +1385,6 @@ impl AcceleratorKeyEventArgs {
             (::windows_core::Interface::vtable(this).EventType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn VirtualKey(&self) -> ::windows_core::Result<super::super::System::VirtualKey> {
         let this = self;
@@ -1712,7 +1705,6 @@ impl CoreComponentInputSource {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveInputEnabled)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetCurrentKeyState(&self, virtualkey: super::super::System::VirtualKey) -> ::windows_core::Result<CoreVirtualKeyStates> {
         let this = &::windows_core::Interface::cast::<ICoreKeyboardInputSource>(self)?;
@@ -1904,7 +1896,6 @@ impl CoreComponentInputSource {
         let this = &::windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemovePointerWheelChanged)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows_core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows_core::Interface::cast::<ICorePointerInputSource2>(self)?;
@@ -2268,7 +2259,6 @@ impl CoreIndependentInputSource {
         let this = &::windows_core::Interface::cast::<ICorePointerInputSource>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemovePointerWheelChanged)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows_core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows_core::Interface::cast::<ICorePointerInputSource2>(self)?;
@@ -2379,7 +2369,6 @@ impl CoreIndependentInputSourceController {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetControlledInputWithFilters)(::windows_core::Interface::as_raw(this), inputtypes, required, excluded).ok() }
     }
-    #[doc = "Required features: `\"UI_Composition\"`"]
     #[cfg(feature = "UI_Composition")]
     pub fn CreateForVisual<P0>(visual: P0) -> ::windows_core::Result<CoreIndependentInputSourceController>
     where
@@ -2390,7 +2379,6 @@ impl CoreIndependentInputSourceController {
             (::windows_core::Interface::vtable(this).CreateForVisual)(::windows_core::Interface::as_raw(this), visual.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"UI_Composition\"`"]
     #[cfg(feature = "UI_Composition")]
     pub fn CreateForIVisualElement<P0>(visualelement: P0) -> ::windows_core::Result<CoreIndependentInputSourceController>
     where
@@ -2481,7 +2469,6 @@ impl CoreWindow {
             (::windows_core::Interface::vtable(this).Bounds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CustomProperties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
@@ -2555,7 +2542,6 @@ impl CoreWindow {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetAsyncKeyState(&self, virtualkey: super::super::System::VirtualKey) -> ::windows_core::Result<CoreVirtualKeyStates> {
         let this = self;
@@ -2564,7 +2550,6 @@ impl CoreWindow {
             (::windows_core::Interface::vtable(this).GetAsyncKeyState)(::windows_core::Interface::as_raw(this), virtualkey, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetKeyState(&self, virtualkey: super::super::System::VirtualKey) -> ::windows_core::Result<CoreVirtualKeyStates> {
         let this = self;
@@ -2872,7 +2857,6 @@ impl CoreWindow {
         let this = &::windows_core::Interface::cast::<ICoreWindow4>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveResizeCompleted)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows_core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows_core::Interface::cast::<ICoreWindow5>(self)?;
@@ -2979,7 +2963,6 @@ impl CoreWindowDialog {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIsInteractionDelayed)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"UI_Popups\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
     pub fn Commands(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::Popups::IUICommand>> {
         let this = self;
@@ -3010,7 +2993,6 @@ impl CoreWindowDialog {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetCancelCommandIndex)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"UI_Popups\"`"]
     #[cfg(feature = "UI_Popups")]
     pub fn BackButtonCommand(&self) -> ::windows_core::Result<super::Popups::UICommandInvokedHandler> {
         let this = self;
@@ -3019,7 +3001,6 @@ impl CoreWindowDialog {
             (::windows_core::Interface::vtable(this).BackButtonCommand)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI_Popups\"`"]
     #[cfg(feature = "UI_Popups")]
     pub fn SetBackButtonCommand<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3028,7 +3009,6 @@ impl CoreWindowDialog {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetBackButtonCommand)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"UI_Popups\"`"]
     #[cfg(feature = "UI_Popups")]
     pub fn ShowAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::Popups::IUICommand>> {
         let this = self;
@@ -3142,7 +3122,6 @@ impl CoreWindowFlyout {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIsInteractionDelayed)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"UI_Popups\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
     pub fn Commands(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::Popups::IUICommand>> {
         let this = self;
@@ -3162,7 +3141,6 @@ impl CoreWindowFlyout {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDefaultCommandIndex)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"UI_Popups\"`"]
     #[cfg(feature = "UI_Popups")]
     pub fn BackButtonCommand(&self) -> ::windows_core::Result<super::Popups::UICommandInvokedHandler> {
         let this = self;
@@ -3171,7 +3149,6 @@ impl CoreWindowFlyout {
             (::windows_core::Interface::vtable(this).BackButtonCommand)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI_Popups\"`"]
     #[cfg(feature = "UI_Popups")]
     pub fn SetBackButtonCommand<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3180,7 +3157,6 @@ impl CoreWindowFlyout {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetBackButtonCommand)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"UI_Popups\"`"]
     #[cfg(feature = "UI_Popups")]
     pub fn ShowAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::Popups::IUICommand>> {
         let this = self;
@@ -3356,7 +3332,6 @@ impl KeyEventArgs {
         let this = &::windows_core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetHandled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn VirtualKey(&self) -> ::windows_core::Result<super::super::System::VirtualKey> {
         let this = self;
@@ -3407,7 +3382,6 @@ impl PointerEventArgs {
         let this = &::windows_core::Interface::cast::<ICoreWindowEventArgs>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetHandled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `\"UI_Input\"`"]
     #[cfg(feature = "UI_Input")]
     pub fn CurrentPoint(&self) -> ::windows_core::Result<super::Input::PointerPoint> {
         let this = self;
@@ -3416,7 +3390,6 @@ impl PointerEventArgs {
             (::windows_core::Interface::vtable(this).CurrentPoint)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn KeyModifiers(&self) -> ::windows_core::Result<super::super::System::VirtualKeyModifiers> {
         let this = self;
@@ -3425,7 +3398,6 @@ impl PointerEventArgs {
             (::windows_core::Interface::vtable(this).KeyModifiers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`, `\"UI_Input\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Input"))]
     pub fn GetIntermediatePoints(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::Input::PointerPoint>> {
         let this = self;

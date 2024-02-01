@@ -257,7 +257,6 @@ impl GuidanceAudioNotificationRequestedEventArgs {
             (::windows_core::Interface::vtable(this).AudioNotification)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AudioFilePaths(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -323,7 +322,6 @@ unsafe impl ::core::marker::Sync for GuidanceLaneInfo {}
 pub struct GuidanceManeuver(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(GuidanceManeuver, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GuidanceManeuver {
-    #[doc = "Required features: `\"Devices_Geolocation\"`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn StartLocation(&self) -> ::windows_core::Result<super::super::super::Devices::Geolocation::Geopoint> {
         let this = self;
@@ -427,7 +425,6 @@ unsafe impl ::core::marker::Sync for GuidanceManeuver {}
 pub struct GuidanceMapMatchedCoordinate(::windows_core::IUnknown);
 ::windows_core::imp::interface_hierarchy!(GuidanceMapMatchedCoordinate, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl GuidanceMapMatchedCoordinate {
-    #[doc = "Required features: `\"Devices_Geolocation\"`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn Location(&self) -> ::windows_core::Result<super::super::super::Devices::Geolocation::Geopoint> {
         let this = self;
@@ -640,7 +637,6 @@ impl GuidanceNavigator {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetGuidanceVoice)(::windows_core::Interface::as_raw(this), voiceid, ::core::mem::transmute_copy(voicefolder)).ok() }
     }
-    #[doc = "Required features: `\"Devices_Geolocation\"`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn UpdateUserLocation<P0>(&self, userlocation: P0) -> ::windows_core::Result<()>
     where
@@ -649,7 +645,6 @@ impl GuidanceNavigator {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).UpdateUserLocation)(::windows_core::Interface::as_raw(this), userlocation.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `\"Devices_Geolocation\"`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn UpdateUserLocationWithPositionOverride<P0>(&self, userlocation: P0, positionoverride: super::super::super::Devices::Geolocation::BasicGeoposition) -> ::windows_core::Result<()>
     where
@@ -776,7 +771,6 @@ impl GuidanceRoadSegment {
             (::windows_core::Interface::vtable(this).TravelTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Geolocation\"`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn Path(&self) -> ::windows_core::Result<super::super::super::Devices::Geolocation::Geopath> {
         let this = self;
@@ -852,7 +846,6 @@ impl GuidanceRoadSignpost {
             (::windows_core::Interface::vtable(this).Exit)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn BackgroundColor(&self) -> ::windows_core::Result<super::super::super::UI::Color> {
         let this = self;
@@ -861,7 +854,6 @@ impl GuidanceRoadSignpost {
             (::windows_core::Interface::vtable(this).BackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"UI\"`"]
     #[cfg(feature = "UI")]
     pub fn ForegroundColor(&self) -> ::windows_core::Result<super::super::super::UI::Color> {
         let this = self;
@@ -870,7 +862,6 @@ impl GuidanceRoadSignpost {
             (::windows_core::Interface::vtable(this).ForegroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ExitDirections(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -911,7 +902,6 @@ impl GuidanceRoute {
             (::windows_core::Interface::vtable(this).Distance)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Maneuvers(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GuidanceManeuver>> {
         let this = self;
@@ -920,7 +910,6 @@ impl GuidanceRoute {
             (::windows_core::Interface::vtable(this).Maneuvers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Geolocation\"`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn BoundingBox(&self) -> ::windows_core::Result<super::super::super::Devices::Geolocation::GeoboundingBox> {
         let this = self;
@@ -929,7 +918,6 @@ impl GuidanceRoute {
             (::windows_core::Interface::vtable(this).BoundingBox)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_Geolocation\"`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn Path(&self) -> ::windows_core::Result<super::super::super::Devices::Geolocation::Geopath> {
         let this = self;
@@ -938,7 +926,6 @@ impl GuidanceRoute {
             (::windows_core::Interface::vtable(this).Path)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RoadSegments(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GuidanceRoadSegment>> {
         let this = self;
@@ -1152,7 +1139,6 @@ impl GuidanceUpdatedEventArgs {
             (::windows_core::Interface::vtable(this).IsNewManeuver)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LaneInfo(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GuidanceLaneInfo>> {
         let this = self;

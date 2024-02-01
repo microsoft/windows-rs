@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateXmlReader<P0>(riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void, pmalloc: P0) -> ::windows_core::Result<()>
@@ -8,7 +7,6 @@ where
     ::windows_targets::link!("xmllite.dll" "system" fn CreateXmlReader(riid : *const ::windows_core::GUID, ppvobject : *mut *mut ::core::ffi::c_void, pmalloc : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     CreateXmlReader(riid, ppvobject, pmalloc.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateXmlReaderInputWithEncodingCodePage<P0, P1, P2, P3>(pinputstream: P0, pmalloc: P1, nencodingcodepage: u32, fencodinghint: P2, pwszbaseuri: P3) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -22,7 +20,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     CreateXmlReaderInputWithEncodingCodePage(pinputstream.into_param().abi(), pmalloc.into_param().abi(), nencodingcodepage, fencodinghint.into_param().abi(), pwszbaseuri.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateXmlReaderInputWithEncodingName<P0, P1, P2, P3, P4>(pinputstream: P0, pmalloc: P1, pwszencodingname: P2, fencodinghint: P3, pwszbaseuri: P4) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -37,7 +34,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     CreateXmlReaderInputWithEncodingName(pinputstream.into_param().abi(), pmalloc.into_param().abi(), pwszencodingname.into_param().abi(), fencodinghint.into_param().abi(), pwszbaseuri.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateXmlWriter<P0>(riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void, pmalloc: P0) -> ::windows_core::Result<()>
@@ -47,7 +43,6 @@ where
     ::windows_targets::link!("xmllite.dll" "system" fn CreateXmlWriter(riid : *const ::windows_core::GUID, ppvobject : *mut *mut ::core::ffi::c_void, pmalloc : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     CreateXmlWriter(riid, ppvobject, pmalloc.into_param().abi()).ok()
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateXmlWriterOutputWithEncodingCodePage<P0, P1>(poutputstream: P0, pmalloc: P1, nencodingcodepage: u32) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -59,7 +54,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     CreateXmlWriterOutputWithEncodingCodePage(poutputstream.into_param().abi(), pmalloc.into_param().abi(), nencodingcodepage, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateXmlWriterOutputWithEncodingName<P0, P1, P2>(poutputstream: P0, pmalloc: P1, pwszencodingname: P2) -> ::windows_core::Result<::windows_core::IUnknown>

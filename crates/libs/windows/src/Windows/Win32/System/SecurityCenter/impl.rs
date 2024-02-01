@@ -1,4 +1,3 @@
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWSCDefaultProduct_Impl: Sized + super::Com::IDispatch_Impl {
     fn SetDefaultProduct(&self, etype: SECURITY_PRODUCT_TYPE, pguid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -19,7 +18,6 @@ impl IWSCDefaultProduct_Vtbl {
         iid == &<IWSCDefaultProduct as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWSCProductList_Impl: Sized + super::Com::IDispatch_Impl {
     fn Initialize(&self, provider: &WSC_SECURITY_PROVIDER) -> ::windows_core::Result<()>;
@@ -69,7 +67,6 @@ impl IWSCProductList_Vtbl {
         iid == &<IWSCProductList as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWscProduct_Impl: Sized + super::Com::IDispatch_Impl {
     fn ProductName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -177,7 +174,6 @@ impl IWscProduct_Vtbl {
         iid == &<IWscProduct as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWscProduct2_Impl: Sized + IWscProduct_Impl {
     fn AntivirusScanSubstatus(&self) -> ::windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
@@ -272,7 +268,6 @@ impl IWscProduct2_Vtbl {
         iid == &<IWscProduct2 as ::windows_core::Interface>::IID || iid == &<super::Com::IDispatch as ::windows_core::Interface>::IID || iid == &<IWscProduct as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IWscProduct3_Impl: Sized + IWscProduct2_Impl {
     fn AntivirusDaysUntilExpired(&self) -> ::windows_core::Result<u32>;

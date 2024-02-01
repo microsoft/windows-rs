@@ -159,7 +159,6 @@ impl GazeDevicePreview {
             (::windows_core::Interface::vtable(this).RequestCalibrationAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation_Collections"))]
     pub fn GetNumericControlDescriptions(&self, usagepage: u16, usageid: u16) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::HumanInterfaceDevice::HidNumericControlDescription>> {
         let this = self;
@@ -168,7 +167,6 @@ impl GazeDevicePreview {
             (::windows_core::Interface::vtable(this).GetNumericControlDescriptions)(::windows_core::Interface::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_HumanInterfaceDevice\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation_Collections"))]
     pub fn GetBooleanControlDescriptions(&self, usagepage: u16, usageid: u16) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::HumanInterfaceDevice::HidBooleanControlDescription>> {
         let this = self;
@@ -519,7 +517,6 @@ impl GazeMovedPreviewEventArgs {
             (::windows_core::Interface::vtable(this).CurrentPoint)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetIntermediatePoints(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<GazePointPreview>> {
         let this = self;
@@ -574,7 +571,6 @@ impl GazePointPreview {
             (::windows_core::Interface::vtable(this).Timestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Devices_HumanInterfaceDevice\"`"]
     #[cfg(feature = "Devices_HumanInterfaceDevice")]
     pub fn HidInputReport(&self) -> ::windows_core::Result<super::super::HumanInterfaceDevice::HidInputReport> {
         let this = self;

@@ -290,7 +290,6 @@ impl HidBooleanControlDescription {
             (::windows_core::Interface::vtable(this).UsageId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ParentCollections(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<HidCollection>> {
         let this = self;
@@ -486,7 +485,6 @@ impl HidDevice {
             (::windows_core::Interface::vtable(this).SendFeatureReportAsync)(::windows_core::Interface::as_raw(this), featurereport.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetBooleanControlDescriptions(&self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControlDescription>> {
         let this = self;
@@ -495,7 +493,6 @@ impl HidDevice {
             (::windows_core::Interface::vtable(this).GetBooleanControlDescriptions)(::windows_core::Interface::as_raw(this), reporttype, usagepage, usageid, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetNumericControlDescriptions(&self, reporttype: HidReportType, usagepage: u16, usageid: u16) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<HidNumericControlDescription>> {
         let this = self;
@@ -530,7 +527,6 @@ impl HidDevice {
             (::windows_core::Interface::vtable(this).GetDeviceSelectorVidPid)(::windows_core::Interface::as_raw(this), usagepage, usageid, vendorid, productid, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage\"`"]
     #[cfg(feature = "Storage")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING, accessmode: super::super::Storage::FileAccessMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<HidDevice>> {
         Self::IHidDeviceStatics(|this| unsafe {
@@ -568,7 +564,6 @@ impl HidFeatureReport {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Data(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -577,7 +572,6 @@ impl HidFeatureReport {
             (::windows_core::Interface::vtable(this).Data)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetData<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -645,7 +639,6 @@ impl HidInputReport {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Data(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -654,7 +647,6 @@ impl HidInputReport {
             (::windows_core::Interface::vtable(this).Data)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ActivatedBooleanControls(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControl>> {
         let this = self;
@@ -663,7 +655,6 @@ impl HidInputReport {
             (::windows_core::Interface::vtable(this).ActivatedBooleanControls)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TransitionedBooleanControls(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<HidBooleanControl>> {
         let this = self;
@@ -929,7 +920,6 @@ impl HidNumericControlDescription {
             (::windows_core::Interface::vtable(this).HasNull)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ParentCollections(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<HidCollection>> {
         let this = self;
@@ -963,7 +953,6 @@ impl HidOutputReport {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Data(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -972,7 +961,6 @@ impl HidOutputReport {
             (::windows_core::Interface::vtable(this).Data)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetData<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where

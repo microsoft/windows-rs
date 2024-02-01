@@ -57,7 +57,6 @@ impl IDedupDataPort {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).InsertChunks)(::windows_core::Interface::as_raw(self), pchunkmetadata.len().try_into().unwrap(), ::core::mem::transmute(pchunkmetadata.as_ptr()), pchunkdata.len().try_into().unwrap(), ::core::mem::transmute(pchunkdata.as_ptr()), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertChunksWithStream<P0>(&self, pchunkmetadata: &[DedupChunk], databytecount: u32, pchunkdatastream: P0) -> ::windows_core::Result<::windows_core::GUID>
     where
@@ -70,7 +69,6 @@ impl IDedupDataPort {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommitStreams)(::windows_core::Interface::as_raw(self), pstreams.len().try_into().unwrap(), ::core::mem::transmute(pstreams.as_ptr()), pentries.len().try_into().unwrap(), ::core::mem::transmute(pentries.as_ptr()), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitStreamsWithStream<P0>(&self, pstreams: &[DedupStream], entrycount: u32, pentriesstream: P0) -> ::windows_core::Result<::windows_core::GUID>
     where

@@ -122,7 +122,6 @@ impl MessageDialog {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetTitle)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Commands(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<IUICommand>> {
         let this = self;
@@ -222,7 +221,6 @@ impl PopupMenu {
         static SHARED: ::windows_core::imp::FactoryCache<PopupMenu, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Commands(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<IUICommand>> {
         let this = self;

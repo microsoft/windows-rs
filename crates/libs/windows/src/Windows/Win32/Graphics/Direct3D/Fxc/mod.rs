@@ -43,7 +43,6 @@ pub unsafe fn D3DCreateBlob(size: usize) -> ::windows_core::Result<super::ID3DBl
     let mut result__ = ::std::mem::zeroed();
     D3DCreateBlob(size, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D11\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3DCreateFunctionLinkingGraph(uflags: u32) -> ::windows_core::Result<super::super::Direct3D11::ID3D11FunctionLinkingGraph> {
@@ -51,7 +50,6 @@ pub unsafe fn D3DCreateFunctionLinkingGraph(uflags: u32) -> ::windows_core::Resu
     let mut result__ = ::std::mem::zeroed();
     D3DCreateFunctionLinkingGraph(uflags, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D11\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3DCreateLinker() -> ::windows_core::Result<super::super::Direct3D11::ID3D11Linker> {
@@ -73,7 +71,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     D3DDisassemble(psrcdata, srcdatasize, flags, szcomments.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D10\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D10")]
 #[inline]
 pub unsafe fn D3DDisassemble10Effect<P0>(peffect: P0, flags: u32) -> ::windows_core::Result<super::ID3DBlob>
@@ -127,7 +124,6 @@ pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const ::core::ffi::c_void
     ::windows_targets::link!("d3dcompiler_47.dll" "system" fn D3DGetTraceInstructionOffsets(psrcdata : *const ::core::ffi::c_void, srcdatasize : usize, flags : u32, startinstindex : usize, numinsts : usize, poffsets : *mut usize, ptotalinsts : *mut usize) -> ::windows_core::HRESULT);
     D3DGetTraceInstructionOffsets(psrcdata, srcdatasize, flags, startinstindex, poffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(poffsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(ptotalinsts.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `\"Win32_Graphics_Direct3D11\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3DLoadModule(psrcdata: *const ::core::ffi::c_void, cbsrcdatasize: usize) -> ::windows_core::Result<super::super::Direct3D11::ID3D11Module> {

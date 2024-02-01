@@ -1,5 +1,4 @@
 #[cfg(feature = "ApplicationModel_Store_Preview_InstallControl")]
-#[doc = "Required features: `\"ApplicationModel_Store_Preview_InstallControl\"`"]
 pub mod InstallControl;
 ::windows_core::imp::com_interface!(IDeliveryOptimizationSettings, IDeliveryOptimizationSettings_Vtbl, 0x1810fda0_e853_565e_b874_7a8a7b9a0e0f);
 #[repr(C)]
@@ -247,7 +246,6 @@ impl StoreConfiguration {
             (::windows_core::Interface::vtable(this).HardwareManufacturerInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FilterUnsupportedSystemFeaturesAsync<P0>(systemfeatures: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StoreSystemFeature>>>
     where
@@ -276,7 +274,6 @@ impl StoreConfiguration {
             (::windows_core::Interface::vtable(this).HasStoreWebAccount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn HasStoreWebAccountForUser<P0>(user: P0) -> ::windows_core::Result<bool>
     where
@@ -287,7 +284,6 @@ impl StoreConfiguration {
             (::windows_core::Interface::vtable(this).HasStoreWebAccountForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetStoreLogDataAsync(options: StoreLogOptions) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamReference>> {
         Self::IStoreConfigurationStatics3(|this| unsafe {
@@ -295,7 +291,6 @@ impl StoreConfiguration {
             (::windows_core::Interface::vtable(this).GetStoreLogDataAsync)(::windows_core::Interface::as_raw(this), options, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn SetStoreWebAccountIdForUser<P0>(user: P0, webaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<()>
     where
@@ -303,7 +298,6 @@ impl StoreConfiguration {
     {
         Self::IStoreConfigurationStatics3(|this| unsafe { (::windows_core::Interface::vtable(this).SetStoreWebAccountIdForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(webaccountid)).ok() })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn IsStoreWebAccountIdForUser<P0>(user: P0, webaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<bool>
     where
@@ -314,7 +308,6 @@ impl StoreConfiguration {
             (::windows_core::Interface::vtable(this).IsStoreWebAccountIdForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(webaccountid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetPurchasePromptingPolicyForUser<P0>(user: P0) -> ::windows_core::Result<super::super::super::Foundation::IReference<u32>>
     where
@@ -325,7 +318,6 @@ impl StoreConfiguration {
             (::windows_core::Interface::vtable(this).GetPurchasePromptingPolicyForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn SetPurchasePromptingPolicyForUser<P0, P1>(user: P0, value: P1) -> ::windows_core::Result<()>
     where
@@ -340,7 +332,6 @@ impl StoreConfiguration {
             (::windows_core::Interface::vtable(this).GetStoreWebAccountId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetStoreWebAccountIdForUser<P0>(user: P0) -> ::windows_core::Result<::windows_core::HSTRING>
     where
@@ -354,7 +345,6 @@ impl StoreConfiguration {
     pub fn SetEnterpriseStoreWebAccountId(webaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         Self::IStoreConfigurationStatics4(|this| unsafe { (::windows_core::Interface::vtable(this).SetEnterpriseStoreWebAccountId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(webaccountid)).ok() })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn SetEnterpriseStoreWebAccountIdForUser<P0>(user: P0, webaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<()>
     where
@@ -368,7 +358,6 @@ impl StoreConfiguration {
             (::windows_core::Interface::vtable(this).GetEnterpriseStoreWebAccountId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn GetEnterpriseStoreWebAccountIdForUser<P0>(user: P0) -> ::windows_core::Result<::windows_core::HSTRING>
     where
@@ -385,7 +374,6 @@ impl StoreConfiguration {
             (::windows_core::Interface::vtable(this).ShouldRestrictToEnterpriseStoreOnly)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn ShouldRestrictToEnterpriseStoreOnlyForUser<P0>(user: P0) -> ::windows_core::Result<bool>
     where
@@ -417,7 +405,6 @@ impl StoreConfiguration {
     pub fn PinToDesktop(apppackagefamilyname: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         Self::IStoreConfigurationStatics5(|this| unsafe { (::windows_core::Interface::vtable(this).PinToDesktop)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(apppackagefamilyname)).ok() })
     }
-    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn PinToDesktopForUser<P0>(user: P0, apppackagefamilyname: &::windows_core::HSTRING) -> ::windows_core::Result<()>
     where
@@ -508,7 +495,6 @@ impl StorePreview {
             (::windows_core::Interface::vtable(this).RequestProductPurchaseByProductIdAndSkuIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(skuid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LoadAddOnProductInfosAsync() -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StorePreviewProductInfo>>> {
         Self::IStorePreview(|this| unsafe {
@@ -558,7 +544,6 @@ impl StorePreviewProductInfo {
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SkuInfoList(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<StorePreviewSkuInfo>> {
         let this = self;
@@ -688,7 +673,6 @@ unsafe impl ::core::marker::Send for StorePreviewSkuInfo {}
 unsafe impl ::core::marker::Sync for StorePreviewSkuInfo {}
 pub struct WebAuthenticationCoreManagerHelper;
 impl WebAuthenticationCoreManagerHelper {
-    #[doc = "Required features: `\"Security_Authentication_Web_Core\"`, `\"UI_Xaml\"`"]
     #[cfg(all(feature = "Security_Authentication_Web_Core", feature = "UI_Xaml"))]
     pub fn RequestTokenWithUIElementHostingAsync<P0, P1>(request: P0, uielement: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
     where
@@ -700,7 +684,6 @@ impl WebAuthenticationCoreManagerHelper {
             (::windows_core::Interface::vtable(this).RequestTokenWithUIElementHostingAsync)(::windows_core::Interface::as_raw(this), request.into_param().abi(), uielement.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `\"Security_Authentication_Web_Core\"`, `\"Security_Credentials\"`, `\"UI_Xaml\"`"]
     #[cfg(all(feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml"))]
     pub fn RequestTokenWithUIElementHostingAndWebAccountAsync<P0, P1, P2>(request: P0, webaccount: P1, uielement: P2) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
     where

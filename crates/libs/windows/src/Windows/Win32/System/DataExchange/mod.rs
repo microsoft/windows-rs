@@ -83,7 +83,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn DdeCmpStringHandles(hsz1 : HSZ, hsz2 : HSZ) -> i32);
     DdeCmpStringHandles(hsz1.into_param().abi(), hsz2.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn DdeConnect<P0, P1>(idinst: u32, hszservice: P0, hsztopic: P1, pcc: ::core::option::Option<*const CONVCONTEXT>) -> HCONV
@@ -94,7 +93,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn DdeConnect(idinst : u32, hszservice : HSZ, hsztopic : HSZ, pcc : *const CONVCONTEXT) -> HCONV);
     DdeConnect(idinst, hszservice.into_param().abi(), hsztopic.into_param().abi(), ::core::mem::transmute(pcc.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn DdeConnectList<P0, P1, P2>(idinst: u32, hszservice: P0, hsztopic: P1, hconvlist: P2, pcc: ::core::option::Option<*const CONVCONTEXT>) -> HCONVLIST
@@ -227,7 +225,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn DdePostAdvise(idinst : u32, hsztopic : HSZ, hszitem : HSZ) -> super::super::Foundation:: BOOL);
     DdePostAdvise(idinst, hsztopic.into_param().abi(), hszitem.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn DdeQueryConvInfo<P0>(hconv: P0, idtransaction: u32, pconvinfo: *mut CONVINFO) -> u32
@@ -270,7 +267,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn DdeReconnect(hconv : HCONV) -> HCONV);
     DdeReconnect(hconv.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn DdeSetQualityOfService<P0>(hwndclient: P0, pqosnew: *const super::super::Security::SECURITY_QUALITY_OF_SERVICE, pqosprev: *mut super::super::Security::SECURITY_QUALITY_OF_SERVICE) -> ::windows_core::Result<()>
@@ -540,7 +536,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn SetClipboardViewer(hwndnewviewer : super::super::Foundation:: HWND) -> super::super::Foundation:: HWND);
     SetClipboardViewer(hwndnewviewer.into_param().abi())
 }
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn SetWinMetaFileBits<P0>(lpmeta16data: &[u8], hdcref: P0, lpmfp: ::core::option::Option<*const METAFILEPICT>) -> super::super::Graphics::Gdi::HENHMETAFILE
@@ -837,7 +832,6 @@ impl ::core::fmt::Debug for DDE_NAME_SERVICE_CMD {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct CONVCONTEXT {
     pub cb: u32,
@@ -881,7 +875,6 @@ impl ::core::default::Default for CONVCONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct CONVINFO {
     pub cb: u32,
@@ -1334,7 +1327,6 @@ impl ::core::default::Default for HSZPAIR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct METAFILEPICT {
     pub mm: i32,
@@ -1375,7 +1367,6 @@ impl ::core::default::Default for METAFILEPICT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct MONCBSTRUCT {
     pub cb: u32,

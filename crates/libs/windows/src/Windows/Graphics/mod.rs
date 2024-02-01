@@ -1,26 +1,18 @@
 #[cfg(feature = "Graphics_Capture")]
-#[doc = "Required features: `\"Graphics_Capture\"`"]
 pub mod Capture;
 #[cfg(feature = "Graphics_DirectX")]
-#[doc = "Required features: `\"Graphics_DirectX\"`"]
 pub mod DirectX;
 #[cfg(feature = "Graphics_Display")]
-#[doc = "Required features: `\"Graphics_Display\"`"]
 pub mod Display;
 #[cfg(feature = "Graphics_Effects")]
-#[doc = "Required features: `\"Graphics_Effects\"`"]
 pub mod Effects;
 #[cfg(feature = "Graphics_Holographic")]
-#[doc = "Required features: `\"Graphics_Holographic\"`"]
 pub mod Holographic;
 #[cfg(feature = "Graphics_Imaging")]
-#[doc = "Required features: `\"Graphics_Imaging\"`"]
 pub mod Imaging;
 #[cfg(feature = "Graphics_Printing")]
-#[doc = "Required features: `\"Graphics_Printing\"`"]
 pub mod Printing;
 #[cfg(feature = "Graphics_Printing3D")]
-#[doc = "Required features: `\"Graphics_Printing3D\"`"]
 pub mod Printing3D;
 ::windows_core::imp::com_interface!(IGeometrySource2D, IGeometrySource2D_Vtbl, 0xcaff7902_670c_4181_a624_da977203b845);
 ::windows_core::imp::interface_hierarchy!(IGeometrySource2D, ::windows_core::IUnknown, ::windows_core::IInspectable);

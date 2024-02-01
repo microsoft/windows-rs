@@ -269,7 +269,6 @@ impl IDirectManipulationInteractionEventHandler_Vtbl {
         iid == &<IDirectManipulationInteractionEventHandler as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait IDirectManipulationManager_Impl: Sized {
     fn Activate(&self, window: super::super::Foundation::HWND) -> ::windows_core::Result<()>;
@@ -341,7 +340,6 @@ impl IDirectManipulationManager_Vtbl {
         iid == &<IDirectManipulationManager as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait IDirectManipulationManager2_Impl: Sized + IDirectManipulationManager_Impl {
     fn CreateBehavior(&self, clsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -362,7 +360,6 @@ impl IDirectManipulationManager2_Vtbl {
         iid == &<IDirectManipulationManager2 as ::windows_core::Interface>::IID || iid == &<IDirectManipulationManager as ::windows_core::Interface>::IID
     }
 }
-#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait IDirectManipulationManager3_Impl: Sized + IDirectManipulationManager2_Impl {
     fn GetService(&self, clsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
