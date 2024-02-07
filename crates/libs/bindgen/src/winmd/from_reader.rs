@@ -94,7 +94,6 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
             assert_eq!(attribute_ctor.name(), ".ctor");
             let metadata::MemberRefParent::TypeRef(attribute_type) = attribute_ctor.parent();
 
-            // TODO: here's the issue: this is alreayd a TypeRef - need to get the index and turn it into a MemberRefPArent instead
             let attribute_type_ref = if let TypeDefOrRef::TypeRef(type_ref) = writer.insert_type_ref(attribute_type.namespace(), attribute_type.name()) {
                 MemberRefParent::TypeRef(type_ref)
             } else {
@@ -112,9 +111,9 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
                 Signature: signature,
             });
 
-            // // TODO debug this with windows-metadata
             let mut values = 1u16.to_le_bytes().to_vec(); // prolog
             let args = attribute.args();
+            let mut named_arg_count = false;
 
             for (index, (name, value)) in args.iter().enumerate() {
                 match value {
@@ -130,11 +129,16 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
                     rest => unimplemented!("{rest:?}"),
                 }
 
-                if !name.is_empty() {
-                    let named_arg_count: u16 = (args.len() - index) as u16;
+                if !named_arg_count && !name.is_empty() {
+                    named_arg_count = true;
+                    let named_arg_count = (args.len() - index) as u16;
                     values.extend_from_slice(&named_arg_count.to_le_bytes());
                     break;
                 }
+            }
+
+            if !named_arg_count {
+                values.extend_from_slice(&0u16.to_le_bytes());
             }
 
             let values = writer.blobs.insert(&values);
