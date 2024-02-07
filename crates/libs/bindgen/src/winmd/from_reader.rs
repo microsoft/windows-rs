@@ -1,4 +1,5 @@
 use super::*;
+use metadata::HasAttributes;
 
 pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
     let mut writer = Writer::new(output);
@@ -22,7 +23,7 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
 
         let generics = &metadata::type_def_generics(def);
 
-        let extends = if let Some(extends) = def.extends() { writer.insert_type_ref(extends.namespace, extends.name) } else { 0 };
+        let extends = if let Some(extends) = def.extends() { writer.insert_type_ref(extends.namespace, extends.name) } else { TypeDefOrRef::none() };
 
         writer.tables.TypeDef.push(TypeDef {
             Extends: extends,
@@ -33,11 +34,13 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
             TypeNamespace: writer.strings.insert(def.namespace()),
         });
 
+        let def_ref = writer.tables.TypeDef.len() as u32 - 1;
+
         for generic in def.generics() {
             writer.tables.GenericParam.push(GenericParam {
                 Number: generic.number(), // TODO: isn't this just going to be incremental?
                 Flags: 0,
-                Owner: TypeOrMethodDef::TypeDef(writer.tables.TypeDef.len() as u32 - 1).encode(),
+                Owner: TypeOrMethodDef::TypeDef(def_ref).encode(),
                 Name: writer.strings.insert(generic.name()),
             });
         }
@@ -53,7 +56,7 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
                 rest => unimplemented!("{rest:?}"),
             };
 
-            writer.tables.InterfaceImpl.push(InterfaceImpl { Class: writer.tables.TypeDef.len() as u32 - 1, Interface: reference });
+            writer.tables.InterfaceImpl.push(InterfaceImpl { Class: def_ref, Interface: reference });
         }
 
         // TODO: if the class is "Apis" then should we sort the fields (constants) and methods (functions) for stability
@@ -84,6 +87,32 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
             for param in method.params() {
                 writer.tables.Param.push(Param { Flags: param.flags().0, Sequence: param.sequence(), Name: writer.strings.insert(param.name()) });
             }
+        }
+
+        for attribute in def.attributes() {
+            let metadata::AttributeType::MemberRef(attribute_ctor) = attribute.ty();
+            assert_eq!(attribute_ctor.name(), ".ctor");
+            let metadata::MemberRefParent::TypeRef(attribute_type) = attribute_ctor.parent();
+
+            // TODO: here's the issue: this is alreayd a TypeRef - need to get the index and turn it into a MemberRefPArent instead
+            let attribute_type_ref = writer.insert_type_ref(attribute_type.namespace(), attribute_type.name());
+
+            let signature = attribute_ctor.signature();
+            let return_type = winmd_type(&signature.return_type);
+            let param_types: Vec<Type> = signature.params.iter().map(winmd_type).collect();
+            let signature = writer.insert_method_sig(signature.call_flags, &return_type, &param_types);
+            
+            // writer.tables.MemberRef.push(MemberRef {
+            //     Class: MemberRefParent::TypeRef(attribute_type_ref).encode(),
+            //     Name: writer.strings.insert(".ctor"),
+            //     Signature: signature,
+            // });
+
+            // writer.tables.CustomAttribute.push(CustomAttribute {
+            //     Parent: def_ref,
+            //     Type: writer.tables.MemberRef.len() as u32 - 1,
+            //     Value: 0, // constructor argument values blob
+            // });
         }
     }
 

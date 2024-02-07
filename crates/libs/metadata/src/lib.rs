@@ -97,6 +97,7 @@ pub enum Value {
     EnumDef(TypeDef, Box<Self>),
 }
 
+#[derive(Debug)]
 pub struct MethodDefSig {
     pub call_flags: MethodCallAttributes,
     pub return_type: Type,

@@ -219,6 +219,16 @@ impl MemberRef {
     pub fn name(&self) -> &'static str {
         self.str(1)
     }
+
+    pub fn signature(&self) -> MethodDefSig {
+        let reader = self.reader();
+        let mut blob = self.blob(2);
+        let call_flags = MethodCallAttributes(blob.read_usize() as u8);
+        let params = blob.read_usize();
+        let return_type = reader.type_from_blob(&mut blob, None, &[]);
+
+        MethodDefSig { call_flags, return_type, params: (0..params).map(|_| reader.type_from_blob(&mut blob, None, &[])).collect() }
+    }
 }
 
 impl MethodDef {

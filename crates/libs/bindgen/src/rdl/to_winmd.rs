@@ -70,7 +70,7 @@ fn write_interface(writer: &mut winmd::Writer, namespace: &str, name: &str, memb
     }
 
     writer.tables.TypeDef.push(winmd::TypeDef {
-        Extends: 0,
+        Extends: winmd::TypeDefOrRef::none(),
         FieldList: writer.tables.Field.len() as u32,
         MethodList: writer.tables.MethodDef.len() as u32,
         Flags: flags.0,
