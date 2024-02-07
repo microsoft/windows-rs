@@ -70,10 +70,9 @@ pub struct Constant {
     pub Value: u32,
 }
 
-#[derive(Default)]
 pub struct CustomAttribute {
-    pub Parent: u32,
-    pub Type: u32,
+    pub Parent: HasAttribute,
+    pub Type: AttributeType,
     pub Value: u32,
 }
 
@@ -105,9 +104,8 @@ pub struct InterfaceImpl {
     pub Interface: TypeDefOrRef,
 }
 
-#[derive(Default)]
 pub struct MemberRef {
-    pub Class: u32,
+    pub Class: MemberRefParent,
     pub Name: u32,
     pub Signature: u32,
 }
@@ -189,30 +187,29 @@ impl Tables {
         let member_ref_parent = metadata::coded_index_size(&[self.TypeDef.len(), self.TypeRef.len(), self.ModuleRef.len(), self.MethodDef.len(), self.TypeSpec.len()]);
         let custom_attribute_type = metadata::coded_index_size(&[self.MethodDef.len(), self.MemberRef.len(), 0, 0, 0]);
 
-        let has_custom_attribute = 0;
-        // let has_custom_attribute = metadata::coded_index_size(&[
-        //     tables[MethodDef::TABLE].len,
-        //     tables[Field::TABLE].len,
-        //     tables[TypeRef::TABLE].len,
-        //     tables[TypeDef::TABLE].len,
-        //     tables[Param::TABLE].len,
-        //     tables[InterfaceImpl::TABLE].len,
-        //     tables[MemberRef::TABLE].len,
-        //     tables[Module::TABLE].len,
-        //     unused_property.len,
-        //     unused_event.len,
-        //     unused_standalone_sig.len,
-        //     tables[ModuleRef::TABLE].len,
-        //     tables[TypeSpec::TABLE].len,
-        //     unused_assembly.len,
-        //     tables[AssemblyRef::TABLE].len,
-        //     unused_file.len,
-        //     unused_exported_type.len,
-        //     unused_manifest_resource.len,
-        //     tables[GenericParam::TABLE].len,
-        //     unused_generic_param_constraint.len,
-        //     unused_method_spec.len,
-        // ]);
+         let has_custom_attribute = metadata::coded_index_size(&[
+             self.MethodDef.len(),
+             self.Field.len(),
+             self.TypeRef.len(),
+             self.TypeDef.len(),
+             self.Param.len(),
+             self.InterfaceImpl.len(),
+             self.MemberRef.len(),
+             self.Module.len(),
+             0,
+             0,
+             0,
+             self.ModuleRef.len(),
+             self.TypeSpec.len(),
+             0,
+             self.AssemblyRef.len(),
+             0,
+             0,
+             0,
+             self.GenericParam.len(),
+             0,
+             0,
+         ]);
 
         let valid_tables: u64 = 1 << 0 | // Module 
         1 << 0x01 | // TypeRef
@@ -319,7 +316,7 @@ impl Tables {
         }
 
         for x in self.MemberRef {
-            buffer.write_code(x.Class, member_ref_parent);
+            buffer.write_code(x.Class.encode(), member_ref_parent);
             buffer.write_u32(x.Name);
             buffer.write_u32(x.Signature);
         }
@@ -331,8 +328,8 @@ impl Tables {
         }
 
         for x in self.CustomAttribute {
-            buffer.write_code(x.Parent, has_custom_attribute);
-            buffer.write_code(x.Type, custom_attribute_type);
+            buffer.write_code(x.Parent.encode(), has_custom_attribute);
+            buffer.write_code(x.Type.encode(), custom_attribute_type);
             buffer.write_u32(x.Value);
         }
 

@@ -21,6 +21,7 @@ code! { AttributeType(3)
     (MemberRef, 3)
 }
 
+// TODO: needs to be called HasCustomAttribute
 code! { HasAttribute(5)
     (MethodDef, 0)
     (Field, 1)

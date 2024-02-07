@@ -1,5 +1,5 @@
 use super::*;
-
+use windows_metadata::HasAttributes;
 pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     if writer.sys {
         quote! {}
@@ -20,6 +20,11 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     let interfaces = metadata::type_interfaces(&metadata::Type::TypeDef(def, generics.to_vec()));
     let vtables = metadata::type_def_vtables(def);
     let has_unknown_base = matches!(vtables.first(), Some(metadata::Type::IUnknown));
+
+    println!("attributes {}", def.attributes().count());
+    for attribute in def.attributes() {
+        println!("attribute {}", attribute.name());
+    }
 
     let mut tokens = quote! {};
 

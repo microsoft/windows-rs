@@ -255,7 +255,8 @@ fn round(size: usize, round: usize) -> usize {
     (size + round) & !round
 }
 
-fn usize_blob(value: usize, blob: &mut Vec<u8>) {
+// TODO: need a Blob type for writing
+pub fn usize_blob(value: usize, blob: &mut Vec<u8>) {
     // See II.23.2 in ECMA-335
     assert!(value < 0x20000000);
 

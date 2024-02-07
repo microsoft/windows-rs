@@ -63,10 +63,13 @@ impl Attribute {
         let AttributeType::MemberRef(member) = self.ty();
         let mut sig = member.blob(2);
         let mut values = self.blob(2);
-        let _prolog = values.read_u16();
-        let _this_and_gen_param_count = sig.read_usize();
+        let prolog = values.read_u16();
+        std::debug_assert_eq!(prolog, 1);
+        let this_and_gen_param_count = sig.read_usize();
+        std::debug_assert_eq!(this_and_gen_param_count, 32);
         let fixed_arg_count = sig.read_usize();
-        let _ret_type = sig.read_usize();
+        let ret_type = sig.read_usize();
+        std::debug_assert_eq!(ret_type, 1);
         let mut args = Vec::with_capacity(fixed_arg_count);
         let reader = self.reader();
 

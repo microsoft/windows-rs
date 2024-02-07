@@ -95,24 +95,55 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
             let metadata::MemberRefParent::TypeRef(attribute_type) = attribute_ctor.parent();
 
             // TODO: here's the issue: this is alreayd a TypeRef - need to get the index and turn it into a MemberRefPArent instead
-            let attribute_type_ref = writer.insert_type_ref(attribute_type.namespace(), attribute_type.name());
+            let attribute_type_ref = if let TypeDefOrRef::TypeRef(type_ref) = writer.insert_type_ref(attribute_type.namespace(), attribute_type.name()) {
+                MemberRefParent::TypeRef(type_ref)
+            } else {
+                panic!()
+            };
 
             let signature = attribute_ctor.signature();
             let return_type = winmd_type(&signature.return_type);
             let param_types: Vec<Type> = signature.params.iter().map(winmd_type).collect();
             let signature = writer.insert_method_sig(signature.call_flags, &return_type, &param_types);
             
-            // writer.tables.MemberRef.push(MemberRef {
-            //     Class: MemberRefParent::TypeRef(attribute_type_ref).encode(),
-            //     Name: writer.strings.insert(".ctor"),
-            //     Signature: signature,
-            // });
+            writer.tables.MemberRef.push(MemberRef {
+                Class: attribute_type_ref,
+                Name: writer.strings.insert(".ctor"),
+                Signature: signature,
+            });
 
-            // writer.tables.CustomAttribute.push(CustomAttribute {
-            //     Parent: def_ref,
-            //     Type: writer.tables.MemberRef.len() as u32 - 1,
-            //     Value: 0, // constructor argument values blob
-            // });
+            // // TODO debug this with windows-metadata
+            let mut values = 1u16.to_le_bytes().to_vec(); // prolog
+            let args = attribute.args();
+
+            for (index, (name, value)) in args.iter().enumerate() {
+                match value {
+                    metadata::Value::Bool(value) => if *value { values.push(1) } else { values.push(0 )},
+                    metadata::Value::TypeName(value) => {
+                        let value = value.to_string();
+                        usize_blob(value.len(), &mut values);
+                        values.extend_from_slice(value.as_bytes());
+                    }
+                    metadata::Value::U32(value) => values.extend_from_slice(&value.to_le_bytes()),
+                    metadata::Value::U16(value) => values.extend_from_slice(&value.to_le_bytes()),
+                    metadata::Value::U8(value) => values.extend_from_slice(&value.to_le_bytes()),
+                    rest => unimplemented!("{rest:?}"),
+                }
+
+                if !name.is_empty() {
+                    let named_arg_count: u16 = (args.len() - index) as u16;
+                    values.extend_from_slice(&named_arg_count.to_le_bytes());
+                    break;
+                }
+            }
+
+            let values = writer.blobs.insert(&values);
+
+            writer.tables.CustomAttribute.push(CustomAttribute {
+                Parent: HasAttribute::TypeDef(def_ref),
+                Type: AttributeType::MemberRef(writer.tables.MemberRef.len() as u32 - 1),
+                Value: values
+            });
         }
     }
 
