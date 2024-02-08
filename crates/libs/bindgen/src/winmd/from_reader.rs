@@ -116,18 +116,7 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
             let mut named_arg_count = false;
 
             for (index, (name, value)) in args.iter().enumerate() {
-                match value {
-                    metadata::Value::Bool(value) => if *value { values.push(1) } else { values.push(0 )},
-                    metadata::Value::TypeName(value) => {
-                        let value = value.to_string();
-                        usize_blob(value.len(), &mut values);
-                        values.extend_from_slice(value.as_bytes());
-                    }
-                    metadata::Value::U32(value) => values.extend_from_slice(&value.to_le_bytes()),
-                    metadata::Value::U16(value) => values.extend_from_slice(&value.to_le_bytes()),
-                    metadata::Value::U8(value) => values.extend_from_slice(&value.to_le_bytes()),
-                    rest => unimplemented!("{rest:?}"),
-                }
+                value_blob(value, &mut values);
 
                 if !named_arg_count && !name.is_empty() {
                     named_arg_count = true;
@@ -154,6 +143,30 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
     // TODO: In theory, `config` could instruct this function to balance the types across a number of winmd files
     // like mdmerge supports for namespace-splitting.
     write_to_file(output, writer.into_stream()).map_err(|err| err.with_path(output))
+}
+
+// TODO: need a Blob type for writing
+fn value_blob(value: &metadata::Value, blob: &mut Vec<u8>) {
+    match value {
+        metadata::Value::Bool(value) => if *value { blob.push(1) } else { blob.push(0 )},
+        metadata::Value::U32(value) => blob.extend_from_slice(&value.to_le_bytes()),
+        metadata::Value::I32(value) => blob.extend_from_slice(&value.to_le_bytes()),
+        metadata::Value::U16(value) => blob.extend_from_slice(&value.to_le_bytes()),
+        metadata::Value::U8(value) => blob.extend_from_slice(&value.to_le_bytes()),
+        metadata::Value::EnumDef(_def, value) => value_blob(value, blob),
+        
+        metadata::Value::TypeName(value) => {
+            let value = value.to_string();
+            usize_blob(value.len(), blob);
+            blob.extend_from_slice(value.as_bytes());
+        }
+        metadata::Value::String(value) => {
+            usize_blob(value.len(), blob);
+            blob.extend_from_slice(value.as_bytes());
+        }
+        rest => unimplemented!("{rest:?}"),
+    }
+
 }
 
 // TODO: keep the basic type conversion
