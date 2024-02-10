@@ -51,4 +51,9 @@ fn conversions() {
         format!("{std_error}"),
         "The parameter is incorrect. (os error -2147024809)"
     );
+
+    // Starting with std::io::Error...
+    let std_error = std::io::Error::from_raw_os_error(ERROR_INVALID_DATA.0 as i32);
+    let error: windows::core::Error = std_error.into();
+    assert_eq!(error.code(), ERROR_INVALID_DATA.to_hresult());
 }

@@ -66,6 +66,7 @@ pub const E_BOUNDS: ::windows_core::HRESULT = ::windows_core::HRESULT(-214748363
 pub const E_INVALIDARG: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147024809i32);
 pub const E_NOINTERFACE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147467262i32);
 pub const E_OUTOFMEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147024882i32);
+pub const E_UNEXPECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147418113i32);
 ::windows_core::imp::com_interface!(IAgileObject, IAgileObject_Vtbl, 0x94ea2b94_e9cc_49e0_c0ff_ee64ca8f5b90);
 ::windows_core::imp::interface_hierarchy!(IAgileObject, ::windows_core::IUnknown);
 impl IAgileObject {}
