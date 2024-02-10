@@ -27,7 +27,7 @@
   </Type>
 
   <Type Name="windows_core::strings::hstring::HSTRING">
-    <Intrinsic Name="header" Expression="(windows_core::strings::hstring::Header *)__0.tag" ReturnType="windows_core::strings::hstring::Header *" />
+    <Intrinsic Name="header" Expression="(windows_core::strings::hstring::Header *)__0.tag" />
     <Intrinsic Name="is_empty" Expression="__0.tag == 0" />
     <DisplayString Condition="is_empty()">""</DisplayString>
     <DisplayString>{header()->data,[header()->len]su}</DisplayString>
