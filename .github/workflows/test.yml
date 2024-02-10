@@ -57,6 +57,8 @@ jobs:
           cargo test -p sample_credentials &&
           cargo test -p sample_data_protection &&
           cargo test -p sample_dcomp &&
+          cargo test -p sample_delay_load &&
+          cargo test -p sample_delay_load_sys &&
           cargo test -p sample_device_watcher &&
           cargo test -p sample_direct2d &&
           cargo test -p sample_direct3d12 &&
@@ -103,8 +105,8 @@ jobs:
           cargo test -p test_debugger_visualizer &&
           cargo test -p test_deprecated &&
           cargo test -p test_dispatch &&
-          cargo test -p test_does_not_return &&
           cargo clean &&
+          cargo test -p test_does_not_return &&
           cargo test -p test_enums &&
           cargo test -p test_error &&
           cargo test -p test_event &&
