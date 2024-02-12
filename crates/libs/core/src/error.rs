@@ -104,6 +104,15 @@ impl From<Error> for std::io::Error {
     }
 }
 
+impl From<std::io::Error> for Error {
+    fn from(from: std::io::Error) -> Self {
+        match from.raw_os_error() {
+            Some(status) => HRESULT::from_win32(status as u32).into(),
+            None => crate::imp::E_UNEXPECTED.into(),
+        }
+    }
+}
+
 impl From<std::string::FromUtf16Error> for Error {
     fn from(_: std::string::FromUtf16Error) -> Self {
         Self { code: HRESULT::from_win32(crate::imp::ERROR_NO_UNICODE_TRANSLATION), info: None }
