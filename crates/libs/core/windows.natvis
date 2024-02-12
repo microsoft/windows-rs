@@ -27,10 +27,10 @@
   </Type>
 
   <Type Name="windows_core::strings::hstring::HSTRING">
-    <Intrinsic Name="header" Expression="*((windows_core::strings::hstring::Header**)this)" ReturnType="windows_core::strings::hstring::Header *" />
-    <Intrinsic Name="is_empty" Expression="header() == nullptr" />
+    <Intrinsic Name="header" Expression="(windows_core::strings::hstring::Header *)__0.tag" />
+    <Intrinsic Name="is_empty" Expression="__0.tag == 0" />
     <DisplayString Condition="is_empty()">""</DisplayString>
-    <DisplayString>{((char16_t*)header()->data),[header()->len]su}</DisplayString>
+    <DisplayString>{header()->data,[header()->len]su}</DisplayString>
 
     <Expand>
       <Item Name="[len]">is_empty() ? (unsigned int)0 : header()->len</Item>
