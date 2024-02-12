@@ -86,8 +86,11 @@ impl HRESULT {
 
         unsafe {
             let size = crate::imp::FormatMessageW(crate::imp::FORMAT_MESSAGE_ALLOCATE_BUFFER | crate::imp::FORMAT_MESSAGE_FROM_SYSTEM | crate::imp::FORMAT_MESSAGE_IGNORE_INSERTS, std::ptr::null(), self.0 as u32, 0, &mut message.0 as *mut _ as *mut _, 0, std::ptr::null());
-
-            HSTRING::from_wide(crate::imp::wide_trim_end(std::slice::from_raw_parts(message.0 as *const u16, size as usize))).unwrap_or_default()
+            if !message.0.is_null() && size > 0 {
+                HSTRING::from_wide(crate::imp::wide_trim_end(std::slice::from_raw_parts(message.0 as *const u16, size as usize))).unwrap_or_default()
+            } else {
+                HSTRING::default()
+            }
         }
     }
 
