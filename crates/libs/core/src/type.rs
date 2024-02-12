@@ -98,9 +98,3 @@ primitives!(bool, i8, u8, i16, u16, i32, u32, i64, u64, f32, f64, usize, isize);
 
 #[doc(hidden)]
 pub type AbiType<T> = <T as Type<T>>::Abi;
-
-/// # Safety
-#[doc(hidden)]
-pub unsafe fn from_abi<T: Type<T>>(abi: T::Abi) -> Result<T> {
-    T::from_abi(abi)
-}
