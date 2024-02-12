@@ -198,6 +198,7 @@ impl<T: Interface> Drop for Array<T> {
 
 /// A reference-counted buffer.
 #[repr(C)]
+#[repr(align(8))]
 struct Buffer<T>(crate::imp::RefCount, std::marker::PhantomData<T>);
 
 impl<T: Interface> Buffer<T> {
