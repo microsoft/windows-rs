@@ -159,14 +159,14 @@ impl Lamp {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DeviceId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetIsEnabled(&self, value: bool) -> ::windows_core::Result<()> {
@@ -177,7 +177,7 @@ impl Lamp {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BrightnessLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BrightnessLevel)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetBrightnessLevel(&self, value: f32) -> ::windows_core::Result<()> {
@@ -188,7 +188,7 @@ impl Lamp {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsColorSettable)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsColorSettable)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "UI")]
@@ -196,7 +196,7 @@ impl Lamp {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Color)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Color)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "UI")]
@@ -211,7 +211,7 @@ impl Lamp {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AvailabilityChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AvailabilityChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAvailabilityChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
@@ -221,19 +221,19 @@ impl Lamp {
     pub fn GetDeviceSelector() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::ILampStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Lamp>> {
         Self::ILampStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetDefaultAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Lamp>> {
         Self::ILampStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetDefaultAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetDefaultAsync)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -263,49 +263,49 @@ impl LampArray {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DeviceId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn HardwareVendorId(&self) -> ::windows_core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).HardwareVendorId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).HardwareVendorId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn HardwareProductId(&self) -> ::windows_core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).HardwareProductId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).HardwareProductId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn HardwareVersion(&self) -> ::windows_core::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).HardwareVersion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).HardwareVersion)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn LampArrayKind(&self) -> ::windows_core::Result<LampArrayKind> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LampArrayKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LampArrayKind)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn LampCount(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LampCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LampCount)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MinUpdateInterval(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MinUpdateInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MinUpdateInterval)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -313,14 +313,14 @@ impl LampArray {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BoundingBox)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BoundingBox)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetIsEnabled(&self, value: bool) -> ::windows_core::Result<()> {
@@ -331,7 +331,7 @@ impl LampArray {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BrightnessLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BrightnessLevel)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetBrightnessLevel(&self, value: f64) -> ::windows_core::Result<()> {
@@ -342,21 +342,21 @@ impl LampArray {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsConnected)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsConnected)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SupportsVirtualKeys(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SupportsVirtualKeys)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SupportsVirtualKeys)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetLampInfo(&self, lampindex: i32) -> ::windows_core::Result<LampInfo> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetLampInfo)(::windows_core::Interface::as_raw(this), lampindex, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetLampInfo)(::windows_core::Interface::as_raw(this), lampindex, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "System")]
@@ -364,14 +364,14 @@ impl LampArray {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows_core::Interface::vtable(this).GetIndicesForKey)(::windows_core::Interface::as_raw(this), key, ::windows_core::Array::<i32>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+            (::windows_core::Interface::vtable(this).GetIndicesForKey)(::windows_core::Interface::as_raw(this), key, ::windows_core::Array::<i32>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     pub fn GetIndicesForPurposes(&self, purposes: LampPurposes) -> ::windows_core::Result<::windows_core::Array<i32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows_core::Interface::vtable(this).GetIndicesForPurposes)(::windows_core::Interface::as_raw(this), purposes, ::windows_core::Array::<i32>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+            (::windows_core::Interface::vtable(this).GetIndicesForPurposes)(::windows_core::Interface::as_raw(this), purposes, ::windows_core::Array::<i32>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
     #[cfg(feature = "UI")]
@@ -417,7 +417,7 @@ impl LampArray {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SendMessageAsync)(::windows_core::Interface::as_raw(this), messageid, message.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SendMessageAsync)(::windows_core::Interface::as_raw(this), messageid, message.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -425,14 +425,14 @@ impl LampArray {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestMessageAsync)(::windows_core::Interface::as_raw(this), messageid, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestMessageAsync)(::windows_core::Interface::as_raw(this), messageid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsAvailable(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::Interface::cast::<ILampArray2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsAvailable)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsAvailable)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AvailabilityChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
@@ -442,7 +442,7 @@ impl LampArray {
         let this = &::windows_core::Interface::cast::<ILampArray2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AvailabilityChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AvailabilityChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAvailabilityChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
@@ -452,13 +452,13 @@ impl LampArray {
     pub fn GetDeviceSelector() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::ILampArrayStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LampArray>> {
         Self::ILampArrayStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -488,7 +488,7 @@ impl LampAvailabilityChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsAvailable)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsAvailable)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -513,14 +513,14 @@ impl LampInfo {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Index)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Index)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Purposes(&self) -> ::windows_core::Result<LampPurposes> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Purposes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Purposes)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
@@ -528,35 +528,35 @@ impl LampInfo {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn RedLevelCount(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RedLevelCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RedLevelCount)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GreenLevelCount(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GreenLevelCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GreenLevelCount)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BlueLevelCount(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BlueLevelCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BlueLevelCount)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GainLevelCount(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GainLevelCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GainLevelCount)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "UI")]
@@ -564,7 +564,7 @@ impl LampInfo {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FixedColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FixedColor)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "UI")]
@@ -572,14 +572,14 @@ impl LampInfo {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetNearestSupportedColor)(::windows_core::Interface::as_raw(this), desiredcolor, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetNearestSupportedColor)(::windows_core::Interface::as_raw(this), desiredcolor, &mut result__).map(|| result__)
         }
     }
     pub fn UpdateLatency(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).UpdateLatency)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).UpdateLatency)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }

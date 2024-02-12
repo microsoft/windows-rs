@@ -6,7 +6,7 @@ where
 {
     ::windows_targets::link!("windows.data.pdf.dll" "system" fn PdfCreateRenderer(pdevice : * mut::core::ffi::c_void, pprenderer : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    PdfCreateRenderer(pdevice.into_param().abi(), &mut result__).from_abi(result__)
+    PdfCreateRenderer(pdevice.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
 }
 ::windows_core::imp::com_interface!(IPdfRendererNative, IPdfRendererNative_Vtbl, 0x7d9dcd91_d277_4947_8527_07a0daeda94a);
 ::windows_core::imp::interface_hierarchy!(IPdfRendererNative, ::windows_core::IUnknown);

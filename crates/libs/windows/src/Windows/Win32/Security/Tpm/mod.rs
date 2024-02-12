@@ -32,7 +32,7 @@ impl ITpmVirtualSmartCardManager {
         P1: ::windows_core::IntoParam<ITpmVirtualSmartCardManagerStatusCallback>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).DestroyVirtualSmartCard)(::windows_core::Interface::as_raw(self), pszinstanceid.into_param().abi(), pstatuscallback.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).DestroyVirtualSmartCard)(::windows_core::Interface::as_raw(self), pszinstanceid.into_param().abi(), pstatuscallback.into_param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -76,7 +76,7 @@ impl ITpmVirtualSmartCardManager2 {
         P1: ::windows_core::IntoParam<ITpmVirtualSmartCardManagerStatusCallback>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.DestroyVirtualSmartCard)(::windows_core::Interface::as_raw(self), pszinstanceid.into_param().abi(), pstatuscallback.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.DestroyVirtualSmartCard)(::windows_core::Interface::as_raw(self), pszinstanceid.into_param().abi(), pstatuscallback.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CreateVirtualSmartCardWithPinPolicy<P0, P1, P2>(&self, pszfriendlyname: P0, badminalgid: u8, pbadminkey: &[u8], pbadminkcv: &[u8], pbpuk: &[u8], pbpin: &[u8], pbpinpolicy: &[u8], fgenerate: P1, pstatuscallback: P2, ppszinstanceid: *mut ::windows_core::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>
     where
@@ -146,7 +146,7 @@ impl ITpmVirtualSmartCardManager3 {
         P1: ::windows_core::IntoParam<ITpmVirtualSmartCardManagerStatusCallback>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.DestroyVirtualSmartCard)(::windows_core::Interface::as_raw(self), pszinstanceid.into_param().abi(), pstatuscallback.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.DestroyVirtualSmartCard)(::windows_core::Interface::as_raw(self), pszinstanceid.into_param().abi(), pstatuscallback.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CreateVirtualSmartCardWithPinPolicy<P0, P1, P2>(&self, pszfriendlyname: P0, badminalgid: u8, pbadminkey: &[u8], pbadminkcv: &[u8], pbpuk: &[u8], pbpin: &[u8], pbpinpolicy: &[u8], fgenerate: P1, pstatuscallback: P2, ppszinstanceid: *mut ::windows_core::PWSTR, pfneedreboot: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>
     where
@@ -201,7 +201,7 @@ impl ITpmVirtualSmartCardManager3 {
             pstatuscallback.into_param().abi(),
             &mut result__,
         )
-        .from_abi(result__)
+        .map(|| result__)
     }
 }
 #[repr(C)]

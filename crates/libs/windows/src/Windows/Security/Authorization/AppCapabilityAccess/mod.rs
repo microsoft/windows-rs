@@ -55,7 +55,7 @@ impl AppCapability {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CapabilityName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CapabilityName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "System")]
@@ -63,21 +63,21 @@ impl AppCapability {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn RequestAccessAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<AppCapabilityAccessStatus>> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestAccessAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestAccessAsync)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn CheckAccess(&self) -> ::windows_core::Result<AppCapabilityAccessStatus> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CheckAccess)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CheckAccess)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AccessChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
@@ -87,7 +87,7 @@ impl AppCapability {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AccessChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AccessChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveAccessChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
@@ -98,7 +98,7 @@ impl AppCapability {
         let this = &::windows_core::Interface::cast::<IAppCapability2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DisplayMessage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DisplayMessage)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetDisplayMessage(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -112,7 +112,7 @@ impl AppCapability {
     {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestAccessForCapabilitiesAsync)(::windows_core::Interface::as_raw(this), capabilitynames.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestAccessForCapabilitiesAsync)(::windows_core::Interface::as_raw(this), capabilitynames.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
@@ -123,13 +123,13 @@ impl AppCapability {
     {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestAccessForCapabilitiesForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), capabilitynames.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestAccessForCapabilitiesForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), capabilitynames.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Create(capabilityname: &::windows_core::HSTRING) -> ::windows_core::Result<AppCapability> {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(capabilityname), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(capabilityname), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
@@ -139,7 +139,7 @@ impl AppCapability {
     {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWithProcessIdForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(capabilityname), pid, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWithProcessIdForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(capabilityname), pid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

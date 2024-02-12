@@ -68,7 +68,7 @@ impl GameBar {
     {
         Self::IGameBarStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).VisibilityChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).VisibilityChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveVisibilityChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
@@ -80,7 +80,7 @@ impl GameBar {
     {
         Self::IGameBarStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsInputRedirectedChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsInputRedirectedChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveIsInputRedirectedChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
@@ -89,13 +89,13 @@ impl GameBar {
     pub fn Visible() -> ::windows_core::Result<bool> {
         Self::IGameBarStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Visible)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Visible)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn IsInputRedirected() -> ::windows_core::Result<bool> {
         Self::IGameBarStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsInputRedirected)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsInputRedirected)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[doc(hidden)]
@@ -116,35 +116,35 @@ impl GameChatMessageReceivedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppDisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SenderName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SenderName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SenderName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Message(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Message)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Message)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Origin(&self) -> ::windows_core::Result<GameChatMessageOrigin> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Origin)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Origin)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -169,7 +169,7 @@ impl GameChatOverlay {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DesiredPosition)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DesiredPosition)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetDesiredPosition(&self, value: GameChatOverlayPosition) -> ::windows_core::Result<()> {
@@ -183,7 +183,7 @@ impl GameChatOverlay {
     pub fn GetDefault() -> ::windows_core::Result<GameChatOverlay> {
         Self::IGameChatOverlayStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetDefault)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -223,7 +223,7 @@ impl GameChatOverlayMessageSource {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MessageReceived)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MessageReceived)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveMessageReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
@@ -259,7 +259,7 @@ impl GameUIProviderActivatedEventArgs {
         let this = &::windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -267,7 +267,7 @@ impl GameUIProviderActivatedEventArgs {
         let this = &::windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -275,7 +275,7 @@ impl GameUIProviderActivatedEventArgs {
         let this = &::windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -283,7 +283,7 @@ impl GameUIProviderActivatedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GameUIArgs)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GameUIArgs)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]

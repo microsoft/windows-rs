@@ -81,7 +81,7 @@ where
 {
     ::windows_targets::link!("prntvpt.dll" "system" fn PTOpenProvider(pszprintername : ::windows_core::PCWSTR, dwversion : u32, phprovider : *mut super::super::super::Storage::Xps:: HPTPROVIDER) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    PTOpenProvider(pszprintername.into_param().abi(), dwversion, &mut result__).from_abi(result__)
+    PTOpenProvider(pszprintername.into_param().abi(), dwversion, &mut result__).map(|| result__)
 }
 #[cfg(feature = "Win32_Storage_Xps")]
 #[inline]
@@ -99,7 +99,7 @@ where
 {
     ::windows_targets::link!("prntvpt.dll" "system" fn PTQuerySchemaVersionSupport(pszprintername : ::windows_core::PCWSTR, pmaxversion : *mut u32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    PTQuerySchemaVersionSupport(pszprintername.into_param().abi(), &mut result__).from_abi(result__)
+    PTQuerySchemaVersionSupport(pszprintername.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn PTReleaseMemory(pbuffer: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {

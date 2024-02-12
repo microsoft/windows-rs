@@ -29,7 +29,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterable<T> {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -83,7 +83,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn get_HasCurrent(&self) -> ::windows_core::Result<bool> {
@@ -94,7 +94,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn MoveNext(&self) -> ::windows_core::Result<bool> {
@@ -105,7 +105,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
 }
@@ -170,7 +170,7 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn get_Value(&self) -> ::windows_core::Result<V> {
@@ -181,7 +181,7 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -266,7 +266,7 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
                 key as *mut _ as _,
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn get_Size(&self) -> ::windows_core::Result<u32> {
@@ -277,7 +277,7 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn HasKey<P0>(
@@ -295,7 +295,7 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
                 key as *mut _ as _,
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn First(&self) -> ::windows_core::Result<IIterator<IKeyValuePair<K, V>>> {
@@ -306,7 +306,7 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }

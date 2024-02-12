@@ -8,7 +8,7 @@ pub unsafe fn RtlInitializeSListHead() -> SLIST_HEADER {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlInitializeSListHead(listhead : *mut SLIST_HEADER));
     let mut result__ = ::std::mem::zeroed();
     RtlInitializeSListHead(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn RtlInterlockedFlushSList(listhead: *mut SLIST_HEADER) -> *mut SLIST_ENTRY {

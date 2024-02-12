@@ -107,35 +107,35 @@ impl IAccessoryNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AccessoryNotificationType(&self) -> ::windows_core::Result<AccessoryNotificationType> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn StartedProcessing(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows_core::Result<()> {
@@ -409,13 +409,13 @@ impl AccessoryManager {
     pub fn RegisterAccessoryApp() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RegisterAccessoryApp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RegisterAccessoryApp)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetNextTriggerDetails() -> ::windows_core::Result<IAccessoryNotificationTriggerDetails> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetNextTriggerDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetNextTriggerDetails)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn ProcessTriggerDetails<P0>(pdetails: P0) -> ::windows_core::Result<()>
@@ -428,13 +428,13 @@ impl AccessoryManager {
     pub fn PhoneLineDetails() -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<PhoneLineDetails>> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PhoneLineDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PhoneLineDetails)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetPhoneLineDetails(phoneline: ::windows_core::GUID) -> ::windows_core::Result<PhoneLineDetails> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetPhoneLineDetails)(::windows_core::Interface::as_raw(this), phoneline, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetPhoneLineDetails)(::windows_core::Interface::as_raw(this), phoneline, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn AcceptPhoneCall(phonecallid: u32) -> ::windows_core::Result<()> {
@@ -482,7 +482,7 @@ impl AccessoryManager {
     pub fn PhoneMute() -> ::windows_core::Result<bool> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PhoneMute)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PhoneMute)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn SetPhoneCallAudioEndpoint(value: PhoneCallAudioEndpoint) -> ::windows_core::Result<()> {
@@ -491,7 +491,7 @@ impl AccessoryManager {
     pub fn PhoneCallAudioEndpoint() -> ::windows_core::Result<PhoneCallAudioEndpoint> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PhoneCallAudioEndpoint)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PhoneCallAudioEndpoint)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn SnoozeAlarm(alarmid: ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -515,19 +515,19 @@ impl AccessoryManager {
     pub fn GetMediaMetadata() -> ::windows_core::Result<MediaMetadata> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetMediaMetadata)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetMediaMetadata)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn MediaPlaybackCapabilities() -> ::windows_core::Result<PlaybackCapability> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MediaPlaybackCapabilities)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MediaPlaybackCapabilities)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MediaPlaybackStatus() -> ::windows_core::Result<PlaybackStatus> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MediaPlaybackStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MediaPlaybackStatus)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn PerformMediaPlaybackCommand(command: PlaybackCommand) -> ::windows_core::Result<()> {
@@ -536,26 +536,26 @@ impl AccessoryManager {
     pub fn DoNotDisturbEnabled() -> ::windows_core::Result<bool> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DoNotDisturbEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DoNotDisturbEnabled)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn DrivingModeEnabled() -> ::windows_core::Result<bool> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DrivingModeEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DrivingModeEnabled)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn BatterySaverState() -> ::windows_core::Result<bool> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BatterySaverState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BatterySaverState)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetApps() -> ::windows_core::Result<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, AppNotificationInfo>> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetApps)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetApps)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn EnableNotificationsForApplication(appid: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -567,13 +567,13 @@ impl AccessoryManager {
     pub fn IsNotificationEnabledForApplication(appid: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsNotificationEnabledForApplication)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appid), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsNotificationEnabledForApplication)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appid), &mut result__).map(|| result__)
         })
     }
     pub fn GetEnabledAccessoryNotificationTypes() -> ::windows_core::Result<i32> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetEnabledAccessoryNotificationTypes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetEnabledAccessoryNotificationTypes)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn EnableAccessoryNotificationTypes(accessorynotificationtypes: i32) -> ::windows_core::Result<()> {
@@ -585,14 +585,14 @@ impl AccessoryManager {
     pub fn GetUserConsent() -> ::windows_core::Result<bool> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetUserConsent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetUserConsent)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "Storage_Streams")]
     pub fn GetAppIcon(appid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference> {
         Self::IAccessoryManager(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetAppIcon)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appid), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetAppIcon)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appid), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn RingDevice() -> ::windows_core::Result<()> {
@@ -602,7 +602,7 @@ impl AccessoryManager {
     pub fn SpeedDialList() -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<SpeedDialEntry>> {
         Self::IAccessoryManager2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SpeedDialList)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SpeedDialList)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn ClearToast(instanceid: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -611,7 +611,7 @@ impl AccessoryManager {
     pub fn IsPhonePinLocked() -> ::windows_core::Result<bool> {
         Self::IAccessoryManager2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsPhonePinLocked)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsPhonePinLocked)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn IncreaseVolume(step: i32) -> ::windows_core::Result<()> {
@@ -629,21 +629,21 @@ impl AccessoryManager {
     pub fn VolumeInfo() -> ::windows_core::Result<VolumeInfo> {
         Self::IAccessoryManager2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).VolumeInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).VolumeInfo)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAllEmailAccounts() -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<EmailAccountInfo>> {
         Self::IAccessoryManager2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetAllEmailAccounts)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetAllEmailAccounts)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetFolders(emailaccount: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<EmailFolderInfo>> {
         Self::IAccessoryManager2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetFolders)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(emailaccount), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetFolders)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(emailaccount), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn EnableEmailNotificationEmailAccount(emailaccount: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -706,35 +706,35 @@ impl AlarmNotificationTriggerDetails {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AccessoryNotificationType(&self) -> ::windows_core::Result<AccessoryNotificationType> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn StartedProcessing(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows_core::Result<()> {
@@ -745,35 +745,35 @@ impl AlarmNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AlarmId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AlarmId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Timestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Timestamp)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ReminderState(&self) -> ::windows_core::Result<ReminderState> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReminderState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReminderState)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn InstanceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAlarmNotificationTriggerDetails2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).InstanceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).InstanceId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -796,14 +796,14 @@ impl AppNotificationInfo {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -826,14 +826,14 @@ impl BinaryId {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Length(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Length)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Length)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -857,35 +857,35 @@ impl CalendarChangedNotificationTriggerDetails {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AccessoryNotificationType(&self) -> ::windows_core::Result<AccessoryNotificationType> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn StartedProcessing(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows_core::Result<()> {
@@ -896,14 +896,14 @@ impl CalendarChangedNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).EventType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).EventType)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ItemId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ItemId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ItemId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -927,35 +927,35 @@ impl CortanaTileNotificationTriggerDetails {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AccessoryNotificationType(&self) -> ::windows_core::Result<AccessoryNotificationType> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn StartedProcessing(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows_core::Result<()> {
@@ -966,70 +966,70 @@ impl CortanaTileNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TileId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TileId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Content(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Content)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Content)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn LargeContent1(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LargeContent1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LargeContent1)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn LargeContent2(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LargeContent2)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LargeContent2)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn EmphasizedText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).EmphasizedText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).EmphasizedText)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn NonWrappedSmallContent1(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).NonWrappedSmallContent1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).NonWrappedSmallContent1)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn NonWrappedSmallContent2(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).NonWrappedSmallContent2)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).NonWrappedSmallContent2)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn NonWrappedSmallContent3(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).NonWrappedSmallContent3)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).NonWrappedSmallContent3)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn NonWrappedSmallContent4(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).NonWrappedSmallContent4)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).NonWrappedSmallContent4)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Source(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Source)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Source)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1052,14 +1052,14 @@ impl EmailAccountInfo {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsNotificationEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsNotificationEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsNotificationEnabled)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -1082,14 +1082,14 @@ impl EmailFolderInfo {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsNotificationEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsNotificationEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsNotificationEnabled)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -1113,35 +1113,35 @@ impl EmailNotificationTriggerDetails {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AccessoryNotificationType(&self) -> ::windows_core::Result<AccessoryNotificationType> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn StartedProcessing(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows_core::Result<()> {
@@ -1152,28 +1152,28 @@ impl EmailNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AccountName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AccountName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn ParentFolderName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ParentFolderName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ParentFolderName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SenderName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SenderName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SenderName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SenderAddress(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SenderAddress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SenderAddress)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "ApplicationModel_Email")]
@@ -1181,21 +1181,21 @@ impl EmailNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).EmailMessage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).EmailMessage)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Timestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Timestamp)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MessageEntryId(&self) -> ::windows_core::Result<BinaryId> {
         let this = &::windows_core::Interface::cast::<IEmailNotificationTriggerDetails2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MessageEntryId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MessageEntryId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1219,35 +1219,35 @@ impl EmailReadNotificationTriggerDetails {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AccessoryNotificationType(&self) -> ::windows_core::Result<AccessoryNotificationType> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn StartedProcessing(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows_core::Result<()> {
@@ -1258,28 +1258,28 @@ impl EmailReadNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AccountName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AccountName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn ParentFolderName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ParentFolderName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ParentFolderName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn MessageEntryId(&self) -> ::windows_core::Result<BinaryId> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MessageEntryId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MessageEntryId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsRead(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsRead)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsRead)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -1303,35 +1303,35 @@ impl MediaControlsTriggerDetails {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AccessoryNotificationType(&self) -> ::windows_core::Result<AccessoryNotificationType> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn StartedProcessing(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows_core::Result<()> {
@@ -1342,14 +1342,14 @@ impl MediaControlsTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PlaybackStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PlaybackStatus)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MediaMetadata(&self) -> ::windows_core::Result<MediaMetadata> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MediaMetadata)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MediaMetadata)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1372,42 +1372,42 @@ impl MediaMetadata {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Subtitle(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Subtitle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Subtitle)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Artist(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Artist)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Artist)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Album(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Album)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Album)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Track(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Track)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Track)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1415,7 +1415,7 @@ impl MediaMetadata {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Thumbnail)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Thumbnail)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1438,77 +1438,77 @@ impl PhoneCallDetails {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PhoneLine)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PhoneLine)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn CallId(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CallId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CallId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn CallTransport(&self) -> ::windows_core::Result<PhoneCallTransport> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CallTransport)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CallTransport)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn CallMediaType(&self) -> ::windows_core::Result<PhoneMediaType> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CallMediaType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CallMediaType)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn CallDirection(&self) -> ::windows_core::Result<PhoneCallDirection> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CallDirection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CallDirection)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn State(&self) -> ::windows_core::Result<PhoneCallState> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ConferenceCallId(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ConferenceCallId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ConferenceCallId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn StartTime(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartTime)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn EndTime(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).EndTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).EndTime)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PhoneNumber(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PhoneNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PhoneNumber)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn ContactName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ContactName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ContactName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1516,7 +1516,7 @@ impl PhoneCallDetails {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PresetTextResponses)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PresetTextResponses)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1539,49 +1539,49 @@ impl PhoneLineDetails {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LineId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LineId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn LineNumber(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LineNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LineNumber)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn DefaultOutgoingLine(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DefaultOutgoingLine)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DefaultOutgoingLine)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn VoicemailCount(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).VoicemailCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).VoicemailCount)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn RegistrationState(&self) -> ::windows_core::Result<PhoneLineRegistrationState> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RegistrationState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RegistrationState)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MissedCallCount(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::Interface::cast::<IPhoneLineDetails2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MissedCallCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MissedCallCount)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -1605,35 +1605,35 @@ impl PhoneNotificationTriggerDetails {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AccessoryNotificationType(&self) -> ::windows_core::Result<AccessoryNotificationType> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn StartedProcessing(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows_core::Result<()> {
@@ -1644,21 +1644,21 @@ impl PhoneNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PhoneNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PhoneNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn CallDetails(&self) -> ::windows_core::Result<PhoneCallDetails> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CallDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CallDetails)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn PhoneLineChangedId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PhoneLineChangedId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PhoneLineChangedId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -1682,35 +1682,35 @@ impl ReminderNotificationTriggerDetails {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AccessoryNotificationType(&self) -> ::windows_core::Result<AccessoryNotificationType> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn StartedProcessing(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows_core::Result<()> {
@@ -1721,35 +1721,35 @@ impl ReminderNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReminderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReminderId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Details(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Details)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Details)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Timestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Timestamp)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "ApplicationModel_Appointments")]
@@ -1757,21 +1757,21 @@ impl ReminderNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Appointment)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Appointment)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn ReminderState(&self) -> ::windows_core::Result<ReminderState> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReminderState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReminderState)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn InstanceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IReminderNotificationTriggerDetails2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).InstanceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).InstanceId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1794,21 +1794,21 @@ impl SpeedDialEntry {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PhoneNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PhoneNumber)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn NumberType(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).NumberType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).NumberType)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn ContactName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ContactName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ContactName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1831,14 +1831,14 @@ impl TextResponse {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Content(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Content)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Content)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1862,35 +1862,35 @@ impl ToastNotificationTriggerDetails {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TimeCreated)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn AppDisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AppId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AppId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AccessoryNotificationType(&self) -> ::windows_core::Result<AccessoryNotificationType> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AccessoryNotificationType)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn StartedProcessing(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::Interface::cast::<IAccessoryNotificationTriggerDetails>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartedProcessing)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetStartedProcessing(&self, value: bool) -> ::windows_core::Result<()> {
@@ -1901,42 +1901,42 @@ impl ToastNotificationTriggerDetails {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Text1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Text1)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Text2(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Text2)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Text2)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Text3(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Text3)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Text3)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Text4(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Text4)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Text4)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SuppressPopup(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SuppressPopup)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SuppressPopup)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn InstanceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IToastNotificationTriggerDetails2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).InstanceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).InstanceId)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1959,35 +1959,35 @@ impl VolumeInfo {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SystemVolume)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SystemVolume)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn CallVolume(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CallVolume)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CallVolume)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn MediaVolume(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MediaVolume)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MediaVolume)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsMuted(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsMuted)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsMuted)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsVibrateEnabled(&self) -> ::windows_core::Result<VibrateState> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsVibrateEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsVibrateEnabled)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }

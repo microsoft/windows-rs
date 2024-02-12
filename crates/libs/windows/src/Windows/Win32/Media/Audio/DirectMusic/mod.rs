@@ -183,7 +183,7 @@ pub struct IDirectMusicBuffer_Vtbl {
 impl IDirectMusicCollection {
     pub unsafe fn GetInstrument(&self, dwpatch: u32) -> ::windows_core::Result<IDirectMusicInstrument> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetInstrument)(::windows_core::Interface::as_raw(self), dwpatch, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetInstrument)(::windows_core::Interface::as_raw(self), dwpatch, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EnumInstrument<P0>(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: P0, dwnamelen: u32) -> ::windows_core::Result<()>
     where
@@ -272,7 +272,7 @@ impl IDirectMusicPort {
     }
     pub unsafe fn GetLatencyClock(&self) -> ::windows_core::Result<super::super::IReferenceClock> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetLatencyClock)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetLatencyClock)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRunningStats(&self, pstats: *mut DMUS_SYNTHSTATS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRunningStats)(::windows_core::Interface::as_raw(self), pstats).ok()
@@ -350,11 +350,11 @@ pub struct IDirectMusicPort_Vtbl {
 impl IDirectMusicPortDownload {
     pub unsafe fn GetBuffer(&self, dwdlid: u32) -> ::windows_core::Result<IDirectMusicDownload> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetBuffer)(::windows_core::Interface::as_raw(self), dwdlid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetBuffer)(::windows_core::Interface::as_raw(self), dwdlid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AllocateBuffer(&self, dwsize: u32) -> ::windows_core::Result<IDirectMusicDownload> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).AllocateBuffer)(::windows_core::Interface::as_raw(self), dwsize, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).AllocateBuffer)(::windows_core::Interface::as_raw(self), dwsize, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetDLId(&self, pdwstartdlid: *mut u32, dwcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDLId)(::windows_core::Interface::as_raw(self), pdwstartdlid, dwcount).ok()
@@ -425,7 +425,7 @@ impl IDirectMusicSynth {
     }
     pub unsafe fn GetLatencyClock(&self) -> ::windows_core::Result<super::super::IReferenceClock> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetLatencyClock)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetLatencyClock)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Activate<P0>(&self, fenable: P0) -> ::windows_core::Result<()>
     where
@@ -516,7 +516,7 @@ impl IDirectMusicSynth8 {
     }
     pub unsafe fn GetLatencyClock(&self) -> ::windows_core::Result<super::super::IReferenceClock> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetLatencyClock)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetLatencyClock)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Activate<P0>(&self, fenable: P0) -> ::windows_core::Result<()>
     where
@@ -588,7 +588,7 @@ impl IDirectMusicSynthSink {
     }
     pub unsafe fn GetLatencyClock(&self) -> ::windows_core::Result<super::super::IReferenceClock> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetLatencyClock)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetLatencyClock)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Activate<P0>(&self, fenable: P0) -> ::windows_core::Result<()>
     where

@@ -63,7 +63,7 @@ where
 pub unsafe fn GetDeviceID(pguidsrc: ::core::option::Option<*const ::windows_core::GUID>) -> ::windows_core::Result<::windows_core::GUID> {
     ::windows_targets::link!("dsound.dll" "system" fn GetDeviceID(pguidsrc : *const ::windows_core::GUID, pguiddest : *mut ::windows_core::GUID) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    GetDeviceID(::core::mem::transmute(pguidsrc.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+    GetDeviceID(::core::mem::transmute(pguidsrc.unwrap_or(::std::ptr::null())), &mut result__).map(|| result__)
 }
 ::windows_core::imp::com_interface!(IDirectSound, IDirectSound_Vtbl, 0x279afa83_4981_11ce_a521_0020af0be560);
 ::windows_core::imp::interface_hierarchy!(IDirectSound, ::windows_core::IUnknown);
@@ -82,7 +82,7 @@ impl IDirectSound {
         P0: ::windows_core::IntoParam<IDirectSoundBuffer>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).DuplicateSoundBuffer)(::windows_core::Interface::as_raw(self), pdsbufferoriginal.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).DuplicateSoundBuffer)(::windows_core::Interface::as_raw(self), pdsbufferoriginal.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetCooperativeLevel<P0>(&self, hwnd: P0, dwlevel: u32) -> ::windows_core::Result<()>
     where
@@ -95,7 +95,7 @@ impl IDirectSound {
     }
     pub unsafe fn GetSpeakerConfig(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSpeakerConfig)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetSpeakerConfig)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSpeakerConfig(&self, dwspeakerconfig: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSpeakerConfig)(::windows_core::Interface::as_raw(self), dwspeakerconfig).ok()
@@ -130,33 +130,33 @@ impl IDirectSound3DBuffer {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetConeOrientation(&self) -> ::windows_core::Result<super::super::super::Graphics::Direct3D::D3DVECTOR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetConeOrientation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetConeOrientation)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetConeOutsideVolume(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetConeOutsideVolume)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetConeOutsideVolume)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetMaxDistance(&self) -> ::windows_core::Result<f32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetMaxDistance)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetMaxDistance)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetMinDistance(&self) -> ::windows_core::Result<f32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetMinDistance)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetMinDistance)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetMode(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetMode)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetPosition(&self) -> ::windows_core::Result<super::super::super::Graphics::Direct3D::D3DVECTOR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetPosition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetPosition)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetVelocity(&self) -> ::windows_core::Result<super::super::super::Graphics::Direct3D::D3DVECTOR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetVelocity)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetVelocity)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn SetAllParameters(&self, pcds3dbuffer: *const DS3DBUFFER, dwapply: u32) -> ::windows_core::Result<()> {
@@ -234,11 +234,11 @@ impl IDirectSound3DListener {
     }
     pub unsafe fn GetDistanceFactor(&self) -> ::windows_core::Result<f32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetDistanceFactor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetDistanceFactor)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDopplerFactor(&self) -> ::windows_core::Result<f32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetDopplerFactor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetDopplerFactor)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetOrientation(&self, pvorientfront: *mut super::super::super::Graphics::Direct3D::D3DVECTOR, pvorienttop: *mut super::super::super::Graphics::Direct3D::D3DVECTOR) -> ::windows_core::Result<()> {
@@ -247,16 +247,16 @@ impl IDirectSound3DListener {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetPosition(&self) -> ::windows_core::Result<super::super::super::Graphics::Direct3D::D3DVECTOR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetPosition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetPosition)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRolloffFactor(&self) -> ::windows_core::Result<f32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetRolloffFactor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetRolloffFactor)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetVelocity(&self) -> ::windows_core::Result<super::super::super::Graphics::Direct3D::D3DVECTOR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetVelocity)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetVelocity)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn SetAllParameters(&self, pclistener: *const DS3DLISTENER, dwapply: u32) -> ::windows_core::Result<()> {
@@ -336,7 +336,7 @@ impl IDirectSound8 {
         P0: ::windows_core::IntoParam<IDirectSoundBuffer>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.DuplicateSoundBuffer)(::windows_core::Interface::as_raw(self), pdsbufferoriginal.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.DuplicateSoundBuffer)(::windows_core::Interface::as_raw(self), pdsbufferoriginal.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetCooperativeLevel<P0>(&self, hwnd: P0, dwlevel: u32) -> ::windows_core::Result<()>
     where
@@ -349,7 +349,7 @@ impl IDirectSound8 {
     }
     pub unsafe fn GetSpeakerConfig(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetSpeakerConfig)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetSpeakerConfig)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetSpeakerConfig(&self, dwspeakerconfig: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetSpeakerConfig)(::windows_core::Interface::as_raw(self), dwspeakerconfig).ok()
@@ -359,7 +359,7 @@ impl IDirectSound8 {
     }
     pub unsafe fn VerifyCertification(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).VerifyCertification)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).VerifyCertification)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -382,19 +382,19 @@ impl IDirectSoundBuffer {
     }
     pub unsafe fn GetVolume(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetVolume)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetVolume)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPan(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetPan)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetPan)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFrequency(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetFrequency)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFrequency)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetStatus(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetStatus)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Initialize<P0>(&self, pdirectsound: P0, pcdsbufferdesc: *const DSBUFFERDESC) -> ::windows_core::Result<()>
     where
@@ -470,19 +470,19 @@ impl IDirectSoundBuffer8 {
     }
     pub unsafe fn GetVolume(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetVolume)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetVolume)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetPan(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetPan)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetPan)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFrequency(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetFrequency)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetFrequency)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetStatus(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetStatus)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Initialize<P0>(&self, pdirectsound: P0, pcdsbufferdesc: *const DSBUFFERDESC) -> ::windows_core::Result<()>
     where
@@ -549,7 +549,7 @@ impl IDirectSoundCapture {
     }
     pub unsafe fn GetCaps(&self) -> ::windows_core::Result<DSCCAPS> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetCaps)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetCaps)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Initialize(&self, pcguiddevice: ::core::option::Option<*const ::windows_core::GUID>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pcguiddevice.unwrap_or(::std::ptr::null()))).ok()
@@ -568,7 +568,7 @@ pub struct IDirectSoundCapture_Vtbl {
 impl IDirectSoundCaptureBuffer {
     pub unsafe fn GetCaps(&self) -> ::windows_core::Result<DSCBCAPS> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetCaps)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetCaps)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCurrentPosition(&self, pdwcaptureposition: ::core::option::Option<*mut u32>, pdwreadposition: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCurrentPosition)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdwcaptureposition.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwreadposition.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -578,7 +578,7 @@ impl IDirectSoundCaptureBuffer {
     }
     pub unsafe fn GetStatus(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetStatus)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Initialize<P0>(&self, pdirectsoundcapture: P0, pcdscbufferdesc: *const DSCBUFFERDESC) -> ::windows_core::Result<()>
     where
@@ -618,7 +618,7 @@ pub struct IDirectSoundCaptureBuffer_Vtbl {
 impl IDirectSoundCaptureBuffer8 {
     pub unsafe fn GetCaps(&self) -> ::windows_core::Result<DSCBCAPS> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetCaps)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetCaps)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetCurrentPosition(&self, pdwcaptureposition: ::core::option::Option<*mut u32>, pdwreadposition: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetCurrentPosition)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdwcaptureposition.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwreadposition.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -628,7 +628,7 @@ impl IDirectSoundCaptureBuffer8 {
     }
     pub unsafe fn GetStatus(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetStatus)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Initialize<P0>(&self, pdirectsoundcapture: P0, pcdscbufferdesc: *const DSCBUFFERDESC) -> ::windows_core::Result<()>
     where
@@ -670,11 +670,11 @@ impl IDirectSoundCaptureFXAec {
     }
     pub unsafe fn GetAllParameters(&self) -> ::windows_core::Result<DSCFXAec> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetAllParameters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetAllParameters)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetStatus(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetStatus)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
@@ -697,7 +697,7 @@ impl IDirectSoundCaptureFXNoiseSuppress {
     }
     pub unsafe fn GetAllParameters(&self) -> ::windows_core::Result<DSCFXNoiseSuppress> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetAllParameters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetAllParameters)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
@@ -804,7 +804,7 @@ impl IDirectSoundFXGargle {
     }
     pub unsafe fn GetAllParameters(&self) -> ::windows_core::Result<DSFXGargle> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetAllParameters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetAllParameters)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -828,14 +828,14 @@ impl IDirectSoundFXI3DL2Reverb {
     }
     pub unsafe fn GetPreset(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetPreset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetPreset)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetQuality(&self, lquality: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetQuality)(::windows_core::Interface::as_raw(self), lquality).ok()
     }
     pub unsafe fn GetQuality(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetQuality)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetQuality)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -857,7 +857,7 @@ impl IDirectSoundFXParamEq {
     }
     pub unsafe fn GetAllParameters(&self) -> ::windows_core::Result<DSFXParamEq> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetAllParameters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetAllParameters)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -875,7 +875,7 @@ impl IDirectSoundFXWavesReverb {
     }
     pub unsafe fn GetAllParameters(&self) -> ::windows_core::Result<DSFXWavesReverb> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetAllParameters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetAllParameters)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

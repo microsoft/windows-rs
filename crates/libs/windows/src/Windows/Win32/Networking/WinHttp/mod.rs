@@ -362,11 +362,11 @@ impl IWinHttpRequest {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetResponseHeader)(::windows_core::Interface::as_raw(self), header.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetResponseHeader)(::windows_core::Interface::as_raw(self), header.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetAllResponseHeaders(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetAllResponseHeaders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetAllResponseHeaders)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Send<P0>(&self, body: P0) -> ::windows_core::Result<()>
     where
@@ -376,27 +376,27 @@ impl IWinHttpRequest {
     }
     pub unsafe fn Status(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Status)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn StatusText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).StatusText)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).StatusText)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ResponseText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ResponseText)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ResponseText)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ResponseBody(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ResponseBody)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ResponseBody)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ResponseStream(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ResponseStream)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ResponseStream)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn get_Option(&self, option: WinHttpRequestOption) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).get_Option)(::windows_core::Interface::as_raw(self), option, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).get_Option)(::windows_core::Interface::as_raw(self), option, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn put_Option<P0>(&self, option: WinHttpRequestOption, value: P0) -> ::windows_core::Result<()>
     where
@@ -409,7 +409,7 @@ impl IWinHttpRequest {
         P0: ::windows_core::IntoParam<::windows_core::VARIANT>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).WaitForResponse)(::windows_core::Interface::as_raw(self), timeout.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).WaitForResponse)(::windows_core::Interface::as_raw(self), timeout.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn Abort(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Abort)(::windows_core::Interface::as_raw(self)).ok()

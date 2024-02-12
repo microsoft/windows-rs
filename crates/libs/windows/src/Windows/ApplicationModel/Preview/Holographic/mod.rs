@@ -46,7 +46,7 @@ impl HolographicApplicationPreview {
     pub fn IsCurrentViewPresentedOnHolographicDisplay() -> ::windows_core::Result<bool> {
         Self::IHolographicApplicationPreviewStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsCurrentViewPresentedOnHolographicDisplay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsCurrentViewPresentedOnHolographicDisplay)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "ApplicationModel_Activation")]
@@ -56,7 +56,7 @@ impl HolographicApplicationPreview {
     {
         Self::IHolographicApplicationPreviewStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsHolographicActivation)(::windows_core::Interface::as_raw(this), activatedeventargs.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsHolographicActivation)(::windows_core::Interface::as_raw(this), activatedeventargs.into_param().abi(), &mut result__).map(|| result__)
         })
     }
     #[doc(hidden)]
@@ -101,7 +101,7 @@ impl HolographicKeyboardPlacementOverridePreview {
     pub fn GetForCurrentView() -> ::windows_core::Result<HolographicKeyboardPlacementOverridePreview> {
         Self::IHolographicKeyboardPlacementOverridePreviewStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetForCurrentView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetForCurrentView)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

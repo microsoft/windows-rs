@@ -809,7 +809,7 @@ where
 pub unsafe fn QueryAuxiliaryCounterFrequency() -> ::windows_core::Result<u64> {
     ::windows_targets::link!("api-ms-win-core-realtime-l1-1-2.dll" "system" fn QueryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency : *mut u64) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    QueryAuxiliaryCounterFrequency(&mut result__).from_abi(result__)
+    QueryAuxiliaryCounterFrequency(&mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn QueryIdleProcessorCycleTime(bufferlength: *mut u32, processoridlecycletime: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -826,14 +826,14 @@ pub unsafe fn QueryInterruptTime() -> u64 {
     ::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryInterruptTime(lpinterrupttime : *mut u64));
     let mut result__ = ::std::mem::zeroed();
     QueryInterruptTime(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn QueryInterruptTimePrecise() -> u64 {
     ::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryInterruptTimePrecise(lpinterrupttimeprecise : *mut u64));
     let mut result__ = ::std::mem::zeroed();
     QueryInterruptTimePrecise(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn QueryProcessCycleTime<P0>(processhandle: P0, cycletime: *mut u64) -> ::windows_core::Result<()>
@@ -861,7 +861,7 @@ pub unsafe fn QueryUnbiasedInterruptTimePrecise() -> u64 {
     ::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise : *mut u64));
     let mut result__ = ::std::mem::zeroed();
     QueryUnbiasedInterruptTimePrecise(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn RaiseCustomSystemEventTrigger(customsystemeventtriggerconfig: *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32 {
@@ -1412,7 +1412,7 @@ where
 {
     ::windows_targets::link!("wldp.dll" "system" fn WldpCanExecuteBuffer(host : *const ::windows_core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, buffer : *const u8, buffersize : u32, auditinfo : ::windows_core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WldpCanExecuteBuffer(host, options, ::core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), auditinfo.into_param().abi(), &mut result__).from_abi(result__)
+    WldpCanExecuteBuffer(host, options, ::core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), auditinfo.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WldpCanExecuteFile<P0, P1>(host: *const ::windows_core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: P0, auditinfo: P1) -> ::windows_core::Result<WLDP_EXECUTION_POLICY>
@@ -1422,7 +1422,7 @@ where
 {
     ::windows_targets::link!("wldp.dll" "system" fn WldpCanExecuteFile(host : *const ::windows_core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle : super::super::Foundation:: HANDLE, auditinfo : ::windows_core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WldpCanExecuteFile(host, options, filehandle.into_param().abi(), auditinfo.into_param().abi(), &mut result__).from_abi(result__)
+    WldpCanExecuteFile(host, options, filehandle.into_param().abi(), auditinfo.into_param().abi(), &mut result__).map(|| result__)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -1433,7 +1433,7 @@ where
 {
     ::windows_targets::link!("wldp.dll" "system" fn WldpCanExecuteStream(host : *const ::windows_core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, stream : * mut::core::ffi::c_void, auditinfo : ::windows_core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WldpCanExecuteStream(host, options, stream.into_param().abi(), auditinfo.into_param().abi(), &mut result__).from_abi(result__)
+    WldpCanExecuteStream(host, options, stream.into_param().abi(), auditinfo.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WldpGetLockdownPolicy(hostinformation: ::core::option::Option<*const WLDP_HOST_INFORMATION>, lockdownstate: *mut u32, lockdownflags: u32) -> ::windows_core::Result<()> {
@@ -1449,7 +1449,7 @@ pub unsafe fn WldpIsClassInApprovedList(classid: *const ::windows_core::GUID, ho
 pub unsafe fn WldpIsDynamicCodePolicyEnabled() -> ::windows_core::Result<super::super::Foundation::BOOL> {
     ::windows_targets::link!("wldp.dll" "system" fn WldpIsDynamicCodePolicyEnabled(isenabled : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WldpIsDynamicCodePolicyEnabled(&mut result__).from_abi(result__)
+    WldpIsDynamicCodePolicyEnabled(&mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WldpQueryDeviceSecurityInformation(information: ::core::option::Option<&mut [WLDP_DEVICE_SECURITY_INFORMATION]>, returnlength: *mut u32) -> ::windows_core::Result<()> {
@@ -1682,14 +1682,14 @@ impl ICameraUIControl {
     }
     pub unsafe fn Suspend(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Suspend)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Suspend)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Resume(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Resume)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetCurrentViewType(&self) -> ::windows_core::Result<CameraUIControlViewType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetCurrentViewType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetCurrentViewType)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetActiveItem(&self, pbstractiveitempath: ::core::option::Option<*mut ::windows_core::BSTR>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetActiveItem)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbstractiveitempath.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -1697,7 +1697,7 @@ impl ICameraUIControl {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelectedItems(&self) -> ::windows_core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSelectedItems)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetSelectedItems)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn RemoveCapturedItem<P0>(&self, pszpath: P0) -> ::windows_core::Result<()>
     where
@@ -1782,7 +1782,7 @@ pub struct IClipServiceNotificationHelper_Vtbl {
 impl IContainerActivationHelper {
     pub unsafe fn CanActivateClientVM(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CanActivateClientVM)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CanActivateClientVM)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -1857,7 +1857,7 @@ pub struct IEditionUpgradeBroker_Vtbl {
 impl IEditionUpgradeHelper {
     pub unsafe fn CanUpgrade(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CanUpgrade)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CanUpgrade)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn UpdateOperatingSystem<P0>(&self, contentid: P0) -> ::windows_core::Result<()>
     where
@@ -1870,11 +1870,11 @@ impl IEditionUpgradeHelper {
     }
     pub unsafe fn GetOsProductContentId(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetOsProductContentId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetOsProductContentId)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetGenuineLocalStatus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetGenuineLocalStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetGenuineLocalStatus)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -1909,7 +1909,7 @@ pub struct IFClipNotificationHelper_Vtbl {
 impl IWindowsLockModeHelper {
     pub unsafe fn GetSMode(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetSMode)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

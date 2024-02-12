@@ -71,19 +71,19 @@ impl CredentialPicker {
     {
         Self::ICredentialPickerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PickWithOptionsAsync)(::windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PickWithOptionsAsync)(::windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn PickWithMessageAsync(targetname: &::windows_core::HSTRING, message: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>> {
         Self::ICredentialPickerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PickWithMessageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(targetname), ::core::mem::transmute_copy(message), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PickWithMessageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(targetname), ::core::mem::transmute_copy(message), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn PickWithCaptionAsync(targetname: &::windows_core::HSTRING, message: &::windows_core::HSTRING, caption: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>> {
         Self::ICredentialPickerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PickWithCaptionAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(targetname), ::core::mem::transmute_copy(message), ::core::mem::transmute_copy(caption), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PickWithCaptionAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(targetname), ::core::mem::transmute_copy(message), ::core::mem::transmute_copy(caption), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -115,7 +115,7 @@ impl CredentialPickerOptions {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Caption)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Caption)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetMessage(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -126,7 +126,7 @@ impl CredentialPickerOptions {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Message)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Message)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetErrorCode(&self, value: u32) -> ::windows_core::Result<()> {
@@ -137,7 +137,7 @@ impl CredentialPickerOptions {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ErrorCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ErrorCode)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetTargetName(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -148,7 +148,7 @@ impl CredentialPickerOptions {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TargetName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TargetName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetAuthenticationProtocol(&self, value: AuthenticationProtocol) -> ::windows_core::Result<()> {
@@ -159,7 +159,7 @@ impl CredentialPickerOptions {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AuthenticationProtocol)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AuthenticationProtocol)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetCustomAuthenticationProtocol(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -170,7 +170,7 @@ impl CredentialPickerOptions {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CustomAuthenticationProtocol)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CustomAuthenticationProtocol)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -186,7 +186,7 @@ impl CredentialPickerOptions {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PreviousCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PreviousCredential)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetAlwaysDisplayDialog(&self, value: bool) -> ::windows_core::Result<()> {
@@ -197,7 +197,7 @@ impl CredentialPickerOptions {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AlwaysDisplayDialog)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AlwaysDisplayDialog)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetCallerSavesCredential(&self, value: bool) -> ::windows_core::Result<()> {
@@ -208,7 +208,7 @@ impl CredentialPickerOptions {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CallerSavesCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CallerSavesCredential)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetCredentialSaveOption(&self, value: CredentialSaveOption) -> ::windows_core::Result<()> {
@@ -219,7 +219,7 @@ impl CredentialPickerOptions {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CredentialSaveOption)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CredentialSaveOption)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -242,21 +242,21 @@ impl CredentialPickerResults {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ErrorCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ErrorCode)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn CredentialSaveOption(&self) -> ::windows_core::Result<CredentialSaveOption> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CredentialSaveOption)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CredentialSaveOption)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn CredentialSaved(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CredentialSaved)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CredentialSaved)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -264,28 +264,28 @@ impl CredentialPickerResults {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Credential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Credential)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn CredentialDomainName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CredentialDomainName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CredentialDomainName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn CredentialUserName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CredentialUserName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CredentialUserName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn CredentialPassword(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CredentialPassword)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CredentialPassword)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -304,13 +304,13 @@ impl UserConsentVerifier {
     pub fn CheckAvailabilityAsync() -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerifierAvailability>> {
         Self::IUserConsentVerifierStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CheckAvailabilityAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CheckAvailabilityAsync)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn RequestVerificationAsync(message: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerificationResult>> {
         Self::IUserConsentVerifierStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestVerificationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(message), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestVerificationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(message), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

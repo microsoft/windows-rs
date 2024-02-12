@@ -6,7 +6,7 @@ impl IAudioFrameNative {
         T: ::windows_core::Interface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetData)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetData)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -26,7 +26,7 @@ impl IAudioFrameNativeFactory {
         T: ::windows_core::Interface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateFromMFSample)(::windows_core::Interface::as_raw(self), data.into_param().abi(), forcereadonly.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateFromMFSample)(::windows_core::Interface::as_raw(self), data.into_param().abi(), forcereadonly.into_param().abi(), &T::IID, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -46,14 +46,14 @@ impl IVideoFrameNative {
         T: ::windows_core::Interface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetData)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetData)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetDevice<T>(&self) -> ::windows_core::Result<T>
     where
         T: ::windows_core::Interface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).GetDevice)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetDevice)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -75,7 +75,7 @@ impl IVideoFrameNativeFactory {
         T: ::windows_core::Interface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateFromMFSample)(::windows_core::Interface::as_raw(self), data.into_param().abi(), subtype, width, height, forcereadonly.into_param().abi(), ::core::mem::transmute(mindisplayaperture.unwrap_or(::std::ptr::null())), device.into_param().abi(), &T::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateFromMFSample)(::windows_core::Interface::as_raw(self), data.into_param().abi(), subtype, width, height, forcereadonly.into_param().abi(), ::core::mem::transmute(mindisplayaperture.unwrap_or(::std::ptr::null())), device.into_param().abi(), &T::IID, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

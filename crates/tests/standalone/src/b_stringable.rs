@@ -26,7 +26,7 @@ impl IStringable {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }

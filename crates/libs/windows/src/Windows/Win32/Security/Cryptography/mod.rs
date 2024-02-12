@@ -2148,7 +2148,7 @@ where
 pub unsafe fn CryptXmlAddObject(hsignatureorobject: *const ::core::ffi::c_void, dwflags: u32, rgproperty: ::core::option::Option<&[CRYPT_XML_PROPERTY]>, pencoded: *const CRYPT_XML_BLOB) -> ::windows_core::Result<*mut CRYPT_XML_OBJECT> {
     ::windows_targets::link!("cryptxml.dll" "system" fn CryptXmlAddObject(hsignatureorobject : *const ::core::ffi::c_void, dwflags : u32, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : u32, pencoded : *const CRYPT_XML_BLOB, ppobject : *mut *mut CRYPT_XML_OBJECT) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    CryptXmlAddObject(hsignatureorobject, dwflags, ::core::mem::transmute(rgproperty.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rgproperty.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pencoded, &mut result__).from_abi(result__)
+    CryptXmlAddObject(hsignatureorobject, dwflags, ::core::mem::transmute(rgproperty.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rgproperty.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pencoded, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn CryptXmlClose(hcryptxml: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -2189,43 +2189,43 @@ pub unsafe fn CryptXmlFindAlgorithmInfo(dwfindbytype: u32, pvfindby: *const ::co
 pub unsafe fn CryptXmlGetAlgorithmInfo(pxmlalgorithm: *const CRYPT_XML_ALGORITHM, dwflags: CRYPT_XML_FLAGS) -> ::windows_core::Result<*mut CRYPT_XML_ALGORITHM_INFO> {
     ::windows_targets::link!("cryptxml.dll" "system" fn CryptXmlGetAlgorithmInfo(pxmlalgorithm : *const CRYPT_XML_ALGORITHM, dwflags : CRYPT_XML_FLAGS, ppalginfo : *mut *mut CRYPT_XML_ALGORITHM_INFO) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    CryptXmlGetAlgorithmInfo(pxmlalgorithm, dwflags, &mut result__).from_abi(result__)
+    CryptXmlGetAlgorithmInfo(pxmlalgorithm, dwflags, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn CryptXmlGetDocContext(hcryptxml: *const ::core::ffi::c_void) -> ::windows_core::Result<*mut CRYPT_XML_DOC_CTXT> {
     ::windows_targets::link!("cryptxml.dll" "system" fn CryptXmlGetDocContext(hcryptxml : *const ::core::ffi::c_void, ppstruct : *mut *mut CRYPT_XML_DOC_CTXT) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    CryptXmlGetDocContext(hcryptxml, &mut result__).from_abi(result__)
+    CryptXmlGetDocContext(hcryptxml, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn CryptXmlGetReference(hcryptxml: *const ::core::ffi::c_void) -> ::windows_core::Result<*mut CRYPT_XML_REFERENCE> {
     ::windows_targets::link!("cryptxml.dll" "system" fn CryptXmlGetReference(hcryptxml : *const ::core::ffi::c_void, ppstruct : *mut *mut CRYPT_XML_REFERENCE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    CryptXmlGetReference(hcryptxml, &mut result__).from_abi(result__)
+    CryptXmlGetReference(hcryptxml, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn CryptXmlGetSignature(hcryptxml: *const ::core::ffi::c_void) -> ::windows_core::Result<*mut CRYPT_XML_SIGNATURE> {
     ::windows_targets::link!("cryptxml.dll" "system" fn CryptXmlGetSignature(hcryptxml : *const ::core::ffi::c_void, ppstruct : *mut *mut CRYPT_XML_SIGNATURE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    CryptXmlGetSignature(hcryptxml, &mut result__).from_abi(result__)
+    CryptXmlGetSignature(hcryptxml, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn CryptXmlGetStatus(hcryptxml: *const ::core::ffi::c_void) -> ::windows_core::Result<CRYPT_XML_STATUS> {
     ::windows_targets::link!("cryptxml.dll" "system" fn CryptXmlGetStatus(hcryptxml : *const ::core::ffi::c_void, pstatus : *mut CRYPT_XML_STATUS) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    CryptXmlGetStatus(hcryptxml, &mut result__).from_abi(result__)
+    CryptXmlGetStatus(hcryptxml, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn CryptXmlGetTransforms() -> ::windows_core::Result<*mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG> {
     ::windows_targets::link!("cryptxml.dll" "system" fn CryptXmlGetTransforms(ppconfig : *mut *mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    CryptXmlGetTransforms(&mut result__).from_abi(result__)
+    CryptXmlGetTransforms(&mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn CryptXmlImportPublicKey(dwflags: CRYPT_XML_FLAGS, pkeyvalue: *const CRYPT_XML_KEY_VALUE) -> ::windows_core::Result<BCRYPT_KEY_HANDLE> {
     ::windows_targets::link!("cryptxml.dll" "system" fn CryptXmlImportPublicKey(dwflags : CRYPT_XML_FLAGS, pkeyvalue : *const CRYPT_XML_KEY_VALUE, phkey : *mut BCRYPT_KEY_HANDLE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    CryptXmlImportPublicKey(dwflags, pkeyvalue, &mut result__).from_abi(result__)
+    CryptXmlImportPublicKey(dwflags, pkeyvalue, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn CryptXmlOpenToDecode(pconfig: ::core::option::Option<*const CRYPT_XML_TRANSFORM_CHAIN_CONFIG>, dwflags: CRYPT_XML_FLAGS, rgproperty: ::core::option::Option<&[CRYPT_XML_PROPERTY]>, pencoded: *const CRYPT_XML_BLOB, phcryptxml: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -2307,13 +2307,13 @@ pub unsafe fn GetBrowserToken(dwparamtype: u32, pparam: *const ::core::ffi::c_vo
 pub unsafe fn GetCryptoTransform(hsymmetriccrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, mode: u32, padding: PaddingMode, feedbacksize: u32, direction: Direction, piv: &[u8]) -> ::windows_core::Result<*mut INFORMATIONCARD_CRYPTO_HANDLE> {
     ::windows_targets::link!("infocardapi.dll" "system" fn GetCryptoTransform(hsymmetriccrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, mode : u32, padding : PaddingMode, feedbacksize : u32, direction : Direction, cbiv : u32, piv : *const u8, pphtransform : *mut *mut INFORMATIONCARD_CRYPTO_HANDLE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    GetCryptoTransform(hsymmetriccrypto, mode, padding, feedbacksize, direction, piv.len().try_into().unwrap(), ::core::mem::transmute(piv.as_ptr()), &mut result__).from_abi(result__)
+    GetCryptoTransform(hsymmetriccrypto, mode, padding, feedbacksize, direction, piv.len().try_into().unwrap(), ::core::mem::transmute(piv.as_ptr()), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn GetKeyedHash(hsymmetriccrypto: *const INFORMATIONCARD_CRYPTO_HANDLE) -> ::windows_core::Result<*mut INFORMATIONCARD_CRYPTO_HANDLE> {
     ::windows_targets::link!("infocardapi.dll" "system" fn GetKeyedHash(hsymmetriccrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, pphhash : *mut *mut INFORMATIONCARD_CRYPTO_HANDLE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    GetKeyedHash(hsymmetriccrypto, &mut result__).from_abi(result__)
+    GetKeyedHash(hsymmetriccrypto, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn GetToken(ppolicychain: &[POLICY_ELEMENT], securitytoken: *mut *mut GENERIC_XML_TOKEN, phprooftokencrypto: *mut *mut INFORMATIONCARD_CRYPTO_HANDLE) -> ::windows_core::Result<()> {
@@ -2377,7 +2377,7 @@ where
 {
     ::windows_targets::link!("ncrypt.dll" "system" fn NCryptCreateProtectionDescriptor(pwszdescriptorstring : ::windows_core::PCWSTR, dwflags : u32, phdescriptor : *mut super:: NCRYPT_DESCRIPTOR_HANDLE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    NCryptCreateProtectionDescriptor(pwszdescriptorstring.into_param().abi(), dwflags, &mut result__).from_abi(result__)
+    NCryptCreateProtectionDescriptor(pwszdescriptorstring.into_param().abi(), dwflags, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn NCryptDecrypt<P0>(hkey: P0, pbinput: ::core::option::Option<&[u8]>, ppaddinginfo: ::core::option::Option<*const ::core::ffi::c_void>, pboutput: ::core::option::Option<&mut [u8]>, pcbresult: *mut u32, dwflags: NCRYPT_FLAGS) -> ::windows_core::Result<()>
@@ -2610,7 +2610,7 @@ where
 {
     ::windows_targets::link!("ncrypt.dll" "system" fn NCryptStreamOpenToProtect(hdescriptor : super:: NCRYPT_DESCRIPTOR_HANDLE, dwflags : u32, hwnd : super::super::Foundation:: HWND, pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO, phstream : *mut super:: NCRYPT_STREAM_HANDLE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    NCryptStreamOpenToProtect(hdescriptor.into_param().abi(), dwflags, hwnd.into_param().abi(), pstreaminfo, &mut result__).from_abi(result__)
+    NCryptStreamOpenToProtect(hdescriptor.into_param().abi(), dwflags, hwnd.into_param().abi(), pstreaminfo, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn NCryptStreamOpenToUnprotect<P0>(pstreaminfo: *const NCRYPT_PROTECT_STREAM_INFO, dwflags: u32, hwnd: P0) -> ::windows_core::Result<super::NCRYPT_STREAM_HANDLE>
@@ -2619,7 +2619,7 @@ where
 {
     ::windows_targets::link!("ncrypt.dll" "system" fn NCryptStreamOpenToUnprotect(pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO, dwflags : u32, hwnd : super::super::Foundation:: HWND, phstream : *mut super:: NCRYPT_STREAM_HANDLE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    NCryptStreamOpenToUnprotect(pstreaminfo, dwflags, hwnd.into_param().abi(), &mut result__).from_abi(result__)
+    NCryptStreamOpenToUnprotect(pstreaminfo, dwflags, hwnd.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn NCryptStreamOpenToUnprotectEx<P0>(pstreaminfo: *const NCRYPT_PROTECT_STREAM_INFO_EX, dwflags: u32, hwnd: P0) -> ::windows_core::Result<super::NCRYPT_STREAM_HANDLE>
@@ -2628,7 +2628,7 @@ where
 {
     ::windows_targets::link!("ncrypt.dll" "system" fn NCryptStreamOpenToUnprotectEx(pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO_EX, dwflags : u32, hwnd : super::super::Foundation:: HWND, phstream : *mut super:: NCRYPT_STREAM_HANDLE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    NCryptStreamOpenToUnprotectEx(pstreaminfo, dwflags, hwnd.into_param().abi(), &mut result__).from_abi(result__)
+    NCryptStreamOpenToUnprotectEx(pstreaminfo, dwflags, hwnd.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn NCryptStreamUpdate<P0, P1>(hstream: P0, pbdata: &[u8], ffinal: P1) -> ::windows_core::Result<()>
@@ -2747,7 +2747,7 @@ where
 {
     ::windows_targets::link!("mssign32.dll" "system" fn SignerSignEx(dwflags : SIGNER_SIGN_FLAGS, psubjectinfo : *const SIGNER_SUBJECT_INFO, psignercert : *const SIGNER_CERT, psignatureinfo : *const SIGNER_SIGNATURE_INFO, pproviderinfo : *const SIGNER_PROVIDER_INFO, pwszhttptimestamp : ::windows_core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const ::core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    SignerSignEx(dwflags, psubjectinfo, psignercert, psignatureinfo, ::core::mem::transmute(pproviderinfo.unwrap_or(::std::ptr::null())), pwszhttptimestamp.into_param().abi(), ::core::mem::transmute(psrequest.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psipdata.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+    SignerSignEx(dwflags, psubjectinfo, psignercert, psignatureinfo, ::core::mem::transmute(pproviderinfo.unwrap_or(::std::ptr::null())), pwszhttptimestamp.into_param().abi(), ::core::mem::transmute(psrequest.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psipdata.unwrap_or(::std::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn SignerSignEx2<P0, P1>(dwflags: SIGNER_SIGN_FLAGS, psubjectinfo: *const SIGNER_SUBJECT_INFO, psignercert: *const SIGNER_CERT, psignatureinfo: *const SIGNER_SIGNATURE_INFO, pproviderinfo: ::core::option::Option<*const SIGNER_PROVIDER_INFO>, dwtimestampflags: SIGNER_TIMESTAMP_FLAGS, psztimestampalgorithmoid: P0, pwszhttptimestamp: P1, psrequest: ::core::option::Option<*const CRYPT_ATTRIBUTES>, psipdata: ::core::option::Option<*const ::core::ffi::c_void>, ppsignercontext: *mut *mut SIGNER_CONTEXT, pcryptopolicy: ::core::option::Option<*const CERT_STRONG_SIGN_PARA>, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
@@ -2813,7 +2813,7 @@ where
 {
     ::windows_targets::link!("mssign32.dll" "system" fn SignerTimeStampEx(dwflags : u32, psubjectinfo : *const SIGNER_SUBJECT_INFO, pwszhttptimestamp : ::windows_core::PCWSTR, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const ::core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    SignerTimeStampEx(dwflags, psubjectinfo, pwszhttptimestamp.into_param().abi(), psrequest, psipdata, &mut result__).from_abi(result__)
+    SignerTimeStampEx(dwflags, psubjectinfo, pwszhttptimestamp.into_param().abi(), psrequest, psipdata, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn SignerTimeStampEx2<P0>(dwflags: SIGNER_TIMESTAMP_FLAGS, psubjectinfo: *const SIGNER_SUBJECT_INFO, pwszhttptimestamp: P0, dwalgid: ALG_ID, psrequest: *const CRYPT_ATTRIBUTES, psipdata: *const ::core::ffi::c_void) -> ::windows_core::Result<*mut SIGNER_CONTEXT>
@@ -2822,7 +2822,7 @@ where
 {
     ::windows_targets::link!("mssign32.dll" "system" fn SignerTimeStampEx2(dwflags : SIGNER_TIMESTAMP_FLAGS, psubjectinfo : *const SIGNER_SUBJECT_INFO, pwszhttptimestamp : ::windows_core::PCWSTR, dwalgid : ALG_ID, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const ::core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    SignerTimeStampEx2(dwflags, psubjectinfo, pwszhttptimestamp.into_param().abi(), dwalgid, psrequest, psipdata, &mut result__).from_abi(result__)
+    SignerTimeStampEx2(dwflags, psubjectinfo, pwszhttptimestamp.into_param().abi(), dwalgid, psrequest, psipdata, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn SignerTimeStampEx3<P0, P1>(dwflags: SIGNER_TIMESTAMP_FLAGS, dwindex: u32, psubjectinfo: *const SIGNER_SUBJECT_INFO, pwszhttptimestamp: P0, pszalgorithmoid: P1, psrequest: ::core::option::Option<*const CRYPT_ATTRIBUTES>, psipdata: ::core::option::Option<*const ::core::ffi::c_void>, ppsignercontext: *mut *mut SIGNER_CONTEXT, pcryptopolicy: ::core::option::Option<*const CERT_STRONG_SIGN_PARA>, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
@@ -2855,7 +2855,7 @@ where
 {
     ::windows_targets::link!("infocardapi.dll" "system" fn VerifyHash(hcrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, cbhash : u32, phash : *const u8, hashalgoid : ::windows_core::PCWSTR, cbsig : u32, psig : *const u8, pfverified : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    VerifyHash(hcrypto, phash.len().try_into().unwrap(), ::core::mem::transmute(phash.as_ptr()), hashalgoid.into_param().abi(), psig.len().try_into().unwrap(), ::core::mem::transmute(psig.as_ptr()), &mut result__).from_abi(result__)
+    VerifyHash(hcrypto, phash.len().try_into().unwrap(), ::core::mem::transmute(phash.as_ptr()), hashalgoid.into_param().abi(), psig.len().try_into().unwrap(), ::core::mem::transmute(psig.as_ptr()), &mut result__).map(|| result__)
 }
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::com_interface!(ICertSrvSetup, ICertSrvSetup_Vtbl, 0xb760a1bb_4784_44c0_8f12_555f0780ff25);
@@ -2865,11 +2865,11 @@ where
 impl ICertSrvSetup {
     pub unsafe fn CAErrorId(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CAErrorId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CAErrorId)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn CAErrorString(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CAErrorString)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CAErrorString)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InitializeDefaults<P0, P1>(&self, bserver: P0, bclient: P1) -> ::windows_core::Result<()>
     where
@@ -2880,48 +2880,48 @@ impl ICertSrvSetup {
     }
     pub unsafe fn GetCASetupProperty(&self, propertyid: CASetupProperty) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetCASetupProperty)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetCASetupProperty)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetCASetupProperty(&self, propertyid: CASetupProperty, ppropertyvalue: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCASetupProperty)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(ppropertyvalue)).ok()
     }
     pub unsafe fn IsPropertyEditable(&self, propertyid: CASetupProperty) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).IsPropertyEditable)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).IsPropertyEditable)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetSupportedCATypes(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSupportedCATypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetSupportedCATypes)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetProviderNameList(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProviderNameList)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetProviderNameList)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetKeyLengthList<P0>(&self, bstrprovidername: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetKeyLengthList)(::windows_core::Interface::as_raw(self), bstrprovidername.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetKeyLengthList)(::windows_core::Interface::as_raw(self), bstrprovidername.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetHashAlgorithmList<P0>(&self, bstrprovidername: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetHashAlgorithmList)(::windows_core::Interface::as_raw(self), bstrprovidername.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetHashAlgorithmList)(::windows_core::Interface::as_raw(self), bstrprovidername.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPrivateKeyContainerList<P0>(&self, bstrprovidername: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetPrivateKeyContainerList)(::windows_core::Interface::as_raw(self), bstrprovidername.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetPrivateKeyContainerList)(::windows_core::Interface::as_raw(self), bstrprovidername.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetExistingCACertificates(&self) -> ::windows_core::Result<ICertSrvSetupKeyInformationCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetExistingCACertificates)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetExistingCACertificates)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CAImportPFX<P0, P1, P2>(&self, bstrfilename: P0, bstrpasswd: P1, boverwriteexistingkey: P2) -> ::windows_core::Result<ICertSrvSetupKeyInformation>
@@ -2931,7 +2931,7 @@ impl ICertSrvSetup {
         P2: ::windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CAImportPFX)(::windows_core::Interface::as_raw(self), bstrfilename.into_param().abi(), bstrpasswd.into_param().abi(), boverwriteexistingkey.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CAImportPFX)(::windows_core::Interface::as_raw(self), bstrfilename.into_param().abi(), bstrpasswd.into_param().abi(), boverwriteexistingkey.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetCADistinguishedName<P0, P1, P2, P3>(&self, bstrcadn: P0, bignoreunicode: P1, boverwriteexistingkey: P2, boverwriteexistingcainds: P3) -> ::windows_core::Result<()>
     where
@@ -3016,7 +3016,7 @@ pub struct ICertSrvSetup_Vtbl {
 impl ICertSrvSetupKeyInformation {
     pub unsafe fn ProviderName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ProviderName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ProviderName)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProviderName<P0>(&self, bstrval: P0) -> ::windows_core::Result<()>
     where
@@ -3026,14 +3026,14 @@ impl ICertSrvSetupKeyInformation {
     }
     pub unsafe fn Length(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Length)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Length)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLength(&self, lval: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetLength)(::windows_core::Interface::as_raw(self), lval).ok()
     }
     pub unsafe fn Existing(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Existing)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Existing)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetExisting<P0>(&self, bval: P0) -> ::windows_core::Result<()>
     where
@@ -3043,7 +3043,7 @@ impl ICertSrvSetupKeyInformation {
     }
     pub unsafe fn ContainerName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ContainerName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ContainerName)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetContainerName<P0>(&self, bstrval: P0) -> ::windows_core::Result<()>
     where
@@ -3053,7 +3053,7 @@ impl ICertSrvSetupKeyInformation {
     }
     pub unsafe fn HashAlgorithm(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetHashAlgorithm<P0>(&self, bstrval: P0) -> ::windows_core::Result<()>
     where
@@ -3063,7 +3063,7 @@ impl ICertSrvSetupKeyInformation {
     }
     pub unsafe fn ExistingCACertificate(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ExistingCACertificate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ExistingCACertificate)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetExistingCACertificate<P0>(&self, varval: P0) -> ::windows_core::Result<()>
     where
@@ -3098,15 +3098,15 @@ pub struct ICertSrvSetupKeyInformation_Vtbl {
 impl ICertSrvSetupKeyInformationCollection {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pikeyinformation: P0) -> ::windows_core::Result<()>
@@ -3137,14 +3137,14 @@ pub struct ICertSrvSetupKeyInformationCollection_Vtbl {
 impl ICertificateEnrollmentPolicyServerSetup {
     pub unsafe fn ErrorString(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ErrorString)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ErrorString)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InitializeInstallDefaults(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InitializeInstallDefaults)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetProperty(&self, propertyid: CEPSetupProperty) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty(&self, propertyid: CEPSetupProperty, ppropertyvalue: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(ppropertyvalue)).ok()
@@ -3176,14 +3176,14 @@ pub struct ICertificateEnrollmentPolicyServerSetup_Vtbl {
 impl ICertificateEnrollmentServerSetup {
     pub unsafe fn ErrorString(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ErrorString)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ErrorString)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InitializeInstallDefaults(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InitializeInstallDefaults)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetProperty(&self, propertyid: CESSetupProperty) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty(&self, propertyid: CESSetupProperty, ppropertyvalue: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(ppropertyvalue)).ok()
@@ -3223,18 +3223,18 @@ pub struct ICertificateEnrollmentServerSetup_Vtbl {
 impl IMSCEPSetup {
     pub unsafe fn MSCEPErrorId(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MSCEPErrorId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MSCEPErrorId)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn MSCEPErrorString(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MSCEPErrorString)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MSCEPErrorString)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InitializeDefaults(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InitializeDefaults)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetMSCEPSetupProperty(&self, propertyid: MSCEPSetupProperty) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetMSCEPSetupProperty)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetMSCEPSetupProperty)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMSCEPSetupProperty(&self, propertyid: MSCEPSetupProperty, ppropertyvalue: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMSCEPSetupProperty)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(ppropertyvalue)).ok()
@@ -3248,14 +3248,14 @@ impl IMSCEPSetup {
     }
     pub unsafe fn IsMSCEPStoreEmpty(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).IsMSCEPStoreEmpty)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).IsMSCEPStoreEmpty)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetProviderNameList<P0>(&self, bexchange: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProviderNameList)(::windows_core::Interface::as_raw(self), bexchange.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetProviderNameList)(::windows_core::Interface::as_raw(self), bexchange.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetKeyLengthList<P0, P1>(&self, bexchange: P0, bstrprovidername: P1) -> ::windows_core::Result<::windows_core::VARIANT>
     where
@@ -3263,7 +3263,7 @@ impl IMSCEPSetup {
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetKeyLengthList)(::windows_core::Interface::as_raw(self), bexchange.into_param().abi(), bstrprovidername.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetKeyLengthList)(::windows_core::Interface::as_raw(self), bexchange.into_param().abi(), bstrprovidername.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Install(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Install)(::windows_core::Interface::as_raw(self)).ok()

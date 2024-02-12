@@ -29,7 +29,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterable<T> {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -97,7 +97,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn HasCurrent(&self) -> ::windows_core::Result<bool> {
@@ -108,7 +108,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn MoveNext(&self) -> ::windows_core::Result<bool> {
@@ -119,7 +119,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn GetMany(
@@ -135,7 +135,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
                 ::core::mem::transmute_copy(&items),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
 }
@@ -206,7 +206,7 @@ impl IStringable {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -386,7 +386,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
                 index,
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> ::windows_core::Result<u32> {
@@ -397,7 +397,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows_core::Result<bool>
@@ -413,7 +413,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
                 index,
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn GetMany(
@@ -431,7 +431,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
                 ::core::mem::transmute_copy(&items),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn First(&self) -> ::windows_core::Result<IIterator<T>> {
@@ -442,7 +442,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -546,7 +546,7 @@ impl IWwwFormUrlDecoderEntry {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Value(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -557,7 +557,7 @@ impl IWwwFormUrlDecoderEntry {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -626,7 +626,7 @@ impl Uri {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn UnescapeComponent(
@@ -639,7 +639,7 @@ impl Uri {
                 ::core::mem::transmute_copy(tounescape),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn EscapeComponent(
@@ -652,7 +652,7 @@ impl Uri {
                 ::core::mem::transmute_copy(toescape),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn AbsoluteUri(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -663,7 +663,7 @@ impl Uri {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn DisplayUri(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -674,7 +674,7 @@ impl Uri {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Domain(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -685,7 +685,7 @@ impl Uri {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Extension(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -696,7 +696,7 @@ impl Uri {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Fragment(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -707,7 +707,7 @@ impl Uri {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Host(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -718,7 +718,7 @@ impl Uri {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Password(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -729,7 +729,7 @@ impl Uri {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Path(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -740,7 +740,7 @@ impl Uri {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Query(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -751,7 +751,7 @@ impl Uri {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn QueryParsed(&self) -> ::windows_core::Result<WwwFormUrlDecoder> {
@@ -762,7 +762,7 @@ impl Uri {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn RawUri(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -773,7 +773,7 @@ impl Uri {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SchemeName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -784,7 +784,7 @@ impl Uri {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn UserName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -795,7 +795,7 @@ impl Uri {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Port(&self) -> ::windows_core::Result<i32> {
@@ -806,7 +806,7 @@ impl Uri {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn Suspicious(&self) -> ::windows_core::Result<bool> {
@@ -817,7 +817,7 @@ impl Uri {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn Equals<P0>(&self, puri: P0) -> ::windows_core::Result<bool>
@@ -832,7 +832,7 @@ impl Uri {
                 puri.into_param().abi(),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn CombineUri(&self, relativeuri: &::windows_core::HSTRING) -> ::windows_core::Result<Uri> {
@@ -844,7 +844,7 @@ impl Uri {
                 ::core::mem::transmute_copy(relativeuri),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateUri(uri: &::windows_core::HSTRING) -> ::windows_core::Result<Uri> {
@@ -855,7 +855,7 @@ impl Uri {
                 ::core::mem::transmute_copy(uri),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithRelativeUri(
@@ -870,7 +870,7 @@ impl Uri {
                 ::core::mem::transmute_copy(relativeuri),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn AbsoluteCanonicalUri(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -882,7 +882,7 @@ impl Uri {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn DisplayIri(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -894,7 +894,7 @@ impl Uri {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[doc(hidden)]
@@ -952,7 +952,7 @@ impl WwwFormUrlDecoder {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<IWwwFormUrlDecoderEntry> {
@@ -964,7 +964,7 @@ impl WwwFormUrlDecoder {
                 index,
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> ::windows_core::Result<u32> {
@@ -975,7 +975,7 @@ impl WwwFormUrlDecoder {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows_core::Result<bool>
@@ -991,7 +991,7 @@ impl WwwFormUrlDecoder {
                 index,
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn GetMany(
@@ -1009,7 +1009,7 @@ impl WwwFormUrlDecoder {
                 ::core::mem::transmute_copy(&items),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn GetFirstValueByName(
@@ -1024,7 +1024,7 @@ impl WwwFormUrlDecoder {
                 ::core::mem::transmute_copy(name),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateWwwFormUrlDecoder(
@@ -1037,7 +1037,7 @@ impl WwwFormUrlDecoder {
                 ::core::mem::transmute_copy(query),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

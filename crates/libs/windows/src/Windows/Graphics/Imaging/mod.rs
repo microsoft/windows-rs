@@ -143,77 +143,77 @@ impl IBitmapFrame {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetThumbnailAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetThumbnailAsync)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn BitmapProperties(&self) -> ::windows_core::Result<BitmapPropertiesView> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BitmapProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BitmapProperties)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn BitmapPixelFormat(&self) -> ::windows_core::Result<BitmapPixelFormat> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BitmapPixelFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BitmapPixelFormat)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BitmapAlphaMode(&self) -> ::windows_core::Result<BitmapAlphaMode> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BitmapAlphaMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BitmapAlphaMode)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DpiX(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DpiX)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DpiX)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DpiY(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DpiY)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DpiY)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PixelWidth(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PixelWidth)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PixelWidth)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PixelHeight(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PixelHeight)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PixelHeight)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn OrientedPixelWidth(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).OrientedPixelWidth)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).OrientedPixelWidth)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn OrientedPixelHeight(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).OrientedPixelHeight)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).OrientedPixelHeight)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetPixelDataAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetPixelDataAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetPixelDataAsync)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetPixelDataTransformedAsync<P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
@@ -223,7 +223,7 @@ impl IBitmapFrame {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetPixelDataTransformedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, transform.into_param().abi(), exiforientationmode, colormanagementmode, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetPixelDataTransformedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, transform.into_param().abi(), exiforientationmode, colormanagementmode, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -258,14 +258,14 @@ impl IBitmapFrameWithSoftwareBitmap {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetSoftwareBitmapAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetSoftwareBitmapAsync)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetSoftwareBitmapConvertedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetSoftwareBitmapConvertedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetSoftwareBitmapTransformedAsync<P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
@@ -275,7 +275,7 @@ impl IBitmapFrameWithSoftwareBitmap {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetSoftwareBitmapTransformedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, transform.into_param().abi(), exiforientationmode, colormanagementmode, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetSoftwareBitmapTransformedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, transform.into_param().abi(), exiforientationmode, colormanagementmode, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -283,77 +283,77 @@ impl IBitmapFrameWithSoftwareBitmap {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetThumbnailAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetThumbnailAsync)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn BitmapProperties(&self) -> ::windows_core::Result<BitmapPropertiesView> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BitmapProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BitmapProperties)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn BitmapPixelFormat(&self) -> ::windows_core::Result<BitmapPixelFormat> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BitmapPixelFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BitmapPixelFormat)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BitmapAlphaMode(&self) -> ::windows_core::Result<BitmapAlphaMode> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BitmapAlphaMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BitmapAlphaMode)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DpiX(&self) -> ::windows_core::Result<f64> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DpiX)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DpiX)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DpiY(&self) -> ::windows_core::Result<f64> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DpiY)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DpiY)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PixelWidth(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PixelWidth)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PixelWidth)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PixelHeight(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PixelHeight)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PixelHeight)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn OrientedPixelWidth(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).OrientedPixelWidth)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).OrientedPixelWidth)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn OrientedPixelHeight(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).OrientedPixelHeight)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).OrientedPixelHeight)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetPixelDataAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetPixelDataAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetPixelDataAsync)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetPixelDataTransformedAsync<P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
@@ -363,7 +363,7 @@ impl IBitmapFrameWithSoftwareBitmap {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetPixelDataTransformedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, transform.into_param().abi(), exiforientationmode, colormanagementmode, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetPixelDataTransformedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, transform.into_param().abi(), exiforientationmode, colormanagementmode, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -399,7 +399,7 @@ impl IBitmapPropertiesView {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetPropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetPropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -524,14 +524,14 @@ impl BitmapBuffer {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetPlaneCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetPlaneCount)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetPlaneDescription(&self, index: i32) -> ::windows_core::Result<BitmapPlaneDescription> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetPlaneDescription)(::windows_core::Interface::as_raw(this), index, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetPlaneDescription)(::windows_core::Interface::as_raw(this), index, &mut result__).map(|| result__)
         }
     }
     pub fn Close(&self) -> ::windows_core::Result<()> {
@@ -542,7 +542,7 @@ impl BitmapBuffer {
         let this = &::windows_core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateReference)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateReference)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -567,7 +567,7 @@ impl BitmapCodecInformation {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CodecId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CodecId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -575,14 +575,14 @@ impl BitmapCodecInformation {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FileExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FileExtensions)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn FriendlyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FriendlyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FriendlyName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -590,7 +590,7 @@ impl BitmapCodecInformation {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MimeTypes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MimeTypes)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -616,21 +616,21 @@ impl BitmapDecoder {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BitmapContainerProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BitmapContainerProperties)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn DecoderInformation(&self) -> ::windows_core::Result<BitmapCodecInformation> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DecoderInformation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DecoderInformation)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn FrameCount(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FrameCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FrameCount)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -638,63 +638,63 @@ impl BitmapDecoder {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetPreviewAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetPreviewAsync)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetFrameAsync(&self, frameindex: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapFrame>> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetFrameAsync)(::windows_core::Interface::as_raw(this), frameindex, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetFrameAsync)(::windows_core::Interface::as_raw(this), frameindex, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn BmpDecoderId() -> ::windows_core::Result<::windows_core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BmpDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BmpDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn JpegDecoderId() -> ::windows_core::Result<::windows_core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).JpegDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).JpegDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn PngDecoderId() -> ::windows_core::Result<::windows_core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PngDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PngDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn TiffDecoderId() -> ::windows_core::Result<::windows_core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TiffDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TiffDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn GifDecoderId() -> ::windows_core::Result<::windows_core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GifDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GifDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn JpegXRDecoderId() -> ::windows_core::Result<::windows_core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).JpegXRDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).JpegXRDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn IcoDecoderId() -> ::windows_core::Result<::windows_core::GUID> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IcoDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IcoDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetDecoderInformationEnumerator() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<BitmapCodecInformation>> {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetDecoderInformationEnumerator)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetDecoderInformationEnumerator)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -704,7 +704,7 @@ impl BitmapDecoder {
     {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateAsync)(::windows_core::Interface::as_raw(this), stream.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateAsync)(::windows_core::Interface::as_raw(this), stream.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -714,19 +714,19 @@ impl BitmapDecoder {
     {
         Self::IBitmapDecoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWithIdAsync)(::windows_core::Interface::as_raw(this), decoderid, stream.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWithIdAsync)(::windows_core::Interface::as_raw(this), decoderid, stream.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn HeifDecoderId() -> ::windows_core::Result<::windows_core::GUID> {
         Self::IBitmapDecoderStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).HeifDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).HeifDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn WebpDecoderId() -> ::windows_core::Result<::windows_core::GUID> {
         Self::IBitmapDecoderStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WebpDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WebpDecoderId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -734,77 +734,77 @@ impl BitmapDecoder {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetThumbnailAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetThumbnailAsync)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn BitmapProperties(&self) -> ::windows_core::Result<BitmapPropertiesView> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BitmapProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BitmapProperties)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn BitmapPixelFormat(&self) -> ::windows_core::Result<BitmapPixelFormat> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BitmapPixelFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BitmapPixelFormat)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BitmapAlphaMode(&self) -> ::windows_core::Result<BitmapAlphaMode> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BitmapAlphaMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BitmapAlphaMode)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DpiX(&self) -> ::windows_core::Result<f64> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DpiX)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DpiX)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DpiY(&self) -> ::windows_core::Result<f64> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DpiY)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DpiY)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PixelWidth(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PixelWidth)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PixelWidth)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PixelHeight(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PixelHeight)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PixelHeight)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn OrientedPixelWidth(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).OrientedPixelWidth)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).OrientedPixelWidth)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn OrientedPixelHeight(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).OrientedPixelHeight)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).OrientedPixelHeight)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetPixelDataAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetPixelDataAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetPixelDataAsync)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetPixelDataTransformedAsync<P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
@@ -814,21 +814,21 @@ impl BitmapDecoder {
         let this = &::windows_core::Interface::cast::<IBitmapFrame>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetPixelDataTransformedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, transform.into_param().abi(), exiforientationmode, colormanagementmode, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetPixelDataTransformedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, transform.into_param().abi(), exiforientationmode, colormanagementmode, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetSoftwareBitmapAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = &::windows_core::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetSoftwareBitmapAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetSoftwareBitmapAsync)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = &::windows_core::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetSoftwareBitmapConvertedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetSoftwareBitmapConvertedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetSoftwareBitmapTransformedAsync<P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
@@ -838,7 +838,7 @@ impl BitmapDecoder {
         let this = &::windows_core::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetSoftwareBitmapTransformedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, transform.into_param().abi(), exiforientationmode, colormanagementmode, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetSoftwareBitmapTransformedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, transform.into_param().abi(), exiforientationmode, colormanagementmode, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[doc(hidden)]
@@ -873,28 +873,28 @@ impl BitmapEncoder {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).EncoderInformation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).EncoderInformation)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn BitmapProperties(&self) -> ::windows_core::Result<BitmapProperties> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BitmapProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BitmapProperties)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn BitmapContainerProperties(&self) -> ::windows_core::Result<BitmapProperties> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BitmapContainerProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BitmapContainerProperties)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsThumbnailGenerated(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsThumbnailGenerated)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsThumbnailGenerated)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetIsThumbnailGenerated(&self, value: bool) -> ::windows_core::Result<()> {
@@ -905,7 +905,7 @@ impl BitmapEncoder {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GeneratedThumbnailWidth)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GeneratedThumbnailWidth)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetGeneratedThumbnailWidth(&self, value: u32) -> ::windows_core::Result<()> {
@@ -916,7 +916,7 @@ impl BitmapEncoder {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GeneratedThumbnailHeight)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GeneratedThumbnailHeight)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetGeneratedThumbnailHeight(&self, value: u32) -> ::windows_core::Result<()> {
@@ -927,7 +927,7 @@ impl BitmapEncoder {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BitmapTransform)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BitmapTransform)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetPixelData(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, width: u32, height: u32, dpix: f64, dpiy: f64, pixels: &[u8]) -> ::windows_core::Result<()> {
@@ -938,7 +938,7 @@ impl BitmapEncoder {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GoToNextFrameAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GoToNextFrameAsync)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -949,57 +949,57 @@ impl BitmapEncoder {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GoToNextFrameWithEncodingOptionsAsync)(::windows_core::Interface::as_raw(this), encodingoptions.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GoToNextFrameWithEncodingOptionsAsync)(::windows_core::Interface::as_raw(this), encodingoptions.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn BmpEncoderId() -> ::windows_core::Result<::windows_core::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BmpEncoderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BmpEncoderId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn JpegEncoderId() -> ::windows_core::Result<::windows_core::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).JpegEncoderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).JpegEncoderId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn PngEncoderId() -> ::windows_core::Result<::windows_core::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PngEncoderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PngEncoderId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn TiffEncoderId() -> ::windows_core::Result<::windows_core::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TiffEncoderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TiffEncoderId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn GifEncoderId() -> ::windows_core::Result<::windows_core::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GifEncoderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GifEncoderId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn JpegXREncoderId() -> ::windows_core::Result<::windows_core::GUID> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).JpegXREncoderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).JpegXREncoderId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetEncoderInformationEnumerator() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<BitmapCodecInformation>> {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetEncoderInformationEnumerator)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetEncoderInformationEnumerator)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1009,7 +1009,7 @@ impl BitmapEncoder {
     {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateAsync)(::windows_core::Interface::as_raw(this), encoderid, stream.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateAsync)(::windows_core::Interface::as_raw(this), encoderid, stream.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
@@ -1020,7 +1020,7 @@ impl BitmapEncoder {
     {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWithEncodingOptionsAsync)(::windows_core::Interface::as_raw(this), encoderid, stream.into_param().abi(), encodingoptions.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWithEncodingOptionsAsync)(::windows_core::Interface::as_raw(this), encoderid, stream.into_param().abi(), encodingoptions.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1031,7 +1031,7 @@ impl BitmapEncoder {
     {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateForTranscodingAsync)(::windows_core::Interface::as_raw(this), stream.into_param().abi(), bitmapdecoder.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateForTranscodingAsync)(::windows_core::Interface::as_raw(this), stream.into_param().abi(), bitmapdecoder.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateForInPlacePropertyEncodingAsync<P0>(bitmapdecoder: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BitmapEncoder>>
@@ -1040,13 +1040,13 @@ impl BitmapEncoder {
     {
         Self::IBitmapEncoderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateForInPlacePropertyEncodingAsync)(::windows_core::Interface::as_raw(this), bitmapdecoder.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateForInPlacePropertyEncodingAsync)(::windows_core::Interface::as_raw(this), bitmapdecoder.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn HeifEncoderId() -> ::windows_core::Result<::windows_core::GUID> {
         Self::IBitmapEncoderStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).HeifEncoderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).HeifEncoderId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn SetSoftwareBitmap<P0>(&self, bitmap: P0) -> ::windows_core::Result<()>
@@ -1090,77 +1090,77 @@ impl BitmapFrame {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetThumbnailAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetThumbnailAsync)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn BitmapProperties(&self) -> ::windows_core::Result<BitmapPropertiesView> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BitmapProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BitmapProperties)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn BitmapPixelFormat(&self) -> ::windows_core::Result<BitmapPixelFormat> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BitmapPixelFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BitmapPixelFormat)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BitmapAlphaMode(&self) -> ::windows_core::Result<BitmapAlphaMode> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BitmapAlphaMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BitmapAlphaMode)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DpiX(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DpiX)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DpiX)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn DpiY(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DpiY)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DpiY)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PixelWidth(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PixelWidth)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PixelWidth)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PixelHeight(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PixelHeight)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PixelHeight)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn OrientedPixelWidth(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).OrientedPixelWidth)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).OrientedPixelWidth)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn OrientedPixelHeight(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).OrientedPixelHeight)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).OrientedPixelHeight)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetPixelDataAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetPixelDataAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetPixelDataAsync)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetPixelDataTransformedAsync<P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PixelDataProvider>>
@@ -1170,21 +1170,21 @@ impl BitmapFrame {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetPixelDataTransformedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, transform.into_param().abi(), exiforientationmode, colormanagementmode, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetPixelDataTransformedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, transform.into_param().abi(), exiforientationmode, colormanagementmode, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetSoftwareBitmapAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = &::windows_core::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetSoftwareBitmapAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetSoftwareBitmapAsync)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetSoftwareBitmapConvertedAsync(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>> {
         let this = &::windows_core::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetSoftwareBitmapConvertedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetSoftwareBitmapConvertedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetSoftwareBitmapTransformedAsync<P0>(&self, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: P0, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SoftwareBitmap>>
@@ -1194,7 +1194,7 @@ impl BitmapFrame {
         let this = &::windows_core::Interface::cast::<IBitmapFrameWithSoftwareBitmap>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetSoftwareBitmapTransformedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, transform.into_param().abi(), exiforientationmode, colormanagementmode, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetSoftwareBitmapTransformedAsync)(::windows_core::Interface::as_raw(this), pixelformat, alphamode, transform.into_param().abi(), exiforientationmode, colormanagementmode, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1224,7 +1224,7 @@ impl BitmapProperties {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetPropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoset.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetPropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoset.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1235,7 +1235,7 @@ impl BitmapProperties {
         let this = &::windows_core::Interface::cast::<IBitmapPropertiesView>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetPropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetPropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1265,7 +1265,7 @@ impl BitmapPropertiesView {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetPropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetPropertiesAsync)(::windows_core::Interface::as_raw(this), propertiestoretrieve.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1303,7 +1303,7 @@ impl BitmapPropertySet {
         let this = &::windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, BitmapTypedValue>>>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1311,7 +1311,7 @@ impl BitmapPropertySet {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Lookup)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(key), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Lookup)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(key), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1319,7 +1319,7 @@ impl BitmapPropertySet {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1327,7 +1327,7 @@ impl BitmapPropertySet {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).HasKey)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(key), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).HasKey)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1335,7 +1335,7 @@ impl BitmapPropertySet {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetView)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1346,7 +1346,7 @@ impl BitmapPropertySet {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Insert)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Insert)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value.into_param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1409,7 +1409,7 @@ impl BitmapTransform {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ScaledWidth)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ScaledWidth)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetScaledWidth(&self, value: u32) -> ::windows_core::Result<()> {
@@ -1420,7 +1420,7 @@ impl BitmapTransform {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ScaledHeight)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ScaledHeight)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetScaledHeight(&self, value: u32) -> ::windows_core::Result<()> {
@@ -1431,7 +1431,7 @@ impl BitmapTransform {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).InterpolationMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).InterpolationMode)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetInterpolationMode(&self, value: BitmapInterpolationMode) -> ::windows_core::Result<()> {
@@ -1442,7 +1442,7 @@ impl BitmapTransform {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Flip)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Flip)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetFlip(&self, value: BitmapFlip) -> ::windows_core::Result<()> {
@@ -1453,7 +1453,7 @@ impl BitmapTransform {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Rotation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Rotation)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetRotation(&self, value: BitmapRotation) -> ::windows_core::Result<()> {
@@ -1464,7 +1464,7 @@ impl BitmapTransform {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Bounds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Bounds)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetBounds(&self, value: BitmapBounds) -> ::windows_core::Result<()> {
@@ -1493,14 +1493,14 @@ impl BitmapTypedValue {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> ::windows_core::Result<super::super::Foundation::PropertyType> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Create<P0>(value: P0, r#type: super::super::Foundation::PropertyType) -> ::windows_core::Result<BitmapTypedValue>
@@ -1509,7 +1509,7 @@ impl BitmapTypedValue {
     {
         Self::IBitmapTypedValueFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), value.into_param().abi(), r#type, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), value.into_param().abi(), r#type, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1549,7 +1549,7 @@ impl ImageStream {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IContentTypeProvider>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ContentType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ContentType)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1560,7 +1560,7 @@ impl ImageStream {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IInputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), count, options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), count, options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1571,7 +1571,7 @@ impl ImageStream {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1579,7 +1579,7 @@ impl ImageStream {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1587,7 +1587,7 @@ impl ImageStream {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1600,7 +1600,7 @@ impl ImageStream {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetInputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetInputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1608,7 +1608,7 @@ impl ImageStream {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetOutputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetOutputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1616,7 +1616,7 @@ impl ImageStream {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1629,7 +1629,7 @@ impl ImageStream {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CloneStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CloneStream)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1637,7 +1637,7 @@ impl ImageStream {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CanRead)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CanRead)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1645,7 +1645,7 @@ impl ImageStream {
         let this = &::windows_core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CanWrite)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CanWrite)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -1675,7 +1675,7 @@ impl PixelDataProvider {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows_core::Interface::vtable(this).DetachPixelData)(::windows_core::Interface::as_raw(this), ::windows_core::Array::<u8>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+            (::windows_core::Interface::vtable(this).DetachPixelData)(::windows_core::Interface::as_raw(this), ::windows_core::Array::<u8>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
 }
@@ -1705,35 +1705,35 @@ impl SoftwareBitmap {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BitmapPixelFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BitmapPixelFormat)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn BitmapAlphaMode(&self) -> ::windows_core::Result<BitmapAlphaMode> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BitmapAlphaMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BitmapAlphaMode)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PixelWidth(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PixelWidth)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PixelWidth)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn PixelHeight(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PixelHeight)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PixelHeight)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsReadOnly(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsReadOnly)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsReadOnly)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetDpiX(&self, value: f64) -> ::windows_core::Result<()> {
@@ -1744,7 +1744,7 @@ impl SoftwareBitmap {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DpiX)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DpiX)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetDpiY(&self, value: f64) -> ::windows_core::Result<()> {
@@ -1755,14 +1755,14 @@ impl SoftwareBitmap {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DpiY)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DpiY)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn LockBuffer(&self, mode: BitmapBufferAccessMode) -> ::windows_core::Result<BitmapBuffer> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LockBuffer)(::windows_core::Interface::as_raw(this), mode, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LockBuffer)(::windows_core::Interface::as_raw(this), mode, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn CopyTo<P0>(&self, bitmap: P0) -> ::windows_core::Result<()>
@@ -1792,19 +1792,19 @@ impl SoftwareBitmap {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetReadOnlyView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetReadOnlyView)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Create(format: BitmapPixelFormat, width: i32, height: i32) -> ::windows_core::Result<SoftwareBitmap> {
         Self::ISoftwareBitmapFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), format, width, height, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), format, width, height, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWithAlpha(format: BitmapPixelFormat, width: i32, height: i32, alpha: BitmapAlphaMode) -> ::windows_core::Result<SoftwareBitmap> {
         Self::ISoftwareBitmapFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWithAlpha)(::windows_core::Interface::as_raw(this), format, width, height, alpha, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWithAlpha)(::windows_core::Interface::as_raw(this), format, width, height, alpha, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Copy<P0>(source: P0) -> ::windows_core::Result<SoftwareBitmap>
@@ -1813,7 +1813,7 @@ impl SoftwareBitmap {
     {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Copy)(::windows_core::Interface::as_raw(this), source.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Copy)(::windows_core::Interface::as_raw(this), source.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Convert<P0>(source: P0, format: BitmapPixelFormat) -> ::windows_core::Result<SoftwareBitmap>
@@ -1822,7 +1822,7 @@ impl SoftwareBitmap {
     {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Convert)(::windows_core::Interface::as_raw(this), source.into_param().abi(), format, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Convert)(::windows_core::Interface::as_raw(this), source.into_param().abi(), format, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn ConvertWithAlpha<P0>(source: P0, format: BitmapPixelFormat, alpha: BitmapAlphaMode) -> ::windows_core::Result<SoftwareBitmap>
@@ -1831,7 +1831,7 @@ impl SoftwareBitmap {
     {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ConvertWithAlpha)(::windows_core::Interface::as_raw(this), source.into_param().abi(), format, alpha, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ConvertWithAlpha)(::windows_core::Interface::as_raw(this), source.into_param().abi(), format, alpha, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1841,7 +1841,7 @@ impl SoftwareBitmap {
     {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateCopyFromBuffer)(::windows_core::Interface::as_raw(this), source.into_param().abi(), format, width, height, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateCopyFromBuffer)(::windows_core::Interface::as_raw(this), source.into_param().abi(), format, width, height, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1851,7 +1851,7 @@ impl SoftwareBitmap {
     {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateCopyWithAlphaFromBuffer)(::windows_core::Interface::as_raw(this), source.into_param().abi(), format, width, height, alpha, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateCopyWithAlphaFromBuffer)(::windows_core::Interface::as_raw(this), source.into_param().abi(), format, width, height, alpha, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -1861,7 +1861,7 @@ impl SoftwareBitmap {
     {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateCopyFromSurfaceAsync)(::windows_core::Interface::as_raw(this), surface.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateCopyFromSurfaceAsync)(::windows_core::Interface::as_raw(this), surface.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
@@ -1871,7 +1871,7 @@ impl SoftwareBitmap {
     {
         Self::ISoftwareBitmapStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateCopyWithAlphaFromSurfaceAsync)(::windows_core::Interface::as_raw(this), surface.into_param().abi(), alpha, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateCopyWithAlphaFromSurfaceAsync)(::windows_core::Interface::as_raw(this), surface.into_param().abi(), alpha, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

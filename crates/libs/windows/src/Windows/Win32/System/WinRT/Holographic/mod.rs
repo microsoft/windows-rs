@@ -7,7 +7,7 @@ impl IHolographicCameraInterop {
         P0: ::windows_core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12Device>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateDirect3D12BackBufferResource)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), ptexture2ddesc, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateDirect3D12BackBufferResource)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), ptexture2ddesc, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateDirect3D12HardwareProtectedBackBufferResource<P0, P1>(&self, pdevice: P0, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pprotectedresourcesession: P1) -> ::windows_core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource>
@@ -16,7 +16,7 @@ impl IHolographicCameraInterop {
         P1: ::windows_core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateDirect3D12HardwareProtectedBackBufferResource)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), ptexture2ddesc, pprotectedresourcesession.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateDirect3D12HardwareProtectedBackBufferResource)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), ptexture2ddesc, pprotectedresourcesession.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn AcquireDirect3D12BufferResource<P0, P1>(&self, presourcetoacquire: P0, pcommandqueue: P1) -> ::windows_core::Result<()>
@@ -111,7 +111,7 @@ impl IHolographicQuadLayerInterop {
         P0: ::windows_core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12Device>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateDirect3D12ContentBufferResource)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), ptexture2ddesc, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateDirect3D12ContentBufferResource)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), ptexture2ddesc, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateDirect3D12HardwareProtectedContentBufferResource<P0, P1>(&self, pdevice: P0, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pprotectedresourcesession: P1) -> ::windows_core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource>
@@ -120,7 +120,7 @@ impl IHolographicQuadLayerInterop {
         P1: ::windows_core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateDirect3D12HardwareProtectedContentBufferResource)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), ptexture2ddesc, pprotectedresourcesession.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateDirect3D12HardwareProtectedContentBufferResource)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), ptexture2ddesc, pprotectedresourcesession.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn AcquireDirect3D12BufferResource<P0, P1>(&self, presourcetoacquire: P0, pcommandqueue: P1) -> ::windows_core::Result<()>

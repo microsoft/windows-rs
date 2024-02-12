@@ -6,7 +6,7 @@ where
 {
     ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorGetAssertion(hwnd : super::super::Foundation:: HWND, pwszrpid : ::windows_core::PCWSTR, pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions : *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS, ppwebauthnassertion : *mut *mut WEBAUTHN_ASSERTION) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WebAuthNAuthenticatorGetAssertion(hwnd.into_param().abi(), pwszrpid.into_param().abi(), pwebauthnclientdata, ::core::mem::transmute(pwebauthngetassertionoptions.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+    WebAuthNAuthenticatorGetAssertion(hwnd.into_param().abi(), pwszrpid.into_param().abi(), pwebauthnclientdata, ::core::mem::transmute(pwebauthngetassertionoptions.unwrap_or(::std::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WebAuthNAuthenticatorMakeCredential<P0>(hwnd: P0, prpinformation: *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation: *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams: *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions: ::core::option::Option<*const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS>) -> ::windows_core::Result<*mut WEBAUTHN_CREDENTIAL_ATTESTATION>
@@ -15,7 +15,7 @@ where
 {
     ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNAuthenticatorMakeCredential(hwnd : super::super::Foundation:: HWND, prpinformation : *const WEBAUTHN_RP_ENTITY_INFORMATION, puserinformation : *const WEBAUTHN_USER_ENTITY_INFORMATION, ppubkeycredparams : *const WEBAUTHN_COSE_CREDENTIAL_PARAMETERS, pwebauthnclientdata : *const WEBAUTHN_CLIENT_DATA, pwebauthnmakecredentialoptions : *const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS, ppwebauthncredentialattestation : *mut *mut WEBAUTHN_CREDENTIAL_ATTESTATION) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WebAuthNAuthenticatorMakeCredential(hwnd.into_param().abi(), prpinformation, puserinformation, ppubkeycredparams, pwebauthnclientdata, ::core::mem::transmute(pwebauthnmakecredentialoptions.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+    WebAuthNAuthenticatorMakeCredential(hwnd.into_param().abi(), prpinformation, puserinformation, ppubkeycredparams, pwebauthnclientdata, ::core::mem::transmute(pwebauthnmakecredentialoptions.unwrap_or(::std::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WebAuthNCancelCurrentOperation(pcancellationid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -51,7 +51,7 @@ pub unsafe fn WebAuthNGetApiVersionNumber() -> u32 {
 pub unsafe fn WebAuthNGetCancellationId() -> ::windows_core::Result<::windows_core::GUID> {
     ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNGetCancellationId(pcancellationid : *mut ::windows_core::GUID) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WebAuthNGetCancellationId(&mut result__).from_abi(result__)
+    WebAuthNGetCancellationId(&mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WebAuthNGetErrorName(hr: ::windows_core::HRESULT) -> ::windows_core::PCWSTR {
@@ -62,7 +62,7 @@ pub unsafe fn WebAuthNGetErrorName(hr: ::windows_core::HRESULT) -> ::windows_cor
 pub unsafe fn WebAuthNGetPlatformCredentialList(pgetcredentialsoptions: *const WEBAUTHN_GET_CREDENTIALS_OPTIONS) -> ::windows_core::Result<*mut WEBAUTHN_CREDENTIAL_DETAILS_LIST> {
     ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNGetPlatformCredentialList(pgetcredentialsoptions : *const WEBAUTHN_GET_CREDENTIALS_OPTIONS, ppcredentialdetailslist : *mut *mut WEBAUTHN_CREDENTIAL_DETAILS_LIST) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WebAuthNGetPlatformCredentialList(pgetcredentialsoptions, &mut result__).from_abi(result__)
+    WebAuthNGetPlatformCredentialList(pgetcredentialsoptions, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WebAuthNGetW3CExceptionDOMError(hr: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
@@ -73,7 +73,7 @@ pub unsafe fn WebAuthNGetW3CExceptionDOMError(hr: ::windows_core::HRESULT) -> ::
 pub unsafe fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable() -> ::windows_core::Result<super::super::Foundation::BOOL> {
     ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(&mut result__).from_abi(result__)
+    WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(&mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WsAbandonCall(serviceproxy: *const WS_SERVICE_PROXY, callid: u32, error: ::core::option::Option<*const WS_ERROR>) -> ::windows_core::Result<()> {
@@ -199,7 +199,7 @@ pub unsafe fn WsCreateChannelForListener(listener: *const WS_LISTENER, propertie
 pub unsafe fn WsCreateError(properties: ::core::option::Option<&[WS_ERROR_PROPERTY]>) -> ::windows_core::Result<*mut WS_ERROR> {
     ::windows_targets::link!("webservices.dll" "system" fn WsCreateError(properties : *const WS_ERROR_PROPERTY, propertycount : u32, error : *mut *mut WS_ERROR) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WsCreateError(::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).from_abi(result__)
+    WsCreateError(::core::mem::transmute(properties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), properties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WsCreateFaultFromError(error: *const WS_ERROR, faulterrorcode: ::windows_core::HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, heap: *const WS_HEAP, fault: *mut WS_FAULT) -> ::windows_core::Result<()> {
@@ -435,7 +435,7 @@ pub unsafe fn WsGetErrorProperty(error: *const WS_ERROR, id: WS_ERROR_PROPERTY_I
 pub unsafe fn WsGetErrorString(error: *const WS_ERROR, index: u32) -> ::windows_core::Result<WS_STRING> {
     ::windows_targets::link!("webservices.dll" "system" fn WsGetErrorString(error : *const WS_ERROR, index : u32, string : *mut WS_STRING) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WsGetErrorString(error, index, &mut result__).from_abi(result__)
+    WsGetErrorString(error, index, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WsGetFaultErrorDetail(error: *const WS_ERROR, faultdetaildescription: *const WS_FAULT_DETAIL_DESCRIPTION, readoption: WS_READ_OPTION, heap: ::core::option::Option<*const WS_HEAP>, value: *mut ::core::ffi::c_void, valuesize: u32) -> ::windows_core::Result<()> {
@@ -1101,7 +1101,7 @@ impl IContentPrefetcherTaskTrigger {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).IsRegisteredForContentPrefetch)(::windows_core::Interface::as_raw(self), packagefullname.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).IsRegisteredForContentPrefetch)(::windows_core::Interface::as_raw(self), packagefullname.into_param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

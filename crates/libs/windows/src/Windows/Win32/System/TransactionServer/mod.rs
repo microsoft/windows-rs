@@ -10,7 +10,7 @@ impl ICatalog {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetCollection)(::windows_core::Interface::as_raw(self), bstrcollname.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetCollection)(::windows_core::Interface::as_raw(self), bstrcollname.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Connect<P0>(&self, bstrconnectstring: P0) -> ::windows_core::Result<super::Com::IDispatch>
@@ -18,7 +18,7 @@ impl ICatalog {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Connect)(::windows_core::Interface::as_raw(self), bstrconnectstring.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Connect)(::windows_core::Interface::as_raw(self), bstrconnectstring.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn MajorVersion(&self, retval: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).MajorVersion)(::windows_core::Interface::as_raw(self), retval).ok()

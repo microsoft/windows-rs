@@ -87,7 +87,7 @@ where
 {
     ::windows_targets::link!("projectedfslib.dll" "system" fn PrjGetOnDiskFileState(destinationfilename : ::windows_core::PCWSTR, filestate : *mut PRJ_FILE_STATE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    PrjGetOnDiskFileState(destinationfilename.into_param().abi(), &mut result__).from_abi(result__)
+    PrjGetOnDiskFileState(destinationfilename.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn PrjGetVirtualizationInstanceInfo<P0>(namespacevirtualizationcontext: P0, virtualizationinstanceinfo: *mut PRJ_VIRTUALIZATION_INSTANCE_INFO) -> ::windows_core::Result<()>
@@ -113,7 +113,7 @@ where
 {
     ::windows_targets::link!("projectedfslib.dll" "system" fn PrjStartVirtualizing(virtualizationrootpath : ::windows_core::PCWSTR, callbacks : *const PRJ_CALLBACKS, instancecontext : *const ::core::ffi::c_void, options : *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext : *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    PrjStartVirtualizing(virtualizationrootpath.into_param().abi(), callbacks, ::core::mem::transmute(instancecontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+    PrjStartVirtualizing(virtualizationrootpath.into_param().abi(), callbacks, ::core::mem::transmute(instancecontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn PrjStopVirtualizing<P0>(namespacevirtualizationcontext: P0)

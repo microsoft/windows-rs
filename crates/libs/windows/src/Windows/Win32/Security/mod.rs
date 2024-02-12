@@ -1065,7 +1065,7 @@ pub unsafe fn QuerySecurityAccessMask(securityinformation: OBJECT_SECURITY_INFOR
     ::windows_targets::link!("advapi32.dll" "system" fn QuerySecurityAccessMask(securityinformation : OBJECT_SECURITY_INFORMATION, desiredaccess : *mut u32));
     let mut result__ = ::std::mem::zeroed();
     QuerySecurityAccessMask(securityinformation, &mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn RevertToSelf() -> ::windows_core::Result<()> {
@@ -1152,7 +1152,7 @@ pub unsafe fn SetSecurityAccessMask(securityinformation: OBJECT_SECURITY_INFORMA
     ::windows_targets::link!("advapi32.dll" "system" fn SetSecurityAccessMask(securityinformation : OBJECT_SECURITY_INFORMATION, desiredaccess : *mut u32));
     let mut result__ = ::std::mem::zeroed();
     SetSecurityAccessMask(securityinformation, &mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn SetSecurityDescriptorControl<P0>(psecuritydescriptor: P0, controlbitsofinterest: SECURITY_DESCRIPTOR_CONTROL, controlbitstoset: SECURITY_DESCRIPTOR_CONTROL) -> ::windows_core::Result<()>

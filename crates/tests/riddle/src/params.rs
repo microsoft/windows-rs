@@ -33,7 +33,7 @@ impl IParams {
                 b,
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn I8(&self, a: &mut i8, b: &mut i8) -> ::windows_core::Result<i8> {
@@ -46,7 +46,7 @@ impl IParams {
                 b,
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn U8(&self, a: &mut u8, b: &mut u8) -> ::windows_core::Result<u8> {
@@ -59,7 +59,7 @@ impl IParams {
                 b,
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn I16(&self, a: &mut i16, b: &mut i16) -> ::windows_core::Result<i16> {
@@ -72,7 +72,7 @@ impl IParams {
                 b,
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn U16(&self, a: &mut u16, b: &mut u16) -> ::windows_core::Result<u16> {
@@ -85,7 +85,7 @@ impl IParams {
                 b,
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn I32(&self, a: &mut i32, b: &mut i32) -> ::windows_core::Result<i32> {
@@ -98,7 +98,7 @@ impl IParams {
                 b,
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn U32(&self, a: &mut u32, b: &mut u32) -> ::windows_core::Result<u32> {
@@ -111,7 +111,7 @@ impl IParams {
                 b,
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn I64(&self, a: &mut i64, b: &mut i64) -> ::windows_core::Result<i64> {
@@ -124,7 +124,7 @@ impl IParams {
                 b,
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn U64(&self, a: &mut u64, b: &mut u64) -> ::windows_core::Result<u64> {
@@ -137,7 +137,7 @@ impl IParams {
                 b,
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn F32(&self, a: &mut f32, b: &mut f32) -> ::windows_core::Result<f32> {
@@ -150,7 +150,7 @@ impl IParams {
                 b,
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn F64(&self, a: &mut f64, b: &mut f64) -> ::windows_core::Result<f64> {
@@ -163,7 +163,7 @@ impl IParams {
                 b,
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn ISize(&self, a: &mut isize, b: &mut isize) -> ::windows_core::Result<isize> {
@@ -176,7 +176,7 @@ impl IParams {
                 b,
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn USize(&self, a: &mut usize, b: &mut usize) -> ::windows_core::Result<usize> {
@@ -189,7 +189,7 @@ impl IParams {
                 b,
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
 }

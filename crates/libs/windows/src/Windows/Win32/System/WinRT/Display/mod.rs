@@ -7,14 +7,14 @@ impl IDisplayDeviceInterop {
         P0: ::windows_core::IntoParam<::windows_core::IInspectable>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateSharedHandle)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), psecurityattributes, access, ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateSharedHandle)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), psecurityattributes, access, ::core::mem::transmute_copy(name), &mut result__).map(|| result__)
     }
     pub unsafe fn OpenSharedHandle<P0>(&self, nthandle: P0, riid: ::windows_core::GUID) -> ::windows_core::Result<*mut ::core::ffi::c_void>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OpenSharedHandle)(::windows_core::Interface::as_raw(self), nthandle.into_param().abi(), ::core::mem::transmute(riid), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OpenSharedHandle)(::windows_core::Interface::as_raw(self), nthandle.into_param().abi(), ::core::mem::transmute(riid), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -32,11 +32,11 @@ pub struct IDisplayDeviceInterop_Vtbl {
 impl IDisplayPathInterop {
     pub unsafe fn CreateSourcePresentationHandle(&self) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateSourcePresentationHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateSourcePresentationHandle)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSourceId(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSourceId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetSourceId)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

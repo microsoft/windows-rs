@@ -77,7 +77,7 @@ impl CompositionDebugSettings {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).HeatMaps)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).HeatMaps)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn TryGetSettings<P0>(compositor: P0) -> ::windows_core::Result<CompositionDebugSettings>
@@ -86,7 +86,7 @@ impl CompositionDebugSettings {
     {
         Self::ICompositionDebugSettingsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryGetSettings)(::windows_core::Interface::as_raw(this), compositor.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryGetSettings)(::windows_core::Interface::as_raw(this), compositor.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

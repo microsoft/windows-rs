@@ -203,13 +203,13 @@ impl AnalyticsInfo {
     pub fn VersionInfo() -> ::windows_core::Result<AnalyticsVersionInfo> {
         Self::IAnalyticsInfoStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).VersionInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).VersionInfo)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn DeviceForm() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IAnalyticsInfoStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DeviceForm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DeviceForm)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -219,7 +219,7 @@ impl AnalyticsInfo {
     {
         Self::IAnalyticsInfoStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetSystemPropertiesAsync)(::windows_core::Interface::as_raw(this), attributenames.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetSystemPropertiesAsync)(::windows_core::Interface::as_raw(this), attributenames.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -245,21 +245,21 @@ impl AnalyticsVersionInfo {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DeviceFamily)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DeviceFamily)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn DeviceFamilyVersion(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DeviceFamilyVersion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DeviceFamilyVersion)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn ProductName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IAnalyticsVersionInfo2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProductName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProductName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -284,7 +284,7 @@ impl AppApplicability {
     {
         Self::IAppApplicabilityStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetUnsupportedAppRequirements)(::windows_core::Interface::as_raw(this), capabilities.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetUnsupportedAppRequirements)(::windows_core::Interface::as_raw(this), capabilities.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -301,7 +301,7 @@ impl EducationSettings {
     pub fn IsEducationEnvironment() -> ::windows_core::Result<bool> {
         Self::IEducationSettingsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsEducationEnvironment)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsEducationEnvironment)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[doc(hidden)]
@@ -322,7 +322,7 @@ impl HardwareIdentification {
     {
         Self::IHardwareIdentificationStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetPackageSpecificToken)(::windows_core::Interface::as_raw(this), nonce.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetPackageSpecificToken)(::windows_core::Interface::as_raw(this), nonce.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -344,7 +344,7 @@ impl HardwareToken {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -352,7 +352,7 @@ impl HardwareToken {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Signature)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Signature)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -360,7 +360,7 @@ impl HardwareToken {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Certificate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Certificate)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -381,133 +381,133 @@ impl KnownRetailInfoProperties {
     pub fn RetailAccessCode() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RetailAccessCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RetailAccessCode)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn ManufacturerName() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ManufacturerName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ManufacturerName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn ModelName() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ModelName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ModelName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn DisplayModelName() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DisplayModelName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DisplayModelName)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Price() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Price)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Price)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn IsFeatured() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsFeatured)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsFeatured)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn FormFactor() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FormFactor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FormFactor)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn ScreenSize() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ScreenSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ScreenSize)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Weight() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Weight)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Weight)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn DisplayDescription() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DisplayDescription)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DisplayDescription)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn BatteryLifeDescription() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BatteryLifeDescription)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BatteryLifeDescription)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn ProcessorDescription() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProcessorDescription)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProcessorDescription)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Memory() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Memory)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Memory)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn StorageDescription() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StorageDescription)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StorageDescription)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn GraphicsDescription() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GraphicsDescription)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GraphicsDescription)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn FrontCameraDescription() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FrontCameraDescription)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FrontCameraDescription)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn RearCameraDescription() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RearCameraDescription)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RearCameraDescription)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn HasNfc() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).HasNfc)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).HasNfc)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn HasSdSlot() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).HasSdSlot)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).HasSdSlot)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn HasOpticalDrive() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).HasOpticalDrive)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).HasOpticalDrive)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn IsOfficeInstalled() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsOfficeInstalled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsOfficeInstalled)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn WindowsEdition() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WindowsEdition)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WindowsEdition)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -524,7 +524,7 @@ impl PlatformDiagnosticsAndUsageDataSettings {
     pub fn CollectionLevel() -> ::windows_core::Result<PlatformDataCollectionLevel> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CollectionLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CollectionLevel)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn CollectionLevelChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
@@ -533,7 +533,7 @@ impl PlatformDiagnosticsAndUsageDataSettings {
     {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CollectionLevelChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CollectionLevelChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveCollectionLevelChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
@@ -542,7 +542,7 @@ impl PlatformDiagnosticsAndUsageDataSettings {
     pub fn CanCollectDiagnostics(level: PlatformDataCollectionLevel) -> ::windows_core::Result<bool> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CanCollectDiagnostics)(::windows_core::Interface::as_raw(this), level, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CanCollectDiagnostics)(::windows_core::Interface::as_raw(this), level, &mut result__).map(|| result__)
         })
     }
     #[doc(hidden)]
@@ -559,14 +559,14 @@ impl RetailInfo {
     pub fn IsDemoModeEnabled() -> ::windows_core::Result<bool> {
         Self::IRetailInfoStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsDemoModeEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsDemoModeEnabled)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties() -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         Self::IRetailInfoStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -583,13 +583,13 @@ impl SharedModeSettings {
     pub fn IsEnabled() -> ::windows_core::Result<bool> {
         Self::ISharedModeSettingsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ShouldAvoidLocalStorage() -> ::windows_core::Result<bool> {
         Self::ISharedModeSettingsStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ShouldAvoidLocalStorage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ShouldAvoidLocalStorage)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[doc(hidden)]
@@ -611,7 +611,7 @@ impl SmartAppControlPolicy {
     pub fn IsEnabled() -> ::windows_core::Result<bool> {
         Self::ISmartAppControlPolicyStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn Changed<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
@@ -620,7 +620,7 @@ impl SmartAppControlPolicy {
     {
         Self::ISmartAppControlPolicyStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Changed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Changed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
@@ -640,7 +640,7 @@ impl SystemIdentification {
     pub fn GetSystemIdForPublisher() -> ::windows_core::Result<SystemIdentificationInfo> {
         Self::ISystemIdentificationStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetSystemIdForPublisher)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetSystemIdForPublisher)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetSystemIdForUser<P0>(user: P0) -> ::windows_core::Result<SystemIdentificationInfo>
@@ -649,7 +649,7 @@ impl SystemIdentification {
     {
         Self::ISystemIdentificationStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetSystemIdForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetSystemIdForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -671,14 +671,14 @@ impl SystemIdentificationInfo {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Source(&self) -> ::windows_core::Result<SystemIdentificationSource> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Source)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Source)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -699,7 +699,7 @@ impl SystemSetupInfo {
     pub fn OutOfBoxExperienceState() -> ::windows_core::Result<SystemOutOfBoxExperienceState> {
         Self::ISystemSetupInfoStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).OutOfBoxExperienceState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).OutOfBoxExperienceState)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn OutOfBoxExperienceStateChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
@@ -708,7 +708,7 @@ impl SystemSetupInfo {
     {
         Self::ISystemSetupInfoStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).OutOfBoxExperienceStateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).OutOfBoxExperienceStateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemoveOutOfBoxExperienceStateChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
@@ -732,14 +732,14 @@ impl UnsupportedAppRequirement {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Requirement)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Requirement)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Reasons(&self) -> ::windows_core::Result<UnsupportedAppRequirementReasons> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Reasons)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Reasons)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -760,25 +760,25 @@ impl WindowsIntegrityPolicy {
     pub fn IsEnabled() -> ::windows_core::Result<bool> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn IsEnabledForTrial() -> ::windows_core::Result<bool> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsEnabledForTrial)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsEnabledForTrial)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn CanDisable() -> ::windows_core::Result<bool> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CanDisable)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CanDisable)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn IsDisableSupported() -> ::windows_core::Result<bool> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsDisableSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsDisableSupported)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn PolicyChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
@@ -787,7 +787,7 @@ impl WindowsIntegrityPolicy {
     {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PolicyChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PolicyChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
         })
     }
     pub fn RemovePolicyChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {

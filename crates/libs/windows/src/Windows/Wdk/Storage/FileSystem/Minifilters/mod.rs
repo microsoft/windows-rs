@@ -1212,7 +1212,7 @@ pub unsafe fn FltInitializePushLock() -> usize {
     ::windows_targets::link!("fltmgr.sys" "system" fn FltInitializePushLock(pushlock : *mut usize));
     let mut result__ = ::std::mem::zeroed();
     FltInitializePushLock(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]

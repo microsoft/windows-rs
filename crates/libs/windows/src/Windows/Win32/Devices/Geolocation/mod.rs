@@ -3,44 +3,44 @@
 impl ICivicAddressReport {
     pub unsafe fn GetSensorID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetSensorID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetSensorID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTimestamp(&self) -> ::windows_core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetTimestamp)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetTimestamp)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<::windows_core::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetValue)(::windows_core::Interface::as_raw(self), pkey, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetValue)(::windows_core::Interface::as_raw(self), pkey, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetAddressLine1(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetAddressLine1)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetAddressLine1)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetAddressLine2(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetAddressLine2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetAddressLine2)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCity(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetCity)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetCity)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetStateProvince(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetStateProvince)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetStateProvince)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPostalCode(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetPostalCode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetPostalCode)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCountryRegion(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetCountryRegion)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetCountryRegion)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetDetailLevel(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetDetailLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetDetailLevel)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -69,18 +69,18 @@ impl ICivicAddressReportFactory {
     }
     pub unsafe fn Status(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ReportInterval(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ReportInterval)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ReportInterval)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetReportInterval)(::windows_core::Interface::as_raw(self), millisecondsrequested).ok()
     }
     pub unsafe fn DesiredAccuracy(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.DesiredAccuracy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.DesiredAccuracy)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetDesiredAccuracy)(::windows_core::Interface::as_raw(self), desiredaccuracy).ok()
@@ -91,7 +91,7 @@ impl ICivicAddressReportFactory {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CivicAddressReport(&self) -> ::windows_core::Result<IDispCivicAddressReport> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CivicAddressReport)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CivicAddressReport)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -115,7 +115,7 @@ impl IDefaultLocation {
     }
     pub unsafe fn GetReport(&self, reporttype: *const ::windows_core::GUID) -> ::windows_core::Result<ILocationReport> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetReport)(::windows_core::Interface::as_raw(self), reporttype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetReport)(::windows_core::Interface::as_raw(self), reporttype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -133,35 +133,35 @@ pub struct IDefaultLocation_Vtbl {
 impl IDispCivicAddressReport {
     pub unsafe fn AddressLine1(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).AddressLine1)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).AddressLine1)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddressLine2(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).AddressLine2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).AddressLine2)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn City(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).City)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).City)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn StateProvince(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).StateProvince)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).StateProvince)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn PostalCode(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).PostalCode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).PostalCode)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CountryRegion(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CountryRegion)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CountryRegion)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DetailLevel(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).DetailLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).DetailLevel)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Timestamp(&self) -> ::windows_core::Result<f64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Timestamp)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Timestamp)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -186,27 +186,27 @@ pub struct IDispCivicAddressReport_Vtbl {
 impl IDispLatLongReport {
     pub unsafe fn Latitude(&self) -> ::windows_core::Result<f64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Latitude)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Latitude)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Longitude(&self) -> ::windows_core::Result<f64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Longitude)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Longitude)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ErrorRadius(&self) -> ::windows_core::Result<f64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ErrorRadius)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ErrorRadius)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Altitude(&self) -> ::windows_core::Result<f64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Altitude)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Altitude)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn AltitudeError(&self) -> ::windows_core::Result<f64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).AltitudeError)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).AltitudeError)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Timestamp(&self) -> ::windows_core::Result<f64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Timestamp)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Timestamp)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -226,36 +226,36 @@ pub struct IDispLatLongReport_Vtbl {
 impl ILatLongReport {
     pub unsafe fn GetSensorID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetSensorID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetSensorID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTimestamp(&self) -> ::windows_core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetTimestamp)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetTimestamp)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<::windows_core::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetValue)(::windows_core::Interface::as_raw(self), pkey, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetValue)(::windows_core::Interface::as_raw(self), pkey, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLatitude(&self) -> ::windows_core::Result<f64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetLatitude)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetLatitude)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetLongitude(&self) -> ::windows_core::Result<f64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetLongitude)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetLongitude)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetErrorRadius(&self) -> ::windows_core::Result<f64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetErrorRadius)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetErrorRadius)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetAltitude(&self) -> ::windows_core::Result<f64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetAltitude)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetAltitude)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetAltitudeError(&self) -> ::windows_core::Result<f64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetAltitudeError)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetAltitudeError)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -282,18 +282,18 @@ impl ILatLongReportFactory {
     }
     pub unsafe fn Status(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ReportInterval(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ReportInterval)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ReportInterval)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetReportInterval)(::windows_core::Interface::as_raw(self), millisecondsrequested).ok()
     }
     pub unsafe fn DesiredAccuracy(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.DesiredAccuracy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.DesiredAccuracy)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetDesiredAccuracy)(::windows_core::Interface::as_raw(self), desiredaccuracy).ok()
@@ -304,7 +304,7 @@ impl ILatLongReportFactory {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LatLongReport(&self) -> ::windows_core::Result<IDispLatLongReport> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).LatLongReport)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).LatLongReport)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -331,15 +331,15 @@ impl ILocation {
     }
     pub unsafe fn GetReport(&self, reporttype: *const ::windows_core::GUID) -> ::windows_core::Result<ILocationReport> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetReport)(::windows_core::Interface::as_raw(self), reporttype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetReport)(::windows_core::Interface::as_raw(self), reporttype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetReportStatus(&self, reporttype: *const ::windows_core::GUID) -> ::windows_core::Result<LOCATION_REPORT_STATUS> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetReportStatus)(::windows_core::Interface::as_raw(self), reporttype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetReportStatus)(::windows_core::Interface::as_raw(self), reporttype, &mut result__).map(|| result__)
     }
     pub unsafe fn GetReportInterval(&self, reporttype: *const ::windows_core::GUID) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetReportInterval)(::windows_core::Interface::as_raw(self), reporttype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetReportInterval)(::windows_core::Interface::as_raw(self), reporttype, &mut result__).map(|| result__)
     }
     pub unsafe fn SetReportInterval(&self, reporttype: *const ::windows_core::GUID, millisecondsrequested: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetReportInterval)(::windows_core::Interface::as_raw(self), reporttype, millisecondsrequested).ok()
@@ -347,7 +347,7 @@ impl ILocation {
     #[cfg(feature = "Win32_Devices_Sensors")]
     pub unsafe fn GetDesiredAccuracy(&self, reporttype: *const ::windows_core::GUID) -> ::windows_core::Result<super::Sensors::LOCATION_DESIRED_ACCURACY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetDesiredAccuracy)(::windows_core::Interface::as_raw(self), reporttype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetDesiredAccuracy)(::windows_core::Interface::as_raw(self), reporttype, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_Devices_Sensors")]
     pub unsafe fn SetDesiredAccuracy(&self, reporttype: *const ::windows_core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows_core::Result<()> {
@@ -423,16 +423,16 @@ pub struct ILocationPower_Vtbl {
 impl ILocationReport {
     pub unsafe fn GetSensorID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSensorID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetSensorID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetTimestamp(&self) -> ::windows_core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetTimestamp)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetTimestamp)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows_core::Result<::windows_core::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), pkey, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), pkey, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -460,18 +460,18 @@ impl ILocationReportFactory {
     }
     pub unsafe fn Status(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Status)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ReportInterval(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ReportInterval)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ReportInterval)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetReportInterval)(::windows_core::Interface::as_raw(self), millisecondsrequested).ok()
     }
     pub unsafe fn DesiredAccuracy(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).DesiredAccuracy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).DesiredAccuracy)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDesiredAccuracy)(::windows_core::Interface::as_raw(self), desiredaccuracy).ok()

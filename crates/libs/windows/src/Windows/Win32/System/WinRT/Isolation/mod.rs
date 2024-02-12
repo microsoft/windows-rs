@@ -6,7 +6,7 @@ impl IIsolatedEnvironmentInterop {
         P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetHostHwndInterop)(::windows_core::Interface::as_raw(self), containerhwnd.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetHostHwndInterop)(::windows_core::Interface::as_raw(self), containerhwnd.into_param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

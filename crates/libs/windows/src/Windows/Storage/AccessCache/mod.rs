@@ -37,7 +37,7 @@ impl IStorageItemAccessList {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AddOverloadDefaultMetadata)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AddOverloadDefaultMetadata)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Add<P0>(&self, file: P0, metadata: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::HSTRING>
@@ -47,7 +47,7 @@ impl IStorageItemAccessList {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Add)(::windows_core::Interface::as_raw(this), file.into_param().abi(), ::core::mem::transmute_copy(metadata), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Add)(::windows_core::Interface::as_raw(this), file.into_param().abi(), ::core::mem::transmute_copy(metadata), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AddOrReplaceOverloadDefaultMetadata<P0>(&self, token: &::windows_core::HSTRING, file: P0) -> ::windows_core::Result<()>
@@ -68,42 +68,42 @@ impl IStorageItemAccessList {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetItemAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetItemAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetFileAsync(&self, token: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetFileAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetFileAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetFolderAsync(&self, token: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetItemWithOptionsAsync(&self, token: &::windows_core::HSTRING, options: AccessCacheOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetItemWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetItemWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetFileWithOptionsAsync(&self, token: &::windows_core::HSTRING, options: AccessCacheOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetFileWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetFileWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetFolderWithOptionsAsync(&self, token: &::windows_core::HSTRING, options: AccessCacheOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetFolderWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetFolderWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Remove(&self, token: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -114,7 +114,7 @@ impl IStorageItemAccessList {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ContainsItem)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ContainsItem)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).map(|| result__)
         }
     }
     pub fn Clear(&self) -> ::windows_core::Result<()> {
@@ -128,7 +128,7 @@ impl IStorageItemAccessList {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CheckAccess)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CheckAccess)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -136,14 +136,14 @@ impl IStorageItemAccessList {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Entries)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Entries)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn MaximumItemsAllowed(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MaximumItemsAllowed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MaximumItemsAllowed)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -205,7 +205,7 @@ impl AccessListEntryView {
         let this = &::windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<AccessListEntry>>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -213,7 +213,7 @@ impl AccessListEntryView {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetAt)(::windows_core::Interface::as_raw(this), index, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetAt)(::windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -221,7 +221,7 @@ impl AccessListEntryView {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -232,7 +232,7 @@ impl AccessListEntryView {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -240,7 +240,7 @@ impl AccessListEntryView {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), ::core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
 }
@@ -282,7 +282,7 @@ impl ItemRemovedEventArgs {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RemovedEntry)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RemovedEntry)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -301,13 +301,13 @@ impl StorageApplicationPermissions {
     pub fn FutureAccessList() -> ::windows_core::Result<StorageItemAccessList> {
         Self::IStorageApplicationPermissionsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FutureAccessList)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FutureAccessList)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn MostRecentlyUsedList() -> ::windows_core::Result<StorageItemMostRecentlyUsedList> {
         Self::IStorageApplicationPermissionsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MostRecentlyUsedList)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MostRecentlyUsedList)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
@@ -317,7 +317,7 @@ impl StorageApplicationPermissions {
     {
         Self::IStorageApplicationPermissionsStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetFutureAccessListForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetFutureAccessListForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
@@ -327,7 +327,7 @@ impl StorageApplicationPermissions {
     {
         Self::IStorageApplicationPermissionsStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetMostRecentlyUsedListForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetMostRecentlyUsedListForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -357,7 +357,7 @@ impl StorageItemAccessList {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AddOverloadDefaultMetadata)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AddOverloadDefaultMetadata)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Add<P0>(&self, file: P0, metadata: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::HSTRING>
@@ -367,7 +367,7 @@ impl StorageItemAccessList {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Add)(::windows_core::Interface::as_raw(this), file.into_param().abi(), ::core::mem::transmute_copy(metadata), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Add)(::windows_core::Interface::as_raw(this), file.into_param().abi(), ::core::mem::transmute_copy(metadata), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AddOrReplaceOverloadDefaultMetadata<P0>(&self, token: &::windows_core::HSTRING, file: P0) -> ::windows_core::Result<()>
@@ -388,42 +388,42 @@ impl StorageItemAccessList {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetItemAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetItemAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetFileAsync(&self, token: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetFileAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetFileAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetFolderAsync(&self, token: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetItemWithOptionsAsync(&self, token: &::windows_core::HSTRING, options: AccessCacheOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetItemWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetItemWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetFileWithOptionsAsync(&self, token: &::windows_core::HSTRING, options: AccessCacheOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetFileWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetFileWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetFolderWithOptionsAsync(&self, token: &::windows_core::HSTRING, options: AccessCacheOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetFolderWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetFolderWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Remove(&self, token: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -434,7 +434,7 @@ impl StorageItemAccessList {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ContainsItem)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ContainsItem)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).map(|| result__)
         }
     }
     pub fn Clear(&self) -> ::windows_core::Result<()> {
@@ -448,7 +448,7 @@ impl StorageItemAccessList {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CheckAccess)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CheckAccess)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -456,14 +456,14 @@ impl StorageItemAccessList {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Entries)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Entries)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn MaximumItemsAllowed(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MaximumItemsAllowed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MaximumItemsAllowed)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -490,7 +490,7 @@ impl StorageItemMostRecentlyUsedList {
         let this = &::windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AddOverloadDefaultMetadata)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AddOverloadDefaultMetadata)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Add<P0>(&self, file: P0, metadata: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::HSTRING>
@@ -500,7 +500,7 @@ impl StorageItemMostRecentlyUsedList {
         let this = &::windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Add)(::windows_core::Interface::as_raw(this), file.into_param().abi(), ::core::mem::transmute_copy(metadata), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Add)(::windows_core::Interface::as_raw(this), file.into_param().abi(), ::core::mem::transmute_copy(metadata), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AddOrReplaceOverloadDefaultMetadata<P0>(&self, token: &::windows_core::HSTRING, file: P0) -> ::windows_core::Result<()>
@@ -521,42 +521,42 @@ impl StorageItemMostRecentlyUsedList {
         let this = &::windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetItemAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetItemAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetFileAsync(&self, token: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = &::windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetFileAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetFileAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetFolderAsync(&self, token: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = &::windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetItemWithOptionsAsync(&self, token: &::windows_core::HSTRING, options: AccessCacheOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::IStorageItem>> {
         let this = &::windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetItemWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetItemWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetFileWithOptionsAsync(&self, token: &::windows_core::HSTRING, options: AccessCacheOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = &::windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetFileWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetFileWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetFolderWithOptionsAsync(&self, token: &::windows_core::HSTRING, options: AccessCacheOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageFolder>> {
         let this = &::windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetFolderWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetFolderWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Remove(&self, token: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -567,7 +567,7 @@ impl StorageItemMostRecentlyUsedList {
         let this = &::windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ContainsItem)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ContainsItem)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), &mut result__).map(|| result__)
         }
     }
     pub fn Clear(&self) -> ::windows_core::Result<()> {
@@ -581,7 +581,7 @@ impl StorageItemMostRecentlyUsedList {
         let this = &::windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CheckAccess)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CheckAccess)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -589,14 +589,14 @@ impl StorageItemMostRecentlyUsedList {
         let this = &::windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Entries)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Entries)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn MaximumItemsAllowed(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::Interface::cast::<IStorageItemAccessList>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MaximumItemsAllowed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MaximumItemsAllowed)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ItemRemoved<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
@@ -606,7 +606,7 @@ impl StorageItemMostRecentlyUsedList {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ItemRemoved)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ItemRemoved)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveItemRemoved(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
@@ -620,7 +620,7 @@ impl StorageItemMostRecentlyUsedList {
         let this = &::windows_core::Interface::cast::<IStorageItemMostRecentlyUsedList2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AddWithMetadataAndVisibility)(::windows_core::Interface::as_raw(this), file.into_param().abi(), ::core::mem::transmute_copy(metadata), visibility, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AddWithMetadataAndVisibility)(::windows_core::Interface::as_raw(this), file.into_param().abi(), ::core::mem::transmute_copy(metadata), visibility, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AddOrReplaceWithMetadataAndVisibility<P0>(&self, token: &::windows_core::HSTRING, file: P0, metadata: &::windows_core::HSTRING, visibility: RecentStorageItemVisibility) -> ::windows_core::Result<()>

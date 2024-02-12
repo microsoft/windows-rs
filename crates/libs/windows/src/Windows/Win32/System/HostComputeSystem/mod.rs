@@ -69,7 +69,7 @@ where
 {
     ::windows_targets::link!("computecore.dll" "system" fn HcsCreateComputeSystem(id : ::windows_core::PCWSTR, configuration : ::windows_core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR, computesystem : *mut HCS_SYSTEM) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    HcsCreateComputeSystem(id.into_param().abi(), configuration.into_param().abi(), operation.into_param().abi(), ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+    HcsCreateComputeSystem(id.into_param().abi(), configuration.into_param().abi(), operation.into_param().abi(), ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn HcsCreateComputeSystemInNamespace<P0, P1, P2, P3>(idnamespace: P0, id: P1, configuration: P2, operation: P3, options: ::core::option::Option<*const HCS_CREATE_OPTIONS>) -> ::windows_core::Result<HCS_SYSTEM>
@@ -81,7 +81,7 @@ where
 {
     ::windows_targets::link!("computecore.dll" "system" fn HcsCreateComputeSystemInNamespace(idnamespace : ::windows_core::PCWSTR, id : ::windows_core::PCWSTR, configuration : ::windows_core::PCWSTR, operation : HCS_OPERATION, options : *const HCS_CREATE_OPTIONS, computesystem : *mut HCS_SYSTEM) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    HcsCreateComputeSystemInNamespace(idnamespace.into_param().abi(), id.into_param().abi(), configuration.into_param().abi(), operation.into_param().abi(), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+    HcsCreateComputeSystemInNamespace(idnamespace.into_param().abi(), id.into_param().abi(), configuration.into_param().abi(), operation.into_param().abi(), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn HcsCreateEmptyGuestStateFile<P0>(gueststatefilepath: P0) -> ::windows_core::Result<()>
@@ -119,7 +119,7 @@ where
 {
     ::windows_targets::link!("computecore.dll" "system" fn HcsCreateProcess(computesystem : HCS_SYSTEM, processparameters : ::windows_core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR, process : *mut HCS_PROCESS) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    HcsCreateProcess(computesystem.into_param().abi(), processparameters.into_param().abi(), operation.into_param().abi(), ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+    HcsCreateProcess(computesystem.into_param().abi(), processparameters.into_param().abi(), operation.into_param().abi(), ::core::mem::transmute(securitydescriptor.unwrap_or(::std::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn HcsDestroyLayer<P0>(layerpath: P0) -> ::windows_core::Result<()>
@@ -211,7 +211,7 @@ where
 {
     ::windows_targets::link!("computestorage.dll" "system" fn HcsGetLayerVhdMountPath(vhdhandle : super::super::Foundation:: HANDLE, mountpath : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    HcsGetLayerVhdMountPath(vhdhandle.into_param().abi(), &mut result__).from_abi(result__)
+    HcsGetLayerVhdMountPath(vhdhandle.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn HcsGetOperationContext<P0>(operation: P0) -> *mut ::core::ffi::c_void
@@ -295,7 +295,7 @@ where
 {
     ::windows_targets::link!("computecore.dll" "system" fn HcsGetServiceProperties(propertyquery : ::windows_core::PCWSTR, result : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    HcsGetServiceProperties(propertyquery.into_param().abi(), &mut result__).from_abi(result__)
+    HcsGetServiceProperties(propertyquery.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn HcsGrantVmAccess<P0, P1>(vmid: P0, filepath: P1) -> ::windows_core::Result<()>
@@ -381,7 +381,7 @@ where
 {
     ::windows_targets::link!("computecore.dll" "system" fn HcsOpenComputeSystem(id : ::windows_core::PCWSTR, requestedaccess : u32, computesystem : *mut HCS_SYSTEM) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    HcsOpenComputeSystem(id.into_param().abi(), requestedaccess, &mut result__).from_abi(result__)
+    HcsOpenComputeSystem(id.into_param().abi(), requestedaccess, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn HcsOpenComputeSystemInNamespace<P0, P1>(idnamespace: P0, id: P1, requestedaccess: u32) -> ::windows_core::Result<HCS_SYSTEM>
@@ -391,7 +391,7 @@ where
 {
     ::windows_targets::link!("computecore.dll" "system" fn HcsOpenComputeSystemInNamespace(idnamespace : ::windows_core::PCWSTR, id : ::windows_core::PCWSTR, requestedaccess : u32, computesystem : *mut HCS_SYSTEM) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    HcsOpenComputeSystemInNamespace(idnamespace.into_param().abi(), id.into_param().abi(), requestedaccess, &mut result__).from_abi(result__)
+    HcsOpenComputeSystemInNamespace(idnamespace.into_param().abi(), id.into_param().abi(), requestedaccess, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn HcsOpenProcess<P0>(computesystem: P0, processid: u32, requestedaccess: u32) -> ::windows_core::Result<HCS_PROCESS>
@@ -400,7 +400,7 @@ where
 {
     ::windows_targets::link!("computecore.dll" "system" fn HcsOpenProcess(computesystem : HCS_SYSTEM, processid : u32, requestedaccess : u32, process : *mut HCS_PROCESS) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    HcsOpenProcess(computesystem.into_param().abi(), processid, requestedaccess, &mut result__).from_abi(result__)
+    HcsOpenProcess(computesystem.into_param().abi(), processid, requestedaccess, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn HcsPauseComputeSystem<P0, P1, P2>(computesystem: P0, operation: P1, options: P2) -> ::windows_core::Result<()>

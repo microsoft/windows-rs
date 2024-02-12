@@ -112,7 +112,7 @@ where
 pub unsafe fn NdfGetTraceFile(handle: *const ::core::ffi::c_void) -> ::windows_core::Result<::windows_core::PCWSTR> {
     ::windows_targets::link!("ndfapi.dll" "system" fn NdfGetTraceFile(handle : *const ::core::ffi::c_void, tracefilelocation : *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    NdfGetTraceFile(handle, &mut result__).from_abi(result__)
+    NdfGetTraceFile(handle, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn NdfRepairIncident(handle: *const ::core::ffi::c_void, repairex: *const RepairInfoEx, dwwait: u32) -> ::windows_core::Result<()> {
@@ -140,7 +140,7 @@ impl INetDiagHelper {
     }
     pub unsafe fn GetDiagnosticsInfo(&self) -> ::windows_core::Result<*mut DiagnosticsInfo> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetDiagnosticsInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetDiagnosticsInfo)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetKeyAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetKeyAttributes)(::windows_core::Interface::as_raw(self), pcelt, pprgattributes).ok()
@@ -180,14 +180,14 @@ impl INetDiagHelper {
     }
     pub unsafe fn GetLifeTime(&self) -> ::windows_core::Result<LIFE_TIME> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetLifeTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetLifeTime)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLifeTime(&self, lifetime: LIFE_TIME) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetLifeTime)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(lifetime)).ok()
     }
     pub unsafe fn GetCacheTime(&self) -> ::windows_core::Result<super::super::Foundation::FILETIME> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetCacheTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetCacheTime)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAttributes)(::windows_core::Interface::as_raw(self), pcelt, pprgattributes).ok()
@@ -267,7 +267,7 @@ impl INetDiagHelperUtilFactory {
         T: ::windows_core::Interface,
     {
         let mut result__ = ::std::ptr::null_mut();
-        (::windows_core::Interface::vtable(self).CreateUtilityInstance)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateUtilityInstance)(::windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

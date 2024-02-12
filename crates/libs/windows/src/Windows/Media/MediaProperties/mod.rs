@@ -269,14 +269,14 @@ impl IMediaEncodingProperties {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetSubtype(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -287,7 +287,7 @@ impl IMediaEncodingProperties {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Subtype)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Subtype)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -540,7 +540,7 @@ impl AudioEncodingProperties {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Bitrate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Bitrate)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetChannelCount(&self, value: u32) -> ::windows_core::Result<()> {
@@ -551,7 +551,7 @@ impl AudioEncodingProperties {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ChannelCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ChannelCount)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetSampleRate(&self, value: u32) -> ::windows_core::Result<()> {
@@ -562,7 +562,7 @@ impl AudioEncodingProperties {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SampleRate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SampleRate)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetBitsPerSample(&self, value: u32) -> ::windows_core::Result<()> {
@@ -573,63 +573,63 @@ impl AudioEncodingProperties {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BitsPerSample)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BitsPerSample)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn IsSpatial(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::Interface::cast::<IAudioEncodingProperties2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsSpatial)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsSpatial)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Copy(&self) -> ::windows_core::Result<AudioEncodingProperties> {
         let this = &::windows_core::Interface::cast::<IAudioEncodingProperties3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Copy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Copy)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateAac(samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows_core::Result<AudioEncodingProperties> {
         Self::IAudioEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateAac)(::windows_core::Interface::as_raw(this), samplerate, channelcount, bitrate, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateAac)(::windows_core::Interface::as_raw(this), samplerate, channelcount, bitrate, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateAacAdts(samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows_core::Result<AudioEncodingProperties> {
         Self::IAudioEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateAacAdts)(::windows_core::Interface::as_raw(this), samplerate, channelcount, bitrate, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateAacAdts)(::windows_core::Interface::as_raw(this), samplerate, channelcount, bitrate, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateMp3(samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows_core::Result<AudioEncodingProperties> {
         Self::IAudioEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateMp3)(::windows_core::Interface::as_raw(this), samplerate, channelcount, bitrate, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateMp3)(::windows_core::Interface::as_raw(this), samplerate, channelcount, bitrate, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreatePcm(samplerate: u32, channelcount: u32, bitspersample: u32) -> ::windows_core::Result<AudioEncodingProperties> {
         Self::IAudioEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreatePcm)(::windows_core::Interface::as_raw(this), samplerate, channelcount, bitspersample, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreatePcm)(::windows_core::Interface::as_raw(this), samplerate, channelcount, bitspersample, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWma(samplerate: u32, channelcount: u32, bitrate: u32) -> ::windows_core::Result<AudioEncodingProperties> {
         Self::IAudioEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWma)(::windows_core::Interface::as_raw(this), samplerate, channelcount, bitrate, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWma)(::windows_core::Interface::as_raw(this), samplerate, channelcount, bitrate, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateAlac(samplerate: u32, channelcount: u32, bitspersample: u32) -> ::windows_core::Result<AudioEncodingProperties> {
         Self::IAudioEncodingPropertiesStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateAlac)(::windows_core::Interface::as_raw(this), samplerate, channelcount, bitspersample, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateAlac)(::windows_core::Interface::as_raw(this), samplerate, channelcount, bitspersample, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFlac(samplerate: u32, channelcount: u32, bitspersample: u32) -> ::windows_core::Result<AudioEncodingProperties> {
         Self::IAudioEncodingPropertiesStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFlac)(::windows_core::Interface::as_raw(this), samplerate, channelcount, bitspersample, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFlac)(::windows_core::Interface::as_raw(this), samplerate, channelcount, bitspersample, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn SetFormatUserData(&self, value: &[u8]) -> ::windows_core::Result<()> {
@@ -645,14 +645,14 @@ impl AudioEncodingProperties {
         let this = &::windows_core::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetSubtype(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -663,7 +663,7 @@ impl AudioEncodingProperties {
         let this = &::windows_core::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Subtype)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Subtype)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[doc(hidden)]
@@ -694,73 +694,73 @@ impl Av1ProfileIds {
     pub fn MainChromaSubsampling420BitDepth8() -> ::windows_core::Result<i32> {
         Self::IAv1ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainChromaSubsampling420BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling420BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainChromaSubsampling420BitDepth10() -> ::windows_core::Result<i32> {
         Self::IAv1ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainChromaSubsampling420BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling420BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainChromaSubsampling400BitDepth8() -> ::windows_core::Result<i32> {
         Self::IAv1ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainChromaSubsampling400BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling400BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainChromaSubsampling400BitDepth10() -> ::windows_core::Result<i32> {
         Self::IAv1ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainChromaSubsampling400BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling400BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn HighChromaSubsampling444BitDepth8() -> ::windows_core::Result<i32> {
         Self::IAv1ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).HighChromaSubsampling444BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).HighChromaSubsampling444BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn HighChromaSubsampling444BitDepth10() -> ::windows_core::Result<i32> {
         Self::IAv1ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).HighChromaSubsampling444BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).HighChromaSubsampling444BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ProfessionalChromaSubsampling420BitDepth12() -> ::windows_core::Result<i32> {
         Self::IAv1ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProfessionalChromaSubsampling420BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProfessionalChromaSubsampling420BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ProfessionalChromaSubsampling400BitDepth12() -> ::windows_core::Result<i32> {
         Self::IAv1ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProfessionalChromaSubsampling400BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProfessionalChromaSubsampling400BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ProfessionalChromaSubsampling444BitDepth12() -> ::windows_core::Result<i32> {
         Self::IAv1ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProfessionalChromaSubsampling444BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProfessionalChromaSubsampling444BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ProfessionalChromaSubsampling422BitDepth8() -> ::windows_core::Result<i32> {
         Self::IAv1ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProfessionalChromaSubsampling422BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProfessionalChromaSubsampling422BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ProfessionalChromaSubsampling422BitDepth10() -> ::windows_core::Result<i32> {
         Self::IAv1ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProfessionalChromaSubsampling422BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProfessionalChromaSubsampling422BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn ProfessionalChromaSubsampling422BitDepth12() -> ::windows_core::Result<i32> {
         Self::IAv1ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProfessionalChromaSubsampling422BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProfessionalChromaSubsampling422BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[doc(hidden)]
@@ -789,7 +789,7 @@ impl ContainerEncodingProperties {
         let this = &::windows_core::Interface::cast::<IContainerEncodingProperties2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Copy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Copy)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -797,14 +797,14 @@ impl ContainerEncodingProperties {
         let this = &::windows_core::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetSubtype(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -815,7 +815,7 @@ impl ContainerEncodingProperties {
         let this = &::windows_core::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Subtype)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Subtype)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -836,61 +836,61 @@ impl H264ProfileIds {
     pub fn ConstrainedBaseline() -> ::windows_core::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ConstrainedBaseline)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ConstrainedBaseline)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn Baseline() -> ::windows_core::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Baseline)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Baseline)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn Extended() -> ::windows_core::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Extended)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Extended)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn Main() -> ::windows_core::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Main)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Main)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn High() -> ::windows_core::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).High)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).High)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn High10() -> ::windows_core::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).High10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).High10)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn High422() -> ::windows_core::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).High422)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).High422)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn High444() -> ::windows_core::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).High444)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).High444)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn StereoHigh() -> ::windows_core::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StereoHigh)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StereoHigh)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MultiviewHigh() -> ::windows_core::Result<i32> {
         Self::IH264ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MultiviewHigh)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MultiviewHigh)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[doc(hidden)]
@@ -907,133 +907,133 @@ impl HevcProfileIds {
     pub fn MainChromaSubsampling420BitDepth8() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainChromaSubsampling420BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling420BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainChromaSubsampling420BitDepth10() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainChromaSubsampling420BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling420BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainChromaSubsampling420BitDepth12() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainChromaSubsampling420BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling420BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainChromaSubsampling422BitDepth10() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainChromaSubsampling422BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling422BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainChromaSubsampling422BitDepth12() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainChromaSubsampling422BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling422BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainChromaSubsampling444BitDepth8() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainChromaSubsampling444BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling444BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainChromaSubsampling444BitDepth10() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainChromaSubsampling444BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling444BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainChromaSubsampling444BitDepth12() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainChromaSubsampling444BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainChromaSubsampling444BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MonochromeBitDepth12() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MonochromeBitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MonochromeBitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MonochromeBitDepth16() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MonochromeBitDepth16)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MonochromeBitDepth16)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainIntraChromaSubsampling420BitDepth8() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling420BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling420BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainIntraChromaSubsampling420BitDepth10() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling420BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling420BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainIntraChromaSubsampling420BitDepth12() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling420BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling420BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainIntraChromaSubsampling422BitDepth10() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling422BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling422BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainIntraChromaSubsampling422BitDepth12() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling422BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling422BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainIntraChromaSubsampling444BitDepth8() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling444BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling444BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainIntraChromaSubsampling444BitDepth10() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling444BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling444BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainIntraChromaSubsampling444BitDepth12() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling444BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling444BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainIntraChromaSubsampling444BitDepth16() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling444BitDepth16)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainIntraChromaSubsampling444BitDepth16)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainStillChromaSubsampling420BitDepth8() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainStillChromaSubsampling420BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainStillChromaSubsampling420BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainStillChromaSubsampling444BitDepth8() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainStillChromaSubsampling444BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainStillChromaSubsampling444BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn MainStillChromaSubsampling444BitDepth16() -> ::windows_core::Result<i32> {
         Self::IHevcProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MainStillChromaSubsampling444BitDepth16)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MainStillChromaSubsampling444BitDepth16)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[doc(hidden)]
@@ -1066,7 +1066,7 @@ impl ImageEncodingProperties {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Width)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Width)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetHeight(&self, value: u32) -> ::windows_core::Result<()> {
@@ -1077,50 +1077,50 @@ impl ImageEncodingProperties {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Height)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Height)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Copy(&self) -> ::windows_core::Result<ImageEncodingProperties> {
         let this = &::windows_core::Interface::cast::<IImageEncodingProperties2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Copy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Copy)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateJpeg() -> ::windows_core::Result<ImageEncodingProperties> {
         Self::IImageEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateJpeg)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateJpeg)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreatePng() -> ::windows_core::Result<ImageEncodingProperties> {
         Self::IImageEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreatePng)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreatePng)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateJpegXR() -> ::windows_core::Result<ImageEncodingProperties> {
         Self::IImageEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateJpegXR)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateJpegXR)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateUncompressed(format: MediaPixelFormat) -> ::windows_core::Result<ImageEncodingProperties> {
         Self::IImageEncodingPropertiesStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateUncompressed)(::windows_core::Interface::as_raw(this), format, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateUncompressed)(::windows_core::Interface::as_raw(this), format, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateBmp() -> ::windows_core::Result<ImageEncodingProperties> {
         Self::IImageEncodingPropertiesStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateBmp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateBmp)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateHeif() -> ::windows_core::Result<ImageEncodingProperties> {
         Self::IImageEncodingPropertiesStatics3(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateHeif)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateHeif)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1128,14 +1128,14 @@ impl ImageEncodingProperties {
         let this = &::windows_core::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetSubtype(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -1146,7 +1146,7 @@ impl ImageEncodingProperties {
         let this = &::windows_core::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Subtype)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Subtype)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[doc(hidden)]
@@ -1200,7 +1200,7 @@ impl MediaEncodingProfile {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Audio)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Audio)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetVideo<P0>(&self, value: P0) -> ::windows_core::Result<()>
@@ -1214,7 +1214,7 @@ impl MediaEncodingProfile {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Video)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Video)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetContainer<P0>(&self, value: P0) -> ::windows_core::Result<()>
@@ -1228,7 +1228,7 @@ impl MediaEncodingProfile {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Container)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Container)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -1244,7 +1244,7 @@ impl MediaEncodingProfile {
         let this = &::windows_core::Interface::cast::<IMediaEncodingProfile2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetAudioTracks)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetAudioTracks)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -1260,7 +1260,7 @@ impl MediaEncodingProfile {
         let this = &::windows_core::Interface::cast::<IMediaEncodingProfile2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetVideoTracks)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetVideoTracks)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -1276,37 +1276,37 @@ impl MediaEncodingProfile {
         let this = &::windows_core::Interface::cast::<IMediaEncodingProfile3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetTimedMetadataTracks)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetTimedMetadataTracks)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateM4a(quality: AudioEncodingQuality) -> ::windows_core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateM4a)(::windows_core::Interface::as_raw(this), quality, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateM4a)(::windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateMp3(quality: AudioEncodingQuality) -> ::windows_core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateMp3)(::windows_core::Interface::as_raw(this), quality, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateMp3)(::windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWma(quality: AudioEncodingQuality) -> ::windows_core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWma)(::windows_core::Interface::as_raw(this), quality, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWma)(::windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateMp4(quality: VideoEncodingQuality) -> ::windows_core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateMp4)(::windows_core::Interface::as_raw(this), quality, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateMp4)(::windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWmv(quality: VideoEncodingQuality) -> ::windows_core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWmv)(::windows_core::Interface::as_raw(this), quality, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWmv)(::windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage")]
@@ -1316,7 +1316,7 @@ impl MediaEncodingProfile {
     {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromFileAsync)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromFileAsync)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1326,49 +1326,49 @@ impl MediaEncodingProfile {
     {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromStreamAsync)(::windows_core::Interface::as_raw(this), stream.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromStreamAsync)(::windows_core::Interface::as_raw(this), stream.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateWav(quality: AudioEncodingQuality) -> ::windows_core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWav)(::windows_core::Interface::as_raw(this), quality, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWav)(::windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateAvi(quality: VideoEncodingQuality) -> ::windows_core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateAvi)(::windows_core::Interface::as_raw(this), quality, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateAvi)(::windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateAlac(quality: AudioEncodingQuality) -> ::windows_core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics3(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateAlac)(::windows_core::Interface::as_raw(this), quality, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateAlac)(::windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateFlac(quality: AudioEncodingQuality) -> ::windows_core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics3(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFlac)(::windows_core::Interface::as_raw(this), quality, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFlac)(::windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateHevc(quality: VideoEncodingQuality) -> ::windows_core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics3(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateHevc)(::windows_core::Interface::as_raw(this), quality, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateHevc)(::windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateVp9(quality: VideoEncodingQuality) -> ::windows_core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics4(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateVp9)(::windows_core::Interface::as_raw(this), quality, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateVp9)(::windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateAv1(quality: VideoEncodingQuality) -> ::windows_core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics4(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateAv1)(::windows_core::Interface::as_raw(this), quality, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateAv1)(::windows_core::Interface::as_raw(this), quality, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1409,319 +1409,319 @@ impl MediaEncodingSubtypes {
     pub fn Aac() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Aac)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Aac)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn AacAdts() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AacAdts)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AacAdts)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Ac3() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Ac3)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Ac3)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn AmrNb() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AmrNb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AmrNb)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn AmrWb() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AmrWb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AmrWb)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Argb32() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Argb32)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Argb32)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Asf() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Asf)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Asf)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Avi() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Avi)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Avi)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Bgra8() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Bgra8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Bgra8)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Bmp() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Bmp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Bmp)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Eac3() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Eac3)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Eac3)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Float() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Float)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Float)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Gif() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Gif)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Gif)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn H263() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).H263)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).H263)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn H264() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).H264)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).H264)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn H264Es() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).H264Es)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).H264Es)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Hevc() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Hevc)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Hevc)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn HevcEs() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).HevcEs)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).HevcEs)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Iyuv() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Iyuv)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Iyuv)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Jpeg() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Jpeg)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Jpeg)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn JpegXr() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).JpegXr)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).JpegXr)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Mjpg() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Mjpg)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Mjpg)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Mpeg() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Mpeg)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Mpeg)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Mpeg1() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Mpeg1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Mpeg1)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Mpeg2() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Mpeg2)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Mpeg2)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Mp3() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Mp3)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Mp3)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Mpeg4() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Mpeg4)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Mpeg4)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Nv12() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Nv12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Nv12)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Pcm() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Pcm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Pcm)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Png() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Png)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Png)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Rgb24() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Rgb24)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Rgb24)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Rgb32() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Rgb32)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Rgb32)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Tiff() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Tiff)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Tiff)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Wave() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Wave)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Wave)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Wma8() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Wma8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Wma8)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Wma9() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Wma9)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Wma9)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Wmv3() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Wmv3)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Wmv3)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Wvc1() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Wvc1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Wvc1)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Yuy2() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Yuy2)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Yuy2)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Yv12() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Yv12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Yv12)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Vp9() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Vp9)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Vp9)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn L8() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).L8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).L8)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn L16() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).L16)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).L16)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn D16() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).D16)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).D16)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Alac() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics3(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Alac)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Alac)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Flac() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics3(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Flac)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Flac)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn P010() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics4(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).P010)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).P010)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Heif() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics5(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Heif)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Heif)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Pgs() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics6(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Pgs)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Pgs)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Srt() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics6(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Srt)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Srt)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Ssa() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics6(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Ssa)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Ssa)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn VobSub() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics6(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).VobSub)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).VobSub)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn Av1() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IMediaEncodingSubtypesStatics7(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Av1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Av1)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -1785,7 +1785,7 @@ impl MediaPropertySet {
         let this = &::windows_core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::GUID, ::windows_core::IInspectable>>>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1793,7 +1793,7 @@ impl MediaPropertySet {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Lookup)(::windows_core::Interface::as_raw(this), key, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Lookup)(::windows_core::Interface::as_raw(this), key, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1801,7 +1801,7 @@ impl MediaPropertySet {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1809,7 +1809,7 @@ impl MediaPropertySet {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).HasKey)(::windows_core::Interface::as_raw(this), key, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).HasKey)(::windows_core::Interface::as_raw(this), key, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1817,7 +1817,7 @@ impl MediaPropertySet {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetView)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1828,7 +1828,7 @@ impl MediaPropertySet {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Insert)(::windows_core::Interface::as_raw(this), key, value.into_param().abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Insert)(::windows_core::Interface::as_raw(this), key, value.into_param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1888,7 +1888,7 @@ impl MediaRatio {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Numerator)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Numerator)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetDenominator(&self, value: u32) -> ::windows_core::Result<()> {
@@ -1899,7 +1899,7 @@ impl MediaRatio {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Denominator)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Denominator)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -1920,31 +1920,31 @@ impl Mpeg2ProfileIds {
     pub fn Simple() -> ::windows_core::Result<i32> {
         Self::IMpeg2ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Simple)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Simple)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn Main() -> ::windows_core::Result<i32> {
         Self::IMpeg2ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Main)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Main)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn SignalNoiseRatioScalable() -> ::windows_core::Result<i32> {
         Self::IMpeg2ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SignalNoiseRatioScalable)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SignalNoiseRatioScalable)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn SpatiallyScalable() -> ::windows_core::Result<i32> {
         Self::IMpeg2ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SpatiallyScalable)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SpatiallyScalable)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn High() -> ::windows_core::Result<i32> {
         Self::IMpeg2ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).High)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).High)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[doc(hidden)]
@@ -1974,14 +1974,14 @@ impl TimedMetadataEncodingProperties {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetSubtype(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -1992,7 +1992,7 @@ impl TimedMetadataEncodingProperties {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Subtype)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Subtype)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetFormatUserData(&self, value: &[u8]) -> ::windows_core::Result<()> {
@@ -2007,31 +2007,31 @@ impl TimedMetadataEncodingProperties {
         let this = &::windows_core::Interface::cast::<ITimedMetadataEncodingProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Copy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Copy)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreatePgs() -> ::windows_core::Result<TimedMetadataEncodingProperties> {
         Self::ITimedMetadataEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreatePgs)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreatePgs)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateSrt() -> ::windows_core::Result<TimedMetadataEncodingProperties> {
         Self::ITimedMetadataEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateSrt)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateSrt)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateSsa(formatuserdata: &[u8]) -> ::windows_core::Result<TimedMetadataEncodingProperties> {
         Self::ITimedMetadataEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateSsa)(::windows_core::Interface::as_raw(this), formatuserdata.len().try_into().unwrap(), formatuserdata.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateSsa)(::windows_core::Interface::as_raw(this), formatuserdata.len().try_into().unwrap(), formatuserdata.as_ptr(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateVobSub(formatuserdata: &[u8]) -> ::windows_core::Result<TimedMetadataEncodingProperties> {
         Self::ITimedMetadataEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateVobSub)(::windows_core::Interface::as_raw(this), formatuserdata.len().try_into().unwrap(), formatuserdata.as_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateVobSub)(::windows_core::Interface::as_raw(this), formatuserdata.len().try_into().unwrap(), formatuserdata.as_ptr(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -2070,14 +2070,14 @@ impl VideoEncodingProperties {
         let this = &::windows_core::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Type(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetSubtype(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -2088,7 +2088,7 @@ impl VideoEncodingProperties {
         let this = &::windows_core::Interface::cast::<IMediaEncodingProperties>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Subtype)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Subtype)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetBitrate(&self, value: u32) -> ::windows_core::Result<()> {
@@ -2099,7 +2099,7 @@ impl VideoEncodingProperties {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Bitrate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Bitrate)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetWidth(&self, value: u32) -> ::windows_core::Result<()> {
@@ -2110,7 +2110,7 @@ impl VideoEncodingProperties {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Width)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Width)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetHeight(&self, value: u32) -> ::windows_core::Result<()> {
@@ -2121,21 +2121,21 @@ impl VideoEncodingProperties {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Height)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Height)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn FrameRate(&self) -> ::windows_core::Result<MediaRatio> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FrameRate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FrameRate)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn PixelAspectRatio(&self) -> ::windows_core::Result<MediaRatio> {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PixelAspectRatio)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PixelAspectRatio)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetFormatUserData(&self, value: &[u8]) -> ::windows_core::Result<()> {
@@ -2154,64 +2154,64 @@ impl VideoEncodingProperties {
         let this = &::windows_core::Interface::cast::<IVideoEncodingProperties2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProfileId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProfileId)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn StereoscopicVideoPackingMode(&self) -> ::windows_core::Result<StereoscopicVideoPackingMode> {
         let this = &::windows_core::Interface::cast::<IVideoEncodingProperties3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StereoscopicVideoPackingMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StereoscopicVideoPackingMode)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SphericalVideoFrameFormat(&self) -> ::windows_core::Result<SphericalVideoFrameFormat> {
         let this = &::windows_core::Interface::cast::<IVideoEncodingProperties4>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SphericalVideoFrameFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SphericalVideoFrameFormat)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Copy(&self) -> ::windows_core::Result<VideoEncodingProperties> {
         let this = &::windows_core::Interface::cast::<IVideoEncodingProperties5>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Copy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Copy)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateH264() -> ::windows_core::Result<VideoEncodingProperties> {
         Self::IVideoEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateH264)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateH264)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateMpeg2() -> ::windows_core::Result<VideoEncodingProperties> {
         Self::IVideoEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateMpeg2)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateMpeg2)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateUncompressed(subtype: &::windows_core::HSTRING, width: u32, height: u32) -> ::windows_core::Result<VideoEncodingProperties> {
         Self::IVideoEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateUncompressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(subtype), width, height, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateUncompressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(subtype), width, height, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateHevc() -> ::windows_core::Result<VideoEncodingProperties> {
         Self::IVideoEncodingPropertiesStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateHevc)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateHevc)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateVp9() -> ::windows_core::Result<VideoEncodingProperties> {
         Self::IVideoEncodingPropertiesStatics3(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateVp9)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateVp9)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateAv1() -> ::windows_core::Result<VideoEncodingProperties> {
         Self::IVideoEncodingPropertiesStatics3(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateAv1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateAv1)(::windows_core::Interface::as_raw(this), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]
@@ -2247,19 +2247,19 @@ impl Vp9ProfileIds {
     pub fn Profile0ChromaSubsampling420BitDepth8() -> ::windows_core::Result<i32> {
         Self::IVp9ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Profile0ChromaSubsampling420BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Profile0ChromaSubsampling420BitDepth8)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn Profile2ChromaSubsampling420BitDepth10() -> ::windows_core::Result<i32> {
         Self::IVp9ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Profile2ChromaSubsampling420BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Profile2ChromaSubsampling420BitDepth10)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn Profile2ChromaSubsampling420BitDepth12() -> ::windows_core::Result<i32> {
         Self::IVp9ProfileIdsStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Profile2ChromaSubsampling420BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Profile2ChromaSubsampling420BitDepth12)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[doc(hidden)]

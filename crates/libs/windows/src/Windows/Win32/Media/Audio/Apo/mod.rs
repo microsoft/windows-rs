@@ -20,7 +20,7 @@ impl IApoAuxiliaryInputConfiguration {
         P0: ::windows_core::IntoParam<IAudioMediaType>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).IsInputFormatSupported)(::windows_core::Interface::as_raw(self), prequestedinputformat.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).IsInputFormatSupported)(::windows_core::Interface::as_raw(self), prequestedinputformat.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -65,14 +65,14 @@ pub struct IAudioDeviceModulesClient_Vtbl {
 impl IAudioMediaType {
     pub unsafe fn IsCompressedFormat(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).IsCompressedFormat)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).IsCompressedFormat)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn IsEqual<P0>(&self, piaudiotype: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<IAudioMediaType>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).IsEqual)(::windows_core::Interface::as_raw(self), piaudiotype.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).IsEqual)(::windows_core::Interface::as_raw(self), piaudiotype.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetAudioFormat(&self) -> *mut super::WAVEFORMATEX {
         (::windows_core::Interface::vtable(self).GetAudioFormat)(::windows_core::Interface::as_raw(self))
@@ -98,11 +98,11 @@ impl IAudioProcessingObject {
     }
     pub unsafe fn GetLatency(&self) -> ::windows_core::Result<i64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetLatency)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetLatency)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRegistrationProperties(&self) -> ::windows_core::Result<*mut APO_REG_PROPERTIES> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetRegistrationProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetRegistrationProperties)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Initialize(&self, pbydata: &[u8]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), pbydata.len().try_into().unwrap(), ::core::mem::transmute(pbydata.as_ptr())).ok()
@@ -113,7 +113,7 @@ impl IAudioProcessingObject {
         P1: ::windows_core::IntoParam<IAudioMediaType>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).IsInputFormatSupported)(::windows_core::Interface::as_raw(self), poppositeformat.into_param().abi(), prequestedinputformat.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).IsInputFormatSupported)(::windows_core::Interface::as_raw(self), poppositeformat.into_param().abi(), prequestedinputformat.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn IsOutputFormatSupported<P0, P1>(&self, poppositeformat: P0, prequestedoutputformat: P1) -> ::windows_core::Result<IAudioMediaType>
     where
@@ -121,11 +121,11 @@ impl IAudioProcessingObject {
         P1: ::windows_core::IntoParam<IAudioMediaType>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).IsOutputFormatSupported)(::windows_core::Interface::as_raw(self), poppositeformat.into_param().abi(), prequestedoutputformat.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).IsOutputFormatSupported)(::windows_core::Interface::as_raw(self), poppositeformat.into_param().abi(), prequestedoutputformat.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetInputChannelCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetInputChannelCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetInputChannelCount)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -240,7 +240,7 @@ pub struct IAudioProcessingObjectRT_Vtbl {
 impl IAudioProcessingObjectRTQueueService {
     pub unsafe fn GetRealTimeWorkQueue(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetRealTimeWorkQueue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetRealTimeWorkQueue)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -254,11 +254,11 @@ pub struct IAudioProcessingObjectRTQueueService_Vtbl {
 impl IAudioProcessingObjectVBR {
     pub unsafe fn CalcMaxInputFrames(&self, u32maxoutputframecount: u32) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CalcMaxInputFrames)(::windows_core::Interface::as_raw(self), u32maxoutputframecount, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CalcMaxInputFrames)(::windows_core::Interface::as_raw(self), u32maxoutputframecount, &mut result__).map(|| result__)
     }
     pub unsafe fn CalcMaxOutputFrames(&self, u32maxinputframecount: u32) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CalcMaxOutputFrames)(::windows_core::Interface::as_raw(self), u32maxinputframecount, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CalcMaxOutputFrames)(::windows_core::Interface::as_raw(self), u32maxinputframecount, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -323,15 +323,15 @@ pub struct IAudioSystemEffects3_Vtbl {
 impl IAudioSystemEffectsCustomFormats {
     pub unsafe fn GetFormatCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetFormatCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFormatCount)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFormat(&self, nformat: u32) -> ::windows_core::Result<IAudioMediaType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetFormat)(::windows_core::Interface::as_raw(self), nformat, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFormat)(::windows_core::Interface::as_raw(self), nformat, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFormatRepresentation(&self, nformat: u32) -> ::windows_core::Result<::windows_core::PWSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetFormatRepresentation)(::windows_core::Interface::as_raw(self), nformat, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFormatRepresentation)(::windows_core::Interface::as_raw(self), nformat, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

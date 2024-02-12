@@ -23,7 +23,7 @@ impl SystemProtection {
     pub fn ScreenLocked() -> ::windows_core::Result<bool> {
         Self::ISystemProtectionStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ScreenLocked)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ScreenLocked)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     pub fn RequestScreenUnlock() -> ::windows_core::Result<()> {

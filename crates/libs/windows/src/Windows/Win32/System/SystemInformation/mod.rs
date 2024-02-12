@@ -35,14 +35,14 @@ pub unsafe fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> ::windows_cor
 pub unsafe fn GetIntegratedDisplaySize() -> ::windows_core::Result<f64> {
     ::windows_targets::link!("api-ms-win-core-sysinfo-l1-2-3.dll" "system" fn GetIntegratedDisplaySize(sizeininches : *mut f64) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    GetIntegratedDisplaySize(&mut result__).from_abi(result__)
+    GetIntegratedDisplaySize(&mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn GetLocalTime() -> super::super::Foundation::SYSTEMTIME {
     ::windows_targets::link!("kernel32.dll" "system" fn GetLocalTime(lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME));
     let mut result__ = ::std::mem::zeroed();
     GetLocalTime(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn GetLogicalProcessorInformation(buffer: ::core::option::Option<*mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION>, returnedlength: *mut u32) -> ::windows_core::Result<()> {
@@ -127,7 +127,7 @@ pub unsafe fn GetSystemTime() -> super::super::Foundation::SYSTEMTIME {
     ::windows_targets::link!("kernel32.dll" "system" fn GetSystemTime(lpsystemtime : *mut super::super::Foundation:: SYSTEMTIME));
     let mut result__ = ::std::mem::zeroed();
     GetSystemTime(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn GetSystemTimeAdjustment(lptimeadjustment: *mut u32, lptimeincrement: *mut u32, lptimeadjustmentdisabled: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
@@ -144,14 +144,14 @@ pub unsafe fn GetSystemTimeAsFileTime() -> super::super::Foundation::FILETIME {
     ::windows_targets::link!("kernel32.dll" "system" fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime : *mut super::super::Foundation:: FILETIME));
     let mut result__ = ::std::mem::zeroed();
     GetSystemTimeAsFileTime(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn GetSystemTimePreciseAsFileTime() -> super::super::Foundation::FILETIME {
     ::windows_targets::link!("kernel32.dll" "system" fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime : *mut super::super::Foundation:: FILETIME));
     let mut result__ = ::std::mem::zeroed();
     GetSystemTimePreciseAsFileTime(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn GetSystemWindowsDirectoryA(lpbuffer: ::core::option::Option<&mut [u8]>) -> u32 {
@@ -237,7 +237,7 @@ pub unsafe fn IsUserCetAvailableInEnvironment(usercetenvironment: USER_CET_ENVIR
 pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: IMAGE_FILE_MACHINE) -> ::windows_core::Result<super::super::Foundation::BOOL> {
     ::windows_targets::link!("kernel32.dll" "system" fn IsWow64GuestMachineSupported(wowguestmachine : IMAGE_FILE_MACHINE, machineissupported : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    IsWow64GuestMachineSupported(wowguestmachine, &mut result__).from_abi(result__)
+    IsWow64GuestMachineSupported(wowguestmachine, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut u32, puldeviceformbuffersize: *mut u32, devicefamily: ::windows_core::PWSTR, deviceform: ::windows_core::PWSTR) -> u32 {

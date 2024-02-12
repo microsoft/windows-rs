@@ -44,7 +44,7 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn WerGetFlags(hprocess : super::super::Foundation:: HANDLE, pdwflags : *mut WER_FAULT_REPORTING) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WerGetFlags(hprocess.into_param().abi(), &mut result__).from_abi(result__)
+    WerGetFlags(hprocess.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WerRegisterAdditionalProcess(processid: u32, captureextrainfoforthreadid: u32) -> ::windows_core::Result<()> {
@@ -138,7 +138,7 @@ where
 {
     ::windows_targets::link!("wer.dll" "system" fn WerReportCreate(pwzeventtype : ::windows_core::PCWSTR, reptype : WER_REPORT_TYPE, preportinformation : *const WER_REPORT_INFORMATION, phreporthandle : *mut HREPORT) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WerReportCreate(pwzeventtype.into_param().abi(), reptype, ::core::mem::transmute(preportinformation.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+    WerReportCreate(pwzeventtype.into_param().abi(), reptype, ::core::mem::transmute(preportinformation.unwrap_or(::std::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WerReportHang<P0, P1>(hwndhungapp: P0, pwzhungapplicationname: P1) -> ::windows_core::Result<()>
@@ -212,7 +212,7 @@ where
 {
     ::windows_targets::link!("wer.dll" "system" fn WerStoreGetReportCount(hreportstore : HREPORTSTORE, pdwreportcount : *mut u32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WerStoreGetReportCount(hreportstore.into_param().abi(), &mut result__).from_abi(result__)
+    WerStoreGetReportCount(hreportstore.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WerStoreGetSizeOnDisk<P0>(hreportstore: P0) -> ::windows_core::Result<u64>
@@ -221,13 +221,13 @@ where
 {
     ::windows_targets::link!("wer.dll" "system" fn WerStoreGetSizeOnDisk(hreportstore : HREPORTSTORE, pqwsizeinbytes : *mut u64) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WerStoreGetSizeOnDisk(hreportstore.into_param().abi(), &mut result__).from_abi(result__)
+    WerStoreGetSizeOnDisk(hreportstore.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES) -> ::windows_core::Result<HREPORTSTORE> {
     ::windows_targets::link!("wer.dll" "system" fn WerStoreOpen(repstoretype : REPORT_STORE_TYPES, phreportstore : *mut HREPORTSTORE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WerStoreOpen(repstoretype, &mut result__).from_abi(result__)
+    WerStoreOpen(repstoretype, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WerStorePurge() -> ::windows_core::Result<()> {
