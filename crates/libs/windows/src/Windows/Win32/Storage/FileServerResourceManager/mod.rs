@@ -23,7 +23,7 @@ impl IFsrmAccessDeniedRemediationClient {
         P2: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Show)(::windows_core::Interface::as_raw(self), parentwnd, accesspath.into_param().abi(), errortype, flags, windowtitle.into_param().abi(), windowmessage.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Show)(::windows_core::Interface::as_raw(self), parentwnd, accesspath.into_param().abi(), errortype, flags, windowtitle.into_param().abi(), windowmessage.into_param().abi(), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -41,15 +41,15 @@ pub struct IFsrmAccessDeniedRemediationClient_Vtbl {
 impl IFsrmAction {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ActionType(&self) -> ::windows_core::Result<FsrmActionType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ActionType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ActionType)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn RunLimitInterval(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).RunLimitInterval)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).RunLimitInterval)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetRunLimitInterval)(::windows_core::Interface::as_raw(self), minutes).ok()
@@ -77,15 +77,15 @@ pub struct IFsrmAction_Vtbl {
 impl IFsrmActionCommand {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ActionType(&self) -> ::windows_core::Result<FsrmActionType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ActionType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ActionType)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn RunLimitInterval(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.RunLimitInterval)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.RunLimitInterval)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetRunLimitInterval)(::windows_core::Interface::as_raw(self), minutes).ok()
@@ -95,7 +95,7 @@ impl IFsrmActionCommand {
     }
     pub unsafe fn ExecutablePath(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ExecutablePath)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ExecutablePath)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetExecutablePath<P0>(&self, executablepath: P0) -> ::windows_core::Result<()>
     where
@@ -105,7 +105,7 @@ impl IFsrmActionCommand {
     }
     pub unsafe fn Arguments(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Arguments)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Arguments)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetArguments<P0>(&self, arguments: P0) -> ::windows_core::Result<()>
     where
@@ -115,14 +115,14 @@ impl IFsrmActionCommand {
     }
     pub unsafe fn Account(&self) -> ::windows_core::Result<FsrmAccountType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Account)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Account)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAccount(&self, account: FsrmAccountType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAccount)(::windows_core::Interface::as_raw(self), account).ok()
     }
     pub unsafe fn WorkingDirectory(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).WorkingDirectory)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).WorkingDirectory)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetWorkingDirectory<P0>(&self, workingdirectory: P0) -> ::windows_core::Result<()>
     where
@@ -132,7 +132,7 @@ impl IFsrmActionCommand {
     }
     pub unsafe fn MonitorCommand(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MonitorCommand)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MonitorCommand)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetMonitorCommand<P0>(&self, monitorcommand: P0) -> ::windows_core::Result<()>
     where
@@ -142,14 +142,14 @@ impl IFsrmActionCommand {
     }
     pub unsafe fn KillTimeOut(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).KillTimeOut)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).KillTimeOut)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetKillTimeOut(&self, minutes: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetKillTimeOut)(::windows_core::Interface::as_raw(self), minutes).ok()
     }
     pub unsafe fn LogResult(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).LogResult)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).LogResult)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLogResult<P0>(&self, logresults: P0) -> ::windows_core::Result<()>
     where
@@ -186,15 +186,15 @@ pub struct IFsrmActionCommand_Vtbl {
 impl IFsrmActionEmail {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ActionType(&self) -> ::windows_core::Result<FsrmActionType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ActionType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ActionType)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn RunLimitInterval(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.RunLimitInterval)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.RunLimitInterval)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetRunLimitInterval)(::windows_core::Interface::as_raw(self), minutes).ok()
@@ -204,7 +204,7 @@ impl IFsrmActionEmail {
     }
     pub unsafe fn MailFrom(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MailFrom)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MailFrom)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMailFrom<P0>(&self, mailfrom: P0) -> ::windows_core::Result<()>
     where
@@ -214,7 +214,7 @@ impl IFsrmActionEmail {
     }
     pub unsafe fn MailReplyTo(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MailReplyTo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MailReplyTo)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMailReplyTo<P0>(&self, mailreplyto: P0) -> ::windows_core::Result<()>
     where
@@ -224,7 +224,7 @@ impl IFsrmActionEmail {
     }
     pub unsafe fn MailTo(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MailTo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MailTo)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMailTo<P0>(&self, mailto: P0) -> ::windows_core::Result<()>
     where
@@ -234,7 +234,7 @@ impl IFsrmActionEmail {
     }
     pub unsafe fn MailCc(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MailCc)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MailCc)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMailCc<P0>(&self, mailcc: P0) -> ::windows_core::Result<()>
     where
@@ -244,7 +244,7 @@ impl IFsrmActionEmail {
     }
     pub unsafe fn MailBcc(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MailBcc)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MailBcc)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMailBcc<P0>(&self, mailbcc: P0) -> ::windows_core::Result<()>
     where
@@ -254,7 +254,7 @@ impl IFsrmActionEmail {
     }
     pub unsafe fn MailSubject(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MailSubject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MailSubject)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMailSubject<P0>(&self, mailsubject: P0) -> ::windows_core::Result<()>
     where
@@ -264,7 +264,7 @@ impl IFsrmActionEmail {
     }
     pub unsafe fn MessageText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MessageText)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MessageText)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMessageText<P0>(&self, messagetext: P0) -> ::windows_core::Result<()>
     where
@@ -301,15 +301,15 @@ pub struct IFsrmActionEmail_Vtbl {
 impl IFsrmActionEmail2 {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ActionType(&self) -> ::windows_core::Result<FsrmActionType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.ActionType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.ActionType)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn RunLimitInterval(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.RunLimitInterval)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.RunLimitInterval)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetRunLimitInterval)(::windows_core::Interface::as_raw(self), minutes).ok()
@@ -319,7 +319,7 @@ impl IFsrmActionEmail2 {
     }
     pub unsafe fn MailFrom(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.MailFrom)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.MailFrom)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMailFrom<P0>(&self, mailfrom: P0) -> ::windows_core::Result<()>
     where
@@ -329,7 +329,7 @@ impl IFsrmActionEmail2 {
     }
     pub unsafe fn MailReplyTo(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.MailReplyTo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.MailReplyTo)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMailReplyTo<P0>(&self, mailreplyto: P0) -> ::windows_core::Result<()>
     where
@@ -339,7 +339,7 @@ impl IFsrmActionEmail2 {
     }
     pub unsafe fn MailTo(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.MailTo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.MailTo)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMailTo<P0>(&self, mailto: P0) -> ::windows_core::Result<()>
     where
@@ -349,7 +349,7 @@ impl IFsrmActionEmail2 {
     }
     pub unsafe fn MailCc(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.MailCc)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.MailCc)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMailCc<P0>(&self, mailcc: P0) -> ::windows_core::Result<()>
     where
@@ -359,7 +359,7 @@ impl IFsrmActionEmail2 {
     }
     pub unsafe fn MailBcc(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.MailBcc)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.MailBcc)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMailBcc<P0>(&self, mailbcc: P0) -> ::windows_core::Result<()>
     where
@@ -369,7 +369,7 @@ impl IFsrmActionEmail2 {
     }
     pub unsafe fn MailSubject(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.MailSubject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.MailSubject)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMailSubject<P0>(&self, mailsubject: P0) -> ::windows_core::Result<()>
     where
@@ -379,7 +379,7 @@ impl IFsrmActionEmail2 {
     }
     pub unsafe fn MessageText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.MessageText)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.MessageText)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMessageText<P0>(&self, messagetext: P0) -> ::windows_core::Result<()>
     where
@@ -389,7 +389,7 @@ impl IFsrmActionEmail2 {
     }
     pub unsafe fn AttachmentFileListSize(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).AttachmentFileListSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).AttachmentFileListSize)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAttachmentFileListSize(&self, attachmentfilelistsize: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAttachmentFileListSize)(::windows_core::Interface::as_raw(self), attachmentfilelistsize).ok()
@@ -411,15 +411,15 @@ pub struct IFsrmActionEmail2_Vtbl {
 impl IFsrmActionEventLog {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ActionType(&self) -> ::windows_core::Result<FsrmActionType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ActionType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ActionType)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn RunLimitInterval(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.RunLimitInterval)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.RunLimitInterval)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetRunLimitInterval)(::windows_core::Interface::as_raw(self), minutes).ok()
@@ -429,14 +429,14 @@ impl IFsrmActionEventLog {
     }
     pub unsafe fn EventType(&self) -> ::windows_core::Result<FsrmEventType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EventType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EventType)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetEventType(&self, eventtype: FsrmEventType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetEventType)(::windows_core::Interface::as_raw(self), eventtype).ok()
     }
     pub unsafe fn MessageText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MessageText)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MessageText)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMessageText<P0>(&self, messagetext: P0) -> ::windows_core::Result<()>
     where
@@ -463,15 +463,15 @@ pub struct IFsrmActionEventLog_Vtbl {
 impl IFsrmActionReport {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ActionType(&self) -> ::windows_core::Result<FsrmActionType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ActionType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ActionType)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn RunLimitInterval(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.RunLimitInterval)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.RunLimitInterval)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetRunLimitInterval)(::windows_core::Interface::as_raw(self), minutes).ok()
@@ -482,7 +482,7 @@ impl IFsrmActionReport {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReportTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ReportTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ReportTypes)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetReportTypes(&self, reporttypes: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -490,7 +490,7 @@ impl IFsrmActionReport {
     }
     pub unsafe fn MailTo(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MailTo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MailTo)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMailTo<P0>(&self, mailto: P0) -> ::windows_core::Result<()>
     where
@@ -523,11 +523,11 @@ pub struct IFsrmActionReport_Vtbl {
 impl IFsrmAutoApplyQuota {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -543,7 +543,7 @@ impl IFsrmAutoApplyQuota {
     }
     pub unsafe fn QuotaLimit(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.QuotaLimit)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.QuotaLimit)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetQuotaLimit<P0>(&self, quotalimit: P0) -> ::windows_core::Result<()>
     where
@@ -553,7 +553,7 @@ impl IFsrmAutoApplyQuota {
     }
     pub unsafe fn QuotaFlags(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.QuotaFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.QuotaFlags)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetQuotaFlags)(::windows_core::Interface::as_raw(self), quotaflags).ok()
@@ -561,7 +561,7 @@ impl IFsrmAutoApplyQuota {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Thresholds(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Thresholds)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Thresholds)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn AddThreshold(&self, threshold: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.AddThreshold)(::windows_core::Interface::as_raw(self), threshold).ok()
@@ -575,32 +575,32 @@ impl IFsrmAutoApplyQuota {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows_core::Result<IFsrmAction> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows_core::Interface::as_raw(self), threshold, actiontype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows_core::Interface::as_raw(self), threshold, actiontype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.EnumThresholdActions)(::windows_core::Interface::as_raw(self), threshold, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.EnumThresholdActions)(::windows_core::Interface::as_raw(self), threshold, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Path(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Path)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Path)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn UserSid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.UserSid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.UserSid)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn UserAccount(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.UserAccount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.UserAccount)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SourceTemplateName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.SourceTemplateName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.SourceTemplateName)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn MatchesSourceTemplate(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.MatchesSourceTemplate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.MatchesSourceTemplate)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ApplyTemplate<P0>(&self, quotatemplatename: P0) -> ::windows_core::Result<()>
     where
@@ -611,7 +611,7 @@ impl IFsrmAutoApplyQuota {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ExcludeFolders(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ExcludeFolders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ExcludeFolders)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetExcludeFolders(&self, folders: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -620,7 +620,7 @@ impl IFsrmAutoApplyQuota {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows_core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CommitAndUpdateDerived)(::windows_core::Interface::as_raw(self), commitoptions, applyoptions, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CommitAndUpdateDerived)(::windows_core::Interface::as_raw(self), commitoptions, applyoptions, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -650,7 +650,7 @@ impl IFsrmClassificationManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClassificationReportFormats(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ClassificationReportFormats)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ClassificationReportFormats)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetClassificationReportFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -658,14 +658,14 @@ impl IFsrmClassificationManager {
     }
     pub unsafe fn Logging(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Logging)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Logging)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLogging(&self, logging: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetLogging)(::windows_core::Interface::as_raw(self), logging).ok()
     }
     pub unsafe fn ClassificationReportMailTo(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ClassificationReportMailTo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ClassificationReportMailTo)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetClassificationReportMailTo<P0>(&self, mailto: P0) -> ::windows_core::Result<()>
     where
@@ -675,7 +675,7 @@ impl IFsrmClassificationManager {
     }
     pub unsafe fn ClassificationReportEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ClassificationReportEnabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ClassificationReportEnabled)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetClassificationReportEnabled<P0>(&self, reportenabled: P0) -> ::windows_core::Result<()>
     where
@@ -685,25 +685,25 @@ impl IFsrmClassificationManager {
     }
     pub unsafe fn ClassificationLastReportPathWithoutExtension(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ClassificationLastReportPathWithoutExtension)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ClassificationLastReportPathWithoutExtension)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ClassificationLastError(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ClassificationLastError)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ClassificationLastError)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ClassificationRunningStatus(&self) -> ::windows_core::Result<FsrmReportRunningStatus> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ClassificationRunningStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ClassificationRunningStatus)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumPropertyDefinitions(&self, options: FsrmEnumOptions) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumPropertyDefinitions)(::windows_core::Interface::as_raw(self), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumPropertyDefinitions)(::windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePropertyDefinition(&self) -> ::windows_core::Result<IFsrmPropertyDefinition> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreatePropertyDefinition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreatePropertyDefinition)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPropertyDefinition<P0>(&self, propertyname: P0) -> ::windows_core::Result<IFsrmPropertyDefinition>
@@ -711,17 +711,17 @@ impl IFsrmClassificationManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetPropertyDefinition)(::windows_core::Interface::as_raw(self), propertyname.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetPropertyDefinition)(::windows_core::Interface::as_raw(self), propertyname.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumRules(&self, ruletype: FsrmRuleType, options: FsrmEnumOptions) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumRules)(::windows_core::Interface::as_raw(self), ruletype, options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumRules)(::windows_core::Interface::as_raw(self), ruletype, options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRule(&self, ruletype: FsrmRuleType) -> ::windows_core::Result<IFsrmRule> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateRule)(::windows_core::Interface::as_raw(self), ruletype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateRule)(::windows_core::Interface::as_raw(self), ruletype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRule<P0>(&self, rulename: P0, ruletype: FsrmRuleType) -> ::windows_core::Result<IFsrmRule>
@@ -729,17 +729,17 @@ impl IFsrmClassificationManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetRule)(::windows_core::Interface::as_raw(self), rulename.into_param().abi(), ruletype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetRule)(::windows_core::Interface::as_raw(self), rulename.into_param().abi(), ruletype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumModuleDefinitions(&self, moduletype: FsrmPipelineModuleType, options: FsrmEnumOptions) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumModuleDefinitions)(::windows_core::Interface::as_raw(self), moduletype, options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumModuleDefinitions)(::windows_core::Interface::as_raw(self), moduletype, options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateModuleDefinition(&self, moduletype: FsrmPipelineModuleType) -> ::windows_core::Result<IFsrmPipelineModuleDefinition> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateModuleDefinition)(::windows_core::Interface::as_raw(self), moduletype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateModuleDefinition)(::windows_core::Interface::as_raw(self), moduletype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetModuleDefinition<P0>(&self, modulename: P0, moduletype: FsrmPipelineModuleType) -> ::windows_core::Result<IFsrmPipelineModuleDefinition>
@@ -747,7 +747,7 @@ impl IFsrmClassificationManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetModuleDefinition)(::windows_core::Interface::as_raw(self), modulename.into_param().abi(), moduletype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetModuleDefinition)(::windows_core::Interface::as_raw(self), modulename.into_param().abi(), moduletype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RunClassification<P0>(&self, context: FsrmReportGenerationContext, reserved: P0) -> ::windows_core::Result<()>
     where
@@ -757,7 +757,7 @@ impl IFsrmClassificationManager {
     }
     pub unsafe fn WaitForClassificationCompletion(&self, waitseconds: i32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).WaitForClassificationCompletion)(::windows_core::Interface::as_raw(self), waitseconds, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).WaitForClassificationCompletion)(::windows_core::Interface::as_raw(self), waitseconds, &mut result__).map(|| result__)
     }
     pub unsafe fn CancelClassification(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CancelClassification)(::windows_core::Interface::as_raw(self)).ok()
@@ -768,7 +768,7 @@ impl IFsrmClassificationManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumFileProperties)(::windows_core::Interface::as_raw(self), filepath.into_param().abi(), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumFileProperties)(::windows_core::Interface::as_raw(self), filepath.into_param().abi(), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFileProperty<P0, P1>(&self, filepath: P0, propertyname: P1, options: FsrmGetFilePropertyOptions) -> ::windows_core::Result<IFsrmProperty>
@@ -777,7 +777,7 @@ impl IFsrmClassificationManager {
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetFileProperty)(::windows_core::Interface::as_raw(self), filepath.into_param().abi(), propertyname.into_param().abi(), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFileProperty)(::windows_core::Interface::as_raw(self), filepath.into_param().abi(), propertyname.into_param().abi(), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetFileProperty<P0, P1, P2>(&self, filepath: P0, propertyname: P1, propertyvalue: P2) -> ::windows_core::Result<()>
     where
@@ -876,7 +876,7 @@ impl IFsrmClassificationManager2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClassificationReportFormats(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ClassificationReportFormats)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ClassificationReportFormats)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetClassificationReportFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -884,14 +884,14 @@ impl IFsrmClassificationManager2 {
     }
     pub unsafe fn Logging(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Logging)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Logging)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLogging(&self, logging: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetLogging)(::windows_core::Interface::as_raw(self), logging).ok()
     }
     pub unsafe fn ClassificationReportMailTo(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ClassificationReportMailTo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ClassificationReportMailTo)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetClassificationReportMailTo<P0>(&self, mailto: P0) -> ::windows_core::Result<()>
     where
@@ -901,7 +901,7 @@ impl IFsrmClassificationManager2 {
     }
     pub unsafe fn ClassificationReportEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ClassificationReportEnabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ClassificationReportEnabled)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetClassificationReportEnabled<P0>(&self, reportenabled: P0) -> ::windows_core::Result<()>
     where
@@ -911,25 +911,25 @@ impl IFsrmClassificationManager2 {
     }
     pub unsafe fn ClassificationLastReportPathWithoutExtension(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ClassificationLastReportPathWithoutExtension)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ClassificationLastReportPathWithoutExtension)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ClassificationLastError(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ClassificationLastError)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ClassificationLastError)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ClassificationRunningStatus(&self) -> ::windows_core::Result<FsrmReportRunningStatus> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ClassificationRunningStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ClassificationRunningStatus)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumPropertyDefinitions(&self, options: FsrmEnumOptions) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EnumPropertyDefinitions)(::windows_core::Interface::as_raw(self), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EnumPropertyDefinitions)(::windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePropertyDefinition(&self) -> ::windows_core::Result<IFsrmPropertyDefinition> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreatePropertyDefinition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreatePropertyDefinition)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPropertyDefinition<P0>(&self, propertyname: P0) -> ::windows_core::Result<IFsrmPropertyDefinition>
@@ -937,17 +937,17 @@ impl IFsrmClassificationManager2 {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetPropertyDefinition)(::windows_core::Interface::as_raw(self), propertyname.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetPropertyDefinition)(::windows_core::Interface::as_raw(self), propertyname.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumRules(&self, ruletype: FsrmRuleType, options: FsrmEnumOptions) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EnumRules)(::windows_core::Interface::as_raw(self), ruletype, options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EnumRules)(::windows_core::Interface::as_raw(self), ruletype, options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRule(&self, ruletype: FsrmRuleType) -> ::windows_core::Result<IFsrmRule> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateRule)(::windows_core::Interface::as_raw(self), ruletype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateRule)(::windows_core::Interface::as_raw(self), ruletype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRule<P0>(&self, rulename: P0, ruletype: FsrmRuleType) -> ::windows_core::Result<IFsrmRule>
@@ -955,17 +955,17 @@ impl IFsrmClassificationManager2 {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetRule)(::windows_core::Interface::as_raw(self), rulename.into_param().abi(), ruletype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetRule)(::windows_core::Interface::as_raw(self), rulename.into_param().abi(), ruletype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumModuleDefinitions(&self, moduletype: FsrmPipelineModuleType, options: FsrmEnumOptions) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EnumModuleDefinitions)(::windows_core::Interface::as_raw(self), moduletype, options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EnumModuleDefinitions)(::windows_core::Interface::as_raw(self), moduletype, options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateModuleDefinition(&self, moduletype: FsrmPipelineModuleType) -> ::windows_core::Result<IFsrmPipelineModuleDefinition> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateModuleDefinition)(::windows_core::Interface::as_raw(self), moduletype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateModuleDefinition)(::windows_core::Interface::as_raw(self), moduletype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetModuleDefinition<P0>(&self, modulename: P0, moduletype: FsrmPipelineModuleType) -> ::windows_core::Result<IFsrmPipelineModuleDefinition>
@@ -973,7 +973,7 @@ impl IFsrmClassificationManager2 {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetModuleDefinition)(::windows_core::Interface::as_raw(self), modulename.into_param().abi(), moduletype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetModuleDefinition)(::windows_core::Interface::as_raw(self), modulename.into_param().abi(), moduletype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RunClassification<P0>(&self, context: FsrmReportGenerationContext, reserved: P0) -> ::windows_core::Result<()>
     where
@@ -983,7 +983,7 @@ impl IFsrmClassificationManager2 {
     }
     pub unsafe fn WaitForClassificationCompletion(&self, waitseconds: i32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.WaitForClassificationCompletion)(::windows_core::Interface::as_raw(self), waitseconds, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.WaitForClassificationCompletion)(::windows_core::Interface::as_raw(self), waitseconds, &mut result__).map(|| result__)
     }
     pub unsafe fn CancelClassification(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CancelClassification)(::windows_core::Interface::as_raw(self)).ok()
@@ -994,7 +994,7 @@ impl IFsrmClassificationManager2 {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EnumFileProperties)(::windows_core::Interface::as_raw(self), filepath.into_param().abi(), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EnumFileProperties)(::windows_core::Interface::as_raw(self), filepath.into_param().abi(), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFileProperty<P0, P1>(&self, filepath: P0, propertyname: P1, options: FsrmGetFilePropertyOptions) -> ::windows_core::Result<IFsrmProperty>
@@ -1003,7 +1003,7 @@ impl IFsrmClassificationManager2 {
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetFileProperty)(::windows_core::Interface::as_raw(self), filepath.into_param().abi(), propertyname.into_param().abi(), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetFileProperty)(::windows_core::Interface::as_raw(self), filepath.into_param().abi(), propertyname.into_param().abi(), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetFileProperty<P0, P1, P2>(&self, filepath: P0, propertyname: P1, propertyvalue: P2) -> ::windows_core::Result<()>
     where
@@ -1043,11 +1043,11 @@ pub struct IFsrmClassificationManager2_Vtbl {
 impl IFsrmClassificationRule {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -1063,7 +1063,7 @@ impl IFsrmClassificationRule {
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -1073,11 +1073,11 @@ impl IFsrmClassificationRule {
     }
     pub unsafe fn RuleType(&self) -> ::windows_core::Result<FsrmRuleType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.RuleType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.RuleType)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ModuleDefinitionName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ModuleDefinitionName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ModuleDefinitionName)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetModuleDefinitionName<P0>(&self, moduledefinitionname: P0) -> ::windows_core::Result<()>
     where
@@ -1088,7 +1088,7 @@ impl IFsrmClassificationRule {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceRoots(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.NamespaceRoots)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.NamespaceRoots)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -1096,7 +1096,7 @@ impl IFsrmClassificationRule {
     }
     pub unsafe fn RuleFlags(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.RuleFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.RuleFlags)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetRuleFlags(&self, ruleflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetRuleFlags)(::windows_core::Interface::as_raw(self), ruleflags).ok()
@@ -1104,7 +1104,7 @@ impl IFsrmClassificationRule {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parameters(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Parameters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Parameters)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -1112,18 +1112,18 @@ impl IFsrmClassificationRule {
     }
     pub unsafe fn LastModified(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.LastModified)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.LastModified)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ExecutionOption(&self) -> ::windows_core::Result<FsrmExecutionOption> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ExecutionOption)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ExecutionOption)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetExecutionOption(&self, executionoption: FsrmExecutionOption) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetExecutionOption)(::windows_core::Interface::as_raw(self), executionoption).ok()
     }
     pub unsafe fn PropertyAffected(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).PropertyAffected)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).PropertyAffected)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetPropertyAffected<P0>(&self, property: P0) -> ::windows_core::Result<()>
     where
@@ -1133,7 +1133,7 @@ impl IFsrmClassificationRule {
     }
     pub unsafe fn Value(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Value)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Value)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetValue<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1162,11 +1162,11 @@ pub struct IFsrmClassificationRule_Vtbl {
 impl IFsrmClassifierModuleDefinition {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -1182,7 +1182,7 @@ impl IFsrmClassifierModuleDefinition {
     }
     pub unsafe fn ModuleClsid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ModuleClsid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ModuleClsid)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetModuleClsid<P0>(&self, moduleclsid: P0) -> ::windows_core::Result<()>
     where
@@ -1192,7 +1192,7 @@ impl IFsrmClassifierModuleDefinition {
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -1202,7 +1202,7 @@ impl IFsrmClassifierModuleDefinition {
     }
     pub unsafe fn Company(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Company)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Company)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetCompany<P0>(&self, company: P0) -> ::windows_core::Result<()>
     where
@@ -1212,7 +1212,7 @@ impl IFsrmClassifierModuleDefinition {
     }
     pub unsafe fn Version(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Version)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Version)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetVersion<P0>(&self, version: P0) -> ::windows_core::Result<()>
     where
@@ -1222,11 +1222,11 @@ impl IFsrmClassifierModuleDefinition {
     }
     pub unsafe fn ModuleType(&self) -> ::windows_core::Result<FsrmPipelineModuleType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ModuleType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ModuleType)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Enabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Enabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Enabled)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetEnabled<P0>(&self, enabled: P0) -> ::windows_core::Result<()>
     where
@@ -1236,7 +1236,7 @@ impl IFsrmClassifierModuleDefinition {
     }
     pub unsafe fn NeedsFileContent(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.NeedsFileContent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.NeedsFileContent)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNeedsFileContent<P0>(&self, needsfilecontent: P0) -> ::windows_core::Result<()>
     where
@@ -1246,7 +1246,7 @@ impl IFsrmClassifierModuleDefinition {
     }
     pub unsafe fn Account(&self) -> ::windows_core::Result<FsrmAccountType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Account)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Account)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAccount(&self, retrievalaccount: FsrmAccountType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetAccount)(::windows_core::Interface::as_raw(self), retrievalaccount).ok()
@@ -1254,7 +1254,7 @@ impl IFsrmClassifierModuleDefinition {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedExtensions(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.SupportedExtensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.SupportedExtensions)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSupportedExtensions(&self, supportedextensions: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -1263,7 +1263,7 @@ impl IFsrmClassifierModuleDefinition {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parameters(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Parameters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Parameters)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -1272,7 +1272,7 @@ impl IFsrmClassifierModuleDefinition {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PropertiesAffected(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).PropertiesAffected)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).PropertiesAffected)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPropertiesAffected(&self, propertiesaffected: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -1281,7 +1281,7 @@ impl IFsrmClassifierModuleDefinition {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PropertiesUsed(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).PropertiesUsed)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).PropertiesUsed)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPropertiesUsed(&self, propertiesused: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -1289,7 +1289,7 @@ impl IFsrmClassifierModuleDefinition {
     }
     pub unsafe fn NeedsExplicitValue(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).NeedsExplicitValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).NeedsExplicitValue)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNeedsExplicitValue<P0>(&self, needsexplicitvalue: P0) -> ::windows_core::Result<()>
     where
@@ -1334,14 +1334,14 @@ impl IFsrmClassifierModuleImplementation {
         P0: ::windows_core::IntoParam<IFsrmPipelineModuleDefinition>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.OnLoad)(::windows_core::Interface::as_raw(self), moduledefinition.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.OnLoad)(::windows_core::Interface::as_raw(self), moduledefinition.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn OnUnload(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.OnUnload)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn LastModified(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).LastModified)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).LastModified)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UseRulesAndDefinitions<P0, P1>(&self, rules: P0, propertydefinitions: P1) -> ::windows_core::Result<()>
@@ -1401,30 +1401,30 @@ pub struct IFsrmClassifierModuleImplementation_Vtbl {
 impl IFsrmCollection {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn State(&self) -> ::windows_core::Result<FsrmCollectionState> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).State)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).State)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Cancel(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Cancel)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).WaitForCompletion)(::windows_core::Interface::as_raw(self), waitseconds, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).WaitForCompletion)(::windows_core::Interface::as_raw(self), waitseconds, &mut result__).map(|| result__)
     }
     pub unsafe fn GetById(&self, id: ::windows_core::GUID) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetById)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(id), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetById)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(id), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1448,30 +1448,30 @@ pub struct IFsrmCollection_Vtbl {
 impl IFsrmCommittableCollection {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.get_Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.get_Item)(::windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Count)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn State(&self) -> ::windows_core::Result<FsrmCollectionState> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.State)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.State)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Cancel(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Cancel)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.WaitForCompletion)(::windows_core::Interface::as_raw(self), waitseconds, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.WaitForCompletion)(::windows_core::Interface::as_raw(self), waitseconds, &mut result__).map(|| result__)
     }
     pub unsafe fn GetById(&self, id: ::windows_core::GUID) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetById)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(id), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetById)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(id), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Add<P0>(&self, item: P0) -> ::windows_core::Result<()>
     where
@@ -1488,12 +1488,12 @@ impl IFsrmCommittableCollection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IFsrmMutableCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Commit(&self, options: FsrmCommitOptions) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Commit)(::windows_core::Interface::as_raw(self), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Commit)(::windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1515,12 +1515,12 @@ impl IFsrmDerivedObjectsResult {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DerivedObjects(&self) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).DerivedObjects)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).DerivedObjects)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Results(&self) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Results)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Results)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1557,7 +1557,7 @@ impl IFsrmExportImport {
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ImportFileGroups)(::windows_core::Interface::as_raw(self), filepath.into_param().abi(), ::core::mem::transmute(filegroupnamessafearray), remotehost.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ImportFileGroups)(::windows_core::Interface::as_raw(self), filepath.into_param().abi(), ::core::mem::transmute(filegroupnamessafearray), remotehost.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ExportFileScreenTemplates<P0, P1>(&self, filepath: P0, templatenamessafearray: *const ::windows_core::VARIANT, remotehost: P1) -> ::windows_core::Result<()>
     where
@@ -1573,7 +1573,7 @@ impl IFsrmExportImport {
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ImportFileScreenTemplates)(::windows_core::Interface::as_raw(self), filepath.into_param().abi(), ::core::mem::transmute(templatenamessafearray), remotehost.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ImportFileScreenTemplates)(::windows_core::Interface::as_raw(self), filepath.into_param().abi(), ::core::mem::transmute(templatenamessafearray), remotehost.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ExportQuotaTemplates<P0, P1>(&self, filepath: P0, templatenamessafearray: *const ::windows_core::VARIANT, remotehost: P1) -> ::windows_core::Result<()>
     where
@@ -1589,7 +1589,7 @@ impl IFsrmExportImport {
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ImportQuotaTemplates)(::windows_core::Interface::as_raw(self), filepath.into_param().abi(), ::core::mem::transmute(templatenamessafearray), remotehost.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ImportQuotaTemplates)(::windows_core::Interface::as_raw(self), filepath.into_param().abi(), ::core::mem::transmute(templatenamessafearray), remotehost.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1621,7 +1621,7 @@ pub struct IFsrmExportImport_Vtbl {
 impl IFsrmFileCondition {
     pub unsafe fn Type(&self) -> ::windows_core::Result<FsrmFileConditionType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Type)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
@@ -1643,14 +1643,14 @@ pub struct IFsrmFileCondition_Vtbl {
 impl IFsrmFileConditionProperty {
     pub unsafe fn Type(&self) -> ::windows_core::Result<FsrmFileConditionType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Type)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Delete)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn PropertyName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).PropertyName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).PropertyName)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetPropertyName<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -1660,28 +1660,28 @@ impl IFsrmFileConditionProperty {
     }
     pub unsafe fn PropertyId(&self) -> ::windows_core::Result<FsrmFileSystemPropertyId> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).PropertyId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).PropertyId)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetPropertyId(&self, newval: FsrmFileSystemPropertyId) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPropertyId)(::windows_core::Interface::as_raw(self), newval).ok()
     }
     pub unsafe fn Operator(&self) -> ::windows_core::Result<FsrmPropertyConditionType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Operator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Operator)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOperator(&self, newval: FsrmPropertyConditionType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOperator)(::windows_core::Interface::as_raw(self), newval).ok()
     }
     pub unsafe fn ValueType(&self) -> ::windows_core::Result<FsrmPropertyValueType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ValueType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ValueType)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetValueType(&self, newval: FsrmPropertyValueType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValueType)(::windows_core::Interface::as_raw(self), newval).ok()
     }
     pub unsafe fn Value(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Value)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Value)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetValue<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -1714,11 +1714,11 @@ pub struct IFsrmFileConditionProperty_Vtbl {
 impl IFsrmFileGroup {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -1734,7 +1734,7 @@ impl IFsrmFileGroup {
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -1745,7 +1745,7 @@ impl IFsrmFileGroup {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Members(&self) -> ::windows_core::Result<IFsrmMutableCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Members)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Members)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMembers<P0>(&self, members: P0) -> ::windows_core::Result<()>
@@ -1757,7 +1757,7 @@ impl IFsrmFileGroup {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NonMembers(&self) -> ::windows_core::Result<IFsrmMutableCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).NonMembers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).NonMembers)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNonMembers<P0>(&self, nonmembers: P0) -> ::windows_core::Result<()>
@@ -1799,11 +1799,11 @@ pub struct IFsrmFileGroup_Vtbl {
 impl IFsrmFileGroupImported {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -1819,7 +1819,7 @@ impl IFsrmFileGroupImported {
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -1830,7 +1830,7 @@ impl IFsrmFileGroupImported {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Members(&self) -> ::windows_core::Result<IFsrmMutableCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Members)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Members)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMembers<P0>(&self, members: P0) -> ::windows_core::Result<()>
@@ -1842,7 +1842,7 @@ impl IFsrmFileGroupImported {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NonMembers(&self) -> ::windows_core::Result<IFsrmMutableCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.NonMembers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.NonMembers)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNonMembers<P0>(&self, nonmembers: P0) -> ::windows_core::Result<()>
@@ -1853,7 +1853,7 @@ impl IFsrmFileGroupImported {
     }
     pub unsafe fn OverwriteOnCommit(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OverwriteOnCommit)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OverwriteOnCommit)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOverwriteOnCommit<P0>(&self, overwrite: P0) -> ::windows_core::Result<()>
     where
@@ -1879,7 +1879,7 @@ impl IFsrmFileGroupManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateFileGroup(&self) -> ::windows_core::Result<IFsrmFileGroup> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateFileGroup)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateFileGroup)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFileGroup<P0>(&self, name: P0) -> ::windows_core::Result<IFsrmFileGroup>
@@ -1887,16 +1887,16 @@ impl IFsrmFileGroupManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetFileGroup)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFileGroup)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumFileGroups(&self, options: FsrmEnumOptions) -> ::windows_core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumFileGroups)(::windows_core::Interface::as_raw(self), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumFileGroups)(::windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ExportFileGroups(&self, filegroupnamesarray: *const ::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ExportFileGroups)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(filegroupnamesarray), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ExportFileGroups)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(filegroupnamesarray), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ImportFileGroups<P0>(&self, serializedfilegroups: P0, filegroupnamesarray: *const ::windows_core::VARIANT) -> ::windows_core::Result<IFsrmCommittableCollection>
@@ -1904,7 +1904,7 @@ impl IFsrmFileGroupManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ImportFileGroups)(::windows_core::Interface::as_raw(self), serializedfilegroups.into_param().abi(), ::core::mem::transmute(filegroupnamesarray), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ImportFileGroups)(::windows_core::Interface::as_raw(self), serializedfilegroups.into_param().abi(), ::core::mem::transmute(filegroupnamesarray), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1938,11 +1938,11 @@ pub struct IFsrmFileGroupManager_Vtbl {
 impl IFsrmFileManagementJob {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -1958,7 +1958,7 @@ impl IFsrmFileManagementJob {
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -1969,7 +1969,7 @@ impl IFsrmFileManagementJob {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceRoots(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).NamespaceRoots)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).NamespaceRoots)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -1977,7 +1977,7 @@ impl IFsrmFileManagementJob {
     }
     pub unsafe fn Enabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Enabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Enabled)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetEnabled<P0>(&self, enabled: P0) -> ::windows_core::Result<()>
     where
@@ -1987,14 +1987,14 @@ impl IFsrmFileManagementJob {
     }
     pub unsafe fn OperationType(&self) -> ::windows_core::Result<FsrmFileManagementType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OperationType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OperationType)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOperationType(&self, operationtype: FsrmFileManagementType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOperationType)(::windows_core::Interface::as_raw(self), operationtype).ok()
     }
     pub unsafe fn ExpirationDirectory(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ExpirationDirectory)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ExpirationDirectory)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetExpirationDirectory<P0>(&self, expirationdirectory: P0) -> ::windows_core::Result<()>
     where
@@ -2005,23 +2005,23 @@ impl IFsrmFileManagementJob {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CustomAction(&self) -> ::windows_core::Result<IFsrmActionCommand> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CustomAction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CustomAction)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Notifications(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Notifications)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Notifications)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Logging(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Logging)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Logging)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLogging(&self, loggingflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetLogging)(::windows_core::Interface::as_raw(self), loggingflags).ok()
     }
     pub unsafe fn ReportEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ReportEnabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ReportEnabled)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetReportEnabled<P0>(&self, reportenabled: P0) -> ::windows_core::Result<()>
     where
@@ -2032,7 +2032,7 @@ impl IFsrmFileManagementJob {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Formats(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Formats)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Formats)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -2040,7 +2040,7 @@ impl IFsrmFileManagementJob {
     }
     pub unsafe fn MailTo(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MailTo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MailTo)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMailTo<P0>(&self, mailto: P0) -> ::windows_core::Result<()>
     where
@@ -2050,21 +2050,21 @@ impl IFsrmFileManagementJob {
     }
     pub unsafe fn DaysSinceFileCreated(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).DaysSinceFileCreated)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).DaysSinceFileCreated)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDaysSinceFileCreated(&self, dayssincecreation: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDaysSinceFileCreated)(::windows_core::Interface::as_raw(self), dayssincecreation).ok()
     }
     pub unsafe fn DaysSinceFileLastAccessed(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).DaysSinceFileLastAccessed)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).DaysSinceFileLastAccessed)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDaysSinceFileLastAccessed(&self, dayssinceaccess: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDaysSinceFileLastAccessed)(::windows_core::Interface::as_raw(self), dayssinceaccess).ok()
     }
     pub unsafe fn DaysSinceFileLastModified(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).DaysSinceFileLastModified)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).DaysSinceFileLastModified)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDaysSinceFileLastModified(&self, dayssincemodify: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDaysSinceFileLastModified)(::windows_core::Interface::as_raw(self), dayssincemodify).ok()
@@ -2072,18 +2072,18 @@ impl IFsrmFileManagementJob {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PropertyConditions(&self) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).PropertyConditions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).PropertyConditions)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FromDate(&self) -> ::windows_core::Result<f64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).FromDate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).FromDate)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetFromDate(&self, fromdate: f64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFromDate)(::windows_core::Interface::as_raw(self), fromdate).ok()
     }
     pub unsafe fn Task(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Task)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Task)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetTask<P0>(&self, taskname: P0) -> ::windows_core::Result<()>
     where
@@ -2094,7 +2094,7 @@ impl IFsrmFileManagementJob {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parameters(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Parameters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Parameters)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -2102,23 +2102,23 @@ impl IFsrmFileManagementJob {
     }
     pub unsafe fn RunningStatus(&self) -> ::windows_core::Result<FsrmReportRunningStatus> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).RunningStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).RunningStatus)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn LastError(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).LastError)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).LastError)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn LastReportPathWithoutExtension(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).LastReportPathWithoutExtension)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).LastReportPathWithoutExtension)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn LastRun(&self) -> ::windows_core::Result<f64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).LastRun)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).LastRun)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn FileNamePattern(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).FileNamePattern)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).FileNamePattern)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetFileNamePattern<P0>(&self, filenamepattern: P0) -> ::windows_core::Result<()>
     where
@@ -2131,7 +2131,7 @@ impl IFsrmFileManagementJob {
     }
     pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).WaitForCompletion)(::windows_core::Interface::as_raw(self), waitseconds, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).WaitForCompletion)(::windows_core::Interface::as_raw(self), waitseconds, &mut result__).map(|| result__)
     }
     pub unsafe fn Cancel(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Cancel)(::windows_core::Interface::as_raw(self)).ok()
@@ -2148,12 +2148,12 @@ impl IFsrmFileManagementJob {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateNotificationAction(&self, days: i32, actiontype: FsrmActionType) -> ::windows_core::Result<IFsrmAction> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateNotificationAction)(::windows_core::Interface::as_raw(self), days, actiontype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateNotificationAction)(::windows_core::Interface::as_raw(self), days, actiontype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumNotificationActions(&self, days: i32) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumNotificationActions)(::windows_core::Interface::as_raw(self), days, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumNotificationActions)(::windows_core::Interface::as_raw(self), days, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePropertyCondition<P0>(&self, name: P0) -> ::windows_core::Result<IFsrmPropertyCondition>
@@ -2161,12 +2161,12 @@ impl IFsrmFileManagementJob {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreatePropertyCondition)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreatePropertyCondition)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateCustomAction(&self) -> ::windows_core::Result<IFsrmActionCommand> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateCustomAction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateCustomAction)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2272,22 +2272,22 @@ impl IFsrmFileManagementJobManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActionVariables(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ActionVariables)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ActionVariables)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActionVariableDescriptions(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ActionVariableDescriptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ActionVariableDescriptions)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumFileManagementJobs(&self, options: FsrmEnumOptions) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumFileManagementJobs)(::windows_core::Interface::as_raw(self), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumFileManagementJobs)(::windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateFileManagementJob(&self) -> ::windows_core::Result<IFsrmFileManagementJob> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateFileManagementJob)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateFileManagementJob)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFileManagementJob<P0>(&self, name: P0) -> ::windows_core::Result<IFsrmFileManagementJob>
@@ -2295,7 +2295,7 @@ impl IFsrmFileManagementJobManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetFileManagementJob)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFileManagementJob)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2332,11 +2332,11 @@ pub struct IFsrmFileManagementJobManager_Vtbl {
 impl IFsrmFileScreen {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -2353,7 +2353,7 @@ impl IFsrmFileScreen {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BlockedFileGroups(&self) -> ::windows_core::Result<IFsrmMutableCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.BlockedFileGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.BlockedFileGroups)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetBlockedFileGroups<P0>(&self, blocklist: P0) -> ::windows_core::Result<()>
@@ -2364,7 +2364,7 @@ impl IFsrmFileScreen {
     }
     pub unsafe fn FileScreenFlags(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.FileScreenFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.FileScreenFlags)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetFileScreenFlags(&self, filescreenflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetFileScreenFlags)(::windows_core::Interface::as_raw(self), filescreenflags).ok()
@@ -2372,32 +2372,32 @@ impl IFsrmFileScreen {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows_core::Result<IFsrmAction> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateAction)(::windows_core::Interface::as_raw(self), actiontype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateAction)(::windows_core::Interface::as_raw(self), actiontype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumActions(&self) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EnumActions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EnumActions)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Path(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Path)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Path)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SourceTemplateName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SourceTemplateName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).SourceTemplateName)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn MatchesSourceTemplate(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MatchesSourceTemplate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MatchesSourceTemplate)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn UserSid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).UserSid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).UserSid)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn UserAccount(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).UserAccount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).UserAccount)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ApplyTemplate<P0>(&self, filescreentemplatename: P0) -> ::windows_core::Result<()>
     where
@@ -2426,11 +2426,11 @@ pub struct IFsrmFileScreen_Vtbl {
 impl IFsrmFileScreenBase {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -2447,7 +2447,7 @@ impl IFsrmFileScreenBase {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BlockedFileGroups(&self) -> ::windows_core::Result<IFsrmMutableCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).BlockedFileGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).BlockedFileGroups)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetBlockedFileGroups<P0>(&self, blocklist: P0) -> ::windows_core::Result<()>
@@ -2458,7 +2458,7 @@ impl IFsrmFileScreenBase {
     }
     pub unsafe fn FileScreenFlags(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).FileScreenFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).FileScreenFlags)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetFileScreenFlags(&self, filescreenflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFileScreenFlags)(::windows_core::Interface::as_raw(self), filescreenflags).ok()
@@ -2466,12 +2466,12 @@ impl IFsrmFileScreenBase {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows_core::Result<IFsrmAction> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateAction)(::windows_core::Interface::as_raw(self), actiontype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateAction)(::windows_core::Interface::as_raw(self), actiontype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumActions(&self) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumActions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumActions)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2506,11 +2506,11 @@ pub struct IFsrmFileScreenBase_Vtbl {
 impl IFsrmFileScreenException {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -2526,12 +2526,12 @@ impl IFsrmFileScreenException {
     }
     pub unsafe fn Path(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Path)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Path)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AllowedFileGroups(&self) -> ::windows_core::Result<IFsrmMutableCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).AllowedFileGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).AllowedFileGroups)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetAllowedFileGroups<P0>(&self, allowlist: P0) -> ::windows_core::Result<()>
@@ -2565,12 +2565,12 @@ impl IFsrmFileScreenManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActionVariables(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ActionVariables)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ActionVariables)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActionVariableDescriptions(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ActionVariableDescriptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ActionVariableDescriptions)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateFileScreen<P0>(&self, path: P0) -> ::windows_core::Result<IFsrmFileScreen>
@@ -2578,7 +2578,7 @@ impl IFsrmFileScreenManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateFileScreen)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateFileScreen)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFileScreen<P0>(&self, path: P0) -> ::windows_core::Result<IFsrmFileScreen>
@@ -2586,7 +2586,7 @@ impl IFsrmFileScreenManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetFileScreen)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFileScreen)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumFileScreens<P0>(&self, path: P0, options: FsrmEnumOptions) -> ::windows_core::Result<IFsrmCommittableCollection>
@@ -2594,7 +2594,7 @@ impl IFsrmFileScreenManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumFileScreens)(::windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumFileScreens)(::windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateFileScreenException<P0>(&self, path: P0) -> ::windows_core::Result<IFsrmFileScreenException>
@@ -2602,7 +2602,7 @@ impl IFsrmFileScreenManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateFileScreenException)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateFileScreenException)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFileScreenException<P0>(&self, path: P0) -> ::windows_core::Result<IFsrmFileScreenException>
@@ -2610,7 +2610,7 @@ impl IFsrmFileScreenManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetFileScreenException)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFileScreenException)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumFileScreenExceptions<P0>(&self, path: P0, options: FsrmEnumOptions) -> ::windows_core::Result<IFsrmCommittableCollection>
@@ -2618,12 +2618,12 @@ impl IFsrmFileScreenManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumFileScreenExceptions)(::windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumFileScreenExceptions)(::windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateFileScreenCollection(&self) -> ::windows_core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateFileScreenCollection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateFileScreenCollection)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2676,11 +2676,11 @@ pub struct IFsrmFileScreenManager_Vtbl {
 impl IFsrmFileScreenTemplate {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -2697,7 +2697,7 @@ impl IFsrmFileScreenTemplate {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BlockedFileGroups(&self) -> ::windows_core::Result<IFsrmMutableCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.BlockedFileGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.BlockedFileGroups)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetBlockedFileGroups<P0>(&self, blocklist: P0) -> ::windows_core::Result<()>
@@ -2708,7 +2708,7 @@ impl IFsrmFileScreenTemplate {
     }
     pub unsafe fn FileScreenFlags(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.FileScreenFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.FileScreenFlags)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetFileScreenFlags(&self, filescreenflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetFileScreenFlags)(::windows_core::Interface::as_raw(self), filescreenflags).ok()
@@ -2716,16 +2716,16 @@ impl IFsrmFileScreenTemplate {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows_core::Result<IFsrmAction> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateAction)(::windows_core::Interface::as_raw(self), actiontype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateAction)(::windows_core::Interface::as_raw(self), actiontype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumActions(&self) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EnumActions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EnumActions)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -2742,7 +2742,7 @@ impl IFsrmFileScreenTemplate {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows_core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CommitAndUpdateDerived)(::windows_core::Interface::as_raw(self), commitoptions, applyoptions, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CommitAndUpdateDerived)(::windows_core::Interface::as_raw(self), commitoptions, applyoptions, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2766,11 +2766,11 @@ pub struct IFsrmFileScreenTemplate_Vtbl {
 impl IFsrmFileScreenTemplateImported {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -2787,7 +2787,7 @@ impl IFsrmFileScreenTemplateImported {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BlockedFileGroups(&self) -> ::windows_core::Result<IFsrmMutableCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.BlockedFileGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.BlockedFileGroups)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetBlockedFileGroups<P0>(&self, blocklist: P0) -> ::windows_core::Result<()>
@@ -2798,7 +2798,7 @@ impl IFsrmFileScreenTemplateImported {
     }
     pub unsafe fn FileScreenFlags(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.FileScreenFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.FileScreenFlags)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetFileScreenFlags(&self, filescreenflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetFileScreenFlags)(::windows_core::Interface::as_raw(self), filescreenflags).ok()
@@ -2806,16 +2806,16 @@ impl IFsrmFileScreenTemplateImported {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows_core::Result<IFsrmAction> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.CreateAction)(::windows_core::Interface::as_raw(self), actiontype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.CreateAction)(::windows_core::Interface::as_raw(self), actiontype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumActions(&self) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.EnumActions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.EnumActions)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -2832,11 +2832,11 @@ impl IFsrmFileScreenTemplateImported {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows_core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CommitAndUpdateDerived)(::windows_core::Interface::as_raw(self), commitoptions, applyoptions, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CommitAndUpdateDerived)(::windows_core::Interface::as_raw(self), commitoptions, applyoptions, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn OverwriteOnCommit(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OverwriteOnCommit)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OverwriteOnCommit)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOverwriteOnCommit<P0>(&self, overwrite: P0) -> ::windows_core::Result<()>
     where
@@ -2862,7 +2862,7 @@ impl IFsrmFileScreenTemplateManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTemplate(&self) -> ::windows_core::Result<IFsrmFileScreenTemplate> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateTemplate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateTemplate)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTemplate<P0>(&self, name: P0) -> ::windows_core::Result<IFsrmFileScreenTemplate>
@@ -2870,16 +2870,16 @@ impl IFsrmFileScreenTemplateManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetTemplate)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetTemplate)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumTemplates(&self, options: FsrmEnumOptions) -> ::windows_core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumTemplates)(::windows_core::Interface::as_raw(self), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumTemplates)(::windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ExportTemplates(&self, filescreentemplatenamesarray: *const ::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ExportTemplates)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(filescreentemplatenamesarray), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ExportTemplates)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(filescreentemplatenamesarray), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ImportTemplates<P0>(&self, serializedfilescreentemplates: P0, filescreentemplatenamesarray: *const ::windows_core::VARIANT) -> ::windows_core::Result<IFsrmCommittableCollection>
@@ -2887,7 +2887,7 @@ impl IFsrmFileScreenTemplateManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ImportTemplates)(::windows_core::Interface::as_raw(self), serializedfilescreentemplates.into_param().abi(), ::core::mem::transmute(filescreentemplatenamesarray), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ImportTemplates)(::windows_core::Interface::as_raw(self), serializedfilescreentemplates.into_param().abi(), ::core::mem::transmute(filescreentemplatenamesarray), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2921,30 +2921,30 @@ pub struct IFsrmFileScreenTemplateManager_Vtbl {
 impl IFsrmMutableCollection {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.get_Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.get_Item)(::windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Count)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn State(&self) -> ::windows_core::Result<FsrmCollectionState> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.State)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.State)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Cancel(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Cancel)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.WaitForCompletion)(::windows_core::Interface::as_raw(self), waitseconds, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.WaitForCompletion)(::windows_core::Interface::as_raw(self), waitseconds, &mut result__).map(|| result__)
     }
     pub unsafe fn GetById(&self, id: ::windows_core::GUID) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetById)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(id), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetById)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(id), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Add<P0>(&self, item: P0) -> ::windows_core::Result<()>
     where
@@ -2961,7 +2961,7 @@ impl IFsrmMutableCollection {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IFsrmMutableCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2985,11 +2985,11 @@ pub struct IFsrmMutableCollection_Vtbl {
 impl IFsrmObject {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -3027,7 +3027,7 @@ impl IFsrmPathMapper {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSharePathsForLocalPath)(::windows_core::Interface::as_raw(self), localpath.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetSharePathsForLocalPath)(::windows_core::Interface::as_raw(self), localpath.into_param().abi(), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3049,19 +3049,19 @@ impl IFsrmPipelineModuleConnector {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ModuleImplementation(&self) -> ::windows_core::Result<IFsrmPipelineModuleImplementation> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ModuleImplementation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ModuleImplementation)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ModuleName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ModuleName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ModuleName)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn HostingUserAccount(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).HostingUserAccount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).HostingUserAccount)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn HostingProcessPid(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).HostingProcessPid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).HostingProcessPid)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Bind<P0, P1>(&self, moduledefinition: P0, moduleimplementation: P1) -> ::windows_core::Result<()>
@@ -3097,11 +3097,11 @@ pub struct IFsrmPipelineModuleConnector_Vtbl {
 impl IFsrmPipelineModuleDefinition {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -3117,7 +3117,7 @@ impl IFsrmPipelineModuleDefinition {
     }
     pub unsafe fn ModuleClsid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ModuleClsid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ModuleClsid)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetModuleClsid<P0>(&self, moduleclsid: P0) -> ::windows_core::Result<()>
     where
@@ -3127,7 +3127,7 @@ impl IFsrmPipelineModuleDefinition {
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -3137,7 +3137,7 @@ impl IFsrmPipelineModuleDefinition {
     }
     pub unsafe fn Company(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Company)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Company)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetCompany<P0>(&self, company: P0) -> ::windows_core::Result<()>
     where
@@ -3147,7 +3147,7 @@ impl IFsrmPipelineModuleDefinition {
     }
     pub unsafe fn Version(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Version)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Version)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetVersion<P0>(&self, version: P0) -> ::windows_core::Result<()>
     where
@@ -3157,11 +3157,11 @@ impl IFsrmPipelineModuleDefinition {
     }
     pub unsafe fn ModuleType(&self) -> ::windows_core::Result<FsrmPipelineModuleType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ModuleType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ModuleType)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Enabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Enabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Enabled)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetEnabled<P0>(&self, enabled: P0) -> ::windows_core::Result<()>
     where
@@ -3171,7 +3171,7 @@ impl IFsrmPipelineModuleDefinition {
     }
     pub unsafe fn NeedsFileContent(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).NeedsFileContent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).NeedsFileContent)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNeedsFileContent<P0>(&self, needsfilecontent: P0) -> ::windows_core::Result<()>
     where
@@ -3181,7 +3181,7 @@ impl IFsrmPipelineModuleDefinition {
     }
     pub unsafe fn Account(&self) -> ::windows_core::Result<FsrmAccountType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Account)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Account)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAccount(&self, retrievalaccount: FsrmAccountType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAccount)(::windows_core::Interface::as_raw(self), retrievalaccount).ok()
@@ -3189,7 +3189,7 @@ impl IFsrmPipelineModuleDefinition {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedExtensions(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SupportedExtensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).SupportedExtensions)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSupportedExtensions(&self, supportedextensions: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -3198,7 +3198,7 @@ impl IFsrmPipelineModuleDefinition {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parameters(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Parameters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Parameters)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -3254,7 +3254,7 @@ impl IFsrmPipelineModuleImplementation {
         P0: ::windows_core::IntoParam<IFsrmPipelineModuleDefinition>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OnLoad)(::windows_core::Interface::as_raw(self), moduledefinition.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OnLoad)(::windows_core::Interface::as_raw(self), moduledefinition.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn OnUnload(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnUnload)(::windows_core::Interface::as_raw(self)).ok()
@@ -3279,20 +3279,20 @@ pub struct IFsrmPipelineModuleImplementation_Vtbl {
 impl IFsrmProperty {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Value(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Value)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Value)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Sources(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Sources)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Sources)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn PropertyFlags(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).PropertyFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).PropertyFlags)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3316,73 +3316,73 @@ pub struct IFsrmProperty_Vtbl {
 impl IFsrmPropertyBag {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RelativePath(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).RelativePath)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).RelativePath)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn VolumeName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).VolumeName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).VolumeName)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RelativeNamespaceRoot(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).RelativeNamespaceRoot)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).RelativeNamespaceRoot)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn VolumeIndex(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).VolumeIndex)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).VolumeIndex)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn FileId(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).FileId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).FileId)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ParentDirectoryId(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ParentDirectoryId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ParentDirectoryId)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Size(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Size)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Size)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SizeAllocated(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SizeAllocated)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).SizeAllocated)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreationTime(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreationTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreationTime)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn LastAccessTime(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).LastAccessTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).LastAccessTime)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn LastModificationTime(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).LastModificationTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).LastModificationTime)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Attributes(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Attributes)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn OwnerSid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OwnerSid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OwnerSid)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FilePropertyNames(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).FilePropertyNames)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).FilePropertyNames)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Messages(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Messages)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Messages)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn PropertyBagFlags(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).PropertyBagFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).PropertyBagFlags)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFileProperty<P0>(&self, name: P0) -> ::windows_core::Result<IFsrmProperty>
@@ -3390,7 +3390,7 @@ impl IFsrmPropertyBag {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetFileProperty)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFileProperty)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetFileProperty<P0, P1>(&self, name: P0, value: P1) -> ::windows_core::Result<()>
     where
@@ -3407,7 +3407,7 @@ impl IFsrmPropertyBag {
     }
     pub unsafe fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetFileStreamInterface)(::windows_core::Interface::as_raw(self), accessmode, interfacetype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFileStreamInterface)(::windows_core::Interface::as_raw(self), accessmode, interfacetype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3454,73 +3454,73 @@ pub struct IFsrmPropertyBag_Vtbl {
 impl IFsrmPropertyBag2 {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RelativePath(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.RelativePath)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.RelativePath)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn VolumeName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.VolumeName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.VolumeName)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RelativeNamespaceRoot(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.RelativeNamespaceRoot)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.RelativeNamespaceRoot)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn VolumeIndex(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.VolumeIndex)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.VolumeIndex)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn FileId(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.FileId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.FileId)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ParentDirectoryId(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ParentDirectoryId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ParentDirectoryId)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Size(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Size)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Size)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SizeAllocated(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.SizeAllocated)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.SizeAllocated)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreationTime(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreationTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreationTime)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn LastAccessTime(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.LastAccessTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.LastAccessTime)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn LastModificationTime(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.LastModificationTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.LastModificationTime)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Attributes(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Attributes)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn OwnerSid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.OwnerSid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.OwnerSid)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FilePropertyNames(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.FilePropertyNames)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.FilePropertyNames)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Messages(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Messages)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Messages)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn PropertyBagFlags(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.PropertyBagFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.PropertyBagFlags)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFileProperty<P0>(&self, name: P0) -> ::windows_core::Result<IFsrmProperty>
@@ -3528,7 +3528,7 @@ impl IFsrmPropertyBag2 {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetFileProperty)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetFileProperty)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetFileProperty<P0, P1>(&self, name: P0, value: P1) -> ::windows_core::Result<()>
     where
@@ -3545,16 +3545,16 @@ impl IFsrmPropertyBag2 {
     }
     pub unsafe fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetFileStreamInterface)(::windows_core::Interface::as_raw(self), accessmode, interfacetype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetFileStreamInterface)(::windows_core::Interface::as_raw(self), accessmode, interfacetype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFieldValue(&self, field: FsrmPropertyBagField) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetFieldValue)(::windows_core::Interface::as_raw(self), field, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFieldValue)(::windows_core::Interface::as_raw(self), field, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetUntrustedInFileProperties(&self) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetUntrustedInFileProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetUntrustedInFileProperties)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3576,7 +3576,7 @@ pub struct IFsrmPropertyBag2_Vtbl {
 impl IFsrmPropertyCondition {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -3586,14 +3586,14 @@ impl IFsrmPropertyCondition {
     }
     pub unsafe fn Type(&self) -> ::windows_core::Result<FsrmPropertyConditionType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Type)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetType(&self, r#type: FsrmPropertyConditionType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetType)(::windows_core::Interface::as_raw(self), r#type).ok()
     }
     pub unsafe fn Value(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Value)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Value)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetValue<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3626,11 +3626,11 @@ pub struct IFsrmPropertyCondition_Vtbl {
 impl IFsrmPropertyDefinition {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -3646,7 +3646,7 @@ impl IFsrmPropertyDefinition {
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -3656,7 +3656,7 @@ impl IFsrmPropertyDefinition {
     }
     pub unsafe fn Type(&self) -> ::windows_core::Result<FsrmPropertyDefinitionType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Type)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetType(&self, r#type: FsrmPropertyDefinitionType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetType)(::windows_core::Interface::as_raw(self), r#type).ok()
@@ -3664,7 +3664,7 @@ impl IFsrmPropertyDefinition {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PossibleValues(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).PossibleValues)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).PossibleValues)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPossibleValues(&self, possiblevalues: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -3673,7 +3673,7 @@ impl IFsrmPropertyDefinition {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ValueDescriptions(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ValueDescriptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ValueDescriptions)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetValueDescriptions(&self, valuedescriptions: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -3682,7 +3682,7 @@ impl IFsrmPropertyDefinition {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parameters(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Parameters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Parameters)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -3731,11 +3731,11 @@ pub struct IFsrmPropertyDefinition_Vtbl {
 impl IFsrmPropertyDefinition2 {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -3751,7 +3751,7 @@ impl IFsrmPropertyDefinition2 {
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -3761,7 +3761,7 @@ impl IFsrmPropertyDefinition2 {
     }
     pub unsafe fn Type(&self) -> ::windows_core::Result<FsrmPropertyDefinitionType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Type)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetType(&self, r#type: FsrmPropertyDefinitionType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetType)(::windows_core::Interface::as_raw(self), r#type).ok()
@@ -3769,7 +3769,7 @@ impl IFsrmPropertyDefinition2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PossibleValues(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.PossibleValues)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.PossibleValues)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPossibleValues(&self, possiblevalues: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -3778,7 +3778,7 @@ impl IFsrmPropertyDefinition2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ValueDescriptions(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ValueDescriptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ValueDescriptions)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetValueDescriptions(&self, valuedescriptions: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -3787,7 +3787,7 @@ impl IFsrmPropertyDefinition2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parameters(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Parameters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Parameters)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -3795,11 +3795,11 @@ impl IFsrmPropertyDefinition2 {
     }
     pub unsafe fn PropertyDefinitionFlags(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).PropertyDefinitionFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).PropertyDefinitionFlags)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn DisplayName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).DisplayName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).DisplayName)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDisplayName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -3809,12 +3809,12 @@ impl IFsrmPropertyDefinition2 {
     }
     pub unsafe fn AppliesTo(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).AppliesTo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).AppliesTo)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ValueDefinitions(&self) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ValueDefinitions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ValueDefinitions)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3839,19 +3839,19 @@ pub struct IFsrmPropertyDefinition2_Vtbl {
 impl IFsrmPropertyDefinitionValue {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DisplayName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).DisplayName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).DisplayName)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn UniqueID(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).UniqueID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).UniqueID)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3872,11 +3872,11 @@ pub struct IFsrmPropertyDefinitionValue_Vtbl {
 impl IFsrmQuota {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -3892,7 +3892,7 @@ impl IFsrmQuota {
     }
     pub unsafe fn QuotaLimit(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.QuotaLimit)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.QuotaLimit)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetQuotaLimit<P0>(&self, quotalimit: P0) -> ::windows_core::Result<()>
     where
@@ -3902,7 +3902,7 @@ impl IFsrmQuota {
     }
     pub unsafe fn QuotaFlags(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.QuotaFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.QuotaFlags)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetQuotaFlags)(::windows_core::Interface::as_raw(self), quotaflags).ok()
@@ -3910,7 +3910,7 @@ impl IFsrmQuota {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Thresholds(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Thresholds)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Thresholds)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn AddThreshold(&self, threshold: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.AddThreshold)(::windows_core::Interface::as_raw(self), threshold).ok()
@@ -3924,32 +3924,32 @@ impl IFsrmQuota {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows_core::Result<IFsrmAction> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows_core::Interface::as_raw(self), threshold, actiontype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows_core::Interface::as_raw(self), threshold, actiontype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.EnumThresholdActions)(::windows_core::Interface::as_raw(self), threshold, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.EnumThresholdActions)(::windows_core::Interface::as_raw(self), threshold, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Path(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Path)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Path)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn UserSid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.UserSid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.UserSid)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn UserAccount(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.UserAccount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.UserAccount)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SourceTemplateName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.SourceTemplateName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.SourceTemplateName)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn MatchesSourceTemplate(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.MatchesSourceTemplate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.MatchesSourceTemplate)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ApplyTemplate<P0>(&self, quotatemplatename: P0) -> ::windows_core::Result<()>
     where
@@ -3959,15 +3959,15 @@ impl IFsrmQuota {
     }
     pub unsafe fn QuotaUsed(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).QuotaUsed)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).QuotaUsed)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn QuotaPeakUsage(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).QuotaPeakUsage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).QuotaPeakUsage)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn QuotaPeakUsageTime(&self) -> ::windows_core::Result<f64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).QuotaPeakUsageTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).QuotaPeakUsageTime)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ResetPeakUsage(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ResetPeakUsage)(::windows_core::Interface::as_raw(self)).ok()
@@ -3995,11 +3995,11 @@ pub struct IFsrmQuota_Vtbl {
 impl IFsrmQuotaBase {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -4015,7 +4015,7 @@ impl IFsrmQuotaBase {
     }
     pub unsafe fn QuotaLimit(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).QuotaLimit)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).QuotaLimit)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetQuotaLimit<P0>(&self, quotalimit: P0) -> ::windows_core::Result<()>
     where
@@ -4025,7 +4025,7 @@ impl IFsrmQuotaBase {
     }
     pub unsafe fn QuotaFlags(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).QuotaFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).QuotaFlags)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetQuotaFlags)(::windows_core::Interface::as_raw(self), quotaflags).ok()
@@ -4033,7 +4033,7 @@ impl IFsrmQuotaBase {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Thresholds(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Thresholds)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Thresholds)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn AddThreshold(&self, threshold: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddThreshold)(::windows_core::Interface::as_raw(self), threshold).ok()
@@ -4047,12 +4047,12 @@ impl IFsrmQuotaBase {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows_core::Result<IFsrmAction> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateThresholdAction)(::windows_core::Interface::as_raw(self), threshold, actiontype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateThresholdAction)(::windows_core::Interface::as_raw(self), threshold, actiontype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumThresholdActions)(::windows_core::Interface::as_raw(self), threshold, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumThresholdActions)(::windows_core::Interface::as_raw(self), threshold, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4089,12 +4089,12 @@ impl IFsrmQuotaManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActionVariables(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ActionVariables)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ActionVariables)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActionVariableDescriptions(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ActionVariableDescriptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ActionVariableDescriptions)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateQuota<P0>(&self, path: P0) -> ::windows_core::Result<IFsrmQuota>
@@ -4102,7 +4102,7 @@ impl IFsrmQuotaManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateQuota)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateQuota)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAutoApplyQuota<P0, P1>(&self, quotatemplatename: P0, path: P1) -> ::windows_core::Result<IFsrmAutoApplyQuota>
@@ -4111,7 +4111,7 @@ impl IFsrmQuotaManager {
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateAutoApplyQuota)(::windows_core::Interface::as_raw(self), quotatemplatename.into_param().abi(), path.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateAutoApplyQuota)(::windows_core::Interface::as_raw(self), quotatemplatename.into_param().abi(), path.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetQuota<P0>(&self, path: P0) -> ::windows_core::Result<IFsrmQuota>
@@ -4119,7 +4119,7 @@ impl IFsrmQuotaManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetQuota)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetQuota)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAutoApplyQuota<P0>(&self, path: P0) -> ::windows_core::Result<IFsrmAutoApplyQuota>
@@ -4127,7 +4127,7 @@ impl IFsrmQuotaManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetAutoApplyQuota)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetAutoApplyQuota)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRestrictiveQuota<P0>(&self, path: P0) -> ::windows_core::Result<IFsrmQuota>
@@ -4135,7 +4135,7 @@ impl IFsrmQuotaManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetRestrictiveQuota)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetRestrictiveQuota)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumQuotas<P0>(&self, path: P0, options: FsrmEnumOptions) -> ::windows_core::Result<IFsrmCommittableCollection>
@@ -4143,7 +4143,7 @@ impl IFsrmQuotaManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumQuotas)(::windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumQuotas)(::windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumAutoApplyQuotas<P0>(&self, path: P0, options: FsrmEnumOptions) -> ::windows_core::Result<IFsrmCommittableCollection>
@@ -4151,7 +4151,7 @@ impl IFsrmQuotaManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumAutoApplyQuotas)(::windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumAutoApplyQuotas)(::windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumEffectiveQuotas<P0>(&self, path: P0, options: FsrmEnumOptions) -> ::windows_core::Result<IFsrmCommittableCollection>
@@ -4159,7 +4159,7 @@ impl IFsrmQuotaManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumEffectiveQuotas)(::windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumEffectiveQuotas)(::windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Scan<P0>(&self, strpath: P0) -> ::windows_core::Result<()>
     where
@@ -4170,7 +4170,7 @@ impl IFsrmQuotaManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateQuotaCollection(&self) -> ::windows_core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateQuotaCollection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateQuotaCollection)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4233,12 +4233,12 @@ impl IFsrmQuotaManagerEx {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActionVariables(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ActionVariables)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ActionVariables)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActionVariableDescriptions(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ActionVariableDescriptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ActionVariableDescriptions)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateQuota<P0>(&self, path: P0) -> ::windows_core::Result<IFsrmQuota>
@@ -4246,7 +4246,7 @@ impl IFsrmQuotaManagerEx {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateQuota)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateQuota)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAutoApplyQuota<P0, P1>(&self, quotatemplatename: P0, path: P1) -> ::windows_core::Result<IFsrmAutoApplyQuota>
@@ -4255,7 +4255,7 @@ impl IFsrmQuotaManagerEx {
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateAutoApplyQuota)(::windows_core::Interface::as_raw(self), quotatemplatename.into_param().abi(), path.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateAutoApplyQuota)(::windows_core::Interface::as_raw(self), quotatemplatename.into_param().abi(), path.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetQuota<P0>(&self, path: P0) -> ::windows_core::Result<IFsrmQuota>
@@ -4263,7 +4263,7 @@ impl IFsrmQuotaManagerEx {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetQuota)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetQuota)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAutoApplyQuota<P0>(&self, path: P0) -> ::windows_core::Result<IFsrmAutoApplyQuota>
@@ -4271,7 +4271,7 @@ impl IFsrmQuotaManagerEx {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetAutoApplyQuota)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetAutoApplyQuota)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRestrictiveQuota<P0>(&self, path: P0) -> ::windows_core::Result<IFsrmQuota>
@@ -4279,7 +4279,7 @@ impl IFsrmQuotaManagerEx {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetRestrictiveQuota)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetRestrictiveQuota)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumQuotas<P0>(&self, path: P0, options: FsrmEnumOptions) -> ::windows_core::Result<IFsrmCommittableCollection>
@@ -4287,7 +4287,7 @@ impl IFsrmQuotaManagerEx {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EnumQuotas)(::windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EnumQuotas)(::windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumAutoApplyQuotas<P0>(&self, path: P0, options: FsrmEnumOptions) -> ::windows_core::Result<IFsrmCommittableCollection>
@@ -4295,7 +4295,7 @@ impl IFsrmQuotaManagerEx {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EnumAutoApplyQuotas)(::windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EnumAutoApplyQuotas)(::windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumEffectiveQuotas<P0>(&self, path: P0, options: FsrmEnumOptions) -> ::windows_core::Result<IFsrmCommittableCollection>
@@ -4303,7 +4303,7 @@ impl IFsrmQuotaManagerEx {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EnumEffectiveQuotas)(::windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EnumEffectiveQuotas)(::windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Scan<P0>(&self, strpath: P0) -> ::windows_core::Result<()>
     where
@@ -4314,14 +4314,14 @@ impl IFsrmQuotaManagerEx {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateQuotaCollection(&self) -> ::windows_core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateQuotaCollection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateQuotaCollection)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn IsAffectedByQuota<P0>(&self, path: P0, options: FsrmEnumOptions) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).IsAffectedByQuota)(::windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).IsAffectedByQuota)(::windows_core::Interface::as_raw(self), path.into_param().abi(), options, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4339,11 +4339,11 @@ pub struct IFsrmQuotaManagerEx_Vtbl {
 impl IFsrmQuotaObject {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -4359,7 +4359,7 @@ impl IFsrmQuotaObject {
     }
     pub unsafe fn QuotaLimit(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.QuotaLimit)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.QuotaLimit)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetQuotaLimit<P0>(&self, quotalimit: P0) -> ::windows_core::Result<()>
     where
@@ -4369,7 +4369,7 @@ impl IFsrmQuotaObject {
     }
     pub unsafe fn QuotaFlags(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.QuotaFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.QuotaFlags)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetQuotaFlags)(::windows_core::Interface::as_raw(self), quotaflags).ok()
@@ -4377,7 +4377,7 @@ impl IFsrmQuotaObject {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Thresholds(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Thresholds)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Thresholds)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn AddThreshold(&self, threshold: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.AddThreshold)(::windows_core::Interface::as_raw(self), threshold).ok()
@@ -4391,32 +4391,32 @@ impl IFsrmQuotaObject {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows_core::Result<IFsrmAction> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateThresholdAction)(::windows_core::Interface::as_raw(self), threshold, actiontype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateThresholdAction)(::windows_core::Interface::as_raw(self), threshold, actiontype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EnumThresholdActions)(::windows_core::Interface::as_raw(self), threshold, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EnumThresholdActions)(::windows_core::Interface::as_raw(self), threshold, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Path(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Path)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Path)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn UserSid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).UserSid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).UserSid)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn UserAccount(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).UserAccount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).UserAccount)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SourceTemplateName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SourceTemplateName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).SourceTemplateName)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn MatchesSourceTemplate(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MatchesSourceTemplate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MatchesSourceTemplate)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ApplyTemplate<P0>(&self, quotatemplatename: P0) -> ::windows_core::Result<()>
     where
@@ -4445,11 +4445,11 @@ pub struct IFsrmQuotaObject_Vtbl {
 impl IFsrmQuotaTemplate {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -4465,7 +4465,7 @@ impl IFsrmQuotaTemplate {
     }
     pub unsafe fn QuotaLimit(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.QuotaLimit)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.QuotaLimit)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetQuotaLimit<P0>(&self, quotalimit: P0) -> ::windows_core::Result<()>
     where
@@ -4475,7 +4475,7 @@ impl IFsrmQuotaTemplate {
     }
     pub unsafe fn QuotaFlags(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.QuotaFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.QuotaFlags)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetQuotaFlags)(::windows_core::Interface::as_raw(self), quotaflags).ok()
@@ -4483,7 +4483,7 @@ impl IFsrmQuotaTemplate {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Thresholds(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Thresholds)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Thresholds)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn AddThreshold(&self, threshold: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.AddThreshold)(::windows_core::Interface::as_raw(self), threshold).ok()
@@ -4497,16 +4497,16 @@ impl IFsrmQuotaTemplate {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows_core::Result<IFsrmAction> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CreateThresholdAction)(::windows_core::Interface::as_raw(self), threshold, actiontype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CreateThresholdAction)(::windows_core::Interface::as_raw(self), threshold, actiontype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EnumThresholdActions)(::windows_core::Interface::as_raw(self), threshold, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EnumThresholdActions)(::windows_core::Interface::as_raw(self), threshold, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -4523,7 +4523,7 @@ impl IFsrmQuotaTemplate {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows_core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CommitAndUpdateDerived)(::windows_core::Interface::as_raw(self), commitoptions, applyoptions, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CommitAndUpdateDerived)(::windows_core::Interface::as_raw(self), commitoptions, applyoptions, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4547,11 +4547,11 @@ pub struct IFsrmQuotaTemplate_Vtbl {
 impl IFsrmQuotaTemplateImported {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -4567,7 +4567,7 @@ impl IFsrmQuotaTemplateImported {
     }
     pub unsafe fn QuotaLimit(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.QuotaLimit)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.QuotaLimit)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetQuotaLimit<P0>(&self, quotalimit: P0) -> ::windows_core::Result<()>
     where
@@ -4577,7 +4577,7 @@ impl IFsrmQuotaTemplateImported {
     }
     pub unsafe fn QuotaFlags(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.QuotaFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.QuotaFlags)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetQuotaFlags)(::windows_core::Interface::as_raw(self), quotaflags).ok()
@@ -4585,7 +4585,7 @@ impl IFsrmQuotaTemplateImported {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Thresholds(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Thresholds)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Thresholds)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn AddThreshold(&self, threshold: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.AddThreshold)(::windows_core::Interface::as_raw(self), threshold).ok()
@@ -4599,16 +4599,16 @@ impl IFsrmQuotaTemplateImported {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows_core::Result<IFsrmAction> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows_core::Interface::as_raw(self), threshold, actiontype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows_core::Interface::as_raw(self), threshold, actiontype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.EnumThresholdActions)(::windows_core::Interface::as_raw(self), threshold, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.EnumThresholdActions)(::windows_core::Interface::as_raw(self), threshold, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -4625,11 +4625,11 @@ impl IFsrmQuotaTemplateImported {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows_core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.CommitAndUpdateDerived)(::windows_core::Interface::as_raw(self), commitoptions, applyoptions, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.CommitAndUpdateDerived)(::windows_core::Interface::as_raw(self), commitoptions, applyoptions, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn OverwriteOnCommit(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OverwriteOnCommit)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OverwriteOnCommit)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetOverwriteOnCommit<P0>(&self, overwrite: P0) -> ::windows_core::Result<()>
     where
@@ -4655,7 +4655,7 @@ impl IFsrmQuotaTemplateManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTemplate(&self) -> ::windows_core::Result<IFsrmQuotaTemplate> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateTemplate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateTemplate)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTemplate<P0>(&self, name: P0) -> ::windows_core::Result<IFsrmQuotaTemplate>
@@ -4663,16 +4663,16 @@ impl IFsrmQuotaTemplateManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetTemplate)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetTemplate)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumTemplates(&self, options: FsrmEnumOptions) -> ::windows_core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumTemplates)(::windows_core::Interface::as_raw(self), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumTemplates)(::windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ExportTemplates(&self, quotatemplatenamesarray: *const ::windows_core::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ExportTemplates)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(quotatemplatenamesarray), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ExportTemplates)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(quotatemplatenamesarray), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ImportTemplates<P0>(&self, serializedquotatemplates: P0, quotatemplatenamesarray: *const ::windows_core::VARIANT) -> ::windows_core::Result<IFsrmCommittableCollection>
@@ -4680,7 +4680,7 @@ impl IFsrmQuotaTemplateManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ImportTemplates)(::windows_core::Interface::as_raw(self), serializedquotatemplates.into_param().abi(), ::core::mem::transmute(quotatemplatenamesarray), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ImportTemplates)(::windows_core::Interface::as_raw(self), serializedquotatemplates.into_param().abi(), ::core::mem::transmute(quotatemplatenamesarray), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4714,11 +4714,11 @@ pub struct IFsrmQuotaTemplateManager_Vtbl {
 impl IFsrmReport {
     pub unsafe fn Type(&self) -> ::windows_core::Result<FsrmReportType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Type)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -4728,7 +4728,7 @@ impl IFsrmReport {
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -4738,11 +4738,11 @@ impl IFsrmReport {
     }
     pub unsafe fn LastGeneratedFileNamePrefix(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).LastGeneratedFileNamePrefix)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).LastGeneratedFileNamePrefix)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetFilter(&self, filter: FsrmReportFilter) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetFilter)(::windows_core::Interface::as_raw(self), filter, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFilter)(::windows_core::Interface::as_raw(self), filter, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetFilter<P0>(&self, filter: FsrmReportFilter, filtervalue: P0) -> ::windows_core::Result<()>
     where
@@ -4777,11 +4777,11 @@ pub struct IFsrmReport_Vtbl {
 impl IFsrmReportJob {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -4797,7 +4797,7 @@ impl IFsrmReportJob {
     }
     pub unsafe fn Task(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Task)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Task)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetTask<P0>(&self, taskname: P0) -> ::windows_core::Result<()>
     where
@@ -4808,7 +4808,7 @@ impl IFsrmReportJob {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceRoots(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).NamespaceRoots)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).NamespaceRoots)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -4817,7 +4817,7 @@ impl IFsrmReportJob {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Formats(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Formats)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Formats)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -4825,7 +4825,7 @@ impl IFsrmReportJob {
     }
     pub unsafe fn MailTo(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MailTo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MailTo)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMailTo<P0>(&self, mailto: P0) -> ::windows_core::Result<()>
     where
@@ -4835,36 +4835,36 @@ impl IFsrmReportJob {
     }
     pub unsafe fn RunningStatus(&self) -> ::windows_core::Result<FsrmReportRunningStatus> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).RunningStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).RunningStatus)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn LastRun(&self) -> ::windows_core::Result<f64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).LastRun)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).LastRun)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn LastError(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).LastError)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).LastError)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn LastGeneratedInDirectory(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).LastGeneratedInDirectory)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).LastGeneratedInDirectory)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumReports(&self) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumReports)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumReports)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateReport(&self, reporttype: FsrmReportType) -> ::windows_core::Result<IFsrmReport> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateReport)(::windows_core::Interface::as_raw(self), reporttype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateReport)(::windows_core::Interface::as_raw(self), reporttype, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Run(&self, context: FsrmReportGenerationContext) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Run)(::windows_core::Interface::as_raw(self), context).ok()
     }
     pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).WaitForCompletion)(::windows_core::Interface::as_raw(self), waitseconds, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).WaitForCompletion)(::windows_core::Interface::as_raw(self), waitseconds, &mut result__).map(|| result__)
     }
     pub unsafe fn Cancel(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Cancel)(::windows_core::Interface::as_raw(self)).ok()
@@ -4920,12 +4920,12 @@ impl IFsrmReportManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumReportJobs(&self, options: FsrmEnumOptions) -> ::windows_core::Result<IFsrmCollection> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumReportJobs)(::windows_core::Interface::as_raw(self), options, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumReportJobs)(::windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateReportJob(&self) -> ::windows_core::Result<IFsrmReportJob> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateReportJob)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateReportJob)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetReportJob<P0>(&self, taskname: P0) -> ::windows_core::Result<IFsrmReportJob>
@@ -4933,11 +4933,11 @@ impl IFsrmReportManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetReportJob)(::windows_core::Interface::as_raw(self), taskname.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetReportJob)(::windows_core::Interface::as_raw(self), taskname.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetOutputDirectory(&self, context: FsrmReportGenerationContext) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetOutputDirectory)(::windows_core::Interface::as_raw(self), context, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetOutputDirectory)(::windows_core::Interface::as_raw(self), context, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetOutputDirectory<P0>(&self, context: FsrmReportGenerationContext, path: P0) -> ::windows_core::Result<()>
     where
@@ -4947,11 +4947,11 @@ impl IFsrmReportManager {
     }
     pub unsafe fn IsFilterValidForReportType(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).IsFilterValidForReportType)(::windows_core::Interface::as_raw(self), reporttype, filter, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).IsFilterValidForReportType)(::windows_core::Interface::as_raw(self), reporttype, filter, &mut result__).map(|| result__)
     }
     pub unsafe fn GetDefaultFilter(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetDefaultFilter)(::windows_core::Interface::as_raw(self), reporttype, filter, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetDefaultFilter)(::windows_core::Interface::as_raw(self), reporttype, filter, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDefaultFilter<P0>(&self, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: P0) -> ::windows_core::Result<()>
     where
@@ -4961,7 +4961,7 @@ impl IFsrmReportManager {
     }
     pub unsafe fn GetReportSizeLimit(&self, limit: FsrmReportLimit) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetReportSizeLimit)(::windows_core::Interface::as_raw(self), limit, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetReportSizeLimit)(::windows_core::Interface::as_raw(self), limit, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetReportSizeLimit<P0>(&self, limit: FsrmReportLimit, limitvalue: P0) -> ::windows_core::Result<()>
     where
@@ -5043,11 +5043,11 @@ pub struct IFsrmReportScheduler_Vtbl {
 impl IFsrmRule {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -5063,7 +5063,7 @@ impl IFsrmRule {
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -5073,11 +5073,11 @@ impl IFsrmRule {
     }
     pub unsafe fn RuleType(&self) -> ::windows_core::Result<FsrmRuleType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).RuleType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).RuleType)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn ModuleDefinitionName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ModuleDefinitionName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ModuleDefinitionName)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetModuleDefinitionName<P0>(&self, moduledefinitionname: P0) -> ::windows_core::Result<()>
     where
@@ -5088,7 +5088,7 @@ impl IFsrmRule {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceRoots(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).NamespaceRoots)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).NamespaceRoots)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -5096,7 +5096,7 @@ impl IFsrmRule {
     }
     pub unsafe fn RuleFlags(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).RuleFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).RuleFlags)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetRuleFlags(&self, ruleflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetRuleFlags)(::windows_core::Interface::as_raw(self), ruleflags).ok()
@@ -5104,7 +5104,7 @@ impl IFsrmRule {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parameters(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Parameters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Parameters)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -5112,7 +5112,7 @@ impl IFsrmRule {
     }
     pub unsafe fn LastModified(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).LastModified)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).LastModified)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5153,7 +5153,7 @@ pub struct IFsrmRule_Vtbl {
 impl IFsrmSetting {
     pub unsafe fn SmtpServer(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).SmtpServer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).SmtpServer)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetSmtpServer<P0>(&self, smtpserver: P0) -> ::windows_core::Result<()>
     where
@@ -5163,7 +5163,7 @@ impl IFsrmSetting {
     }
     pub unsafe fn MailFrom(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MailFrom)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MailFrom)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetMailFrom<P0>(&self, mailfrom: P0) -> ::windows_core::Result<()>
     where
@@ -5173,7 +5173,7 @@ impl IFsrmSetting {
     }
     pub unsafe fn AdminEmail(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).AdminEmail)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).AdminEmail)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetAdminEmail<P0>(&self, adminemail: P0) -> ::windows_core::Result<()>
     where
@@ -5183,7 +5183,7 @@ impl IFsrmSetting {
     }
     pub unsafe fn DisableCommandLine(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).DisableCommandLine)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).DisableCommandLine)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetDisableCommandLine<P0>(&self, disablecommandline: P0) -> ::windows_core::Result<()>
     where
@@ -5193,7 +5193,7 @@ impl IFsrmSetting {
     }
     pub unsafe fn EnableScreeningAudit(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnableScreeningAudit)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnableScreeningAudit)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetEnableScreeningAudit<P0>(&self, enablescreeningaudit: P0) -> ::windows_core::Result<()>
     where
@@ -5212,7 +5212,7 @@ impl IFsrmSetting {
     }
     pub unsafe fn GetActionRunLimitInterval(&self, actiontype: FsrmActionType) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetActionRunLimitInterval)(::windows_core::Interface::as_raw(self), actiontype, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetActionRunLimitInterval)(::windows_core::Interface::as_raw(self), actiontype, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5242,11 +5242,11 @@ pub struct IFsrmSetting_Vtbl {
 impl IFsrmStorageModuleDefinition {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Id)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Description(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.Description)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetDescription<P0>(&self, description: P0) -> ::windows_core::Result<()>
     where
@@ -5262,7 +5262,7 @@ impl IFsrmStorageModuleDefinition {
     }
     pub unsafe fn ModuleClsid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ModuleClsid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ModuleClsid)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetModuleClsid<P0>(&self, moduleclsid: P0) -> ::windows_core::Result<()>
     where
@@ -5272,7 +5272,7 @@ impl IFsrmStorageModuleDefinition {
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Name)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -5282,7 +5282,7 @@ impl IFsrmStorageModuleDefinition {
     }
     pub unsafe fn Company(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Company)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Company)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetCompany<P0>(&self, company: P0) -> ::windows_core::Result<()>
     where
@@ -5292,7 +5292,7 @@ impl IFsrmStorageModuleDefinition {
     }
     pub unsafe fn Version(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Version)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Version)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetVersion<P0>(&self, version: P0) -> ::windows_core::Result<()>
     where
@@ -5302,11 +5302,11 @@ impl IFsrmStorageModuleDefinition {
     }
     pub unsafe fn ModuleType(&self) -> ::windows_core::Result<FsrmPipelineModuleType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.ModuleType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.ModuleType)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Enabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Enabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Enabled)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetEnabled<P0>(&self, enabled: P0) -> ::windows_core::Result<()>
     where
@@ -5316,7 +5316,7 @@ impl IFsrmStorageModuleDefinition {
     }
     pub unsafe fn NeedsFileContent(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.NeedsFileContent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.NeedsFileContent)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetNeedsFileContent<P0>(&self, needsfilecontent: P0) -> ::windows_core::Result<()>
     where
@@ -5326,7 +5326,7 @@ impl IFsrmStorageModuleDefinition {
     }
     pub unsafe fn Account(&self) -> ::windows_core::Result<FsrmAccountType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Account)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Account)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAccount(&self, retrievalaccount: FsrmAccountType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetAccount)(::windows_core::Interface::as_raw(self), retrievalaccount).ok()
@@ -5334,7 +5334,7 @@ impl IFsrmStorageModuleDefinition {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedExtensions(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.SupportedExtensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.SupportedExtensions)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSupportedExtensions(&self, supportedextensions: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -5343,7 +5343,7 @@ impl IFsrmStorageModuleDefinition {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parameters(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Parameters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Parameters)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
@@ -5351,21 +5351,21 @@ impl IFsrmStorageModuleDefinition {
     }
     pub unsafe fn Capabilities(&self) -> ::windows_core::Result<FsrmStorageModuleCaps> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Capabilities)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Capabilities)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetCapabilities(&self, capabilities: FsrmStorageModuleCaps) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCapabilities)(::windows_core::Interface::as_raw(self), capabilities).ok()
     }
     pub unsafe fn StorageType(&self) -> ::windows_core::Result<FsrmStorageModuleType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).StorageType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).StorageType)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetStorageType(&self, storagetype: FsrmStorageModuleType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetStorageType)(::windows_core::Interface::as_raw(self), storagetype).ok()
     }
     pub unsafe fn UpdatesFileContent(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).UpdatesFileContent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).UpdatesFileContent)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetUpdatesFileContent<P0>(&self, updatesfilecontent: P0) -> ::windows_core::Result<()>
     where
@@ -5398,7 +5398,7 @@ impl IFsrmStorageModuleImplementation {
         P0: ::windows_core::IntoParam<IFsrmPipelineModuleDefinition>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.OnLoad)(::windows_core::Interface::as_raw(self), moduledefinition.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.OnLoad)(::windows_core::Interface::as_raw(self), moduledefinition.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn OnUnload(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.OnUnload)(::windows_core::Interface::as_raw(self)).ok()

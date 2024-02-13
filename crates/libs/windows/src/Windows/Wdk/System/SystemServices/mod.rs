@@ -842,7 +842,7 @@ pub unsafe fn ExInitializePushLock() -> usize {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn ExInitializePushLock(pushlock : *mut usize));
     let mut result__ = ::std::mem::zeroed();
     ExInitializePushLock(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -855,7 +855,7 @@ pub unsafe fn ExInitializeRundownProtection() -> EX_RUNDOWN_REF {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn ExInitializeRundownProtection(runref : *mut EX_RUNDOWN_REF));
     let mut result__ = ::std::mem::zeroed();
     ExInitializeRundownProtection(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
@@ -924,7 +924,7 @@ pub unsafe fn ExLocalTimeToSystemTime(localtime: *const i64) -> i64 {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn ExLocalTimeToSystemTime(localtime : *const i64, systemtime : *mut i64));
     let mut result__ = ::std::mem::zeroed();
     ExLocalTimeToSystemTime(localtime, &mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn ExNotifyCallback(callbackobject: *const ::core::ffi::c_void, argument1: ::core::option::Option<*const ::core::ffi::c_void>, argument2: ::core::option::Option<*const ::core::ffi::c_void>) {
@@ -1082,7 +1082,7 @@ pub unsafe fn ExRundownCompleted() -> EX_RUNDOWN_REF {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn ExRundownCompleted(runref : *mut EX_RUNDOWN_REF));
     let mut result__ = ::std::mem::zeroed();
     ExRundownCompleted(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
@@ -1153,7 +1153,7 @@ pub unsafe fn ExSystemTimeToLocalTime(systemtime: *const i64) -> i64 {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn ExSystemTimeToLocalTime(systemtime : *const i64, localtime : *mut i64));
     let mut result__ = ::std::mem::zeroed();
     ExSystemTimeToLocalTime(systemtime, &mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn ExTryAcquireSpinLockExclusiveAtDpcLevel(spinlock: *mut i32) -> u32 {
@@ -1355,7 +1355,7 @@ pub unsafe fn IoAcquireCancelSpinLock() -> u8 {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn IoAcquireCancelSpinLock(irql : *mut u8));
     let mut result__ = ::std::mem::zeroed();
     IoAcquireCancelSpinLock(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_Storage_FileSystem", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
@@ -3138,7 +3138,7 @@ pub unsafe fn KeInitializeSpinLock() -> usize {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn KeInitializeSpinLock(spinlock : *mut usize));
     let mut result__ = ::std::mem::zeroed();
     KeInitializeSpinLock(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -3342,7 +3342,7 @@ pub unsafe fn KeQuerySystemTimePrecise() -> i64 {
     ::windows_targets::link!("ntoskrnl.exe" "system" fn KeQuerySystemTimePrecise(currenttime : *mut i64));
     let mut result__ = ::std::mem::zeroed();
     KeQuerySystemTimePrecise(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn KeQueryTimeIncrement() -> u32 {
@@ -6299,7 +6299,7 @@ pub unsafe fn RtlRunOnceInitialize() -> super::super::super::Win32::System::Thre
     ::windows_targets::link!("ntdll.dll" "system" fn RtlRunOnceInitialize(runonce : *mut super::super::super::Win32::System::Threading:: INIT_ONCE));
     let mut result__ = ::std::mem::zeroed();
     RtlRunOnceInitialize(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn RtlSetAllBits(bitmapheader: *const RTL_BITMAP) {
@@ -6384,7 +6384,7 @@ pub unsafe fn RtlTimeToTimeFields(time: *const i64) -> TIME_FIELDS {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlTimeToTimeFields(time : *const i64, timefields : *mut TIME_FIELDS));
     let mut result__ = ::std::mem::zeroed();
     RtlTimeToTimeFields(time, &mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
@@ -6546,7 +6546,7 @@ pub unsafe fn SeCaptureSubjectContext() -> super::super::Foundation::SECURITY_SU
     ::windows_targets::link!("ntoskrnl.exe" "system" fn SeCaptureSubjectContext(subjectcontext : *mut super::super::Foundation:: SECURITY_SUBJECT_CONTEXT));
     let mut result__ = ::std::mem::zeroed();
     SeCaptureSubjectContext(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -6671,7 +6671,7 @@ pub unsafe fn TmGetTransactionId(transaction: *const super::super::Foundation::K
     ::windows_targets::link!("ntoskrnl.exe" "system" fn TmGetTransactionId(transaction : *const super::super::Foundation:: KTRANSACTION, transactionid : *mut ::windows_core::GUID));
     let mut result__ = ::std::mem::zeroed();
     TmGetTransactionId(transaction, &mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn TmInitializeTransactionManager(transactionmanager: *const isize, logfilename: ::core::option::Option<*const super::super::super::Win32::Foundation::UNICODE_STRING>, tmid: ::core::option::Option<*const ::windows_core::GUID>, createoptions: u32) -> super::super::super::Win32::Foundation::NTSTATUS {

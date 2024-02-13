@@ -3,11 +3,11 @@
 impl IItemEnumerator {
     pub unsafe fn Current(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Current)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Current)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn MoveNext(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).MoveNext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).MoveNext)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
@@ -39,18 +39,18 @@ impl ISettingsContext {
         P1: ::windows_core::IntoParam<ITargetInfo>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Deserialize)(::windows_core::Interface::as_raw(self), pstream.into_param().abi(), ptarget.into_param().abi(), pppresults, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Deserialize)(::windows_core::Interface::as_raw(self), pstream.into_param().abi(), ptarget.into_param().abi(), pppresults, &mut result__).map(|| result__)
     }
     pub unsafe fn SetUserData(&self, puserdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetUserData)(::windows_core::Interface::as_raw(self), puserdata).ok()
     }
     pub unsafe fn GetUserData(&self) -> ::windows_core::Result<*mut ::core::ffi::c_void> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetUserData)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetUserData)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetNamespaces(&self) -> ::windows_core::Result<IItemEnumerator> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetNamespaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetNamespaces)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetStoredSettings<P0>(&self, pidentity: P0, ppaddedsettings: *mut ::core::option::Option<IItemEnumerator>, ppmodifiedsettings: *mut ::core::option::Option<IItemEnumerator>, ppdeletedsettings: *mut ::core::option::Option<IItemEnumerator>) -> ::windows_core::Result<()>
     where
@@ -89,26 +89,26 @@ pub struct ISettingsContext_Vtbl {
 impl ISettingsEngine {
     pub unsafe fn GetNamespaces(&self, flags: WcmNamespaceEnumerationFlags, reserved: *const ::core::ffi::c_void) -> ::windows_core::Result<IItemEnumerator> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetNamespaces)(::windows_core::Interface::as_raw(self), flags, reserved, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetNamespaces)(::windows_core::Interface::as_raw(self), flags, reserved, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetNamespace<P0>(&self, settingsid: P0, access: WcmNamespaceAccess, reserved: *const ::core::ffi::c_void) -> ::windows_core::Result<ISettingsNamespace>
     where
         P0: ::windows_core::IntoParam<ISettingsIdentity>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetNamespace)(::windows_core::Interface::as_raw(self), settingsid.into_param().abi(), access, reserved, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetNamespace)(::windows_core::Interface::as_raw(self), settingsid.into_param().abi(), access, reserved, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetErrorDescription(&self, hresult: i32) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetErrorDescription)(::windows_core::Interface::as_raw(self), hresult, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetErrorDescription)(::windows_core::Interface::as_raw(self), hresult, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSettingsIdentity(&self) -> ::windows_core::Result<ISettingsIdentity> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateSettingsIdentity)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateSettingsIdentity)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetStoreStatus(&self, reserved: *const ::core::ffi::c_void) -> ::windows_core::Result<WcmUserStatus> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetStoreStatus)(::windows_core::Interface::as_raw(self), reserved, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetStoreStatus)(::windows_core::Interface::as_raw(self), reserved, &mut result__).map(|| result__)
     }
     pub unsafe fn LoadStore(&self, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LoadStore)(::windows_core::Interface::as_raw(self), flags).ok()
@@ -124,7 +124,7 @@ impl ISettingsEngine {
         P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).RegisterNamespace)(::windows_core::Interface::as_raw(self), settingsid.into_param().abi(), stream.into_param().abi(), pushsettings.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).RegisterNamespace)(::windows_core::Interface::as_raw(self), settingsid.into_param().abi(), stream.into_param().abi(), pushsettings.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn UnregisterNamespace<P0, P1>(&self, settingsid: P0, removesettings: P1) -> ::windows_core::Result<()>
     where
@@ -135,11 +135,11 @@ impl ISettingsEngine {
     }
     pub unsafe fn CreateTargetInfo(&self) -> ::windows_core::Result<ITargetInfo> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateTargetInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateTargetInfo)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetTargetInfo(&self) -> ::windows_core::Result<ITargetInfo> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetTargetInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetTargetInfo)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetTargetInfo<P0>(&self, target: P0) -> ::windows_core::Result<()>
     where
@@ -149,7 +149,7 @@ impl ISettingsEngine {
     }
     pub unsafe fn CreateSettingsContext(&self, flags: u32, reserved: *const ::core::ffi::c_void) -> ::windows_core::Result<ISettingsContext> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateSettingsContext)(::windows_core::Interface::as_raw(self), flags, reserved, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateSettingsContext)(::windows_core::Interface::as_raw(self), flags, reserved, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetSettingsContext<P0>(&self, settingscontext: P0) -> ::windows_core::Result<()>
     where
@@ -162,11 +162,11 @@ impl ISettingsEngine {
         P0: ::windows_core::IntoParam<ISettingsContext>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ApplySettingsContext)(::windows_core::Interface::as_raw(self), settingscontext.into_param().abi(), pppwzidentities, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ApplySettingsContext)(::windows_core::Interface::as_raw(self), settingscontext.into_param().abi(), pppwzidentities, &mut result__).map(|| result__)
     }
     pub unsafe fn GetSettingsContext(&self) -> ::windows_core::Result<ISettingsContext> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSettingsContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetSettingsContext)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -201,7 +201,7 @@ impl ISettingsIdentity {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetAttribute)(::windows_core::Interface::as_raw(self), reserved, name.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetAttribute)(::windows_core::Interface::as_raw(self), reserved, name.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetAttribute<P0, P1>(&self, reserved: *const ::core::ffi::c_void, name: P0, value: P1) -> ::windows_core::Result<()>
     where
@@ -212,7 +212,7 @@ impl ISettingsIdentity {
     }
     pub unsafe fn GetFlags(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFlags)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetFlags(&self, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFlags)(::windows_core::Interface::as_raw(self), flags).ok()
@@ -232,58 +232,58 @@ pub struct ISettingsIdentity_Vtbl {
 impl ISettingsItem {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetValue(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetValue(&self, value: *const ::windows_core::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValue)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     pub unsafe fn GetSettingType(&self) -> ::windows_core::Result<WcmSettingType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSettingType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetSettingType)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDataType(&self) -> ::windows_core::Result<WcmDataType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetDataType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetDataType)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetValueRaw(&self, data: *mut *mut u8) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetValueRaw)(::windows_core::Interface::as_raw(self), data, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetValueRaw)(::windows_core::Interface::as_raw(self), data, &mut result__).map(|| result__)
     }
     pub unsafe fn SetValueRaw(&self, datatype: i32, data: &[u8]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValueRaw)(::windows_core::Interface::as_raw(self), datatype, ::core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()).ok()
     }
     pub unsafe fn HasChild(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).HasChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).HasChild)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Children(&self) -> ::windows_core::Result<IItemEnumerator> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Children)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Children)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetChild<P0>(&self, name: P0) -> ::windows_core::Result<ISettingsItem>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetChild)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetChild)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSettingByPath<P0>(&self, path: P0) -> ::windows_core::Result<ISettingsItem>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSettingByPath)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetSettingByPath)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSettingByPath<P0>(&self, path: P0) -> ::windows_core::Result<ISettingsItem>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateSettingByPath)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateSettingByPath)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RemoveSettingByPath<P0>(&self, path: P0) -> ::windows_core::Result<()>
     where
@@ -293,11 +293,11 @@ impl ISettingsItem {
     }
     pub unsafe fn GetListKeyInformation(&self, keyname: *mut ::windows_core::BSTR) -> ::windows_core::Result<WcmDataType> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetListKeyInformation)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(keyname), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetListKeyInformation)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(keyname), &mut result__).map(|| result__)
     }
     pub unsafe fn CreateListElement(&self, keydata: *const ::windows_core::VARIANT) -> ::windows_core::Result<ISettingsItem> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateListElement)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(keydata), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateListElement)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(keydata), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RemoveListElement<P0>(&self, elementname: P0) -> ::windows_core::Result<()>
     where
@@ -307,30 +307,30 @@ impl ISettingsItem {
     }
     pub unsafe fn Attributes(&self) -> ::windows_core::Result<IItemEnumerator> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Attributes)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetAttribute<P0>(&self, name: P0) -> ::windows_core::Result<::windows_core::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetAttribute)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetAttribute)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetPath(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetPath)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetPath)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRestrictionFacets(&self) -> ::windows_core::Result<WcmRestrictionFacets> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetRestrictionFacets)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetRestrictionFacets)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRestriction(&self, restrictionfacet: WcmRestrictionFacets) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetRestriction)(::windows_core::Interface::as_raw(self), restrictionfacet, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetRestriction)(::windows_core::Interface::as_raw(self), restrictionfacet, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetKeyValue(&self) -> ::windows_core::Result<::windows_core::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetKeyValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetKeyValue)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -365,32 +365,32 @@ pub struct ISettingsItem_Vtbl {
 impl ISettingsNamespace {
     pub unsafe fn GetIdentity(&self) -> ::windows_core::Result<ISettingsIdentity> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetIdentity)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetIdentity)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Settings(&self) -> ::windows_core::Result<IItemEnumerator> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Settings)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Settings)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Save<P0>(&self, pushsettings: P0) -> ::windows_core::Result<ISettingsResult>
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Save)(::windows_core::Interface::as_raw(self), pushsettings.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Save)(::windows_core::Interface::as_raw(self), pushsettings.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetSettingByPath<P0>(&self, path: P0) -> ::windows_core::Result<ISettingsItem>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSettingByPath)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetSettingByPath)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateSettingByPath<P0>(&self, path: P0) -> ::windows_core::Result<ISettingsItem>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateSettingByPath)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateSettingByPath)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RemoveSettingByPath<P0>(&self, path: P0) -> ::windows_core::Result<()>
     where
@@ -403,7 +403,7 @@ impl ISettingsNamespace {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetAttribute)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetAttribute)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -423,27 +423,27 @@ pub struct ISettingsNamespace_Vtbl {
 impl ISettingsResult {
     pub unsafe fn GetDescription(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetDescription)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetErrorCode(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetErrorCode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetErrorCode)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetContextDescription(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetContextDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetContextDescription)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetLine(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetLine)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetLine)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetColumn(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetColumn)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetColumn)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetSource(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSource)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetSource)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -462,14 +462,14 @@ pub struct ISettingsResult_Vtbl {
 impl ITargetInfo {
     pub unsafe fn GetTargetMode(&self) -> ::windows_core::Result<WcmTargetMode> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetTargetMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetTargetMode)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetTargetMode(&self, targetmode: WcmTargetMode) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetTargetMode)(::windows_core::Interface::as_raw(self), targetmode).ok()
     }
     pub unsafe fn GetTemporaryStoreLocation(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetTemporaryStoreLocation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetTemporaryStoreLocation)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetTemporaryStoreLocation<P0>(&self, temporarystorelocation: P0) -> ::windows_core::Result<()>
     where
@@ -479,14 +479,14 @@ impl ITargetInfo {
     }
     pub unsafe fn GetTargetID(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetTargetID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetTargetID)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetTargetID(&self, targetid: ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetTargetID)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(targetid)).ok()
     }
     pub unsafe fn GetTargetProcessorArchitecture(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetTargetProcessorArchitecture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetTargetProcessorArchitecture)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetTargetProcessorArchitecture<P0>(&self, processorarchitecture: P0) -> ::windows_core::Result<()>
     where
@@ -500,7 +500,7 @@ impl ITargetInfo {
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), offline.into_param().abi(), property.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), offline.into_param().abi(), property.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetProperty<P0, P1, P2>(&self, offline: P0, property: P1, value: P2) -> ::windows_core::Result<()>
     where
@@ -512,7 +512,7 @@ impl ITargetInfo {
     }
     pub unsafe fn GetEnumerator(&self) -> ::windows_core::Result<IItemEnumerator> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetEnumerator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetEnumerator)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ExpandTarget<P0, P1>(&self, offline: P0, location: P1) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -520,7 +520,7 @@ impl ITargetInfo {
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ExpandTarget)(::windows_core::Interface::as_raw(self), offline.into_param().abi(), location.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ExpandTarget)(::windows_core::Interface::as_raw(self), offline.into_param().abi(), location.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn ExpandTargetPath<P0, P1>(&self, offline: P0, location: P1) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -528,7 +528,7 @@ impl ITargetInfo {
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).ExpandTargetPath)(::windows_core::Interface::as_raw(self), offline.into_param().abi(), location.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).ExpandTargetPath)(::windows_core::Interface::as_raw(self), offline.into_param().abi(), location.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetModulePath<P0, P1>(&self, module: P0, path: P1) -> ::windows_core::Result<()>
     where
@@ -542,7 +542,7 @@ impl ITargetInfo {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).LoadModule)(::windows_core::Interface::as_raw(self), module.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).LoadModule)(::windows_core::Interface::as_raw(self), module.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn SetWow64Context<P0>(&self, installermodule: P0, wow64context: *const u8) -> ::windows_core::Result<()>
     where
@@ -556,7 +556,7 @@ impl ITargetInfo {
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).TranslateWow64)(::windows_core::Interface::as_raw(self), clientarchitecture.into_param().abi(), value.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).TranslateWow64)(::windows_core::Interface::as_raw(self), clientarchitecture.into_param().abi(), value.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetSchemaHiveLocation<P0>(&self, pwzhivedir: P0) -> ::windows_core::Result<()>
     where
@@ -566,7 +566,7 @@ impl ITargetInfo {
     }
     pub unsafe fn GetSchemaHiveLocation(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSchemaHiveLocation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetSchemaHiveLocation)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetSchemaHiveMountName<P0>(&self, pwzmountname: P0) -> ::windows_core::Result<()>
     where
@@ -576,7 +576,7 @@ impl ITargetInfo {
     }
     pub unsafe fn GetSchemaHiveMountName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSchemaHiveMountName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetSchemaHiveMountName)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

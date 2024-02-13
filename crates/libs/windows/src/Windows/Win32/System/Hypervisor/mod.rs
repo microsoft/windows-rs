@@ -347,7 +347,7 @@ where
 {
     ::windows_targets::link!("winhvplatform.dll" "system" fn WHvAcceptPartitionMigration(migrationhandle : super::super::Foundation:: HANDLE, partition : *mut WHV_PARTITION_HANDLE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WHvAcceptPartitionMigration(migrationhandle.into_param().abi(), &mut result__).from_abi(result__)
+    WHvAcceptPartitionMigration(migrationhandle.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WHvAdviseGpaRange<P0>(partition: P0, gparanges: &[WHV_MEMORY_RANGE_ENTRY], advice: WHV_ADVISE_GPA_RANGE_CODE, advicebuffer: *const ::core::ffi::c_void, advicebuffersizeinbytes: u32) -> ::windows_core::Result<()>
@@ -361,7 +361,7 @@ where
 pub unsafe fn WHvAllocateVpciResource(providerid: ::core::option::Option<*const ::windows_core::GUID>, flags: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: ::core::option::Option<&[u8]>) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
     ::windows_targets::link!("winhvplatform.dll" "system" fn WHvAllocateVpciResource(providerid : *const ::windows_core::GUID, flags : WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor : *const ::core::ffi::c_void, resourcedescriptorsizeinbytes : u32, vpciresource : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WHvAllocateVpciResource(::core::mem::transmute(providerid.unwrap_or(::std::ptr::null())), flags, ::core::mem::transmute(resourcedescriptor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), resourcedescriptor.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).from_abi(result__)
+    WHvAllocateVpciResource(::core::mem::transmute(providerid.unwrap_or(::std::ptr::null())), flags, ::core::mem::transmute(resourcedescriptor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), resourcedescriptor.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WHvCancelPartitionMigration<P0>(partition: P0) -> ::windows_core::Result<()>
@@ -400,7 +400,7 @@ where
 pub unsafe fn WHvCreatePartition() -> ::windows_core::Result<WHV_PARTITION_HANDLE> {
     ::windows_targets::link!("winhvplatform.dll" "system" fn WHvCreatePartition(partition : *mut WHV_PARTITION_HANDLE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WHvCreatePartition(&mut result__).from_abi(result__)
+    WHvCreatePartition(&mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WHvCreateTrigger<P0>(partition: P0, parameters: *const WHV_TRIGGER_PARAMETERS, triggerhandle: *mut *mut ::core::ffi::c_void, eventhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()>
@@ -490,13 +490,13 @@ pub unsafe fn WHvEmulatorDestroyEmulator(emulator: *const ::core::ffi::c_void) -
 pub unsafe fn WHvEmulatorTryIoEmulation(emulator: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, vpcontext: *const WHV_VP_EXIT_CONTEXT, ioinstructioncontext: *const WHV_X64_IO_PORT_ACCESS_CONTEXT) -> ::windows_core::Result<WHV_EMULATOR_STATUS> {
     ::windows_targets::link!("winhvemulation.dll" "system" fn WHvEmulatorTryIoEmulation(emulator : *const ::core::ffi::c_void, context : *const ::core::ffi::c_void, vpcontext : *const WHV_VP_EXIT_CONTEXT, ioinstructioncontext : *const WHV_X64_IO_PORT_ACCESS_CONTEXT, emulatorreturnstatus : *mut WHV_EMULATOR_STATUS) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WHvEmulatorTryIoEmulation(emulator, context, vpcontext, ioinstructioncontext, &mut result__).from_abi(result__)
+    WHvEmulatorTryIoEmulation(emulator, context, vpcontext, ioinstructioncontext, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WHvEmulatorTryMmioEmulation(emulator: *const ::core::ffi::c_void, context: *const ::core::ffi::c_void, vpcontext: *const WHV_VP_EXIT_CONTEXT, mmioinstructioncontext: *const WHV_MEMORY_ACCESS_CONTEXT) -> ::windows_core::Result<WHV_EMULATOR_STATUS> {
     ::windows_targets::link!("winhvemulation.dll" "system" fn WHvEmulatorTryMmioEmulation(emulator : *const ::core::ffi::c_void, context : *const ::core::ffi::c_void, vpcontext : *const WHV_VP_EXIT_CONTEXT, mmioinstructioncontext : *const WHV_MEMORY_ACCESS_CONTEXT, emulatorreturnstatus : *mut WHV_EMULATOR_STATUS) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WHvEmulatorTryMmioEmulation(emulator, context, vpcontext, mmioinstructioncontext, &mut result__).from_abi(result__)
+    WHvEmulatorTryMmioEmulation(emulator, context, vpcontext, mmioinstructioncontext, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WHvGetCapability(capabilitycode: WHV_CAPABILITY_CODE, capabilitybuffer: *mut ::core::ffi::c_void, capabilitybuffersizeinbytes: u32, writtensizeinbytes: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -542,7 +542,7 @@ where
 {
     ::windows_targets::link!("winhvplatform.dll" "system" fn WHvGetVirtualProcessorCpuidOutput(partition : WHV_PARTITION_HANDLE, vpindex : u32, eax : u32, ecx : u32, cpuidoutput : *mut WHV_CPUID_OUTPUT) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WHvGetVirtualProcessorCpuidOutput(partition.into_param().abi(), vpindex, eax, ecx, &mut result__).from_abi(result__)
+    WHvGetVirtualProcessorCpuidOutput(partition.into_param().abi(), vpindex, eax, ecx, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WHvGetVirtualProcessorInterruptControllerState<P0>(partition: P0, vpindex: u32, state: *mut ::core::ffi::c_void, statesize: u32, writtensize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -818,7 +818,7 @@ where
 {
     ::windows_targets::link!("winhvplatform.dll" "system" fn WHvStartPartitionMigration(partition : WHV_PARTITION_HANDLE, migrationhandle : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WHvStartPartitionMigration(partition.into_param().abi(), &mut result__).from_abi(result__)
+    WHvStartPartitionMigration(partition.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WHvSuspendPartitionTime<P0>(partition: P0) -> ::windows_core::Result<()>

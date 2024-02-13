@@ -486,7 +486,7 @@ where
 pub unsafe fn CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_FLAGS, submissionqueuesize: u32, completionqueuesize: u32) -> ::windows_core::Result<HIORING> {
     ::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn CreateIoRing(ioringversion : IORING_VERSION, flags : IORING_CREATE_FLAGS, submissionqueuesize : u32, completionqueuesize : u32, h : *mut HIORING) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    CreateIoRing(ioringversion, ::core::mem::transmute(flags), submissionqueuesize, completionqueuesize, &mut result__).from_abi(result__)
+    CreateIoRing(ioringversion, ::core::mem::transmute(flags), submissionqueuesize, completionqueuesize, &mut result__).map(|| result__)
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -2262,7 +2262,7 @@ where
 {
     ::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn PopIoRingCompletion(ioring : HIORING, cqe : *mut IORING_CQE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    PopIoRingCompletion(ioring.into_param().abi(), &mut result__).from_abi(result__)
+    PopIoRingCompletion(ioring.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn PrePrepareComplete<P0>(enlistmenthandle: P0, tmvirtualclock: *mut i64) -> ::windows_core::Result<()>
@@ -2333,7 +2333,7 @@ where
 pub unsafe fn QueryIoRingCapabilities() -> ::windows_core::Result<IORING_CAPABILITIES> {
     ::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn QueryIoRingCapabilities(capabilities : *mut IORING_CAPABILITIES) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    QueryIoRingCapabilities(&mut result__).from_abi(result__)
+    QueryIoRingCapabilities(&mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn QueryLogPolicy<P0>(hlog: P0, epolicytype: CLFS_MGMT_POLICY_TYPE, ppolicybuffer: *mut CLFS_MGMT_POLICY, pcbpolicybuffer: *mut u32) -> ::windows_core::Result<()>
@@ -3029,7 +3029,7 @@ pub unsafe fn TxfGetThreadMiniVersionForCreate() -> u16 {
     ::windows_targets::link!("txfw32.dll" "system" fn TxfGetThreadMiniVersionForCreate(miniversion : *mut u16));
     let mut result__ = ::std::mem::zeroed();
     TxfGetThreadMiniVersionForCreate(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn TxfLogCreateFileReadContext<P0>(logpath: P0, beginninglsn: CLS_LSN, endinglsn: CLS_LSN, txffileid: *const TXF_ID, txflogcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -3199,7 +3199,7 @@ where
 {
     ::windows_targets::link!("wofutil.dll" "system" fn WofGetDriverVersion(fileorvolumehandle : super::super::Foundation:: HANDLE, provider : u32, wofversion : *mut u32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WofGetDriverVersion(fileorvolumehandle.into_param().abi(), provider, &mut result__).from_abi(result__)
+    WofGetDriverVersion(fileorvolumehandle.into_param().abi(), provider, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WofIsExternalFile<P0>(filepath: P0, isexternalfile: ::core::option::Option<*mut super::super::Foundation::BOOL>, provider: ::core::option::Option<*mut u32>, externalfileinfo: ::core::option::Option<*mut ::core::ffi::c_void>, bufferlength: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -3233,7 +3233,7 @@ where
 {
     ::windows_targets::link!("wofutil.dll" "system" fn WofWimAddEntry(volumename : ::windows_core::PCWSTR, wimpath : ::windows_core::PCWSTR, wimtype : u32, wimindex : u32, datasourceid : *mut i64) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    WofWimAddEntry(volumename.into_param().abi(), wimpath.into_param().abi(), wimtype, wimindex, &mut result__).from_abi(result__)
+    WofWimAddEntry(volumename.into_param().abi(), wimpath.into_param().abi(), wimtype, wimindex, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WofWimEnumFiles<P0>(volumename: P0, datasourceid: i64, enumproc: WofEnumFilesProc, userdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
@@ -3342,12 +3342,12 @@ impl IDiskQuotaControl {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumConnectionPoints(&self) -> ::windows_core::Result<super::super::System::Com::IEnumConnectionPoints> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EnumConnectionPoints)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EnumConnectionPoints)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindConnectionPoint(&self, riid: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::IConnectionPoint> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.FindConnectionPoint)(::windows_core::Interface::as_raw(self), riid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.FindConnectionPoint)(::windows_core::Interface::as_raw(self), riid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Initialize<P0, P1>(&self, pszpath: P0, breadwrite: P1) -> ::windows_core::Result<()>
     where
@@ -3397,14 +3397,14 @@ impl IDiskQuotaControl {
         P0: ::windows_core::IntoParam<super::super::Foundation::PSID>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).AddUserSid)(::windows_core::Interface::as_raw(self), pusersid.into_param().abi(), fnameresolution, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).AddUserSid)(::windows_core::Interface::as_raw(self), pusersid.into_param().abi(), fnameresolution, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn AddUserName<P0>(&self, pszlogonname: P0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows_core::Result<IDiskQuotaUser>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).AddUserName)(::windows_core::Interface::as_raw(self), pszlogonname.into_param().abi(), fnameresolution, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).AddUserName)(::windows_core::Interface::as_raw(self), pszlogonname.into_param().abi(), fnameresolution, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn DeleteUser<P0>(&self, puser: P0) -> ::windows_core::Result<()>
     where
@@ -3417,21 +3417,21 @@ impl IDiskQuotaControl {
         P0: ::windows_core::IntoParam<super::super::Foundation::PSID>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).FindUserSid)(::windows_core::Interface::as_raw(self), pusersid.into_param().abi(), fnameresolution, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).FindUserSid)(::windows_core::Interface::as_raw(self), pusersid.into_param().abi(), fnameresolution, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn FindUserName<P0>(&self, pszlogonname: P0) -> ::windows_core::Result<IDiskQuotaUser>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).FindUserName)(::windows_core::Interface::as_raw(self), pszlogonname.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).FindUserName)(::windows_core::Interface::as_raw(self), pszlogonname.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateEnumUsers(&self, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut ::core::option::Option<IEnumDiskQuotaUsers>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateEnumUsers)(::windows_core::Interface::as_raw(self), rgpusersids, cpsids, fnameresolution, ::core::mem::transmute(ppenum)).ok()
     }
     pub unsafe fn CreateUserBatch(&self) -> ::windows_core::Result<IDiskQuotaUserBatch> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateUserBatch)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateUserBatch)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InvalidateSidNameCache(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InvalidateSidNameCache)(::windows_core::Interface::as_raw(self)).ok()
@@ -3623,7 +3623,7 @@ impl IEnumDiskQuotaUsers {
     }
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IEnumDiskQuotaUsers> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]

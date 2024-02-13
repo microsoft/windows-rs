@@ -11,7 +11,7 @@ where
 pub unsafe fn DevCreateObjectQuery(objecttype: DEV_OBJECT_TYPE, queryflags: u32, prequestedproperties: ::core::option::Option<&[super::Properties::DEVPROPCOMPKEY]>, pfilter: ::core::option::Option<&[DEVPROP_FILTER_EXPRESSION]>, pcallback: PDEV_QUERY_RESULT_CALLBACK, pcontext: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<HDEVQUERY> {
     ::windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevCreateObjectQuery(objecttype : DEV_OBJECT_TYPE, queryflags : u32, crequestedproperties : u32, prequestedproperties : *const super::Properties:: DEVPROPCOMPKEY, cfilterexpressioncount : u32, pfilter : *const DEVPROP_FILTER_EXPRESSION, pcallback : PDEV_QUERY_RESULT_CALLBACK, pcontext : *const ::core::ffi::c_void, phdevquery : *mut HDEVQUERY) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    DevCreateObjectQuery(objecttype, queryflags, prequestedproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(prequestedproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pfilter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pfilter.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcallback, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+    DevCreateObjectQuery(objecttype, queryflags, prequestedproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(prequestedproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pfilter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), ::core::mem::transmute(pfilter.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcallback, ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())), &mut result__).map(|| result__)
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
@@ -31,7 +31,7 @@ pub unsafe fn DevCreateObjectQueryEx(objecttype: DEV_OBJECT_TYPE, queryflags: u3
         ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())),
         &mut result__,
     )
-    .from_abi(result__)
+    .map(|| result__)
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
@@ -53,7 +53,7 @@ where
         ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())),
         &mut result__,
     )
-    .from_abi(result__)
+    .map(|| result__)
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
@@ -77,7 +77,7 @@ where
         ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())),
         &mut result__,
     )
-    .from_abi(result__)
+    .map(|| result__)
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
@@ -99,7 +99,7 @@ where
         ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())),
         &mut result__,
     )
-    .from_abi(result__)
+    .map(|| result__)
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
@@ -123,7 +123,7 @@ where
         ::core::mem::transmute(pcontext.unwrap_or(::std::ptr::null())),
         &mut result__,
     )
-    .from_abi(result__)
+    .map(|| result__)
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]

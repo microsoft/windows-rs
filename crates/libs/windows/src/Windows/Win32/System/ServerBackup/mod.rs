@@ -3,7 +3,7 @@
 impl IWsbApplicationAsync {
     pub unsafe fn QueryStatus(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).QueryStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).QueryStatus)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Abort(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Abort)(::windows_core::Interface::as_raw(self)).ok()
@@ -26,7 +26,7 @@ impl IWsbApplicationBackupSupport {
         P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CheckConsistency)(::windows_core::Interface::as_raw(self), wszwritermetadata.into_param().abi(), wszcomponentname.into_param().abi(), wszcomponentlogicalpath.into_param().abi(), cvolumes, rgwszsourcevolumepath, rgwszsnapshotvolumepath, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CheckConsistency)(::windows_core::Interface::as_raw(self), wszwritermetadata.into_param().abi(), wszcomponentname.into_param().abi(), wszcomponentlogicalpath.into_param().abi(), cvolumes, rgwszsourcevolumepath, rgwszsnapshotvolumepath, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -61,7 +61,7 @@ impl IWsbApplicationRestoreSupport {
     }
     pub unsafe fn IsRollForwardSupported(&self) -> ::windows_core::Result<u8> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).IsRollForwardSupported)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).IsRollForwardSupported)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

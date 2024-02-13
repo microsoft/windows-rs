@@ -164,7 +164,7 @@ impl TryFrom<&VARIANT> for PROPVARIANT {
     fn try_from(from: &VARIANT) -> Result<Self> {
         unsafe {
             let mut value = Self::new();
-            HRESULT(imp::VariantToPropVariant(&from.0, &mut value.0)).and_then(|| value)
+            HRESULT(imp::VariantToPropVariant(&from.0, &mut value.0)).map(|| value)
         }
     }
 }
@@ -174,7 +174,7 @@ impl TryFrom<&PROPVARIANT> for VARIANT {
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
         unsafe {
             let mut value = Self::new();
-            HRESULT(imp::PropVariantToVariant(&from.0, &mut value.0)).and_then(|| value)
+            HRESULT(imp::PropVariantToVariant(&from.0, &mut value.0)).map(|| value)
         }
     }
 }
@@ -275,7 +275,7 @@ impl TryFrom<&PROPVARIANT> for BSTR {
     type Error = Error;
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
         let mut value = Self::new();
-        HRESULT(unsafe { imp::PropVariantToBSTR(&from.0, &mut value as *mut _ as *mut _) }).and_then(|| value)
+        HRESULT(unsafe { imp::PropVariantToBSTR(&from.0, &mut value as *mut _ as *mut _) }).map(|| value)
     }
 }
 
@@ -305,7 +305,7 @@ impl TryFrom<&VARIANT> for bool {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
         let mut value = 0;
-        HRESULT(unsafe { imp::VariantToBoolean(&from.0, &mut value) }).and_then(|| value != 0)
+        HRESULT(unsafe { imp::VariantToBoolean(&from.0, &mut value) }).map(|| value != 0)
     }
 }
 
@@ -313,7 +313,7 @@ impl TryFrom<&PROPVARIANT> for bool {
     type Error = Error;
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
         let mut value = 0;
-        HRESULT(unsafe { imp::PropVariantToBoolean(&from.0, &mut value) }).and_then(|| value != 0)
+        HRESULT(unsafe { imp::PropVariantToBoolean(&from.0, &mut value) }).map(|| value != 0)
     }
 }
 
@@ -381,7 +381,7 @@ impl TryFrom<&VARIANT> for u16 {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
         let mut value = 0;
-        HRESULT(unsafe { imp::VariantToUInt16(&from.0, &mut value) }).and_then(|| value)
+        HRESULT(unsafe { imp::VariantToUInt16(&from.0, &mut value) }).map(|| value)
     }
 }
 
@@ -389,7 +389,7 @@ impl TryFrom<&PROPVARIANT> for u16 {
     type Error = Error;
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
         let mut value = 0;
-        HRESULT(unsafe { imp::PropVariantToUInt16(&from.0, &mut value) }).and_then(|| value)
+        HRESULT(unsafe { imp::PropVariantToUInt16(&from.0, &mut value) }).map(|| value)
     }
 }
 
@@ -417,7 +417,7 @@ impl TryFrom<&VARIANT> for i16 {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
         let mut value = 0;
-        HRESULT(unsafe { imp::VariantToInt16(&from.0, &mut value) }).and_then(|| value)
+        HRESULT(unsafe { imp::VariantToInt16(&from.0, &mut value) }).map(|| value)
     }
 }
 
@@ -425,7 +425,7 @@ impl TryFrom<&PROPVARIANT> for i16 {
     type Error = Error;
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
         let mut value = 0;
-        HRESULT(unsafe { imp::PropVariantToInt16(&from.0, &mut value) }).and_then(|| value)
+        HRESULT(unsafe { imp::PropVariantToInt16(&from.0, &mut value) }).map(|| value)
     }
 }
 
@@ -453,7 +453,7 @@ impl TryFrom<&VARIANT> for u32 {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
         let mut value = 0;
-        HRESULT(unsafe { imp::VariantToUInt32(&from.0, &mut value) }).and_then(|| value)
+        HRESULT(unsafe { imp::VariantToUInt32(&from.0, &mut value) }).map(|| value)
     }
 }
 
@@ -461,7 +461,7 @@ impl TryFrom<&PROPVARIANT> for u32 {
     type Error = Error;
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
         let mut value = 0;
-        HRESULT(unsafe { imp::PropVariantToUInt32(&from.0, &mut value) }).and_then(|| value)
+        HRESULT(unsafe { imp::PropVariantToUInt32(&from.0, &mut value) }).map(|| value)
     }
 }
 
@@ -489,7 +489,7 @@ impl TryFrom<&VARIANT> for i32 {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
         let mut value = 0;
-        HRESULT(unsafe { imp::VariantToInt32(&from.0, &mut value) }).and_then(|| value)
+        HRESULT(unsafe { imp::VariantToInt32(&from.0, &mut value) }).map(|| value)
     }
 }
 
@@ -497,7 +497,7 @@ impl TryFrom<&PROPVARIANT> for i32 {
     type Error = Error;
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
         let mut value = 0;
-        HRESULT(unsafe { imp::PropVariantToInt32(&from.0, &mut value) }).and_then(|| value)
+        HRESULT(unsafe { imp::PropVariantToInt32(&from.0, &mut value) }).map(|| value)
     }
 }
 
@@ -525,7 +525,7 @@ impl TryFrom<&VARIANT> for u64 {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
         let mut value = 0;
-        HRESULT(unsafe { imp::VariantToUInt64(&from.0, &mut value) }).and_then(|| value)
+        HRESULT(unsafe { imp::VariantToUInt64(&from.0, &mut value) }).map(|| value)
     }
 }
 
@@ -533,7 +533,7 @@ impl TryFrom<&PROPVARIANT> for u64 {
     type Error = Error;
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
         let mut value = 0;
-        HRESULT(unsafe { imp::PropVariantToUInt64(&from.0, &mut value) }).and_then(|| value)
+        HRESULT(unsafe { imp::PropVariantToUInt64(&from.0, &mut value) }).map(|| value)
     }
 }
 
@@ -561,7 +561,7 @@ impl TryFrom<&VARIANT> for i64 {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
         let mut value = 0;
-        HRESULT(unsafe { imp::VariantToInt64(&from.0, &mut value) }).and_then(|| value)
+        HRESULT(unsafe { imp::VariantToInt64(&from.0, &mut value) }).map(|| value)
     }
 }
 
@@ -569,7 +569,7 @@ impl TryFrom<&PROPVARIANT> for i64 {
     type Error = Error;
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
         let mut value = 0;
-        HRESULT(unsafe { imp::PropVariantToInt64(&from.0, &mut value) }).and_then(|| value)
+        HRESULT(unsafe { imp::PropVariantToInt64(&from.0, &mut value) }).map(|| value)
     }
 }
 
@@ -617,7 +617,7 @@ impl TryFrom<&VARIANT> for f64 {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
         let mut value = 0.0;
-        HRESULT(unsafe { imp::VariantToDouble(&from.0, &mut value) }).and_then(|| value)
+        HRESULT(unsafe { imp::VariantToDouble(&from.0, &mut value) }).map(|| value)
     }
 }
 
@@ -625,6 +625,6 @@ impl TryFrom<&PROPVARIANT> for f64 {
     type Error = Error;
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
         let mut value = 0.0;
-        HRESULT(unsafe { imp::PropVariantToDouble(&from.0, &mut value) }).and_then(|| value)
+        HRESULT(unsafe { imp::PropVariantToDouble(&from.0, &mut value) }).map(|| value)
     }
 }

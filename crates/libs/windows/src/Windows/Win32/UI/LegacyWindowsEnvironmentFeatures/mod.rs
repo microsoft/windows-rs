@@ -109,7 +109,7 @@ impl IEmptyVolumeCache {
     }
     pub unsafe fn Deactivate(&self) -> ::windows_core::Result<EMPTY_VOLUME_CACHE_FLAGS> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Deactivate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Deactivate)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -156,7 +156,7 @@ impl IEmptyVolumeCache2 {
     }
     pub unsafe fn Deactivate(&self) -> ::windows_core::Result<EMPTY_VOLUME_CACHE_FLAGS> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Deactivate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Deactivate)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn InitializeEx<P0, P1, P2>(&self, hkregkey: P0, pcwszvolume: P1, pcwszkeyname: P2, ppwszdisplayname: *mut ::windows_core::PWSTR, ppwszdescription: *mut ::windows_core::PWSTR, ppwszbtntext: *mut ::windows_core::PWSTR, pdwflags: *mut EMPTY_VOLUME_CACHE_FLAGS) -> ::windows_core::Result<()>
@@ -215,7 +215,7 @@ impl IReconcilableObject {
     }
     pub unsafe fn GetProgressFeedbackMaxEstimate(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetProgressFeedbackMaxEstimate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetProgressFeedbackMaxEstimate)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]

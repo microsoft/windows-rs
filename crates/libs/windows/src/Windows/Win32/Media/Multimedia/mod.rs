@@ -129,7 +129,7 @@ where
 pub unsafe fn AVIGetFromClipboard() -> ::windows_core::Result<IAVIFile> {
     ::windows_targets::link!("avifil32.dll" "system" fn AVIGetFromClipboard(lppf : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    AVIGetFromClipboard(&mut result__).from_abi(result__)
+    AVIGetFromClipboard(&mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn AVIMakeCompressedStream<P0>(ppscompressed: *mut ::core::option::Option<IAVIStream>, ppssource: P0, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: ::core::option::Option<*const ::windows_core::GUID>) -> ::windows_core::Result<()>
@@ -151,7 +151,7 @@ where
 {
     ::windows_targets::link!("avifil32.dll" "system" fn AVIMakeStreamFromClipboard(cfformat : u32, hglobal : super::super::Foundation:: HANDLE, ppstream : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    AVIMakeStreamFromClipboard(cfformat, hglobal.into_param().abi(), &mut result__).from_abi(result__)
+    AVIMakeStreamFromClipboard(cfformat, hglobal.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn AVIPutFileOnClipboard<P0>(pf: P0) -> ::windows_core::Result<()>
@@ -532,7 +532,7 @@ where
 {
     ::windows_targets::link!("avifil32.dll" "system" fn EditStreamClone(pavi : * mut::core::ffi::c_void, ppresult : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    EditStreamClone(pavi.into_param().abi(), &mut result__).from_abi(result__)
+    EditStreamClone(pavi.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn EditStreamCopy<P0>(pavi: P0, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows_core::Result<()>
@@ -1252,7 +1252,7 @@ impl IAVIEditStream {
     }
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IAVIStream> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetInfo)(::windows_core::Interface::as_raw(self), lpinfo, cbinfo).ok()
@@ -1314,7 +1314,7 @@ impl IAVIPersistFile {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetClassID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsDirty(&self) -> ::windows_core::HRESULT {
@@ -1345,7 +1345,7 @@ impl IAVIPersistFile {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCurFile(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetCurFile)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetCurFile)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Reserved1(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reserved1)(::windows_core::Interface::as_raw(self)).ok()

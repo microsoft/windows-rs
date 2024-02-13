@@ -40,24 +40,10 @@ impl HRESULT {
         }
     }
 
-    /// Returns the [`Option`] as a [`Result`] if the option is a [`Some`] value, returning
-    /// a suitable error if not.
-    pub fn and_some<T: Interface>(self, some: Option<T>) -> Result<T> {
-        if self.is_ok() {
-            if let Some(result) = some {
-                Ok(result)
-            } else {
-                Err(Error::OK)
-            }
-        } else {
-            Err(Error::from(self))
-        }
-    }
-
     /// Calls `op` if `self` is a success code, otherwise returns [`HRESULT`]
     /// converted to [`Result<T>`].
     #[inline]
-    pub fn and_then<F, T>(self, op: F) -> Result<T>
+    pub fn map<F, T>(self, op: F) -> Result<T>
     where
         F: FnOnce() -> T,
     {
@@ -65,19 +51,15 @@ impl HRESULT {
         Ok(op())
     }
 
-    /// If the [`Result`] is [`Ok`] converts the `T::Abi` into `T`.
-    ///
-    /// # Safety
-    ///
-    /// Safe to call if
-    /// * `abi` is initialized if `self` is `Ok`
-    /// * `abi` can be safely transmuted to `T`
-    pub unsafe fn from_abi<T: Type<T>>(self, abi: T::Abi) -> Result<T> {
-        if self.is_ok() {
-            T::from_abi(abi)
-        } else {
-            Err(Error::from(self))
-        }
+    /// Calls `op` if `self` is a success code, otherwise returns [`HRESULT`]
+    /// converted to [`Result<T>`].
+    #[inline]
+    pub fn and_then<F, T>(self, op: F) -> Result<T>
+    where
+        F: FnOnce() -> Result<T>,
+    {
+        self.ok()?;
+        op()
     }
 
     /// The error message describing the error.
@@ -86,8 +68,11 @@ impl HRESULT {
 
         unsafe {
             let size = crate::imp::FormatMessageW(crate::imp::FORMAT_MESSAGE_ALLOCATE_BUFFER | crate::imp::FORMAT_MESSAGE_FROM_SYSTEM | crate::imp::FORMAT_MESSAGE_IGNORE_INSERTS, std::ptr::null(), self.0 as u32, 0, &mut message.0 as *mut _ as *mut _, 0, std::ptr::null());
-
-            HSTRING::from_wide(crate::imp::wide_trim_end(std::slice::from_raw_parts(message.0 as *const u16, size as usize))).unwrap_or_default()
+            if !message.0.is_null() && size > 0 {
+                HSTRING::from_wide(crate::imp::wide_trim_end(std::slice::from_raw_parts(message.0 as *const u16, size as usize))).unwrap_or_default()
+            } else {
+                HSTRING::default()
+            }
         }
     }
 

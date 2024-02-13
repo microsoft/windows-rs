@@ -33,7 +33,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows_core::Result<T> #where_clause {
                     let mut result__ = ::std::ptr::null_mut();
-                    (::windows_core::Interface::vtable(self)#bases.#vname)(::windows_core::Interface::as_raw(self), #args).from_abi(result__)
+                    (::windows_core::Interface::vtable(self)#bases.#vname)(::windows_core::Interface::as_raw(self), #args).and_then(||::windows_core::Type::from_abi(result__))
                 }
             }
         }
@@ -54,13 +54,20 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
+
+            let map = if metadata::type_is_blittable(&return_type) {
+                quote! { map(||result__) }
+            } else {
+                quote! { and_then(||::windows_core::Type::from_abi(result__)) }
+            };
+
             let return_type = writer.type_name(&return_type);
 
             quote! {
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows_core::Result<#return_type> #where_clause {
                     let mut result__ = ::std::mem::zeroed();
-                    (::windows_core::Interface::vtable(self)#bases.#vname)(::windows_core::Interface::as_raw(self), #args).from_abi(result__)
+                    (::windows_core::Interface::vtable(self)#bases.#vname)(::windows_core::Interface::as_raw(self), #args).#map
                 }
             }
         }
@@ -80,24 +87,33 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, kind: metadata::Interface
             let params = writer.win32_params(&signature.params, kind);
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
             let is_nullable = metadata::type_is_nullable(&return_type);
-            let return_type = writer.type_name(&return_type);
 
             if is_nullable {
+                let return_type = writer.type_name(&return_type);
+
                 quote! {
                     #features
                     pub unsafe fn #name<#generics>(&self, #params) -> ::windows_core::Result<#return_type> #where_clause {
                         let mut result__ = ::std::mem::zeroed();
                         (::windows_core::Interface::vtable(self)#bases.#vname)(::windows_core::Interface::as_raw(self), #args);
-                        ::windows_core::from_abi(result__)
+                        ::windows_core::Type::from_abi(result__)
                     }
                 }
             } else {
+                let map = if metadata::type_is_blittable(&return_type) {
+                    quote! { result__ }
+                } else {
+                    quote! { ::std::mem::transmute(result__) }
+                };
+
+                let return_type = writer.type_name(&return_type);
+
                 quote! {
                     #features
                     pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
                         let mut result__ = ::std::mem::zeroed();
                         (::windows_core::Interface::vtable(self)#bases.#vname)(::windows_core::Interface::as_raw(self), #args);
-                        ::std::mem::transmute(result__)
+                        #map
                     }
                 }
             }

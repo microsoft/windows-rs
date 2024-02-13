@@ -175,7 +175,7 @@ pub unsafe fn CopyBindInfo(pcbisrc: *const super::BINDINFO, pbidest: *mut super:
 pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM) -> ::windows_core::Result<super::STGMEDIUM> {
     ::windows_targets::link!("urlmon.dll" "system" fn CopyStgMedium(pcstgmedsrc : *const super:: STGMEDIUM, pstgmeddest : *mut super:: STGMEDIUM) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    CopyStgMedium(pcstgmedsrc, &mut result__).from_abi(result__)
+    CopyStgMedium(pcstgmedsrc, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn CreateAsyncBindCtx<P0, P1>(reserved: u32, pbscb: P0, pefetc: P1) -> ::windows_core::Result<super::IBindCtx>
@@ -185,7 +185,7 @@ where
 {
     ::windows_targets::link!("urlmon.dll" "system" fn CreateAsyncBindCtx(reserved : u32, pbscb : * mut::core::ffi::c_void, pefetc : * mut::core::ffi::c_void, ppbc : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    CreateAsyncBindCtx(reserved, pbscb.into_param().abi(), pefetc.into_param().abi(), &mut result__).from_abi(result__)
+    CreateAsyncBindCtx(reserved, pbscb.into_param().abi(), pefetc.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn CreateAsyncBindCtxEx<P0, P1, P2>(pbc: P0, dwoptions: u32, pbscb: P1, penum: P2, ppbc: *mut ::core::option::Option<super::IBindCtx>, reserved: u32) -> ::windows_core::Result<()>
@@ -201,7 +201,7 @@ where
 pub unsafe fn CreateFormatEnumerator(rgfmtetc: &[super::FORMATETC]) -> ::windows_core::Result<super::IEnumFORMATETC> {
     ::windows_targets::link!("urlmon.dll" "system" fn CreateFormatEnumerator(cfmtetc : u32, rgfmtetc : *const super:: FORMATETC, ppenumfmtetc : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    CreateFormatEnumerator(rgfmtetc.len().try_into().unwrap(), ::core::mem::transmute(rgfmtetc.as_ptr()), &mut result__).from_abi(result__)
+    CreateFormatEnumerator(rgfmtetc.len().try_into().unwrap(), ::core::mem::transmute(rgfmtetc.as_ptr()), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn CreateURLMoniker<P0, P1>(pmkctx: P0, szurl: P1) -> ::windows_core::Result<super::IMoniker>
@@ -211,7 +211,7 @@ where
 {
     ::windows_targets::link!("urlmon.dll" "system" fn CreateURLMoniker(pmkctx : * mut::core::ffi::c_void, szurl : ::windows_core::PCWSTR, ppmk : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    CreateURLMoniker(pmkctx.into_param().abi(), szurl.into_param().abi(), &mut result__).from_abi(result__)
+    CreateURLMoniker(pmkctx.into_param().abi(), szurl.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn CreateURLMonikerEx<P0, P1>(pmkctx: P0, szurl: P1, ppmk: *mut ::core::option::Option<super::IMoniker>, dwflags: u32) -> ::windows_core::Result<()>
@@ -246,7 +246,7 @@ where
 {
     ::windows_targets::link!("urlmon.dll" "system" fn FindMediaType(rgsztypes : ::windows_core::PCSTR, rgcftypes : *mut u16) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    FindMediaType(rgsztypes.into_param().abi(), &mut result__).from_abi(result__)
+    FindMediaType(rgsztypes.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn FindMediaTypeClass<P0, P1>(pbc: P0, sztype: P1, pclsid: *mut ::windows_core::GUID, reserved: u32) -> ::windows_core::Result<()>
@@ -276,7 +276,7 @@ where
 {
     ::windows_targets::link!("urlmon.dll" "system" fn GetClassFileOrMime(pbc : * mut::core::ffi::c_void, szfilename : ::windows_core::PCWSTR, pbuffer : *const ::core::ffi::c_void, cbsize : u32, szmime : ::windows_core::PCWSTR, dwreserved : u32, pclsid : *mut ::windows_core::GUID) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    GetClassFileOrMime(pbc.into_param().abi(), szfilename.into_param().abi(), ::core::mem::transmute(pbuffer.unwrap_or(::std::ptr::null())), cbsize, szmime.into_param().abi(), dwreserved, &mut result__).from_abi(result__)
+    GetClassFileOrMime(pbc.into_param().abi(), szfilename.into_param().abi(), ::core::mem::transmute(pbuffer.unwrap_or(::std::ptr::null())), cbsize, szmime.into_param().abi(), dwreserved, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn GetClassURL<P0>(szurl: P0) -> ::windows_core::Result<::windows_core::GUID>
@@ -285,13 +285,13 @@ where
 {
     ::windows_targets::link!("urlmon.dll" "system" fn GetClassURL(szurl : ::windows_core::PCWSTR, pclsid : *mut ::windows_core::GUID) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    GetClassURL(szurl.into_param().abi(), &mut result__).from_abi(result__)
+    GetClassURL(szurl.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC) -> ::windows_core::Result<::windows_core::PSTR> {
     ::windows_targets::link!("urlmon.dll" "system" fn GetComponentIDFromCLSSPEC(pclassspec : *const super:: uCLSSPEC, ppszcomponentid : *mut ::windows_core::PSTR) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    GetComponentIDFromCLSSPEC(pclassspec, &mut result__).from_abi(result__)
+    GetComponentIDFromCLSSPEC(pclassspec, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn GetSoftwareUpdateInfo<P0>(szdistunit: P0, psdi: *mut SOFTDISTINFO) -> ::windows_core::Result<()>
@@ -370,7 +370,7 @@ pub unsafe fn IEGetUserPrivateNamespaceName() -> ::windows_core::PWSTR {
 pub unsafe fn IEInstallScope() -> ::windows_core::Result<u32> {
     ::windows_targets::link!("urlmon.dll" "system" fn IEInstallScope(pdwscope : *mut u32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    IEInstallScope(&mut result__).from_abi(result__)
+    IEInstallScope(&mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn IsAsyncMoniker<P0>(pmk: P0) -> ::windows_core::Result<()>
@@ -615,7 +615,7 @@ impl IBindCallbackRedirect {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Redirect)(::windows_core::Interface::as_raw(self), lpcurl.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Redirect)(::windows_core::Interface::as_raw(self), lpcurl.into_param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -629,7 +629,7 @@ pub struct IBindCallbackRedirect_Vtbl {
 impl IBindHttpSecurity {
     pub unsafe fn GetIgnoreCertMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetIgnoreCertMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetIgnoreCertMask)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -647,7 +647,7 @@ impl IBindProtocol {
         P1: ::windows_core::IntoParam<super::IBindCtx>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateBinding)(::windows_core::Interface::as_raw(self), szurl.into_param().abi(), pbc.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateBinding)(::windows_core::Interface::as_raw(self), szurl.into_param().abi(), pbc.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -661,7 +661,7 @@ pub struct IBindProtocol_Vtbl {
 impl ICatalogFileInfo {
     pub unsafe fn GetCatalogFile(&self) -> ::windows_core::Result<::windows_core::PSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetCatalogFile)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetCatalogFile)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetJavaTrust(&self, ppjavatrust: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetJavaTrust)(::windows_core::Interface::as_raw(self), ppjavatrust).ok()
@@ -679,7 +679,7 @@ pub struct ICatalogFileInfo_Vtbl {
 impl ICodeInstall {
     pub unsafe fn GetWindow(&self, rguidreason: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetWindow)(::windows_core::Interface::as_raw(self), rguidreason, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetWindow)(::windows_core::Interface::as_raw(self), rguidreason, &mut result__).map(|| result__)
     }
     pub unsafe fn OnCodeInstallProblem<P0, P1>(&self, ulstatuscode: u32, szdestination: P0, szsource: P1, dwreserved: u32) -> ::windows_core::Result<()>
     where
@@ -725,7 +725,7 @@ impl IEncodingFilterFactory {
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).FindBestFilter)(::windows_core::Interface::as_raw(self), pwzcodein.into_param().abi(), pwzcodeout.into_param().abi(), ::core::mem::transmute(info), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).FindBestFilter)(::windows_core::Interface::as_raw(self), pwzcodein.into_param().abi(), pwzcodeout.into_param().abi(), ::core::mem::transmute(info), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetDefaultFilter<P0, P1>(&self, pwzcodein: P0, pwzcodeout: P1) -> ::windows_core::Result<IDataFilter>
     where
@@ -733,7 +733,7 @@ impl IEncodingFilterFactory {
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetDefaultFilter)(::windows_core::Interface::as_raw(self), pwzcodein.into_param().abi(), pwzcodeout.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetDefaultFilter)(::windows_core::Interface::as_raw(self), pwzcodein.into_param().abi(), pwzcodeout.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -748,7 +748,7 @@ pub struct IEncodingFilterFactory_Vtbl {
 impl IGetBindHandle {
     pub unsafe fn GetBindHandle(&self, enumrequestedhandle: BINDHANDLETYPES) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetBindHandle)(::windows_core::Interface::as_raw(self), enumrequestedhandle, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetBindHandle)(::windows_core::Interface::as_raw(self), enumrequestedhandle, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -766,7 +766,7 @@ impl IHttpNegotiate {
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).BeginningTransaction)(::windows_core::Interface::as_raw(self), szurl.into_param().abi(), szheaders.into_param().abi(), dwreserved, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).BeginningTransaction)(::windows_core::Interface::as_raw(self), szurl.into_param().abi(), szheaders.into_param().abi(), dwreserved, &mut result__).map(|| result__)
     }
     pub unsafe fn OnResponse<P0, P1>(&self, dwresponsecode: u32, szresponseheaders: P0, szrequestheaders: P1) -> ::windows_core::Result<::windows_core::PWSTR>
     where
@@ -774,7 +774,7 @@ impl IHttpNegotiate {
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OnResponse)(::windows_core::Interface::as_raw(self), dwresponsecode, szresponseheaders.into_param().abi(), szrequestheaders.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OnResponse)(::windows_core::Interface::as_raw(self), dwresponsecode, szresponseheaders.into_param().abi(), szrequestheaders.into_param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -793,7 +793,7 @@ impl IHttpNegotiate2 {
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.BeginningTransaction)(::windows_core::Interface::as_raw(self), szurl.into_param().abi(), szheaders.into_param().abi(), dwreserved, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.BeginningTransaction)(::windows_core::Interface::as_raw(self), szurl.into_param().abi(), szheaders.into_param().abi(), dwreserved, &mut result__).map(|| result__)
     }
     pub unsafe fn OnResponse<P0, P1>(&self, dwresponsecode: u32, szresponseheaders: P0, szrequestheaders: P1) -> ::windows_core::Result<::windows_core::PWSTR>
     where
@@ -801,7 +801,7 @@ impl IHttpNegotiate2 {
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.OnResponse)(::windows_core::Interface::as_raw(self), dwresponsecode, szresponseheaders.into_param().abi(), szrequestheaders.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.OnResponse)(::windows_core::Interface::as_raw(self), dwresponsecode, szresponseheaders.into_param().abi(), szrequestheaders.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRootSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRootSecurityId)(::windows_core::Interface::as_raw(self), pbsecurityid, pcbsecurityid, dwreserved).ok()
@@ -822,7 +822,7 @@ impl IHttpNegotiate3 {
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.BeginningTransaction)(::windows_core::Interface::as_raw(self), szurl.into_param().abi(), szheaders.into_param().abi(), dwreserved, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.BeginningTransaction)(::windows_core::Interface::as_raw(self), szurl.into_param().abi(), szheaders.into_param().abi(), dwreserved, &mut result__).map(|| result__)
     }
     pub unsafe fn OnResponse<P0, P1>(&self, dwresponsecode: u32, szresponseheaders: P0, szrequestheaders: P1) -> ::windows_core::Result<::windows_core::PWSTR>
     where
@@ -830,7 +830,7 @@ impl IHttpNegotiate3 {
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.OnResponse)(::windows_core::Interface::as_raw(self), dwresponsecode, szresponseheaders.into_param().abi(), szrequestheaders.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.OnResponse)(::windows_core::Interface::as_raw(self), dwresponsecode, szresponseheaders.into_param().abi(), szrequestheaders.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn GetRootSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetRootSecurityId)(::windows_core::Interface::as_raw(self), pbsecurityid, pcbsecurityid, dwreserved).ok()
@@ -850,7 +850,7 @@ pub struct IHttpNegotiate3_Vtbl {
 impl IHttpSecurity {
     pub unsafe fn GetWindow(&self, rguidreason: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetWindow)(::windows_core::Interface::as_raw(self), rguidreason, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetWindow)(::windows_core::Interface::as_raw(self), rguidreason, &mut result__).map(|| result__)
     }
     pub unsafe fn OnSecurityProblem(&self, dwproblem: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnSecurityProblem)(::windows_core::Interface::as_raw(self), dwproblem).ok()
@@ -944,7 +944,7 @@ impl IInternetPriority {
     }
     pub unsafe fn GetPriority(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetPriority)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetPriority)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -986,7 +986,7 @@ impl IInternetProtocol {
     }
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: u32) -> ::windows_core::Result<u64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Seek)(::windows_core::Interface::as_raw(self), dlibmove, dworigin, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Seek)(::windows_core::Interface::as_raw(self), dlibmove, dworigin, &mut result__).map(|| result__)
     }
     pub unsafe fn LockRequest(&self, dwoptions: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LockRequest)(::windows_core::Interface::as_raw(self), dwoptions).ok()
@@ -1036,7 +1036,7 @@ impl IInternetProtocolEx {
     }
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: u32) -> ::windows_core::Result<u64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.Seek)(::windows_core::Interface::as_raw(self), dlibmove, dworigin, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.Seek)(::windows_core::Interface::as_raw(self), dlibmove, dworigin, &mut result__).map(|| result__)
     }
     pub unsafe fn LockRequest(&self, dwoptions: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.LockRequest)(::windows_core::Interface::as_raw(self), dwoptions).ok()
@@ -1205,7 +1205,7 @@ impl IInternetSecurityManager {
     }
     pub unsafe fn GetSecuritySite(&self) -> ::windows_core::Result<IInternetSecurityMgrSite> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSecuritySite)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetSecuritySite)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn MapUrlToZone<P0>(&self, pwszurl: P0, pdwzone: *mut u32, dwflags: u32) -> ::windows_core::Result<()>
     where
@@ -1265,7 +1265,7 @@ impl IInternetSecurityManagerEx {
     }
     pub unsafe fn GetSecuritySite(&self) -> ::windows_core::Result<IInternetSecurityMgrSite> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetSecuritySite)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetSecuritySite)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn MapUrlToZone<P0>(&self, pwszurl: P0, pdwzone: *mut u32, dwflags: u32) -> ::windows_core::Result<()>
     where
@@ -1324,7 +1324,7 @@ impl IInternetSecurityManagerEx2 {
     }
     pub unsafe fn GetSecuritySite(&self) -> ::windows_core::Result<IInternetSecurityMgrSite> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetSecuritySite)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetSecuritySite)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn MapUrlToZone<P0>(&self, pwszurl: P0, pdwzone: *mut u32, dwflags: u32) -> ::windows_core::Result<()>
     where
@@ -1404,7 +1404,7 @@ pub struct IInternetSecurityManagerEx2_Vtbl {
 impl IInternetSecurityMgrSite {
     pub unsafe fn GetWindow(&self) -> ::windows_core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetWindow)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetWindow)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn EnableModeless<P0>(&self, fenable: P0) -> ::windows_core::Result<()>
     where
@@ -1536,7 +1536,7 @@ impl IInternetZoneManager {
     }
     pub unsafe fn GetZoneAt(&self, dwenum: u32, dwindex: u32) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetZoneAt)(::windows_core::Interface::as_raw(self), dwenum, dwindex, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetZoneAt)(::windows_core::Interface::as_raw(self), dwenum, dwindex, &mut result__).map(|| result__)
     }
     pub unsafe fn DestroyZoneEnumerator(&self, dwenum: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DestroyZoneEnumerator)(::windows_core::Interface::as_raw(self), dwenum).ok()
@@ -1603,7 +1603,7 @@ impl IInternetZoneManagerEx {
     }
     pub unsafe fn GetZoneAt(&self, dwenum: u32, dwindex: u32) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetZoneAt)(::windows_core::Interface::as_raw(self), dwenum, dwindex, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetZoneAt)(::windows_core::Interface::as_raw(self), dwenum, dwindex, &mut result__).map(|| result__)
     }
     pub unsafe fn DestroyZoneEnumerator(&self, dwenum: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.DestroyZoneEnumerator)(::windows_core::Interface::as_raw(self), dwenum).ok()
@@ -1666,7 +1666,7 @@ impl IInternetZoneManagerEx2 {
     }
     pub unsafe fn GetZoneAt(&self, dwenum: u32, dwindex: u32) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetZoneAt)(::windows_core::Interface::as_raw(self), dwenum, dwindex, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetZoneAt)(::windows_core::Interface::as_raw(self), dwenum, dwindex, &mut result__).map(|| result__)
     }
     pub unsafe fn DestroyZoneEnumerator(&self, dwenum: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.DestroyZoneEnumerator)(::windows_core::Interface::as_raw(self), dwenum).ok()
@@ -1730,7 +1730,7 @@ pub struct IMonikerProp_Vtbl {
 impl IPersistMoniker {
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetClassID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn IsDirty(&self) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).IsDirty)(::windows_core::Interface::as_raw(self))
@@ -1760,7 +1760,7 @@ impl IPersistMoniker {
     }
     pub unsafe fn GetCurMoniker(&self) -> ::windows_core::Result<super::IMoniker> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetCurMoniker)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetCurMoniker)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1815,11 +1815,11 @@ pub struct ISoftDistExt_Vtbl {
 impl IUriBuilderFactory {
     pub unsafe fn CreateIUriBuilder(&self, dwflags: u32, dwreserved: usize) -> ::windows_core::Result<super::IUriBuilder> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateIUriBuilder)(::windows_core::Interface::as_raw(self), dwflags, dwreserved, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateIUriBuilder)(::windows_core::Interface::as_raw(self), dwflags, dwreserved, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn CreateInitializedIUriBuilder(&self, dwflags: u32, dwreserved: usize) -> ::windows_core::Result<super::IUriBuilder> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateInitializedIUriBuilder)(::windows_core::Interface::as_raw(self), dwflags, dwreserved, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateInitializedIUriBuilder)(::windows_core::Interface::as_raw(self), dwflags, dwreserved, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1834,7 +1834,7 @@ pub struct IUriBuilderFactory_Vtbl {
 impl IUriContainer {
     pub unsafe fn GetIUri(&self) -> ::windows_core::Result<super::IUri> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetIUri)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetIUri)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
 }
 #[repr(C)]
@@ -1945,7 +1945,7 @@ pub struct IWinInetInfo_Vtbl {
 impl IWindowForBindingUI {
     pub unsafe fn GetWindow(&self, rguidreason: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetWindow)(::windows_core::Interface::as_raw(self), rguidreason, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetWindow)(::windows_core::Interface::as_raw(self), rguidreason, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -1972,7 +1972,7 @@ pub struct IWrappedProtocol_Vtbl {
 impl IZoneIdentifier {
     pub unsafe fn GetId(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetId)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetId(&self, dwzone: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetId)(::windows_core::Interface::as_raw(self), dwzone).ok()
@@ -1994,7 +1994,7 @@ pub struct IZoneIdentifier_Vtbl {
 impl IZoneIdentifier2 {
     pub unsafe fn GetId(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetId)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetId(&self, dwzone: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetId)(::windows_core::Interface::as_raw(self), dwzone).ok()
@@ -2004,7 +2004,7 @@ impl IZoneIdentifier2 {
     }
     pub unsafe fn GetLastWriterPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetLastWriterPackageFamilyName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetLastWriterPackageFamilyName)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetLastWriterPackageFamilyName<P0>(&self, packagefamilyname: P0) -> ::windows_core::Result<()>
     where
@@ -2017,7 +2017,7 @@ impl IZoneIdentifier2 {
     }
     pub unsafe fn GetAppZoneId(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetAppZoneId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetAppZoneId)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetAppZoneId(&self, zone: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAppZoneId)(::windows_core::Interface::as_raw(self), zone).ok()

@@ -10,7 +10,7 @@ where
 pub unsafe fn ApplicationRecoveryInProgress() -> ::windows_core::Result<super::super::Foundation::BOOL> {
     ::windows_targets::link!("kernel32.dll" "system" fn ApplicationRecoveryInProgress(pbcancelled : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    ApplicationRecoveryInProgress(&mut result__).from_abi(result__)
+    ApplicationRecoveryInProgress(&mut result__).map(|| result__)
 }
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]

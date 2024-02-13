@@ -145,7 +145,7 @@ impl Class {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn SetProperty(&self, value: i32) -> ::windows_core::Result<()> {
@@ -166,7 +166,7 @@ impl Class {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn Int32Array(
@@ -189,7 +189,7 @@ impl Class {
                 ::windows_core::Array::<i32>::set_abi_len(::std::mem::transmute(&mut result__)),
                 result__.as_mut_ptr() as *mut _ as _,
             )
-            .and_then(|| result__.assume_init())
+            .map(|| result__.assume_init())
         }
     }
     pub fn StringArray(
@@ -214,7 +214,7 @@ impl Class {
                 ),
                 result__.as_mut_ptr() as *mut _ as _,
             )
-            .and_then(|| result__.assume_init())
+            .map(|| result__.assume_init())
         }
     }
     pub fn Input<P0, P1, P2, P3>(&self, a: P0, b: P1, c: P2, d: P3) -> ::windows_core::Result<()>
@@ -332,7 +332,7 @@ impl Callback {
                 a,
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
 }

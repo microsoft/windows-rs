@@ -187,8 +187,9 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             /// the mechanisms provided by `implement` macro.
             unsafe fn cast<I: ::windows::core::Interface>(&self) -> ::windows::core::Result<I> {
                 let boxed = (self as *const _ as *const *mut ::core::ffi::c_void).sub(1 + #interfaces_len) as *mut #impl_ident::#generics;
-                let mut result = None;
-                <#impl_ident::#generics as ::windows::core::IUnknownImpl>::QueryInterface(&*boxed, &I::IID, &mut result as *mut _ as _).and_some(result)
+                let mut result = ::std::ptr::null_mut();
+                _ = <#impl_ident::#generics as ::windows::core::IUnknownImpl>::QueryInterface(&*boxed, &I::IID, &mut result);
+                ::windows::core::Type::from_abi(result)
             }
         }
         impl #generics ::core::convert::From<#original_ident::#generics> for ::windows::core::IUnknown where #constraints {

@@ -71,8 +71,8 @@ pub fn factory<C: crate::RuntimeName, I: Interface>() -> crate::Result<I> {
     };
 
     // If this succeeded then return the resulting factory interface.
-    if code.is_ok() {
-        return code.and_some(factory);
+    if let Some(factory) = factory {
+        return Ok(factory);
     }
 
     // If not, first capture the error information from the failure above so that we
@@ -116,7 +116,7 @@ where
 unsafe fn get_activation_factory(library: crate::PCSTR, name: &crate::HSTRING) -> crate::Result<IGenericFactory> {
     let function = delay_load::<DllGetActivationFactory>(library, crate::s!("DllGetActivationFactory")).ok_or_else(crate::Error::from_win32)?;
     let mut abi = std::ptr::null_mut();
-    function(std::mem::transmute_copy(name), &mut abi).from_abi(abi)
+    function(std::mem::transmute_copy(name), &mut abi).and_then(|| crate::Type::from_abi(abi))
 }
 
 type DllGetActivationFactory = extern "system" fn(name: *mut std::ffi::c_void, factory: *mut *mut std::ffi::c_void) -> crate::HRESULT;
