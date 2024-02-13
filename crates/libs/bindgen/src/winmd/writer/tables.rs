@@ -63,10 +63,9 @@ pub struct ClassLayout {
     pub Parent: u32,
 }
 
-#[derive(Default)]
 pub struct Constant {
     pub Type: u16,
-    pub Parent: u32,
+    pub Parent: HasConstant,
     pub Value: u32,
 }
 
@@ -83,11 +82,10 @@ pub struct Field {
     pub Signature: u32,
 }
 
-#[derive(Default)]
 pub struct GenericParam {
     pub Number: u16,
     pub Flags: u16,
-    pub Owner: u32,
+    pub Owner: TypeOrMethodDef,
     pub Name: u32,
 }
 
@@ -323,7 +321,7 @@ impl Tables {
 
         for x in self.Constant {
             buffer.write_u16(x.Type);
-            buffer.write_code(x.Parent, has_constant);
+            buffer.write_code(x.Parent.encode(), has_constant);
             buffer.write_u32(x.Value);
         }
 
@@ -364,7 +362,7 @@ impl Tables {
         for x in self.GenericParam {
             buffer.write_u16(x.Number);
             buffer.write_u16(x.Flags);
-            buffer.write_code(x.Owner, type_or_method_def);
+            buffer.write_code(x.Owner.encode(), type_or_method_def);
             buffer.write_u32(x.Name);
         }
 

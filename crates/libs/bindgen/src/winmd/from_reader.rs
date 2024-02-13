@@ -1,5 +1,5 @@
 use super::*;
-use metadata::HasAttributes;
+use metadata::{HasAttributes, AsRow};
 
 pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
     let mut writer = Writer::new(output);
@@ -40,7 +40,7 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
             writer.tables.GenericParam.push(GenericParam {
                 Number: generic.number(), // TODO: isn't this just going to be incremental?
                 Flags: 0,
-                Owner: TypeOrMethodDef::TypeDef(def_ref).encode(),
+                Owner: TypeOrMethodDef::TypeDef(def_ref),
                 Name: writer.strings.insert(generic.name()),
             });
         }
@@ -66,6 +66,14 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
             let signature = writer.insert_field_sig(&ty);
 
             writer.tables.Field.push(Field { Flags: field.flags().0, Name: writer.strings.insert(field.name()), Signature: signature });
+
+            if let Some(constant) = field.constant() {
+                writer.tables.Constant.push(Constant {
+                    Type: constant.usize(0) as u16,
+                    Parent: HasConstant::Field(writer.tables.Field.len() as u32 -1),
+                    Value: writer.blobs.insert(&constant.blob(2)),
+                })
+            }
         }
 
         for method in def.methods() {
