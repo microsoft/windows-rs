@@ -16,7 +16,7 @@ pub struct IOplockBreakingHandler_Vtbl {
 impl IRandomAccessStreamFileAccessMode {
     pub unsafe fn GetMode(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetMode)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -34,7 +34,7 @@ impl IStorageFolderHandleAccess {
         P1: ::windows_core::IntoParam<IOplockBreakingHandler>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), filename.into_param().abi(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), filename.into_param().abi(), creationoptions, accessoptions, sharingoptions, options, oplockbreakinghandler.into_param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -51,7 +51,7 @@ impl IStorageItemHandleAccess {
         P0: ::windows_core::IntoParam<IOplockBreakingHandler>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), accessoptions, sharingoptions, options, oplockbreakinghandler.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), accessoptions, sharingoptions, options, oplockbreakinghandler.into_param().abi(), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -81,7 +81,7 @@ impl IUnbufferedFileHandleProvider {
         P0: ::windows_core::IntoParam<IUnbufferedFileHandleOplockCallback>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).OpenUnbufferedFileHandle)(::windows_core::Interface::as_raw(self), oplockbreakcallback.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).OpenUnbufferedFileHandle)(::windows_core::Interface::as_raw(self), oplockbreakcallback.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn CloseUnbufferedFileHandle(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CloseUnbufferedFileHandle)(::windows_core::Interface::as_raw(self)).ok()

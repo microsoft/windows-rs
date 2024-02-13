@@ -18,7 +18,7 @@ impl RetailMode {
     pub fn RetailModeEnabled() -> ::windows_core::Result<bool> {
         Self::IRetailModeStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RetailModeEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RetailModeEnabled)(::windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[doc(hidden)]

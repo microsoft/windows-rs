@@ -814,7 +814,7 @@ pub unsafe fn GetCurrentProcessorNumberEx() -> super::Kernel::PROCESSOR_NUMBER {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentProcessorNumberEx(procnumber : *mut super::Kernel:: PROCESSOR_NUMBER));
     let mut result__ = ::std::mem::zeroed();
     GetCurrentProcessorNumberEx(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn GetCurrentThread() -> super::super::Foundation::HANDLE {
@@ -864,7 +864,7 @@ where
 pub unsafe fn GetMachineTypeAttributes(machine: u16) -> ::windows_core::Result<MACHINE_ATTRIBUTES> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetMachineTypeAttributes(machine : u16, machinetypeattributes : *mut MACHINE_ATTRIBUTES) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    GetMachineTypeAttributes(machine, &mut result__).from_abi(result__)
+    GetMachineTypeAttributes(machine, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn GetMaximumProcessorCount(groupnumber: u16) -> u32 {
@@ -1095,7 +1095,7 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetThreadDescription(hthread : super::super::Foundation:: HANDLE, ppszthreaddescription : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    GetThreadDescription(hthread.into_param().abi(), &mut result__).from_abi(result__)
+    GetThreadDescription(hthread.into_param().abi(), &mut result__).map(|| result__)
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
@@ -1213,14 +1213,14 @@ pub unsafe fn InitOnceInitialize() -> INIT_ONCE {
     ::windows_targets::link!("kernel32.dll" "system" fn InitOnceInitialize(initonce : *mut INIT_ONCE));
     let mut result__ = ::std::mem::zeroed();
     InitOnceInitialize(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn InitializeConditionVariable() -> CONDITION_VARIABLE {
     ::windows_targets::link!("kernel32.dll" "system" fn InitializeConditionVariable(conditionvariable : *mut CONDITION_VARIABLE));
     let mut result__ = ::std::mem::zeroed();
     InitializeConditionVariable(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
@@ -1251,14 +1251,14 @@ pub unsafe fn InitializeSListHead() -> super::Kernel::SLIST_HEADER {
     ::windows_targets::link!("kernel32.dll" "system" fn InitializeSListHead(listhead : *mut super::Kernel:: SLIST_HEADER));
     let mut result__ = ::std::mem::zeroed();
     InitializeSListHead(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn InitializeSRWLock() -> SRWLOCK {
     ::windows_targets::link!("kernel32.dll" "system" fn InitializeSRWLock(srwlock : *mut SRWLOCK));
     let mut result__ = ::std::mem::zeroed();
     InitializeSRWLock(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn InitializeSynchronizationBarrier(lpbarrier: *mut SYNCHRONIZATION_BARRIER, ltotalthreads: i32, lspincount: i32) -> ::windows_core::Result<()> {
@@ -1624,13 +1624,13 @@ where
 pub unsafe fn RtwqAllocateSerialWorkQueue(workqueueidin: u32) -> ::windows_core::Result<u32> {
     ::windows_targets::link!("rtworkq.dll" "system" fn RtwqAllocateSerialWorkQueue(workqueueidin : u32, workqueueidout : *mut u32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    RtwqAllocateSerialWorkQueue(workqueueidin, &mut result__).from_abi(result__)
+    RtwqAllocateSerialWorkQueue(workqueueidin, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn RtwqAllocateWorkQueue(workqueuetype: RTWQ_WORKQUEUE_TYPE) -> ::windows_core::Result<u32> {
     ::windows_targets::link!("rtworkq.dll" "system" fn RtwqAllocateWorkQueue(workqueuetype : RTWQ_WORKQUEUE_TYPE, workqueueid : *mut u32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    RtwqAllocateWorkQueue(workqueuetype, &mut result__).from_abi(result__)
+    RtwqAllocateWorkQueue(workqueuetype, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn RtwqBeginRegisterWorkQueueWithMMCSS<P0, P1, P2>(workqueueid: u32, usageclass: P0, dwtaskid: u32, lpriority: i32, donecallback: P1, donestate: P2) -> ::windows_core::Result<()>
@@ -1673,7 +1673,7 @@ where
 {
     ::windows_targets::link!("rtworkq.dll" "system" fn RtwqCreateAsyncResult(appobject : * mut::core::ffi::c_void, callback : * mut::core::ffi::c_void, appstate : * mut::core::ffi::c_void, asyncresult : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    RtwqCreateAsyncResult(appobject.into_param().abi(), callback.into_param().abi(), appstate.into_param().abi(), &mut result__).from_abi(result__)
+    RtwqCreateAsyncResult(appobject.into_param().abi(), callback.into_param().abi(), appstate.into_param().abi(), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn RtwqEndRegisterWorkQueueWithMMCSS<P0>(result: P0) -> ::windows_core::Result<u32>
@@ -1682,7 +1682,7 @@ where
 {
     ::windows_targets::link!("rtworkq.dll" "system" fn RtwqEndRegisterWorkQueueWithMMCSS(result : * mut::core::ffi::c_void, taskid : *mut u32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    RtwqEndRegisterWorkQueueWithMMCSS(result.into_param().abi(), &mut result__).from_abi(result__)
+    RtwqEndRegisterWorkQueueWithMMCSS(result.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn RtwqGetWorkQueueMMCSSClass(workqueueid: u32, usageclass: ::windows_core::PWSTR, usageclasslength: *mut u32) -> ::windows_core::Result<()> {
@@ -1693,13 +1693,13 @@ pub unsafe fn RtwqGetWorkQueueMMCSSClass(workqueueid: u32, usageclass: ::windows
 pub unsafe fn RtwqGetWorkQueueMMCSSPriority(workqueueid: u32) -> ::windows_core::Result<i32> {
     ::windows_targets::link!("rtworkq.dll" "system" fn RtwqGetWorkQueueMMCSSPriority(workqueueid : u32, priority : *mut i32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    RtwqGetWorkQueueMMCSSPriority(workqueueid, &mut result__).from_abi(result__)
+    RtwqGetWorkQueueMMCSSPriority(workqueueid, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn RtwqGetWorkQueueMMCSSTaskId(workqueueid: u32) -> ::windows_core::Result<u32> {
     ::windows_targets::link!("rtworkq.dll" "system" fn RtwqGetWorkQueueMMCSSTaskId(workqueueid : u32, taskid : *mut u32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    RtwqGetWorkQueueMMCSSTaskId(workqueueid, &mut result__).from_abi(result__)
+    RtwqGetWorkQueueMMCSSTaskId(workqueueid, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn RtwqInvokeCallback<P0>(result: P0) -> ::windows_core::Result<()>
@@ -1716,7 +1716,7 @@ where
 {
     ::windows_targets::link!("rtworkq.dll" "system" fn RtwqJoinWorkQueue(workqueueid : u32, hfile : super::super::Foundation:: HANDLE, out : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    RtwqJoinWorkQueue(workqueueid, hfile.into_param().abi(), &mut result__).from_abi(result__)
+    RtwqJoinWorkQueue(workqueueid, hfile.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn RtwqLockPlatform() -> ::windows_core::Result<()> {
@@ -1786,13 +1786,13 @@ where
 pub unsafe fn RtwqSetDeadline(workqueueid: u32, deadlineinhns: i64) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
     ::windows_targets::link!("rtworkq.dll" "system" fn RtwqSetDeadline(workqueueid : u32, deadlineinhns : i64, prequest : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    RtwqSetDeadline(workqueueid, deadlineinhns, &mut result__).from_abi(result__)
+    RtwqSetDeadline(workqueueid, deadlineinhns, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn RtwqSetDeadline2(workqueueid: u32, deadlineinhns: i64, predeadlineinhns: i64) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
     ::windows_targets::link!("rtworkq.dll" "system" fn RtwqSetDeadline2(workqueueid : u32, deadlineinhns : i64, predeadlineinhns : i64, prequest : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    RtwqSetDeadline2(workqueueid, deadlineinhns, predeadlineinhns, &mut result__).from_abi(result__)
+    RtwqSetDeadline2(workqueueid, deadlineinhns, predeadlineinhns, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn RtwqSetLongRunning<P0>(workqueueid: u32, enable: P0) -> ::windows_core::Result<()>
@@ -2464,7 +2464,7 @@ pub struct IRtwqAsyncCallback_Vtbl {
 impl IRtwqAsyncResult {
     pub unsafe fn GetState(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetState)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetStatus(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStatus)(::windows_core::Interface::as_raw(self)).ok()
@@ -2474,7 +2474,7 @@ impl IRtwqAsyncResult {
     }
     pub unsafe fn GetObject(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetObject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetObject)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetStateNoAddRef(&self) -> ::core::option::Option<::windows_core::IUnknown> {
         (::windows_core::Interface::vtable(self).GetStateNoAddRef)(::windows_core::Interface::as_raw(self))
@@ -2516,7 +2516,7 @@ pub struct IRtwqPlatformEvents_Vtbl {
 impl RTWQASYNCRESULT {
     pub unsafe fn GetState(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetState)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetStatus(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetStatus)(::windows_core::Interface::as_raw(self)).ok()
@@ -2526,7 +2526,7 @@ impl RTWQASYNCRESULT {
     }
     pub unsafe fn GetObject(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetObject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetObject)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetStateNoAddRef(&self) -> ::core::option::Option<::windows_core::IUnknown> {
         (::windows_core::Interface::vtable(self).base__.GetStateNoAddRef)(::windows_core::Interface::as_raw(self))

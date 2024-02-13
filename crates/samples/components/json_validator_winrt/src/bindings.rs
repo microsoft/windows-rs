@@ -58,7 +58,7 @@ impl JsonValidator {
                 ::core::mem::transmute_copy(value),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn CreateInstance(
@@ -71,7 +71,7 @@ impl JsonValidator {
                 ::core::mem::transmute_copy(schema),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

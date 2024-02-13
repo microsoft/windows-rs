@@ -2273,7 +2273,7 @@ where
 {
     ::windows_targets::link!("mrmsupport.dll" "system" fn MrmGetPriFileContentChecksum(prifile : ::windows_core::PCWSTR, checksum : *mut u32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    MrmGetPriFileContentChecksum(prifile.into_param().abi(), &mut result__).from_abi(result__)
+    MrmGetPriFileContentChecksum(prifile.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn MrmIndexEmbeddedData<P0, P1>(indexer: MrmResourceIndexerHandle, resourceuri: P0, embeddeddata: &[u8], qualifiers: P1) -> ::windows_core::Result<()>

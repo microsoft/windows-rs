@@ -93,7 +93,7 @@ where
 {
     ::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" fn GetProcessDpiAwareness(hprocess : super::super::Foundation:: HANDLE, value : *mut PROCESS_DPI_AWARENESS) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    GetProcessDpiAwareness(hprocess.into_param().abi(), &mut result__).from_abi(result__)
+    GetProcessDpiAwareness(hprocess.into_param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn GetSystemDpiForProcess<P0>(hprocess: P0) -> u32

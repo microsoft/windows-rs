@@ -53,7 +53,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
                 pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<T> #where_clause {
                     #link
                     let mut result__ = ::std::ptr::null_mut();
-                    #name(#args).from_abi(result__)
+                    #name(#args).and_then(||::windows_core::Type::from_abi(result__))
                 }
             }
         }
@@ -76,6 +76,13 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
             let args = writer.win32_args(&signature.params, kind);
             let params = writer.win32_params(&signature.params, kind);
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
+
+            let map = if metadata::type_is_blittable(&return_type) {
+                quote! { map(||result__) }
+            } else {
+                quote! { and_then(||::windows_core::Type::from_abi(result__)) }
+            };
+
             let return_type = writer.type_name(&return_type);
 
             quote! {
@@ -84,7 +91,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
                 pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<#return_type> #where_clause {
                     #link
                     let mut result__ = ::std::mem::zeroed();
-                    #name(#args).from_abi(result__)
+                    #name(#args).#map
                 }
             }
         }
@@ -106,9 +113,10 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
             let params = writer.win32_params(&signature.params, kind);
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
             let is_nullable = metadata::type_is_nullable(&return_type);
-            let return_type = writer.type_name(&return_type);
 
             if is_nullable {
+                let return_type = writer.type_name(&return_type);
+
                 quote! {
                     #features
                     #[inline]
@@ -116,10 +124,18 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
                         #link
                         let mut result__ = ::std::mem::zeroed();
                         #name(#args);
-                        ::windows_core::from_abi(result__.assume_init())
+                        ::windows_core::Type::from_abi(result__.assume_init())
                     }
                 }
             } else {
+                let map = if metadata::type_is_blittable(&return_type) {
+                    quote! { result__ }
+                } else {
+                    quote! { ::std::mem::transmute(result__) }
+                };
+
+                let return_type = writer.type_name(&return_type);
+
                 quote! {
                     #features
                     #[inline]
@@ -127,7 +143,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: metadata::MethodDef) 
                         #link
                         let mut result__ = ::std::mem::zeroed();
                         #name(#args);
-                        ::std::mem::transmute(result__)
+                        #map
                     }
                 }
             }

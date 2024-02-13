@@ -35,7 +35,7 @@ impl PalmRejectionDelayZonePreview {
     {
         Self::IPalmRejectionDelayZonePreviewStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateForVisual)(::windows_core::Interface::as_raw(this), inputpanelvisual.into_param().abi(), inputpanelrect, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateForVisual)(::windows_core::Interface::as_raw(this), inputpanelvisual.into_param().abi(), inputpanelrect, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "UI_Composition")]
@@ -46,7 +46,7 @@ impl PalmRejectionDelayZonePreview {
     {
         Self::IPalmRejectionDelayZonePreviewStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateForVisualWithViewportClip)(::windows_core::Interface::as_raw(this), inputpanelvisual.into_param().abi(), inputpanelrect, viewportvisual.into_param().abi(), viewportrect, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateForVisualWithViewportClip)(::windows_core::Interface::as_raw(this), inputpanelvisual.into_param().abi(), inputpanelrect, viewportvisual.into_param().abi(), viewportrect, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     #[doc(hidden)]

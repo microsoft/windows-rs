@@ -39,7 +39,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetToMin(&self) -> ::windows_core::Result<()> {
@@ -68,7 +68,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn NumeralSystem(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -79,7 +79,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SetNumeralSystem(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -100,7 +100,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn ChangeCalendarSystem(
@@ -124,7 +124,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn ChangeClock(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -145,7 +145,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn SetDateTime(&self, value: DateTime) -> ::windows_core::Result<()> {
@@ -175,7 +175,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn LastEra(&self) -> ::windows_core::Result<i32> {
@@ -186,7 +186,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn NumberOfEras(&self) -> ::windows_core::Result<i32> {
@@ -197,7 +197,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn Era(&self) -> ::windows_core::Result<i32> {
@@ -208,7 +208,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn SetEra(&self, value: i32) -> ::windows_core::Result<()> {
@@ -239,7 +239,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn EraAsString(&self, ideallength: i32) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -251,7 +251,7 @@ impl Calendar {
                 ideallength,
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn FirstYearInThisEra(&self) -> ::windows_core::Result<i32> {
@@ -262,7 +262,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn LastYearInThisEra(&self) -> ::windows_core::Result<i32> {
@@ -273,7 +273,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn NumberOfYearsInThisEra(&self) -> ::windows_core::Result<i32> {
@@ -284,7 +284,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn Year(&self) -> ::windows_core::Result<i32> {
@@ -295,7 +295,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn SetYear(&self, value: i32) -> ::windows_core::Result<()> {
@@ -326,7 +326,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn YearAsTruncatedString(
@@ -341,7 +341,7 @@ impl Calendar {
                 remainingdigits,
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn YearAsPaddedString(
@@ -356,7 +356,7 @@ impl Calendar {
                 mindigits,
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn FirstMonthInThisYear(&self) -> ::windows_core::Result<i32> {
@@ -367,7 +367,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn LastMonthInThisYear(&self) -> ::windows_core::Result<i32> {
@@ -378,7 +378,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn NumberOfMonthsInThisYear(&self) -> ::windows_core::Result<i32> {
@@ -389,7 +389,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn Month(&self) -> ::windows_core::Result<i32> {
@@ -400,7 +400,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn SetMonth(&self, value: i32) -> ::windows_core::Result<()> {
@@ -431,7 +431,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn MonthAsString(
@@ -446,7 +446,7 @@ impl Calendar {
                 ideallength,
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn MonthAsFullSoloString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -457,7 +457,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn MonthAsSoloString(
@@ -472,7 +472,7 @@ impl Calendar {
                 ideallength,
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn MonthAsNumericString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -483,7 +483,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn MonthAsPaddedNumericString(
@@ -498,7 +498,7 @@ impl Calendar {
                 mindigits,
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn AddWeeks(&self, weeks: i32) -> ::windows_core::Result<()> {
@@ -519,7 +519,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn LastDayInThisMonth(&self) -> ::windows_core::Result<i32> {
@@ -530,7 +530,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn NumberOfDaysInThisMonth(&self) -> ::windows_core::Result<i32> {
@@ -541,7 +541,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn Day(&self) -> ::windows_core::Result<i32> {
@@ -552,7 +552,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn SetDay(&self, value: i32) -> ::windows_core::Result<()> {
@@ -583,7 +583,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn DayAsPaddedString(
@@ -598,7 +598,7 @@ impl Calendar {
                 mindigits,
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn DayOfWeek(&self) -> ::windows_core::Result<DayOfWeek> {
@@ -609,7 +609,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn DayOfWeekAsFullString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -620,7 +620,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn DayOfWeekAsString(
@@ -635,7 +635,7 @@ impl Calendar {
                 ideallength,
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn DayOfWeekAsFullSoloString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -646,7 +646,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn DayOfWeekAsSoloString(
@@ -661,7 +661,7 @@ impl Calendar {
                 ideallength,
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn FirstPeriodInThisDay(&self) -> ::windows_core::Result<i32> {
@@ -672,7 +672,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn LastPeriodInThisDay(&self) -> ::windows_core::Result<i32> {
@@ -683,7 +683,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn NumberOfPeriodsInThisDay(&self) -> ::windows_core::Result<i32> {
@@ -694,7 +694,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn Period(&self) -> ::windows_core::Result<i32> {
@@ -705,7 +705,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn SetPeriod(&self, value: i32) -> ::windows_core::Result<()> {
@@ -736,7 +736,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn PeriodAsString(
@@ -751,7 +751,7 @@ impl Calendar {
                 ideallength,
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn FirstHourInThisPeriod(&self) -> ::windows_core::Result<i32> {
@@ -762,7 +762,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn LastHourInThisPeriod(&self) -> ::windows_core::Result<i32> {
@@ -773,7 +773,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn NumberOfHoursInThisPeriod(&self) -> ::windows_core::Result<i32> {
@@ -784,7 +784,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn Hour(&self) -> ::windows_core::Result<i32> {
@@ -795,7 +795,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn SetHour(&self, value: i32) -> ::windows_core::Result<()> {
@@ -826,7 +826,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn HourAsPaddedString(
@@ -841,7 +841,7 @@ impl Calendar {
                 mindigits,
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Minute(&self) -> ::windows_core::Result<i32> {
@@ -852,7 +852,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn SetMinute(&self, value: i32) -> ::windows_core::Result<()> {
@@ -883,7 +883,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn MinuteAsPaddedString(
@@ -898,7 +898,7 @@ impl Calendar {
                 mindigits,
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Second(&self) -> ::windows_core::Result<i32> {
@@ -909,7 +909,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn SetSecond(&self, value: i32) -> ::windows_core::Result<()> {
@@ -940,7 +940,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn SecondAsPaddedString(
@@ -955,7 +955,7 @@ impl Calendar {
                 mindigits,
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Nanosecond(&self) -> ::windows_core::Result<i32> {
@@ -966,7 +966,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn SetNanosecond(&self, value: i32) -> ::windows_core::Result<()> {
@@ -997,7 +997,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn NanosecondAsPaddedString(
@@ -1012,7 +1012,7 @@ impl Calendar {
                 mindigits,
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Compare<P0>(&self, other: P0) -> ::windows_core::Result<i32>
@@ -1027,7 +1027,7 @@ impl Calendar {
                 other.into_param().abi(),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn CompareDateTime(&self, other: DateTime) -> ::windows_core::Result<i32> {
@@ -1039,7 +1039,7 @@ impl Calendar {
                 other,
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn CopyTo<P0>(&self, other: P0) -> ::windows_core::Result<()>
@@ -1063,7 +1063,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn LastMinuteInThisHour(&self) -> ::windows_core::Result<i32> {
@@ -1074,7 +1074,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn NumberOfMinutesInThisHour(&self) -> ::windows_core::Result<i32> {
@@ -1085,7 +1085,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn FirstSecondInThisMinute(&self) -> ::windows_core::Result<i32> {
@@ -1096,7 +1096,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn LastSecondInThisMinute(&self) -> ::windows_core::Result<i32> {
@@ -1107,7 +1107,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn NumberOfSecondsInThisMinute(&self) -> ::windows_core::Result<i32> {
@@ -1118,7 +1118,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn ResolvedLanguage(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1129,7 +1129,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsDaylightSavingTime(&self) -> ::windows_core::Result<bool> {
@@ -1140,7 +1140,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn CreateCalendarDefaultCalendarAndClock<P0>(
@@ -1156,7 +1156,7 @@ impl Calendar {
                 languages.into_param().abi(),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateCalendar<P0>(
@@ -1176,7 +1176,7 @@ impl Calendar {
                 ::core::mem::transmute_copy(clock),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateCalendarWithTimeZone<P0>(
@@ -1198,7 +1198,7 @@ impl Calendar {
                 ::core::mem::transmute_copy(timezoneid),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetTimeZone(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1209,7 +1209,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn ChangeTimeZone(
@@ -1233,7 +1233,7 @@ impl Calendar {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn TimeZoneAsString(
@@ -1248,7 +1248,7 @@ impl Calendar {
                 ideallength,
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     #[doc(hidden)]
@@ -1708,7 +1708,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterable<T> {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1776,7 +1776,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn HasCurrent(&self) -> ::windows_core::Result<bool> {
@@ -1787,7 +1787,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn MoveNext(&self) -> ::windows_core::Result<bool> {
@@ -1798,7 +1798,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn GetMany(
@@ -1814,7 +1814,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
                 ::core::mem::transmute_copy(&items),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
 }
@@ -1921,7 +1921,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
                 index,
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
     pub fn Size(&self) -> ::windows_core::Result<u32> {
@@ -1932,7 +1932,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows_core::Result<bool>
@@ -1948,7 +1948,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
                 index,
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn GetMany(
@@ -1966,7 +1966,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
                 ::core::mem::transmute_copy(&items),
                 &mut result__,
             )
-            .from_abi(result__)
+            .map(|| result__)
         }
     }
     pub fn First(&self) -> ::windows_core::Result<IIterator<T>> {
@@ -1977,7 +1977,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
             )
-            .from_abi(result__)
+            .and_then(|| ::windows_core::Type::from_abi(result__))
         }
     }
 }

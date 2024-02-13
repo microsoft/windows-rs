@@ -19,7 +19,7 @@ where
 pub unsafe fn CreateInteractionContext() -> ::windows_core::Result<HINTERACTIONCONTEXT> {
     ::windows_targets::link!("ninput.dll" "system" fn CreateInteractionContext(interactioncontext : *mut HINTERACTIONCONTEXT) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    CreateInteractionContext(&mut result__).from_abi(result__)
+    CreateInteractionContext(&mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn DestroyInteractionContext<P0>(interactioncontext: P0) -> ::windows_core::Result<()>
@@ -36,7 +36,7 @@ where
 {
     ::windows_targets::link!("ninput.dll" "system" fn GetCrossSlideParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, threshold : CROSS_SLIDE_THRESHOLD, distance : *mut f32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    GetCrossSlideParameterInteractionContext(interactioncontext.into_param().abi(), threshold, &mut result__).from_abi(result__)
+    GetCrossSlideParameterInteractionContext(interactioncontext.into_param().abi(), threshold, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn GetHoldParameterInteractionContext<P0>(interactioncontext: P0, parameter: HOLD_PARAMETER) -> ::windows_core::Result<f32>
@@ -45,7 +45,7 @@ where
 {
     ::windows_targets::link!("ninput.dll" "system" fn GetHoldParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : HOLD_PARAMETER, value : *mut f32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    GetHoldParameterInteractionContext(interactioncontext.into_param().abi(), parameter, &mut result__).from_abi(result__)
+    GetHoldParameterInteractionContext(interactioncontext.into_param().abi(), parameter, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn GetInertiaParameterInteractionContext<P0>(interactioncontext: P0, inertiaparameter: INERTIA_PARAMETER) -> ::windows_core::Result<f32>
@@ -54,7 +54,7 @@ where
 {
     ::windows_targets::link!("ninput.dll" "system" fn GetInertiaParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, inertiaparameter : INERTIA_PARAMETER, value : *mut f32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    GetInertiaParameterInteractionContext(interactioncontext.into_param().abi(), inertiaparameter, &mut result__).from_abi(result__)
+    GetInertiaParameterInteractionContext(interactioncontext.into_param().abi(), inertiaparameter, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn GetInteractionConfigurationInteractionContext<P0>(interactioncontext: P0, configuration: &mut [INTERACTION_CONTEXT_CONFIGURATION]) -> ::windows_core::Result<()>
@@ -71,7 +71,7 @@ where
 {
     ::windows_targets::link!("ninput.dll" "system" fn GetMouseWheelParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : MOUSE_WHEEL_PARAMETER, value : *mut f32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    GetMouseWheelParameterInteractionContext(interactioncontext.into_param().abi(), parameter, &mut result__).from_abi(result__)
+    GetMouseWheelParameterInteractionContext(interactioncontext.into_param().abi(), parameter, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn GetPropertyInteractionContext<P0>(interactioncontext: P0, contextproperty: INTERACTION_CONTEXT_PROPERTY) -> ::windows_core::Result<u32>
@@ -80,7 +80,7 @@ where
 {
     ::windows_targets::link!("ninput.dll" "system" fn GetPropertyInteractionContext(interactioncontext : HINTERACTIONCONTEXT, contextproperty : INTERACTION_CONTEXT_PROPERTY, value : *mut u32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    GetPropertyInteractionContext(interactioncontext.into_param().abi(), contextproperty, &mut result__).from_abi(result__)
+    GetPropertyInteractionContext(interactioncontext.into_param().abi(), contextproperty, &mut result__).map(|| result__)
 }
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
@@ -90,7 +90,7 @@ where
 {
     ::windows_targets::link!("ninput.dll" "system" fn GetStateInteractionContext(interactioncontext : HINTERACTIONCONTEXT, pointerinfo : *const super::Input::Pointer:: POINTER_INFO, state : *mut INTERACTION_STATE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    GetStateInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(pointerinfo.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+    GetStateInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(pointerinfo.unwrap_or(::std::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn GetTapParameterInteractionContext<P0>(interactioncontext: P0, parameter: TAP_PARAMETER) -> ::windows_core::Result<f32>
@@ -99,7 +99,7 @@ where
 {
     ::windows_targets::link!("ninput.dll" "system" fn GetTapParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : TAP_PARAMETER, value : *mut f32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    GetTapParameterInteractionContext(interactioncontext.into_param().abi(), parameter, &mut result__).from_abi(result__)
+    GetTapParameterInteractionContext(interactioncontext.into_param().abi(), parameter, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn GetTranslationParameterInteractionContext<P0>(interactioncontext: P0, parameter: TRANSLATION_PARAMETER) -> ::windows_core::Result<f32>
@@ -108,7 +108,7 @@ where
 {
     ::windows_targets::link!("ninput.dll" "system" fn GetTranslationParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : TRANSLATION_PARAMETER, value : *mut f32) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    GetTranslationParameterInteractionContext(interactioncontext.into_param().abi(), parameter, &mut result__).from_abi(result__)
+    GetTranslationParameterInteractionContext(interactioncontext.into_param().abi(), parameter, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn ProcessBufferedPacketsInteractionContext<P0>(interactioncontext: P0) -> ::windows_core::Result<()>

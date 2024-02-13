@@ -49,14 +49,20 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef, generic_types: &[metadata
             quote! {
                 let mut result__ = ::core::mem::MaybeUninit::zeroed();
                 (::windows_core::Interface::vtable(this).#vname)(::windows_core::Interface::as_raw(this), #args #return_arg)
-                    .and_then(|| result__.assume_init())
+                    .map(|| result__.assume_init())
             }
         }
         _ => {
+            let map = if metadata::type_is_blittable(&signature.return_type) {
+                quote! { map(||result__) }
+            } else {
+                quote! { and_then(|| ::windows_core::Type::from_abi(result__)) }
+            };
+
             quote! {
                 let mut result__ = ::std::mem::zeroed();
                     (::windows_core::Interface::vtable(this).#vname)(::windows_core::Interface::as_raw(this), #args #return_arg)
-                        .from_abi(result__)
+                        .#map
             }
         }
     };

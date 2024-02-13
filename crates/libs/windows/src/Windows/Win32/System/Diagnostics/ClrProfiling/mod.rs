@@ -95,7 +95,7 @@ impl ICorProfilerCallback {
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
     }
     pub unsafe fn JITCachedFunctionSearchFinished(&self, functionid: usize, result: COR_PRF_JIT_CACHE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).JITCachedFunctionSearchFinished)(::windows_core::Interface::as_raw(self), functionid, result).ok()
@@ -105,7 +105,7 @@ impl ICorProfilerCallback {
     }
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).map(|| result__)
     }
     pub unsafe fn ThreadCreated(&self, threadid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ThreadCreated)(::windows_core::Interface::as_raw(self), threadid).ok()
@@ -403,7 +403,7 @@ impl ICorProfilerCallback10 {
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
     }
     pub unsafe fn JITCachedFunctionSearchFinished(&self, functionid: usize, result: COR_PRF_JIT_CACHE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.JITCachedFunctionSearchFinished)(::windows_core::Interface::as_raw(self), functionid, result).ok()
@@ -413,7 +413,7 @@ impl ICorProfilerCallback10 {
     }
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).map(|| result__)
     }
     pub unsafe fn ThreadCreated(&self, threadid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.ThreadCreated)(::windows_core::Interface::as_raw(self), threadid).ok()
@@ -741,7 +741,7 @@ impl ICorProfilerCallback11 {
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
     }
     pub unsafe fn JITCachedFunctionSearchFinished(&self, functionid: usize, result: COR_PRF_JIT_CACHE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.JITCachedFunctionSearchFinished)(::windows_core::Interface::as_raw(self), functionid, result).ok()
@@ -751,7 +751,7 @@ impl ICorProfilerCallback11 {
     }
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).map(|| result__)
     }
     pub unsafe fn ThreadCreated(&self, threadid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.ThreadCreated)(::windows_core::Interface::as_raw(self), threadid).ok()
@@ -1081,7 +1081,7 @@ impl ICorProfilerCallback2 {
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
     }
     pub unsafe fn JITCachedFunctionSearchFinished(&self, functionid: usize, result: COR_PRF_JIT_CACHE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.JITCachedFunctionSearchFinished)(::windows_core::Interface::as_raw(self), functionid, result).ok()
@@ -1091,7 +1091,7 @@ impl ICorProfilerCallback2 {
     }
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).map(|| result__)
     }
     pub unsafe fn ThreadCreated(&self, threadid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ThreadCreated)(::windows_core::Interface::as_raw(self), threadid).ok()
@@ -1352,7 +1352,7 @@ impl ICorProfilerCallback3 {
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
     }
     pub unsafe fn JITCachedFunctionSearchFinished(&self, functionid: usize, result: COR_PRF_JIT_CACHE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.JITCachedFunctionSearchFinished)(::windows_core::Interface::as_raw(self), functionid, result).ok()
@@ -1362,7 +1362,7 @@ impl ICorProfilerCallback3 {
     }
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).map(|| result__)
     }
     pub unsafe fn ThreadCreated(&self, threadid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.ThreadCreated)(::windows_core::Interface::as_raw(self), threadid).ok()
@@ -1630,7 +1630,7 @@ impl ICorProfilerCallback4 {
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
     }
     pub unsafe fn JITCachedFunctionSearchFinished(&self, functionid: usize, result: COR_PRF_JIT_CACHE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.JITCachedFunctionSearchFinished)(::windows_core::Interface::as_raw(self), functionid, result).ok()
@@ -1640,7 +1640,7 @@ impl ICorProfilerCallback4 {
     }
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).map(|| result__)
     }
     pub unsafe fn ThreadCreated(&self, threadid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ThreadCreated)(::windows_core::Interface::as_raw(self), threadid).ok()
@@ -1938,7 +1938,7 @@ impl ICorProfilerCallback5 {
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
     }
     pub unsafe fn JITCachedFunctionSearchFinished(&self, functionid: usize, result: COR_PRF_JIT_CACHE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.JITCachedFunctionSearchFinished)(::windows_core::Interface::as_raw(self), functionid, result).ok()
@@ -1948,7 +1948,7 @@ impl ICorProfilerCallback5 {
     }
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).map(|| result__)
     }
     pub unsafe fn ThreadCreated(&self, threadid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ThreadCreated)(::windows_core::Interface::as_raw(self), threadid).ok()
@@ -2244,7 +2244,7 @@ impl ICorProfilerCallback6 {
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
     }
     pub unsafe fn JITCachedFunctionSearchFinished(&self, functionid: usize, result: COR_PRF_JIT_CACHE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.JITCachedFunctionSearchFinished)(::windows_core::Interface::as_raw(self), functionid, result).ok()
@@ -2254,7 +2254,7 @@ impl ICorProfilerCallback6 {
     }
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).map(|| result__)
     }
     pub unsafe fn ThreadCreated(&self, threadid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ThreadCreated)(::windows_core::Interface::as_raw(self), threadid).ok()
@@ -2557,7 +2557,7 @@ impl ICorProfilerCallback7 {
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
     }
     pub unsafe fn JITCachedFunctionSearchFinished(&self, functionid: usize, result: COR_PRF_JIT_CACHE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.JITCachedFunctionSearchFinished)(::windows_core::Interface::as_raw(self), functionid, result).ok()
@@ -2567,7 +2567,7 @@ impl ICorProfilerCallback7 {
     }
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).map(|| result__)
     }
     pub unsafe fn ThreadCreated(&self, threadid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ThreadCreated)(::windows_core::Interface::as_raw(self), threadid).ok()
@@ -2873,7 +2873,7 @@ impl ICorProfilerCallback8 {
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
     }
     pub unsafe fn JITCachedFunctionSearchFinished(&self, functionid: usize, result: COR_PRF_JIT_CACHE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.JITCachedFunctionSearchFinished)(::windows_core::Interface::as_raw(self), functionid, result).ok()
@@ -2883,7 +2883,7 @@ impl ICorProfilerCallback8 {
     }
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).map(|| result__)
     }
     pub unsafe fn ThreadCreated(&self, threadid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.ThreadCreated)(::windows_core::Interface::as_raw(self), threadid).ok()
@@ -3202,7 +3202,7 @@ impl ICorProfilerCallback9 {
     }
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.JITCachedFunctionSearchStarted)(::windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
     }
     pub unsafe fn JITCachedFunctionSearchFinished(&self, functionid: usize, result: COR_PRF_JIT_CACHE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.JITCachedFunctionSearchFinished)(::windows_core::Interface::as_raw(self), functionid, result).ok()
@@ -3212,7 +3212,7 @@ impl ICorProfilerCallback9 {
     }
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.JITInlining)(::windows_core::Interface::as_raw(self), callerid, calleeid, &mut result__).map(|| result__)
     }
     pub unsafe fn ThreadCreated(&self, threadid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.ThreadCreated)(::windows_core::Interface::as_raw(self), threadid).ok()
@@ -3485,11 +3485,11 @@ impl ICorProfilerFunctionEnum {
     }
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Next(&self, ids: &mut [COR_PRF_FUNCTION], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ids.len().try_into().unwrap(), ::core::mem::transmute(ids.as_ptr()), pceltfetched).ok()
@@ -3510,34 +3510,34 @@ pub struct ICorProfilerFunctionEnum_Vtbl {
 impl ICorProfilerInfo {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassFromToken(&self, moduleid: usize, typedef: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodeInfo(&self, functionid: usize, pstart: *mut *mut u8, pcsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCodeInfo)(::windows_core::Interface::as_raw(self), functionid, pstart, pcsize).ok()
     }
     pub unsafe fn GetEventMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP(&self, ip: *const u8) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromToken(&self, moduleid: usize, token: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).map(|| result__)
     }
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetObjectSize(&self, objectid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
@@ -3545,11 +3545,11 @@ impl ICorProfilerInfo {
     }
     pub unsafe fn GetThreadInfo(&self, threadid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCurrentThreadID(&self) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassIDInfo(&self, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetClassIDInfo)(::windows_core::Interface::as_raw(self), classid, pmoduleid, ptypedeftoken).ok()
@@ -3574,14 +3574,14 @@ impl ICorProfilerInfo {
     }
     pub unsafe fn GetModuleMetaData(&self, moduleid: usize, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetILFunctionBody(&self, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, ppmethodheader, pcbmethodsize).ok()
     }
     pub unsafe fn GetILFunctionBodyAllocator(&self, moduleid: usize) -> ::windows_core::Result<IMethodMalloc> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetILFunctionBody(&self, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, pbnewilmethodheader).ok()
@@ -3606,22 +3606,22 @@ impl ICorProfilerInfo {
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetInprocInspectionIThisThread(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetThreadContext(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EndInprocDebugging)(::windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -3676,34 +3676,34 @@ pub struct ICorProfilerInfo_Vtbl {
 impl ICorProfilerInfo10 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassFromToken(&self, moduleid: usize, typedef: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodeInfo(&self, functionid: usize, pstart: *mut *mut u8, pcsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetCodeInfo)(::windows_core::Interface::as_raw(self), functionid, pstart, pcsize).ok()
     }
     pub unsafe fn GetEventMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP(&self, ip: *const u8) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromToken(&self, moduleid: usize, token: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).map(|| result__)
     }
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetObjectSize(&self, objectid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
@@ -3711,11 +3711,11 @@ impl ICorProfilerInfo10 {
     }
     pub unsafe fn GetThreadInfo(&self, threadid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCurrentThreadID(&self) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassIDInfo(&self, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassIDInfo)(::windows_core::Interface::as_raw(self), classid, pmoduleid, ptypedeftoken).ok()
@@ -3740,14 +3740,14 @@ impl ICorProfilerInfo10 {
     }
     pub unsafe fn GetModuleMetaData(&self, moduleid: usize, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetILFunctionBody(&self, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, ppmethodheader, pcbmethodsize).ok()
     }
     pub unsafe fn GetILFunctionBodyAllocator(&self, moduleid: usize) -> ::windows_core::Result<IMethodMalloc> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetILFunctionBody(&self, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.SetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, pbnewilmethodheader).ok()
@@ -3772,22 +3772,22 @@ impl ICorProfilerInfo10 {
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetInprocInspectionIThisThread(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetThreadContext(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.EndInprocDebugging)(::windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -3819,26 +3819,26 @@ impl ICorProfilerInfo10 {
     }
     pub unsafe fn GetClassFromTokenAndTypeArgs(&self, moduleid: usize, typedef: u32, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromTokenAndTypeArgs(&self, moduleid: usize, funcdef: u32, classid: usize, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModuleFrozenObjects(&self, moduleid: usize) -> ::windows_core::Result<ICorProfilerObjectEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetArrayObjectInfo(&self, objectid: usize, cdimensions: u32, pdimensionsizes: *mut u32, pdimensionlowerbounds: *mut i32, ppdata: *mut *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetArrayObjectInfo)(::windows_core::Interface::as_raw(self), objectid, cdimensions, pdimensionsizes, pdimensionlowerbounds, ppdata).ok()
     }
     pub unsafe fn GetBoxClassLayout(&self, classid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetThreadAppDomain(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRVAStaticAddress(&self, classid: usize, fieldtoken: u32, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetRVAStaticAddress)(::windows_core::Interface::as_raw(self), classid, fieldtoken, ppaddress).ok()
@@ -3854,22 +3854,22 @@ impl ICorProfilerInfo10 {
     }
     pub unsafe fn GetStaticFieldInfo(&self, classid: usize, fieldtoken: u32) -> ::windows_core::Result<COR_PRF_STATIC_TYPE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).map(|| result__)
     }
     pub unsafe fn GetGenerationBounds(&self, pcobjectranges: *mut u32, ranges: &mut [COR_PRF_GC_GENERATION_RANGE]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetGenerationBounds)(::windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), pcobjectranges, ::core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn GetObjectGeneration(&self, objectid: usize) -> ::windows_core::Result<COR_PRF_GC_GENERATION_RANGE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetNotifiedExceptionClauseInfo(&self) -> ::windows_core::Result<COR_PRF_EX_CLAUSE_INFO> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumJITedFunctions(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
@@ -3894,11 +3894,11 @@ impl ICorProfilerInfo10 {
     }
     pub unsafe fn GetFunctionTailcall3Info(&self, functionid: usize, eltinfo: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModules(&self) -> ::windows_core::Result<ICorProfilerModuleEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRuntimeInformation(&self, pclrinstanceid: *mut u16, pruntimetype: *mut COR_PRF_RUNTIME_TYPE, pmajorversion: *mut u16, pminorversion: *mut u16, pbuildnumber: *mut u16, pqfeversion: *mut u16, pcchversionstring: *mut u32, szversionstring: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetRuntimeInformation)(::windows_core::Interface::as_raw(self), pclrinstanceid, pruntimetype, pmajorversion, pminorversion, pbuildnumber, pqfeversion, szversionstring.len().try_into().unwrap(), pcchversionstring, ::core::mem::transmute(szversionstring.as_ptr())).ok()
@@ -3914,7 +3914,7 @@ impl ICorProfilerInfo10 {
     }
     pub unsafe fn EnumThreads(&self) -> ::windows_core::Result<ICorProfilerThreadEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InitializeCurrentThread(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.InitializeCurrentThread)(::windows_core::Interface::as_raw(self)).ok()
@@ -3939,11 +3939,11 @@ impl ICorProfilerInfo10 {
     }
     pub unsafe fn EnumJITedFunctions2(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetObjectSize2(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetEventMask2(&self, pdweventslow: *mut u32, pdweventshigh: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetEventMask2)(::windows_core::Interface::as_raw(self), pdweventslow, pdweventshigh).ok()
@@ -3959,14 +3959,14 @@ impl ICorProfilerInfo10 {
     }
     pub unsafe fn GetInMemorySymbolsLength(&self, moduleid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetInMemorySymbolsLength)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetInMemorySymbolsLength)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).map(|| result__)
     }
     pub unsafe fn ReadInMemorySymbols(&self, moduleid: usize, symbolsreadoffset: u32, psymbolbytes: *mut u8, countsymbolbytes: u32, pcountsymbolbytesread: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ReadInMemorySymbols)(::windows_core::Interface::as_raw(self), moduleid, symbolsreadoffset, psymbolbytes, countsymbolbytes, pcountsymbolbytesread).ok()
     }
     pub unsafe fn IsFunctionDynamic(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.IsFunctionDynamic)(::windows_core::Interface::as_raw(self), functionid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.IsFunctionDynamic)(::windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP3(&self, ip: *const u8, functionid: *mut usize, prejitid: *mut usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetFunctionFromIP3)(::windows_core::Interface::as_raw(self), ip, functionid, prejitid).ok()
@@ -4018,34 +4018,34 @@ pub struct ICorProfilerInfo10_Vtbl {
 impl ICorProfilerInfo11 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassFromToken(&self, moduleid: usize, typedef: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodeInfo(&self, functionid: usize, pstart: *mut *mut u8, pcsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetCodeInfo)(::windows_core::Interface::as_raw(self), functionid, pstart, pcsize).ok()
     }
     pub unsafe fn GetEventMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP(&self, ip: *const u8) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromToken(&self, moduleid: usize, token: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).map(|| result__)
     }
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetObjectSize(&self, objectid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
@@ -4053,11 +4053,11 @@ impl ICorProfilerInfo11 {
     }
     pub unsafe fn GetThreadInfo(&self, threadid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCurrentThreadID(&self) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassIDInfo(&self, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassIDInfo)(::windows_core::Interface::as_raw(self), classid, pmoduleid, ptypedeftoken).ok()
@@ -4082,14 +4082,14 @@ impl ICorProfilerInfo11 {
     }
     pub unsafe fn GetModuleMetaData(&self, moduleid: usize, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetILFunctionBody(&self, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, ppmethodheader, pcbmethodsize).ok()
     }
     pub unsafe fn GetILFunctionBodyAllocator(&self, moduleid: usize) -> ::windows_core::Result<IMethodMalloc> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetILFunctionBody(&self, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, pbnewilmethodheader).ok()
@@ -4114,22 +4114,22 @@ impl ICorProfilerInfo11 {
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetInprocInspectionIThisThread(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetThreadContext(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EndInprocDebugging)(::windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -4161,26 +4161,26 @@ impl ICorProfilerInfo11 {
     }
     pub unsafe fn GetClassFromTokenAndTypeArgs(&self, moduleid: usize, typedef: u32, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromTokenAndTypeArgs(&self, moduleid: usize, funcdef: u32, classid: usize, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModuleFrozenObjects(&self, moduleid: usize) -> ::windows_core::Result<ICorProfilerObjectEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetArrayObjectInfo(&self, objectid: usize, cdimensions: u32, pdimensionsizes: *mut u32, pdimensionlowerbounds: *mut i32, ppdata: *mut *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetArrayObjectInfo)(::windows_core::Interface::as_raw(self), objectid, cdimensions, pdimensionsizes, pdimensionlowerbounds, ppdata).ok()
     }
     pub unsafe fn GetBoxClassLayout(&self, classid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetThreadAppDomain(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRVAStaticAddress(&self, classid: usize, fieldtoken: u32, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetRVAStaticAddress)(::windows_core::Interface::as_raw(self), classid, fieldtoken, ppaddress).ok()
@@ -4196,22 +4196,22 @@ impl ICorProfilerInfo11 {
     }
     pub unsafe fn GetStaticFieldInfo(&self, classid: usize, fieldtoken: u32) -> ::windows_core::Result<COR_PRF_STATIC_TYPE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).map(|| result__)
     }
     pub unsafe fn GetGenerationBounds(&self, pcobjectranges: *mut u32, ranges: &mut [COR_PRF_GC_GENERATION_RANGE]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetGenerationBounds)(::windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), pcobjectranges, ::core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn GetObjectGeneration(&self, objectid: usize) -> ::windows_core::Result<COR_PRF_GC_GENERATION_RANGE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetNotifiedExceptionClauseInfo(&self) -> ::windows_core::Result<COR_PRF_EX_CLAUSE_INFO> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumJITedFunctions(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
@@ -4236,11 +4236,11 @@ impl ICorProfilerInfo11 {
     }
     pub unsafe fn GetFunctionTailcall3Info(&self, functionid: usize, eltinfo: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModules(&self) -> ::windows_core::Result<ICorProfilerModuleEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRuntimeInformation(&self, pclrinstanceid: *mut u16, pruntimetype: *mut COR_PRF_RUNTIME_TYPE, pmajorversion: *mut u16, pminorversion: *mut u16, pbuildnumber: *mut u16, pqfeversion: *mut u16, pcchversionstring: *mut u32, szversionstring: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetRuntimeInformation)(::windows_core::Interface::as_raw(self), pclrinstanceid, pruntimetype, pmajorversion, pminorversion, pbuildnumber, pqfeversion, szversionstring.len().try_into().unwrap(), pcchversionstring, ::core::mem::transmute(szversionstring.as_ptr())).ok()
@@ -4256,7 +4256,7 @@ impl ICorProfilerInfo11 {
     }
     pub unsafe fn EnumThreads(&self) -> ::windows_core::Result<ICorProfilerThreadEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InitializeCurrentThread(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.InitializeCurrentThread)(::windows_core::Interface::as_raw(self)).ok()
@@ -4281,11 +4281,11 @@ impl ICorProfilerInfo11 {
     }
     pub unsafe fn EnumJITedFunctions2(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetObjectSize2(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetEventMask2(&self, pdweventslow: *mut u32, pdweventshigh: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetEventMask2)(::windows_core::Interface::as_raw(self), pdweventslow, pdweventshigh).ok()
@@ -4301,14 +4301,14 @@ impl ICorProfilerInfo11 {
     }
     pub unsafe fn GetInMemorySymbolsLength(&self, moduleid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetInMemorySymbolsLength)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetInMemorySymbolsLength)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).map(|| result__)
     }
     pub unsafe fn ReadInMemorySymbols(&self, moduleid: usize, symbolsreadoffset: u32, psymbolbytes: *mut u8, countsymbolbytes: u32, pcountsymbolbytesread: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ReadInMemorySymbols)(::windows_core::Interface::as_raw(self), moduleid, symbolsreadoffset, psymbolbytes, countsymbolbytes, pcountsymbolbytesread).ok()
     }
     pub unsafe fn IsFunctionDynamic(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.IsFunctionDynamic)(::windows_core::Interface::as_raw(self), functionid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.IsFunctionDynamic)(::windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP3(&self, ip: *const u8, functionid: *mut usize, prejitid: *mut usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetFunctionFromIP3)(::windows_core::Interface::as_raw(self), ip, functionid, prejitid).ok()
@@ -4369,34 +4369,34 @@ pub struct ICorProfilerInfo11_Vtbl {
 impl ICorProfilerInfo12 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassFromToken(&self, moduleid: usize, typedef: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodeInfo(&self, functionid: usize, pstart: *mut *mut u8, pcsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetCodeInfo)(::windows_core::Interface::as_raw(self), functionid, pstart, pcsize).ok()
     }
     pub unsafe fn GetEventMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP(&self, ip: *const u8) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromToken(&self, moduleid: usize, token: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).map(|| result__)
     }
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetObjectSize(&self, objectid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
@@ -4404,11 +4404,11 @@ impl ICorProfilerInfo12 {
     }
     pub unsafe fn GetThreadInfo(&self, threadid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCurrentThreadID(&self) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassIDInfo(&self, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassIDInfo)(::windows_core::Interface::as_raw(self), classid, pmoduleid, ptypedeftoken).ok()
@@ -4433,14 +4433,14 @@ impl ICorProfilerInfo12 {
     }
     pub unsafe fn GetModuleMetaData(&self, moduleid: usize, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetILFunctionBody(&self, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, ppmethodheader, pcbmethodsize).ok()
     }
     pub unsafe fn GetILFunctionBodyAllocator(&self, moduleid: usize) -> ::windows_core::Result<IMethodMalloc> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetILFunctionBody(&self, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, pbnewilmethodheader).ok()
@@ -4465,22 +4465,22 @@ impl ICorProfilerInfo12 {
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetInprocInspectionIThisThread(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetThreadContext(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EndInprocDebugging)(::windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -4512,26 +4512,26 @@ impl ICorProfilerInfo12 {
     }
     pub unsafe fn GetClassFromTokenAndTypeArgs(&self, moduleid: usize, typedef: u32, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromTokenAndTypeArgs(&self, moduleid: usize, funcdef: u32, classid: usize, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModuleFrozenObjects(&self, moduleid: usize) -> ::windows_core::Result<ICorProfilerObjectEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetArrayObjectInfo(&self, objectid: usize, cdimensions: u32, pdimensionsizes: *mut u32, pdimensionlowerbounds: *mut i32, ppdata: *mut *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetArrayObjectInfo)(::windows_core::Interface::as_raw(self), objectid, cdimensions, pdimensionsizes, pdimensionlowerbounds, ppdata).ok()
     }
     pub unsafe fn GetBoxClassLayout(&self, classid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetThreadAppDomain(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRVAStaticAddress(&self, classid: usize, fieldtoken: u32, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetRVAStaticAddress)(::windows_core::Interface::as_raw(self), classid, fieldtoken, ppaddress).ok()
@@ -4547,22 +4547,22 @@ impl ICorProfilerInfo12 {
     }
     pub unsafe fn GetStaticFieldInfo(&self, classid: usize, fieldtoken: u32) -> ::windows_core::Result<COR_PRF_STATIC_TYPE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).map(|| result__)
     }
     pub unsafe fn GetGenerationBounds(&self, pcobjectranges: *mut u32, ranges: &mut [COR_PRF_GC_GENERATION_RANGE]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetGenerationBounds)(::windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), pcobjectranges, ::core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn GetObjectGeneration(&self, objectid: usize) -> ::windows_core::Result<COR_PRF_GC_GENERATION_RANGE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetNotifiedExceptionClauseInfo(&self) -> ::windows_core::Result<COR_PRF_EX_CLAUSE_INFO> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumJITedFunctions(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
@@ -4587,11 +4587,11 @@ impl ICorProfilerInfo12 {
     }
     pub unsafe fn GetFunctionTailcall3Info(&self, functionid: usize, eltinfo: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModules(&self) -> ::windows_core::Result<ICorProfilerModuleEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRuntimeInformation(&self, pclrinstanceid: *mut u16, pruntimetype: *mut COR_PRF_RUNTIME_TYPE, pmajorversion: *mut u16, pminorversion: *mut u16, pbuildnumber: *mut u16, pqfeversion: *mut u16, pcchversionstring: *mut u32, szversionstring: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetRuntimeInformation)(::windows_core::Interface::as_raw(self), pclrinstanceid, pruntimetype, pmajorversion, pminorversion, pbuildnumber, pqfeversion, szversionstring.len().try_into().unwrap(), pcchversionstring, ::core::mem::transmute(szversionstring.as_ptr())).ok()
@@ -4607,7 +4607,7 @@ impl ICorProfilerInfo12 {
     }
     pub unsafe fn EnumThreads(&self) -> ::windows_core::Result<ICorProfilerThreadEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InitializeCurrentThread(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.InitializeCurrentThread)(::windows_core::Interface::as_raw(self)).ok()
@@ -4632,11 +4632,11 @@ impl ICorProfilerInfo12 {
     }
     pub unsafe fn EnumJITedFunctions2(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetObjectSize2(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetEventMask2(&self, pdweventslow: *mut u32, pdweventshigh: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetEventMask2)(::windows_core::Interface::as_raw(self), pdweventslow, pdweventshigh).ok()
@@ -4652,14 +4652,14 @@ impl ICorProfilerInfo12 {
     }
     pub unsafe fn GetInMemorySymbolsLength(&self, moduleid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetInMemorySymbolsLength)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetInMemorySymbolsLength)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).map(|| result__)
     }
     pub unsafe fn ReadInMemorySymbols(&self, moduleid: usize, symbolsreadoffset: u32, psymbolbytes: *mut u8, countsymbolbytes: u32, pcountsymbolbytesread: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ReadInMemorySymbols)(::windows_core::Interface::as_raw(self), moduleid, symbolsreadoffset, psymbolbytes, countsymbolbytes, pcountsymbolbytesread).ok()
     }
     pub unsafe fn IsFunctionDynamic(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsFunctionDynamic)(::windows_core::Interface::as_raw(self), functionid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsFunctionDynamic)(::windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP3(&self, ip: *const u8, functionid: *mut usize, prejitid: *mut usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetFunctionFromIP3)(::windows_core::Interface::as_raw(self), ip, functionid, prejitid).ok()
@@ -4712,7 +4712,7 @@ impl ICorProfilerInfo12 {
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EventPipeStartSession)(::windows_core::Interface::as_raw(self), pproviderconfigs.len().try_into().unwrap(), ::core::mem::transmute(pproviderconfigs.as_ptr()), requestrundown.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EventPipeStartSession)(::windows_core::Interface::as_raw(self), pproviderconfigs.len().try_into().unwrap(), ::core::mem::transmute(pproviderconfigs.as_ptr()), requestrundown.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EventPipeAddProviderToSession(&self, session: u64, providerconfig: COR_PRF_EVENTPIPE_PROVIDER_CONFIG) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EventPipeAddProviderToSession)(::windows_core::Interface::as_raw(self), session, ::core::mem::transmute(providerconfig)).ok()
@@ -4725,7 +4725,7 @@ impl ICorProfilerInfo12 {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EventPipeCreateProvider)(::windows_core::Interface::as_raw(self), providername.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EventPipeCreateProvider)(::windows_core::Interface::as_raw(self), providername.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EventPipeGetProviderInfo(&self, provider: usize, pcchname: *mut u32, providername: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EventPipeGetProviderInfo)(::windows_core::Interface::as_raw(self), provider, providername.len().try_into().unwrap(), pcchname, ::core::mem::transmute(providername.as_ptr())).ok()
@@ -4736,7 +4736,7 @@ impl ICorProfilerInfo12 {
         P1: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EventPipeDefineEvent)(::windows_core::Interface::as_raw(self), provider, eventname.into_param().abi(), eventid, keywords, eventversion, level, opcode, needstack.into_param().abi(), pparamdescs.len().try_into().unwrap(), ::core::mem::transmute(pparamdescs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EventPipeDefineEvent)(::windows_core::Interface::as_raw(self), provider, eventname.into_param().abi(), eventid, keywords, eventversion, level, opcode, needstack.into_param().abi(), pparamdescs.len().try_into().unwrap(), ::core::mem::transmute(pparamdescs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn EventPipeWriteEvent(&self, event: usize, data: &[COR_PRF_EVENT_DATA], pactivityid: *const ::windows_core::GUID, prelatedactivityid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EventPipeWriteEvent)(::windows_core::Interface::as_raw(self), event, data.len().try_into().unwrap(), ::core::mem::transmute(data.as_ptr()), pactivityid, prelatedactivityid).ok()
@@ -4759,34 +4759,34 @@ pub struct ICorProfilerInfo12_Vtbl {
 impl ICorProfilerInfo13 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassFromToken(&self, moduleid: usize, typedef: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodeInfo(&self, functionid: usize, pstart: *mut *mut u8, pcsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetCodeInfo)(::windows_core::Interface::as_raw(self), functionid, pstart, pcsize).ok()
     }
     pub unsafe fn GetEventMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP(&self, ip: *const u8) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromToken(&self, moduleid: usize, token: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).map(|| result__)
     }
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetObjectSize(&self, objectid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
@@ -4794,11 +4794,11 @@ impl ICorProfilerInfo13 {
     }
     pub unsafe fn GetThreadInfo(&self, threadid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCurrentThreadID(&self) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassIDInfo(&self, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassIDInfo)(::windows_core::Interface::as_raw(self), classid, pmoduleid, ptypedeftoken).ok()
@@ -4823,14 +4823,14 @@ impl ICorProfilerInfo13 {
     }
     pub unsafe fn GetModuleMetaData(&self, moduleid: usize, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetILFunctionBody(&self, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, ppmethodheader, pcbmethodsize).ok()
     }
     pub unsafe fn GetILFunctionBodyAllocator(&self, moduleid: usize) -> ::windows_core::Result<IMethodMalloc> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetILFunctionBody(&self, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, pbnewilmethodheader).ok()
@@ -4855,22 +4855,22 @@ impl ICorProfilerInfo13 {
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetInprocInspectionIThisThread(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetThreadContext(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EndInprocDebugging)(::windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -4902,26 +4902,26 @@ impl ICorProfilerInfo13 {
     }
     pub unsafe fn GetClassFromTokenAndTypeArgs(&self, moduleid: usize, typedef: u32, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromTokenAndTypeArgs(&self, moduleid: usize, funcdef: u32, classid: usize, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModuleFrozenObjects(&self, moduleid: usize) -> ::windows_core::Result<ICorProfilerObjectEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetArrayObjectInfo(&self, objectid: usize, cdimensions: u32, pdimensionsizes: *mut u32, pdimensionlowerbounds: *mut i32, ppdata: *mut *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetArrayObjectInfo)(::windows_core::Interface::as_raw(self), objectid, cdimensions, pdimensionsizes, pdimensionlowerbounds, ppdata).ok()
     }
     pub unsafe fn GetBoxClassLayout(&self, classid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetThreadAppDomain(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRVAStaticAddress(&self, classid: usize, fieldtoken: u32, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetRVAStaticAddress)(::windows_core::Interface::as_raw(self), classid, fieldtoken, ppaddress).ok()
@@ -4937,22 +4937,22 @@ impl ICorProfilerInfo13 {
     }
     pub unsafe fn GetStaticFieldInfo(&self, classid: usize, fieldtoken: u32) -> ::windows_core::Result<COR_PRF_STATIC_TYPE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).map(|| result__)
     }
     pub unsafe fn GetGenerationBounds(&self, pcobjectranges: *mut u32, ranges: &mut [COR_PRF_GC_GENERATION_RANGE]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetGenerationBounds)(::windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), pcobjectranges, ::core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn GetObjectGeneration(&self, objectid: usize) -> ::windows_core::Result<COR_PRF_GC_GENERATION_RANGE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetNotifiedExceptionClauseInfo(&self) -> ::windows_core::Result<COR_PRF_EX_CLAUSE_INFO> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumJITedFunctions(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
@@ -4977,11 +4977,11 @@ impl ICorProfilerInfo13 {
     }
     pub unsafe fn GetFunctionTailcall3Info(&self, functionid: usize, eltinfo: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModules(&self) -> ::windows_core::Result<ICorProfilerModuleEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRuntimeInformation(&self, pclrinstanceid: *mut u16, pruntimetype: *mut COR_PRF_RUNTIME_TYPE, pmajorversion: *mut u16, pminorversion: *mut u16, pbuildnumber: *mut u16, pqfeversion: *mut u16, pcchversionstring: *mut u32, szversionstring: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetRuntimeInformation)(::windows_core::Interface::as_raw(self), pclrinstanceid, pruntimetype, pmajorversion, pminorversion, pbuildnumber, pqfeversion, szversionstring.len().try_into().unwrap(), pcchversionstring, ::core::mem::transmute(szversionstring.as_ptr())).ok()
@@ -4997,7 +4997,7 @@ impl ICorProfilerInfo13 {
     }
     pub unsafe fn EnumThreads(&self) -> ::windows_core::Result<ICorProfilerThreadEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InitializeCurrentThread(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.InitializeCurrentThread)(::windows_core::Interface::as_raw(self)).ok()
@@ -5022,11 +5022,11 @@ impl ICorProfilerInfo13 {
     }
     pub unsafe fn EnumJITedFunctions2(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetObjectSize2(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetEventMask2(&self, pdweventslow: *mut u32, pdweventshigh: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetEventMask2)(::windows_core::Interface::as_raw(self), pdweventslow, pdweventshigh).ok()
@@ -5042,14 +5042,14 @@ impl ICorProfilerInfo13 {
     }
     pub unsafe fn GetInMemorySymbolsLength(&self, moduleid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetInMemorySymbolsLength)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetInMemorySymbolsLength)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).map(|| result__)
     }
     pub unsafe fn ReadInMemorySymbols(&self, moduleid: usize, symbolsreadoffset: u32, psymbolbytes: *mut u8, countsymbolbytes: u32, pcountsymbolbytesread: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ReadInMemorySymbols)(::windows_core::Interface::as_raw(self), moduleid, symbolsreadoffset, psymbolbytes, countsymbolbytes, pcountsymbolbytesread).ok()
     }
     pub unsafe fn IsFunctionDynamic(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsFunctionDynamic)(::windows_core::Interface::as_raw(self), functionid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsFunctionDynamic)(::windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP3(&self, ip: *const u8, functionid: *mut usize, prejitid: *mut usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetFunctionFromIP3)(::windows_core::Interface::as_raw(self), ip, functionid, prejitid).ok()
@@ -5102,7 +5102,7 @@ impl ICorProfilerInfo13 {
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EventPipeStartSession)(::windows_core::Interface::as_raw(self), pproviderconfigs.len().try_into().unwrap(), ::core::mem::transmute(pproviderconfigs.as_ptr()), requestrundown.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EventPipeStartSession)(::windows_core::Interface::as_raw(self), pproviderconfigs.len().try_into().unwrap(), ::core::mem::transmute(pproviderconfigs.as_ptr()), requestrundown.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EventPipeAddProviderToSession(&self, session: u64, providerconfig: COR_PRF_EVENTPIPE_PROVIDER_CONFIG) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.EventPipeAddProviderToSession)(::windows_core::Interface::as_raw(self), session, ::core::mem::transmute(providerconfig)).ok()
@@ -5115,7 +5115,7 @@ impl ICorProfilerInfo13 {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EventPipeCreateProvider)(::windows_core::Interface::as_raw(self), providername.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EventPipeCreateProvider)(::windows_core::Interface::as_raw(self), providername.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EventPipeGetProviderInfo(&self, provider: usize, pcchname: *mut u32, providername: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.EventPipeGetProviderInfo)(::windows_core::Interface::as_raw(self), provider, providername.len().try_into().unwrap(), pcchname, ::core::mem::transmute(providername.as_ptr())).ok()
@@ -5126,7 +5126,7 @@ impl ICorProfilerInfo13 {
         P1: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EventPipeDefineEvent)(::windows_core::Interface::as_raw(self), provider, eventname.into_param().abi(), eventid, keywords, eventversion, level, opcode, needstack.into_param().abi(), pparamdescs.len().try_into().unwrap(), ::core::mem::transmute(pparamdescs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EventPipeDefineEvent)(::windows_core::Interface::as_raw(self), provider, eventname.into_param().abi(), eventid, keywords, eventversion, level, opcode, needstack.into_param().abi(), pparamdescs.len().try_into().unwrap(), ::core::mem::transmute(pparamdescs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn EventPipeWriteEvent(&self, event: usize, data: &[COR_PRF_EVENT_DATA], pactivityid: *const ::windows_core::GUID, prelatedactivityid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.EventPipeWriteEvent)(::windows_core::Interface::as_raw(self), event, data.len().try_into().unwrap(), ::core::mem::transmute(data.as_ptr()), pactivityid, prelatedactivityid).ok()
@@ -5139,7 +5139,7 @@ impl ICorProfilerInfo13 {
     }
     pub unsafe fn GetObjectIDFromHandle(&self, handle: *const *const ::core::ffi::c_void) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetObjectIDFromHandle)(::windows_core::Interface::as_raw(self), handle, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetObjectIDFromHandle)(::windows_core::Interface::as_raw(self), handle, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -5155,34 +5155,34 @@ pub struct ICorProfilerInfo13_Vtbl {
 impl ICorProfilerInfo14 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassFromToken(&self, moduleid: usize, typedef: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodeInfo(&self, functionid: usize, pstart: *mut *mut u8, pcsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetCodeInfo)(::windows_core::Interface::as_raw(self), functionid, pstart, pcsize).ok()
     }
     pub unsafe fn GetEventMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP(&self, ip: *const u8) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromToken(&self, moduleid: usize, token: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).map(|| result__)
     }
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetObjectSize(&self, objectid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
@@ -5190,11 +5190,11 @@ impl ICorProfilerInfo14 {
     }
     pub unsafe fn GetThreadInfo(&self, threadid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCurrentThreadID(&self) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassIDInfo(&self, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassIDInfo)(::windows_core::Interface::as_raw(self), classid, pmoduleid, ptypedeftoken).ok()
@@ -5219,14 +5219,14 @@ impl ICorProfilerInfo14 {
     }
     pub unsafe fn GetModuleMetaData(&self, moduleid: usize, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetILFunctionBody(&self, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, ppmethodheader, pcbmethodsize).ok()
     }
     pub unsafe fn GetILFunctionBodyAllocator(&self, moduleid: usize) -> ::windows_core::Result<IMethodMalloc> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetILFunctionBody(&self, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, pbnewilmethodheader).ok()
@@ -5251,22 +5251,22 @@ impl ICorProfilerInfo14 {
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetInprocInspectionIThisThread(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetThreadContext(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EndInprocDebugging)(::windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -5298,26 +5298,26 @@ impl ICorProfilerInfo14 {
     }
     pub unsafe fn GetClassFromTokenAndTypeArgs(&self, moduleid: usize, typedef: u32, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromTokenAndTypeArgs(&self, moduleid: usize, funcdef: u32, classid: usize, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModuleFrozenObjects(&self, moduleid: usize) -> ::windows_core::Result<ICorProfilerObjectEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetArrayObjectInfo(&self, objectid: usize, cdimensions: u32, pdimensionsizes: *mut u32, pdimensionlowerbounds: *mut i32, ppdata: *mut *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetArrayObjectInfo)(::windows_core::Interface::as_raw(self), objectid, cdimensions, pdimensionsizes, pdimensionlowerbounds, ppdata).ok()
     }
     pub unsafe fn GetBoxClassLayout(&self, classid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetThreadAppDomain(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRVAStaticAddress(&self, classid: usize, fieldtoken: u32, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetRVAStaticAddress)(::windows_core::Interface::as_raw(self), classid, fieldtoken, ppaddress).ok()
@@ -5333,22 +5333,22 @@ impl ICorProfilerInfo14 {
     }
     pub unsafe fn GetStaticFieldInfo(&self, classid: usize, fieldtoken: u32) -> ::windows_core::Result<COR_PRF_STATIC_TYPE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).map(|| result__)
     }
     pub unsafe fn GetGenerationBounds(&self, pcobjectranges: *mut u32, ranges: &mut [COR_PRF_GC_GENERATION_RANGE]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetGenerationBounds)(::windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), pcobjectranges, ::core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn GetObjectGeneration(&self, objectid: usize) -> ::windows_core::Result<COR_PRF_GC_GENERATION_RANGE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetNotifiedExceptionClauseInfo(&self) -> ::windows_core::Result<COR_PRF_EX_CLAUSE_INFO> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumJITedFunctions(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
@@ -5373,11 +5373,11 @@ impl ICorProfilerInfo14 {
     }
     pub unsafe fn GetFunctionTailcall3Info(&self, functionid: usize, eltinfo: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModules(&self) -> ::windows_core::Result<ICorProfilerModuleEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRuntimeInformation(&self, pclrinstanceid: *mut u16, pruntimetype: *mut COR_PRF_RUNTIME_TYPE, pmajorversion: *mut u16, pminorversion: *mut u16, pbuildnumber: *mut u16, pqfeversion: *mut u16, pcchversionstring: *mut u32, szversionstring: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetRuntimeInformation)(::windows_core::Interface::as_raw(self), pclrinstanceid, pruntimetype, pmajorversion, pminorversion, pbuildnumber, pqfeversion, szversionstring.len().try_into().unwrap(), pcchversionstring, ::core::mem::transmute(szversionstring.as_ptr())).ok()
@@ -5393,7 +5393,7 @@ impl ICorProfilerInfo14 {
     }
     pub unsafe fn EnumThreads(&self) -> ::windows_core::Result<ICorProfilerThreadEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InitializeCurrentThread(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.InitializeCurrentThread)(::windows_core::Interface::as_raw(self)).ok()
@@ -5418,11 +5418,11 @@ impl ICorProfilerInfo14 {
     }
     pub unsafe fn EnumJITedFunctions2(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetObjectSize2(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetEventMask2(&self, pdweventslow: *mut u32, pdweventshigh: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetEventMask2)(::windows_core::Interface::as_raw(self), pdweventslow, pdweventshigh).ok()
@@ -5438,14 +5438,14 @@ impl ICorProfilerInfo14 {
     }
     pub unsafe fn GetInMemorySymbolsLength(&self, moduleid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetInMemorySymbolsLength)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetInMemorySymbolsLength)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).map(|| result__)
     }
     pub unsafe fn ReadInMemorySymbols(&self, moduleid: usize, symbolsreadoffset: u32, psymbolbytes: *mut u8, countsymbolbytes: u32, pcountsymbolbytesread: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.ReadInMemorySymbols)(::windows_core::Interface::as_raw(self), moduleid, symbolsreadoffset, psymbolbytes, countsymbolbytes, pcountsymbolbytesread).ok()
     }
     pub unsafe fn IsFunctionDynamic(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.IsFunctionDynamic)(::windows_core::Interface::as_raw(self), functionid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.IsFunctionDynamic)(::windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP3(&self, ip: *const u8, functionid: *mut usize, prejitid: *mut usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetFunctionFromIP3)(::windows_core::Interface::as_raw(self), ip, functionid, prejitid).ok()
@@ -5498,7 +5498,7 @@ impl ICorProfilerInfo14 {
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.EventPipeStartSession)(::windows_core::Interface::as_raw(self), pproviderconfigs.len().try_into().unwrap(), ::core::mem::transmute(pproviderconfigs.as_ptr()), requestrundown.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.EventPipeStartSession)(::windows_core::Interface::as_raw(self), pproviderconfigs.len().try_into().unwrap(), ::core::mem::transmute(pproviderconfigs.as_ptr()), requestrundown.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EventPipeAddProviderToSession(&self, session: u64, providerconfig: COR_PRF_EVENTPIPE_PROVIDER_CONFIG) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.EventPipeAddProviderToSession)(::windows_core::Interface::as_raw(self), session, ::core::mem::transmute(providerconfig)).ok()
@@ -5511,7 +5511,7 @@ impl ICorProfilerInfo14 {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.EventPipeCreateProvider)(::windows_core::Interface::as_raw(self), providername.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.EventPipeCreateProvider)(::windows_core::Interface::as_raw(self), providername.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EventPipeGetProviderInfo(&self, provider: usize, pcchname: *mut u32, providername: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.EventPipeGetProviderInfo)(::windows_core::Interface::as_raw(self), provider, providername.len().try_into().unwrap(), pcchname, ::core::mem::transmute(providername.as_ptr())).ok()
@@ -5522,7 +5522,7 @@ impl ICorProfilerInfo14 {
         P1: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.EventPipeDefineEvent)(::windows_core::Interface::as_raw(self), provider, eventname.into_param().abi(), eventid, keywords, eventversion, level, opcode, needstack.into_param().abi(), pparamdescs.len().try_into().unwrap(), ::core::mem::transmute(pparamdescs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.EventPipeDefineEvent)(::windows_core::Interface::as_raw(self), provider, eventname.into_param().abi(), eventid, keywords, eventversion, level, opcode, needstack.into_param().abi(), pparamdescs.len().try_into().unwrap(), ::core::mem::transmute(pparamdescs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn EventPipeWriteEvent(&self, event: usize, data: &[COR_PRF_EVENT_DATA], pactivityid: *const ::windows_core::GUID, prelatedactivityid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.EventPipeWriteEvent)(::windows_core::Interface::as_raw(self), event, data.len().try_into().unwrap(), ::core::mem::transmute(data.as_ptr()), pactivityid, prelatedactivityid).ok()
@@ -5535,11 +5535,11 @@ impl ICorProfilerInfo14 {
     }
     pub unsafe fn GetObjectIDFromHandle(&self, handle: *const *const ::core::ffi::c_void) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetObjectIDFromHandle)(::windows_core::Interface::as_raw(self), handle, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetObjectIDFromHandle)(::windows_core::Interface::as_raw(self), handle, &mut result__).map(|| result__)
     }
     pub unsafe fn EnumerateNonGCObjects(&self) -> ::windows_core::Result<ICorProfilerObjectEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumerateNonGCObjects)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumerateNonGCObjects)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetNonGCHeapBounds(&self, pcobjectranges: *mut u32, ranges: &mut [COR_PRF_NONGC_HEAP_RANGE]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetNonGCHeapBounds)(::windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), pcobjectranges, ::core::mem::transmute(ranges.as_ptr())).ok()
@@ -5549,7 +5549,7 @@ impl ICorProfilerInfo14 {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EventPipeCreateProvider2)(::windows_core::Interface::as_raw(self), providername.into_param().abi(), pcallback, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EventPipeCreateProvider2)(::windows_core::Interface::as_raw(self), providername.into_param().abi(), pcallback, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -5565,34 +5565,34 @@ pub struct ICorProfilerInfo14_Vtbl {
 impl ICorProfilerInfo2 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassFromToken(&self, moduleid: usize, typedef: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodeInfo(&self, functionid: usize, pstart: *mut *mut u8, pcsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetCodeInfo)(::windows_core::Interface::as_raw(self), functionid, pstart, pcsize).ok()
     }
     pub unsafe fn GetEventMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP(&self, ip: *const u8) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromToken(&self, moduleid: usize, token: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).map(|| result__)
     }
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetObjectSize(&self, objectid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
@@ -5600,11 +5600,11 @@ impl ICorProfilerInfo2 {
     }
     pub unsafe fn GetThreadInfo(&self, threadid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCurrentThreadID(&self) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassIDInfo(&self, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetClassIDInfo)(::windows_core::Interface::as_raw(self), classid, pmoduleid, ptypedeftoken).ok()
@@ -5629,14 +5629,14 @@ impl ICorProfilerInfo2 {
     }
     pub unsafe fn GetModuleMetaData(&self, moduleid: usize, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetILFunctionBody(&self, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, ppmethodheader, pcbmethodsize).ok()
     }
     pub unsafe fn GetILFunctionBodyAllocator(&self, moduleid: usize) -> ::windows_core::Result<IMethodMalloc> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetILFunctionBody(&self, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, pbnewilmethodheader).ok()
@@ -5661,22 +5661,22 @@ impl ICorProfilerInfo2 {
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetInprocInspectionIThisThread(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetThreadContext(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.EndInprocDebugging)(::windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -5708,26 +5708,26 @@ impl ICorProfilerInfo2 {
     }
     pub unsafe fn GetClassFromTokenAndTypeArgs(&self, moduleid: usize, typedef: u32, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromTokenAndTypeArgs(&self, moduleid: usize, funcdef: u32, classid: usize, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModuleFrozenObjects(&self, moduleid: usize) -> ::windows_core::Result<ICorProfilerObjectEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetArrayObjectInfo(&self, objectid: usize, cdimensions: u32, pdimensionsizes: *mut u32, pdimensionlowerbounds: *mut i32, ppdata: *mut *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetArrayObjectInfo)(::windows_core::Interface::as_raw(self), objectid, cdimensions, pdimensionsizes, pdimensionlowerbounds, ppdata).ok()
     }
     pub unsafe fn GetBoxClassLayout(&self, classid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetThreadAppDomain(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRVAStaticAddress(&self, classid: usize, fieldtoken: u32, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRVAStaticAddress)(::windows_core::Interface::as_raw(self), classid, fieldtoken, ppaddress).ok()
@@ -5743,18 +5743,18 @@ impl ICorProfilerInfo2 {
     }
     pub unsafe fn GetStaticFieldInfo(&self, classid: usize, fieldtoken: u32) -> ::windows_core::Result<COR_PRF_STATIC_TYPE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).map(|| result__)
     }
     pub unsafe fn GetGenerationBounds(&self, pcobjectranges: *mut u32, ranges: &mut [COR_PRF_GC_GENERATION_RANGE]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetGenerationBounds)(::windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), pcobjectranges, ::core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn GetObjectGeneration(&self, objectid: usize) -> ::windows_core::Result<COR_PRF_GC_GENERATION_RANGE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetNotifiedExceptionClauseInfo(&self) -> ::windows_core::Result<COR_PRF_EX_CLAUSE_INFO> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -5791,34 +5791,34 @@ pub struct ICorProfilerInfo2_Vtbl {
 impl ICorProfilerInfo3 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassFromToken(&self, moduleid: usize, typedef: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodeInfo(&self, functionid: usize, pstart: *mut *mut u8, pcsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetCodeInfo)(::windows_core::Interface::as_raw(self), functionid, pstart, pcsize).ok()
     }
     pub unsafe fn GetEventMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP(&self, ip: *const u8) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromToken(&self, moduleid: usize, token: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).map(|| result__)
     }
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetObjectSize(&self, objectid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
@@ -5826,11 +5826,11 @@ impl ICorProfilerInfo3 {
     }
     pub unsafe fn GetThreadInfo(&self, threadid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCurrentThreadID(&self) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassIDInfo(&self, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetClassIDInfo)(::windows_core::Interface::as_raw(self), classid, pmoduleid, ptypedeftoken).ok()
@@ -5855,14 +5855,14 @@ impl ICorProfilerInfo3 {
     }
     pub unsafe fn GetModuleMetaData(&self, moduleid: usize, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetILFunctionBody(&self, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, ppmethodheader, pcbmethodsize).ok()
     }
     pub unsafe fn GetILFunctionBodyAllocator(&self, moduleid: usize) -> ::windows_core::Result<IMethodMalloc> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetILFunctionBody(&self, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, pbnewilmethodheader).ok()
@@ -5887,22 +5887,22 @@ impl ICorProfilerInfo3 {
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetInprocInspectionIThisThread(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetThreadContext(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.EndInprocDebugging)(::windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -5934,26 +5934,26 @@ impl ICorProfilerInfo3 {
     }
     pub unsafe fn GetClassFromTokenAndTypeArgs(&self, moduleid: usize, typedef: u32, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromTokenAndTypeArgs(&self, moduleid: usize, funcdef: u32, classid: usize, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModuleFrozenObjects(&self, moduleid: usize) -> ::windows_core::Result<ICorProfilerObjectEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetArrayObjectInfo(&self, objectid: usize, cdimensions: u32, pdimensionsizes: *mut u32, pdimensionlowerbounds: *mut i32, ppdata: *mut *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetArrayObjectInfo)(::windows_core::Interface::as_raw(self), objectid, cdimensions, pdimensionsizes, pdimensionlowerbounds, ppdata).ok()
     }
     pub unsafe fn GetBoxClassLayout(&self, classid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetThreadAppDomain(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRVAStaticAddress(&self, classid: usize, fieldtoken: u32, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetRVAStaticAddress)(::windows_core::Interface::as_raw(self), classid, fieldtoken, ppaddress).ok()
@@ -5969,22 +5969,22 @@ impl ICorProfilerInfo3 {
     }
     pub unsafe fn GetStaticFieldInfo(&self, classid: usize, fieldtoken: u32) -> ::windows_core::Result<COR_PRF_STATIC_TYPE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).map(|| result__)
     }
     pub unsafe fn GetGenerationBounds(&self, pcobjectranges: *mut u32, ranges: &mut [COR_PRF_GC_GENERATION_RANGE]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetGenerationBounds)(::windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), pcobjectranges, ::core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn GetObjectGeneration(&self, objectid: usize) -> ::windows_core::Result<COR_PRF_GC_GENERATION_RANGE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetNotifiedExceptionClauseInfo(&self) -> ::windows_core::Result<COR_PRF_EX_CLAUSE_INFO> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumJITedFunctions(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
@@ -6009,11 +6009,11 @@ impl ICorProfilerInfo3 {
     }
     pub unsafe fn GetFunctionTailcall3Info(&self, functionid: usize, eltinfo: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModules(&self) -> ::windows_core::Result<ICorProfilerModuleEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRuntimeInformation(&self, pclrinstanceid: *mut u16, pruntimetype: *mut COR_PRF_RUNTIME_TYPE, pmajorversion: *mut u16, pminorversion: *mut u16, pbuildnumber: *mut u16, pqfeversion: *mut u16, pcchversionstring: *mut u32, szversionstring: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRuntimeInformation)(::windows_core::Interface::as_raw(self), pclrinstanceid, pruntimetype, pmajorversion, pminorversion, pbuildnumber, pqfeversion, szversionstring.len().try_into().unwrap(), pcchversionstring, ::core::mem::transmute(szversionstring.as_ptr())).ok()
@@ -6052,34 +6052,34 @@ pub struct ICorProfilerInfo3_Vtbl {
 impl ICorProfilerInfo4 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassFromToken(&self, moduleid: usize, typedef: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodeInfo(&self, functionid: usize, pstart: *mut *mut u8, pcsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetCodeInfo)(::windows_core::Interface::as_raw(self), functionid, pstart, pcsize).ok()
     }
     pub unsafe fn GetEventMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP(&self, ip: *const u8) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromToken(&self, moduleid: usize, token: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).map(|| result__)
     }
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetObjectSize(&self, objectid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
@@ -6087,11 +6087,11 @@ impl ICorProfilerInfo4 {
     }
     pub unsafe fn GetThreadInfo(&self, threadid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCurrentThreadID(&self) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassIDInfo(&self, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetClassIDInfo)(::windows_core::Interface::as_raw(self), classid, pmoduleid, ptypedeftoken).ok()
@@ -6116,14 +6116,14 @@ impl ICorProfilerInfo4 {
     }
     pub unsafe fn GetModuleMetaData(&self, moduleid: usize, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetILFunctionBody(&self, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, ppmethodheader, pcbmethodsize).ok()
     }
     pub unsafe fn GetILFunctionBodyAllocator(&self, moduleid: usize) -> ::windows_core::Result<IMethodMalloc> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetILFunctionBody(&self, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, pbnewilmethodheader).ok()
@@ -6148,22 +6148,22 @@ impl ICorProfilerInfo4 {
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetInprocInspectionIThisThread(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetThreadContext(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.EndInprocDebugging)(::windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -6195,26 +6195,26 @@ impl ICorProfilerInfo4 {
     }
     pub unsafe fn GetClassFromTokenAndTypeArgs(&self, moduleid: usize, typedef: u32, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromTokenAndTypeArgs(&self, moduleid: usize, funcdef: u32, classid: usize, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModuleFrozenObjects(&self, moduleid: usize) -> ::windows_core::Result<ICorProfilerObjectEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetArrayObjectInfo(&self, objectid: usize, cdimensions: u32, pdimensionsizes: *mut u32, pdimensionlowerbounds: *mut i32, ppdata: *mut *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetArrayObjectInfo)(::windows_core::Interface::as_raw(self), objectid, cdimensions, pdimensionsizes, pdimensionlowerbounds, ppdata).ok()
     }
     pub unsafe fn GetBoxClassLayout(&self, classid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetThreadAppDomain(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRVAStaticAddress(&self, classid: usize, fieldtoken: u32, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetRVAStaticAddress)(::windows_core::Interface::as_raw(self), classid, fieldtoken, ppaddress).ok()
@@ -6230,22 +6230,22 @@ impl ICorProfilerInfo4 {
     }
     pub unsafe fn GetStaticFieldInfo(&self, classid: usize, fieldtoken: u32) -> ::windows_core::Result<COR_PRF_STATIC_TYPE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).map(|| result__)
     }
     pub unsafe fn GetGenerationBounds(&self, pcobjectranges: *mut u32, ranges: &mut [COR_PRF_GC_GENERATION_RANGE]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetGenerationBounds)(::windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), pcobjectranges, ::core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn GetObjectGeneration(&self, objectid: usize) -> ::windows_core::Result<COR_PRF_GC_GENERATION_RANGE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetNotifiedExceptionClauseInfo(&self) -> ::windows_core::Result<COR_PRF_EX_CLAUSE_INFO> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumJITedFunctions(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
@@ -6270,11 +6270,11 @@ impl ICorProfilerInfo4 {
     }
     pub unsafe fn GetFunctionTailcall3Info(&self, functionid: usize, eltinfo: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModules(&self) -> ::windows_core::Result<ICorProfilerModuleEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRuntimeInformation(&self, pclrinstanceid: *mut u16, pruntimetype: *mut COR_PRF_RUNTIME_TYPE, pmajorversion: *mut u16, pminorversion: *mut u16, pbuildnumber: *mut u16, pqfeversion: *mut u16, pcchversionstring: *mut u32, szversionstring: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetRuntimeInformation)(::windows_core::Interface::as_raw(self), pclrinstanceid, pruntimetype, pmajorversion, pminorversion, pbuildnumber, pqfeversion, szversionstring.len().try_into().unwrap(), pcchversionstring, ::core::mem::transmute(szversionstring.as_ptr())).ok()
@@ -6290,7 +6290,7 @@ impl ICorProfilerInfo4 {
     }
     pub unsafe fn EnumThreads(&self) -> ::windows_core::Result<ICorProfilerThreadEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InitializeCurrentThread(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InitializeCurrentThread)(::windows_core::Interface::as_raw(self)).ok()
@@ -6315,11 +6315,11 @@ impl ICorProfilerInfo4 {
     }
     pub unsafe fn EnumJITedFunctions2(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetObjectSize2(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
 }
 #[repr(C)]
@@ -6342,34 +6342,34 @@ pub struct ICorProfilerInfo4_Vtbl {
 impl ICorProfilerInfo5 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassFromToken(&self, moduleid: usize, typedef: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodeInfo(&self, functionid: usize, pstart: *mut *mut u8, pcsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetCodeInfo)(::windows_core::Interface::as_raw(self), functionid, pstart, pcsize).ok()
     }
     pub unsafe fn GetEventMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP(&self, ip: *const u8) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromToken(&self, moduleid: usize, token: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).map(|| result__)
     }
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetObjectSize(&self, objectid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
@@ -6377,11 +6377,11 @@ impl ICorProfilerInfo5 {
     }
     pub unsafe fn GetThreadInfo(&self, threadid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCurrentThreadID(&self) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassIDInfo(&self, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetClassIDInfo)(::windows_core::Interface::as_raw(self), classid, pmoduleid, ptypedeftoken).ok()
@@ -6406,14 +6406,14 @@ impl ICorProfilerInfo5 {
     }
     pub unsafe fn GetModuleMetaData(&self, moduleid: usize, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetILFunctionBody(&self, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, ppmethodheader, pcbmethodsize).ok()
     }
     pub unsafe fn GetILFunctionBodyAllocator(&self, moduleid: usize) -> ::windows_core::Result<IMethodMalloc> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetILFunctionBody(&self, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, pbnewilmethodheader).ok()
@@ -6438,22 +6438,22 @@ impl ICorProfilerInfo5 {
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetInprocInspectionIThisThread(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetThreadContext(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EndInprocDebugging)(::windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -6485,26 +6485,26 @@ impl ICorProfilerInfo5 {
     }
     pub unsafe fn GetClassFromTokenAndTypeArgs(&self, moduleid: usize, typedef: u32, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromTokenAndTypeArgs(&self, moduleid: usize, funcdef: u32, classid: usize, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModuleFrozenObjects(&self, moduleid: usize) -> ::windows_core::Result<ICorProfilerObjectEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetArrayObjectInfo(&self, objectid: usize, cdimensions: u32, pdimensionsizes: *mut u32, pdimensionlowerbounds: *mut i32, ppdata: *mut *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetArrayObjectInfo)(::windows_core::Interface::as_raw(self), objectid, cdimensions, pdimensionsizes, pdimensionlowerbounds, ppdata).ok()
     }
     pub unsafe fn GetBoxClassLayout(&self, classid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetThreadAppDomain(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRVAStaticAddress(&self, classid: usize, fieldtoken: u32, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetRVAStaticAddress)(::windows_core::Interface::as_raw(self), classid, fieldtoken, ppaddress).ok()
@@ -6520,22 +6520,22 @@ impl ICorProfilerInfo5 {
     }
     pub unsafe fn GetStaticFieldInfo(&self, classid: usize, fieldtoken: u32) -> ::windows_core::Result<COR_PRF_STATIC_TYPE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).map(|| result__)
     }
     pub unsafe fn GetGenerationBounds(&self, pcobjectranges: *mut u32, ranges: &mut [COR_PRF_GC_GENERATION_RANGE]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetGenerationBounds)(::windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), pcobjectranges, ::core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn GetObjectGeneration(&self, objectid: usize) -> ::windows_core::Result<COR_PRF_GC_GENERATION_RANGE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetNotifiedExceptionClauseInfo(&self) -> ::windows_core::Result<COR_PRF_EX_CLAUSE_INFO> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumJITedFunctions(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
@@ -6560,11 +6560,11 @@ impl ICorProfilerInfo5 {
     }
     pub unsafe fn GetFunctionTailcall3Info(&self, functionid: usize, eltinfo: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModules(&self) -> ::windows_core::Result<ICorProfilerModuleEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRuntimeInformation(&self, pclrinstanceid: *mut u16, pruntimetype: *mut COR_PRF_RUNTIME_TYPE, pmajorversion: *mut u16, pminorversion: *mut u16, pbuildnumber: *mut u16, pqfeversion: *mut u16, pcchversionstring: *mut u32, szversionstring: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetRuntimeInformation)(::windows_core::Interface::as_raw(self), pclrinstanceid, pruntimetype, pmajorversion, pminorversion, pbuildnumber, pqfeversion, szversionstring.len().try_into().unwrap(), pcchversionstring, ::core::mem::transmute(szversionstring.as_ptr())).ok()
@@ -6580,7 +6580,7 @@ impl ICorProfilerInfo5 {
     }
     pub unsafe fn EnumThreads(&self) -> ::windows_core::Result<ICorProfilerThreadEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InitializeCurrentThread(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.InitializeCurrentThread)(::windows_core::Interface::as_raw(self)).ok()
@@ -6605,11 +6605,11 @@ impl ICorProfilerInfo5 {
     }
     pub unsafe fn EnumJITedFunctions2(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetObjectSize2(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetEventMask2(&self, pdweventslow: *mut u32, pdweventshigh: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetEventMask2)(::windows_core::Interface::as_raw(self), pdweventslow, pdweventshigh).ok()
@@ -6630,34 +6630,34 @@ pub struct ICorProfilerInfo5_Vtbl {
 impl ICorProfilerInfo6 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassFromToken(&self, moduleid: usize, typedef: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodeInfo(&self, functionid: usize, pstart: *mut *mut u8, pcsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetCodeInfo)(::windows_core::Interface::as_raw(self), functionid, pstart, pcsize).ok()
     }
     pub unsafe fn GetEventMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP(&self, ip: *const u8) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromToken(&self, moduleid: usize, token: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).map(|| result__)
     }
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetObjectSize(&self, objectid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
@@ -6665,11 +6665,11 @@ impl ICorProfilerInfo6 {
     }
     pub unsafe fn GetThreadInfo(&self, threadid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCurrentThreadID(&self) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassIDInfo(&self, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetClassIDInfo)(::windows_core::Interface::as_raw(self), classid, pmoduleid, ptypedeftoken).ok()
@@ -6694,14 +6694,14 @@ impl ICorProfilerInfo6 {
     }
     pub unsafe fn GetModuleMetaData(&self, moduleid: usize, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetILFunctionBody(&self, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, ppmethodheader, pcbmethodsize).ok()
     }
     pub unsafe fn GetILFunctionBodyAllocator(&self, moduleid: usize) -> ::windows_core::Result<IMethodMalloc> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetILFunctionBody(&self, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, pbnewilmethodheader).ok()
@@ -6726,22 +6726,22 @@ impl ICorProfilerInfo6 {
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetInprocInspectionIThisThread(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetThreadContext(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EndInprocDebugging)(::windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -6773,26 +6773,26 @@ impl ICorProfilerInfo6 {
     }
     pub unsafe fn GetClassFromTokenAndTypeArgs(&self, moduleid: usize, typedef: u32, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromTokenAndTypeArgs(&self, moduleid: usize, funcdef: u32, classid: usize, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModuleFrozenObjects(&self, moduleid: usize) -> ::windows_core::Result<ICorProfilerObjectEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetArrayObjectInfo(&self, objectid: usize, cdimensions: u32, pdimensionsizes: *mut u32, pdimensionlowerbounds: *mut i32, ppdata: *mut *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetArrayObjectInfo)(::windows_core::Interface::as_raw(self), objectid, cdimensions, pdimensionsizes, pdimensionlowerbounds, ppdata).ok()
     }
     pub unsafe fn GetBoxClassLayout(&self, classid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetThreadAppDomain(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRVAStaticAddress(&self, classid: usize, fieldtoken: u32, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetRVAStaticAddress)(::windows_core::Interface::as_raw(self), classid, fieldtoken, ppaddress).ok()
@@ -6808,22 +6808,22 @@ impl ICorProfilerInfo6 {
     }
     pub unsafe fn GetStaticFieldInfo(&self, classid: usize, fieldtoken: u32) -> ::windows_core::Result<COR_PRF_STATIC_TYPE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).map(|| result__)
     }
     pub unsafe fn GetGenerationBounds(&self, pcobjectranges: *mut u32, ranges: &mut [COR_PRF_GC_GENERATION_RANGE]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetGenerationBounds)(::windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), pcobjectranges, ::core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn GetObjectGeneration(&self, objectid: usize) -> ::windows_core::Result<COR_PRF_GC_GENERATION_RANGE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetNotifiedExceptionClauseInfo(&self) -> ::windows_core::Result<COR_PRF_EX_CLAUSE_INFO> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumJITedFunctions(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
@@ -6848,11 +6848,11 @@ impl ICorProfilerInfo6 {
     }
     pub unsafe fn GetFunctionTailcall3Info(&self, functionid: usize, eltinfo: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModules(&self) -> ::windows_core::Result<ICorProfilerModuleEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRuntimeInformation(&self, pclrinstanceid: *mut u16, pruntimetype: *mut COR_PRF_RUNTIME_TYPE, pmajorversion: *mut u16, pminorversion: *mut u16, pbuildnumber: *mut u16, pqfeversion: *mut u16, pcchversionstring: *mut u32, szversionstring: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetRuntimeInformation)(::windows_core::Interface::as_raw(self), pclrinstanceid, pruntimetype, pmajorversion, pminorversion, pbuildnumber, pqfeversion, szversionstring.len().try_into().unwrap(), pcchversionstring, ::core::mem::transmute(szversionstring.as_ptr())).ok()
@@ -6868,7 +6868,7 @@ impl ICorProfilerInfo6 {
     }
     pub unsafe fn EnumThreads(&self) -> ::windows_core::Result<ICorProfilerThreadEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InitializeCurrentThread(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.InitializeCurrentThread)(::windows_core::Interface::as_raw(self)).ok()
@@ -6893,11 +6893,11 @@ impl ICorProfilerInfo6 {
     }
     pub unsafe fn EnumJITedFunctions2(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetObjectSize2(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetEventMask2(&self, pdweventslow: *mut u32, pdweventshigh: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetEventMask2)(::windows_core::Interface::as_raw(self), pdweventslow, pdweventshigh).ok()
@@ -6920,34 +6920,34 @@ pub struct ICorProfilerInfo6_Vtbl {
 impl ICorProfilerInfo7 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassFromToken(&self, moduleid: usize, typedef: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodeInfo(&self, functionid: usize, pstart: *mut *mut u8, pcsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetCodeInfo)(::windows_core::Interface::as_raw(self), functionid, pstart, pcsize).ok()
     }
     pub unsafe fn GetEventMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP(&self, ip: *const u8) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromToken(&self, moduleid: usize, token: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).map(|| result__)
     }
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetObjectSize(&self, objectid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
@@ -6955,11 +6955,11 @@ impl ICorProfilerInfo7 {
     }
     pub unsafe fn GetThreadInfo(&self, threadid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCurrentThreadID(&self) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassIDInfo(&self, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetClassIDInfo)(::windows_core::Interface::as_raw(self), classid, pmoduleid, ptypedeftoken).ok()
@@ -6984,14 +6984,14 @@ impl ICorProfilerInfo7 {
     }
     pub unsafe fn GetModuleMetaData(&self, moduleid: usize, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetILFunctionBody(&self, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, ppmethodheader, pcbmethodsize).ok()
     }
     pub unsafe fn GetILFunctionBodyAllocator(&self, moduleid: usize) -> ::windows_core::Result<IMethodMalloc> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetILFunctionBody(&self, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, pbnewilmethodheader).ok()
@@ -7016,22 +7016,22 @@ impl ICorProfilerInfo7 {
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetInprocInspectionIThisThread(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetThreadContext(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.EndInprocDebugging)(::windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -7063,26 +7063,26 @@ impl ICorProfilerInfo7 {
     }
     pub unsafe fn GetClassFromTokenAndTypeArgs(&self, moduleid: usize, typedef: u32, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromTokenAndTypeArgs(&self, moduleid: usize, funcdef: u32, classid: usize, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModuleFrozenObjects(&self, moduleid: usize) -> ::windows_core::Result<ICorProfilerObjectEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetArrayObjectInfo(&self, objectid: usize, cdimensions: u32, pdimensionsizes: *mut u32, pdimensionlowerbounds: *mut i32, ppdata: *mut *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetArrayObjectInfo)(::windows_core::Interface::as_raw(self), objectid, cdimensions, pdimensionsizes, pdimensionlowerbounds, ppdata).ok()
     }
     pub unsafe fn GetBoxClassLayout(&self, classid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetThreadAppDomain(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRVAStaticAddress(&self, classid: usize, fieldtoken: u32, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetRVAStaticAddress)(::windows_core::Interface::as_raw(self), classid, fieldtoken, ppaddress).ok()
@@ -7098,22 +7098,22 @@ impl ICorProfilerInfo7 {
     }
     pub unsafe fn GetStaticFieldInfo(&self, classid: usize, fieldtoken: u32) -> ::windows_core::Result<COR_PRF_STATIC_TYPE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).map(|| result__)
     }
     pub unsafe fn GetGenerationBounds(&self, pcobjectranges: *mut u32, ranges: &mut [COR_PRF_GC_GENERATION_RANGE]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetGenerationBounds)(::windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), pcobjectranges, ::core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn GetObjectGeneration(&self, objectid: usize) -> ::windows_core::Result<COR_PRF_GC_GENERATION_RANGE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetNotifiedExceptionClauseInfo(&self) -> ::windows_core::Result<COR_PRF_EX_CLAUSE_INFO> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumJITedFunctions(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
@@ -7138,11 +7138,11 @@ impl ICorProfilerInfo7 {
     }
     pub unsafe fn GetFunctionTailcall3Info(&self, functionid: usize, eltinfo: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModules(&self) -> ::windows_core::Result<ICorProfilerModuleEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRuntimeInformation(&self, pclrinstanceid: *mut u16, pruntimetype: *mut COR_PRF_RUNTIME_TYPE, pmajorversion: *mut u16, pminorversion: *mut u16, pbuildnumber: *mut u16, pqfeversion: *mut u16, pcchversionstring: *mut u32, szversionstring: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetRuntimeInformation)(::windows_core::Interface::as_raw(self), pclrinstanceid, pruntimetype, pmajorversion, pminorversion, pbuildnumber, pqfeversion, szversionstring.len().try_into().unwrap(), pcchversionstring, ::core::mem::transmute(szversionstring.as_ptr())).ok()
@@ -7158,7 +7158,7 @@ impl ICorProfilerInfo7 {
     }
     pub unsafe fn EnumThreads(&self) -> ::windows_core::Result<ICorProfilerThreadEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InitializeCurrentThread(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.InitializeCurrentThread)(::windows_core::Interface::as_raw(self)).ok()
@@ -7183,11 +7183,11 @@ impl ICorProfilerInfo7 {
     }
     pub unsafe fn EnumJITedFunctions2(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetObjectSize2(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetEventMask2(&self, pdweventslow: *mut u32, pdweventshigh: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetEventMask2)(::windows_core::Interface::as_raw(self), pdweventslow, pdweventshigh).ok()
@@ -7203,7 +7203,7 @@ impl ICorProfilerInfo7 {
     }
     pub unsafe fn GetInMemorySymbolsLength(&self, moduleid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetInMemorySymbolsLength)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetInMemorySymbolsLength)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).map(|| result__)
     }
     pub unsafe fn ReadInMemorySymbols(&self, moduleid: usize, symbolsreadoffset: u32, psymbolbytes: *mut u8, countsymbolbytes: u32, pcountsymbolbytesread: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReadInMemorySymbols)(::windows_core::Interface::as_raw(self), moduleid, symbolsreadoffset, psymbolbytes, countsymbolbytes, pcountsymbolbytesread).ok()
@@ -7222,34 +7222,34 @@ pub struct ICorProfilerInfo7_Vtbl {
 impl ICorProfilerInfo8 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassFromToken(&self, moduleid: usize, typedef: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodeInfo(&self, functionid: usize, pstart: *mut *mut u8, pcsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCodeInfo)(::windows_core::Interface::as_raw(self), functionid, pstart, pcsize).ok()
     }
     pub unsafe fn GetEventMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP(&self, ip: *const u8) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromToken(&self, moduleid: usize, token: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).map(|| result__)
     }
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetObjectSize(&self, objectid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
@@ -7257,11 +7257,11 @@ impl ICorProfilerInfo8 {
     }
     pub unsafe fn GetThreadInfo(&self, threadid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCurrentThreadID(&self) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassIDInfo(&self, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetClassIDInfo)(::windows_core::Interface::as_raw(self), classid, pmoduleid, ptypedeftoken).ok()
@@ -7286,14 +7286,14 @@ impl ICorProfilerInfo8 {
     }
     pub unsafe fn GetModuleMetaData(&self, moduleid: usize, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetILFunctionBody(&self, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, ppmethodheader, pcbmethodsize).ok()
     }
     pub unsafe fn GetILFunctionBodyAllocator(&self, moduleid: usize) -> ::windows_core::Result<IMethodMalloc> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetILFunctionBody(&self, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, pbnewilmethodheader).ok()
@@ -7318,22 +7318,22 @@ impl ICorProfilerInfo8 {
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetInprocInspectionIThisThread(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetThreadContext(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.EndInprocDebugging)(::windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -7365,26 +7365,26 @@ impl ICorProfilerInfo8 {
     }
     pub unsafe fn GetClassFromTokenAndTypeArgs(&self, moduleid: usize, typedef: u32, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromTokenAndTypeArgs(&self, moduleid: usize, funcdef: u32, classid: usize, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModuleFrozenObjects(&self, moduleid: usize) -> ::windows_core::Result<ICorProfilerObjectEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetArrayObjectInfo(&self, objectid: usize, cdimensions: u32, pdimensionsizes: *mut u32, pdimensionlowerbounds: *mut i32, ppdata: *mut *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetArrayObjectInfo)(::windows_core::Interface::as_raw(self), objectid, cdimensions, pdimensionsizes, pdimensionlowerbounds, ppdata).ok()
     }
     pub unsafe fn GetBoxClassLayout(&self, classid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetThreadAppDomain(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRVAStaticAddress(&self, classid: usize, fieldtoken: u32, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetRVAStaticAddress)(::windows_core::Interface::as_raw(self), classid, fieldtoken, ppaddress).ok()
@@ -7400,22 +7400,22 @@ impl ICorProfilerInfo8 {
     }
     pub unsafe fn GetStaticFieldInfo(&self, classid: usize, fieldtoken: u32) -> ::windows_core::Result<COR_PRF_STATIC_TYPE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).map(|| result__)
     }
     pub unsafe fn GetGenerationBounds(&self, pcobjectranges: *mut u32, ranges: &mut [COR_PRF_GC_GENERATION_RANGE]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetGenerationBounds)(::windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), pcobjectranges, ::core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn GetObjectGeneration(&self, objectid: usize) -> ::windows_core::Result<COR_PRF_GC_GENERATION_RANGE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetNotifiedExceptionClauseInfo(&self) -> ::windows_core::Result<COR_PRF_EX_CLAUSE_INFO> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumJITedFunctions(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
@@ -7440,11 +7440,11 @@ impl ICorProfilerInfo8 {
     }
     pub unsafe fn GetFunctionTailcall3Info(&self, functionid: usize, eltinfo: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModules(&self) -> ::windows_core::Result<ICorProfilerModuleEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRuntimeInformation(&self, pclrinstanceid: *mut u16, pruntimetype: *mut COR_PRF_RUNTIME_TYPE, pmajorversion: *mut u16, pminorversion: *mut u16, pbuildnumber: *mut u16, pqfeversion: *mut u16, pcchversionstring: *mut u32, szversionstring: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetRuntimeInformation)(::windows_core::Interface::as_raw(self), pclrinstanceid, pruntimetype, pmajorversion, pminorversion, pbuildnumber, pqfeversion, szversionstring.len().try_into().unwrap(), pcchversionstring, ::core::mem::transmute(szversionstring.as_ptr())).ok()
@@ -7460,7 +7460,7 @@ impl ICorProfilerInfo8 {
     }
     pub unsafe fn EnumThreads(&self) -> ::windows_core::Result<ICorProfilerThreadEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InitializeCurrentThread(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.InitializeCurrentThread)(::windows_core::Interface::as_raw(self)).ok()
@@ -7485,11 +7485,11 @@ impl ICorProfilerInfo8 {
     }
     pub unsafe fn EnumJITedFunctions2(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetObjectSize2(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetEventMask2(&self, pdweventslow: *mut u32, pdweventshigh: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetEventMask2)(::windows_core::Interface::as_raw(self), pdweventslow, pdweventshigh).ok()
@@ -7505,14 +7505,14 @@ impl ICorProfilerInfo8 {
     }
     pub unsafe fn GetInMemorySymbolsLength(&self, moduleid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetInMemorySymbolsLength)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.GetInMemorySymbolsLength)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).map(|| result__)
     }
     pub unsafe fn ReadInMemorySymbols(&self, moduleid: usize, symbolsreadoffset: u32, psymbolbytes: *mut u8, countsymbolbytes: u32, pcountsymbolbytesread: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ReadInMemorySymbols)(::windows_core::Interface::as_raw(self), moduleid, symbolsreadoffset, psymbolbytes, countsymbolbytes, pcountsymbolbytesread).ok()
     }
     pub unsafe fn IsFunctionDynamic(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).IsFunctionDynamic)(::windows_core::Interface::as_raw(self), functionid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).IsFunctionDynamic)(::windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP3(&self, ip: *const u8, functionid: *mut usize, prejitid: *mut usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFunctionFromIP3)(::windows_core::Interface::as_raw(self), ip, functionid, prejitid).ok()
@@ -7534,34 +7534,34 @@ pub struct ICorProfilerInfo8_Vtbl {
 impl ICorProfilerInfo9 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromObject)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassFromToken(&self, moduleid: usize, typedef: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetClassFromToken)(::windows_core::Interface::as_raw(self), moduleid, typedef, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCodeInfo(&self, functionid: usize, pstart: *mut *mut u8, pcsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCodeInfo)(::windows_core::Interface::as_raw(self), functionid, pstart, pcsize).ok()
     }
     pub unsafe fn GetEventMask(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetEventMask)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP(&self, ip: *const u8) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromIP)(::windows_core::Interface::as_raw(self), ip, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromToken(&self, moduleid: usize, token: u32) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).map(|| result__)
     }
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetHandleFromThread)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetObjectSize(&self, objectid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
@@ -7569,11 +7569,11 @@ impl ICorProfilerInfo9 {
     }
     pub unsafe fn GetThreadInfo(&self, threadid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetThreadInfo)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetCurrentThreadID(&self) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentThreadID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetClassIDInfo(&self, classid: usize, pmoduleid: *mut usize, ptypedeftoken: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetClassIDInfo)(::windows_core::Interface::as_raw(self), classid, pmoduleid, ptypedeftoken).ok()
@@ -7598,14 +7598,14 @@ impl ICorProfilerInfo9 {
     }
     pub unsafe fn GetModuleMetaData(&self, moduleid: usize, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetModuleMetaData)(::windows_core::Interface::as_raw(self), moduleid, dwopenflags, riid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetILFunctionBody(&self, moduleid: usize, methodid: u32, ppmethodheader: *mut *mut u8, pcbmethodsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, ppmethodheader, pcbmethodsize).ok()
     }
     pub unsafe fn GetILFunctionBodyAllocator(&self, moduleid: usize) -> ::windows_core::Result<IMethodMalloc> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetILFunctionBodyAllocator)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn SetILFunctionBody(&self, moduleid: usize, methodid: u32, pbnewilmethodheader: *const u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.SetILFunctionBody)(::windows_core::Interface::as_raw(self), moduleid, methodid, pbnewilmethodheader).ok()
@@ -7630,22 +7630,22 @@ impl ICorProfilerInfo9 {
     }
     pub unsafe fn GetInprocInspectionInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionInterface)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetInprocInspectionIThisThread(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetInprocInspectionIThisThread)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetThreadContext(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.BeginInprocDebugging)(::windows_core::Interface::as_raw(self), fthisthreadonly.into_param().abi(), &mut result__).map(|| result__)
     }
     pub unsafe fn EndInprocDebugging(&self, dwprofilercontext: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.EndInprocDebugging)(::windows_core::Interface::as_raw(self), dwprofilercontext).ok()
@@ -7677,26 +7677,26 @@ impl ICorProfilerInfo9 {
     }
     pub unsafe fn GetClassFromTokenAndTypeArgs(&self, moduleid: usize, typedef: u32, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetClassFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, typedef, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromTokenAndTypeArgs(&self, moduleid: usize, funcdef: u32, classid: usize, typeargs: &[usize]) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetFunctionFromTokenAndTypeArgs)(::windows_core::Interface::as_raw(self), moduleid, funcdef, classid, typeargs.len().try_into().unwrap(), ::core::mem::transmute(typeargs.as_ptr()), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModuleFrozenObjects(&self, moduleid: usize) -> ::windows_core::Result<ICorProfilerObjectEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.EnumModuleFrozenObjects)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetArrayObjectInfo(&self, objectid: usize, cdimensions: u32, pdimensionsizes: *mut u32, pdimensionlowerbounds: *mut i32, ppdata: *mut *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetArrayObjectInfo)(::windows_core::Interface::as_raw(self), objectid, cdimensions, pdimensionsizes, pdimensionlowerbounds, ppdata).ok()
     }
     pub unsafe fn GetBoxClassLayout(&self, classid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetBoxClassLayout)(::windows_core::Interface::as_raw(self), classid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetThreadAppDomain(&self, threadid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetThreadAppDomain)(::windows_core::Interface::as_raw(self), threadid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetRVAStaticAddress(&self, classid: usize, fieldtoken: u32, ppaddress: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetRVAStaticAddress)(::windows_core::Interface::as_raw(self), classid, fieldtoken, ppaddress).ok()
@@ -7712,22 +7712,22 @@ impl ICorProfilerInfo9 {
     }
     pub unsafe fn GetStaticFieldInfo(&self, classid: usize, fieldtoken: u32) -> ::windows_core::Result<COR_PRF_STATIC_TYPE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetStaticFieldInfo)(::windows_core::Interface::as_raw(self), classid, fieldtoken, &mut result__).map(|| result__)
     }
     pub unsafe fn GetGenerationBounds(&self, pcobjectranges: *mut u32, ranges: &mut [COR_PRF_GC_GENERATION_RANGE]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetGenerationBounds)(::windows_core::Interface::as_raw(self), ranges.len().try_into().unwrap(), pcobjectranges, ::core::mem::transmute(ranges.as_ptr())).ok()
     }
     pub unsafe fn GetObjectGeneration(&self, objectid: usize) -> ::windows_core::Result<COR_PRF_GC_GENERATION_RANGE> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetObjectGeneration)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetNotifiedExceptionClauseInfo(&self) -> ::windows_core::Result<COR_PRF_EX_CLAUSE_INFO> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetNotifiedExceptionClauseInfo)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn EnumJITedFunctions(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.EnumJITedFunctions)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
@@ -7752,11 +7752,11 @@ impl ICorProfilerInfo9 {
     }
     pub unsafe fn GetFunctionTailcall3Info(&self, functionid: usize, eltinfo: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetFunctionTailcall3Info)(::windows_core::Interface::as_raw(self), functionid, eltinfo, &mut result__).map(|| result__)
     }
     pub unsafe fn EnumModules(&self) -> ::windows_core::Result<ICorProfilerModuleEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.EnumModules)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetRuntimeInformation(&self, pclrinstanceid: *mut u16, pruntimetype: *mut COR_PRF_RUNTIME_TYPE, pmajorversion: *mut u16, pminorversion: *mut u16, pbuildnumber: *mut u16, pqfeversion: *mut u16, pcchversionstring: *mut u32, szversionstring: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetRuntimeInformation)(::windows_core::Interface::as_raw(self), pclrinstanceid, pruntimetype, pmajorversion, pminorversion, pbuildnumber, pqfeversion, szversionstring.len().try_into().unwrap(), pcchversionstring, ::core::mem::transmute(szversionstring.as_ptr())).ok()
@@ -7772,7 +7772,7 @@ impl ICorProfilerInfo9 {
     }
     pub unsafe fn EnumThreads(&self) -> ::windows_core::Result<ICorProfilerThreadEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EnumThreads)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn InitializeCurrentThread(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.InitializeCurrentThread)(::windows_core::Interface::as_raw(self)).ok()
@@ -7797,11 +7797,11 @@ impl ICorProfilerInfo9 {
     }
     pub unsafe fn EnumJITedFunctions2(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EnumJITedFunctions2)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetObjectSize2(&self, objectid: usize) -> ::windows_core::Result<usize> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetObjectSize2)(::windows_core::Interface::as_raw(self), objectid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetEventMask2(&self, pdweventslow: *mut u32, pdweventshigh: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetEventMask2)(::windows_core::Interface::as_raw(self), pdweventslow, pdweventshigh).ok()
@@ -7817,14 +7817,14 @@ impl ICorProfilerInfo9 {
     }
     pub unsafe fn GetInMemorySymbolsLength(&self, moduleid: usize) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.base__.GetInMemorySymbolsLength)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.base__.GetInMemorySymbolsLength)(::windows_core::Interface::as_raw(self), moduleid, &mut result__).map(|| result__)
     }
     pub unsafe fn ReadInMemorySymbols(&self, moduleid: usize, symbolsreadoffset: u32, psymbolbytes: *mut u8, countsymbolbytes: u32, pcountsymbolbytesread: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.ReadInMemorySymbols)(::windows_core::Interface::as_raw(self), moduleid, symbolsreadoffset, psymbolbytes, countsymbolbytes, pcountsymbolbytesread).ok()
     }
     pub unsafe fn IsFunctionDynamic(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.IsFunctionDynamic)(::windows_core::Interface::as_raw(self), functionid, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).base__.IsFunctionDynamic)(::windows_core::Interface::as_raw(self), functionid, &mut result__).map(|| result__)
     }
     pub unsafe fn GetFunctionFromIP3(&self, ip: *const u8, functionid: *mut usize, prejitid: *mut usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetFunctionFromIP3)(::windows_core::Interface::as_raw(self), ip, functionid, prejitid).ok()
@@ -7861,11 +7861,11 @@ impl ICorProfilerMethodEnum {
     }
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ICorProfilerMethodEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Next(&self, elements: &mut [COR_PRF_METHOD], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), elements.len().try_into().unwrap(), ::core::mem::transmute(elements.as_ptr()), pceltfetched).ok()
@@ -7892,11 +7892,11 @@ impl ICorProfilerModuleEnum {
     }
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ICorProfilerModuleEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Next(&self, ids: &mut [usize], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ids.len().try_into().unwrap(), ::core::mem::transmute(ids.as_ptr()), pceltfetched).ok()
@@ -7923,11 +7923,11 @@ impl ICorProfilerObjectEnum {
     }
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ICorProfilerObjectEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Next(&self, objects: &mut [usize], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), objects.len().try_into().unwrap(), ::core::mem::transmute(objects.as_ptr()), pceltfetched).ok()
@@ -7954,11 +7954,11 @@ impl ICorProfilerThreadEnum {
     }
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ICorProfilerThreadEnum> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
     }
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn Next(&self, ids: &mut [usize], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ids.len().try_into().unwrap(), ::core::mem::transmute(ids.as_ptr()), pceltfetched).ok()

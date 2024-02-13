@@ -17,7 +17,7 @@ pub unsafe fn NdisCancelTimer(timer: *const NDIS_TIMER) -> super::super::super::
     ::windows_targets::link!("ndis.sys" "system" fn NdisCancelTimer(timer : *const NDIS_TIMER, timercancelled : *mut super::super::super::Win32::Foundation:: BOOLEAN));
     let mut result__ = ::std::mem::zeroed();
     NdisCancelTimer(timer, &mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn NdisClAddParty(ndisvchandle: *const ::core::ffi::c_void, protocolpartycontext: *const ::core::ffi::c_void, callparameters: *mut CO_CALL_PARAMETERS, ndispartyhandle: *mut *mut ::core::ffi::c_void) -> i32 {
@@ -219,7 +219,7 @@ pub unsafe fn NdisGetCurrentProcessorCpuUsage() -> u32 {
     ::windows_targets::link!("ndis.sys" "system" fn NdisGetCurrentProcessorCpuUsage(pcpuusage : *mut u32));
     let mut result__ = ::std::mem::zeroed();
     NdisGetCurrentProcessorCpuUsage(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn NdisGetRoutineAddress(ndisroutinename: *const super::super::super::Win32::Foundation::UNICODE_STRING) -> *mut ::core::ffi::c_void {
@@ -267,7 +267,7 @@ pub unsafe fn NdisInitializeEvent() -> NDIS_EVENT {
     ::windows_targets::link!("ndis.sys" "system" fn NdisInitializeEvent(event : *mut NDIS_EVENT));
     let mut result__ = ::std::mem::zeroed();
     NdisInitializeEvent(&mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn NdisInitializeReadWriteLock(lock: *mut NDIS_RW_LOCK) {
@@ -307,7 +307,7 @@ pub unsafe fn NdisMCancelTimer(timer: *const NDIS_MINIPORT_TIMER) -> super::supe
     ::windows_targets::link!("ndis.sys" "system" fn NdisMCancelTimer(timer : *const NDIS_MINIPORT_TIMER, timercancelled : *mut super::super::super::Win32::Foundation:: BOOLEAN));
     let mut result__ = ::std::mem::zeroed();
     NdisMCancelTimer(timer, &mut result__);
-    ::std::mem::transmute(result__)
+    result__
 }
 #[inline]
 pub unsafe fn NdisMCloseLog(loghandle: *const ::core::ffi::c_void) {

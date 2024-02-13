@@ -56,7 +56,7 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn CreatePseudoConsole(size : COORD, hinput : super::super::Foundation:: HANDLE, houtput : super::super::Foundation:: HANDLE, dwflags : u32, phpc : *mut HPCON) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    CreatePseudoConsole(::core::mem::transmute(size), hinput.into_param().abi(), houtput.into_param().abi(), dwflags, &mut result__).from_abi(result__)
+    CreatePseudoConsole(::core::mem::transmute(size), hinput.into_param().abi(), houtput.into_param().abi(), dwflags, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn ExpungeConsoleCommandHistoryA<P0>(exename: P0)

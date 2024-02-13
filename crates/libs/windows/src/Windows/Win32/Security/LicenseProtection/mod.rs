@@ -5,7 +5,7 @@ where
 {
     ::windows_targets::link!("licenseprotection.dll" "system" fn RegisterLicenseKeyWithExpiration(licensekey : ::windows_core::PCWSTR, validityindays : u32, status : *mut LicenseProtectionStatus) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    RegisterLicenseKeyWithExpiration(licensekey.into_param().abi(), validityindays, &mut result__).from_abi(result__)
+    RegisterLicenseKeyWithExpiration(licensekey.into_param().abi(), validityindays, &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn ValidateLicenseKeyProtection<P0>(licensekey: P0, notvalidbefore: *mut super::super::Foundation::FILETIME, notvalidafter: *mut super::super::Foundation::FILETIME, status: *mut LicenseProtectionStatus) -> ::windows_core::Result<()>

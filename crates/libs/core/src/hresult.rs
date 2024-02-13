@@ -40,24 +40,10 @@ impl HRESULT {
         }
     }
 
-    /// Returns the [`Option`] as a [`Result`] if the option is a [`Some`] value, returning
-    /// a suitable error if not.
-    pub fn and_some<T: Interface>(self, some: Option<T>) -> Result<T> {
-        if self.is_ok() {
-            if let Some(result) = some {
-                Ok(result)
-            } else {
-                Err(Error::OK)
-            }
-        } else {
-            Err(Error::from(self))
-        }
-    }
-
     /// Calls `op` if `self` is a success code, otherwise returns [`HRESULT`]
     /// converted to [`Result<T>`].
     #[inline]
-    pub fn and_then<F, T>(self, op: F) -> Result<T>
+    pub fn map<F, T>(self, op: F) -> Result<T>
     where
         F: FnOnce() -> T,
     {
@@ -65,19 +51,15 @@ impl HRESULT {
         Ok(op())
     }
 
-    /// If the [`Result`] is [`Ok`] converts the `T::Abi` into `T`.
-    ///
-    /// # Safety
-    ///
-    /// Safe to call if
-    /// * `abi` is initialized if `self` is `Ok`
-    /// * `abi` can be safely transmuted to `T`
-    pub unsafe fn from_abi<T: Type<T>>(self, abi: T::Abi) -> Result<T> {
-        if self.is_ok() {
-            T::from_abi(abi)
-        } else {
-            Err(Error::from(self))
-        }
+    /// Calls `op` if `self` is a success code, otherwise returns [`HRESULT`]
+    /// converted to [`Result<T>`].
+    #[inline]
+    pub fn and_then<F, T>(self, op: F) -> Result<T>
+    where
+        F: FnOnce() -> Result<T>,
+    {
+        self.ok()?;
+        op()
     }
 
     /// The error message describing the error.
