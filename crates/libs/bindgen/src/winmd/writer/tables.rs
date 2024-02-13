@@ -3,9 +3,6 @@
 use super::Write;
 use super::*;
 
-// TODO: make these columns strongly types 
-
-
 #[derive(Default)]
 pub struct Tables {
     // TODO: use BTreeSet for tables that have a primary key, unless they are naturally sorted.
@@ -184,30 +181,7 @@ impl Tables {
         let type_or_method_def = metadata::coded_index_size(&[self.TypeDef.len(), self.MethodDef.len()]);
         let member_ref_parent = metadata::coded_index_size(&[self.TypeDef.len(), self.TypeRef.len(), self.ModuleRef.len(), self.MethodDef.len(), self.TypeSpec.len()]);
         let custom_attribute_type = metadata::coded_index_size(&[self.MethodDef.len(), self.MemberRef.len(), 0, 0, 0]);
-
-         let has_custom_attribute = metadata::coded_index_size(&[
-             self.MethodDef.len(),
-             self.Field.len(),
-             self.TypeRef.len(),
-             self.TypeDef.len(),
-             self.Param.len(),
-             self.InterfaceImpl.len(),
-             self.MemberRef.len(),
-             self.Module.len(),
-             0,
-             0,
-             0,
-             self.ModuleRef.len(),
-             self.TypeSpec.len(),
-             0,
-             self.AssemblyRef.len(),
-             0,
-             0,
-             0,
-             self.GenericParam.len(),
-             0,
-             0,
-         ]);
+        let has_custom_attribute = metadata::coded_index_size(&[self.MethodDef.len(), self.Field.len(), self.TypeRef.len(), self.TypeDef.len(), self.Param.len(), self.InterfaceImpl.len(), self.MemberRef.len(), self.Module.len(), 0, 0, 0, self.ModuleRef.len(), self.TypeSpec.len(), 0, self.AssemblyRef.len(), 0, 0, 0, self.GenericParam.len(), 0, 0]);
 
         let valid_tables: u64 = 1 << 0 | // Module 
         1 << 0x01 | // TypeRef

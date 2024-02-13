@@ -36,7 +36,7 @@ impl Writer {
             type_specs: Default::default(),
         };
 
-        writer.tables.TypeDef.push(TypeDef { TypeName: writer.strings.insert("<Module>"), Flags: 0, TypeNamespace: 0, Extends: TypeDefOrRef::none(), FieldList: 0, MethodList: 0  });
+        writer.tables.TypeDef.push(TypeDef { TypeName: writer.strings.insert("<Module>"), Flags: 0, TypeNamespace: 0, Extends: TypeDefOrRef::none(), FieldList: 0, MethodList: 0 });
 
         let name = name.rsplit_once(&['/', '\\']).map_or(name, |(_, name)| name);
 

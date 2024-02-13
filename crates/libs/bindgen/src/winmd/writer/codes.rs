@@ -16,7 +16,6 @@ macro_rules! code {
     };
 }
 
-
 code! { AttributeType(3)
     (MemberRef, 3)
 }
