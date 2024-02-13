@@ -19,10 +19,10 @@ pub struct Writer {
     pub blobs: Blobs,
     pub strings: Strings,
     pub tables: Tables,
-    pub scopes: HashMap<String, u32>,
+    pub scopes: HashMap<String, ResolutionScope>,
     // TODO: is this faster than jsut using a single HashMap with a (String,String) key?
-    pub type_refs: HashMap<String, HashMap<String, u32>>,
-    pub type_specs: HashMap<Type, u32>,
+    pub type_refs: HashMap<String, HashMap<String, TypeDefOrRef>>,
+    pub type_specs: HashMap<Type, TypeDefOrRef>,
 }
 
 impl Writer {
@@ -36,7 +36,7 @@ impl Writer {
             type_specs: Default::default(),
         };
 
-        writer.tables.TypeDef.push(TypeDef { TypeName: writer.strings.insert("<Module>"), ..Default::default() });
+        writer.tables.TypeDef.push(TypeDef { TypeName: writer.strings.insert("<Module>"), Flags: 0, TypeNamespace: 0, Extends: TypeDefOrRef::none(), FieldList: 0, MethodList: 0 });
 
         let name = name.rsplit_once(&['/', '\\']).map_or(name, |(_, name)| name);
 
@@ -88,7 +88,7 @@ impl Writer {
         self.blobs.insert(&blob)
     }
 
-    fn insert_scope(&mut self, namespace: &str) -> u32 {
+    fn insert_scope(&mut self, namespace: &str) -> ResolutionScope {
         if let Some(scope) = self.scopes.get(namespace) {
             *scope
         } else if namespace == "System" {
@@ -97,8 +97,7 @@ impl Writer {
                 MajorVersion: 4,
                 PublicKeyOrToken: self.blobs.insert(&[0xB7, 0x7A, 0x5C, 0x56, 0x19, 0x34, 0xE0, 0x89]), // TODO: comment on this
                 ..Default::default()
-            }))
-            .encode();
+            }));
             self.scopes.insert(namespace.to_string(), scope);
             scope
         } else {
@@ -111,14 +110,13 @@ impl Writer {
                 RevisionNumber: 0xFF,
                 Flags: metadata::AssemblyFlags::WindowsRuntime.0,
                 ..Default::default()
-            }))
-            .encode();
+            }));
             self.scopes.insert(namespace.to_string(), scope);
             scope
         }
     }
 
-    pub fn insert_type_ref(&mut self, namespace: &str, name: &str) -> u32 {
+    pub fn insert_type_ref(&mut self, namespace: &str, name: &str) -> TypeDefOrRef {
         if let Some(key) = self.type_refs.get(namespace) {
             if let Some(reference) = key.get(name) {
                 return *reference;
@@ -127,12 +125,12 @@ impl Writer {
 
         let scope = self.insert_scope(namespace);
 
-        let reference = TypeDefOrRef::TypeRef(self.tables.TypeRef.push2(TypeRef { TypeName: self.strings.insert(name), TypeNamespace: self.strings.insert(namespace), ResolutionScope: scope })).encode();
+        let reference = TypeDefOrRef::TypeRef(self.tables.TypeRef.push2(TypeRef { TypeName: self.strings.insert(name), TypeNamespace: self.strings.insert(namespace), ResolutionScope: scope }));
         self.type_refs.entry(namespace.to_string()).or_default().insert(name.to_string(), reference);
         reference
     }
 
-    pub fn insert_type_spec(&mut self, ty: Type) -> u32 {
+    pub fn insert_type_spec(&mut self, ty: Type) -> TypeDefOrRef {
         if let Some(key) = self.type_specs.get(&ty) {
             return *key;
         }
@@ -141,8 +139,7 @@ impl Writer {
         self.type_blob(&ty, &mut blob);
         let signature = self.blobs.insert(&blob);
 
-        let reference = TypeDefOrRef::TypeSpec(self.tables.TypeSpec.push2(TypeSpec { Signature: signature })).encode();
-
+        let reference = TypeDefOrRef::TypeSpec(self.tables.TypeSpec.push2(TypeSpec { Signature: signature }));
         self.type_specs.insert(ty, reference);
         reference
     }
@@ -169,12 +166,12 @@ impl Writer {
             Type::GUID => {
                 let code = self.insert_type_ref("System", "Guid");
                 blob.push(metadata::ELEMENT_TYPE_VALUETYPE);
-                usize_blob(code as usize, blob);
+                usize_blob(code.encode() as usize, blob);
             }
             Type::HRESULT => {
                 let code = self.insert_type_ref("Windows.Foundation", "HResult");
                 blob.push(metadata::ELEMENT_TYPE_VALUETYPE);
-                usize_blob(code as usize, blob);
+                usize_blob(code.encode() as usize, blob);
             }
             Type::TypeRef(ty) => {
                 if !ty.generics.is_empty() {
@@ -182,7 +179,7 @@ impl Writer {
                 }
                 let code = self.insert_type_ref(&ty.namespace, &ty.name);
                 blob.push(metadata::ELEMENT_TYPE_VALUETYPE);
-                usize_blob(code as usize, blob);
+                usize_blob(code.encode() as usize, blob);
 
                 if !ty.generics.is_empty() {
                     usize_blob(ty.generics.len(), blob);
@@ -195,26 +192,26 @@ impl Writer {
             Type::BSTR => {
                 let code = self.insert_type_ref("Windows.Win32.Foundation", "BSTR");
                 blob.push(metadata::ELEMENT_TYPE_VALUETYPE);
-                usize_blob(code as usize, blob);
+                usize_blob(code.encode() as usize, blob);
             }
             Type::IUnknown => {
                 let code = self.insert_type_ref("Windows.Win32.Foundation", "IUnknown");
                 blob.push(metadata::ELEMENT_TYPE_VALUETYPE);
-                usize_blob(code as usize, blob);
+                usize_blob(code.encode() as usize, blob);
             }
             Type::PCWSTR | Type::PWSTR => {
                 let code = self.insert_type_ref("Windows.Win32.Foundation", "PWSTR");
                 blob.push(metadata::ELEMENT_TYPE_VALUETYPE);
-                usize_blob(code as usize, blob);
+                usize_blob(code.encode() as usize, blob);
             }
             Type::PCSTR | Type::PSTR => {
                 let code = self.insert_type_ref("Windows.Win32.Foundation", "PSTR");
                 blob.push(metadata::ELEMENT_TYPE_VALUETYPE);
-                usize_blob(code as usize, blob);
+                usize_blob(code.encode() as usize, blob);
             }
             Type::ConstRef(ty) => {
                 usize_blob(metadata::ELEMENT_TYPE_CMOD_OPT as usize, blob);
-                usize_blob(self.insert_type_ref("System.Runtime.CompilerServices", "IsConst") as usize, blob);
+                usize_blob(self.insert_type_ref("System.Runtime.CompilerServices", "IsConst").encode() as usize, blob);
                 usize_blob(metadata::ELEMENT_TYPE_BYREF as usize, blob);
                 self.type_blob(ty, blob);
             }
@@ -237,7 +234,7 @@ impl Writer {
             Type::Type => {
                 let code = self.insert_type_ref("System", "Type");
                 blob.push(metadata::ELEMENT_TYPE_CLASS);
-                usize_blob(code as usize, blob);
+                usize_blob(code.encode() as usize, blob);
             }
             Type::MutPtr(ty, pointers) | Type::ConstPtr(ty, pointers) => {
                 for _ in 0..*pointers {
@@ -258,7 +255,8 @@ fn round(size: usize, round: usize) -> usize {
     (size + round) & !round
 }
 
-fn usize_blob(value: usize, blob: &mut Vec<u8>) {
+// TODO: need a Blob type for writing
+pub fn usize_blob(value: usize, blob: &mut Vec<u8>) {
     // See II.23.2 in ECMA-335
     assert!(value < 0x20000000);
 

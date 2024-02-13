@@ -1,4 +1,5 @@
 use super::*;
+use metadata::{AsRow, HasAttributes};
 
 pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap<&str, &str>, output: &str) -> Result<()> {
     let mut writer = Writer::new(output);
@@ -22,7 +23,7 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
 
         let generics = &metadata::type_def_generics(def);
 
-        let extends = if let Some(extends) = def.extends() { writer.insert_type_ref(extends.namespace, extends.name) } else { 0 };
+        let extends = if let Some(extends) = def.extends() { writer.insert_type_ref(extends.namespace, extends.name) } else { TypeDefOrRef::none() };
 
         writer.tables.TypeDef.push(TypeDef {
             Extends: extends,
@@ -33,11 +34,13 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
             TypeNamespace: writer.strings.insert(def.namespace()),
         });
 
+        let def_ref = writer.tables.TypeDef.len() as u32 - 1;
+
         for generic in def.generics() {
             writer.tables.GenericParam.push(GenericParam {
                 Number: generic.number(), // TODO: isn't this just going to be incremental?
                 Flags: 0,
-                Owner: TypeOrMethodDef::TypeDef(writer.tables.TypeDef.len() as u32 - 1).encode(),
+                Owner: TypeOrMethodDef::TypeDef(def_ref),
                 Name: writer.strings.insert(generic.name()),
             });
         }
@@ -53,7 +56,7 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
                 rest => unimplemented!("{rest:?}"),
             };
 
-            writer.tables.InterfaceImpl.push(InterfaceImpl { Class: writer.tables.TypeDef.len() as u32 - 1, Interface: reference });
+            writer.tables.InterfaceImpl.push(InterfaceImpl { Class: def_ref, Interface: reference });
         }
 
         // TODO: if the class is "Apis" then should we sort the fields (constants) and methods (functions) for stability
@@ -63,6 +66,10 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
             let signature = writer.insert_field_sig(&ty);
 
             writer.tables.Field.push(Field { Flags: field.flags().0, Name: writer.strings.insert(field.name()), Signature: signature });
+
+            if let Some(constant) = field.constant() {
+                writer.tables.Constant.push(Constant { Type: constant.usize(0) as u16, Parent: HasConstant::Field(writer.tables.Field.len() as u32 - 1), Value: writer.blobs.insert(&constant.blob(2)) })
+            }
         }
 
         for method in def.methods() {
@@ -85,11 +92,78 @@ pub fn from_reader(reader: &metadata::Reader, config: std::collections::BTreeMap
                 writer.tables.Param.push(Param { Flags: param.flags().0, Sequence: param.sequence(), Name: writer.strings.insert(param.name()) });
             }
         }
+
+        for attribute in def.attributes() {
+            let metadata::AttributeType::MemberRef(attribute_ctor) = attribute.ty();
+            assert_eq!(attribute_ctor.name(), ".ctor");
+            let metadata::MemberRefParent::TypeRef(attribute_type) = attribute_ctor.parent();
+
+            let attribute_type_ref = if let TypeDefOrRef::TypeRef(type_ref) = writer.insert_type_ref(attribute_type.namespace(), attribute_type.name()) { MemberRefParent::TypeRef(type_ref) } else { panic!() };
+
+            let signature = attribute_ctor.signature();
+            let return_type = winmd_type(&signature.return_type);
+            let param_types: Vec<Type> = signature.params.iter().map(winmd_type).collect();
+            let signature = writer.insert_method_sig(signature.call_flags, &return_type, &param_types);
+
+            writer.tables.MemberRef.push(MemberRef { Class: attribute_type_ref, Name: writer.strings.insert(".ctor"), Signature: signature });
+
+            let mut values = 1u16.to_le_bytes().to_vec(); // prolog
+            let args = attribute.args();
+            let mut named_arg_count = false;
+
+            for (index, (name, value)) in args.iter().enumerate() {
+                value_blob(value, &mut values);
+
+                if !named_arg_count && !name.is_empty() {
+                    named_arg_count = true;
+                    let named_arg_count = (args.len() - index) as u16;
+                    values.extend_from_slice(&named_arg_count.to_le_bytes());
+                    break;
+                }
+            }
+
+            if !named_arg_count {
+                values.extend_from_slice(&0u16.to_le_bytes());
+            }
+
+            let values = writer.blobs.insert(&values);
+
+            writer.tables.CustomAttribute.push(CustomAttribute { Parent: HasAttribute::TypeDef(def_ref), Type: AttributeType::MemberRef(writer.tables.MemberRef.len() as u32 - 1), Value: values });
+        }
     }
 
     // TODO: In theory, `config` could instruct this function to balance the types across a number of winmd files
     // like mdmerge supports for namespace-splitting.
     write_to_file(output, writer.into_stream()).map_err(|err| err.with_path(output))
+}
+
+// TODO: need a Blob type for writing
+fn value_blob(value: &metadata::Value, blob: &mut Vec<u8>) {
+    match value {
+        metadata::Value::Bool(value) => {
+            if *value {
+                blob.push(1)
+            } else {
+                blob.push(0)
+            }
+        }
+        metadata::Value::U32(value) => blob.extend_from_slice(&value.to_le_bytes()),
+        metadata::Value::I32(value) => blob.extend_from_slice(&value.to_le_bytes()),
+        metadata::Value::U16(value) => blob.extend_from_slice(&value.to_le_bytes()),
+        metadata::Value::U8(value) => blob.extend_from_slice(&value.to_le_bytes()),
+        metadata::Value::EnumDef(_def, value) => value_blob(value, blob),
+
+        metadata::Value::TypeName(value) => {
+            let value = value.to_string();
+            usize_blob(value.len(), blob);
+            blob.extend_from_slice(value.as_bytes());
+        }
+        metadata::Value::String(value) => {
+            usize_blob(value.len(), blob);
+            blob.extend_from_slice(value.as_bytes());
+        }
+        rest => unimplemented!("{rest:?}"),
+    }
 }
 
 // TODO: keep the basic type conversion

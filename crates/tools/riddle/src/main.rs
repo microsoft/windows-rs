@@ -16,9 +16,9 @@ Options:
         );
     } else {
         match windows_bindgen::bindgen(args) {
-            Ok(ok) => println!("{}", ok),
+            Ok(ok) => println!("{ok}"),
             Err(error) => {
-                eprintln!("{}", error);
+                eprintln!("{error}");
                 std::process::exit(1);
             }
         }

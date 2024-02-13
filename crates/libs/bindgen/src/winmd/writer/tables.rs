@@ -60,17 +60,15 @@ pub struct ClassLayout {
     pub Parent: u32,
 }
 
-#[derive(Default)]
 pub struct Constant {
     pub Type: u16,
-    pub Parent: u32,
+    pub Parent: HasConstant,
     pub Value: u32,
 }
 
-#[derive(Default)]
 pub struct CustomAttribute {
-    pub Parent: u32,
-    pub Type: u32,
+    pub Parent: HasAttribute,
+    pub Type: AttributeType,
     pub Value: u32,
 }
 
@@ -81,11 +79,10 @@ pub struct Field {
     pub Signature: u32,
 }
 
-#[derive(Default)]
 pub struct GenericParam {
     pub Number: u16,
     pub Flags: u16,
-    pub Owner: u32,
+    pub Owner: TypeOrMethodDef,
     pub Name: u32,
 }
 
@@ -97,15 +94,13 @@ pub struct ImplMap {
     pub ImportScope: u32,
 }
 
-#[derive(Default)]
 pub struct InterfaceImpl {
     pub Class: u32,
-    pub Interface: u32,
+    pub Interface: TypeDefOrRef,
 }
 
-#[derive(Default)]
 pub struct MemberRef {
-    pub Class: u32,
+    pub Class: MemberRefParent,
     pub Name: u32,
     pub Signature: u32,
 }
@@ -154,19 +149,17 @@ pub struct Property {
     pub Type: u32,
 }
 
-#[derive(Default)]
 pub struct TypeDef {
     pub Flags: u32,
     pub TypeName: u32,
     pub TypeNamespace: u32,
-    pub Extends: u32,
+    pub Extends: TypeDefOrRef,
     pub FieldList: u32,
     pub MethodList: u32,
 }
 
-#[derive(Default)]
 pub struct TypeRef {
-    pub ResolutionScope: u32,
+    pub ResolutionScope: ResolutionScope,
     pub TypeName: u32,
     pub TypeNamespace: u32,
 }
@@ -183,12 +176,12 @@ impl Tables {
         }
 
         let resolution_scope = metadata::coded_index_size(&[self.Module.len(), self.ModuleRef.len(), self.AssemblyRef.len(), self.TypeRef.len()]);
-
         let type_def_or_ref = metadata::coded_index_size(&[self.TypeDef.len(), self.TypeRef.len(), self.TypeSpec.len()]);
-
         let has_constant = metadata::coded_index_size(&[self.Field.len(), self.Param.len(), self.Property.len()]);
-
         let type_or_method_def = metadata::coded_index_size(&[self.TypeDef.len(), self.MethodDef.len()]);
+        let member_ref_parent = metadata::coded_index_size(&[self.TypeDef.len(), self.TypeRef.len(), self.ModuleRef.len(), self.MethodDef.len(), self.TypeSpec.len()]);
+        let custom_attribute_type = metadata::coded_index_size(&[self.MethodDef.len(), self.MemberRef.len(), 0, 0, 0]);
+        let has_custom_attribute = metadata::coded_index_size(&[self.MethodDef.len(), self.Field.len(), self.TypeRef.len(), self.TypeDef.len(), self.Param.len(), self.InterfaceImpl.len(), self.MemberRef.len(), self.Module.len(), 0, 0, 0, self.ModuleRef.len(), self.TypeSpec.len(), 0, self.AssemblyRef.len(), 0, 0, 0, self.GenericParam.len(), 0, 0]);
 
         let valid_tables: u64 = 1 << 0 | // Module 
         1 << 0x01 | // TypeRef
@@ -254,7 +247,7 @@ impl Tables {
         }
 
         for x in self.TypeRef {
-            buffer.write_code(x.ResolutionScope, resolution_scope);
+            buffer.write_code(x.ResolutionScope.encode(), resolution_scope);
             buffer.write_u32(x.TypeName);
             buffer.write_u32(x.TypeNamespace);
         }
@@ -263,7 +256,7 @@ impl Tables {
             buffer.write_u32(x.Flags);
             buffer.write_u32(x.TypeName);
             buffer.write_u32(x.TypeNamespace);
-            buffer.write_code(x.Extends, type_def_or_ref);
+            buffer.write_code(x.Extends.encode(), type_def_or_ref);
             buffer.write_index(x.FieldList, self.Field.len());
             buffer.write_index(x.MethodList, self.MethodDef.len());
         }
@@ -291,12 +284,24 @@ impl Tables {
 
         for x in self.InterfaceImpl {
             buffer.write_index(x.Class, self.TypeDef.len());
-            buffer.write_code(x.Interface, type_def_or_ref);
+            buffer.write_code(x.Interface.encode(), type_def_or_ref);
+        }
+
+        for x in self.MemberRef {
+            buffer.write_code(x.Class.encode(), member_ref_parent);
+            buffer.write_u32(x.Name);
+            buffer.write_u32(x.Signature);
         }
 
         for x in self.Constant {
             buffer.write_u16(x.Type);
-            buffer.write_code(x.Parent, has_constant);
+            buffer.write_code(x.Parent.encode(), has_constant);
+            buffer.write_u32(x.Value);
+        }
+
+        for x in self.CustomAttribute {
+            buffer.write_code(x.Parent.encode(), has_custom_attribute);
+            buffer.write_code(x.Type.encode(), custom_attribute_type);
             buffer.write_u32(x.Value);
         }
 
@@ -331,7 +336,7 @@ impl Tables {
         for x in self.GenericParam {
             buffer.write_u16(x.Number);
             buffer.write_u16(x.Flags);
-            buffer.write_code(x.Owner, type_or_method_def);
+            buffer.write_code(x.Owner.encode(), type_or_method_def);
             buffer.write_u32(x.Name);
         }
 

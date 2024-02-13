@@ -1,71 +1,69 @@
 #![allow(dead_code, clippy::enum_variant_names)]
 
-/// A `ResolutionScope` is an index into a certain table indicating the scope in which a TypeRef can be resolved.
-#[derive(Clone)]
-pub enum ResolutionScope {
-    Module(u32),
-    ModuleRef(u32),
-    AssemblyRef(u32),
-    TypeRef(u32),
-}
-
-impl ResolutionScope {
-    pub fn encode(&self) -> u32 {
-        match self {
-            Self::Module(row) => (row + 1) << 2,
-            Self::ModuleRef(row) => ((row + 1) << 2) + 1,
-            Self::AssemblyRef(row) => ((row + 1) << 2) + 2,
-            Self::TypeRef(row) => ((row + 1) << 2) + 3,
+macro_rules! code {
+    ($name:ident($size:literal) $(($table:ident, $code:literal))+) => {
+        #[derive(Clone, Copy)]
+        pub enum $name {
+            $($table(u32),)*
         }
-    }
+        impl $name {
+            pub fn encode(&self) -> u32 {
+                match self {
+                    $(Self::$table(row) => (row.overflowing_add(1).0) << $size | $code,)*
+                }
+            }
+        }
+    };
 }
 
-/// A `TypeDefOrRef` is an index into a certain table used to locate a type definition.
-#[derive(Clone)]
-pub enum TypeDefOrRef {
-    TypeDef(u32),
-    TypeRef(u32),
-    TypeSpec(u32),
+code! { AttributeType(3)
+    (MemberRef, 3)
+}
+
+// TODO: needs to be called HasCustomAttribute
+code! { HasAttribute(5)
+    (MethodDef, 0)
+    (Field, 1)
+    (TypeRef, 2)
+    (TypeDef, 3)
+    (Param, 4)
+    (InterfaceImpl, 5)
+    (MemberRef, 6)
+    (TypeSpec, 13)
+    (GenericParam, 19)
+}
+
+code! { HasConstant(2)
+    (Field, 0)
+}
+
+code! { MemberForwarded(1)
+    (MethodDef, 1)
+}
+
+code! { MemberRefParent(3)
+    (TypeRef, 1)
+}
+
+code! { TypeDefOrRef(2)
+    (TypeDef, 0)
+    (TypeRef, 1)
+    (TypeSpec, 2)
 }
 
 impl TypeDefOrRef {
-    pub fn encode(&self) -> u32 {
-        match self {
-            Self::TypeDef(row) => (row + 1) << 2,
-            Self::TypeRef(row) => ((row + 1) << 2) + 1,
-            Self::TypeSpec(row) => ((row + 1) << 2) + 2,
-        }
+    pub fn none() -> Self {
+        TypeDefOrRef::TypeDef(u32::MAX)
     }
 }
 
-/// A `HasConstant` is an index into a certain table used to identify the parent of a row in the `Constant` table.
-#[derive(Clone, PartialEq, Eq, PartialOrd, Ord)]
-pub enum HasConstant {
-    Field(u32),
-    Param(u32),
-    Property(u32),
+code! { TypeOrMethodDef(1)
+    (TypeDef, 0)
 }
 
-impl HasConstant {
-    pub fn encode(&self) -> u32 {
-        match self {
-            Self::Field(row) => (row + 1) << 2,
-            Self::Param(row) => ((row + 1) << 2) + 1,
-            Self::Property(row) => ((row + 1) << 2) + 2,
-        }
-    }
-}
-
-/// A `TypeOrMethodDef` is an index into a certain table used to locate the owner of a generic parameter.
-#[derive(Clone)]
-pub enum TypeOrMethodDef {
-    TypeDef(u32),
-}
-
-impl TypeOrMethodDef {
-    pub fn encode(&self) -> u32 {
-        match self {
-            Self::TypeDef(row) => (row + 1) << 1,
-        }
-    }
+code! { ResolutionScope(2)
+    (Module, 0)
+    (ModuleRef, 1)
+    (AssemblyRef, 2)
+    (TypeRef, 3)
 }
