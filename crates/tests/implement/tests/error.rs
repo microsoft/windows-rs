@@ -5,7 +5,7 @@ struct Test;
 
 impl IStringable_Impl for Test {
     fn ToString(&self) -> Result<HSTRING> {
-        Err(Error::new(E_INVALIDARG, "Test message".into()))
+        Err(Error::new(E_INVALIDARG, "Test message"))
     }
 }
 

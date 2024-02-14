@@ -44,7 +44,7 @@ unsafe fn create_validator(schema: *const u8, schema_len: usize, handle: *mut us
     let schema = json_from_raw_parts(schema, schema_len)?;
 
     let compiled = JSONSchema::compile(&schema)
-        .map_err(|error| Error::new(E_INVALIDARG, error.to_string().into()))?;
+        .map_err(|error| Error::new(E_INVALIDARG, error.to_string()))?;
 
     if handle.is_null() {
         return Err(E_POINTER.into());
@@ -98,7 +98,7 @@ unsafe fn validate(
             message = error.to_string();
         }
 
-        Err(Error::new(E_INVALIDARG, message.into()))
+        Err(Error::new(E_INVALIDARG, message))
     }
 }
 
@@ -113,7 +113,7 @@ unsafe fn json_from_raw_parts(value: *const u8, value_len: usize) -> Result<serd
     let value =
         std::str::from_utf8(value).map_err(|_| Error::from(ERROR_NO_UNICODE_TRANSLATION))?;
 
-    serde_json::from_str(value).map_err(|error| Error::new(E_INVALIDARG, format!("{error}").into()))
+    serde_json::from_str(value).map_err(|error| Error::new(E_INVALIDARG, format!("{error}")))
 }
 
 #[test]

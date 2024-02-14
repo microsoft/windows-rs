@@ -55,13 +55,13 @@ fn suppressed_error_info() -> Result<()> {
     unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_SUPPRESSSETERRORINFO.0 as u32)? };
 
     assert_eq!(
-        Error::new(E_FAIL, "message".into()).message(),
+        Error::new(E_FAIL, "message").message(),
         "Unspecified error"
     );
 
     unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_USESETERRORINFO.0 as u32)? };
 
-    assert_eq!(Error::new(E_FAIL, "message".into()).message(), "message");
+    assert_eq!(Error::new(E_FAIL, "message").message(), "message");
 
     Ok(())
 }
@@ -71,5 +71,5 @@ fn suppressed_error_info() -> Result<()> {
 fn just_hresult() {
     let e: Error = E_NOTIMPL.into();
     assert!(e.code() == E_NOTIMPL);
-    assert!(e.info::<IUnknown>().is_none());
+    assert!(e.as_ptr().is_null());
 }

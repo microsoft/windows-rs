@@ -13,10 +13,10 @@ struct Test;
 
 impl IErrorInfo_Impl for Test {
     fn GetGUID(&self) -> Result<GUID> {
-        Err(Error::new(E_OUTOFMEMORY, "Out of memory message".into()))
+        Err(Error::new(E_OUTOFMEMORY, "Out of memory message"))
     }
     fn GetSource(&self) -> Result<BSTR> {
-        Err(Error::new(E_INVALIDARG, "Invalid argument message".into()))
+        Err(Error::new(E_INVALIDARG, "Invalid argument message"))
     }
     fn GetDescription(&self) -> Result<BSTR> {
         Ok(BSTR::new())
