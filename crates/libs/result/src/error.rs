@@ -20,10 +20,15 @@ impl Error {
     /// point of failure.
     pub fn new<T: AsRef<str>>(code: HRESULT, message: T) -> Self {
         let message: Vec<_> = message.as_ref().encode_utf16().collect();
-        unsafe {
-            RoOriginateErrorW(code.0, message.len() as u32, message.as_ptr());
+
+        if message.is_empty() {
+            Self::from_hresult(code)
+        } else {
+            unsafe {
+                RoOriginateErrorW(code.0, message.len() as u32, message.as_ptr());
+            }
+            code.into()
         }
-        code.into()
     }
 
     /// Creates a new error object with an error code, but without additional error information.

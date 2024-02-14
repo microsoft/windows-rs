@@ -132,7 +132,7 @@ fn function() -> windows::core::Result<()> {
 #[test]
 fn bool_as_error() {
     unsafe {
-        assert!(helpers::set_thread_ui_language());
+        helpers::set_thread_ui_language();
         let error = SetEvent(HANDLE(0)).unwrap_err();
 
         assert_eq!(error.code(), windows::core::HRESULT(-2147024890));

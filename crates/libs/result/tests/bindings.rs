@@ -1,6 +1,4 @@
 #[test]
 fn bindings() {
-    let args = ["--etc", "tests/bindings.txt"];
-
-    windows_bindgen::bindgen(args).unwrap();
+    windows_bindgen::bindgen(["--etc", "tests/bindings.txt"]).unwrap();
 }

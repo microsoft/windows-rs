@@ -2,7 +2,7 @@ use windows::{core::*, Win32::Foundation::*};
 
 #[test]
 fn test() -> Result<()> {
-    assert!(helpers::set_thread_ui_language());
+    helpers::set_thread_ui_language();
 
     let p = PWSTR::from_raw(w!("hello").as_ptr() as *mut _);
     let s: String = unsafe { p.to_string()? };

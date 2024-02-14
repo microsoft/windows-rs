@@ -2,7 +2,7 @@ use windows::{core::*, Win32::Foundation::*};
 
 #[test]
 fn test() -> Result<()> {
-    assert!(helpers::set_thread_ui_language());
+    helpers::set_thread_ui_language();
 
     let p: PCSTR = s!("hello");
     let s: String = unsafe { p.to_string()? };

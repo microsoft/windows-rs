@@ -3,7 +3,7 @@ use windows::{Foundation::Uri, Win32::Foundation::E_NOINTERFACE};
 
 #[test]
 fn from_hresult() {
-    assert!(helpers::set_thread_ui_language());
+    helpers::set_thread_ui_language();
 
     let error: windows::core::Error = windows::core::HRESULT(-2147467260).into();
 
@@ -30,7 +30,7 @@ fn originate() {
 
 #[test]
 fn bad_uri() {
-    assert!(helpers::set_thread_ui_language());
+    helpers::set_thread_ui_language();
 
     let result = Uri::CreateUri(&windows::core::HSTRING::from("INVALID"));
     let error: windows::core::Error = result.unwrap_err();

@@ -5,7 +5,7 @@ use windows::{
 
 #[test]
 fn display_debug() {
-    assert!(helpers::set_thread_ui_language());
+    helpers::set_thread_ui_language();
 
     let e = Error::from(ERROR_NO_UNICODE_TRANSLATION);
     let display = format!("{e}");

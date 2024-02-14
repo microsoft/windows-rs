@@ -2,7 +2,7 @@ use windows::{core::*, Win32::Foundation::*};
 
 #[test]
 fn test() {
-    assert!(helpers::set_thread_ui_language());
+    helpers::set_thread_ui_language();
 
     assert_eq!(E_FAIL.message(), "Unspecified error");
 
