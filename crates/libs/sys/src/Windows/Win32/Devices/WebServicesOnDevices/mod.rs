@@ -543,7 +543,7 @@ impl ::core::clone::Clone for WSD_EVENTING_FILTER_ACTION {
 pub struct WSD_HANDLER_CONTEXT {
     pub Handler: PWSD_SOAP_MESSAGE_HANDLER,
     pub PVoid: *mut ::core::ffi::c_void,
-    pub Unknown: ::windows_sys::core::IUnknown,
+    pub Unknown: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for WSD_HANDLER_CONTEXT {}
 impl ::core::clone::Clone for WSD_HANDLER_CONTEXT {
@@ -1017,5 +1017,5 @@ impl ::core::clone::Clone for WSD_URI_LIST {
         *self
     }
 }
-pub type PWSD_SOAP_MESSAGE_HANDLER = ::core::option::Option<unsafe extern "system" fn(thisunknown: ::windows_sys::core::IUnknown, event: *mut WSD_EVENT) -> ::windows_sys::core::HRESULT>;
-pub type WSD_STUB_FUNCTION = ::core::option::Option<unsafe extern "system" fn(server: ::windows_sys::core::IUnknown, session: *mut ::core::ffi::c_void, event: *mut WSD_EVENT) -> ::windows_sys::core::HRESULT>;
+pub type PWSD_SOAP_MESSAGE_HANDLER = ::core::option::Option<unsafe extern "system" fn(thisunknown: *mut ::core::ffi::c_void, event: *mut WSD_EVENT) -> ::windows_sys::core::HRESULT>;
+pub type WSD_STUB_FUNCTION = ::core::option::Option<unsafe extern "system" fn(server: *mut ::core::ffi::c_void, session: *mut ::core::ffi::c_void, event: *mut WSD_EVENT) -> ::windows_sys::core::HRESULT>;

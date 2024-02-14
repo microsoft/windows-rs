@@ -28,7 +28,7 @@
 ::windows_targets::link!("mapi32.dll" "system" fn HrDispatchNotifications(ulflags : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("mapi32.dll" "system" fn HrGetOneProp(lpmapiprop : * mut::core::ffi::c_void, ulproptag : u32, lppprop : *mut *mut SPropValue) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("mapi32.dll" "system" fn HrIStorageFromStream(lpunkin : ::windows_sys::core::IUnknown, lpinterface : *mut ::windows_sys::core::GUID, ulflags : u32, lppstorageout : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mapi32.dll" "system" fn HrIStorageFromStream(lpunkin : * mut::core::ffi::c_void, lpinterface : *mut ::windows_sys::core::GUID, ulflags : u32, lppstorageout : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
 ::windows_targets::link!("mapi32.dll" "system" fn HrQueryAllRows(lptable : * mut::core::ffi::c_void, lpproptags : *mut SPropTagArray, lprestriction : *mut SRestriction, lpsortorderset : *mut SSortOrderSet, crowsmax : i32, lpprows : *mut *mut SRowSet) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]

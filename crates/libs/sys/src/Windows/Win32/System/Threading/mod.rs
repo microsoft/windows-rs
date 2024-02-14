@@ -266,14 +266,14 @@
 ::windows_targets::link!("kernel32.dll" "system" fn ReleaseSemaphoreWhenCallbackReturns(pci : PTP_CALLBACK_INSTANCE, sem : super::super::Foundation:: HANDLE, crel : u32));
 ::windows_targets::link!("kernel32.dll" "system" fn ResetEvent(hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn ResumeThread(hthread : super::super::Foundation:: HANDLE) -> u32);
-::windows_targets::link!("rtworkq.dll" "system" fn RtwqAddPeriodicCallback(callback : RTWQPERIODICCALLBACK, context : ::windows_sys::core::IUnknown, key : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("rtworkq.dll" "system" fn RtwqAddPeriodicCallback(callback : RTWQPERIODICCALLBACK, context : * mut::core::ffi::c_void, key : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("rtworkq.dll" "system" fn RtwqAllocateSerialWorkQueue(workqueueidin : u32, workqueueidout : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("rtworkq.dll" "system" fn RtwqAllocateWorkQueue(workqueuetype : RTWQ_WORKQUEUE_TYPE, workqueueid : *mut u32) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("rtworkq.dll" "system" fn RtwqBeginRegisterWorkQueueWithMMCSS(workqueueid : u32, usageclass : ::windows_sys::core::PCWSTR, dwtaskid : u32, lpriority : i32, donecallback : * mut::core::ffi::c_void, donestate : ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("rtworkq.dll" "system" fn RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid : u32, donecallback : * mut::core::ffi::c_void, donestate : ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("rtworkq.dll" "system" fn RtwqBeginRegisterWorkQueueWithMMCSS(workqueueid : u32, usageclass : ::windows_sys::core::PCWSTR, dwtaskid : u32, lpriority : i32, donecallback : * mut::core::ffi::c_void, donestate : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("rtworkq.dll" "system" fn RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid : u32, donecallback : * mut::core::ffi::c_void, donestate : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("rtworkq.dll" "system" fn RtwqCancelDeadline(prequest : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("rtworkq.dll" "system" fn RtwqCancelWorkItem(key : u64) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("rtworkq.dll" "system" fn RtwqCreateAsyncResult(appobject : ::windows_sys::core::IUnknown, callback : * mut::core::ffi::c_void, appstate : ::windows_sys::core::IUnknown, asyncresult : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("rtworkq.dll" "system" fn RtwqCreateAsyncResult(appobject : * mut::core::ffi::c_void, callback : * mut::core::ffi::c_void, appstate : * mut::core::ffi::c_void, asyncresult : *mut * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("rtworkq.dll" "system" fn RtwqEndRegisterWorkQueueWithMMCSS(result : * mut::core::ffi::c_void, taskid : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("rtworkq.dll" "system" fn RtwqGetWorkQueueMMCSSClass(workqueueid : u32, usageclass : ::windows_sys::core::PWSTR, usageclasslength : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("rtworkq.dll" "system" fn RtwqGetWorkQueueMMCSSPriority(workqueueid : u32, priority : *mut i32) -> ::windows_sys::core::HRESULT);
@@ -1350,6 +1350,6 @@ pub type PTP_TIMER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(i
 pub type PTP_WAIT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, wait: PTP_WAIT, waitresult: u32)>;
 pub type PTP_WIN32_IO_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, overlapped: *mut ::core::ffi::c_void, ioresult: u32, numberofbytestransferred: usize, io: PTP_IO)>;
 pub type PTP_WORK_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, work: PTP_WORK)>;
-pub type RTWQPERIODICCALLBACK = ::core::option::Option<unsafe extern "system" fn(context: ::windows_sys::core::IUnknown)>;
+pub type RTWQPERIODICCALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void)>;
 pub type WAITORTIMERCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::BOOLEAN)>;
 pub type WORKERCALLBACKFUNC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;

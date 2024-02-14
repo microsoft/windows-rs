@@ -1,4 +1,4 @@
-::windows_targets::link!("dinput8.dll" "system" fn DirectInput8Create(hinst : super::super::Foundation:: HINSTANCE, dwversion : u32, riidltf : *const ::windows_sys::core::GUID, ppvout : *mut *mut ::core::ffi::c_void, punkouter : ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("dinput8.dll" "system" fn DirectInput8Create(hinst : super::super::Foundation:: HINSTANCE, dwversion : u32, riidltf : *const ::windows_sys::core::GUID, ppvout : *mut *mut ::core::ffi::c_void, punkouter : * mut::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("hid.dll" "system" fn HidD_FlushQueue(hiddeviceobject : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("hid.dll" "system" fn HidD_FreePreparsedData(preparseddata : PHIDP_PREPARSED_DATA) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("hid.dll" "system" fn HidD_GetAttributes(hiddeviceobject : super::super::Foundation:: HANDLE, attributes : *mut HIDD_ATTRIBUTES) -> super::super::Foundation:: BOOLEAN);
@@ -2715,7 +2715,7 @@ pub struct DICONFIGUREDEVICESPARAMSA {
     pub lprgFormats: *mut DIACTIONFORMATA,
     pub hwnd: super::super::Foundation::HWND,
     pub dics: DICOLORSET,
-    pub lpUnkDDSTarget: ::windows_sys::core::IUnknown,
+    pub lpUnkDDSTarget: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DICONFIGUREDEVICESPARAMSA {}
 impl ::core::clone::Clone for DICONFIGUREDEVICESPARAMSA {
@@ -2732,7 +2732,7 @@ pub struct DICONFIGUREDEVICESPARAMSW {
     pub lprgFormats: *mut DIACTIONFORMATW,
     pub hwnd: super::super::Foundation::HWND,
     pub dics: DICOLORSET,
-    pub lpUnkDDSTarget: ::windows_sys::core::IUnknown,
+    pub lpUnkDDSTarget: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for DICONFIGUREDEVICESPARAMSW {}
 impl ::core::clone::Clone for DICONFIGUREDEVICESPARAMSW {
@@ -4242,7 +4242,7 @@ impl ::core::clone::Clone for USAGE_AND_PAGE {
         *self
     }
 }
-pub type LPDICONFIGUREDEVICESCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::IUnknown, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type LPDICONFIGUREDEVICESCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type LPDIENUMDEVICEOBJECTSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type LPDIENUMDEVICEOBJECTSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;

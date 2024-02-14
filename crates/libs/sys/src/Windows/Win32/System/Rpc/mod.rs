@@ -1,8 +1,8 @@
 ::windows_targets::link!("rpcrt4.dll" "system" fn DceErrorInqTextA(rpcstatus : RPC_STATUS, errortext : ::windows_sys::core::PSTR) -> RPC_STATUS);
 ::windows_targets::link!("rpcrt4.dll" "system" fn DceErrorInqTextW(rpcstatus : RPC_STATUS, errortext : ::windows_sys::core::PWSTR) -> RPC_STATUS);
-::windows_targets::link!("rpcrt4.dll" "system" fn IUnknown_AddRef_Proxy(this : ::windows_sys::core::IUnknown) -> u32);
-::windows_targets::link!("rpcrt4.dll" "system" fn IUnknown_QueryInterface_Proxy(this : ::windows_sys::core::IUnknown, riid : *const ::windows_sys::core::GUID, ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("rpcrt4.dll" "system" fn IUnknown_Release_Proxy(this : ::windows_sys::core::IUnknown) -> u32);
+::windows_targets::link!("rpcrt4.dll" "system" fn IUnknown_AddRef_Proxy(this : * mut::core::ffi::c_void) -> u32);
+::windows_targets::link!("rpcrt4.dll" "system" fn IUnknown_QueryInterface_Proxy(this : * mut::core::ffi::c_void, riid : *const ::windows_sys::core::GUID, ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("rpcrt4.dll" "system" fn IUnknown_Release_Proxy(this : * mut::core::ffi::c_void) -> u32);
 ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcAllocate(size : u32) -> *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_System_IO")]
 ::windows_targets::link!("rpcrt4.dll" "system" fn I_RpcAsyncAbortCall(pasync : *const RPC_ASYNC_STATE, exceptioncode : u32) -> RPC_STATUS);
