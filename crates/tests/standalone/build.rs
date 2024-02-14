@@ -148,6 +148,12 @@ fn main() {
         "src/b_variant.rs",
         &["Windows.Win32.System.Variant.VARIANT"],
     );
+
+    write_vtbl("src/b_vtbl_0.rs", &["Windows.Win32.System.Com.IAgileObject"]);
+    write_vtbl("src/b_vtbl_1.rs", &["Windows.Win32.System.Com.IDispatch"]);
+    write_vtbl("src/b_vtbl_2.rs", &["Windows.Win32.System.WinRT.IActivationFactory"]);
+    write_vtbl("src/b_vtbl_3.rs", &["Windows.Foundation.IStringable"]);
+    write_vtbl("src/b_vtbl_4.rs", &["Windows.Win32.System.Com.IPersistFile"]);
 }
 
 fn write_sys(output: &str, filter: &[&str]) {
@@ -168,6 +174,10 @@ fn write_no_inner_attr(output: &str, filter: &[&str]) {
         filter,
         &["flatten", "no-inner-attributes", "minimal"],
     );
+}
+
+fn write_vtbl(output: &str, filter: &[&str]) {
+    riddle(output, filter, &["flatten", "sys", "minimal", "vtbl"]);
 }
 
 fn riddle(output: &str, filter: &[&str], config: &[&str]) {

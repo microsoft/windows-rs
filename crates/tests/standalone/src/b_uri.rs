@@ -63,7 +63,6 @@ unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface 
         ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IIterable_Vtbl<T>
 where
     T: ::windows_core::RuntimeType + 'static,
@@ -165,7 +164,6 @@ unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface 
         ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IIterator_Vtbl<T>
 where
     T: ::windows_core::RuntimeType + 'static,
@@ -215,7 +213,6 @@ impl ::windows_core::RuntimeType for IStringable {
         ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IStringable_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub ToString: unsafe extern "system" fn(
@@ -229,7 +226,6 @@ pub struct IStringable_Vtbl {
     0xc1d432ba_c824_4452_a7fd_512bc3bbe9a1
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUriEscapeStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub UnescapeComponent: unsafe extern "system" fn(
@@ -249,7 +245,6 @@ pub struct IUriEscapeStatics_Vtbl {
     0x9e365e57_48b2_4160_956f_c7385120bbfc
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUriRuntimeClass_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AbsoluteUri: unsafe extern "system" fn(
@@ -325,7 +320,6 @@ pub struct IUriRuntimeClass_Vtbl {
     0x44a9796f_723e_4fdf_a218_033e75b0c084
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUriRuntimeClassFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateUri: unsafe extern "system" fn(
@@ -346,7 +340,6 @@ pub struct IUriRuntimeClassFactory_Vtbl {
     0x758d9661_221c_480f_a339_50656673f46f
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub AbsoluteCanonicalUri: unsafe extern "system" fn(
@@ -499,7 +492,6 @@ unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface 
         ::windows_core::GUID::from_signature(<Self as ::windows_core::RuntimeType>::SIGNATURE);
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IVectorView_Vtbl<T>
 where
     T: ::windows_core::RuntimeType + 'static,
@@ -566,7 +558,6 @@ impl ::windows_core::RuntimeType for IWwwFormUrlDecoderEntry {
         ::windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWwwFormUrlDecoderEntry_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Name: unsafe extern "system" fn(
@@ -584,7 +575,6 @@ pub struct IWwwFormUrlDecoderEntry_Vtbl {
     0xd45a0451_f225_4542_9296_0e1df5d254df
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWwwFormUrlDecoderRuntimeClass_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetFirstValueByName: unsafe extern "system" fn(
@@ -599,7 +589,6 @@ pub struct IWwwFormUrlDecoderRuntimeClass_Vtbl {
     0x5b8c6b3d_24ae_41b5_a1bf_f0c3d544845b
 );
 #[repr(C)]
-#[doc(hidden)]
 pub struct IWwwFormUrlDecoderRuntimeClassFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWwwFormUrlDecoder: unsafe extern "system" fn(

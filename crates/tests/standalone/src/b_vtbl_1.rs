@@ -228,8 +228,259 @@ impl ::core::clone::Clone for IDLDESC {
     }
 }
 pub type IDLFLAGS = u16;
+pub const IID_IDispatch: GUID = GUID::from_u128(0x00020400_0000_0000_c000_000000000046);
+#[repr(C)]
+pub struct IDispatch_Vtbl {
+    pub base__: IUnknown_Vtbl,
+    pub GetTypeInfoCount: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> HRESULT,
+    pub GetTypeInfo: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        u32,
+        u32,
+        *mut *mut ::core::ffi::c_void,
+    ) -> HRESULT,
+    pub GetIDsOfNames: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        *const GUID,
+        *const PCWSTR,
+        u32,
+        u32,
+        *mut i32,
+    ) -> HRESULT,
+    pub Invoke: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        i32,
+        *const GUID,
+        u32,
+        DISPATCH_FLAGS,
+        *const DISPPARAMS,
+        *mut VARIANT,
+        *mut EXCEPINFO,
+        *mut u32,
+    ) -> HRESULT,
+}
 pub type IMPLTYPEFLAGS = i32;
 pub type INVOKEKIND = i32;
+pub const IID_IRecordInfo: GUID = GUID::from_u128(0x0000002f_0000_0000_c000_000000000046);
+#[repr(C)]
+pub struct IRecordInfo_Vtbl {
+    pub base__: IUnknown_Vtbl,
+    pub RecordInit:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> HRESULT,
+    pub RecordClear:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> HRESULT,
+    pub RecordCopy: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        *const ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+    ) -> HRESULT,
+    pub GetGuid: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut GUID) -> HRESULT,
+    pub GetName: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut BSTR) -> HRESULT,
+    pub GetSize: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> HRESULT,
+    pub GetTypeInfo: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        *mut *mut ::core::ffi::c_void,
+    ) -> HRESULT,
+    pub GetField: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        *const ::core::ffi::c_void,
+        PCWSTR,
+        *mut VARIANT,
+    ) -> HRESULT,
+    pub GetFieldNoCopy: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        *const ::core::ffi::c_void,
+        PCWSTR,
+        *mut VARIANT,
+        *mut *mut ::core::ffi::c_void,
+    ) -> HRESULT,
+    pub PutField: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        u32,
+        *mut ::core::ffi::c_void,
+        PCWSTR,
+        *const VARIANT,
+    ) -> HRESULT,
+    pub PutFieldNoCopy: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        u32,
+        *mut ::core::ffi::c_void,
+        PCWSTR,
+        *const VARIANT,
+    ) -> HRESULT,
+    pub GetFieldNames:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32, *mut BSTR) -> HRESULT,
+    pub IsMatchingType:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> BOOL,
+    pub RecordCreate:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void,
+    pub RecordCreateCopy: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        *const ::core::ffi::c_void,
+        *mut *mut ::core::ffi::c_void,
+    ) -> HRESULT,
+    pub RecordDestroy:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::core::ffi::c_void) -> HRESULT,
+}
+pub const IID_ITypeComp: GUID = GUID::from_u128(0x00020403_0000_0000_c000_000000000046);
+#[repr(C)]
+pub struct ITypeComp_Vtbl {
+    pub base__: IUnknown_Vtbl,
+    pub Bind: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        PCWSTR,
+        u32,
+        u16,
+        *mut *mut ::core::ffi::c_void,
+        *mut DESCKIND,
+        *mut BINDPTR,
+    ) -> HRESULT,
+    pub BindType: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        PCWSTR,
+        u32,
+        *mut *mut ::core::ffi::c_void,
+        *mut *mut ::core::ffi::c_void,
+    ) -> HRESULT,
+}
+pub const IID_ITypeInfo: GUID = GUID::from_u128(0x00020401_0000_0000_c000_000000000046);
+#[repr(C)]
+pub struct ITypeInfo_Vtbl {
+    pub base__: IUnknown_Vtbl,
+    pub GetTypeAttr:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut TYPEATTR) -> HRESULT,
+    pub GetTypeComp: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        *mut *mut ::core::ffi::c_void,
+    ) -> HRESULT,
+    pub GetFuncDesc:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut FUNCDESC) -> HRESULT,
+    pub GetVarDesc:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut *mut VARDESC) -> HRESULT,
+    pub GetNames: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        i32,
+        *mut BSTR,
+        u32,
+        *mut u32,
+    ) -> HRESULT,
+    pub GetRefTypeOfImplType:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut u32) -> HRESULT,
+    pub GetImplTypeFlags:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut IMPLTYPEFLAGS) -> HRESULT,
+    pub GetIDsOfNames: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        *const PCWSTR,
+        u32,
+        *mut i32,
+    ) -> HRESULT,
+    pub Invoke: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        *const ::core::ffi::c_void,
+        i32,
+        DISPATCH_FLAGS,
+        *mut DISPPARAMS,
+        *mut VARIANT,
+        *mut EXCEPINFO,
+        *mut u32,
+    ) -> HRESULT,
+    pub GetDocumentation: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        i32,
+        *mut BSTR,
+        *mut BSTR,
+        *mut u32,
+        *mut BSTR,
+    ) -> HRESULT,
+    pub GetDllEntry: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        i32,
+        INVOKEKIND,
+        *mut BSTR,
+        *mut BSTR,
+        *mut u16,
+    ) -> HRESULT,
+    pub GetRefTypeInfo: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        u32,
+        *mut *mut ::core::ffi::c_void,
+    ) -> HRESULT,
+    pub AddressOfMember: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        i32,
+        INVOKEKIND,
+        *mut *mut ::core::ffi::c_void,
+    ) -> HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        *mut ::core::ffi::c_void,
+        *const GUID,
+        *mut *mut ::core::ffi::c_void,
+    ) -> HRESULT,
+    pub GetMops: unsafe extern "system" fn(*mut ::core::ffi::c_void, i32, *mut BSTR) -> HRESULT,
+    pub GetContainingTypeLib: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        *mut *mut ::core::ffi::c_void,
+        *mut u32,
+    ) -> HRESULT,
+    pub ReleaseTypeAttr: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const TYPEATTR),
+    pub ReleaseFuncDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const FUNCDESC),
+    pub ReleaseVarDesc: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const VARDESC),
+}
+pub const IID_ITypeLib: GUID = GUID::from_u128(0x00020402_0000_0000_c000_000000000046);
+#[repr(C)]
+pub struct ITypeLib_Vtbl {
+    pub base__: IUnknown_Vtbl,
+    pub GetTypeInfoCount: unsafe extern "system" fn(*mut ::core::ffi::c_void) -> u32,
+    pub GetTypeInfo: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        u32,
+        *mut *mut ::core::ffi::c_void,
+    ) -> HRESULT,
+    pub GetTypeInfoType:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, u32, *mut TYPEKIND) -> HRESULT,
+    pub GetTypeInfoOfGuid: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        *const GUID,
+        *mut *mut ::core::ffi::c_void,
+    ) -> HRESULT,
+    pub GetLibAttr:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut TLIBATTR) -> HRESULT,
+    pub GetTypeComp: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        *mut *mut ::core::ffi::c_void,
+    ) -> HRESULT,
+    pub GetDocumentation: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        i32,
+        *mut BSTR,
+        *mut BSTR,
+        *mut u32,
+        *mut BSTR,
+    ) -> HRESULT,
+    pub IsName:
+        unsafe extern "system" fn(*mut ::core::ffi::c_void, PWSTR, u32, *mut BOOL) -> HRESULT,
+    pub FindName: unsafe extern "system" fn(
+        *mut ::core::ffi::c_void,
+        PWSTR,
+        u32,
+        *mut *mut ::core::ffi::c_void,
+        *mut i32,
+        *mut u16,
+    ) -> HRESULT,
+    pub ReleaseTLibAttr: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const TLIBATTR),
+}
+pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
+#[repr(C)]
+pub struct IUnknown_Vtbl {
+    pub QueryInterface: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        iid: *const GUID,
+        interface: *mut *mut ::core::ffi::c_void,
+    ) -> HRESULT,
+    pub AddRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub Release: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+}
 pub type LPEXCEPFINO_DEFERRED_FILLIN =
     ::core::option::Option<unsafe extern "system" fn(pexcepinfo: *mut EXCEPINFO) -> HRESULT>;
 #[repr(C)]

@@ -27,6 +27,11 @@ mod b_unknown;
 mod b_uri;
 mod b_variant;
 mod b_win_enumerator;
+mod b_vtbl_0;
+mod b_vtbl_1;
+mod b_vtbl_2;
+mod b_vtbl_3;
+mod b_vtbl_4;
 
 #[allow(non_snake_case)]
 mod included {

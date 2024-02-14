@@ -139,7 +139,6 @@ pub type HBITMAP = isize;
 pub type HENHMETAFILE = isize;
 pub type HGLOBAL = *mut ::core::ffi::c_void;
 pub type HRESULT = i32;
-pub type IUnknown = *mut ::core::ffi::c_void;
 pub type PCWSTR = *const u16;
 #[repr(C)]
 pub struct POINTL {
@@ -178,7 +177,7 @@ pub type STGM = u32;
 pub struct STGMEDIUM {
     pub tymed: u32,
     pub u: STGMEDIUM_0,
-    pub pUnkForRelease: IUnknown,
+    pub pUnkForRelease: *mut ::core::ffi::c_void,
 }
 impl ::core::marker::Copy for STGMEDIUM {}
 impl ::core::clone::Clone for STGMEDIUM {
