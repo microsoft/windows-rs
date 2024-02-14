@@ -21,33 +21,39 @@ pub fn standalone_imp(writer: &Writer) -> String {
     for ty in types {
         match ty {
             metadata::Type::HRESULT if writer.sys => sorted.insert("HRESULT", quote! { pub type HRESULT = i32; }),
-            metadata::Type::IUnknown if writer.sys => sorted.insert("IUnknown",
-            if !writer.vtbl {
-                quote! {}
-            } else {
-             quote! {
-                pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
-                #[repr(C)]
-                pub struct IUnknown_Vtbl {
-                    pub QueryInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const GUID, interface: *mut *mut ::core::ffi::c_void) -> HRESULT,
-                    pub AddRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-                    pub Release: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-                }
-            }}),
-            metadata::Type::IInspectable if writer.sys => sorted.insert("IInspectable", 
-            if !writer.vtbl {
-                quote! {}
-            } else {
-             quote! {
-                pub const IID_IInspectable: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
-                #[repr(C)]
-                pub struct IInspectable_Vtbl {
-                    pub base: IUnknown_Vtbl,
-                    pub GetIids: unsafe extern "system" fn(this: *mut std::ffi::c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
-                    pub GetRuntimeClassName: unsafe extern "system" fn(this: *mut std::ffi::c_void, value: *mut *mut std::ffi::c_void) -> HRESULT,
-                    pub GetTrustLevel: unsafe extern "system" fn(this: *mut std::ffi::c_void, value: *mut i32) -> HRESULT,
-                }
-            }}),
+            metadata::Type::IUnknown if writer.sys => sorted.insert(
+                "IUnknown",
+                if !writer.vtbl {
+                    quote! {}
+                } else {
+                    quote! {
+                        pub const IID_IUnknown: GUID = GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
+                        #[repr(C)]
+                        pub struct IUnknown_Vtbl {
+                            pub QueryInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const GUID, interface: *mut *mut ::core::ffi::c_void) -> HRESULT,
+                            pub AddRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+                            pub Release: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+                        }
+                    }
+                },
+            ),
+            metadata::Type::IInspectable if writer.sys => sorted.insert(
+                "IInspectable",
+                if !writer.vtbl {
+                    quote! {}
+                } else {
+                    quote! {
+                        pub const IID_IInspectable: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
+                        #[repr(C)]
+                        pub struct IInspectable_Vtbl {
+                            pub base: IUnknown_Vtbl,
+                            pub GetIids: unsafe extern "system" fn(this: *mut std::ffi::c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
+                            pub GetRuntimeClassName: unsafe extern "system" fn(this: *mut std::ffi::c_void, value: *mut *mut std::ffi::c_void) -> HRESULT,
+                            pub GetTrustLevel: unsafe extern "system" fn(this: *mut std::ffi::c_void, value: *mut i32) -> HRESULT,
+                        }
+                    }
+                },
+            ),
             metadata::Type::PSTR if writer.sys => sorted.insert("PSTR", quote! { pub type PSTR = *mut u8; }),
             metadata::Type::PWSTR if writer.sys => sorted.insert("PWSTR", quote! { pub type PWSTR = *mut u16; }),
             metadata::Type::PCSTR if writer.sys => sorted.insert("PCSTR", quote! { pub type PCSTR = *const u8; }),
@@ -160,12 +166,11 @@ fn type_collect_standalone(writer: &Writer, ty: &metadata::Type, set: &mut std::
     if writer.vtbl {
         match ty {
             metadata::Type::IUnknown => {
-            set.insert(metadata::Type::GUID);
-            set.insert(metadata::Type::HRESULT);
-         }
-         metadata::Type::IInspectable => 
-            type_collect_standalone(writer, &metadata::Type::IUnknown, set),
-         _ => {}
+                set.insert(metadata::Type::GUID);
+                set.insert(metadata::Type::HRESULT);
+            }
+            metadata::Type::IInspectable => type_collect_standalone(writer, &metadata::Type::IUnknown, set),
+            _ => {}
         }
     }
 
@@ -202,7 +207,7 @@ fn type_collect_standalone(writer: &Writer, ty: &metadata::Type, set: &mut std::
         }
         type_collect_standalone(writer, &ty, set);
     }
-    
+
     for method in def.methods() {
         // Skip delegate pseudo-constructors.
         if method.name() == ".ctor" {
@@ -212,7 +217,7 @@ fn type_collect_standalone(writer: &Writer, ty: &metadata::Type, set: &mut std::
         type_collect_standalone(writer, &signature.return_type, set);
         signature.params.iter().for_each(|param| type_collect_standalone(writer, &param.ty, set));
     }
-    
+
     for interface in metadata::type_interfaces(&ty) {
         type_collect_standalone(writer, &interface.ty, set);
     }

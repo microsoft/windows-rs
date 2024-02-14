@@ -116,8 +116,8 @@ impl Writer {
                 if self.sys {
                     quote! { *mut ::core::ffi::c_void }
                 } else {
-                let crate_name = self.crate_name();
-                quote! { #crate_name HSTRING }
+                    let crate_name = self.crate_name();
+                    quote! { #crate_name HSTRING }
                 }
             }
             metadata::Type::BSTR => {
@@ -136,8 +136,8 @@ impl Writer {
                 if self.sys {
                     quote! { *mut ::core::ffi::c_void }
                 } else {
-                let crate_name = self.crate_name();
-                quote! { #crate_name IInspectable }
+                    let crate_name = self.crate_name();
+                    quote! { #crate_name IInspectable }
                 }
             }
             metadata::Type::GUID => {
@@ -148,8 +148,8 @@ impl Writer {
                 if self.sys {
                     quote! { *mut ::core::ffi::c_void }
                 } else {
-                let crate_name = self.crate_name();
-                quote! { #crate_name IUnknown }
+                    let crate_name = self.crate_name();
+                    quote! { #crate_name IUnknown }
                 }
             }
             metadata::Type::HRESULT => {
