@@ -136,7 +136,7 @@ mod tests {
             if unsafe { library.as_bytes() } == &b"A.dll"[..] {
                 Ok(42)
             } else {
-                Err(crate::Error::OK)
+                Err(crate::Error::empty())
             }
         });
         assert!(matches!(end_result, Some(42)));
@@ -146,7 +146,7 @@ mod tests {
         let mut results = Vec::new();
         let end_result = search_path(path, |library| {
             results.push(unsafe { library.to_string().unwrap() });
-            crate::Result::<()>::Err(crate::Error::OK)
+            crate::Result::<()>::Err(crate::Error::empty())
         });
         assert!(end_result.is_none());
         assert_eq!(results, vec!["A.B.dll", "A.dll"]);

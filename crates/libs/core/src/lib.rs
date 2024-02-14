@@ -14,10 +14,8 @@ pub mod imp;
 mod agile_reference;
 mod array;
 mod as_impl;
-mod error;
 mod event;
 mod guid;
-mod hresult;
 mod inspectable;
 mod interface;
 mod param;
@@ -33,10 +31,8 @@ mod weak;
 pub use agile_reference::*;
 pub use array::*;
 pub use as_impl::*;
-pub use error::*;
 pub use event::*;
 pub use guid::*;
-pub use hresult::*;
 pub use inspectable::*;
 pub use interface::*;
 pub use param::*;
@@ -48,9 +44,7 @@ pub use strings::*;
 pub use unknown::*;
 pub use variant::*;
 pub use weak::*;
-
-/// A specialized [`Result`] type that provides Windows error information.
-pub type Result<T> = std::result::Result<T, Error>;
+pub use windows_result::*;
 
 /// Attempts to load the factory object for the given WinRT class.
 /// This can be used to access COM interfaces implemented on a Windows Runtime class factory.

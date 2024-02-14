@@ -85,7 +85,7 @@ pub unsafe trait Interface: Sized + Clone {
         // to `T` which the implementor of `Interface` has guaranteed is correct
         unsafe { _ = self.query(&T::IID, &mut result as *mut _ as _) };
 
-        result.ok_or_else(|| Error { code: crate::imp::E_NOINTERFACE, info: None })
+        result.ok_or_else(|| Error::from_hresult(crate::imp::E_NOINTERFACE))
     }
 
     /// Attempts to create a [`Weak`] reference to this object.

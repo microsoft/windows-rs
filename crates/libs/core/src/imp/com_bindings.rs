@@ -28,7 +28,6 @@ impl ::core::fmt::Debug for AgileReferenceOptions {
         f.debug_tuple("AgileReferenceOptions").field(&self.0).finish()
     }
 }
-pub const CLASS_E_CLASSNOTAVAILABLE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147221231i32);
 pub const CO_E_NOTINITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147221008i32);
 #[repr(C)]
 pub struct DateTime {
@@ -63,10 +62,8 @@ impl ::core::default::Default for DateTime {
     }
 }
 pub const E_BOUNDS: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147483637i32);
-pub const E_INVALIDARG: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147024809i32);
 pub const E_NOINTERFACE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147467262i32);
 pub const E_OUTOFMEMORY: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147024882i32);
-pub const E_UNEXPECTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147418113i32);
 ::windows_core::imp::com_interface!(IAgileObject, IAgileObject_Vtbl, 0x94ea2b94_e9cc_49e0_c0ff_ee64ca8f5b90);
 ::windows_core::imp::interface_hierarchy!(IAgileObject, ::windows_core::IUnknown);
 impl IAgileObject {}
@@ -89,81 +86,6 @@ impl IAgileReference {
 pub struct IAgileReference_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Resolve: unsafe extern "system" fn(*mut ::core::ffi::c_void, *const ::windows_core::GUID, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-}
-::windows_core::imp::com_interface!(IErrorInfo, IErrorInfo_Vtbl, 0x1cf2b120_547d_101b_8e65_08002b2bd119);
-::windows_core::imp::interface_hierarchy!(IErrorInfo, ::windows_core::IUnknown);
-impl IErrorInfo {
-    pub unsafe fn GetGUID(&self) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetGUID)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-    pub unsafe fn GetSource(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetSource)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetDescription(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetDescription)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetHelpFile(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetHelpFile)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetHelpContext(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetHelpContext)(::windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-    }
-}
-#[repr(C)]
-pub struct IErrorInfo_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetGUID: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
-    pub GetSource: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetDescription: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetHelpFile: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetHelpContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut u32) -> ::windows_core::HRESULT,
-}
-::windows_core::imp::com_interface!(ILanguageExceptionErrorInfo, ILanguageExceptionErrorInfo_Vtbl, 0x04a2dbf3_df83_116c_0946_0812abf6e07d);
-::windows_core::imp::interface_hierarchy!(ILanguageExceptionErrorInfo, ::windows_core::IUnknown);
-impl ILanguageExceptionErrorInfo {
-    pub unsafe fn GetLanguageException(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetLanguageException)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
-    }
-}
-#[repr(C)]
-pub struct ILanguageExceptionErrorInfo_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetLanguageException: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-}
-::windows_core::imp::com_interface!(ILanguageExceptionErrorInfo2, ILanguageExceptionErrorInfo2_Vtbl, 0x5746e5c4_5b97_424c_b620_2822915734dd);
-::windows_core::imp::interface_hierarchy!(ILanguageExceptionErrorInfo2, ::windows_core::IUnknown, ILanguageExceptionErrorInfo);
-impl ILanguageExceptionErrorInfo2 {
-    pub unsafe fn GetLanguageException(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).base__.GetLanguageException)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn GetPreviousLanguageExceptionErrorInfo(&self) -> ::windows_core::Result<ILanguageExceptionErrorInfo2> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetPreviousLanguageExceptionErrorInfo)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
-    }
-    pub unsafe fn CapturePropagationContext<P0>(&self, languageexception: P0) -> ::windows_core::Result<()>
-    where
-        P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
-    {
-        (::windows_core::Interface::vtable(self).CapturePropagationContext)(::windows_core::Interface::as_raw(self), languageexception.into_param().abi()).ok()
-    }
-    pub unsafe fn GetPropagationContextHead(&self) -> ::windows_core::Result<ILanguageExceptionErrorInfo2> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetPropagationContextHead)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
-    }
-}
-#[repr(C)]
-pub struct ILanguageExceptionErrorInfo2_Vtbl {
-    pub base__: ILanguageExceptionErrorInfo_Vtbl,
-    pub GetPreviousLanguageExceptionErrorInfo: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CapturePropagationContext: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetPropagationContextHead: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IPropertyValue, IPropertyValue_Vtbl, 0x4bd682dd_7554_40e9_9a9b_82654ede7e62);
 ::windows_core::imp::interface_hierarchy!(IPropertyValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
@@ -725,25 +647,6 @@ where
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Value: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
-}
-::windows_core::imp::com_interface!(IRestrictedErrorInfo, IRestrictedErrorInfo_Vtbl, 0x82ba7092_4c88_427d_a7bc_16dd93feb67e);
-::windows_core::imp::interface_hierarchy!(IRestrictedErrorInfo, ::windows_core::IUnknown);
-impl IRestrictedErrorInfo {
-    pub unsafe fn GetErrorDetails(&self, description: *mut ::windows_core::BSTR, error: *mut ::windows_core::HRESULT, restricteddescription: *mut ::windows_core::BSTR, capabilitysid: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).GetErrorDetails)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(description), error, ::core::mem::transmute(restricteddescription), ::core::mem::transmute(capabilitysid)).ok()
-    }
-    pub unsafe fn GetReference(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).GetReference)(::windows_core::Interface::as_raw(self), &mut result__).and_then(|| ::windows_core::Type::from_abi(result__))
-    }
-}
-unsafe impl ::core::marker::Send for IRestrictedErrorInfo {}
-unsafe impl ::core::marker::Sync for IRestrictedErrorInfo {}
-#[repr(C)]
-pub struct IRestrictedErrorInfo_Vtbl {
-    pub base__: ::windows_core::IUnknown_Vtbl,
-    pub GetErrorDetails: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::windows_core::HRESULT, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    pub GetReference: unsafe extern "system" fn(*mut ::core::ffi::c_void, *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 ::windows_core::imp::com_interface!(IStringable, IStringable_Vtbl, 0x96369f54_8eb6_48f0_abce_c1b211e627c3);
 ::windows_core::imp::interface_hierarchy!(IStringable, ::windows_core::IUnknown, ::windows_core::IInspectable);
