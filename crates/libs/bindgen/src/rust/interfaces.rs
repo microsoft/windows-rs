@@ -2,10 +2,33 @@ use super::*;
 
 pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     if writer.sys {
-        quote! {}
+        gen_sys_interface(writer, def)
     } else {
         gen_win_interface(writer, def)
     }
+}
+
+fn gen_sys_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
+    if !writer.vtbl {
+        return quote! {};
+    }
+
+    let vtables = metadata::type_def_vtables(def);
+    let has_unknown_base = matches!(vtables.first(), Some(metadata::Type::IUnknown));
+
+    let mut tokens = quote! {};
+
+    if has_unknown_base {
+        let iid_ident: TokenStream = format!("IID_{}", def.name()).into();
+        let iid = writer.guid_literal(metadata::type_def_guid(def));
+
+        tokens.combine(&quote! {
+            pub const #iid_ident: GUID = GUID::from_u128(#iid);
+        });
+    }
+
+    tokens.combine(&writer.interface_vtbl(def, &[], &TokenStream::new(), &TokenStream::new()));
+    tokens
 }
 
 fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
@@ -150,6 +173,6 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
     }
 
     tokens.combine(&writer.interface_trait(def, generics, &ident, &constraints, &features, has_unknown_base));
-    tokens.combine(&writer.interface_vtbl(def, generics, &ident, &constraints, &features));
+    tokens.combine(&writer.interface_vtbl(def, generics, &constraints, &features));
     tokens
 }

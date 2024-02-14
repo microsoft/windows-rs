@@ -29,6 +29,7 @@ pub fn from_reader(reader: &'static metadata::Reader, mut config: std::collectio
     writer.implement = config.remove("implement").is_some();
     writer.minimal = config.remove("minimal").is_some();
     writer.no_inner_attributes = config.remove("no-inner-attributes").is_some();
+    writer.vtbl = config.remove("vtbl").is_some();
 
     if writer.package && writer.flatten {
         return Err(Error::new("cannot combine `package` and `flatten` configuration values"));
